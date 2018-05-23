@@ -1,6 +1,6 @@
 {
-	"name": "@gog/marks",
-	"description": "A collection of GoG mark data objects. These objects are used as the basis for creating bound mark instances",
+	"name": "@gog/svg-renderer",
+	"description": "An SVG renderer for GoG marks",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -9,6 +9,9 @@
 		"clean": "rimraf lib",
 		"start": "tsc -w",
 		"build": "tsc"
+	},
+	"dependencies": {
+		"@gog/marks": "0.0.0"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.2",
