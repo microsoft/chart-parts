@@ -3,6 +3,7 @@
 	"private": true,
 	"version": "0.0.0",
 	"scripts": {
+		"clean": "lerna run clean",
 		"build": "lerna run build --stream",
 		"start:packages": "lerna run start --parallel --stream",
 		"lint": "tslint packages/*/src/**/*.ts*",
