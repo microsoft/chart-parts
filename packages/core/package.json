@@ -1,0 +1,18 @@
+{
+	"name": "@derpderp/core",
+	"private": true,
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"start": "tsc -w",
+		"build": "tsc"
+	},
+	"dependencies": {
+		"@types/react": "^16.3.14",
+		"react": "^16.3.2"
+	},
+	"devDependencies": {
+		"typescript": "^2.8.3"
+	}
+}

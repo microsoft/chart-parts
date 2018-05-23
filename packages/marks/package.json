@@ -1,0 +1,22 @@
+{
+	"name": "@gog/marks",
+	"description": "A collection of GoG mark data objects. These objects are used as the basis for creating bound mark instances",
+	"private": true,
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"start": "tsc -w",
+		"build": "tsc"
+	},
+	"dependencies": {
+		"@types/autobind-decorator": "^2.1.0",
+		"@types/d3-scale": "^2.0.0",
+		"autobind-decorator": "^2.1.0",
+		"d3-scale": "^2.0.0",
+		"rxjs": "^6.2.0"
+	},
+	"devDependencies": {
+		"typescript": "^2.8.3"
+	}
+}
