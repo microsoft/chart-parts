@@ -56,3 +56,15 @@ export enum TextDirection {
 	LTR = 'ltr',
 	RTL = 'rtl',
 }
+
+export enum StrokeCap {
+	BUTT = 'butt',
+	ROUND = 'round',
+	SQUARE = 'square',
+}
+
+export enum StrokeJoin {
+	MITER = 'miter',
+	ROUND = 'round',
+	BEVEL = 'bevel',
+}

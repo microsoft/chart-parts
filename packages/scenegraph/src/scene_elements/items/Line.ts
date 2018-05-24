@@ -1,4 +1,4 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 import { Interpolation } from './interfaces'
 
 /**
@@ -10,7 +10,10 @@ import { Interpolation } from './interfaces'
  * Note: If a data point on a line is surrounded by points with defined: false, it may not be visible.
  * Use a strokeCap of round or square to ensure a visible point is drawn.
  */
-export class Line extends Mark {
+export class Line extends Item {
+	public static ITEM_TYPE = 'line'
+	public readonly itemType: string = Line.ITEM_TYPE
+
 	/**
 	 * The interpolation method to use. One of basis, bundle, cardinal, catmull-rom, linear,
 	 * monotone, natural, step, step-after, step-before. The default is linear. You can find

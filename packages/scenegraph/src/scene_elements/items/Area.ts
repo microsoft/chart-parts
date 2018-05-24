@@ -1,4 +1,4 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 import { Orientation, Interpolation } from './interfaces'
 
 /**
@@ -6,7 +6,10 @@ import { Orientation, Interpolation } from './interfaces'
  * Area marks are often used to show change over time, using either a single area or stacked areas.
  * Area marks can also be used to encode value ranges (min, max) or uncertainty over time.
  */
-export class Area extends Mark {
+export class Area extends Item {
+	public static ITEM_TYPE = 'area'
+	public readonly itemType: string = Area.ITEM_TYPE
+
 	/**
 	 * The orientation of the area mark. One of horizontal or vertical (the default).
 	 * With a vertical orientation, an area mark is defined by the x, y, and (y2 or height)

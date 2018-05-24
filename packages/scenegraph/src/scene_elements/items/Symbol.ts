@@ -1,4 +1,4 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 import { SymbolType } from './interfaces'
 
 /**
@@ -6,7 +6,10 @@ import { SymbolType } from './interfaces'
  * Symbol size can be scaled to indicate magnitudes. In addition to a set of built-in shapes, custom shapes
  * can be defined using SVG path strings.
  */
-export class Symbol extends Mark {
+export class Symbol extends Item {
+	public static ITEM_TYPE = 'symbol'
+	public readonly itemType: string = Symbol.ITEM_TYPE
+
 	/**
 	 * The area in pixels of the symbols bounding box. Note that this value sets the area of the symbol;
 	 * the side lengths will increase with the square root of this value.

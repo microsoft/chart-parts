@@ -1,4 +1,4 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 import {
 	HorizontalAlignment,
 	VerticalTextAlignment,
@@ -8,7 +8,10 @@ import {
 /**
  * Text marks can be used to annotate data, and provide labels and titles for axes and legends.
  */
-export class Text extends Mark {
+export class Text extends Item {
+	public static ITEM_TYPE = 'text'
+	public readonly itemType: string = Text.ITEM_TYPE
+
 	/**
 	 * The horizontal text alignment. One of left (default), center, or right.
 	 */
@@ -59,6 +62,11 @@ export class Text extends Mark {
 	 * The font weight (e.g., normal or bold).
 	 */
 	public fontWeight?: string | number
+
+	/**
+	 * The variant of the font to use
+	 */
+	public fontVariant?: string | number
 
 	/**
 	 * The font style (e.g., normal or italic).

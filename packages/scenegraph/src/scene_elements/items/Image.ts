@@ -1,11 +1,14 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 import { HorizontalAlignment, VerticalAlignment } from './interfaces'
 
 /**
  * Image marks allow external images, such as icons or photographs, to be included in visualizations.
  * Image files such as PNG or JPG images are loaded from provided URLs.
  */
-export class Image extends Mark {
+export class Image extends Item {
+	public static ITEM_TYPE = 'image'
+	public readonly itemType: string = Image.ITEM_TYPE
+
 	/**
 	 * The URL of the image file.
 	 */

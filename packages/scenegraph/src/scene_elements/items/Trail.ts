@@ -1,4 +1,4 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 
 /**
  * Trail marks are similar to line marks, but can have variable widths determined by backing data.
@@ -7,7 +7,10 @@ import { Mark } from './Mark'
  * and use fill (not stroke) for their color. Trail marks are useful if one wishes to draw lines that
  * change size to reflect the underlying data.
  */
-export class Trail extends Mark {
+export class Trail extends Item {
+	public static ITEM_TYPE = 'trail'
+	public readonly itemType: string = Trail.ITEM_TYPE
+
 	/**
 	 * The width in pixels of the trail at the given data point.
 	 */

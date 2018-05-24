@@ -4,6 +4,8 @@
 		// A little too aggressive ATM
 		"react-pure-components-have-simple-attributes": false,
 
+		"variable-name": false, 
+		
 		// Turned off because these rules suck
 		"interface-name": false,
 		"ordered-imports": false,

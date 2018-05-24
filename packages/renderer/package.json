@@ -1,5 +1,5 @@
 {
-	"name": "@gog/svg-renderer",
+	"name": "@gog/renderer",
 	"description": "An SVG renderer for GoG marks",
 	"private": true,
 	"version": "0.0.0",
@@ -12,8 +12,8 @@
 	},
 	"dependencies": {
 		"@gog/marks": "0.0.0",
-		"@gog/renderer": "0.0.0",
-		"rxjs": "^6.2.0"
+		"rxjs": "^6.2.0",
+		"shallowequal": "^1.0.2"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.2",

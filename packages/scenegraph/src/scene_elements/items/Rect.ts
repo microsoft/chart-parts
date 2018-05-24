@@ -1,10 +1,13 @@
-import { Mark } from './Mark'
+import { Item } from './Item'
 
 /**
  * Rect marks are rectangles with a given position, width and height.
  * Rect marks are useful in a wide variety of visualizations, including bar charts and timelines.
  */
-export class Rect extends Mark {
+export class Rect extends Item {
+	public static ITEM_TYPE = 'rect'
+	public readonly itemType: string = Rect.ITEM_TYPE
+
 	/**
 	 * The radius in pixels of rounded rectangle corners (default 0).
 	 */

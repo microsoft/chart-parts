@@ -1,16 +1,11 @@
-export enum StrokeCap {
-	BUTT = 'butt',
-	ROUND = 'round',
-	SQUARE = 'square',
-}
+import { SceneNode } from '../SceneNode'
+import { StrokeCap, StrokeJoin } from './interfaces'
 
-export enum StrokeJoin {
-	MITER = 'miter',
-	ROUND = 'round',
-	BEVEL = 'bevel',
-}
+export abstract class Item extends SceneNode {
+	public abstract readonly itemType: string
 
-export abstract class Mark {
+	public nodeType: string = 'item'
+
 	/**
 	 * The primary x-coordinate in pixels.
 	 */
