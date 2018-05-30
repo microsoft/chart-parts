@@ -1,7 +1,6 @@
 import React from 'react'
 import { parseScene, VirtualSvgRenderer } from '@gog/marks'
 import { ReactDomRenderer } from '@gog/renderer-react-dom'
-import camelCase from 'lodash/camelcase'
 
 const virtualSvgRenderer = new VirtualSvgRenderer()
 const scene = parseScene({

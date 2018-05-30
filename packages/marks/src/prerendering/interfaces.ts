@@ -9,7 +9,7 @@ export interface ChartOptions {
 	 * The origin of the display, in pixels.
 	 * The coordinate system will be translated to this point.
 	 */
-	origin: number[]
+	origin: [number, number]
 
 	/**
 	 *  Optional scaleFactor by which to multiply the width and

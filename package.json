@@ -56,7 +56,8 @@
 			"**/react-native-svg",
 			"**/react-native-svg/**",
 			"**/react-dom",
-			"**/react-dom/**"
+			"**/react-dom/**",
+			"@gog/examplesmobile/**"
 		]
 	},
 	"jest": {
