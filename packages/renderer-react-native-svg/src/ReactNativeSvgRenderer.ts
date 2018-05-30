@@ -51,7 +51,7 @@ function createElementFor(
 	vdom: VirtualDomNode,
 ): React.ReactElement<any> | null {
 	const { type, children, attrs } = vdom
-	const element: Element = document.createElement(type)
+	const element: Element = React.createElement(type)
 	const reactSvgType = vdomMap.get(type)
 	if (!reactSvgType) {
 		return null

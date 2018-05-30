@@ -25,7 +25,7 @@
 		"tslint-config-prettier": "^1.13.0",
 		"tslint-react": "^3.6.0",
 		"tslint-react-perf": "^0.2.1",
-		"typescript": "^2.8.3"
+		"typescript": "2.7.2"
 	},
 	"prettier": {
 		"singleQuote": true,
@@ -45,11 +45,18 @@
 			"packages/*"
 		],
 		"nohoist": [
-			"@gog/*/@types/*",
+			"**/@types/*",
+			"**/@types/*/**",
+			"**/@types/react-native",
+			"**/@types/react-native/**",
+			"**/@types/react-dom",
+			"**/@types/react-dom/**",
 			"**/react-native",
+			"**/react-native/**",
 			"**/react-native-svg",
+			"**/react-native-svg/**",
 			"**/react-dom",
-			"**/react-dom/*"
+			"**/react-dom/**"
 		]
 	},
 	"jest": {
