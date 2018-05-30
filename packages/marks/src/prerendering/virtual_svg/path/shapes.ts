@@ -1,8 +1,9 @@
 import { Path } from 'd3-path'
+import { Rectangle } from '../../../shapes'
 import curves from './curves'
+
 // import symbols from './symbols'
 
-import { default as vg_rect } from './rectangle'
 // import { default as vg_trail } from './trail'
 /*
 import {
@@ -59,12 +60,7 @@ function size(item: any) {
 	return item.size == null ? 64 : item.size
 }
 
-const rectShape = vg_rect()
-	.x(x)
-	.y(y)
-	.width(w)
-	.height(h)
-	.cornerRadius(cr)
+const rectShape = new Rectangle(x, y, w, h, cr)
 
 /*
 function type(item: any) {

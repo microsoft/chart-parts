@@ -20,7 +20,7 @@ import {
 	curveStepAfter,
 	curveStepBefore,
 } from 'd3-shape'
-import { Orientation } from '@gog/marks'
+import { Orientation } from '../../../../scenegraph'
 
 const lookup: {
 	[key: string]: {

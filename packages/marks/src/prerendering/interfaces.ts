@@ -32,3 +32,11 @@ export interface ChartOptions {
 	 */
 	backgroundColor: string
 }
+
+export interface Prerenderer<IntermediateForm> {
+	render(sceneGraph: Mark, options: ChartOptions): IntermediateForm
+}
+
+export interface MarkPrerenderer<IntermediateForm> {
+	render(mark: Mark): IntermediateForm
+}

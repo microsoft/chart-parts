@@ -1,0 +1,20 @@
+{
+	"name": "@gog/renderer-dom",
+	"description": "A virtual dom renderer that emits VanillaJS dom elements",
+	"private": true,
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w",
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"rimraf": "^2.6.2",
+		"typescript": "^2.8.3"
+	},
+	"dependencies": {
+		"@gog/marks": "0.0.0"
+	}
+}
