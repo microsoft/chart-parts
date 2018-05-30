@@ -25,7 +25,6 @@ function createElementFor(
  */
 export class ReactDomRenderer {
 	public render(vdom: VirtualDomNode): React.ReactElement<any> {
-		console.log('VDOM', vdom)
 		return createElementFor(vdom)
 	}
 }
