@@ -17,7 +17,9 @@
 	},
 	"dependencies": {
 		"@gog/marks": "0.0.0",
-		"@types/react": "^16.3.14"
+		"@types/lodash": "^4.14.109",
+		"@types/react": "^16.3.14",
+		"lodash": "^4.17.10"
 	},
 	"peerDependencies": {
 		"react": ">= 16"

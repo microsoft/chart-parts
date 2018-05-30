@@ -1,5 +1,5 @@
 import { Path } from 'd3-path'
-import { Rectangle } from '../../../shapes'
+import { Rectangle } from '../../shapes'
 import curves from './curves'
 
 // import symbols from './symbols'

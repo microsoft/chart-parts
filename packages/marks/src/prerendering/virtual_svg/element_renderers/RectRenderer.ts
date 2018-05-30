@@ -2,7 +2,7 @@ import { Path } from 'd3-path'
 import { Mark, RectItem } from '../../../scenegraph'
 import { rectangle } from '../path/shapes'
 import { MarkPrerenderer } from '../../interfaces'
-import { VirtualDomNode } from '../../../vdom'
+import { VirtualDomNode } from '../../../interfaces'
 
 export class RectRenderer implements MarkPrerenderer<VirtualDomNode[]> {
 	public render(mark: Mark) {

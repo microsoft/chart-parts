@@ -1,23 +1,6 @@
-import { MarkPrerenderer } from '../../interfaces'
-import { VirtualDomNode } from '../../../interfaces'
-import { Mark } from '../../..'
+import { registerRenderer } from './registry'
+import { RectRenderer } from './RectRenderer'
 
-const itemRendererRegistry = new Map<
-	string,
-	MarkPrerenderer<VirtualDomNode[]>
->()
+registerRenderer('rect', new RectRenderer())
 
-export function registerRenderer(
-	markType: string,
-	markRenderer: MarkPrerenderer<VirtualDomNode[]>,
-) {
-	itemRendererRegistry.set(markType, markRenderer)
-}
-
-export function renderMark(mark: Mark) {
-	if (!mark.marktype) {
-		throw new Error(`Unhandled mark type "${mark.marktype}"`)
-	}
-	const renderer = itemRendererRegistry.get(mark.marktype)
-	return renderer ? renderer.render(mark) : []
-}
+export * from './registry'

@@ -1,13 +1,22 @@
 import * as React from 'react'
 import { VirtualDomNode } from '@gog/marks'
+import { camelCase } from 'lodash'
 
-function createElementFor(vdom: VirtualDomNode): React.ReactElement<any> {
+function createElementFor(
+	vdom: VirtualDomNode,
+	key?: string,
+): React.ReactElement<any> {
 	const { type, children, attrs } = vdom
 	const element: Element = document.createElement(type)
+	const reactAttrs = { key }
+	Object.keys(attrs).forEach((attrKey: string) => {
+		reactAttrs[camelCase(attrKey)] = attrs[attrKey]
+	})
+
 	return React.createElement(
 		type,
-		attrs,
-		(children || []).map(c => createElementFor(c)),
+		reactAttrs,
+		(children || []).map((c, index) => createElementFor(c, `${index}`)),
 	)
 }
 
@@ -16,6 +25,7 @@ function createElementFor(vdom: VirtualDomNode): React.ReactElement<any> {
  */
 export class ReactDomRenderer {
 	public render(vdom: VirtualDomNode): React.ReactElement<any> {
+		console.log('VDOM', vdom)
 		return createElementFor(vdom)
 	}
 }
