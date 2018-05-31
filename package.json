@@ -61,7 +61,7 @@
 			"**/react-native-svg/**",
 			"**/react-dom",
 			"**/react-dom/**",
-			"@gog/examplesmobile/**",
+			"@gog/examples-mobile/**",
 			"@gog/react-svg-renderer",
 			"@gog/react-svg-renderer/**",
 			"@gog/react-native-svg-renderer",

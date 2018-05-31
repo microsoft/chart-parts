@@ -17,11 +17,11 @@ export class RectRenderer implements MarkPrerenderer<VirtualDomNode[]> {
 				type: 'path',
 				attrs: { d: rendered.toString() },
 			}
-			if (item.fillOpacity) {
-				result.attrs['fill-opacity'] = item.fillOpacity
-			}
 			if (item.fill) {
 				result.attrs.fill = item.fill
+			}
+			if (item.fillOpacity) {
+				result.attrs['fill-opacity'] = item.fillOpacity
 			}
 			if (item.stroke) {
 				result.attrs.stroke = item.stroke
