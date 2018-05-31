@@ -1,5 +1,5 @@
 {
-  "name": "@gog/examplesmobile",
+  "name": "@gog/examples-mobile",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,7 +12,8 @@
     "react-native": "0.55.4"
   },
   "devDependencies": {
-    "@gog/marks": "0.0.0",
+		"@gog/core": "0.0.0",
+		"@gog/prerender": "0.0.0",
     "@gog/renderer-react-native-svg": "0.0.0",
 		"react-native-svg": "^5.x",
     "babel-jest": "23.0.1",

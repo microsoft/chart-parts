@@ -1,4 +1,4 @@
-import { VirtualDomNode } from '@gog/marks'
+import { VirtualDomNode } from '@gog/core'
 
 function createElementFor(vdom: VirtualDomNode) {
 	const { type, children, attrs } = vdom

@@ -1,5 +1,6 @@
 import React from 'react'
-import { parseScene, VirtualSvgRenderer } from '@gog/marks'
+import { parseScene } from '@gog/scenegraph'
+import { VirtualSvgRenderer } from '@gog/prerender'
 import { ReactDomRenderer } from '@gog/renderer-react-dom'
 
 const virtualSvgRenderer = new VirtualSvgRenderer()

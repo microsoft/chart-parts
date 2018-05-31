@@ -1,6 +1,6 @@
 {
-	"name": "@gog/renderer-dom",
-	"description": "A virtual dom renderer that emits VanillaJS dom elements",
+	"name": "@gog/scenegraph",
+	"description": "A library that parses Vega scenegraphs into an object model",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -15,7 +15,6 @@
 		"typescript": "2.7.2"
 	},
 	"dependencies": {
-		"@gog/core": "0.0.0",
-		"@gog/prerender": "0.0.0"
+		"@gog/core": "0.0.0"
 	}
 }

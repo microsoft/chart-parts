@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { VirtualDomNode } from '@gog/marks'
+import { VirtualDomNode } from '@gog/core'
 import { camelCase } from 'lodash'
 
 function createElementFor(

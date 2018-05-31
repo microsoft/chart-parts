@@ -1,6 +1,6 @@
 {
-	"name": "@gog/renderer-dom",
-	"description": "A virtual dom renderer that emits VanillaJS dom elements",
+	"name": "@gog/core",
+	"description": "Common types and functionality across the graphics system",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -15,7 +15,5 @@
 		"typescript": "2.7.2"
 	},
 	"dependencies": {
-		"@gog/core": "0.0.0",
-		"@gog/prerender": "0.0.0"
 	}
 }

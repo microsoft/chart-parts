@@ -1,6 +1,6 @@
 import * as React from 'react'
 import vdomMap from './vdomMap'
-import { VirtualDomNode } from '@gog/marks'
+import { VirtualDomNode } from '@gog/core'
 import { camelCase } from 'lodash'
 import processAttribute from './processAttribute'
 

@@ -1,5 +1,6 @@
 import React from 'react'
-import { parseScene, VirtualSvgRenderer } from '@gog/marks'
+import { parseScene } from '@gog/scenegraph'
+import { parseScene, VirtualSvgRenderer } from '@gog/prerender'
 import { ReactNativeSvgRenderer } from '@gog/renderer-react-native-svg'
 import { View } from 'react-native'
 
