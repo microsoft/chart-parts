@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import convertStyle from './convertStyle'
 
 function createElementFor(
 	vdom: VSvgNode,

@@ -33,7 +33,6 @@ const rendered = pipeline.handle(scenegraph, {
 	height: 500,
 	backgroundColor: 'blue',
 })
-console.log('RENDERED VIEW', rendered)
 
 const viewStyle = { flex: 1 }
 export default () => <View style={viewStyle}>{rendered}</View>

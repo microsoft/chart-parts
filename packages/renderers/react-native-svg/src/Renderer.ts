@@ -1,7 +1,6 @@
 import * as React from 'react'
 import elementMap from './elementMap'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { camelCase } from 'lodash'
 
 function createElementFor(
 	vdom: VSvgNode,
