@@ -6,8 +6,16 @@ const pipeline = new VirtualSvgPipeline(new Renderer())
 const scenegraph = {
 	marktype: 'rect',
 	items: [
-		{ x: 0, y: 0, width: 50, height: 50, fill: 'steelblue' },
-		{ x: 25, y: 25, width: 50, height: 50, fill: 'firebrick' },
+		{ x: 0, y: 0, width: 50, height: 50, cornerRadius: 3, fill: 'steelblue' },
+		{
+			x: 25,
+			y: 25,
+			width: 50,
+			height: 50,
+			cornerRadius: 5,
+			fill: 'firebrick',
+			fillOpacity: 0.5,
+		},
 		{ x: 50, y: 50, width: 50, height: 50, fill: 'forestgreen' },
 	],
 }
