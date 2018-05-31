@@ -145,6 +145,11 @@ export function trail(context: any, items: any) {
 }
 */
 
-export function rectangle(context: any, item: any, xOffset: any, yOffset: any) {
-	return rectShape.build(item, xOffset, yOffset)
+export function rectangle(
+	item: any,
+	xOffset?: number,
+	yOffset?: number,
+	context?: Path,
+) {
+	return rectShape.build(item, xOffset, yOffset, context)
 }

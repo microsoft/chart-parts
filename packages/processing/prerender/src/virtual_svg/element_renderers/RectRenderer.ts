@@ -12,7 +12,7 @@ export class RectRenderer implements MarkPrerenderer<VirtualDomNode[]> {
 
 		// Render each item embedded in this mark
 		const renderedItems: VirtualDomNode[] = mark.items.map((item: RectItem) => {
-			const rendered = rectangle(undefined, item, 0, 0)
+			const rendered = rectangle(item)
 			const result: VirtualDomNode = {
 				type: 'path',
 				attrs: { d: rendered.toString() },

@@ -39,6 +39,7 @@ export class Rectangle {
 		}
 
 		if (cr <= 0) {
+			console.log('RECT PARAMS', x0, y0, x1, y1, w, h)
 			context.rect(x1, y1, w, h)
 		} else {
 			const x2 = x1 + w
