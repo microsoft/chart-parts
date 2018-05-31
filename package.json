@@ -1,5 +1,5 @@
 {
-	"name": "@derpderp/parent",
+	"name": "@gog/parent",
 	"private": true,
 	"version": "0.0.0",
 	"scripts": {
@@ -42,7 +42,11 @@
 	},
 	"workspaces": {
 		"packages": [
-			"packages/*"
+			"packages/interfaces/*",
+			"packages/examples/*",
+			"packages/renderers/*",
+			"packages/processing/*",
+			"packages/core"
 		],
 		"nohoist": [
 			"**/@types/*",
@@ -58,10 +62,10 @@
 			"**/react-dom",
 			"**/react-dom/**",
 			"@gog/examplesmobile/**",
-			"@gog/renderer-react-dom",
-			"@gog/renderer-react-dom/**",
-			"@gog/renderer-react-native-svg",
-			"@gog/renderer-react-native-svg/**"
+			"@gog/react-svg-renderer",
+			"@gog/react-svg-renderer/**",
+			"@gog/react-native-svg-renderer",
+			"@gog/react-native-svg-renderer/**"
 		]
 	},
 	"jest": {

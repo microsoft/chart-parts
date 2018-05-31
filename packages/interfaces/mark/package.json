@@ -1,6 +1,6 @@
 {
-	"name": "@gog/core",
-	"description": "The central entry point for interacting with the graphics system",
+	"name": "@gog/mark-interfaces",
+	"description": "Common interfaces for mark descriptions and scenegraph parameters",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -15,9 +15,5 @@
 		"typescript": "2.7.2"
 	},
 	"dependencies": {
-		"@gog/scenegraph": "0.0.0",
-		"@gog/prerender": "0.0.0",
-		"@gog/render-interfaces": "0.0.0",
-		"@gog/vdom-interfaces": "0.0.0"
 	}
 }

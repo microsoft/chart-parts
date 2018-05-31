@@ -1,0 +1,11 @@
+{
+    "extends": "../../../tsconfig.json",
+    "compilerOptions": {
+        "jsx": "react-native",
+        "lib": ["esnext"],
+        "outDir": "lib"
+    },
+    "files": [
+        "src/index.ts"
+    ]
+}
