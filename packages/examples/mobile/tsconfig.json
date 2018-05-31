@@ -6,6 +6,7 @@
         "outDir": "lib"
     },
     "files": [
+        "node_modules/@gog/react-native-svg-renderer/canvas.d.ts",
         "src/index.ts"
     ]
 }
