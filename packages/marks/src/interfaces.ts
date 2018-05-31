@@ -3,8 +3,8 @@
  */
 export interface VirtualDomNode {
 	type: string
-	attrs?: { [key: string]: string | number }
-	style?: { [key: string]: string | number }
+	attrs?: { [key: string]: any }
+	style?: { [key: string]: any }
 	children?: VirtualDomNode[]
 }
 

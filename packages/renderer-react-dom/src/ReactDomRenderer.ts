@@ -9,6 +9,10 @@ function createElementFor(
 	const { type, children, attrs } = vdom
 	const element: Element = document.createElement(type)
 	const reactAttrs = { key }
+
+	// TODO: set viewbox prop based on "0 0 width height"
+	// TODO: set transform prop based on "origin"
+
 	Object.keys(attrs).forEach((attrKey: string) => {
 		reactAttrs[camelCase(attrKey)] = attrs[attrKey]
 	})

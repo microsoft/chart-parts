@@ -60,7 +60,8 @@
 			"@gog/examplesmobile/**",
 			"@gog/renderer-react-dom",
 			"@gog/renderer-react-dom/**",
-			"**/@gog/renderer-react-dom/**"
+			"@gog/renderer-react-native-svg",
+			"@gog/renderer-react-native-svg/**"
 		]
 	},
 	"jest": {

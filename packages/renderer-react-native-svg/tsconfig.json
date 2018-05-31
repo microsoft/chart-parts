@@ -1,12 +1,13 @@
 {
     "extends": "../../tsconfig.json",
     "compilerOptions": {
-        "lib": ["esnext"],        
+        "lib": ["esnext"], 
         "declaration": true,
         "strict": false,
         "outDir": "lib"
     },
     "files": [
+        "canvas.d.ts",
         "src/index.ts"
     ]
 }

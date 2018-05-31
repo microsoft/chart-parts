@@ -19,6 +19,5 @@ export function renderMark(mark: Mark) {
 		throw new Error(`Unhandled mark type "${mark.marktype}"`)
 	}
 	const renderer = itemRendererRegistry.get(mark.marktype)
-	console.log('RENDERER', renderer)
 	return renderer ? renderer.render(mark) : []
 }

@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "rn:start": "node node_modules/react-native/local-cli/cli.js start",
+    "start": "whack run rn:start",
     "test": "jest"
   },
   "dependencies": {
@@ -13,10 +14,12 @@
   "devDependencies": {
     "@gog/marks": "0.0.0",
     "@gog/renderer-react-native-svg": "0.0.0",
+		"react-native-svg": "^5.x",
     "babel-jest": "23.0.1",
     "babel-preset-react-native": "4.0.0",
     "jest": "23.0.1",
-    "react-test-renderer": "16.3.1"
+    "react-test-renderer": "16.3.1",
+    "whackage": "^1.3.0"
   },
   "jest": {
     "preset": "react-native"

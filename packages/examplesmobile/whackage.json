@@ -1,0 +1,8 @@
+{
+	"include": "/**/*.js",
+	"exclude": ["/node_modules/*", ".babelrc", ".git"],
+	"dependencies": {
+		"@gog/marks": "../marks",
+		"@gog/renderer-react-native-svg": "../renderer-react-native-svg"
+	}
+}

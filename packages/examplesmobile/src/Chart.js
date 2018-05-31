@@ -1,6 +1,7 @@
 import React from 'react'
 import { parseScene, VirtualSvgRenderer } from '@gog/marks'
 import { ReactNativeSvgRenderer } from '@gog/renderer-react-native-svg'
+import { View } from 'react-native'
 
 const virtualSvgRenderer = new VirtualSvgRenderer()
 const scene = parseScene({
@@ -20,4 +21,4 @@ const vdom = virtualSvgRenderer.render(scene, {
 })
 const renderer = new ReactNativeSvgRenderer()
 
-export default () => <div>{renderer.render(vdom)}</div>
+export default () => <View style={{ flex: 1 }}>{renderer.render(vdom)}</View>

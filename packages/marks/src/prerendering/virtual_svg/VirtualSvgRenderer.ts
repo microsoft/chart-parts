@@ -21,16 +21,14 @@ export class VirtualSvgRenderer implements Prerenderer<VirtualDomNode> {
 			backgroundColor = DEFAULT_BG_COLOR,
 			origin = DEFAULT_ORIGIN,
 		} = options
-		const transform = `translate(${origin[0]}, ${origin[1]})`
-		const viewBox = `0 0 ${width} ${height}`
 
+		// Pass in the origin as an array instead of a transform property to support react-native-svgs
 		const svg: VirtualDomNode = {
 			type: 'svg',
 			attrs: {
 				width,
 				height,
-				transform,
-				viewBox,
+				origin,
 			},
 			style: {
 				'background-color': backgroundColor,
