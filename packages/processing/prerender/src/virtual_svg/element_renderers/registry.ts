@@ -1,15 +1,12 @@
-import { VirtualDomNode } from '@gog/vdom-interfaces'
+import { VSvgNode } from '@gog/vdom-interfaces'
 import { Mark } from '@gog/scenegraph'
 import { MarkPrerenderer } from '../../interfaces'
 
-const itemRendererRegistry = new Map<
-	string,
-	MarkPrerenderer<VirtualDomNode[]>
->()
+const itemRendererRegistry = new Map<string, MarkPrerenderer<VSvgNode[]>>()
 
 export function registerRenderer(
 	markType: string,
-	markRenderer: MarkPrerenderer<VirtualDomNode[]>,
+	markRenderer: MarkPrerenderer<VSvgNode[]>,
 ) {
 	itemRendererRegistry.set(markType, markRenderer)
 }

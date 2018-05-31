@@ -1,49 +1,22 @@
 import { Path } from 'd3-path'
 import { Mark, RectItem } from '@gog/scenegraph'
+import { VSvgNode } from '@gog/vdom-interfaces'
+import { copyCommonProps, assertTypeIs } from './util'
 import { rectangle } from '../path/shapes'
 import { MarkPrerenderer } from '../../interfaces'
-import { VirtualDomNode } from '@gog/vdom-interfaces'
 
-export class RectRenderer implements MarkPrerenderer<VirtualDomNode[]> {
+export class RectRenderer implements MarkPrerenderer<VSvgNode[]> {
 	public render(mark: Mark) {
-		if (mark.marktype !== RectItem.ITEM_TYPE) {
-			throw new Error(`Mark must be of type ${RectItem.ITEM_TYPE}`)
-		}
+		assertTypeIs(mark, RectItem.ITEM_TYPE)
 
 		// Render each item embedded in this mark
-		const renderedItems: VirtualDomNode[] = mark.items.map((item: RectItem) => {
+		const renderedItems: VSvgNode[] = mark.items.map((item: RectItem) => {
 			const rendered = rectangle(item)
-			const result: VirtualDomNode = {
+			const result: VSvgNode = {
 				type: 'path',
 				attrs: { d: rendered.toString() },
 			}
-			if (item.fill) {
-				result.attrs.fill = item.fill
-			}
-			if (item.fillOpacity) {
-				result.attrs['fill-opacity'] = item.fillOpacity
-			}
-			if (item.stroke) {
-				result.attrs.stroke = item.stroke
-			}
-			if (item.strokeWidth) {
-				result.attrs['stroke-width'] = item.strokeWidth
-			}
-			if (item.strokeOpacity) {
-				result.attrs['stroke-opacity'] = item.strokeOpacity
-			}
-			if (item.strokeJoin) {
-				result.attrs['stroke-linejoin'] = item.strokeJoin
-			}
-			if (item.strokeCap) {
-				result.attrs['stroke-linecap'] = item.strokeCap
-			}
-			if (item.strokeDash) {
-				result.attrs['stroke-dasharray'] = item.strokeDash.join(',')
-			}
-			if (item.strokeDashOffset) {
-				result.attrs['stroke-dashoffset'] = item.strokeDashOffset
-			}
+			copyCommonProps(item, result)
 			return result
 		})
 

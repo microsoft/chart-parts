@@ -65,7 +65,8 @@
 			"@gog/react-svg-renderer",
 			"@gog/react-svg-renderer/**",
 			"@gog/react-native-svg-renderer",
-			"@gog/react-native-svg-renderer/**"
+			"@gog/react-native-svg-renderer/**",
+			"**/@gog/react-native-svg-renderer/**"
 		]
 	},
 	"jest": {

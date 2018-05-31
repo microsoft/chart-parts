@@ -508,6 +508,12 @@
   dependencies:
     csstype "^2.2.0"
 
+"@types/react@^16.3.15":
+  version "16.3.15"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.3.15.tgz#599ac28b9f14f826c2384e9a0da9fe0b2493114b"
+  dependencies:
+    csstype "^2.2.0"
+
 "@webassemblyjs/ast@1.4.3":
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.4.3.tgz#3b3f6fced944d8660273347533e6d4d315b5934a"
@@ -8331,15 +8337,6 @@ react-transform-hmr@^1.0.4:
   dependencies:
     global "^4.3.0"
     react-proxy "^1.1.7"
-
-react@16.3.1:
-  version "16.3.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.3.1.tgz#4a2da433d471251c69b6033ada30e2ed1202cfd8"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
 
 react@^16.4.0:
   version "16.4.0"

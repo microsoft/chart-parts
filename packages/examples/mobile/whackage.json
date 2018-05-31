@@ -3,6 +3,11 @@
 	"exclude": ["/node_modules/*", ".babelrc", ".git"],
 	"dependencies": {
 		"@gog/core": "../../core",
-		"@gog/renderer-react-native-svg": "../../renderers/renderer-react-native-svg"
+		"@gog/mark-interfaces": "../../interfaces/mark",
+		"@gog/render-interfaces": "../../interfaces/render",
+		"@gog/vdom-interfaces": "../../interfaces/vdom",
+		"@gog/prerender": "../../processing/prerender",
+		"@gog/scenegraph": "../../processing/scenegraph",
+		"@gog/react-native-svg-renderer": "../../renderers/react-native-svg"
 	}
 }
