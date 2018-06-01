@@ -1,4 +1,4 @@
-import { Mark, Item } from '@gog/scenegraph'
+import { SGMark, SGItem } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 
 /**
@@ -6,7 +6,7 @@ import { VSvgNode } from '@gog/vdom-interfaces'
  * @param mark The mark to inspect
  * @param itemType The expected item type
  */
-export function assertTypeIs(mark: Mark<any>, itemType: string) {
+export function assertTypeIs(mark: SGMark<any>, itemType: string) {
 	if (mark.marktype !== itemType) {
 		throw new Error(`
             Tried to render a mark with the incorrect mark renderer. 
@@ -20,7 +20,7 @@ export function assertTypeIs(mark: Mark<any>, itemType: string) {
  * @param item The mark item to copy from
  * @param result The vsvg node to copy into
  */
-export function copyCommonProps(item: Item, result: VSvgNode): void {
+export function copyCommonProps(item: SGItem, result: VSvgNode): void {
 	if (item.fill !== undefined) {
 		result.attrs.fill = item.fill
 	}

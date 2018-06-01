@@ -1,15 +1,9 @@
+import { SGPathItem, MarkType } from '@gog/mark-interfaces'
 import { Item } from './Item'
 
-/**
- * Path marks are arbitrary shapes, defined as an SVG path. Path marks can be used to represent custom shapes,
- * including geographic regions on maps.
- */
-export class PathItem extends Item {
-	public static ITEM_TYPE = 'path'
+export class PathItem extends Item implements SGPathItem {
+	public static ITEM_TYPE = MarkType.Path
 	public readonly itemtype: string = PathItem.ITEM_TYPE
 
-	/**
-	 * An SVG path string describing the geometry of the path.
-	 */
 	public path?: string
 }

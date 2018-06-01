@@ -1,13 +1,13 @@
 import { Path } from 'd3-path'
-import { Mark, SymbolItem } from '@gog/scenegraph'
+import { SGMark, SGSymbolItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import { copyCommonProps, assertTypeIs } from './util'
 
 export class SymbolRenderer implements MarkPrerenderer<VSvgNode[]> {
-	public static TARGET_MARK_TYPE = SymbolItem.ITEM_TYPE
+	public static TARGET_MARK_TYPE = MarkType.Symbol
 
-	public render(mark: Mark<SymbolItem>) {
+	public render(mark: SGMark<SGSymbolItem>) {
 		assertTypeIs(mark, SymbolRenderer.TARGET_MARK_TYPE)
 		// TODO
 		return []

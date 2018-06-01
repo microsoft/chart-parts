@@ -1,3 +1,17 @@
+export enum MarkType {
+	Arc = 'arc',
+	Area = 'area',
+	Group = 'group',
+	Image = 'image',
+	Line = 'line',
+	Path = 'path',
+	Rect = 'rect',
+	Rule = 'rule',
+	Symbol = 'symbol',
+	Text = 'text',
+	Trail = 'trail',
+}
+
 export enum Orientation {
 	HORIZONTAL = 'horizontal',
 	VERTICAL = 'vertical',

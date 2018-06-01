@@ -1,4 +1,4 @@
-import { SGNodeType } from '@gog/mark-interfaces'
+import { SGMark, SGItem, SGNodeType } from '@gog/mark-interfaces'
 import { SceneNode, Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 
@@ -87,7 +87,7 @@ export function sceneToJSON(
 	return JSON.stringify(scene, KNOWN_KEYS, indent)
 }
 
-export function parseScene(json: string | object): Mark<any> {
+export function parseScene(json: string | object): SGMark<any> {
 	const scene = typeof json === 'string' ? JSON.parse(json) : json
 	return initializeMark(scene) as Mark<any>
 }
@@ -96,7 +96,7 @@ export function parseScene(json: string | object): Mark<any> {
  * Unpack a raw scenegraph Mark node into the scenegraph object model
  * @param rawMark The raw mark object
  */
-function initializeMark(rawMark: any): Mark<any> {
+function initializeMark(rawMark: any): SGMark<any> {
 	const marktype = rawMark.marktype
 
 	// Construct the output mark
@@ -106,7 +106,7 @@ function initializeMark(rawMark: any): Mark<any> {
 		const parentType = marktype ? SGNodeType.Mark : SGNodeType.Item
 
 		// Initialize the data for this child node
-		const item =
+		const item: Item | Mark<any> =
 			parentType === SGNodeType.Mark
 				? initializeItem(marktype, rawItem)
 				: initializeMark(rawItem)

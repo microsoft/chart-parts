@@ -1,5 +1,5 @@
+import { SGMark } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { Mark } from '@gog/scenegraph'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 
 const itemRendererRegistry = new Map<string, MarkPrerenderer<VSvgNode[]>>()
@@ -11,7 +11,7 @@ export function registerRenderer(
 	itemRendererRegistry.set(markType, markRenderer)
 }
 
-export function renderMark(mark: Mark<any>) {
+export function renderMark(mark: SGMark<any>) {
 	if (!mark.marktype) {
 		throw new Error(`Unhandled mark type "${mark.marktype}"`)
 	}

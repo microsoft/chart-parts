@@ -1,14 +1,8 @@
+import { SGTrailItem, MarkType } from '@gog/mark-interfaces'
 import { Item } from './Item'
 
-/**
- * Trail marks are similar to line marks, but can have variable widths determined by backing data.
- * Unlike area marks, trails do not have a set vertical or horizontal orientation: they can follow
- * arbitrary trajectories. However, unlike lines, trails do not support different interpolation methods
- * and use fill (not stroke) for their color. Trail marks are useful if one wishes to draw lines that
- * change size to reflect the underlying data.
- */
-export class TrailItem extends Item {
-	public static ITEM_TYPE = 'trail'
+export class TrailItem extends Item implements SGTrailItem {
+	public static ITEM_TYPE = MarkType.Trail
 	public readonly itemtype: string = TrailItem.ITEM_TYPE
 
 	/**

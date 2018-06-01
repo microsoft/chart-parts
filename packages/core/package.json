@@ -18,6 +18,7 @@
 		"@gog/scenegraph": "0.0.0",
 		"@gog/prerender": "0.0.0",
 		"@gog/render-interfaces": "0.0.0",
+		"@gog/prerender-interfaces": "0.0.0",
 		"@gog/vdom-interfaces": "0.0.0"
 	}
 }

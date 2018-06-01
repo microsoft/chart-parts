@@ -1,6 +1,6 @@
+import { SGMark } from '@gog/mark-interfaces'
 import { Prerenderer, ChartOptions } from '@gog/prerender-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { Mark } from '@gog/scenegraph'
 import { renderMark } from './element_renderers'
 
 const DEFAULT_WIDTH = 250
@@ -14,7 +14,7 @@ const DEFAULT_ORIGIN: [number, number] = [0, 0]
  * The Virtual Dom acts as an intermediate form that can be rendered out into many forms.
  */
 export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
-	public render(mark: Mark<any>, options: ChartOptions): VSvgNode {
+	public render(mark: SGMark<any>, options: ChartOptions): VSvgNode {
 		const {
 			width = DEFAULT_WIDTH,
 			height = DEFAULT_HEIGHT,
