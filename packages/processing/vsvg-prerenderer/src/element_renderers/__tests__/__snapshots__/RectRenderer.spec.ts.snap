@@ -1,14 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Rect Rendered can render a rectangle 1`] = `
-<div>
-  <svg
-    height="250"
-    width="250"
-  >
-    <path
-      d="M0,0h100v100h-100Z"
-    />
-  </svg>
-</div>
-`;
+exports[`The Rect Renderer can render a rectangle 1`] = `"<svg width=\\"250\\" height=\\"250\\"><undefined d=\\"M0,0h100v100h-100Z\\" fill=\\"red\\" stroke=\\"blue\\" strokelinejoin=\\"miter\\" strokelinecap=\\"butt\\"></undefined></svg>"`;

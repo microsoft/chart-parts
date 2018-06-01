@@ -1,7 +1,9 @@
-import { Mark, RectItem } from '@gog/scenegraph'
+// tslint:disable no-submodule-imports
+import { Mark } from '@gog/scenegraph/lib/elements/Mark'
+import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
 import { RectRenderer } from '../RectRenderer'
 
-describe('The Rect Rendered', () => {
+describe('The Rect Renderer', () => {
 	it('can render a rectangle', () => {
 		const mark = new Mark()
 		mark.marktype = RectItem.ITEM_TYPE

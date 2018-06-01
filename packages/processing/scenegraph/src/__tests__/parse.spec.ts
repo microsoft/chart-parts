@@ -20,7 +20,7 @@ describe('The Scenegraph Parser', () => {
 		expect(result.nodetype).toEqual('mark')
 		expect(result.items.length).toEqual(3)
 		result.items.forEach(t => {
-			expect(t.itemType).toEqual('rect')
+			expect(t.itemtype).toEqual('rect')
 			expect(t.parent).toBe(result)
 			expect(t.parentType).toEqual('mark')
 		})

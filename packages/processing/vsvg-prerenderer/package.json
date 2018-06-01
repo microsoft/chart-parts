@@ -12,7 +12,8 @@
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.2",
-		"typescript": "2.7.2"
+		"typescript": "2.7.2",
+		"@gog/scenegraph": "0.0.0"
 	},
 	"dependencies": {
 		"@gog/vdom-interfaces": "0.0.0",
