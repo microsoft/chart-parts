@@ -1,13 +1,15 @@
 import { Path } from 'd3-path'
 
 import {
-	ArcItem,
-	AreaItem,
-	LineItem,
-	RectItem,
-	TrailItem,
-} from '@gog/scenegraph'
-import { Interpolation, Orientation } from '@gog/mark-interfaces'
+	SGArcItem,
+	SGAreaItem,
+	SGLineItem,
+	SGRectItem,
+	SGTrailItem,
+	Interpolation,
+	Orientation,
+	SGSymbolItem,
+} from '@gog/mark-interfaces'
 import {
 	rectShape,
 	trailShape,
@@ -19,11 +21,11 @@ import {
 } from '@gog/shapes'
 import curves from './curves'
 
-export function arc(item: ArcItem, context: CanvasRenderingContext2D) {
+export function arc(item: SGArcItem, context: CanvasRenderingContext2D) {
 	return arcShape.context(context)(item as any)
 }
 
-export function area(items: AreaItem[], context: CanvasRenderingContext2D) {
+export function area(items: SGAreaItem[], context: CanvasRenderingContext2D) {
 	const first = items[0]
 	const interp = first.interpolate || Interpolation.LINEAR
 
@@ -32,7 +34,7 @@ export function area(items: AreaItem[], context: CanvasRenderingContext2D) {
 		.context(context)(items as any) // TODO: is this correct?
 }
 
-export function line(items: LineItem[], context?: CanvasRenderingContext2D) {
+export function line(items: SGLineItem[], context?: CanvasRenderingContext2D) {
 	const item = items[0]
 	const interp = item.interpolate || 'linear'
 	return lineShape
@@ -41,7 +43,7 @@ export function line(items: LineItem[], context?: CanvasRenderingContext2D) {
 }
 
 export function rectangle(
-	item: RectItem,
+	item: SGRectItem,
 	xOffset?: number,
 	yOffset?: number,
 	context?: CanvasRenderingContext2D,
@@ -49,11 +51,14 @@ export function rectangle(
 	return rectShape.build(item, xOffset, yOffset, context)
 }
 
-export function trail(items: TrailItem[], context?: CanvasRenderingContext2D) {
+export function trail(
+	items: SGTrailItem[],
+	context?: CanvasRenderingContext2D,
+) {
 	return trailShape.build(items, context)
 }
 
-export function symbol(context: any, item: any) {
+export function symbol(context: any, item: SGSymbolItem) {
 	return symbolShape.context(context)(item)
 }
 

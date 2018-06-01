@@ -1,6 +1,9 @@
 import { GroupItem } from '../elements'
 import { sceneToJSON, parseScene } from '../parse'
 
+// tslint:disable-next-line
+const barley = require('./barley.json')
+
 describe('The Scenegraph Parser', () => {
 	it('can parse a scene object', () => {
 		const result = parseScene({
@@ -14,7 +17,7 @@ describe('The Scenegraph Parser', () => {
 
 		expect(result).toBeDefined()
 		expect(result.marktype).toEqual('rect')
-		expect(result.nodeType).toEqual('mark')
+		expect(result.nodetype).toEqual('mark')
 		expect(result.items.length).toEqual(3)
 		result.items.forEach(t => {
 			expect(t.itemType).toEqual('rect')
@@ -47,10 +50,15 @@ describe('The Scenegraph Parser', () => {
 		}
 		const scene = parseScene(input)
 		expect(scene.marktype).toEqual('group')
-		expect(scene.items[0].itemType).toEqual('group')
+		expect(scene.items[0].itemtype).toEqual('group')
 
 		const group = scene.items[0] as GroupItem
 		expect(group.items.length).toEqual(1)
 		expect(group.items[0].marktype).toEqual('rect')
+	})
+
+	it('can parse a complex scene', () => {
+		const scene = parseScene(barley)
+		expect(scene).toBeDefined()
 	})
 })

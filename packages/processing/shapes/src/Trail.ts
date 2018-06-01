@@ -1,18 +1,18 @@
 import { path, Path } from 'd3-path'
-import { TrailItem } from '@gog/scenegraph'
+import { SGTrailItem } from '@gog/mark-interfaces'
 import { Xform } from './util'
 
 const pi = Math.PI
 
 export class Trail {
 	constructor(
-		public x: Xform<TrailItem, number> = d => d.x || 0,
-		public y: Xform<TrailItem, number> = d => d.y || 0,
-		public size: Xform<TrailItem, number> = d => d.size,
-		public defined: Xform<TrailItem, boolean>,
+		public x: Xform<SGTrailItem, number> = d => d.x || 0,
+		public y: Xform<SGTrailItem, number> = d => d.y || 0,
+		public size: Xform<SGTrailItem, number> = d => d.size,
+		public defined: Xform<SGTrailItem, boolean>,
 	) {}
 
-	public build(data: TrailItem[], context?: Path) {
+	public build(data: SGTrailItem[], context?: Path) {
 		let prevX
 		let prevY
 		let prevR

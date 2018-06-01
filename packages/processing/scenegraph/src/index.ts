@@ -1,3 +1,2 @@
-export * from './elements'
-export * from './registry'
+export { registerItemType } from './registry'
 export * from './parse'

@@ -1,14 +1,14 @@
 import { path, Path } from 'd3-path'
-import { RectItem } from '@gog/scenegraph'
+import { SGRectItem } from '@gog/mark-interfaces'
 import { Xform } from './util'
 
 export class Rectangle {
 	constructor(
-		public x: Xform<RectItem, number> = d => d.x || 0,
-		public y: Xform<RectItem, number> = d => d.y || 0,
-		public width: Xform<RectItem, number> = d => d.width || 0,
-		public height: Xform<RectItem, number> = d => d.height || 0,
-		public cornerRadius: Xform<RectItem, number> = d => d.cornerRadius || 0,
+		public x: Xform<SGRectItem, number> = d => d.x || 0,
+		public y: Xform<SGRectItem, number> = d => d.y || 0,
+		public width: Xform<SGRectItem, number> = d => d.width || 0,
+		public height: Xform<SGRectItem, number> = d => d.height || 0,
+		public cornerRadius: Xform<SGRectItem, number> = d => d.cornerRadius || 0,
 	) {}
 
 	/**
@@ -20,7 +20,7 @@ export class Rectangle {
 	 *
 	 */
 	public build(
-		datum: RectItem,
+		datum: SGRectItem,
 		x0?: number,
 		y0?: number,
 		context?: Path,

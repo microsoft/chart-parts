@@ -14,13 +14,14 @@ import { Rectangle } from './Rectangle'
 import { Trail } from './Trail'
 import symbols from './symbols'
 import {
-	ArcItem,
-	AreaItem,
-	LineItem,
-	RectItem,
-	TrailItem,
-} from '@gog/scenegraph'
-import { Interpolation, Orientation } from '@gog/mark-interfaces'
+	SGArcItem,
+	SGAreaItem,
+	SGLineItem,
+	SGRectItem,
+	SGTrailItem,
+	Interpolation,
+	Orientation,
+} from '@gog/mark-interfaces'
 
 function x(item: any) {
 	return item.x || 0
