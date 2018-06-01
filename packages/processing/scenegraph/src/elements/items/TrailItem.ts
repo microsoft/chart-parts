@@ -9,7 +9,7 @@ import { Item } from './Item'
  */
 export class TrailItem extends Item {
 	public static ITEM_TYPE = 'trail'
-	public readonly itemType: string = TrailItem.ITEM_TYPE
+	public readonly itemtype: string = TrailItem.ITEM_TYPE
 
 	/**
 	 * The width in pixels of the trail at the given data point.

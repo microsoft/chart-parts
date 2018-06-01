@@ -9,7 +9,7 @@ import { Mark } from '../Mark'
  */
 export class GroupItem extends Item {
 	public static ITEM_TYPE = 'group'
-	public readonly itemType: string = GroupItem.ITEM_TYPE
+	public readonly itemtype: string = GroupItem.ITEM_TYPE
 
 	/**
 	 * A boolean flag indicating if the visible group content should be clipped to the group’s

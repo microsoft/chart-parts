@@ -1,4 +1,4 @@
-import { Mark } from '@gog/scenegraph'
+import { SGMark } from '@gog/mark-interfaces'
 
 /**
  * The top-level chart rendering options. This includes dimensions, scaling parameters, and
@@ -34,9 +34,9 @@ export interface ChartOptions {
 }
 
 export interface Prerenderer<IntermediateForm> {
-	render(sceneGraph: Mark<any>, options: ChartOptions): IntermediateForm
+	render(sceneGraph: SGMark<any>, options: ChartOptions): IntermediateForm
 }
 
 export interface MarkPrerenderer<IntermediateForm> {
-	render(mark: Mark<any>): IntermediateForm
+	render(mark: SGMark<any>): IntermediateForm
 }

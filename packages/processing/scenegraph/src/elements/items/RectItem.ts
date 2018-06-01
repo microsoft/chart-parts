@@ -6,7 +6,7 @@ import { Item } from './Item'
  */
 export class RectItem extends Item {
 	public static ITEM_TYPE = 'rect'
-	public readonly itemType: string = RectItem.ITEM_TYPE
+	public readonly itemtype: string = RectItem.ITEM_TYPE
 
 	/**
 	 * The radius in pixels of rounded rectangle corners (default 0).

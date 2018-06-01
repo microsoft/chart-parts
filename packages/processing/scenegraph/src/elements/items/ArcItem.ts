@@ -7,7 +7,7 @@ import { Item } from './Item'
  */
 export class ArcItem extends Item {
 	public static ITEM_TYPE = 'arc'
-	public readonly itemType: string = ArcItem.ITEM_TYPE
+	public readonly itemtype: string = ArcItem.ITEM_TYPE
 
 	/**
 	 * The start angle in radians. A value of 0 indicates up or “north”, increasing values proceed clockwise.

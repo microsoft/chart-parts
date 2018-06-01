@@ -1,3 +1,4 @@
+import { SGNodeType } from '@gog/mark-interfaces'
 import { SceneNode, Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 
@@ -102,11 +103,11 @@ function initializeMark(rawMark: any): Mark<any> {
 	const result = new Mark()
 	result.marktype = marktype
 	result.items = (rawMark.items || []).map((rawItem: any) => {
-		const parentType = marktype ? 'mark' : 'group'
+		const parentType = marktype ? SGNodeType.Mark : SGNodeType.Item
 
 		// Initialize the data for this child node
 		const item =
-			parentType === 'mark'
+			parentType === SGNodeType.Mark
 				? initializeItem(marktype, rawItem)
 				: initializeMark(rawItem)
 
@@ -133,7 +134,7 @@ function initializeItem(marktype: string, rawItem: any) {
 	const result = createItemType(marktype, rawItem)
 
 	// If this is a group item, populate the nested marks
-	if (result.itemType === GroupItem.ITEM_TYPE) {
+	if (result.itemtype === GroupItem.ITEM_TYPE) {
 		const group = result as GroupItem
 		const items = (rawItem.items || []).map((item: any) => initializeMark(item))
 		group.items = items

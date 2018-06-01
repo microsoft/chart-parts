@@ -3,7 +3,7 @@ import { Mark, ArcItem } from '@gog/scenegraph'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { copyCommonProps, assertTypeIs } from './util'
 import { arc } from '../path'
-import { MarkPrerenderer } from '../../interfaces'
+import { MarkPrerenderer } from '@gog/prerender-interfaces'
 
 export class ArcRenderer implements MarkPrerenderer<VSvgNode[]> {
 	public static TARGET_MARK_TYPE = ArcItem.ITEM_TYPE

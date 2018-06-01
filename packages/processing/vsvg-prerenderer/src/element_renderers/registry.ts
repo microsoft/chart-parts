@@ -1,6 +1,6 @@
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { Mark } from '@gog/scenegraph'
-import { MarkPrerenderer } from '../../interfaces'
+import { MarkPrerenderer } from '@gog/prerender-interfaces'
 
 const itemRendererRegistry = new Map<string, MarkPrerenderer<VSvgNode[]>>()
 

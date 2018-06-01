@@ -1,4 +1,4 @@
-import { Prerenderer, ChartOptions } from '../interfaces'
+import { Prerenderer, ChartOptions } from '@gog/prerender-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { Mark } from '@gog/scenegraph'
 import { renderMark } from './element_renderers'

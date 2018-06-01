@@ -3,7 +3,7 @@ import { Mark, RectItem } from '@gog/scenegraph'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { copyCommonProps, assertTypeIs } from './util'
 import { rectangle } from '../path'
-import { MarkPrerenderer } from '../../interfaces'
+import { MarkPrerenderer } from '@gog/prerender-interfaces'
 
 export class RectRenderer implements MarkPrerenderer<VSvgNode[]> {
 	public static TARGET_MARK_TYPE = RectItem.ITEM_TYPE

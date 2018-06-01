@@ -1,115 +1,131 @@
-import { SceneNode } from '../SceneNode'
-import { StrokeCap, StrokeJoin, SGItem, SGNodeType } from '@gog/mark-interfaces'
+import { StrokeJoin, StrokeCap } from './mark'
 
-export abstract class Item extends SceneNode implements SGItem {
-	public abstract readonly itemtype: string
+export enum SGNodeType {
+	Mark = 'mark',
+	Item = 'item',
+}
 
-	public nodetype: SGNodeType = SGNodeType.Item
+export interface SGNode {
+	readonly nodetype: SGNodeType
+	readonly parent?: SGNode
+	readonly parentType?: SGNodeType
+	readonly metadata: { [key: string]: any }
+}
+
+export interface SGMark<Item> extends SGNode {
+	readonly marktype?: string
+	readonly items: Item[]
+	readonly clip?: boolean
+	readonly interactive?: boolean
+}
+
+export interface SGItem extends SGNode {
+	readonly itemtype: string
 
 	/**
 	 * The primary x-coordinate in pixels.
 	 */
-	public x?: number
+	readonly x?: number
 
 	/**
 	 * The secondary x-coordinate in pixels.
 	 */
-	public x2?: number
+	readonly x2?: number
 
 	/**
 	 * The center x-coordinate. Incompatible with x and x2.
 	 */
-	public xc?: number
+	readonly xc?: number
 
 	/**
 	 * The width of the mark in pixels, if supported.
 	 */
-	public width?: number
+	readonly width?: number
 
 	/**
 	 * The primary y-coordinate in pixels.
 	 */
-	public y?: number
+	readonly y?: number
 
 	/**
 	 * The secondary y-coordinate in pixels.
 	 */
-	public y2?: number
+	readonly y2?: number
 
 	/**
 	 * The center y-coordinate. Incompatible with y and y2.
 	 */
-	public yc?: number
+	readonly yc?: number
 
 	/**
 	 * The height of the mark in pixels, if supported.
 	 */
-	public height?: number
+	readonly height?: number
 
 	/**
 	 * The mark opacity from 0 (transparent) to 1 (opaque).
 	 */
-	public opacity?: number
+	readonly opacity?: number
 
 	/**
 	 * The fill color.
 	 */
-	public fill?: string
+	readonly fill?: string
 
 	/**
 	 * The fill opacity from 0 (transparent) to 1 (opaque).
 	 */
-	public fillOpacity?: number
+	readonly fillOpacity?: number
 
 	/**
 	 * The stroke color.
 	 */
-	public stroke?: string
+	readonly stroke?: string
 
 	/**
 	 * The stroke opacity from 0 (transparent) to 1 (opaque).
 	 */
-	public strokeOpacity?: number
+	readonly strokeOpacity?: number
 
 	/**
 	 * The stroke width in pixels.
 	 */
-	public strokeWidth?: number
+	readonly strokeWidth?: number
 
 	/**
 	 * The stroke cap for line ending style. One of butt (default), round or square.
 	 */
-	public strokeCap?: StrokeCap = StrokeCap.BUTT
+	readonly strokeCap?: StrokeCap
 
 	/**
 	 * An array of [stroke, space] lengths for creating dashed or dotted lines.
 	 */
-	public strokeDash?: [number, number]
+	readonly strokeDash?: [number, number]
 
 	/**
 	 * The pixel offset at which to start the stroke dash array.
 	 */
-	public strokeDashOffset?: number
+	readonly strokeDashOffset?: number
 
 	/**
 	 * The stroke line join method. One of miter (default), round or bevel.
 	 */
-	public strokeJoin?: StrokeJoin = StrokeJoin.MITER
+	readonly strokeJoin?: StrokeJoin
 
 	/**
 	 * The miter limit at which to bevel a line join.
 	 */
-	public strokeMiterLimit?: number
+	readonly strokeMiterLimit?: number
 
 	/**
 	 * The mouse cursor used over the mark. Any valid CSS cursor type can be used.
 	 */
-	public cursor?: string
+	readonly cursor?: string
 
 	/**
 	 * A URL to load upon mouse click. If defined, the mark acts as a hyperlink.
 	 */
-	public href?: string
+	readonly href?: string
 
 	/**
 	 * The tooltip text to show upon mouse hover. If the value is an object (other than a Date or an array),
@@ -118,7 +134,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	 *
 	 * Other values will be coerced to strings. Nested object values will not be recursively printed.
 	 */
-	public tooltip?: any
+	readonly tooltip?: any
 
 	/**
 	 * An integer z-index indicating the layering order of sibling mark items. The default value is 0.
@@ -130,5 +146,5 @@ export abstract class Item extends SceneNode implements SGItem {
 	 * The most common use of zindex is to ensure that a mark is drawn over its siblings when selected, such as
 	 * by mouse hover.
 	 */
-	public zIndex?: number = 0
+	readonly zIndex?: number
 }

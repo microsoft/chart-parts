@@ -6,7 +6,7 @@ import { Item } from './Item'
  */
 export class PathItem extends Item {
 	public static ITEM_TYPE = 'path'
-	public readonly itemType: string = PathItem.ITEM_TYPE
+	public readonly itemtype: string = PathItem.ITEM_TYPE
 
 	/**
 	 * An SVG path string describing the geometry of the path.

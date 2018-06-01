@@ -17,6 +17,7 @@
 	"dependencies": {
 		"@gog/vdom-interfaces": "0.0.0",
 		"@gog/mark-interfaces": "0.0.0",
+		"@gog/prerender-interfaces": "0.0.0",
 		"@gog/shapes": "0.0.0",
 		"@gog/scenegraph": "0.0.0",
 		"@types/d3-path": "^1.0.7",

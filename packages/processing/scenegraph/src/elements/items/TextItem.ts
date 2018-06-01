@@ -10,7 +10,7 @@ import {
  */
 export class TextItem extends Item {
 	public static ITEM_TYPE = 'text'
-	public readonly itemType: string = TextItem.ITEM_TYPE
+	public readonly itemtype: string = TextItem.ITEM_TYPE
 
 	/**
 	 * The horizontal text alignment. One of left (default), center, or right.

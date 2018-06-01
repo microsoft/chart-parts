@@ -8,7 +8,7 @@ import { SymbolType } from '@gog/mark-interfaces'
  */
 export class SymbolItem extends Item {
 	public static ITEM_TYPE = 'symbol'
-	public readonly itemType: string = SymbolItem.ITEM_TYPE
+	public readonly itemtype: string = SymbolItem.ITEM_TYPE
 
 	/**
 	 * The area in pixels of the symbols bounding box. Note that this value sets the area of the symbol;

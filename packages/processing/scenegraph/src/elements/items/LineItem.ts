@@ -12,7 +12,7 @@ import { Interpolation } from '@gog/mark-interfaces'
  */
 export class LineItem extends Item {
 	public static ITEM_TYPE = 'line'
-	public readonly itemType: string = LineItem.ITEM_TYPE
+	public readonly itemtype: string = LineItem.ITEM_TYPE
 
 	/**
 	 * The interpolation method to use. One of basis, bundle, cardinal, catmull-rom, linear,

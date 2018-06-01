@@ -8,7 +8,7 @@ import { Orientation, Interpolation } from '@gog/mark-interfaces'
  */
 export class AreaItem extends Item {
 	public static ITEM_TYPE = 'area'
-	public readonly itemType: string = AreaItem.ITEM_TYPE
+	public readonly itemtype: string = AreaItem.ITEM_TYPE
 
 	/**
 	 * The orientation of the area mark. One of horizontal or vertical (the default).

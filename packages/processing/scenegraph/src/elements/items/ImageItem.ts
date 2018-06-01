@@ -7,7 +7,7 @@ import { HorizontalAlignment, VerticalAlignment } from '@gog/mark-interfaces'
  */
 export class ImageItem extends Item {
 	public static ITEM_TYPE = 'image'
-	public readonly itemType: string = ImageItem.ITEM_TYPE
+	public readonly itemtype: string = ImageItem.ITEM_TYPE
 
 	/**
 	 * The URL of the image file.

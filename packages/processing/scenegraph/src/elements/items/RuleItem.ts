@@ -7,5 +7,5 @@ import { Item } from './Item'
  */
 export class RuleItem extends Item {
 	public static ITEM_TYPE = 'rule'
-	public readonly itemType: string = RuleItem.ITEM_TYPE
+	public readonly itemtype: string = RuleItem.ITEM_TYPE
 }
