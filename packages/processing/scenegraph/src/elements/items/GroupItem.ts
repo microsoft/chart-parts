@@ -22,5 +22,5 @@ export class GroupItem extends Item {
 	 */
 	public cornerRadius?: number = 0
 
-	public items: Mark[] = []
+	public items: Array<Mark<any>> = []
 }

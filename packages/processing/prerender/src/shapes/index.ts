@@ -1,1 +1,0 @@
-export { Rectangle } from './Rectangle'

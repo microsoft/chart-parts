@@ -1,17 +1,15 @@
-/*
 import { bezier, segments } from './arc'
-
 const temp = ['l', 0, 0, 0, 0, 0, 0, 0]
 
 function scale(current, s) {
-	var c = (temp[0] = current[0])
+	const c = (temp[0] = current[0])
 	if (c === 'a' || c === 'A') {
 		temp[1] = s * current[1]
 		temp[2] = s * current[2]
 		temp[6] = s * current[6]
 		temp[7] = s * current[7]
 	} else {
-		for (var i = 1, n = current.length; i < n; ++i) {
+		for (let i = 1, n = current.length; i < n; ++i) {
 			temp[i] = s * current[i]
 		}
 	}
@@ -19,26 +17,36 @@ function scale(current, s) {
 }
 
 export default function(context, path, l, t, s) {
-	var current, // current instruction
-		previous = null,
-		x = 0, // current x
-		y = 0, // current y
-		controlX = 0, // current control point x
-		controlY = 0, // current control point y
-		tempX,
-		tempY,
-		tempControlX,
-		tempControlY
+	let current // current instruction
+	let previous = null
+	let x = 0 // current x
+	let y = 0 // current y
+	let controlX = 0 // current control point x
+	let controlY = 0 // current control point y
+	let tempX
+	let tempY
+	let tempControlX
+	let tempControlY
 
-	if (l == null) l = 0
-	if (t == null) t = 0
-	if (s == null) s = 1
+	if (l == null) {
+		l = 0
+	}
+	if (t == null) {
+		t = 0
+	}
+	if (s == null) {
+		s = 1
+	}
 
-	if (context.beginPath) context.beginPath()
+	if (context.beginPath) {
+		context.beginPath()
+	}
 
-	for (var i = 0, len = path.length; i < len; ++i) {
+	for (let i = 0, len = path.length; i < len; ++i) {
 		current = path[i]
-		if (s !== 1) current = scale(current, s)
+		if (s !== 1) {
+			current = scale(current, s)
+		}
 
 		switch (
 			current[0] // first letter
@@ -306,9 +314,7 @@ function drawArc(context, x, y, coords) {
 		x,
 		y,
 	)
-	for (let i = 0; i < seg.length; ++i) {
-		const bez = bezier(seg[i])
+	seg.forEach(bez => {
 		context.bezierCurveTo(bez[0], bez[1], bez[2], bez[3], bez[4], bez[5])
-	}
+	})
 }
-*/

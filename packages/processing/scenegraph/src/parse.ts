@@ -79,20 +79,23 @@ const KNOWN_KEYS = [
 	'fontVariant',
 ]
 
-export function sceneToJSON(scene: Mark, indent?: string | number | undefined) {
+export function sceneToJSON(
+	scene: Mark<any>,
+	indent?: string | number | undefined,
+) {
 	return JSON.stringify(scene, KNOWN_KEYS, indent)
 }
 
-export function parseScene(json: string | object): Mark {
+export function parseScene(json: string | object): Mark<any> {
 	const scene = typeof json === 'string' ? JSON.parse(json) : json
-	return initializeMark(scene) as Mark
+	return initializeMark(scene) as Mark<any>
 }
 
 /**
  * Unpack a raw scenegraph Mark node into the scenegraph object model
  * @param rawMark The raw mark object
  */
-function initializeMark(rawMark: any): Mark {
+function initializeMark(rawMark: any): Mark<any> {
 	const marktype = rawMark.marktype
 
 	// Construct the output mark

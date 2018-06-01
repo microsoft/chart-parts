@@ -1,15 +1,14 @@
 import { path, Path } from 'd3-path'
 import { RectItem } from '@gog/scenegraph'
-
-export type ValueRetriever = (d: RectItem) => number
+import { Xform } from './util'
 
 export class Rectangle {
 	constructor(
-		public x: ValueRetriever = d => d.x || 0,
-		public y: ValueRetriever = d => d.y || 0,
-		public width: ValueRetriever = d => d.width || 0,
-		public height: ValueRetriever = d => d.height || 0,
-		public cornerRadius: ValueRetriever = d => d.cornerRadius || 0,
+		public x: Xform<RectItem, number> = d => d.x || 0,
+		public y: Xform<RectItem, number> = d => d.y || 0,
+		public width: Xform<RectItem, number> = d => d.width || 0,
+		public height: Xform<RectItem, number> = d => d.height || 0,
+		public cornerRadius: Xform<RectItem, number> = d => d.cornerRadius || 0,
 	) {}
 
 	/**

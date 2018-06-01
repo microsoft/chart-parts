@@ -1,4 +1,3 @@
-/*
 import pathParse from './parse'
 import pathRender from './render'
 
@@ -7,16 +6,16 @@ const halfSqrt3 = Math.sqrt(3) / 2
 
 const builtins = {
 	circle: {
-		draw(context: , size) {
+		draw(context, size) {
 			const r = Math.sqrt(size) / 2
 			context.moveTo(r, 0)
 			context.arc(0, 0, r, 0, tau)
 		},
 	},
 	cross: {
-		draw: (context, size) {
-			var r = Math.sqrt(size) / 2,
-				s = r / 2.5
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
+			const s = r / 2.5
 			context.moveTo(-r, -s)
 			context.lineTo(-r, s)
 			context.lineTo(-s, s)
@@ -33,8 +32,8 @@ const builtins = {
 		},
 	},
 	diamond: {
-		draw: function(context, size) {
-			var r = Math.sqrt(size) / 2
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
 			context.moveTo(-r, 0)
 			context.lineTo(0, -r)
 			context.lineTo(r, 0)
@@ -43,16 +42,16 @@ const builtins = {
 		},
 	},
 	square: {
-		draw: function(context, size) {
-			var w = Math.sqrt(size),
-				x = -w / 2
+		draw(context, size) {
+			const w = Math.sqrt(size)
+			const x = -w / 2
 			context.rect(x, x, w, w)
 		},
 	},
 	'triangle-up': {
-		draw: function(context, size) {
-			var r = Math.sqrt(size) / 2,
-				h = halfSqrt3 * r
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
+			const h = halfSqrt3 * r
 			context.moveTo(0, -h)
 			context.lineTo(-r, h)
 			context.lineTo(r, h)
@@ -60,9 +59,9 @@ const builtins = {
 		},
 	},
 	'triangle-down': {
-		draw: function(context, size) {
-			var r = Math.sqrt(size) / 2,
-				h = halfSqrt3 * r
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
+			const h = halfSqrt3 * r
 			context.moveTo(0, h)
 			context.lineTo(-r, -h)
 			context.lineTo(r, -h)
@@ -70,9 +69,9 @@ const builtins = {
 		},
 	},
 	'triangle-right': {
-		draw: function(context, size) {
-			var r = Math.sqrt(size) / 2,
-				h = halfSqrt3 * r
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
+			const h = halfSqrt3 * r
 			context.moveTo(h, 0)
 			context.lineTo(-h, -r)
 			context.lineTo(-h, r)
@@ -80,9 +79,9 @@ const builtins = {
 		},
 	},
 	'triangle-left': {
-		draw: function(context, size) {
-			var r = Math.sqrt(size) / 2,
-				h = halfSqrt3 * r
+		draw(context, size) {
+			const r = Math.sqrt(size) / 2
+			const h = halfSqrt3 * r
 			context.moveTo(-h, 0)
 			context.lineTo(h, -r)
 			context.lineTo(h, r)
@@ -95,17 +94,16 @@ export default function symbols(_) {
 	return builtins.hasOwnProperty(_) ? builtins[_] : customSymbol(_)
 }
 
-var custom = {}
+const custom = {}
 
 function customSymbol(path) {
 	if (!custom.hasOwnProperty(path)) {
-		var parsed = pathParse(path)
+		const parsed = pathParse(path)
 		custom[path] = {
-			draw: function(context, size) {
+			draw(context, size) {
 				pathRender(context, parsed, 0, 0, Math.sqrt(size) / 2)
 			},
 		}
 	}
 	return custom[path]
 }
-*/

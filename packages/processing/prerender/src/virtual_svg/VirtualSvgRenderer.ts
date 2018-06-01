@@ -14,7 +14,7 @@ const DEFAULT_ORIGIN: [number, number] = [0, 0]
  * The Virtual Dom acts as an intermediate form that can be rendered out into many forms.
  */
 export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
-	public render(mark: Mark, options: ChartOptions): VSvgNode {
+	public render(mark: Mark<any>, options: ChartOptions): VSvgNode {
 		const {
 			width = DEFAULT_WIDTH,
 			height = DEFAULT_HEIGHT,

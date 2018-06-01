@@ -34,9 +34,9 @@ export interface ChartOptions {
 }
 
 export interface Prerenderer<IntermediateForm> {
-	render(sceneGraph: Mark, options: ChartOptions): IntermediateForm
+	render(sceneGraph: Mark<any>, options: ChartOptions): IntermediateForm
 }
 
 export interface MarkPrerenderer<IntermediateForm> {
-	render(mark: Mark): IntermediateForm
+	render(mark: Mark<any>): IntermediateForm
 }

@@ -6,7 +6,7 @@ import { VSvgNode } from '@gog/vdom-interfaces'
  * @param mark The mark to inspect
  * @param itemType The expected item type
  */
-export function assertTypeIs(mark: Mark, itemType: string) {
+export function assertTypeIs(mark: Mark<any>, itemType: string) {
 	if (mark.marktype !== itemType) {
 		throw new Error(`
             Tried to render a mark with the incorrect mark renderer. 

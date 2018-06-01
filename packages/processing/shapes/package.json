@@ -1,6 +1,6 @@
 {
-	"name": "@gog/prerender",
-	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate form",
+	"name": "@gog/shapes",
+	"description": "Shape-drawing utilities",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -15,15 +15,11 @@
 		"typescript": "2.7.2"
 	},
 	"dependencies": {
-		"@gog/vdom-interfaces": "0.0.0",
 		"@gog/mark-interfaces": "0.0.0",
-		"@gog/shapes": "0.0.0",
 		"@gog/scenegraph": "0.0.0",
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"d3-path": "^1.0.5",
-		"d3-shape": "^1.2.0",
-		"rxjs": "^6.2.0",
-		"shallowequal": "^1.0.2"
+		"d3-shape": "^1.2.0"
 	}
 }

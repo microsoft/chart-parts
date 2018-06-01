@@ -11,7 +11,7 @@ export function registerRenderer(
 	itemRendererRegistry.set(markType, markRenderer)
 }
 
-export function renderMark(mark: Mark) {
+export function renderMark(mark: Mark<any>) {
 	if (!mark.marktype) {
 		throw new Error(`Unhandled mark type "${mark.marktype}"`)
 	}
