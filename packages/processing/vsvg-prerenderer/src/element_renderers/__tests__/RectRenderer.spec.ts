@@ -2,6 +2,7 @@
 import { Mark } from '@gog/scenegraph/lib/elements/Mark'
 import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
 import { RectRenderer } from '../RectRenderer'
+import { renderMark } from '../'
 
 describe('The Rect Renderer', () => {
 	it('can render a rectangle', () => {
@@ -16,19 +17,7 @@ describe('The Rect Renderer', () => {
 		rect.stroke = 'blue'
 		mark.items.push(rect)
 
-		const renderer = new RectRenderer()
-		const result = renderer.render(mark)
-
-		const output = document.createElement('svg')
-		output.setAttribute('width', '250')
-		output.setAttribute('height', '250')
-
-		const markElement = document.createElement(result[0].element)
-		Object.keys(result[0].attrs).map(attr =>
-			markElement.setAttribute(attr, result[0].attrs[attr]),
-		)
-		output.appendChild(markElement)
-
-		expect(output.outerHTML).toMatchSnapshot()
+		const result = renderMark(mark)
+		expect(result).toMatchSnapshot()
 	})
 })

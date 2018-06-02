@@ -15,6 +15,20 @@ export function assertTypeIs(mark: SGMark<any>, itemType: string) {
 	}
 }
 
+export function emitMarkGroup(
+	marktype: string,
+	children: VSvgNode[],
+): VSvgNode[] {
+	const markGroup: VSvgNode = {
+		type: 'g',
+		attrs: {
+			className: `mark-${marktype} role-mark`,
+		},
+		children,
+	}
+	return [markGroup]
+}
+
 /**
  * Copies shared vsvg props from the given mark into the vsvg node
  * @param item The mark item to copy from

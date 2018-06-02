@@ -1,3 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`The Rect Renderer can render a rectangle 1`] = `"<svg width=\\"250\\" height=\\"250\\"><undefined d=\\"M0,0h100v100h-100Z\\" fill=\\"red\\" stroke=\\"blue\\" strokelinejoin=\\"miter\\" strokelinecap=\\"butt\\"></undefined></svg>"`;
+exports[`The Rect Renderer can render a rectangle 1`] = `
+Array [
+  Object {
+    "attrs": Object {
+      "d": "M0,0h100v100h-100Z",
+      "fill": "red",
+      "stroke": "blue",
+      "strokeLinecap": "butt",
+      "strokeLinejoin": "miter",
+    },
+    "type": "path",
+  },
+]
+`;

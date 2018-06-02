@@ -7,7 +7,7 @@ export interface VDomNode<Attrs, Style> {
 	type: string
 	attrs?: Attrs
 	style?: { [key: string]: any }
-	children?: Array<VDomNode<any, any>>
+	children?: Array<string | VDomNode<any, any>>
 }
 
 export interface VDomRenderer<TargetForm>

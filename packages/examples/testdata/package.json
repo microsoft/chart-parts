@@ -1,0 +1,22 @@
+{
+	"name": "@gog/testdata",
+	"description": "Test data for charts",
+	"private": true,
+	"version": "0.0.0",
+	"main": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w",
+		"build": "tsc"
+	},
+	"devDependencies": {
+		"rimraf": "^2.6.2",
+		"typescript": "2.7.2"
+	},
+	"dependencies": {
+		"@gog/mark-interfaces": "0.0.0",
+		"@gog/scenegraph": "0.0.0",
+		"@types/node": "^10.3.0"
+	}
+}
