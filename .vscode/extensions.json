@@ -1,5 +1,7 @@
 {
     "recommendations": [
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "eg2.tslint",
+        "jpoissonnier.vscode-styled-components"
     ]
 }

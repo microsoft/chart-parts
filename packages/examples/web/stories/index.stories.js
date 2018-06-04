@@ -1,2 +1,2 @@
-import './RuleMark.stories'
+import './MarkTester.stories'
 import './VegaExamples.stories'

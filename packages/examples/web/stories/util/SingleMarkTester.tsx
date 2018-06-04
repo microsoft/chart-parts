@@ -11,12 +11,12 @@ export interface SingleMarkTesterState {
 
 export interface SingleMarkTesterProps {
 	initialScenegraph: any
-	sliders: Array<{
+	sliders?: Array<{
 		name: string
 		min?: number
 		max?: number
 	}>
-	dropdowns: Array<{
+	dropdowns?: Array<{
 		name: string
 		options: string[]
 	}>
@@ -51,7 +51,8 @@ export class SingleMarkTester extends React.Component<
 	}
 
 	public render() {
-		const sliders = this.props.sliders.map(
+		const { sliders = [], dropdowns = [] } = this.props
+		const sliderElements = sliders.map(
 			({ name, min, max }: { name: string; min?: number; max?: number }) => (
 				<Slider
 					key={name}
@@ -63,7 +64,7 @@ export class SingleMarkTester extends React.Component<
 				/>
 			),
 		)
-		const dropdowns = this.props.dropdowns.map(({ name, options }) => (
+		const dropdownElements = dropdowns.map(({ name, options }) => (
 			<Dropdown
 				key={name}
 				name={name}
@@ -78,8 +79,8 @@ export class SingleMarkTester extends React.Component<
 					<Chart data={this.state.scenegraph} />
 				</ChartContainer>
 				<ControlsContainer>
-					{sliders}
-					{dropdowns}
+					{sliderElements}
+					{dropdownElements}
 				</ControlsContainer>
 			</Container>
 		)
