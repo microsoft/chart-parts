@@ -9,17 +9,22 @@ export interface SingleMarkTesterState {
 	scenegraph: any
 }
 
+export interface SliderSpec {
+	name: string
+	min?: number
+	max?: number
+	step?: number
+}
+
+export interface DropdownSpec {
+	name: string
+	options: string[]
+}
+
 export interface SingleMarkTesterProps {
 	initialScenegraph: any
-	sliders?: Array<{
-		name: string
-		min?: number
-		max?: number
-	}>
-	dropdowns?: Array<{
-		name: string
-		options: string[]
-	}>
+	sliders?: SliderSpec[]
+	dropdowns?: DropdownSpec[]
 }
 
 const Container = styled.div`
@@ -52,18 +57,19 @@ export class SingleMarkTester extends React.Component<
 
 	public render() {
 		const { sliders = [], dropdowns = [] } = this.props
-		const sliderElements = sliders.map(
-			({ name, min, max }: { name: string; min?: number; max?: number }) => (
-				<Slider
-					key={name}
-					name={name}
-					min={min}
-					max={max}
-					value={this.state.scenegraph.items[0][name]}
-					onChange={v => this.setParam({ [name]: parseFloat(v) })}
-				/>
-			),
-		)
+		const sliderElements = sliders.map(({ name, min, max, step }) => (
+			<Slider
+				key={name}
+				name={name}
+				min={min}
+				max={max}
+				step={step}
+				value={this.state.scenegraph.items[0][name]}
+				onChange={v =>
+					this.setParam({ [name]: typeof v === 'string' ? parseFloat(v) : v })
+				}
+			/>
+		))
 		const dropdownElements = dropdowns.map(({ name, options }) => (
 			<Dropdown
 				key={name}

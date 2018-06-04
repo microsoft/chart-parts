@@ -11,11 +11,21 @@ const InputColumn = styled.input`
 	flex: 2;
 `
 
-export const Slider = ({
+export interface SliderProps {
+	name: string
+	min?: number
+	max?: number
+	value?: number
+	step?: number
+	onChange?: (value: number | string) => void
+}
+
+export const Slider: React.SFC<SliderProps> = ({
 	name,
 	min = 0,
 	max = 200,
 	value = 0,
+	step = 1,
 	onChange = (v: any) => null,
 }) => {
 	const handleChange = evt => onChange(evt.target.value)
@@ -28,7 +38,7 @@ export const Slider = ({
 				value={value}
 				min={min}
 				max={max}
-				step="1"
+				step={step}
 				onChange={handleChange}
 			/>
 			<div>{value}</div>

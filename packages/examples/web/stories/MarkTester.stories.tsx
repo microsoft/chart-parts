@@ -1,11 +1,42 @@
 // tslint:disable jsx-no-array-literal-props jsx-no-object-literal-props
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { SingleMarkTester } from './util'
 import { StrokeCap } from '@gog/mark-interfaces'
+import { SingleMarkTester } from './util'
 import * as palette from './palette'
 
 storiesOf('Mark Testers', module)
+	.add('Arc', () => (
+		<SingleMarkTester
+			initialScenegraph={{
+				marktype: 'arc',
+				items: [
+					{
+						startAngle: -0.73,
+						endAngle: 0.73,
+						padAngle: 0,
+						innerRadius: 0,
+						outerRadius: 50,
+						strokeWidth: 4,
+						x: 100,
+						y: 100,
+						stroke: palette.CRIMSON,
+						fill: palette.GREY,
+					},
+				],
+			}}
+			sliders={[
+				{ name: 'x' },
+				{ name: 'y' },
+				{ name: 'startAngle', min: -6.28, max: 6.28, step: 0.1 },
+				{ name: 'endAngle', min: -6.28, max: 6.28, step: 0.1 },
+				{ name: 'padAngle', min: -6.28, max: 6.28, step: 0.1 },
+				{ name: 'innerRadius', max: 100 },
+				{ name: 'outerRadius', max: 100 },
+				{ name: 'strokeWidth', max: 10 },
+			]}
+		/>
+	))
 	.add('Rect', () => (
 		<SingleMarkTester
 			initialScenegraph={{
@@ -47,7 +78,7 @@ storiesOf('Mark Testers', module)
 						stroke: palette.CRIMSON,
 						strokeWidth: 4,
 						strokeCap: 'butt',
-						strokeDash: [1, 0],
+						strokeDash: '[1,0]',
 					},
 				],
 			}}
