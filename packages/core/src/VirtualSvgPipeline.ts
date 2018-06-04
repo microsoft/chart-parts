@@ -10,7 +10,6 @@ export class VirtualSvgPipeline<T> {
 	constructor(private renderer: VDomRenderer<T>) {}
 
 	public handle(rawScene: any, options: ChartOptions = {}) {
-		// TODO: handle the case where the raw scene has already been parsed
 		const scene = parseScene(rawScene)
 		const vdom = virtualSvgRenderer.render(scene, options)
 		return this.renderer.render(vdom)

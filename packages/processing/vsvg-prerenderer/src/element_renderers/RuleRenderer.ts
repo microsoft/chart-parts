@@ -15,14 +15,22 @@ export class RuleRenderer implements MarkPrerenderer<VSvgNode[]> {
 			MarkType.Rule,
 			mark.role,
 			mark.items.map(item => {
+				const x = item.x || 0
+				const y = item.y || 0
 				const result: VSvgNode = {
 					type: 'line',
 					attrs: {
-						origin: [item.x || 0, item.y || 0],
-						x2: item.x2,
-						y2: item.y2,
+						origin: [x, y],
 					},
 				}
+
+				if (item.x2 !== undefined) {
+					result.attrs.x2 = item.x2 - x
+				}
+				if (item.y2 !== undefined) {
+					result.attrs.y2 = item.y2 - y
+				}
+
 				copyCommonProps(item, result)
 				return result
 			}),
