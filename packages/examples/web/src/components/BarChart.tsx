@@ -6,5 +6,7 @@ import { barchart } from '@gog/testdata'
 const pipeline = new VirtualSvgPipeline(new Renderer())
 
 export default () => (
-	<div>{pipeline.handle(barchart, { width: 435, height: 239 })}</div>
+	<div>
+		{pipeline.handle(barchart, { width: 400, height: 220, origin: [30, 19] })}
+	</div>
 )

@@ -4,13 +4,21 @@ exports[`The Rect Renderer can render a rectangle 1`] = `
 Array [
   Object {
     "attrs": Object {
-      "d": "M0,0h100v100h-100Z",
-      "fill": "red",
-      "stroke": "blue",
-      "strokeLinecap": "butt",
-      "strokeLinejoin": "miter",
+      "className": "mark-rect role-mark",
     },
-    "type": "path",
+    "children": Array [
+      Object {
+        "attrs": Object {
+          "d": "M0,0h100v100h-100Z",
+          "fill": "red",
+          "stroke": "blue",
+          "strokeLinecap": "butt",
+          "strokeLinejoin": "miter",
+        },
+        "type": "path",
+      },
+    ],
+    "type": "g",
   },
 ]
 `;

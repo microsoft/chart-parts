@@ -21,14 +21,14 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 			backgroundColor = DEFAULT_BG_COLOR,
 			origin = DEFAULT_ORIGIN,
 		} = options
+		const [x = 0, y = 0] = origin
 
 		// Pass in the origin as an array instead of a transform property to support react-native-svgs
 		const svg: VSvgNode = {
 			type: 'svg',
 			attrs: {
-				width,
-				height,
-				origin,
+				width: width + x,
+				height: height + y,
 			},
 			style: {
 				backgroundColor,
@@ -37,7 +37,7 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 				{
 					type: 'g',
 					attrs: {
-						transform: `translate(30,16)`,
+						origin,
 					},
 					children: renderMark(mark),
 				},
