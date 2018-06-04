@@ -60,7 +60,7 @@ export class SingleMarkTester extends React.Component<
 					min={min}
 					max={max}
 					value={this.state.scenegraph.items[0][name]}
-					onChange={v => this.setParam({ [name]: v })}
+					onChange={v => this.setParam({ [name]: parseFloat(v) })}
 				/>
 			),
 		)
