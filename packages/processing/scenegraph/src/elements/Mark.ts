@@ -8,4 +8,5 @@ export class Mark<T extends Item> extends SceneNode implements SGMark<T> {
 	public items: T[] = []
 	public clip?: boolean
 	public interactive?: boolean
+	public role?: string
 }

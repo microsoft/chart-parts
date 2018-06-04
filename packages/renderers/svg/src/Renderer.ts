@@ -6,8 +6,9 @@ function createElementFor(vdom: VSvgNode) {
 	Object.keys(attrs).forEach(name => {
 		element.setAttribute(name, `${attrs[name]}`)
 	})
-	const domChildren = (children || []).map(child => createElementFor(child))
-	domChildren.forEach(child => element.appendChild(child))
+
+	const domChildren = children || []
+	domChildren.forEach(c => (typeof c === 'string' ? c : createElementFor(c)))
 	return element
 }
 

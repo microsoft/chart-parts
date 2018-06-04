@@ -13,12 +13,12 @@ export class RectRenderer implements MarkPrerenderer<VSvgNode[]> {
 
 		return emitMarkGroup(
 			MarkType.Rect,
+			mark.role,
 			mark.items.map(item => {
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {
-						d: rectangle(item).toString(),
-						// origin: [item.x || 0, item.y || 0],
+						d: rectangle(item, item.x || 0, item.y || 0).toString(),
 					},
 				}
 				copyCommonProps(item, result)

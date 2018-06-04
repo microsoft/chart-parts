@@ -13,6 +13,7 @@ export class ArcRenderer implements MarkPrerenderer<VSvgNode[]> {
 
 		return emitMarkGroup(
 			MarkType.Arc,
+			mark.role,
 			mark.items.map(item => {
 				const { x = 0, y = 0 } = item
 				const result: VSvgNode = {

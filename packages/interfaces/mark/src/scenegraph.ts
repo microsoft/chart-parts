@@ -23,10 +23,30 @@ export interface SGNode {
 }
 
 export interface SGMark<Item extends SGItem> extends SGNode {
+	/**
+	 * The type of mark this is
+	 */
 	readonly marktype?: string
+
+	/**
+	 * The mark items
+	 */
 	readonly items: Item[]
+
+	/**
+	 * Whether to clip children of this mark
+	 */
 	readonly clip?: boolean
+
+	/**
+	 * Whether this mark responds to interactive events
+	 */
 	readonly interactive?: boolean
+
+	/**
+	 * The custom role of this mark, used to emit class information
+	 */
+	readonly role?: string
 }
 
 export interface SGItem extends SGNode {

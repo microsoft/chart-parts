@@ -13,6 +13,7 @@ export class RuleRenderer implements MarkPrerenderer<VSvgNode[]> {
 		// Render each item embedded in this mark
 		return emitMarkGroup(
 			MarkType.Rule,
+			mark.role,
 			mark.items.map(item => {
 				const result: VSvgNode = {
 					type: 'line',

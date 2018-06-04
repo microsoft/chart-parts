@@ -15,14 +15,24 @@ export function assertTypeIs(mark: SGMark<any>, itemType: string) {
 	}
 }
 
+function roleClass(role?: string) {
+	return `role-${role || 'mark'}`
+}
+
+/**
+ *
+ * @param marktype
+ * @param children
+ */
 export function emitMarkGroup(
 	marktype: string,
+	role: string | undefined,
 	children: VSvgNode[],
 ): VSvgNode[] {
 	const markGroup: VSvgNode = {
 		type: 'g',
 		attrs: {
-			className: `mark-${marktype} role-mark`,
+			className: `mark-${marktype} ${roleClass(role)}`,
 		},
 		children,
 	}

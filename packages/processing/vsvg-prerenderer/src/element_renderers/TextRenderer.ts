@@ -1,10 +1,32 @@
 import { Path } from 'd3-path'
-import { SGMark, SGTextItem, MarkType } from '@gog/mark-interfaces'
+import {
+	SGMark,
+	SGTextItem,
+	MarkType,
+	VerticalTextAlignment,
+} from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
+
+function calculateTextOrigin({
+	fontSize,
+	baseline,
+	x,
+	y,
+}: SGTextItem): [number, number] {
+	x = x || 0
+	y = y || 0
+	if (VerticalTextAlignment.TOP === baseline) {
+		y += fontSize
+	} else if (baseline === VerticalTextAlignment.MIDDLE) {
+		y += fontSize / 2
+	}
+	return [x, y]
+}
+
 export class TextRenderer implements MarkPrerenderer<VSvgNode[]> {
 	public static TARGET_MARK_TYPE = MarkType.Text
 
@@ -13,14 +35,17 @@ export class TextRenderer implements MarkPrerenderer<VSvgNode[]> {
 
 		return emitMarkGroup(
 			MarkType.Text,
+			mark.role,
 			mark.items.map(item => {
 				const { fontSize, font, fill, fillOpacity } = item
+				const origin = calculateTextOrigin(item)
+
 				const result: VSvgNode = {
 					type: 'text',
 					attrs: {
-						origin: [item.x || 0, item.y + item.fontSize || 0],
+						origin,
 					},
-					style: { fontSize, fontFamily: font, fill, fillOpacity },
+					style: { fontSize, fontFamily: font },
 					children: [item.text],
 				}
 

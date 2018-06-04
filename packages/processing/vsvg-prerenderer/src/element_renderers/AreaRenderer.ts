@@ -16,7 +16,7 @@ export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
 			return []
 		}
 
-		return emitMarkGroup(MarkType.Area, [
+		return emitMarkGroup(MarkType.Area, mark.role, [
 			{
 				type: 'path',
 				attrs: {

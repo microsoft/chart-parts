@@ -17,7 +17,10 @@ function createElementFor(
 		reactSvgType,
 		{ ...attrs, key, style },
 		(children || [])
-			.map((c, index) => createElementFor(c, `${index}`))
+			.map(
+				(c, index) =>
+					typeof c === 'string' ? c : createElementFor(c, `${index}`),
+			)
 			.filter(t => !!t),
 	)
 }

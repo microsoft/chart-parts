@@ -33,7 +33,15 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 			style: {
 				backgroundColor,
 			},
-			children: renderMark(mark),
+			children: [
+				{
+					type: 'g',
+					attrs: {
+						transform: `translate(30,16)`,
+					},
+					children: renderMark(mark),
+				},
+			],
 		}
 		return svg
 	}

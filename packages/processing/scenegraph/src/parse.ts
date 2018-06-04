@@ -97,11 +97,12 @@ export function parseScene(json: string | object): SGMark<any> {
  * @param rawMark The raw mark object
  */
 function initializeMark(rawMark: any): SGMark<any> {
-	const marktype = rawMark.marktype
+	const { marktype, role } = rawMark
 
 	// Construct the output mark
 	const result = new Mark()
 	result.marktype = marktype
+	result.role = role
 	result.items = (rawMark.items || []).map((rawItem: any) => {
 		const parentType = marktype ? SGNodeType.Mark : SGNodeType.Item
 
