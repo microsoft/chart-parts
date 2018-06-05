@@ -27,6 +27,33 @@ import * as BinnedScatterPlot from './binned_scatter_plot'
 import * as ContourPlot from './contour_plot'
 import * as WheatPlot from './wheat_plot'
 import * as CountyUnemployment from './county_unemployment'
+import * as DorlingCartogram from './dorling_cartogram'
+import * as WorldMap from './world_map'
+import * as Earthquakes from './earthquakes'
+import * as Projections from './projections'
+import * as ZoomableWorldMap from './zoomable_world_map'
+import * as DistortionComparisonMap from './distortion_comparison_map'
+import * as TreeLayout from './tree_layout'
+import * as RadialTree from './radial_tree'
+import * as Treemap from './treemap'
+import * as CirclePacking from './circle_packing'
+import * as Sunburst from './sunburst'
+import * as EdgeBundling from './edge_bundling'
+import * as ForceDirectedLayout from './force_directed_layout'
+import * as ReorderableMatrix from './reorderable_matrix'
+import * as ArcDiagram from './arc_diagram'
+import * as AirportConnections from './airport_connections'
+import * as Heatmap from './Heatmap'
+import * as ParallelCoordinates from './parallel_coordinates'
+import * as WordCloud from './word_cloud'
+import * as Timeline from './timeline'
+import * as BeeswarmPlot from './beeswarm_plot'
+import * as BudgetForecasts from './budget_forecasts'
+import * as WheatAndWages from './wheat_and_wages'
+import * as FalkenseePopulation from './falkensee_population'
+import * as AnnualTemperature from './annual_temperature'
+import * as WeeklyTemperature from './weekly_temperature'
+import * as UDistrictCuisine from './u_district_cuisine'
 
 export const testCharts = [
 	BarChart,
@@ -58,4 +85,31 @@ export const testCharts = [
 	ContourPlot,
 	WheatPlot,
 	// CountyUnemployment,
+	DorlingCartogram,
+	// WorldMap,
+	// Earthquakes,
+	// Projections,
+	// ZoomableWorldMap,
+	// DistortionComparisonMap,
+	TreeLayout,
+	RadialTree,
+	Treemap,
+	CirclePacking,
+	Sunburst,
+	EdgeBundling,
+	ForceDirectedLayout,
+	ReorderableMatrix,
+	ArcDiagram,
+	// AirportConnections,
+	Heatmap,
+	ParallelCoordinates,
+	WordCloud,
+	Timeline,
+	BeeswarmPlot,
+	BudgetForecasts,
+	WheatAndWages,
+	FalkenseePopulation,
+	AnnualTemperature,
+	WeeklyTemperature,
+	UDistrictCuisine,
 ]
