@@ -9,6 +9,6 @@ export const scenegraph = parseScene(data)
 export const title = 'Area Chart'
 export const dimensions = {
 	height: 220,
-	width: 400,
+	width: 700,
 	origin: [30, 19] as [number, number],
 }
