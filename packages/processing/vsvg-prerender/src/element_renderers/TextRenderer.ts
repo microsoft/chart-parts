@@ -11,21 +11,51 @@ import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
 import { VSvgMarkPrerenderer } from './interfaces'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
+const DEFAULT_FONT_SIZE = 11
+
+/**
+ * Calculate vertical offset based on baseline (thanks, Vega!)
+ * @param baseline
+ * @param fontSize
+ */
+function offset(
+	baseline: VerticalTextAlignment,
+	height: number = DEFAULT_FONT_SIZE,
+) {
+	// perform our own font baseline calculation
+	// why? not all browsers support SVG 1.1 'alignment-baseline' :(
+	if (baseline === VerticalTextAlignment.TOP) {
+		return 0.79 * height
+	} else if (baseline === VerticalTextAlignment.MIDDLE) {
+		return 0.3 * height
+	} else if (baseline === VerticalTextAlignment.BOTTOM) {
+		return -0.32 * height
+	} else {
+		return 0
+	}
+}
 
 function calculateTextOrigin({
-	fontSize,
-	baseline,
 	x,
 	y,
+	dx,
+	dy,
+	baseline,
+	fontSize,
 }: SGTextItem): [number, number] {
-	x = x || 0
-	y = y || 0
-	if (VerticalTextAlignment.TOP === baseline) {
-		y += fontSize
-	} else if (baseline === VerticalTextAlignment.MIDDLE) {
-		y += fontSize / 2
-	}
+	const offsetY = offset(baseline, fontSize)
+	x = (x || 0) + (dx || 0)
+	y = (y || 0) + (dy || 0) + offsetY
 	return [x, y]
+}
+
+function calculateBaseline(alignment: VerticalTextAlignment) {
+	switch (alignment) {
+		case VerticalTextAlignment.MIDDLE:
+			return 'central'
+		default:
+			return undefined
+	}
 }
 
 export class TextRenderer implements VSvgMarkPrerenderer {
@@ -38,20 +68,38 @@ export class TextRenderer implements VSvgMarkPrerenderer {
 			MarkType.Text,
 			mark.role,
 			mark.items.map(item => {
-				const { fontSize, font, fill, fillOpacity } = item
-				const origin = calculateTextOrigin(item)
+				const {
+					fontSize,
+					font,
+					fill,
+					fillOpacity,
+					fontWeight,
+					fontStyle,
+					fontVariant,
+					baseline,
+					angle: rotation,
+				} = item
 
+				// Determine the text origin to use
 				const result: VSvgNode = {
 					type: 'text',
 					attrs: {
-						origin,
+						origin: calculateTextOrigin(item),
+						alignmentBaseline: calculateBaseline(baseline),
+						rotation,
 					},
-					style: { fontSize, fontFamily: font },
+					style: {
+						fontSize,
+						fontFamily: font,
+						fontWeight,
+						fontStyle,
+						fontVariant,
+					},
 					children: [item.text],
 				}
 
 				if (item.align) {
-					result.attrs.textAnchor = alignments[item.align]
+					result.attrs.textAnchor = alignments[item.align] || 'start'
 				}
 				copyCommonProps(item, result)
 				return result

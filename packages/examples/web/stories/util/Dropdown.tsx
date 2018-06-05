@@ -31,7 +31,6 @@ export const Dropdown = ({
 					{optionDom}
 				</select>
 			</InputColumn>
-			<div>{value}</div>
 		</Container>
 	)
 }

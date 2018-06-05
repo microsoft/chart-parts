@@ -9,14 +9,23 @@ function createElementFor(
 	const element: Element = document.createElement(type)
 
 	const reactAttrs: { [key: string]: any } = { key, style }
+
+	const transforms = []
 	Object.keys(attrs).forEach(k => {
 		if (k === 'origin') {
 			const [x, y] = attrs[k]
-			reactAttrs.transform = `translate(${x},${y})`
+			transforms.push(`translate(${x},${y})`)
+		} else if (k === 'rotation') {
+			const angle = attrs[k]
+			transforms.push(`rotate(${angle})`)
 		} else {
 			reactAttrs[k] = attrs[k]
 		}
 	})
+
+	if (transforms.length > 0) {
+		reactAttrs.transform = transforms.join(' ')
+	}
 
 	return React.createElement(
 		type,

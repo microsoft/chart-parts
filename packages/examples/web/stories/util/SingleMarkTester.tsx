@@ -34,6 +34,8 @@ export interface SingleMarkTesterProps {
 	chartWidth?: number
 	chartHeight?: number
 	chartOrigin?: [number, number]
+	updateScenegraph?: (update?: any, scenegraph?: any) => any
+	getParam?: (name: string, scenegraph: any) => any
 }
 
 const Container = styled.div`
@@ -80,7 +82,7 @@ export class SingleMarkTester extends React.Component<
 				min={min}
 				max={max}
 				step={step}
-				value={this.state.scenegraph.items[0][name]}
+				value={this.getParam(name)}
 				onChange={v =>
 					this.setParam({ [name]: typeof v === 'string' ? parseFloat(v) : v })
 				}
@@ -91,7 +93,7 @@ export class SingleMarkTester extends React.Component<
 				key={name}
 				name={name}
 				options={options}
-				value={this.state.scenegraph.items[0][name]}
+				value={this.getParam(name)}
 				onChange={v => this.setParam({ [name]: v })}
 			/>
 		))
@@ -99,7 +101,7 @@ export class SingleMarkTester extends React.Component<
 			<Toggle
 				key={name}
 				name={name}
-				value={this.state.scenegraph.items[0][name]}
+				value={this.getParam(name)}
 				onChange={v => this.setParam({ [name]: v })}
 			/>
 		))
@@ -122,18 +124,30 @@ export class SingleMarkTester extends React.Component<
 		)
 	}
 
-	private setParam(param: any) {
-		this.setState({
-			...this.state,
-			scenegraph: {
-				...this.state.scenegraph,
+	private getParam(name: string) {
+		return this.props.getParam
+			? this.props.getParam(name, this.state.scenegraph)
+			: this.state.scenegraph.items[0][name]
+	}
+
+	private setParam(update: any) {
+		const scenegraph = this.updateScenegraph(update, this.state.scenegraph)
+		this.setState({ ...this.state, scenegraph })
+	}
+
+	private updateScenegraph(update: any, scenegraph: any) {
+		if (this.props.updateScenegraph) {
+			return this.props.updateScenegraph(update, scenegraph)
+		} else {
+			return {
+				...scenegraph,
 				items: [
 					{
-						...this.state.scenegraph.items[0],
-						...param,
+						...scenegraph.items[0],
+						...update,
 					},
 				],
-			},
-		})
+			}
+		}
 	}
 }
