@@ -9,6 +9,6 @@ export const scenegraph = parseScene(data)
 export const title = 'Dorling Cartogram'
 export const dimensions = {
 	height: 600,
-	width: 600,
+	width: 900,
 	origin: [30, 19] as [number, number],
 }

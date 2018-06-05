@@ -9,6 +9,6 @@ export const scenegraph = parseScene(data)
 export const title = 'Wheat and Wages'
 export const dimensions = {
 	height: 600,
-	width: 600,
+	width: 1000,
 	origin: [70, 19] as [number, number],
 }

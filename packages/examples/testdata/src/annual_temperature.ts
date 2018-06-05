@@ -9,6 +9,6 @@ export const scenegraph = parseScene(data)
 export const title = 'Annual Temperature'
 export const dimensions = {
 	height: 700,
-	width: 700,
+	width: 850,
 	origin: [70, 19] as [number, number],
 }

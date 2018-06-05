@@ -8,7 +8,7 @@ const data = require('../resources/tree_layout.json')
 export const scenegraph = parseScene(data)
 export const title = 'Tree Layout'
 export const dimensions = {
-	height: 1000,
+	height: 1500,
 	width: 550,
 	origin: [90, 19] as [number, number],
 }

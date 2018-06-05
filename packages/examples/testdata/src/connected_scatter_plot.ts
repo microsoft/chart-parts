@@ -8,7 +8,7 @@ const data = require('../resources/connected_scatter_plot.json')
 export const scenegraph = parseScene(data)
 export const title = 'Connected Scatter Plot'
 export const dimensions = {
-	height: 400,
-	width: 400,
+	height: 550,
+	width: 900,
 	origin: [30, 19] as [number, number],
 }
