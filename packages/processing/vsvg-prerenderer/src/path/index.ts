@@ -58,7 +58,7 @@ export function trail(
 	return trailShape.build(items, context)
 }
 
-export function symbol(context: any, item: SGSymbolItem) {
+export function symbol(item: SGSymbolItem, context: any) {
 	return symbolShape.context(context)(item)
 }
 
