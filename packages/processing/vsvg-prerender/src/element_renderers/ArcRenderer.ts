@@ -4,14 +4,15 @@ import { VSvgNode } from '@gog/vdom-interfaces'
 import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
 import { arc } from '../path'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { VSvgMarkPrerenderer } from './interfaces'
 
-export class ArcRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class ArcRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Arc
 
 	public render(mark: SGMark<SGArcItem>) {
 		assertTypeIs(mark, ArcRenderer.TARGET_MARK_TYPE)
 
-		return emitMarkGroup(
+		const nodes = emitMarkGroup(
 			MarkType.Arc,
 			mark.role,
 			mark.items.map(item => {
@@ -28,5 +29,6 @@ export class ArcRenderer implements MarkPrerenderer<VSvgNode[]> {
 				return result
 			}),
 		)
+		return { nodes }
 	}
 }

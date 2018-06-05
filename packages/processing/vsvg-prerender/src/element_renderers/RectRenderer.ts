@@ -4,14 +4,15 @@ import { VSvgNode } from '@gog/vdom-interfaces'
 import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
 import { rectangle } from '../path'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { VSvgMarkPrerenderer } from './interfaces'
 
-export class RectRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class RectRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Rect
 
 	public render(mark: SGMark<SGRectItem>) {
 		assertTypeIs(mark, RectRenderer.TARGET_MARK_TYPE)
 
-		return emitMarkGroup(
+		const nodes = emitMarkGroup(
 			MarkType.Rect,
 			mark.role,
 			mark.items.map(item => {
@@ -26,5 +27,6 @@ export class RectRenderer implements MarkPrerenderer<VSvgNode[]> {
 				return result
 			}),
 		)
+		return { nodes }
 	}
 }

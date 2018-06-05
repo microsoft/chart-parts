@@ -3,14 +3,15 @@ import { SGMark, SGPathItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { VSvgMarkPrerenderer } from './interfaces'
 
-export class PathRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class PathRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Path
 
 	public render(mark: SGMark<SGPathItem>) {
 		assertTypeIs(mark, PathRenderer.TARGET_MARK_TYPE)
 
-		return emitMarkGroup(
+		const nodes = emitMarkGroup(
 			MarkType.Arc,
 			mark.role,
 			mark.items.map(item => {
@@ -27,5 +28,6 @@ export class PathRenderer implements MarkPrerenderer<VSvgNode[]> {
 				return result
 			}),
 		)
+		return { nodes }
 	}
 }

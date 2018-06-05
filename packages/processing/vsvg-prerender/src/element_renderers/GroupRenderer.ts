@@ -1,46 +1,127 @@
+// tslint:disable no-submodule-imports
 import { Path } from 'd3-path'
 import { SGMark, SGGroupItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
-import { flatMap } from 'lodash'
+import flatMap from 'lodash/flatMap'
 import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
+import {
+	VSvgMarkPrerenderer,
+	VSvgMarkOutput,
+	VSvgRenderContext,
+} from './interfaces'
 
-export class GroupRenderer implements MarkPrerenderer<VSvgNode[]> {
+/**
+ * Renders a group's "rectangle", which can have a fill and stroke
+ * @param item
+ */
+function renderGroupRectangle(item: SGGroupItem): VSvgNode {
+	const { x = 0, y = 0 } = item
+	const groupRect: VSvgNode = {
+		type: 'path',
+		attrs: {
+			d: rectangle(item, x, y).toString(),
+		},
+	}
+	copyCommonProps(item, groupRect)
+	return groupRect
+}
+
+/**
+ * Renders children of the group
+ * @param item The group item
+ */
+function renderChildren(
+	item: SGGroupItem,
+	context: VSvgRenderContext,
+): VSvgMarkOutput {
+	let nodes = []
+	let defs = []
+
+	const groupItems = item.items || []
+	groupItems.forEach(m => {
+		const renderedChild = renderMark(m, context)
+		if (renderedChild.defs) {
+			defs = [...defs, ...renderedChild.defs]
+		}
+		nodes = [...nodes, ...renderedChild.nodes]
+	})
+
+	return { defs, nodes }
+}
+
+function renderGroup(item: SGGroupItem, children: VSvgNode[]): VSvgNode {
+	const group: VSvgNode = {
+		type: 'g',
+		attrs: {
+			origin: [item.x || 0, item.y || 0],
+		},
+		children,
+	}
+	copyCommonProps(item, group)
+	return group
+}
+
+function renderGroupClip(clipId: string, group: VSvgNode, groupRect: VSvgNode) {
+	const clipPath: VSvgNode = {
+		type: 'clipPath',
+		attrs: {
+			id: clipId,
+		},
+		children: [groupRect],
+	}
+
+	group = {
+		type: 'g',
+		attrs: {
+			clipPath: `url(#${clipId})`,
+		},
+		children: [group],
+	}
+
+	return { clipPath, group }
+}
+
+export class GroupRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Group
 
-	public render(mark: SGMark<SGGroupItem>) {
+	public render(mark: SGMark<SGGroupItem>, context: VSvgRenderContext) {
 		assertTypeIs(mark, GroupRenderer.TARGET_MARK_TYPE)
 
-		return emitMarkGroup(
+		let defs = []
+		const nodes = emitMarkGroup(
 			MarkType.Group,
 			mark.role,
 			flatMap(mark.items, item => {
-				const { x = 0, y = 0 } = item
-				const groupRect: VSvgNode = {
-					type: 'path',
-					attrs: {
-						d: rectangle(item, x, y).toString(),
-					},
-				}
-				copyCommonProps(item, groupRect)
+				// Render the Group's Rectangle
+				const groupRect = renderGroupRectangle(item)
 
-				// TODO: Use items.flatmap `children = item.items.flatMap(m => renderMap(m))`
-				const children = []
-				;(item.items || []).forEach(m => {
-					renderMark(m).forEach(c => children.push(c))
-				})
-				const group: VSvgNode = {
-					type: 'g',
-					attrs: {
-						origin: [item.x || 0, item.y || 0],
-					},
-					children,
+				// Render the Group's children
+				const { defs: groupDefs, nodes: groupChildren } = renderChildren(
+					item,
+					context,
+				)
+				defs = [...defs, ...groupDefs]
+
+				// Render the group
+				let group = renderGroup(item, groupChildren)
+
+				// Handle if the group is clipped
+				if (item.clip) {
+					const { group: groupWrapper, clipPath } = renderGroupClip(
+						`clip${context.nextId()}`,
+						group,
+						groupRect,
+					)
+					defs.push(clipPath)
+					group = groupWrapper
 				}
-				copyCommonProps(item, group)
+
 				return [groupRect, group]
 			}),
 		)
+		return { nodes, defs }
 	}
 }

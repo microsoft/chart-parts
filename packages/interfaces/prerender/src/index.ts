@@ -37,6 +37,6 @@ export interface Prerenderer<IntermediateForm> {
 	render(sceneGraph: SGMark<any>, options: ChartOptions): IntermediateForm
 }
 
-export interface MarkPrerenderer<IntermediateForm> {
-	render(mark: SGMark<any>): IntermediateForm
+export interface MarkPrerenderer<IntermediateForm, RenderContext> {
+	render(mark: SGMark<any>, context: RenderContext): IntermediateForm
 }

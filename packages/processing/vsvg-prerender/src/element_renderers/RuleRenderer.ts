@@ -3,15 +3,16 @@ import { SGMark, SGRuleItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { VSvgMarkPrerenderer } from './interfaces'
 
-export class RuleRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class RuleRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Rule
 
 	public render(mark: SGMark<SGRuleItem>) {
 		assertTypeIs(mark, RuleRenderer.TARGET_MARK_TYPE)
 
 		// Render each item embedded in this mark
-		return emitMarkGroup(
+		const nodes = emitMarkGroup(
 			MarkType.Rule,
 			mark.role,
 			mark.items.map(item => {
@@ -35,5 +36,6 @@ export class RuleRenderer implements MarkPrerenderer<VSvgNode[]> {
 				return result
 			}),
 		)
+		return { nodes }
 	}
 }

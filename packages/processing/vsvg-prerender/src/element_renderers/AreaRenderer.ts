@@ -4,8 +4,9 @@ import { VSvgNode } from '@gog/vdom-interfaces'
 import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { VSvgMarkPrerenderer } from './interfaces'
 
-export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class AreaRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Area
 
 	public render(mark: SGMark<SGAreaItem>) {
@@ -13,7 +14,7 @@ export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
 
 		const renderedItems: VSvgNode[] = []
 		if (mark.items.map.length === 0) {
-			return []
+			return { nodes: [] }
 		}
 
 		const areaItems = mark.items.map(a => ({
@@ -28,6 +29,7 @@ export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
 		}
 		mark.items.forEach(item => copyCommonProps(item, areaItem))
 
-		return emitMarkGroup(MarkType.Area, mark.role, [areaItem])
+		const nodes = emitMarkGroup(MarkType.Area, mark.role, [areaItem])
+		return { nodes }
 	}
 }

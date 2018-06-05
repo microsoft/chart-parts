@@ -23,7 +23,16 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 		} = options
 		const [x = 0, y = 0] = origin
 
-		// Pass in the origin as an array instead of a transform property to support react-native-svgs
+		// Create the rendering Context
+		let id = 0
+		const context = {
+			nextId: () => `${++id}`,
+		}
+
+		// Get the rendering of the root mark
+		const root = renderMark(mark, context)
+
+		// Wrap the rendered root in an SVG
 		const svg: VSvgNode = {
 			type: 'svg',
 			attrs: {
@@ -35,11 +44,16 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 			},
 			children: [
 				{
+					type: 'defs',
+					attrs: {},
+					children: root.defs,
+				},
+				{
 					type: 'g',
 					attrs: {
 						origin,
 					},
-					children: renderMark(mark),
+					children: root.nodes,
 				},
 			],
 		}

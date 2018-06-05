@@ -8,6 +8,7 @@ import {
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
+import { VSvgMarkPrerenderer } from './interfaces'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
 
@@ -27,13 +28,13 @@ function calculateTextOrigin({
 	return [x, y]
 }
 
-export class TextRenderer implements MarkPrerenderer<VSvgNode[]> {
+export class TextRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Text
 
 	public render(mark: SGMark<SGTextItem>) {
 		assertTypeIs(mark, TextRenderer.TARGET_MARK_TYPE)
 
-		return emitMarkGroup(
+		const nodes = emitMarkGroup(
 			MarkType.Text,
 			mark.role,
 			mark.items.map(item => {
@@ -56,5 +57,6 @@ export class TextRenderer implements MarkPrerenderer<VSvgNode[]> {
 				return result
 			}),
 		)
+		return { nodes }
 	}
 }
