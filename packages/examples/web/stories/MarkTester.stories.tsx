@@ -82,6 +82,68 @@ storiesOf('Mark Testers', module)
 			}}
 		/>
 	))
+	.add('Group', () => (
+		<SingleMarkTester
+			initialScenegraph={{
+				marktype: 'group',
+				items: [
+					{
+						clip: false,
+						x: 25,
+						y: 25,
+						width: 150,
+						height: 150,
+						cornerRadius: 0,
+						strokeWidth: 4,
+						stroke: palette.CRIMSON,
+						fill: palette.GREY,
+						items: [
+							{
+								marktype: 'rect',
+								items: [
+									{
+										x: 75,
+										y: -10,
+										width: 10,
+										height: 20,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+									{
+										x: -5,
+										y: 50,
+										width: 50,
+										height: 50,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+									{
+										x: 100,
+										y: 100,
+										width: 75,
+										height: 85,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+								],
+							},
+						],
+					},
+				],
+			}}
+			sliders={[
+				{ name: 'x' },
+				{ name: 'y' },
+				{ name: 'width', min: 25, max: 150 },
+				{ name: 'height', min: 25, max: 150 },
+				{ name: 'cornerRadius', max: 20 },
+				{ name: 'strokeWidth', max: 10 },
+			]}
+		/>
+	))
 	.add('Rect', () => (
 		<SingleMarkTester
 			initialScenegraph={{
