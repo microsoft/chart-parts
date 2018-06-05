@@ -9,6 +9,6 @@ export const scenegraph = parseScene(data)
 export const title = 'Population Pyramid'
 export const dimensions = {
 	height: 420,
-	width: 500,
+	width: 700,
 	origin: [30, 19] as [number, number],
 }

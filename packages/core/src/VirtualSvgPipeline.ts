@@ -2,7 +2,7 @@ import { Renderer } from '@gog/render-interfaces'
 import { VDomRenderer } from '@gog/vdom-interfaces'
 import { parseScene } from '@gog/scenegraph'
 import { ChartOptions } from '@gog/prerender-interfaces'
-import { VirtualSvgRenderer } from '@gog/prerender'
+import { VirtualSvgRenderer } from '@gog/vsvg-prerender'
 
 const virtualSvgRenderer = new VirtualSvgRenderer()
 
