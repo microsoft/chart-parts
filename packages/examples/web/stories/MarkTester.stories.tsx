@@ -51,62 +51,33 @@ storiesOf('Mark Testers', module)
 					{
 						x: 0,
 						y: 98.18,
+						y2: 200,
 						...BASE_ITEM,
 					},
 					{
 						x: 80,
 						y: 0,
+						y2: 200,
 						...BASE_ITEM,
 					},
 					{
 						x: 160,
 						y: 47.27,
+						y2: 200,
 						...BASE_ITEM,
 					},
 					{
 						x: 240,
 						y: 76.36,
+						y2: 200,
 						...BASE_ITEM,
 					},
 					{
 						x: 400,
 						y: 25.4545,
+						y2: 200,
 						...BASE_ITEM,
 					},
-
-					/*
-					{
-						x: 400,
-						y: 200,
-						...BASE_ITEM,
-					},
-					{
-						x: 320,
-						y: 200,
-						...BASE_ITEM,
-					},
-					{
-						x: 240,
-						y: 200,
-						...BASE_ITEM,
-					},
-
-					{
-						x: 160,
-						y: 200,
-						...BASE_ITEM,
-					},
-					{
-						x: 80,
-						y: 200,
-						...BASE_ITEM,
-					},
-					{
-						x: 0,
-						y: 200,
-						...BASE_ITEM,
-					},
-					*/
 				],
 			}}
 		/>

@@ -16,10 +16,14 @@ export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
 			return []
 		}
 
+		const areaItems = mark.items.map(a => ({
+			...a,
+			height: a.y2 - a.y,
+		}))
 		const areaItem = {
 			type: 'path',
 			attrs: {
-				d: area(mark.items, null).toString(),
+				d: area(areaItems, undefined).toString(),
 			},
 		}
 		mark.items.forEach(item => copyCommonProps(item, areaItem))
