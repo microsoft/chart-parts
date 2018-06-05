@@ -134,6 +134,7 @@ storiesOf('Mark Testers', module)
 					},
 				],
 			}}
+			toggles={[{ name: 'clip' }]}
 			sliders={[
 				{ name: 'x' },
 				{ name: 'y' },

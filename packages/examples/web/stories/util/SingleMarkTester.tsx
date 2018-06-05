@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { Chart } from './Chart'
 import { Slider } from './Slider'
 import { Dropdown } from './Dropdown'
+import { Toggle } from './Toggle'
 
 export interface SingleMarkTesterState {
 	scenegraph: any
@@ -21,10 +22,15 @@ export interface DropdownSpec {
 	options: string[]
 }
 
+export interface ToggleSpec {
+	name: string
+}
+
 export interface SingleMarkTesterProps {
 	initialScenegraph: any
 	sliders?: SliderSpec[]
 	dropdowns?: DropdownSpec[]
+	toggles?: ToggleSpec[]
 	chartWidth?: number
 	chartHeight?: number
 	chartOrigin?: [number, number]
@@ -62,6 +68,7 @@ export class SingleMarkTester extends React.Component<
 		const {
 			sliders = [],
 			dropdowns = [],
+			toggles = [],
 			chartWidth,
 			chartHeight,
 			chartOrigin,
@@ -88,6 +95,14 @@ export class SingleMarkTester extends React.Component<
 				onChange={v => this.setParam({ [name]: v })}
 			/>
 		))
+		const toggleElements = toggles.map(({ name }) => (
+			<Toggle
+				key={name}
+				name={name}
+				value={this.state.scenegraph.items[0][name]}
+				onChange={v => this.setParam({ [name]: v })}
+			/>
+		))
 		return (
 			<Container>
 				<ChartContainer>
@@ -99,6 +114,7 @@ export class SingleMarkTester extends React.Component<
 					/>
 				</ChartContainer>
 				<ControlsContainer>
+					{toggleElements}
 					{sliderElements}
 					{dropdownElements}
 				</ControlsContainer>
