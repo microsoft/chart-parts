@@ -26,7 +26,7 @@ import {
 const elementMap: Map<string, any> = new Map<string, React.Component>()
 elementMap.set('circle', Circle)
 elementMap.set('clipPath', ClipPath)
-elementMap.set('devs', Defs)
+elementMap.set('defs', Defs)
 elementMap.set('ellipse', Ellipse)
 elementMap.set('g', G)
 elementMap.set('image', Image)
