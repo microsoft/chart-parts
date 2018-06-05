@@ -9,6 +9,7 @@ import { RuleItem } from './RuleItem'
 import { SymbolItem } from './SymbolItem'
 import { TextItem } from './TextItem'
 import { TrailItem } from './TrailItem'
+import { ShapeItem } from './ShapeItem'
 
 // Register the core item types
 import { registerItemType } from '../../registry'
@@ -23,6 +24,7 @@ registerItemType(RuleItem)
 registerItemType(SymbolItem)
 registerItemType(TextItem)
 registerItemType(TrailItem)
+registerItemType(ShapeItem)
 
 export * from './Item'
 export {
@@ -37,4 +39,5 @@ export {
 	SymbolItem,
 	TextItem,
 	TrailItem,
+	ShapeItem,
 }

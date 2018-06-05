@@ -489,3 +489,8 @@ export interface SGTrailItem extends SGItem {
 	 */
 	defined?: boolean
 }
+
+/**
+ * TODO
+ */
+export type SGShapeItem = SGItem

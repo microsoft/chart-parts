@@ -10,6 +10,7 @@ export enum MarkType {
 	Symbol = 'symbol',
 	Text = 'text',
 	Trail = 'trail',
+	Shape = 'shape',
 }
 
 export enum Orientation {
