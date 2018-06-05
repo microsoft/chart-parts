@@ -54,7 +54,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The fill color.
 	 */
-	public fill?: string
+	public fill?: string = 'none'
 
 	/**
 	 * The fill opacity from 0 (transparent) to 1 (opaque).
@@ -64,7 +64,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The stroke color.
 	 */
-	public stroke?: string
+	public stroke?: string = 'none'
 
 	/**
 	 * The stroke opacity from 0 (transparent) to 1 (opaque).
