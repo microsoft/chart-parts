@@ -16,13 +16,14 @@ export class AreaRenderer implements MarkPrerenderer<VSvgNode[]> {
 			return []
 		}
 
-		return emitMarkGroup(MarkType.Area, mark.role, [
-			{
-				type: 'path',
-				attrs: {
-					d: area(mark.items, null).toString(),
-				},
+		const areaItem = {
+			type: 'path',
+			attrs: {
+				d: area(mark.items, null).toString(),
 			},
-		])
+		}
+		mark.items.forEach(item => copyCommonProps(item, areaItem))
+
+		return emitMarkGroup(MarkType.Area, mark.role, [areaItem])
 	}
 }

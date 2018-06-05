@@ -5,6 +5,11 @@ import { StrokeCap } from '@gog/mark-interfaces'
 import { SingleMarkTester } from './util'
 import * as palette from './palette'
 
+const BASE_ITEM = {
+	stroke: palette.CRIMSON,
+	fill: palette.GREY,
+}
+
 storiesOf('Mark Testers', module)
 	.add('Arc', () => (
 		<SingleMarkTester
@@ -12,6 +17,7 @@ storiesOf('Mark Testers', module)
 				marktype: 'arc',
 				items: [
 					{
+						...BASE_ITEM,
 						startAngle: -0.73,
 						endAngle: 0.73,
 						padAngle: 0,
@@ -20,8 +26,6 @@ storiesOf('Mark Testers', module)
 						strokeWidth: 4,
 						x: 100,
 						y: 100,
-						stroke: palette.CRIMSON,
-						fill: palette.GREY,
 					},
 				],
 			}}
@@ -35,6 +39,76 @@ storiesOf('Mark Testers', module)
 				{ name: 'outerRadius', max: 100 },
 				{ name: 'strokeWidth', max: 10 },
 			]}
+		/>
+	))
+	.add('Area', () => (
+		<SingleMarkTester
+			chartWidth={420}
+			chartOrigin={[10, 0]}
+			initialScenegraph={{
+				marktype: 'area',
+				items: [
+					{
+						x: 0,
+						y: 98.18,
+						...BASE_ITEM,
+					},
+					{
+						x: 80,
+						y: 0,
+						...BASE_ITEM,
+					},
+					{
+						x: 160,
+						y: 47.27,
+						...BASE_ITEM,
+					},
+					{
+						x: 240,
+						y: 76.36,
+						...BASE_ITEM,
+					},
+					{
+						x: 400,
+						y: 25.4545,
+						...BASE_ITEM,
+					},
+
+					/*
+					{
+						x: 400,
+						y: 200,
+						...BASE_ITEM,
+					},
+					{
+						x: 320,
+						y: 200,
+						...BASE_ITEM,
+					},
+					{
+						x: 240,
+						y: 200,
+						...BASE_ITEM,
+					},
+
+					{
+						x: 160,
+						y: 200,
+						...BASE_ITEM,
+					},
+					{
+						x: 80,
+						y: 200,
+						...BASE_ITEM,
+					},
+					{
+						x: 0,
+						y: 200,
+						...BASE_ITEM,
+					},
+					*/
+				],
+			}}
 		/>
 	))
 	.add('Rect', () => (

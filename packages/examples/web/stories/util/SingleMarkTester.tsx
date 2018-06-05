@@ -25,6 +25,9 @@ export interface SingleMarkTesterProps {
 	initialScenegraph: any
 	sliders?: SliderSpec[]
 	dropdowns?: DropdownSpec[]
+	chartWidth?: number
+	chartHeight?: number
+	chartOrigin?: [number, number]
 }
 
 const Container = styled.div`
@@ -56,7 +59,13 @@ export class SingleMarkTester extends React.Component<
 	}
 
 	public render() {
-		const { sliders = [], dropdowns = [] } = this.props
+		const {
+			sliders = [],
+			dropdowns = [],
+			chartWidth,
+			chartHeight,
+			chartOrigin,
+		} = this.props
 		const sliderElements = sliders.map(({ name, min, max, step }) => (
 			<Slider
 				key={name}
@@ -82,7 +91,12 @@ export class SingleMarkTester extends React.Component<
 		return (
 			<Container>
 				<ChartContainer>
-					<Chart data={this.state.scenegraph} />
+					<Chart
+						data={this.state.scenegraph}
+						width={chartWidth}
+						height={chartHeight}
+						origin={chartOrigin}
+					/>
 				</ChartContainer>
 				<ControlsContainer>
 					{sliderElements}

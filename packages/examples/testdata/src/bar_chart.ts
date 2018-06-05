@@ -3,7 +3,6 @@
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
 import { SGMark } from '@gog/mark-interfaces'
+const data = require('../resources/bar_chart.json')
 
-const data = require('../resources/barchart.json')
-
-export const barchart = parseScene(data)
+export const scenegraph = parseScene(data)
