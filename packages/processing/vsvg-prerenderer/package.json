@@ -7,12 +7,12 @@
 	"types": "lib/index.d.ts",
 	"scripts": {
 		"clean": "rimraf lib",
-		"start": "tsc -w",
+		"start": "tsc -w --preserveWatchOutput",
 		"build": "tsc"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.2",
-		"typescript": "2.7.2",
+		"typescript": "2.9.1",
 		"@gog/scenegraph": "0.0.0"
 	},
 	"dependencies": {

@@ -5,7 +5,7 @@
   "scripts": {
     "rn:start": "node node_modules/react-native/local-cli/cli.js start",
     "appstart": "whack run rn:start",
-    "start": "tsc -w",
+    "start": "tsc -w --preserveWatchOutput",
     "build": "tsc",
     "clean": "rimraf lib",
     "test": "jest"
