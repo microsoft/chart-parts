@@ -8,7 +8,7 @@ const data = require('../resources/stacked_area_chart.json')
 export const scenegraph = parseScene(data)
 export const title = 'Stacked Area Chart'
 export const dimensions = {
-	height: 200,
+	height: 220,
 	width: 400,
 	origin: [30, 19] as [number, number],
 }

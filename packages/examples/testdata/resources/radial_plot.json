@@ -1,0 +1,168 @@
+{
+  "clip": false,
+  "interactive": true,
+  "items": [
+    {
+      "items": [
+        {
+          "clip": false,
+          "interactive": true,
+          "items": [
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 0,
+              "endAngle": 0.4742026646928,
+              "innerRadius": 20,
+              "outerRadius": 58.430756913221,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            },
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 0.4742026646928,
+              "endAngle": 1.383091105354,
+              "innerRadius": 20,
+              "outerRadius": 73.204973740894,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            },
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 1.383091105354,
+              "endAngle": 3.2403848754008,
+              "innerRadius": 20,
+              "outerRadius": 96.056659041897,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            },
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 3.2403848754008,
+              "endAngle": 3.4774862077472,
+              "innerRadius": 20,
+              "outerRadius": 47.17464881947,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            },
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 3.4774862077472,
+              "endAngle": 5.532364421416,
+              "innerRadius": 20,
+              "outerRadius": 100,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            },
+            {
+              "x": 100,
+              "y": 100,
+              "startAngle": 5.532364421416,
+              "endAngle": 6.2831853071796,
+              "innerRadius": 20,
+              "outerRadius": 68.357641986159,
+              "stroke": "#fff",
+              "fill": "#ccc"
+            }
+          ],
+          "marktype": "arc",
+          "role": "mark",
+          "zindex": 0
+        },
+        {
+          "clip": false,
+          "interactive": true,
+          "items": [
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 66.430756913221,
+              "theta": 0.2371013323464,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 12
+            },
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 81.204973740894,
+              "theta": 0.9286468850234,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 23
+            },
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 104.0566590419,
+              "theta": 2.3117379903774,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 47
+            },
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 55.17464881947,
+              "theta": 3.358935541574,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 6
+            },
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 108,
+              "theta": 4.5049253145816,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 52
+            },
+            {
+              "font": "sans-serif",
+              "fontSize": 11,
+              "x": 100,
+              "y": 100,
+              "radius": 76.357641986159,
+              "theta": 5.9077748642978,
+              "fill": "#000",
+              "align": "center",
+              "baseline": "middle",
+              "text": 19
+            }
+          ],
+          "marktype": "text",
+          "role": "mark",
+          "zindex": 0
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 200
+    }
+  ],
+  "marktype": "group",
+  "name": "root",
+  "role": "frame",
+  "zindex": 0
+}

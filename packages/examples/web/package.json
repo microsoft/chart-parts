@@ -4,7 +4,6 @@
   "version": "0.0.0",
   "scripts": {
     "//serve": "webpack-dev-server --mode development --open --host 0.0.0.0",
-    "build": "webpack --mode production",
     "storybook": "start-storybook -p 6006",
     "start": "npm run storybook",
     "build-storybook": "build-storybook"

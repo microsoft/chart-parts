@@ -1,0 +1,93 @@
+{
+  "clip": false,
+  "interactive": true,
+  "items": [
+    {
+      "items": [
+        {
+          "clip": false,
+          "interactive": true,
+          "items": [
+            {
+              "fill": "#1f77b4",
+              "x": 100,
+              "y": 100,
+              "startAngle": 0,
+              "endAngle": 0.66210526315789,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            },
+            {
+              "fill": "#aec7e8",
+              "x": 100,
+              "y": 100,
+              "startAngle": 0.66210526315789,
+              "endAngle": 1.6552631578947,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            },
+            {
+              "fill": "#ff7f0e",
+              "x": 100,
+              "y": 100,
+              "startAngle": 1.6552631578947,
+              "endAngle": 3.3105263157895,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            },
+            {
+              "fill": "#ffbb78",
+              "x": 100,
+              "y": 100,
+              "startAngle": 3.3105263157895,
+              "endAngle": 3.8071052631579,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            },
+            {
+              "fill": "#2ca02c",
+              "x": 100,
+              "y": 100,
+              "startAngle": 3.8071052631579,
+              "endAngle": 4.9657894736842,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            },
+            {
+              "fill": "#98df8a",
+              "x": 100,
+              "y": 100,
+              "startAngle": 4.9657894736842,
+              "endAngle": 6.29,
+              "padAngle": 0,
+              "innerRadius": 60,
+              "outerRadius": 100,
+              "cornerRadius": 0
+            }
+          ],
+          "marktype": "arc",
+          "role": "mark",
+          "zindex": 0
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "width": 200,
+      "height": 200
+    }
+  ],
+  "marktype": "group",
+  "name": "root",
+  "role": "frame",
+  "zindex": 0
+}

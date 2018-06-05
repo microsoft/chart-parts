@@ -3,12 +3,12 @@
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
 import { SGMark } from '@gog/mark-interfaces'
-const data = require('../resources/nested_bar_chart.json')
+const data = require('../resources/county_unemployment.json')
 
 export const scenegraph = parseScene(data)
-export const title = 'Nested Bar Chart'
+export const title = 'County Unemployment'
 export const dimensions = {
-	height: 220,
-	width: 400,
+	height: 500,
+	width: 500,
 	origin: [30, 19] as [number, number],
 }

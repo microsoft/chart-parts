@@ -3,12 +3,12 @@
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
 import { SGMark } from '@gog/mark-interfaces'
-const data = require('../resources/nested_bar_chart.json')
+const data = require('../resources/horizon_graph.json')
 
 export const scenegraph = parseScene(data)
-export const title = 'Nested Bar Chart'
+export const title = 'Horizon Graph'
 export const dimensions = {
-	height: 220,
-	width: 400,
+	height: 150,
+	width: 520,
 	origin: [30, 19] as [number, number],
 }

@@ -8,7 +8,7 @@ const data = require('../resources/grouped_bar_chart.json')
 export const scenegraph = parseScene(data)
 export const title = 'Grouped Bar Chart'
 export const dimensions = {
-	height: 200,
+	height: 220,
 	width: 400,
 	origin: [30, 19] as [number, number],
 }

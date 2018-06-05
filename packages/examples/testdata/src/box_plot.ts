@@ -3,12 +3,12 @@
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
 import { SGMark } from '@gog/mark-interfaces'
-const data = require('../resources/nested_bar_chart.json')
+const data = require('../resources/box_plot.json')
 
 export const scenegraph = parseScene(data)
-export const title = 'Nested Bar Chart'
+export const title = 'Box Plot'
 export const dimensions = {
-	height: 220,
-	width: 400,
-	origin: [30, 19] as [number, number],
+	height: 400,
+	width: 550,
+	origin: [80, 19] as [number, number],
 }
