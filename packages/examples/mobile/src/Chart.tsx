@@ -1,38 +1,21 @@
+// tslint:disable jsx-no-object-literal-props jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
 import { VirtualSvgPipeline } from '@gog/core'
 import { Renderer } from '@gog/react-native-svg-renderer'
-import { View, Text } from 'react-native'
+import { View, FlatList, Text } from 'react-native'
+import { testCharts } from '@gog/testdata'
 
 const pipeline = new VirtualSvgPipeline(new Renderer())
-const scenegraph = {
-	marktype: 'rect',
-	items: [
-		{ x: 0, y: 0, width: 100, height: 100, cornerRadius: 3, fill: 'steelblue' },
-		{
-			x: 25,
-			y: 25,
-			width: 100,
-			height: 100,
-			cornerRadius: 5,
-			fill: 'firebrick',
-			fillOpacity: 0.5,
-			stroke: 'green',
-			strokeWidth: 4,
-			strokeOpacity: 0.8,
-			strokeJoin: 'miter',
-			strokeCap: 'round',
-			strokeDash: [1, 1],
-			strokeDashOffset: 2,
-		},
-		{ x: 50, y: 50, width: 100, height: 100, fill: 'forestgreen' },
-	],
-}
+const renderChart = chart => pipeline.handle(chart.scenegraph, chart.dimensions)
+const rendered = testCharts.map(c => renderChart(c))
 
-const rendered = pipeline.handle(scenegraph, {
-	width: 500,
-	height: 500,
-	backgroundColor: 'blue',
-})
-
-const viewStyle = { flex: 1 }
-export default () => <View style={viewStyle}>{rendered}</View>
+export default () => (
+	<FlatList
+		style={{ flex: 1 }}
+		data={testCharts}
+		keyExtractor={item => item.title}
+		renderItem={({ item }) => (
+			<View style={{ height: 500, width: 500 }}>{renderChart(item)}</View>
+		)}
+	/>
+)
