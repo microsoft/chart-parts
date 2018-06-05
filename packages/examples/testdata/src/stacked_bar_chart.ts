@@ -3,10 +3,10 @@
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
 import { SGMark } from '@gog/mark-interfaces'
-const data = require('../resources/stacked_area_chart.json')
+const data = require('../resources/stacked_bar_chart.json')
 
 export const scenegraph = parseScene(data)
-export const title = 'Stacked Area Chart'
+export const title = 'Stacked Bar Chart'
 export const dimensions = {
 	height: 200,
 	width: 400,

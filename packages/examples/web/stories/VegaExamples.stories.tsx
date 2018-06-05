@@ -4,22 +4,16 @@ import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { StrokeCap } from '@gog/mark-interfaces'
 import { Chart } from './util'
-import { BarChart, StackedAreaChart } from '@gog/testdata'
+import { testCharts } from '@gog/testdata'
 
-storiesOf('Vega Examples', module)
-	.add('Bar Chart', () => (
+let stories = storiesOf('Vega Examples', module)
+testCharts.forEach(tc => {
+	stories = stories.add(tc.title, () => (
 		<Chart
-			data={BarChart.scenegraph}
-			height={220}
-			width={400}
-			origin={[30, 19]}
+			data={tc.scenegraph}
+			height={tc.dimensions.height}
+			width={tc.dimensions.width}
+			origin={tc.dimensions.origin}
 		/>
 	))
-	.add('Stacked Area Chart', () => (
-		<Chart
-			data={StackedAreaChart.scenegraph}
-			height={220}
-			width={400}
-			origin={[30, 19]}
-		/>
-	))
+})

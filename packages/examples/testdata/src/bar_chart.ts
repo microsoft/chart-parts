@@ -6,3 +6,9 @@ import { SGMark } from '@gog/mark-interfaces'
 const data = require('../resources/bar_chart.json')
 
 export const scenegraph = parseScene(data)
+export const title = 'Bar Chart'
+export const dimensions = {
+	height: 200,
+	width: 400,
+	origin: [30, 19] as [number, number],
+}
