@@ -1,9 +1,9 @@
 import { Path } from 'd3-path'
 import { SGMark, SGPathItem, MarkType } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
-import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
-import { VSvgMarkPrerenderer } from './interfaces'
+import { VSvgMarkPrerenderer, translate } from './interfaces'
 
 export class PathRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Path
@@ -18,13 +18,9 @@ export class PathRenderer implements VSvgMarkPrerenderer {
 				const { x = 0, y = 0 } = item
 				const result: VSvgNode = {
 					type: 'path',
-					attrs: {
-						d: item.path,
-						// TODO: turn into transform downstream?
-						origin: [x || 0, y || 0],
-					},
+					attrs: { ...commonProps(item), d: item.path },
+					transforms: [translate(x, y)],
 				}
-				copyCommonProps(item, result)
 				return result
 			}),
 		)

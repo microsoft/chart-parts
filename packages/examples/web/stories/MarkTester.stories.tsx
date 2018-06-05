@@ -250,6 +250,8 @@ storiesOf('Mark Testers', module)
 				{ name: 'angle', min: -180, max: 180 },
 				{ name: 'fontSize', min: 1, max: 36 },
 				{ name: 'limit', min: 0, max: 150 },
+				{ name: 'radius', max: 50 },
+				{ name: 'theta', max: 6.28, step: 0.1 },
 			]}
 			dropdowns={[
 				{ name: 'align', options: ['left', 'center', 'right'] },

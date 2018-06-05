@@ -176,51 +176,22 @@ export interface CommonSvgProps {
 	strokeDashoffset?: number
 
 	/**
-	 * Translate distance on x-axis.
-	 * @default 0
-	 */
-	x?: number
-
-	/**
-	 * Translate distance on y-axis.
-	 * @default 0
-	 */
-	y?: number
-
-	/**
-	 * Rotation degree value on the current object.
-	 * @default 0
-	 */
-	rotation?: number
-
-	/**
-	 * Rotation degree value on the current object.
-	 * @default 1
-	 */
-	scale?: number
-
-	/**
-	 * Transform origin coordinates for the current object.
-	 * @default [0,0]
-	 */
-	origin?: [number, number]
-
-	/**
-	 * Transform originX coordinates for the current object.
-	 * @default 0
-	 */
-	originX?: number
-
-	/**
-	 * Transform originY coordinates for the current object.
-	 * @default 0
-	 */
-	originY?: number
-
-	/**
 	 * catch-all
 	 */
 	[key: string]: any
 }
 
-export interface VSvgNode extends VDomNode<CommonSvgProps, SvgCommonStyle> {}
+export enum VSvgTransformType {
+	translate = 'translate',
+	rotate = 'rotate',
+	scale = 'scale',
+}
+
+export interface VSvgTransform<Value> {
+	type: VSvgTransformType
+	value: Value
+}
+
+export interface VSvgNode extends VDomNode<CommonSvgProps, SvgCommonStyle> {
+	transforms?: Array<VSvgTransform<any>>
+}

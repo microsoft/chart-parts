@@ -1,6 +1,6 @@
 import { SGMark } from '@gog/mark-interfaces'
 import { Prerenderer, ChartOptions } from '@gog/prerender-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { renderMark } from './element_renderers'
 
 const DEFAULT_WIDTH = 250
@@ -45,14 +45,11 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 			children: [
 				{
 					type: 'defs',
-					attrs: {},
 					children: root.defs,
 				},
 				{
 					type: 'g',
-					attrs: {
-						origin,
-					},
+					transforms: [{ type: VSvgTransformType.translate, value: origin }],
 					children: root.nodes,
 				},
 			],

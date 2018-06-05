@@ -1,7 +1,7 @@
 import { Path } from 'd3-path'
 import { SGMark, SGRectItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
+import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import { rectangle } from '../path'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import { VSvgMarkPrerenderer } from './interfaces'
@@ -20,10 +20,10 @@ export class RectRenderer implements VSvgMarkPrerenderer {
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {
+						...commonProps(item),
 						d: rectangle(item, x, y).toString(),
 					},
 				}
-				copyCommonProps(item, result)
 				return result
 			}),
 		)

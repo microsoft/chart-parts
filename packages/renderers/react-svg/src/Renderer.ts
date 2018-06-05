@@ -1,25 +1,26 @@
 import * as React from 'react'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key?: string,
 ): React.ReactElement<any> {
-	const { type, children, attrs, style } = vdom
+	const {
+		type,
+		children,
+		attrs = {},
+		style,
+		transforms: vdomTransforms = [],
+	} = vdom
 	const element: Element = document.createElement(type)
-
-	const reactAttrs: { [key: string]: any } = { key, style }
+	const reactAttrs: { [key: string]: any } = { key, style, ...attrs }
 
 	const transforms = []
-	Object.keys(attrs).forEach(k => {
-		if (k === 'origin') {
-			const [x, y] = attrs[k]
-			transforms.push(`translate(${x},${y})`)
-		} else if (k === 'rotation') {
-			const angle = attrs[k]
-			transforms.push(`rotate(${angle})`)
-		} else {
-			reactAttrs[k] = attrs[k]
+	vdomTransforms.forEach(t => {
+		if (t.type === VSvgTransformType.rotate) {
+			transforms.push(`rotate(${t.value})`)
+		} else if (t.type === VSvgTransformType.translate) {
+			transforms.push(`translate(${t.value[0]}, ${t.value[1]})`)
 		}
 	})
 

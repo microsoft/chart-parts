@@ -1,4 +1,4 @@
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 
 export interface VSvgMarkOutput {
@@ -14,3 +14,11 @@ export type VSvgMarkPrerenderer = MarkPrerenderer<
 	VSvgMarkOutput,
 	VSvgRenderContext
 >
+
+export function translate(x: number, y: number) {
+	return { type: VSvgTransformType.translate, value: [x, y] }
+}
+
+export function rotate(angle: number) {
+	return { type: VSvgTransformType.rotate, value: angle }
+}

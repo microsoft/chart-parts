@@ -1,7 +1,7 @@
 import { Path } from 'd3-path'
 import { SGMark, SGLineItem, MarkType } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { line } from '../path'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import { VSvgMarkPrerenderer } from './interfaces'
@@ -23,7 +23,9 @@ export class LineRenderer implements VSvgMarkPrerenderer {
 				d: line(mark.items, null).toString(),
 			},
 		}
-		mark.items.forEach(item => copyCommonProps(item, lineItem))
+		mark.items.forEach(
+			item => (lineItem.attrs = { ...lineItem.attrs, ...commonProps(item) }),
+		)
 
 		const nodes = emitMarkGroup(MarkType.Line, mark.role, [lineItem])
 		return { nodes }

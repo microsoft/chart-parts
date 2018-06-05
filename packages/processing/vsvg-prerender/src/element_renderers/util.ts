@@ -44,40 +44,44 @@ export function emitMarkGroup(
  * @param item The mark item to copy from
  * @param result The vsvg node to copy into
  */
-export function copyCommonProps(item: SGItem, result: VSvgNode): void {
+export function commonProps(item: SGItem): any {
+	const result: { [key: string]: any } = {}
+
 	if (item.fill !== undefined) {
-		result.attrs.fill = item.fill
+		result.fill = item.fill
 	}
 
 	if (item.fillOpacity !== undefined) {
-		result.attrs.fillOpacity = item.fillOpacity
+		result.fillOpacity = item.fillOpacity
 	}
 
 	if (item.stroke !== undefined) {
-		result.attrs.stroke = item.stroke
+		result.stroke = item.stroke
 	}
 
 	if (item.strokeWidth !== undefined) {
-		result.attrs.strokeWidth = item.strokeWidth
+		result.strokeWidth = item.strokeWidth
 	}
 
 	if (item.strokeOpacity !== undefined) {
-		result.attrs.strokeOpacity = item.strokeOpacity
+		result.strokeOpacity = item.strokeOpacity
 	}
 
 	if (item.strokeJoin !== undefined) {
-		result.attrs.strokeLinejoin = item.strokeJoin
+		result.strokeLinejoin = item.strokeJoin
 	}
 
 	if (item.strokeCap !== undefined) {
-		result.attrs.strokeLinecap = item.strokeCap
+		result.strokeLinecap = item.strokeCap
 	}
 
 	if (item.strokeDash !== undefined) {
-		result.attrs.strokeDasharray = item.strokeDash
+		result.strokeDasharray = item.strokeDash
 	}
 
 	if (item.strokeDashOffset !== undefined) {
-		result.attrs.strokeDashoffset = item.strokeDashOffset
+		result.strokeDashoffset = item.strokeDashOffset
 	}
+
+	return result
 }

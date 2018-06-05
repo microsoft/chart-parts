@@ -7,8 +7,8 @@ import {
 } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
-import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
-import { VSvgMarkPrerenderer } from './interfaces'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
+import { VSvgMarkPrerenderer, rotate, translate } from './interfaces'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
 const DEFAULT_FONT_SIZE = 11
@@ -38,14 +38,20 @@ function offset(
 function calculateTextOrigin({
 	x,
 	y,
-	dx,
-	dy,
 	baseline,
 	fontSize,
+	radius = 0,
+	theta = 0,
 }: SGTextItem): [number, number] {
 	const offsetY = offset(baseline, fontSize)
-	x = (x || 0) + (dx || 0)
-	y = (y || 0) + (dy || 0) + offsetY
+	x = x || 0
+	y = (y || 0) + offsetY
+
+	if (radius) {
+		const t = theta - Math.PI / 2
+		x += radius * Math.cos(t)
+		y += radius * Math.sin(t)
+	}
 	return [x, y]
 }
 
@@ -58,6 +64,22 @@ function calculateBaseline(alignment: VerticalTextAlignment) {
 	}
 }
 
+function getTextTransforms(item: SGTextItem) {
+	const origin = calculateTextOrigin(item)
+	const transforms: any[] = []
+	if (item.angle !== undefined) {
+		transforms.push(translate(origin[0], origin[1]), rotate(item.angle))
+		if (item.dx !== undefined || item.dy !== undefined) {
+			transforms.push(translate(item.dx || 0, item.dy || 0))
+		}
+	} else {
+		transforms.push(
+			translate(origin[0] + item.dx || 0, origin[1] + item.dy || 0),
+		)
+	}
+	return transforms
+}
+
 export class TextRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Text
 
@@ -68,40 +90,26 @@ export class TextRenderer implements VSvgMarkPrerenderer {
 			MarkType.Text,
 			mark.role,
 			mark.items.map(item => {
-				const {
-					fontSize,
-					font,
-					fill,
-					fillOpacity,
-					fontWeight,
-					fontStyle,
-					fontVariant,
-					baseline,
-					angle: rotation,
-				} = item
-
-				// Determine the text origin to use
 				const result: VSvgNode = {
 					type: 'text',
 					attrs: {
-						origin: calculateTextOrigin(item),
-						alignmentBaseline: calculateBaseline(baseline),
-						rotation,
+						...commonProps(item),
+						alignmentBaseline: calculateBaseline(item.baseline),
 					},
 					style: {
-						fontSize,
-						fontFamily: font,
-						fontWeight,
-						fontStyle,
-						fontVariant,
+						fontSize: item.fontSize,
+						fontFamily: item.font,
+						fontWeight: item.fontWeight,
+						fontStyle: item.fontSize,
+						fontVariant: item.fontVariant,
 					},
 					children: [item.text],
+					transforms: getTextTransforms(item),
 				}
 
 				if (item.align) {
-					result.attrs.textAnchor = alignments[item.align] || 'start'
+					result.attrs.textAnchor = alignments[item.align]
 				}
-				copyCommonProps(item, result)
 				return result
 			}),
 		)

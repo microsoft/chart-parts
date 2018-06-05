@@ -1,16 +1,17 @@
 // tslint:disable no-submodule-imports
 import { Path } from 'd3-path'
 import { SGMark, SGGroupItem, MarkType } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
 import flatMap from 'lodash/flatMap'
-import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
+import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
 import {
 	VSvgMarkPrerenderer,
 	VSvgMarkOutput,
 	VSvgRenderContext,
+	translate,
 } from './interfaces'
 
 /**
@@ -22,10 +23,10 @@ function renderGroupRectangle(item: SGGroupItem): VSvgNode {
 	const groupRect: VSvgNode = {
 		type: 'path',
 		attrs: {
+			...commonProps(item),
 			d: rectangle(item, x, y).toString(),
 		},
 	}
-	copyCommonProps(item, groupRect)
 	return groupRect
 }
 
@@ -55,12 +56,10 @@ function renderChildren(
 function renderGroup(item: SGGroupItem, children: VSvgNode[]): VSvgNode {
 	const group: VSvgNode = {
 		type: 'g',
-		attrs: {
-			origin: [item.x || 0, item.y || 0],
-		},
+		attrs: commonProps(item),
+		transforms: [translate(item.x || 0, item.y || 0)],
 		children,
 	}
-	copyCommonProps(item, group)
 	return group
 }
 

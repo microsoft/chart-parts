@@ -1,9 +1,9 @@
 import { Path } from 'd3-path'
 import { SGMark, SGRuleItem, MarkType } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
-import { copyCommonProps, assertTypeIs, emitMarkGroup } from './util'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
+import { assertTypeIs, emitMarkGroup, commonProps } from './util'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
-import { VSvgMarkPrerenderer } from './interfaces'
+import { VSvgMarkPrerenderer, translate } from './interfaces'
 
 export class RuleRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Rule
@@ -20,9 +20,8 @@ export class RuleRenderer implements VSvgMarkPrerenderer {
 				const y = item.y || 0
 				const result: VSvgNode = {
 					type: 'line',
-					attrs: {
-						origin: [x, y],
-					},
+					attrs: commonProps(item),
+					transforms: [translate(x, y)],
 				}
 
 				if (item.x2 !== undefined) {
@@ -31,8 +30,6 @@ export class RuleRenderer implements VSvgMarkPrerenderer {
 				if (item.y2 !== undefined) {
 					result.attrs.y2 = item.y2 - y
 				}
-
-				copyCommonProps(item, result)
 				return result
 			}),
 		)

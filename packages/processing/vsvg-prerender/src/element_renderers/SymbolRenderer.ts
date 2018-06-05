@@ -1,10 +1,10 @@
 import { Path } from 'd3-path'
 import { SGMark, SGSymbolItem, MarkType } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { MarkPrerenderer } from '@gog/prerender-interfaces'
-import { emitMarkGroup, copyCommonProps, assertTypeIs } from './util'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { symbol } from '../path'
-import { VSvgMarkPrerenderer } from './interfaces'
+import { VSvgMarkPrerenderer, translate } from './interfaces'
 
 export class SymbolRenderer implements VSvgMarkPrerenderer {
 	public static TARGET_MARK_TYPE = MarkType.Symbol
@@ -20,11 +20,11 @@ export class SymbolRenderer implements VSvgMarkPrerenderer {
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {
+						...commonProps(item),
 						d: symbol(item, undefined).toString(),
-						origin: [x, y],
 					},
+					transforms: [translate(x, y)],
 				}
-				copyCommonProps(item, result)
 				return result
 			}),
 		)
