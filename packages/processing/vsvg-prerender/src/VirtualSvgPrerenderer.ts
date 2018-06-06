@@ -2,6 +2,7 @@ import { SGMark } from '@gog/mark-interfaces'
 import { Prerenderer, ChartOptions } from '@gog/prerender-interfaces'
 import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { renderMark } from './element_renderers'
+import { translate } from './element_renderers/interfaces'
 
 const DEFAULT_WIDTH = 250
 const DEFAULT_HEIGHT = 250
@@ -31,6 +32,17 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 
 		// Get the rendering of the root mark
 		const root = renderMark(mark, context)
+		const children: VSvgNode[] = [
+			{
+				type: 'defs',
+				children: root.defs,
+			},
+			{
+				type: 'g',
+				transforms: [translate(x, y)],
+				children: root.nodes,
+			},
+		]
 
 		// Wrap the rendered root in an SVG
 		const svg: VSvgNode = {
@@ -42,17 +54,7 @@ export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
 			style: {
 				backgroundColor,
 			},
-			children: [
-				{
-					type: 'defs',
-					children: root.defs,
-				},
-				{
-					type: 'g',
-					transforms: [{ type: VSvgTransformType.translate, value: origin }],
-					children: root.nodes,
-				},
-			],
+			children,
 		}
 		return svg
 	}
