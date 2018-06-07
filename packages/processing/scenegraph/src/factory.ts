@@ -1,11 +1,7 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGItem } from '@gog/scenegraph-interfaces'
 import * as Elements from './elements'
-
-/**
- * Thunk over ot the registry's createItem for now
- */
-export { createItemType as createItem } from './registry'
+import { createItemType } from './registry'
 
 /**
  *
@@ -24,6 +20,13 @@ export function createMark(markType: MarkType, items: SGItem[]) {
 	})
 	const result = new Elements.Mark()
 	result.marktype = markType
-	result.items = items
+	result.items = items as Elements.Item[]
 	return result
+}
+
+export function createItem(
+	itemType: MarkType,
+	props: { [key: string]: any } = {},
+): SGItem {
+	return createItemType(itemType, props)
 }

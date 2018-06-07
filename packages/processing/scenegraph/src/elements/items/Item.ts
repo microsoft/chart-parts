@@ -132,4 +132,9 @@ export abstract class Item extends SceneNode implements SGItem {
 	 * by mouse hover.
 	 */
 	public zIndex?: number = 0
+
+	/**
+	 * Event channels are a mapping of event names to their output channel.
+	 */
+	public eventChannels: { [name: string]: string }
 }

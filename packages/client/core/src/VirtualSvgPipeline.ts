@@ -18,13 +18,9 @@ export class VirtualSvgPipeline<T> {
 		return this.renderer.render(vdom)
 	}
 
-	public handleData(
-		data: any[],
-		sceneSpec: SceneSpec,
-		options: ChartOptions = {},
-	) {
-		const scene = this.generator.generateScene(data, sceneSpec, options)
-		const vdom = converter.render(scene, options)
+	public handleData(data: any[], scene: SceneSpec, options: ChartOptions = {}) {
+		const sceneGraph = this.generator.generateScene(scene, data, options)
+		const vdom = converter.render(sceneGraph, options)
 		return this.renderer.render(vdom)
 	}
 }

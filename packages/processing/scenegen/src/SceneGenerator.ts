@@ -5,16 +5,25 @@ import {
 	MarkSpec,
 	SceneSpec,
 	MarkEncodings,
-	ScaleHash,
+	Scales,
 } from '@gog/mark-spec-interfaces'
 import * as SG from '@gog/scenegraph'
 
 type SGMarkAny = SGMark<SGItem>
 
+/**
+ * The scene generator class
+ */
 export class SceneGenerator<Data> {
+	/**
+	 * Generates a scenegraph instance given data and a scene specification
+	 * @param scene The scene specification
+	 * @param data The data to bind with
+	 * @param options The charting options
+	 */
 	public generateScene(
-		data: Data[],
 		scene: SceneSpec,
+		data: Data[],
 		options: ChartOptions,
 	): SGMark<SGItem> {
 		const scales = createScales(data, scene, options)
@@ -31,25 +40,19 @@ function createScales<Data>(
 	options: ChartOptions,
 ) {
 	const { width, height } = options
-	const drawRect = {
-		left: 0,
-		right: width,
-		top: 0,
-		bottom: height,
-	}
 	const chartRect = {
 		left: 0,
-		right: width,
 		top: 0,
+		right: width,
 		bottom: height,
 	}
+	const drawRect = chartRect
 
 	const scales = {}
 	scene.scales.forEach(({ scaleCreator, name }) => {
 		const scale = scaleCreator({ drawRect, chartRect, data, scales })
 		scales[name] = scale
 	})
-
 	return scales
 }
 
@@ -67,7 +70,7 @@ function createFrame(items: SGMarkAny[]): SGMarkAny {
 function createMarkNode(
 	mark: MarkSpec,
 	data: any[],
-	scales: ScaleHash,
+	scales: Scales,
 ): SGMarkAny {
 	const { type, encodings } = mark
 	const items = data.map(row =>
@@ -81,11 +84,7 @@ function createMarkNode(
 	return SG.createMark(type, items)
 }
 
-function transferEncodings(
-	row: any,
-	encodings: MarkEncodings,
-	scales: ScaleHash,
-) {
+function transferEncodings(row: any, encodings: MarkEncodings, scales: Scales) {
 	const props: { [key: string]: any } = {}
 	Object.keys(encodings)
 		.filter(t => t !== 'items')

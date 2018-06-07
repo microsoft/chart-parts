@@ -7,8 +7,8 @@ export interface RectProps {
 	/**
 	 * TODO: either capture all events or use a map
 	 */
-	onMouseOver?: (element: any, row: any) => void
-	onMouseOut?: (element: any, row: any) => void
+	onMouseOver?: (arg: any) => void
+	onMouseOut?: (arg: any) => void
 
 	x?: MarkEncoding
 	y?: MarkEncoding
@@ -23,8 +23,17 @@ export class Rect extends React.PureComponent<RectProps> {
 		return (
 			<ChartContextConsumer>
 				{api => {
+					const channels: { [key: string]: (arg: any) => void } = {}
+					if (this.props.onMouseOver) {
+						channels.mouseover = this.props.onMouseOver
+					}
+					if (this.props.onMouseOut) {
+						channels.mouseout = this.props.onMouseOut
+					}
+
 					api.addMark({
 						type: MarkType.Rect,
+						channels,
 						encodings: {
 							x: this.props.x,
 							y: this.props.y,

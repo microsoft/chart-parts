@@ -1,4 +1,4 @@
-// tslint:disable no-submodule-imports
+// tslint:disable no-submodule-imports no-implicit-dependencies
 import { Mark } from '@gog/scenegraph/lib/elements/Mark'
 import { ArcItem } from '@gog/scenegraph/lib/elements/items/ArcItem'
 import { renderMark } from '../'
