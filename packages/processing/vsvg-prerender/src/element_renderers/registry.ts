@@ -1,25 +1,25 @@
-import { SGMark } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
-import { MarkPrerenderer } from '@gog/prerender-interfaces'
+import { SGMark } from "@gog/mark-interfaces";
+import { VSvgNode } from "@gog/vdom-interfaces";
+import { MarkPrerenderer } from "@gog/xform-sg-interfaces";
 import {
-	VSvgMarkPrerenderer,
-	VSvgMarkOutput,
-	VSvgRenderContext,
-} from './interfaces'
+  VSvgMarkConverter,
+  VSvgMarkOutput,
+  VSvgRenderContext
+} from "./interfaces";
 
-const itemRendererRegistry = new Map<string, VSvgMarkPrerenderer>()
+const itemRendererRegistry = new Map<string, VSvgMarkConverter>();
 
 export function registerRenderer(
-	markType: string,
-	markRenderer: VSvgMarkPrerenderer,
+  markType: string,
+  markRenderer: VSvgMarkConverter
 ) {
-	itemRendererRegistry.set(markType, markRenderer)
+  itemRendererRegistry.set(markType, markRenderer);
 }
 
 export function renderMark(mark: SGMark<any>, context: VSvgRenderContext) {
-	if (!mark.marktype) {
-		throw new Error(`Unhandled mark type "${mark.marktype}"`)
-	}
-	const renderer = itemRendererRegistry.get(mark.marktype)
-	return renderer ? renderer.render(mark, context) : { nodes: [] }
+  if (!mark.marktype) {
+    throw new Error(`Unhandled mark type "${mark.marktype}"`);
+  }
+  const renderer = itemRendererRegistry.get(mark.marktype);
+  return renderer ? renderer.render(mark, context) : { nodes: [] };
 }

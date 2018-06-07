@@ -1,11 +1,11 @@
-import { Item } from './Item'
 import {
-	SGTextItem,
+	MarkType,
 	HorizontalAlignment,
 	VerticalTextAlignment,
 	TextDirection,
-	MarkType,
 } from '@gog/mark-interfaces'
+import { SGTextItem } from '@gog/scenegraph-interfaces'
+import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {
 	public static ITEM_TYPE = MarkType.Text

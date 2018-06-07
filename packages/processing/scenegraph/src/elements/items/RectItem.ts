@@ -1,4 +1,5 @@
-import { SGRectItem, MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/mark-interfaces'
+import { SGRectItem } from '@gog/scenegraph-interfaces'
 import { Item } from './Item'
 
 export class RectItem extends Item implements SGRectItem {

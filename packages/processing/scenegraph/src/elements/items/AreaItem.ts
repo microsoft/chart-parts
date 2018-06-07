@@ -1,9 +1,5 @@
-import {
-	SGAreaItem,
-	Orientation,
-	Interpolation,
-	MarkType,
-} from '@gog/mark-interfaces'
+import { MarkType, Orientation, Interpolation } from '@gog/mark-interfaces'
+import { SGAreaItem } from '@gog/scenegraph-interfaces'
 import { Item } from './Item'
 
 export class AreaItem extends Item implements SGAreaItem {

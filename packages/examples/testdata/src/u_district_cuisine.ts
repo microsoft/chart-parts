@@ -2,7 +2,7 @@
 
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
-import { SGMark } from '@gog/mark-interfaces'
+import { SGMark } from '@gog/scenegraph-interfaces'
 const data = require('../resources/u_district_cuisine.json')
 
 export const scenegraph = parseScene(data)

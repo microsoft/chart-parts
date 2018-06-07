@@ -1,5 +1,5 @@
-import { SGMark, SGItem, SGNodeType } from '@gog/mark-interfaces'
-import { SceneNode, Mark, Item, GroupItem } from './elements'
+import { SGMark, SGNodeType } from '@gog/scenegraph-interfaces'
+import { Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 
 const KNOWN_KEYS = [

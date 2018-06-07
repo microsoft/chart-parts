@@ -2,7 +2,7 @@
 
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
-import { SGMark } from '@gog/mark-interfaces'
+import { SGMark } from '@gog/scenegraph-interfaces'
 const data = require('../resources/force_directed_layout.json')
 
 export const scenegraph = parseScene(data)

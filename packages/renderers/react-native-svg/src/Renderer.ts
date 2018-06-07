@@ -10,7 +10,6 @@ function createElementFor(
 	const element: Element = React.createElement(type)
 	const reactSvgType = elementMap.get(type)
 	if (!reactSvgType) {
-		console.log('DROPPING', vdom)
 		return null
 	}
 

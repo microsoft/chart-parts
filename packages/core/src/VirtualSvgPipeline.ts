@@ -1,17 +1,29 @@
-import { Renderer } from '@gog/render-interfaces'
-import { VDomRenderer } from '@gog/vdom-interfaces'
-import { parseScene } from '@gog/scenegraph'
-import { ChartOptions } from '@gog/prerender-interfaces'
-import { VirtualSvgRenderer } from '@gog/vsvg-prerender'
+import { VDomRenderer } from "@gog/vdom-interfaces";
+import { parseScene } from "@gog/scenegraph";
+import { ChartOptions } from "@gog/xform-sg-interfaces";
+import { VirtualSvgConverter } from "@gog/xform-vsvg";
+import { SceneSpec } from "@gog/mark-interfaces";
+import { SceneGenerator } from "@gog/scenegen";
 
-const virtualSvgRenderer = new VirtualSvgRenderer()
+const VirtualSvgConverter = new VirtualSvgConverter();
 
 export class VirtualSvgPipeline<T> {
-	constructor(private renderer: VDomRenderer<T>) {}
+  private generator = new SceneGenerator();
 
-	public handle(rawScene: any, options: ChartOptions = {}) {
-		const scene = parseScene(rawScene)
-		const vdom = virtualSvgRenderer.render(scene, options)
-		return this.renderer.render(vdom)
-	}
+  constructor(private renderer: VDomRenderer<T>) {}
+
+  public handleScenegraph(rawScene: any, options: ChartOptions = {}): T {
+    const scene = parseScene(rawScene);
+    const vdom = VirtualSvgConverter.render(scene, options);
+    return this.renderer.render(vdom);
+  }
+
+  public handleData(
+    data: any[],
+    sceneSpec: SceneSpec,
+    options: ChartOptions = {}
+  ) {
+    const scene = this.generator.generateScene(data, sceneSpec, options);
+    return this.handleScenegraph(scene, options);
+  }
 }

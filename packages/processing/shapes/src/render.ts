@@ -1,4 +1,4 @@
-import { bezier, segments } from './arc'
+import { segments } from './arc'
 const temp = ['l', 0, 0, 0, 0, 0, 0, 0]
 
 function scale(current, s) {

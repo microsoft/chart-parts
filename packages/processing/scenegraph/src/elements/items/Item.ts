@@ -1,5 +1,6 @@
+import { StrokeCap, StrokeJoin } from '@gog/mark-interfaces'
 import { SceneNode } from '../SceneNode'
-import { StrokeCap, StrokeJoin, SGItem, SGNodeType } from '@gog/mark-interfaces'
+import { SGItem, SGNodeType } from '@gog/scenegraph-interfaces'
 
 export abstract class Item extends SceneNode implements SGItem {
 	public abstract readonly itemtype: string

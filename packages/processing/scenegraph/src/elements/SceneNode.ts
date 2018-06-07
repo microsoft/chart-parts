@@ -1,4 +1,4 @@
-import { SGNode, SGNodeType } from '@gog/mark-interfaces'
+import { SGNode, SGNodeType } from '@gog/scenegraph-interfaces'
 /**
  * A supertype for every node in the scene. Both marks and items extend this
  */

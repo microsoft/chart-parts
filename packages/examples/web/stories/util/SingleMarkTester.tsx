@@ -1,7 +1,7 @@
 // tslint:disable jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
 import styled from 'styled-components'
-import { Chart } from './Chart'
+import { SGChart } from './Chart'
 import { Slider } from './Slider'
 import { Dropdown } from './Dropdown'
 import { Toggle } from './Toggle'
@@ -108,7 +108,7 @@ export class SingleMarkTester extends React.Component<
 		return (
 			<Container>
 				<ChartContainer>
-					<Chart
+					<SGChart
 						data={this.state.scenegraph}
 						width={chartWidth}
 						height={chartHeight}

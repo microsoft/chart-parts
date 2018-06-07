@@ -1,4 +1,5 @@
-import { SGPathItem, MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/mark-interfaces'
+import { SGPathItem } from '@gog/scenegraph-interfaces'
 import { Item } from './Item'
 
 export class PathItem extends Item implements SGPathItem {

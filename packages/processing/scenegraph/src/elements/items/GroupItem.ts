@@ -1,6 +1,6 @@
-import { SGMark, SGGroupItem, MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/mark-interfaces'
+import { SGMark, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { Item } from './Item'
-import { Mark } from '../Mark'
 
 export class GroupItem extends Item implements SGGroupItem {
 	public static ITEM_TYPE = MarkType.Group

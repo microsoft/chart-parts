@@ -1,5 +1,5 @@
 import { SGMark } from '@gog/mark-interfaces'
-import { Prerenderer, ChartOptions } from '@gog/prerender-interfaces'
+import { Prerenderer, ChartOptions } from '@gog/xform-sg-interfaces'
 import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 import { renderMark } from './element_renderers'
 import { translate } from './element_renderers/interfaces'
@@ -14,7 +14,7 @@ const DEFAULT_ORIGIN: [number, number] = [0, 0]
  *
  * The Virtual Dom acts as an intermediate form that can be rendered out into many forms.
  */
-export class VirtualSvgRenderer implements Prerenderer<VSvgNode> {
+export class VirtualSvgConverter implements Prerenderer<VSvgNode> {
 	public render(mark: SGMark<any>, options: ChartOptions): VSvgNode {
 		const {
 			width = DEFAULT_WIDTH,

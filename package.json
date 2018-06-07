@@ -46,7 +46,7 @@
 			"packages/examples/*",
 			"packages/renderers/*",
 			"packages/processing/*",
-			"packages/core"
+			"packages/client/*"
 		],
 		"nohoist": [
 			"**/@types/*",

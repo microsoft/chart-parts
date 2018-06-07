@@ -1,4 +1,5 @@
-import { SGTrailItem, MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/mark-interfaces'
+import { SGTrailItem } from '@gog/scenegraph-interfaces'
 import { Item } from './Item'
 
 export class TrailItem extends Item implements SGTrailItem {

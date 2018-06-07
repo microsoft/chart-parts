@@ -1,10 +1,10 @@
-import { Item } from './Item'
 import {
-	SGImageItem,
+	MarkType,
 	HorizontalAlignment,
 	VerticalAlignment,
-	MarkType,
 } from '@gog/mark-interfaces'
+import { SGImageItem } from '@gog/scenegraph-interfaces'
+import { Item } from './Item'
 
 export class ImageItem extends Item implements SGImageItem {
 	public static ITEM_TYPE = MarkType.Image

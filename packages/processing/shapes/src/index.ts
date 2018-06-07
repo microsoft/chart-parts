@@ -1,27 +1,12 @@
-import { Path } from 'd3-path'
 import {
 	arc as d3_arc,
 	symbol as d3_symbol,
 	area as d3_area,
 	line as d3_line,
-	Arc,
-	Area,
-	DefaultArcObject,
-	Line,
-	Symbol,
 } from 'd3-shape'
 import { Rectangle } from './Rectangle'
 import { Trail } from './Trail'
 import symbols from './symbols'
-import {
-	SGArcItem,
-	SGAreaItem,
-	SGLineItem,
-	SGRectItem,
-	SGTrailItem,
-	Interpolation,
-	Orientation,
-} from '@gog/mark-interfaces'
 
 function x(item: any) {
 	return item.x || 0

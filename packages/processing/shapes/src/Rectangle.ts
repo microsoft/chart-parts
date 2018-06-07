@@ -1,5 +1,5 @@
 import { path, Path } from 'd3-path'
-import { SGRectItem } from '@gog/mark-interfaces'
+import { SGRectItem } from '@gog/scenegraph-interfaces'
 import { Xform } from './util'
 
 export class Rectangle {

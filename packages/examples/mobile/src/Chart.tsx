@@ -6,7 +6,8 @@ import { View, FlatList, Text } from 'react-native'
 import { testCharts } from '@gog/testdata'
 
 const pipeline = new VirtualSvgPipeline(new Renderer())
-const renderChart = chart => pipeline.handle(chart.scenegraph, chart.dimensions)
+const renderChart = chart =>
+	pipeline.handleScenegraph(chart.scenegraph, chart.dimensions)
 const rendered = testCharts.map(c => renderChart(c))
 
 export default () => (
