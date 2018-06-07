@@ -187,6 +187,11 @@ export interface SGItem extends SGNode {
 	 * by mouse hover.
 	 */
 	readonly zIndex?: number
+
+	/**
+	 * A mapping of client event-names to channel-identifiers
+	 */
+	readonly channels?: { [key: string]: string }
 }
 
 /**

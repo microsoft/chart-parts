@@ -136,5 +136,5 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * Event channels are a mapping of event names to their output channel.
 	 */
-	public eventChannels: { [name: string]: string }
+	public channels: { [name: string]: string }
 }

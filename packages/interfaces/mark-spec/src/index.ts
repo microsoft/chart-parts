@@ -33,7 +33,7 @@ export interface MarkSpec {
 	/**
 	 * The event channels of the mark to listen to
 	 */
-	channels: MarkChannels
+	channels: Channels
 }
 
 /**
@@ -77,11 +77,13 @@ export interface MarkEncodings {
 	[key: string]: MarkEncoding
 }
 
+export type ChannelHandler = (arg: any) => void
+
 /**
  * A hash of mark event channels by event name
  */
-export interface MarkChannels {
-	[key: string]: (arg: any) => void
+export interface Channels {
+	[key: string]: (arg: any) => ChannelHandler
 }
 
 /**
