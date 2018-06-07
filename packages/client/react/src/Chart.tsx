@@ -56,7 +56,7 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 
 	private renderMarks() {
 		const spec = this.sceneBuilder.build()
-		const rendered = this.pipeline.handleData(this.props.data, spec, {
+		const rendered = this.pipeline.handleData(spec, this.props.data, {
 			width: this.props.width,
 			height: this.props.height,
 		})
