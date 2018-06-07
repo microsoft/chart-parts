@@ -56,9 +56,7 @@ storiesOf('Vega Examples (React Pipeline)', module).add('Bar Chart', () => {
 			<Rect
 				onMouseOver={onMouseOver}
 				onMouseOut={onMouseOut}
-				x={({ row, scales: { xscale } }) => {
-					return xscale(row.category)
-				}}
+				x={({ row, scales: { xscale } }) => xscale(row.category)}
 				y={({ row, scales: { yscale } }) => yscale(row.amount)}
 				y2={200}
 				width={({ scales: { xband } }) => xband()}
