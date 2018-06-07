@@ -15,12 +15,12 @@ export class VirtualSvgPipeline<T> {
 	public handleScenegraph(rawScene: any, options: ChartOptions = {}): T {
 		const scene = parseScene(rawScene)
 		const vdom = converter.render(scene, options)
-		return this.renderer.render(vdom)
+		return this.renderer.render(vdom, {})
 	}
 
 	public handleData(scene: SceneSpec, data: any[], options: ChartOptions = {}) {
-		const sceneGraph = this.generator.generateScene(scene, data, options)
-		const vdom = converter.render(sceneGraph.root, options)
-		return this.renderer.render(vdom, sceengraph.channelHandlers)
+		const sg = this.generator.generateScene(scene, data, options)
+		const vdom = converter.render(sg.root, options)
+		return this.renderer.render(vdom, sg.channelHandlers)
 	}
 }

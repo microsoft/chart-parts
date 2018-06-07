@@ -22,6 +22,8 @@ export class LineRenderer implements VSvgMarkConverter {
 			attrs: {
 				d: line(mark.items, null).toString(),
 			},
+			metadata: mark.items[0].metadata,
+			channels: mark.items[0].channels,
 		}
 		mark.items.forEach(
 			item => (lineItem.attrs = { ...lineItem.attrs, ...commonProps(item) }),

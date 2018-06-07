@@ -20,6 +20,8 @@ export class PathRenderer implements VSvgMarkConverter {
 					type: 'path',
 					attrs: { ...commonProps(item), d: item.path },
 					transforms: [translate(x, y)],
+					metadata: item.metadata,
+					channels: item.channels,
 				}
 				return result
 			}),

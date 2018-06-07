@@ -44,18 +44,19 @@ export interface BandScaleProps<DomainType, RangeType> {
 export class BandScale extends React.PureComponent<
 	BandScaleProps<any, number>
 > {
+	private api: SceneBuilder
 	public render() {
 		return (
 			<ChartContextConsumer>
 				{api => {
-					this.receiveApi(api)
+					this.api = api
 					return null
 				}}
 			</ChartContextConsumer>
 		)
 	}
 
-	protected receiveApi(api: SceneBuilder) {
+	public componentDidMount() {
 		const scaleCreator = args => {
 			const domain = this.getDomain(args)
 			const range = this.getRange(args)
@@ -67,8 +68,8 @@ export class BandScale extends React.PureComponent<
 			return scale
 		}
 
-		api.addScaleCreator(this.props.name, scaleCreator)
-		api.addScaleCreator(this.props.widthName, ({ scales }) => () =>
+		this.api.addScaleCreator(this.props.name, scaleCreator)
+		this.api.addScaleCreator(this.props.widthName, ({ scales }) => () =>
 			(scales[this.props.name] as ScaleBand<any>).bandwidth(),
 		)
 	}

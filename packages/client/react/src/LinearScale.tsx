@@ -30,18 +30,20 @@ export interface LinearScaleProps<DomainType, RangeType> {
 export class LinearScale extends React.PureComponent<
 	LinearScaleProps<any, any>
 > {
+	private api: SceneBuilder
+
 	public render() {
 		return (
 			<ChartContextConsumer>
 				{api => {
-					this.receiveApi(api)
+					this.api = api
 					return null
 				}}
 			</ChartContextConsumer>
 		)
 	}
 
-	protected receiveApi(api: SceneBuilder) {
+	public componentDidMount() {
 		const scaleCreator = args => {
 			const domain = this.getDomain(args)
 			const range = this.getRange(args)
@@ -51,7 +53,7 @@ export class LinearScale extends React.PureComponent<
 			return scale
 		}
 
-		api.addScaleCreator(this.props.name, scaleCreator)
+		this.api.addScaleCreator(this.props.name, scaleCreator)
 	}
 
 	private getDomain(args: ScaleCreatorArgs<any>) {

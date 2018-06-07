@@ -42,14 +42,14 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 	}
 
 	public componentDidMount() {
-		this.renderMarks()
+		this.setState({})
 	}
 
 	public render() {
 		return (
 			<ChartContextProvider value={this.sceneBuilder}>
 				{this.props.children}
-				{this.state.rendered}
+				{this.renderMarks()}
 			</ChartContextProvider>
 		)
 	}
@@ -60,7 +60,7 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 			width: this.props.width,
 			height: this.props.height,
 		})
-		this.setState({ rendered })
+		return rendered
 	}
 
 	private get topPadding() {

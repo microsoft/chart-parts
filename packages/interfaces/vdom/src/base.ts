@@ -8,7 +8,8 @@ export interface VDomNode<Attrs, Style> {
 	attrs?: Attrs
 	style?: { [key: string]: any }
 	children?: Array<string | VDomNode<any, any>>
-	channels: { [key: string]: string }
+	channels?: { [key: string]: string }
+	metadata?: { [key: string]: any }
 }
 
 export interface VDomRenderer<TargetForm>

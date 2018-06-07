@@ -24,6 +24,8 @@ export class SymbolRenderer implements VSvgMarkConverter {
 						d: symbol(item, undefined).toString(),
 					},
 					transforms: [translate(x, y)],
+					metadata: item.metadata,
+					channels: item.channels,
 				}
 				return result
 			}),

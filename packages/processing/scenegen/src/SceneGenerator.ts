@@ -111,9 +111,10 @@ class Scene<Data> {
 			this.channelHandlers[newChannelId] = handler
 		})
 
-		const items = data.map(row =>
+		const items = data.map((row, index) =>
 			SG.createItem(type, {
-				...transferEncodings(row, encodings, scales),
+				...this.transferEncodings(row, index, encodings, scales),
+				metadata: { dataRowIndex: index },
 				channels: channelNames,
 			}),
 		)
@@ -123,6 +124,27 @@ class Scene<Data> {
 		 */
 
 		return SG.createMark(type, items)
+	}
+
+	private transferEncodings(
+		row: any,
+		rowIndex: number,
+		encodings: MarkEncodings,
+		scales: Scales,
+	) {
+		const { data } = this
+		const props: { [key: string]: any } = {}
+		Object.keys(encodings)
+			.filter(t => t !== 'items')
+			.forEach(key => {
+				const encoding = encodings[key]
+				const encodingValue =
+					typeof encoding === 'function'
+						? encoding({ row, rowIndex, scales, data })
+						: encoding
+				props[key] = encodingValue
+			})
+		return props
 	}
 }
 
@@ -135,17 +157,4 @@ function createFrame(items: SGMarkAny[]): SGMarkAny {
 	group.name = 'root'
 	group.zIndex = 0
 	return group
-}
-
-function transferEncodings(row: any, encodings: MarkEncodings, scales: Scales) {
-	const props: { [key: string]: any } = {}
-	Object.keys(encodings)
-		.filter(t => t !== 'items')
-		.forEach(key => {
-			const encoding = encodings[key]
-			const encodingValue =
-				typeof encoding === 'function' ? encoding({ row, scales }) : encoding
-			props[key] = encodingValue
-		})
-	return props
 }

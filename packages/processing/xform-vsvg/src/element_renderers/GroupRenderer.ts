@@ -26,6 +26,8 @@ function renderGroupRectangle(item: SGGroupItem): VSvgNode {
 			...commonProps(item),
 			d: rectangle(item, x, y).toString(),
 		},
+		metadata: item.metadata,
+		channels: item.channels,
 	}
 	return groupRect
 }
@@ -59,6 +61,8 @@ function renderGroup(item: SGGroupItem, children: VSvgNode[]): VSvgNode {
 		attrs: commonProps(item),
 		transforms: [translate(item.x || 0, item.y || 0)],
 		children,
+		metadata: item.metadata,
+		channels: item.channels,
 	}
 	return group
 }

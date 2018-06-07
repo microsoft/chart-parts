@@ -26,6 +26,8 @@ export class AreaRenderer implements VSvgMarkConverter {
 			attrs: {
 				d: area(areaItems, undefined).toString(),
 			},
+			metadata: areaItems[0].metadata,
+			channels: areaItems[0].channels,
 		}
 		mark.items.forEach(
 			item =>

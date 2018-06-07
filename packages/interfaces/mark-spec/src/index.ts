@@ -56,9 +56,19 @@ export interface MarkEncodingFunctionArgs {
 	row: any
 
 	/**
+	 * The index of the current Row
+	 */
+	rowIndex: number
+
+	/**
 	 * The configured scales, which may be used to transform row data
 	 */
 	scales: Scales
+
+	/**
+	 * The full dataset
+	 */
+	data: any
 }
 
 /**
@@ -83,7 +93,7 @@ export type ChannelHandler = (arg: any) => void
  * A hash of mark event channels by event name
  */
 export interface Channels {
-	[key: string]: (arg: any) => ChannelHandler
+	[key: string]: ChannelHandler
 }
 
 /**

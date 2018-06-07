@@ -22,6 +22,8 @@ export class RuleRenderer implements VSvgMarkConverter {
 					type: 'line',
 					attrs: commonProps(item),
 					transforms: [translate(x, y)],
+					channels: item.channels,
+					metadata: item.metadata,
 				}
 
 				if (item.x2 !== undefined) {

@@ -26,6 +26,8 @@ export class RectRenderer implements VSvgMarkConverter {
 						...commonProps(item),
 						d: rectangle({ ...item, width, height }, x, y).toString(),
 					},
+					metadata: item.metadata,
+					channels: item.channels,
 				}
 				return result
 			}),

@@ -1,9 +1,16 @@
 import * as React from 'react'
-import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
+import {
+	VSvgNode,
+	VSvgTransformType,
+	VSvgTransform,
+} from '@gog/vdom-interfaces'
+// tslint:disable-next-line no-submodule-imports
+import capitalize from 'lodash/capitalize'
 
 function createElementFor(
 	vdom: VSvgNode,
-	key?: string,
+	key: string,
+	handlers: { [key: string]: (arg: any) => void },
 ): React.ReactElement<any> {
 	const {
 		type,
@@ -11,22 +18,25 @@ function createElementFor(
 		attrs = {},
 		style,
 		transforms: vdomTransforms = [],
+		channels = {},
+		metadata = {},
 	} = vdom
-	const element: Element = document.createElement(type)
-	const reactAttrs: { [key: string]: any } = { key, style, ...attrs }
-
-	const transforms = []
-	vdomTransforms.forEach(t => {
-		if (t.type === VSvgTransformType.rotate) {
-			transforms.push(`rotate(${t.value})`)
-		} else if (t.type === VSvgTransformType.translate) {
-			transforms.push(`translate(${t.value[0]}, ${t.value[1]})`)
-		}
-	})
-
-	if (transforms.length > 0) {
-		reactAttrs.transform = transforms.join(' ')
+	const reactAttrs: { [key: string]: any } = {
+		key,
+		style,
+		transform: getTransformAttribute(vdomTransforms),
+		...attrs,
 	}
+
+	// Map the handlers into the vdom
+	Object.keys(channels).forEach(eventName => {
+		const eventId = channels[eventName]
+		const reactEventName = `on${eventName[0].toUpperCase() +
+			eventName.slice(1)}`
+		const handler = handlers[eventId]
+		reactAttrs[reactEventName] = (reactArg: any) =>
+			handler({ eventArg: reactArg, metadata })
+	})
 
 	return React.createElement(
 		type,
@@ -35,16 +45,30 @@ function createElementFor(
 			.filter(c => !!c)
 			.map(
 				(c, index) =>
-					typeof c !== 'object' ? c : createElementFor(c, `${index}`),
+					typeof c !== 'object' ? c : createElementFor(c, `${index}`, handlers),
 			),
 	)
 }
 
+function getTransformAttribute(vdomTransforms: Array<VSvgTransform<any>>) {
+	const transforms = []
+	vdomTransforms.forEach(t => {
+		if (t.type === VSvgTransformType.rotate) {
+			transforms.push(`rotate(${t.value})`)
+		} else if (t.type === VSvgTransformType.translate) {
+			transforms.push(`translate(${t.value[0]}, ${t.value[1]})`)
+		}
+	})
+	return transforms.length > 0 ? transforms.join(' ') : undefined
+}
 /**
  * Renders a Virtual DOM out to React-DOM's Virtual DOM
  */
 export class Renderer {
-	public render(vdom: VSvgNode): React.ReactElement<any> {
-		return createElementFor(vdom)
+	public render(
+		vdom: VSvgNode,
+		handlers: { [key: string]: (arg: any) => void },
+	): React.ReactElement<any> {
+		return createElementFor(vdom, 'root', handlers)
 	}
 }

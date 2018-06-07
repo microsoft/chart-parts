@@ -100,6 +100,8 @@ export class TextRenderer implements VSvgMarkConverter {
 					},
 					children: [item.text],
 					transforms: getTextTransforms(item),
+					metadata: item.metadata,
+					channels: item.channels,
 				}
 
 				if (item.align) {

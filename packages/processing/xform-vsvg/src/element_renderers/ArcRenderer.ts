@@ -24,6 +24,8 @@ export class ArcRenderer implements VSvgMarkConverter {
 						d: arc(item, null).toString(),
 					},
 					transforms: [translate(x, y)],
+					channels: item.channels,
+					metadata: item.metadata,
 				}
 				return result
 			}),
