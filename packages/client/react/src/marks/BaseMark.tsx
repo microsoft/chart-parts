@@ -1,24 +1,14 @@
 import React from 'react'
-import { ChartContextConsumer } from './ChartContext'
+import { ChartContextConsumer } from '../ChartContext'
 import { MarkType } from '@gog/mark-interfaces'
-import { MarkEncoding } from '@gog/mark-spec-interfaces'
 import { SceneBuilder } from '@gog/scenegen'
+import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
-export interface RectProps {
-	/**
-	 * TODO: either capture all events or use a map
-	 */
-	onMouseEnter?: (arg: any) => void
-	onMouseLeave?: (arg: any) => void
-	x?: MarkEncoding
-	y?: MarkEncoding
-	y2?: MarkEncoding
-	width?: MarkEncoding
-	fill?: MarkEncoding
-	height?: MarkEncoding
-}
+export abstract class BaseMark<
+	T extends CommonMarkProps
+> extends React.PureComponent<T> {
+	protected abstract markType: MarkType
 
-export class Rect extends React.PureComponent<RectProps> {
 	private api: SceneBuilder
 
 	public componentDidMount() {
@@ -31,18 +21,15 @@ export class Rect extends React.PureComponent<RectProps> {
 		}
 
 		this.api.addMark({
-			type: MarkType.Rect,
+			type: this.markType,
 			channels,
 			encodings: {
-				x: this.props.x,
-				y: this.props.y,
-				y2: this.props.y2,
-				height: this.props.height,
-				width: this.props.width,
-				fill: this.props.fill,
+				...captureCommonEncodings(this.props),
+				...this.encodeCustomProperties(),
 			},
 		})
 	}
+
 	public render() {
 		return (
 			<ChartContextConsumer>
@@ -53,4 +40,6 @@ export class Rect extends React.PureComponent<RectProps> {
 			</ChartContextConsumer>
 		)
 	}
+
+	protected abstract encodeCustomProperties(): any
 }

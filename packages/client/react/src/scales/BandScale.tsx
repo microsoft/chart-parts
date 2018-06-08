@@ -1,9 +1,9 @@
 import React from 'react'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
-import { ChartContextConsumer } from './ChartContext'
+import { ChartContextConsumer } from '../ChartContext'
 import { SceneBuilder } from '@gog/scenegen'
 import { scaleBand, ScaleBand } from 'd3-scale'
-import { Dimension } from './interfaces'
+import { Dimension } from '../interfaces'
 
 export interface BandScaleProps<DomainType, RangeType> {
 	name: string

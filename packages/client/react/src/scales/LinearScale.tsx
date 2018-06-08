@@ -1,10 +1,10 @@
 import React from 'react'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
-import { ChartContextConsumer } from './ChartContext'
+import { ChartContextConsumer } from '../ChartContext'
 import { SceneBuilder } from '@gog/scenegen'
 import { scaleLinear } from 'd3-scale'
 import { extent } from 'd3-array'
-import { Dimension } from './interfaces'
+import { Dimension } from '../interfaces'
 
 export interface LinearScaleProps<DomainType, RangeType> {
 	name: string

@@ -1,5 +1,5 @@
 import React from 'react'
-import { ChartContextConsumer } from './ChartContext'
+import { ChartContextConsumer } from '../ChartContext'
 import { SceneBuilder } from '@gog/scenegen'
 
 export interface ScaleProps {
