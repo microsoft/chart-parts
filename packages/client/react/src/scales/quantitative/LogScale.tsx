@@ -6,8 +6,13 @@ import {
 } from './QuantitativeScale'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 
+export interface LogScaleProps
+	extends QuantitativeScaleProps<QuantitativeValue, number> {
+	base?: number
+}
+
 export class LogScale extends QuantitativeScale<
-	QuantitativeScaleProps<QuantitativeValue, number>,
+	LogScaleProps,
 	QuantitativeValue,
 	number
 > {
@@ -18,6 +23,14 @@ export class LogScale extends QuantitativeScale<
 			.domain(domain)
 			.range(range)
 		this.addCommonProperties(result)
+
+		if (this.base !== undefined) {
+			result.base(this.base)
+		}
 		return result
+	}
+
+	private get base() {
+		return this.props.base
 	}
 }

@@ -1,5 +1,5 @@
 import { scaleBand, ScaleBand } from 'd3-scale'
-import { DomainRangeScale, DomainRangeScaleProps } from '../BaseScale'
+import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 import { Dimension } from '../../interfaces'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 

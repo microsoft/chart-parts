@@ -1,4 +1,4 @@
-import { DomainRangeScale, DomainRangeScaleProps } from '../BaseScale'
+import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { Dimension } from '../../interfaces'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
@@ -24,7 +24,7 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	nice?: boolean | number
+	nice?: boolean | number | string | object
 }
 
 export abstract class QuantitativeScale<

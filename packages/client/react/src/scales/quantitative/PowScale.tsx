@@ -6,8 +6,13 @@ import {
 } from './QuantitativeScale'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 
+export interface PowScaleProps
+	extends QuantitativeScaleProps<QuantitativeValue, number> {
+	exponent?: number
+}
+
 export class PowScale extends QuantitativeScale<
-	QuantitativeScaleProps<QuantitativeValue, number>,
+	PowScaleProps,
 	QuantitativeValue,
 	number
 > {
@@ -18,6 +23,15 @@ export class PowScale extends QuantitativeScale<
 			.domain(domain)
 			.range(range)
 		this.addCommonProperties(result)
+
+		if (this.exponent !== undefined) {
+			result.exponent(this.exponent)
+		}
+
 		return result
+	}
+
+	private get exponent() {
+		return this.props.exponent
 	}
 }

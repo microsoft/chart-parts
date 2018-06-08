@@ -6,8 +6,11 @@ import {
 } from './QuantitativeScale'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 
+export interface TimeScaleProps
+	extends QuantitativeScaleProps<TimeValue, number> {}
+
 export class TimeScale extends QuantitativeScale<
-	QuantitativeScaleProps<TimeValue, number>,
+	TimeScaleProps,
 	TimeValue,
 	number
 > {
@@ -17,6 +20,7 @@ export class TimeScale extends QuantitativeScale<
 		const result = scaleTime()
 			.domain(domain)
 			.range(range)
+
 		this.addCommonProperties(result)
 		return result
 	}
