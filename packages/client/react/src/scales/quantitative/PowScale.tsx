@@ -24,14 +24,10 @@ export class PowScale extends QuantitativeScale<
 			.range(range)
 		this.addCommonProperties(result)
 
-		if (this.exponent !== undefined) {
-			result.exponent(this.exponent)
+		if (this.props.exponent !== undefined) {
+			result.exponent(this.props.exponent)
 		}
 
 		return result
-	}
-
-	private get exponent() {
-		return this.props.exponent
 	}
 }

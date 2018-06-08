@@ -49,23 +49,15 @@ export abstract class QuantitativeScale<
 		}
 	}
 
-	protected get clamp() {
-		return !!this.props.clamp
-	}
-
-	protected get nice() {
-		return this.props.nice
-	}
-
 	protected addCommonProperties(scale: any) {
-		if (typeof this.nice === 'boolean') {
+		if (this.props.nice === true) {
 			scale.nice()
-		} else if (typeof this.nice === 'number') {
-			scale.nice(this.nice)
+		} else if (this.props.nice !== undefined) {
+			scale.nice(this.props.nice)
 		}
 
-		if (this.clamp !== undefined) {
-			scale.clamp(this.clamp)
+		if (this.props.clamp !== undefined) {
+			scale.clamp(this.props.clamp)
 		}
 	}
 }

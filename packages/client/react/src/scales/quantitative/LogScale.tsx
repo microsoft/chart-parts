@@ -24,13 +24,9 @@ export class LogScale extends QuantitativeScale<
 			.range(range)
 		this.addCommonProperties(result)
 
-		if (this.base !== undefined) {
-			result.base(this.base)
+		if (this.props.base !== undefined) {
+			result.base(this.props.base)
 		}
 		return result
-	}
-
-	private get base() {
-		return this.props.base
 	}
 }
