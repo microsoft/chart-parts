@@ -65,3 +65,15 @@ export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
 		zIndex: props.zIndex,
 	}
 }
+
+export enum CategoricalColorScheme {
+	category10 = 'schemeCategory10',
+	accent = 'schemeAccent',
+	dark2 = 'schemeDark2',
+	paired = 'schemePaired',
+	pastel = 'schemePastel',
+	pastel2 = 'schemePastel2',
+	set1 = 'schemeSet1',
+	set2 = 'schemeSet2',
+	set3 = 'schemeSet3',
+}
