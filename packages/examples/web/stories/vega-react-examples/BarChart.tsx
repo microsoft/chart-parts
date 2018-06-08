@@ -43,6 +43,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					name="yscale"
 					bindDomain="amount"
 					bindRange={Dimension.HEIGHT}
+					nice={true}
 				/>
 				<BandScale
 					name="xscale"

@@ -1,10 +1,10 @@
+// tslint:disable max-classes-per-file
 import React from 'react'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 import { ChartContextConsumer } from '../ChartContext'
 import { SceneBuilder } from '@gog/scenegen'
-import { Dimension } from '../interfaces'
 
-export interface BaseScaleProps<DomainType, RangeType> {
+export interface DomainScaleProps<Domain> {
 	/**
 	 * The name of the scale
 	 */
@@ -17,28 +17,30 @@ export interface BaseScaleProps<DomainType, RangeType> {
 	bindDomain?: string
 
 	/**
-	 * Binds the range of the scale to a chart dimension
-	 * in the mark's draw-rect
-	 */
-	bindRange?: Dimension
-
-	/**
 	 * Manually create the domain based on a scale-creation
 	 * context
 	 */
-	domain?: (args: ScaleCreatorArgs<any>) => DomainType[]
+	domain?: (args: ScaleCreatorArgs<any>) => Domain
+}
+
+export interface DomainRangeScaleProps<Domain, Range, RangeBind>
+	extends DomainScaleProps<Domain> {
+	/**
+	 * Binds the range of the scale to a chart dimension
+	 * in the mark's draw-rect
+	 */
+	bindRange?: RangeBind
 
 	/**
 	 * Manually create the rangse based on a scale-creation
 	 * context
 	 */
-	range?: (args: ScaleCreatorArgs<any>) => [RangeType, RangeType]
+	range?: (args: ScaleCreatorArgs<any>) => Range
 }
 
-export abstract class BaseScale<
-	DomainType,
-	RangeType,
-	Props extends BaseScaleProps<DomainType, RangeType>
+export abstract class DomainScale<
+	Props extends DomainScaleProps<Domain>,
+	Domain
 > extends React.PureComponent<Props> {
 	protected api: SceneBuilder
 
@@ -54,22 +56,16 @@ export abstract class BaseScale<
 	}
 
 	public componentDidMount() {
-		const scaleCreator = args => {
-			const domain = this.getDomain(args)
-			const range = this.getRange(args)
-			return this.createScale(domain, range)
-		}
-
-		this.api.addScaleCreator(this.props.name, scaleCreator)
+		this.api.addScaleCreator(this.props.name, args => this.createScale(args))
 	}
 
-	protected abstract createScale(domain: DomainType[], range: RangeType[])
+	protected abstract createScale(args: ScaleCreatorArgs<any>)
 
-	protected processDomainValues(values: DomainType[]): DomainType[] {
-		return values
+	protected processDomainValues(values: any[]): Domain {
+		return (values as any) as Domain
 	}
 
-	private getDomain(args: ScaleCreatorArgs<any>) {
+	protected getDomain(args: ScaleCreatorArgs<any>) {
 		if (this.props.domain) {
 			return this.props.domain(args)
 		} else {
@@ -81,23 +77,28 @@ export abstract class BaseScale<
 			return this.processDomainValues(data.map(d => d[bindDomain]))
 		}
 	}
+}
 
-	private getRange(args: ScaleCreatorArgs<any>): [RangeType, RangeType] {
+export abstract class DomainRangeScale<
+	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
+	Domain,
+	Range,
+	RangeBind
+> extends DomainScale<Props, Domain> {
+	protected abstract handleRangeBind(
+		args: ScaleCreatorArgs<any>,
+		bind: RangeBind,
+	)
+
+	protected getRange(args: ScaleCreatorArgs<any>): Range {
 		if (this.props.range) {
-			return (this.props.range(args) as any) as [RangeType, RangeType]
+			return this.props.range(args)
 		} else {
 			const { bindRange } = this.props
-			const { drawRect } = args
 			if (!bindRange) {
 				throw new Error('Either bindRange or range must be set')
 			}
-
-			const range: [number, number] =
-				bindRange === Dimension.HEIGHT
-					? [drawRect.bottom, drawRect.top]
-					: [drawRect.left, drawRect.right]
-
-			return (range as any) as [RangeType, RangeType]
+			return this.handleRangeBind(args, bindRange)
 		}
 	}
 }

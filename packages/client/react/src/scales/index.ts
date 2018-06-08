@@ -1,3 +1,3 @@
-export * from './BandScale'
-export * from './LinearScale'
 export * from './Scale'
+export * from './quantitative'
+export * from './discrete'
