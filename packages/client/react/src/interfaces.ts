@@ -34,12 +34,8 @@ export interface CommonMarkProps {
 	tooltip?: MarkEncoding
 	zIndex?: MarkEncoding
 
-	// Event Handlers
-	/**
-	 * TODO: either capture all events or use a map
-	 */
-	onMouseEnter?: (arg: any) => void
-	onMouseLeave?: (arg: any) => void
+	// Events
+	eventHandlers?: { [key: string]: (arg: any) => void }
 }
 
 export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {

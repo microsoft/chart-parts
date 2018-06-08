@@ -4,8 +4,6 @@ import {
 	VSvgTransformType,
 	VSvgTransform,
 } from '@gog/vdom-interfaces'
-// tslint:disable-next-line no-submodule-imports
-import capitalize from 'lodash/capitalize'
 
 function createElementFor(
 	vdom: VSvgNode,
@@ -31,8 +29,7 @@ function createElementFor(
 	// Map the handlers into the vdom
 	Object.keys(channels).forEach(eventName => {
 		const eventId = channels[eventName]
-		const reactEventName = `on${eventName[0].toUpperCase() +
-			eventName.slice(1)}`
+		const reactEventName = eventName
 		const handler = handlers[eventId]
 		reactAttrs[reactEventName] = (reactArg: any) =>
 			handler({ eventArg: reactArg, metadata })

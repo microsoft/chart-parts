@@ -4,9 +4,18 @@ import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
-	key?: string,
+	key: string,
+	handlers: { [key: string]: (arg: any) => void },
 ): React.ReactElement<any> | null {
-	const { type, children, attrs, style, transforms = [] } = vdom
+	const {
+		type,
+		children,
+		attrs,
+		style,
+		transforms = [],
+		channels = {},
+		metadata = {},
+	} = vdom
 	const element: Element = React.createElement(type)
 	const reactSvgType = elementMap.get(type)
 	if (!reactSvgType) {
@@ -35,13 +44,22 @@ function createElementFor(
 		rotate,
 	}
 
+	// Map the handlers into the vdom
+	Object.keys(channels).forEach(eventName => {
+		const eventId = channels[eventName]
+		const reactEventName = eventName
+		const handler = handlers[eventId]
+		reactAttrs[reactEventName] = (reactArg: any) =>
+			handler({ eventArg: reactArg, metadata })
+	})
+
 	return React.createElement(
 		reactSvgType,
 		reactAttrs,
 		(children || [])
 			.map(
 				(c, index) =>
-					typeof c !== 'object' ? c : createElementFor(c, `${index}`),
+					typeof c !== 'object' ? c : createElementFor(c, `${index}`, handlers),
 			)
 			.filter(t => !!t),
 	)
@@ -51,7 +69,10 @@ function createElementFor(
  * Renders a Virtual DOM out to React-DOM's Virtual DOM
  */
 export class Renderer {
-	public render(vdom: VSvgNode): React.ReactElement<any> | null {
-		return createElementFor(vdom, 'root')
+	public render(
+		vdom: VSvgNode,
+		handlers: { [key: string]: (arg: any) => void },
+	): React.ReactElement<any> | null {
+		return createElementFor(vdom, 'root', handlers)
 	}
 }

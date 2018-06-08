@@ -2,16 +2,22 @@
 	"include": "/**/*.js",
 	"exclude": ["/node_modules/*", ".babelrc", ".git"],
 	"dependencies": {
-		"@gog/core": "../../clients/core",
-		"@gog/react": "../../clients/react",
+		"@gog/core": "../../client/core",
+		"@gog/react": "../../client/react",
 		"@gog/testdata": "../testdata",
+
 		"@gog/mark-interfaces": "../../interfaces/mark",
-		"@gog/xform-sg-interfaces": "../../interfaces/prerender",
+		"@gog/mark-spec-interfaces": "../../interfaces/mark-spec",
 		"@gog/render-interfaces": "../../interfaces/render",
+		"@gog/scenegraph-interfaces": "../../interfaces/scenegraph",
 		"@gog/vdom-interfaces": "../../interfaces/vdom",
+		"@gog/xform-sg-interfaces": "../../interfaces/xform-sg",
+
 		"@gog/scenegraph": "../../processing/scenegraph",
+		"@gog/scenegen": "../../processing/scenegen",
 		"@gog/shapes": "../../processing/shapes",
 		"@gog/xform-vsvg": "../../processing/xform-vsvg",
+
 		"@gog/react-native-svg-renderer": "../../renderers/react-native-svg"
 	}
 }

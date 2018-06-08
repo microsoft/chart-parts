@@ -13,11 +13,10 @@ export abstract class BaseMark<
 
 	public componentDidMount() {
 		const channels: { [key: string]: (arg: any) => void } = {}
-		if (this.props.onMouseEnter) {
-			channels.mouseEnter = this.props.onMouseEnter
-		}
-		if (this.props.onMouseLeave) {
-			channels.mouseLeave = this.props.onMouseLeave
+		if (this.props.eventHandlers) {
+			Object.keys(this.props.eventHandlers).forEach(eventName => {
+				channels[eventName] = this.props.eventHandlers[eventName]
+			})
 		}
 
 		this.api.addMark({

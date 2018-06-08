@@ -1,7 +1,7 @@
 // tslint:disable
 import React from 'react'
 import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
-import { Renderer } from '@gog/react-svg-renderer'
+import { Renderer } from '@gog/react-native-svg-renderer'
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -27,14 +27,9 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	public render() {
 		console.log('Render Chart')
 		// Externalized Event Handlers
-		const onMouseEnter = ({ metadata: { dataRowIndex } }) => {
+		const onPress = ({ metadata: { dataRowIndex } }) => {
 			if (this.state.hoverRowIndex !== dataRowIndex) {
 				this.setState({ hoverRowIndex: dataRowIndex })
-			}
-		}
-		const onMouseLeave = ({ metadata: { dataRowIndex } }) => {
-			if (this.state.hoverRowIndex === dataRowIndex) {
-				this.setState({ hoverRowIndex: undefined })
 			}
 		}
 		return (
@@ -51,7 +46,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				{/* <Axis orient="bottom" scale="xscale" />
 				<Ax is orient="left" scale="yscale" /> */}
 				<Rect
-					eventHandlers={{ onMouseEnter, onMouseLeave }}
+					eventHandlers={{ onPress }}
 					x={({ row, scales: { xscale } }) => xscale(row.category)}
 					y={({ row, scales: { yscale } }) => yscale(row.amount)}
 					width={({ scales: { xband } }) => xband()}
