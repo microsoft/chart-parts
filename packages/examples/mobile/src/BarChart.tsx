@@ -34,13 +34,17 @@ export class BarChart extends React.Component<{}, BarChartState> {
 		}
 		return (
 			<Chart width={400} height={200} data={data} renderer={new Renderer()}>
-				<LinearScale name="yscale" bindTo="amount" alignTo={Dimension.HEIGHT} />
+				<LinearScale
+					name="yscale"
+					bindDomain="amount"
+					bindRange={Dimension.HEIGHT}
+				/>
 				<BandScale
 					name="xscale"
 					widthName="xband"
-					bindTo="category"
+					bindDomain="category"
 					padding={0.05}
-					alignTo={Dimension.WIDTH}
+					bindRange={Dimension.WIDTH}
 				/>
 
 				{/* <Axis orient="bottom" scale="xscale" />
