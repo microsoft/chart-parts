@@ -7,6 +7,7 @@ import {
 	SceneSpec,
 	MarkEncodings,
 	Scales,
+	Transformer,
 } from '@gog/mark-spec-interfaces'
 import * as SG from '@gog/scenegraph'
 
@@ -80,12 +81,12 @@ class Scene<Data> {
 		const chartRect = {
 			left: 0,
 			top: 0,
-			right: width,
-			bottom: height,
+			right: width || 250,
+			bottom: height || 250,
 		}
 		const drawRect = chartRect
 
-		const scales = {}
+		const scales: { [key: string]: Transformer<any, any> } = {}
 		scene.scales.forEach(({ scaleCreator, name }) => {
 			const scale = scaleCreator({ drawRect, chartRect, data, scales })
 			scales[name] = scale

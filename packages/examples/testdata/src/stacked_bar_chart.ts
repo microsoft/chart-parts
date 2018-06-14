@@ -2,7 +2,6 @@
 
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
-import { SGMark } from '@gog/scenegraph-interfaces'
 const data = require('../resources/stacked_bar_chart.json')
 
 export const scenegraph = parseScene(data)

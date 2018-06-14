@@ -1,7 +1,5 @@
-import { Path } from 'd3-path'
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGAreaItem } from '@gog/scenegraph-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
@@ -12,19 +10,18 @@ export class AreaRenderer implements VSvgMarkConverter {
 	public render(mark: SGMark<SGAreaItem>) {
 		assertTypeIs(mark, AreaRenderer.TARGET_MARK_TYPE)
 
-		const renderedItems: VSvgNode[] = []
 		if (mark.items.map.length === 0) {
 			return { nodes: [] }
 		}
 
 		const areaItems = mark.items.map(a => ({
 			...a,
-			height: a.y2 - a.y,
+			height: a.height || (a.y2 || 0) - (a.y || 0),
 		}))
 		const areaItem = {
 			type: 'path',
 			attrs: {
-				d: area(areaItems, undefined).toString(),
+				d: area(areaItems),
 			},
 			metadata: areaItems[0].metadata,
 			channels: areaItems[0].channels,

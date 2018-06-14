@@ -1,5 +1,5 @@
 // tslint:disable
-import React from 'react'
+import * as React from 'react'
 import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
 import { Renderer } from '@gog/react-native-svg-renderer'
 

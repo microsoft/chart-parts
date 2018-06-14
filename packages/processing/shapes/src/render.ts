@@ -1,7 +1,7 @@
 import { segments } from './arc'
 const temp = ['l', 0, 0, 0, 0, 0, 0, 0]
 
-function scale(current, s) {
+function scale(current: any, s: any) {
 	const c = (temp[0] = current[0])
 	if (c === 'a' || c === 'A') {
 		temp[1] = s * current[1]
@@ -16,7 +16,7 @@ function scale(current, s) {
 	return temp
 }
 
-export default function(context, path, l, t, s) {
+export default function(context: any, path: any, l: any, t: any, s: any) {
 	let current // current instruction
 	let previous = null
 	let x = 0 // current x
@@ -225,8 +225,8 @@ export default function(context, path, l, t, s) {
 					controlY = y
 				} else if (previous[0] === 't') {
 					// calculate reflection of previous control points for t
-					controlX = 2 * x - tempControlX
-					controlY = 2 * y - tempControlY
+					controlX = 2 * x - (tempControlX as number)
+					controlY = 2 * y - (tempControlY as number)
 				} else if (previous[0] === 'q') {
 					// calculate reflection of previous control points for q
 					controlX = 2 * x - controlX
@@ -302,7 +302,7 @@ export default function(context, path, l, t, s) {
 	}
 }
 
-function drawArc(context, x, y, coords) {
+function drawArc(context: any, x: any, y: any, coords: any) {
 	const seg = segments(
 		coords[5], // end x
 		coords[6], // end y
@@ -314,7 +314,7 @@ function drawArc(context, x, y, coords) {
 		x,
 		y,
 	)
-	seg.forEach(bez => {
+	seg.forEach((bez: any) => {
 		context.bezierCurveTo(bez[0], bez[1], bez[2], bez[3], bez[4], bez[5])
 	})
 }

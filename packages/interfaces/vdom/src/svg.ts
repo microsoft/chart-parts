@@ -1,4 +1,3 @@
-import { Renderer } from '@gog/render-interfaces'
 import { StrokeCap, StrokeJoin } from '@gog/mark-interfaces'
 import { VDomNode } from './base'
 

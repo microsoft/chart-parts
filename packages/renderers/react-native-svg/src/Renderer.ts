@@ -16,7 +16,6 @@ function createElementFor(
 		channels = {},
 		metadata = {},
 	} = vdom
-	const element: Element = React.createElement(type)
 	const reactSvgType = elementMap.get(type)
 	if (!reactSvgType) {
 		return null

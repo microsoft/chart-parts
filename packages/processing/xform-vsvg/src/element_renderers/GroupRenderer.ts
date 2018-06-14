@@ -1,9 +1,7 @@
 // tslint:disable no-submodule-imports
-import { Path } from 'd3-path'
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGGroupItem } from '@gog/scenegraph-interfaces'
-import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
-import flatMap from 'lodash/flatMap'
+import { VSvgNode } from '@gog/vdom-interfaces'
 import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
@@ -13,6 +11,10 @@ import {
 	VSvgRenderContext,
 	translate,
 } from './interfaces'
+
+declare var require: any
+// tslint:disable-next-line no-var-requires
+const flatMap = require('lodash/flatMap')
 
 /**
  * Renders a group's "rectangle", which can have a fill and stroke
@@ -40,8 +42,8 @@ function renderChildren(
 	item: SGGroupItem,
 	context: VSvgRenderContext,
 ): VSvgMarkOutput {
-	let nodes = []
-	let defs = []
+	let nodes: VSvgNode[] = []
+	let defs: VSvgNode[] = []
 
 	const groupItems = item.items || []
 	groupItems.forEach(m => {
@@ -93,11 +95,11 @@ export class GroupRenderer implements VSvgMarkConverter {
 	public render(mark: SGMark<SGGroupItem>, context: VSvgRenderContext) {
 		assertTypeIs(mark, GroupRenderer.TARGET_MARK_TYPE)
 
-		let defs = []
+		let defs: VSvgNode[] = []
 		const nodes = emitMarkGroup(
 			MarkType.Group,
 			mark.role,
-			flatMap(mark.items, item => {
+			flatMap(mark.items, (item: SGGroupItem) => {
 				// Render the Group's Rectangle
 				const groupRect = renderGroupRectangle(item)
 
@@ -106,7 +108,7 @@ export class GroupRenderer implements VSvgMarkConverter {
 					item,
 					context,
 				)
-				defs = [...defs, ...groupDefs]
+				defs = [...defs, ...(groupDefs || [])]
 
 				// Render the group
 				let group = renderGroup(item, groupChildren)

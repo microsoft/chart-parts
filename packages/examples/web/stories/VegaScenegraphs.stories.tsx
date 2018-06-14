@@ -1,5 +1,5 @@
 // tslint:disable jsx-no-array-literal-props
-import React from 'react'
+import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { SGChart } from './util'
 import { testCharts } from '@gog/testdata'

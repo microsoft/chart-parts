@@ -38,6 +38,9 @@ export class BandScale extends DomainRangeScale<
 	Dimension
 > {
 	public componentDidMount() {
+		if (!this.api) {
+			throw new Error('expected API to be present')
+		}
 		super.componentDidMount()
 		this.api.addScaleCreator(this.props.widthName, ({ scales }) => () =>
 			(scales[this.props.name] as ScaleBand<any>).bandwidth(),
@@ -65,7 +68,10 @@ export class BandScale extends DomainRangeScale<
 		return result
 	}
 
-	protected handleRangeBind(args: ScaleCreatorArgs<any>, rangeBind: Dimension) {
+	protected handleRangeBind(
+		args: ScaleCreatorArgs<any>,
+		rangeBind: Dimension,
+	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
 			return [args.drawRect.bottom, args.drawRect.top]
 		} else {

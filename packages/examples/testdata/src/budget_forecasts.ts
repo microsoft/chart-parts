@@ -2,7 +2,6 @@
 
 // tslint:disable no-var-requires
 import { parseScene } from '@gog/scenegraph'
-import { SGMark } from '@gog/scenegraph-interfaces'
 const data = require('../resources/budget_forecasts.json')
 
 export const scenegraph = parseScene(data)

@@ -1,9 +1,22 @@
 // Path parsing and rendering code adapted from fabric.js -- Thanks!
-const cmdlen = { m: 2, l: 2, h: 1, v: 1, c: 6, s: 4, q: 4, t: 2, a: 7 }
+const cmdlen: { [key: string]: number } = {
+	m: 2,
+	l: 2,
+	h: 1,
+	v: 1,
+	c: 6,
+	s: 4,
+	q: 4,
+	t: 2,
+	a: 7,
+}
 const regexp = [/([MLHVCSQTAZmlhvcsqtaz])/g, /###/, /(\d)([-+])/g, /\s|,|###/]
 
-export default function(pathstr: string) {
-	const result = []
+//
+export type Command = Array<string | number>
+
+export default function(pathstr: string): Command[] {
+	const result: any[] = []
 
 	// First, break path into command sequence
 	const path = pathstr
@@ -11,7 +24,6 @@ export default function(pathstr: string) {
 		.replace(regexp[0], '###$1')
 		.split(regexp[1])
 		.slice(1)
-	const pathLength = path.length
 
 	// Next, parse each command in turn
 	path.forEach(command => {

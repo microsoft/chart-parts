@@ -63,6 +63,7 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 		return rendered
 	}
 
+	/*
 	private get topPadding() {
 		return this.getPadding('top')
 	}
@@ -86,4 +87,5 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 			return this.props.padding || 0
 		}
 	}
+	*/
 }

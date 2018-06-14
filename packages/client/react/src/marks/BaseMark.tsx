@@ -1,4 +1,4 @@
-import React from 'react'
+import * as React from 'react'
 import { ChartContextConsumer } from '../ChartContext'
 import { MarkType } from '@gog/mark-interfaces'
 import { SceneBuilder } from '@gog/scenegen'
@@ -9,14 +9,19 @@ export abstract class BaseMark<
 > extends React.PureComponent<T> {
 	protected abstract markType: MarkType
 
-	private api: SceneBuilder
+	private api: SceneBuilder | undefined
 
 	public componentDidMount() {
+		if (!this.api) {
+			throw new Error('expected API to be present')
+		}
 		const channels: { [key: string]: (arg: any) => void } = {}
-		if (this.props.eventHandlers) {
-			Object.keys(this.props.eventHandlers).forEach(eventName => {
-				channels[eventName] = this.props.eventHandlers[eventName]
-			})
+		const eventHandlers: { [key: string]: (arg: any) => void } = this.props
+			.eventHandlers as any
+		if (eventHandlers) {
+			Object.entries(eventHandlers).forEach(
+				([eventName, handler]) => (channels[eventName] = handler),
+			)
 		}
 
 		this.api.addMark({

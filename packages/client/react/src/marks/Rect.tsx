@@ -1,6 +1,6 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { MarkEncoding } from '@gog/mark-spec-interfaces'
-import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
+import { CommonMarkProps } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface RectProps extends CommonMarkProps {

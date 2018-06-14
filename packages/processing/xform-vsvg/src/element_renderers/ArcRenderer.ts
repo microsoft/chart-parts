@@ -1,4 +1,3 @@
-import { Path } from 'd3-path'
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGArcItem } from '@gog/scenegraph-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
@@ -21,7 +20,7 @@ export class ArcRenderer implements VSvgMarkConverter {
 					type: 'path',
 					attrs: {
 						...commonProps(item),
-						d: arc(item, null).toString(),
+						d: arc(item),
 					},
 					transforms: [translate(x, y)],
 					channels: item.channels,

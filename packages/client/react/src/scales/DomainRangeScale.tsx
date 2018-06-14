@@ -44,7 +44,7 @@ export abstract class DomainRangeScale<
 	protected abstract handleRangeBind(
 		args: ScaleCreatorArgs<any>,
 		bind: RangeBind,
-	)
+	): Range
 
 	protected getRange(args: ScaleCreatorArgs<any>): Range {
 		if (this.props.range) {
@@ -54,7 +54,7 @@ export abstract class DomainRangeScale<
 			if (!bindRange) {
 				throw new Error('Either bindRange or range must be set')
 			}
-			return this.handleRangeBind(args, bindRange)
+			return this.handleRangeBind(args, bindRange as RangeBind)
 		}
 	}
 }

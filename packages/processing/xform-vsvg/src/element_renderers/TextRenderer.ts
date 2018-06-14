@@ -1,4 +1,3 @@
-import { Path } from 'd3-path'
 import { SGMark, SGTextItem } from '@gog/scenegraph-interfaces'
 import { MarkType, VerticalTextAlignment } from '@gog/mark-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
@@ -14,7 +13,7 @@ const DEFAULT_FONT_SIZE = 11
  * @param fontSize
  */
 function offset(
-	baseline: VerticalTextAlignment,
+	baseline: VerticalTextAlignment | undefined,
 	height: number = DEFAULT_FONT_SIZE,
 ) {
 	// perform our own font baseline calculation
@@ -50,7 +49,7 @@ function calculateTextOrigin({
 	return [x, y]
 }
 
-function calculateBaseline(alignment: VerticalTextAlignment) {
+function calculateBaseline(alignment: VerticalTextAlignment | undefined) {
 	switch (alignment) {
 		case VerticalTextAlignment.MIDDLE:
 			return 'central'
@@ -69,7 +68,10 @@ function getTextTransforms(item: SGTextItem) {
 		}
 	} else {
 		transforms.push(
-			translate(origin[0] + item.dx || 0, origin[1] + item.dy || 0),
+			translate(
+				origin[0] + (item.dx || 0) || 0,
+				origin[1] + (item.dy || 0) || 0,
+			),
 		)
 	}
 	return transforms
@@ -85,12 +87,19 @@ export class TextRenderer implements VSvgMarkConverter {
 			MarkType.Text,
 			mark.role,
 			mark.items.map(item => {
+				const attrs = {
+					...commonProps(item),
+					alignmentBaseline: calculateBaseline(item.baseline),
+				}
+
+				if (item.align) {
+					attrs.textAnchor = alignments[item.align]
+				}
+				const children = item.text !== undefined ? [item.text] : undefined
+
 				const result: VSvgNode = {
 					type: 'text',
-					attrs: {
-						...commonProps(item),
-						alignmentBaseline: calculateBaseline(item.baseline),
-					},
+					attrs,
 					style: {
 						fontSize: item.fontSize,
 						fontFamily: item.font,
@@ -98,15 +107,12 @@ export class TextRenderer implements VSvgMarkConverter {
 						fontStyle: item.fontSize,
 						fontVariant: item.fontVariant,
 					},
-					children: [item.text],
 					transforms: getTextTransforms(item),
 					metadata: item.metadata,
 					channels: item.channels,
+					children,
 				}
 
-				if (item.align) {
-					result.attrs.textAnchor = alignments[item.align]
-				}
 				return result
 			}),
 		)

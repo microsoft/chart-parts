@@ -1,13 +1,21 @@
-import { path } from 'd3-path'
+import { Path, path } from 'd3-path'
 import pathParse from './parse'
 import pathRender from './render'
 
 const tau = 2 * Math.PI
 const halfSqrt3 = Math.sqrt(3) / 2
 
-const builtins = {
+export interface SymbolRenderer {
+	draw(context: Path, size: number): Path
+}
+
+export interface SymbolMap {
+	[key: string]: SymbolRenderer
+}
+
+const builtins: SymbolMap = {
 	circle: {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -18,7 +26,7 @@ const builtins = {
 		},
 	},
 	cross: {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -41,7 +49,7 @@ const builtins = {
 		},
 	},
 	diamond: {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -55,7 +63,7 @@ const builtins = {
 		},
 	},
 	square: {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -66,7 +74,7 @@ const builtins = {
 		},
 	},
 	'triangle-up': {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -80,7 +88,7 @@ const builtins = {
 		},
 	},
 	'triangle-down': {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -94,7 +102,7 @@ const builtins = {
 		},
 	},
 	'triangle-right': {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -108,7 +116,7 @@ const builtins = {
 		},
 	},
 	'triangle-left': {
-		draw(context, size) {
+		draw(context: Path, size: number) {
 			if (!context) {
 				context = path()
 			}
@@ -129,15 +137,15 @@ export default function symbols(symbolName: string) {
 		: customSymbol(symbolName)
 }
 
-const custom = {}
+const custom: SymbolMap = {}
 
-function customSymbol(symbolPath) {
+function customSymbol(symbolPath: string) {
 	if (!custom.hasOwnProperty(symbolPath)) {
 		const parsed = pathParse(symbolPath)
 		custom[symbolPath] = {
-			draw(context, size) {
+			draw(context: Path, size: number) {
 				if (!context) {
-					context = symbolPath()
+					context = path()
 				}
 				pathRender(context, parsed, 0, 0, Math.sqrt(size) / 2)
 				return context

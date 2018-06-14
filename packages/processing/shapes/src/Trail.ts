@@ -8,14 +8,14 @@ export class Trail {
 	constructor(
 		public x: Xform<SGTrailItem, number> = d => d.x || 0,
 		public y: Xform<SGTrailItem, number> = d => d.y || 0,
-		public size: Xform<SGTrailItem, number> = d => d.size,
+		public size: Xform<SGTrailItem, number> = d => d.size || 0,
 		public defined: Xform<SGTrailItem, boolean>,
 	) {}
 
-	public build(data: SGTrailItem[], context?: Path) {
-		let prevX
-		let prevY
-		let prevR
+	public build(data: SGTrailItem[], context: Path = path()) {
+		let prevX: number
+		let prevY: number
+		let prevR: number
 		let ready = false
 		let isLastDefined = false
 
@@ -57,10 +57,6 @@ export class Trail {
 			prevX = x
 			prevY = y
 			prevR = r2
-		}
-
-		if (!context) {
-			context = path()
 		}
 
 		data.forEach((d, i) => {

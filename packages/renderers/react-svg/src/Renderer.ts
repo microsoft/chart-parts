@@ -48,7 +48,7 @@ function createElementFor(
 }
 
 function getTransformAttribute(vdomTransforms: Array<VSvgTransform<any>>) {
-	const transforms = []
+	const transforms: string[] = []
 	vdomTransforms.forEach(t => {
 		if (t.type === VSvgTransformType.rotate) {
 			transforms.push(`rotate(${t.value})`)

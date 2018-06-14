@@ -22,7 +22,6 @@ export class OrdinalScale<RangeType> extends DomainScale<
 	string[]
 > {
 	protected createScale(args: ScaleCreatorArgs<any>) {
-		const range = this.props
 		return scaleOrdinal(this.props.range)
 			.domain(this.getDomain(args))
 			.range(this.getRange())

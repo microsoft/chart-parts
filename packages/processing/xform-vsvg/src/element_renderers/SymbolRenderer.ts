@@ -1,4 +1,3 @@
-import { Path } from 'd3-path'
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGSymbolItem } from '@gog/scenegraph-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
@@ -21,7 +20,7 @@ export class SymbolRenderer implements VSvgMarkConverter {
 					type: 'path',
 					attrs: {
 						...commonProps(item),
-						d: symbol(item, undefined).toString(),
+						d: symbol(item),
 					},
 					transforms: [translate(x, y)],
 					metadata: item.metadata,

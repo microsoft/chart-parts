@@ -1,4 +1,3 @@
-import { Path } from 'd3-path'
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGTrailItem } from '@gog/scenegraph-interfaces'
 import { assertTypeIs } from './util'

@@ -1,14 +1,13 @@
 // tslint:disable jsx-no-object-literal-props jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
+import { FlatList, View } from 'react-native'
 import { VirtualSvgPipeline } from '@gog/core'
 import { Renderer } from '@gog/react-native-svg-renderer'
-import { View, FlatList, Text } from 'react-native'
-import { testCharts } from '@gog/testdata'
+import { testCharts, TestScenegraph } from '@gog/testdata'
 
 const pipeline = new VirtualSvgPipeline(new Renderer())
-const renderChart = chart =>
+const renderChart = (chart: TestScenegraph) =>
 	pipeline.handleScenegraph(chart.scenegraph, chart.dimensions)
-const rendered = testCharts.map(c => renderChart(c))
 
 export default () => (
 	<FlatList

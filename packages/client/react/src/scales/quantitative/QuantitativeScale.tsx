@@ -29,23 +29,34 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 
 export abstract class QuantitativeScale<
 	Props extends QuantitativeScaleProps<DomainValue, RangeValue>,
-	DomainValue,
-	RangeValue
+	DomainValue extends QuantitativeValue,
+	RangeValue extends QuantitativeValue
 > extends DomainRangeScale<
 	Props,
 	[DomainValue, DomainValue],
 	[RangeValue, RangeValue],
 	Dimension
 > {
-	protected processDomainValues(values: QuantitativeValue[]) {
-		return extent(values as any[])
+	protected processDomainValues(
+		values: QuantitativeValue[],
+	): [DomainValue, DomainValue] {
+		return extent(values as any[]) as [DomainValue, DomainValue]
 	}
 
-	protected handleRangeBind(args: ScaleCreatorArgs<any>, rangeBind: Dimension) {
+	protected handleRangeBind(
+		args: ScaleCreatorArgs<any>,
+		rangeBind: Dimension,
+	): [RangeValue, RangeValue] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [args.drawRect.bottom, args.drawRect.top]
+			return [
+				args.drawRect.bottom as RangeValue,
+				args.drawRect.top as RangeValue,
+			]
 		} else {
-			return [args.drawRect.left, args.drawRect.right]
+			return [
+				args.drawRect.left as RangeValue,
+				args.drawRect.right as RangeValue,
+			]
 		}
 	}
 

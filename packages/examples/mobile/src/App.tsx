@@ -1,7 +1,6 @@
 import * as React from 'react'
 import Chart from './Chart'
-import { Platform, StyleSheet, Text, View } from 'react-native'
-import { BarChart } from './BarChart'
+import { StyleSheet, View } from 'react-native'
 
 const App: React.SFC<{}> = () => (
 	<View style={styles.container}>

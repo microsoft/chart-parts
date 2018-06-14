@@ -101,8 +101,8 @@ const lookup: {
 
 export default function curves(
 	type: string,
-	orientation: Orientation,
-	tension: number,
+	orientation?: Orientation | undefined,
+	tension?: number | undefined,
 ): CurveFactory {
 	const entry = lookup.hasOwnProperty(type) && lookup[type]
 	// let curve: CurveFactory | CurveBundleFactory

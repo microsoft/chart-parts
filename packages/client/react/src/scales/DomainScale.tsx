@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import React from 'react'
+import * as React from 'react'
 import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
 import { SceneBuilder } from '@gog/scenegen'
 import { ChartContextConsumer } from '../ChartContext'
@@ -27,7 +27,7 @@ export abstract class DomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain
 > extends React.PureComponent<Props> {
-	protected api: SceneBuilder
+	protected api: SceneBuilder | undefined
 
 	public render() {
 		return (
@@ -41,10 +41,13 @@ export abstract class DomainScale<
 	}
 
 	public componentDidMount() {
+		if (!this.api) {
+			throw new Error('expected API to be present')
+		}
 		this.api.addScaleCreator(this.props.name, args => this.createScale(args))
 	}
 
-	protected abstract createScale(args: ScaleCreatorArgs<any>)
+	protected abstract createScale(args: ScaleCreatorArgs<any>): any
 
 	protected processDomainValues(values: any[]): Domain {
 		return (values as any) as Domain

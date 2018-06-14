@@ -3,8 +3,8 @@
     "target": "es2015",
     "module": "commonjs",
     "jsx": "react",
-    "strict": false,
-    "esModuleInterop": true,
+    "strict": true,
+    "noUnusedLocals": true,
     "lib": ["esnext"]
   }
 }
