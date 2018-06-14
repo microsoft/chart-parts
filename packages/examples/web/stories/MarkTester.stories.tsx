@@ -1,7 +1,6 @@
 // tslint:disable jsx-no-array-literal-props jsx-no-object-literal-props jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
-import { StrokeCap } from '@gog/mark-interfaces'
 import { SingleMarkTester } from './util'
 import * as palette from './palette'
 

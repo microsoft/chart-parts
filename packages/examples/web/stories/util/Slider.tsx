@@ -28,7 +28,7 @@ export const Slider: React.SFC<SliderProps> = ({
 	step = 1,
 	onChange = (v: any) => null,
 }) => {
-	const handleChange = evt => onChange(evt.target.value)
+	const handleChange = (evt: any) => onChange(evt.target.value)
 	return (
 		<Container>
 			<NameColumn>{name}</NameColumn>

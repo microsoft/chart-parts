@@ -94,7 +94,7 @@ export class SingleMarkTester extends React.Component<
 				name={name}
 				options={options}
 				value={this.getParam(name)}
-				onChange={v => this.setParam({ [name]: v })}
+				onChange={v => this.setParam({ [name]: v }) as any}
 			/>
 		))
 		const toggleElements = toggles.map(({ name }) => (

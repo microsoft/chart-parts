@@ -11,13 +11,19 @@ const InputColumn = styled.div`
 	flex: 2;
 `
 
-export const Dropdown = ({
+export interface DropdownProps {
+	name: string
+	value: string
+	options: string[]
+	onChange: (v: string) => void
+}
+export const Dropdown: React.SFC<DropdownProps> = ({
 	name,
 	value,
 	options,
 	onChange = (v: any) => null,
 }) => {
-	const handleChange = evt => onChange(evt.target.value)
+	const handleChange = (evt: any) => onChange(evt.target.value)
 	const optionDom = options.map(o => (
 		<option key={o} value={o}>
 			{o}

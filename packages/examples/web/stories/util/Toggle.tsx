@@ -22,7 +22,7 @@ export const Toggle: React.SFC<ToggleProps> = ({
 	value,
 	onChange = (v: any) => null,
 }) => {
-	const handleChange = evt => onChange(evt.target.checked)
+	const handleChange = (evt: any) => onChange(evt.target.checked)
 	return (
 		<Container>
 			<NameColumn>{name}</NameColumn>
