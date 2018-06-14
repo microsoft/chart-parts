@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { ChartContextConsumer } from '../ChartContext'
+import { SceneNodeBuilderConsumer } from '../Context'
 import { MarkType } from '@gog/mark-interfaces'
-import { SceneBuilder } from '@gog/scenegen'
+import { SceneNodeBuilder } from '@gog/scenegen'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<
@@ -9,7 +9,7 @@ export abstract class BaseMark<
 > extends React.PureComponent<T> {
 	protected abstract markType: MarkType
 
-	private api: SceneBuilder | undefined
+	private api: SceneNodeBuilder | undefined
 
 	public componentDidMount() {
 		if (!this.api) {
@@ -36,12 +36,12 @@ export abstract class BaseMark<
 
 	public render() {
 		return (
-			<ChartContextConsumer>
+			<SceneNodeBuilderConsumer>
 				{api => {
 					this.api = api
 					return null
 				}}
-			</ChartContextConsumer>
+			</SceneNodeBuilderConsumer>
 		)
 	}
 

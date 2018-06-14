@@ -1,6 +1,6 @@
 import { scaleSequential } from 'd3-scale'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
 export interface ScaleSequentialProps
@@ -14,7 +14,7 @@ export class SequantialScale extends DomainScale<
 	ScaleSequentialProps,
 	QuantitativeSpan
 > {
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const result = scaleSequential(this.props.interpolator).domain(domain)
 

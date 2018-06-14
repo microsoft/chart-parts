@@ -1,24 +1,26 @@
 import {
-	MarkSpec,
-	SceneSpec,
+	Mark,
+	SceneNode,
 	ScaleCreator,
 	NamedScaleCreator,
 } from '@gog/mark-spec-interfaces'
 
-/**
- * The scene builder allows clients to build-up a scene specification
- * that may be used to then generate scenegraphs when bound to data
- */
-export class SceneBuilder {
+export class SceneNodeBuilder {
 	private scales: NamedScaleCreator[] = []
-	private marks: MarkSpec[] = []
+	private marks: Mark[] = []
+
+	constructor(public data: any[]) {}
+
+	public setData(data: any[]) {
+		this.data = data
+	}
 
 	/**
 	 * Adds a scale-creator to the scene configuration
 	 * @param name The name of the scale-creator to add
 	 * @param scaleCreator The scale-creator
 	 */
-	public addScaleCreator(name: string, scaleCreator: ScaleCreator<any>) {
+	public addScale(name: string, scaleCreator: ScaleCreator) {
 		this.scales.push({ name, scaleCreator })
 	}
 
@@ -26,15 +28,16 @@ export class SceneBuilder {
 	 * Adds a mark to the scene-configuration
 	 * @param mark the mark to add
 	 */
-	public addMark(mark: MarkSpec) {
+	public addMark(mark: Mark) {
 		this.marks.push(mark)
 	}
 
 	/**
 	 * Builds the scene object
 	 */
-	public build(): SceneSpec {
+	public build(): SceneNode {
 		return {
+			data: this.data,
 			scales: this.scales,
 			marks: this.marks,
 		}

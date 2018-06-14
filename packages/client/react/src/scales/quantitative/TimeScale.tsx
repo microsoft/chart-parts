@@ -4,7 +4,7 @@ import {
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export interface TimeScaleProps
 	extends QuantitativeScaleProps<TimeValue, number> {}
@@ -14,7 +14,7 @@ export class TimeScale extends QuantitativeScale<
 	TimeValue,
 	number
 > {
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const result = scaleTime()

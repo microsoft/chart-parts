@@ -1,6 +1,6 @@
 import { scaleOrdinal } from 'd3-scale'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 import { colorSchemeMap } from '../colorSchemeMap'
 import { CategoricalColorScheme } from '../../interfaces'
 
@@ -21,7 +21,7 @@ export class OrdinalScale<RangeType> extends DomainScale<
 	OrdinalScaleProps<RangeType>,
 	string[]
 > {
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		return scaleOrdinal(this.props.range)
 			.domain(this.getDomain(args))
 			.range(this.getRange())

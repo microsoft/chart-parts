@@ -3,11 +3,26 @@ import { MarkType } from '@gog/mark-interfaces'
 /**
  * Specification for rendering a scene
  */
-export interface SceneSpec {
+export interface Scene {
+	/**
+	 * The nodes representing this scene
+	 */
+	nodes: SceneNode[]
+}
+
+/**
+ * Each scene node binds data with a set of marks and scales
+ */
+export interface SceneNode {
+	/**
+	 * The bound data table for this scene node
+	 */
+	data: any[]
+
 	/**
 	 * The marks that compose this scene
 	 */
-	marks: MarkSpec[]
+	marks: Mark[]
 
 	/**
 	 * Scale factories used to generate scales, which are used by marks to
@@ -19,7 +34,7 @@ export interface SceneSpec {
 /**
  * Specification for rendering a mark in a scene
  */
-export interface MarkSpec {
+export interface Mark {
 	/**
 	 * The type of mark to render
 	 */
@@ -68,7 +83,7 @@ export interface MarkEncodingFunctionArgs {
 	/**
 	 * The full dataset
 	 */
-	data: any
+	data: any[]
 }
 
 /**
@@ -77,7 +92,7 @@ export interface MarkEncodingFunctionArgs {
  * primitive type
  */
 export interface Scales {
-	[key: string]: Transformer<any, any>
+	[key: string]: Scale<any, any>
 }
 
 /**
@@ -101,21 +116,19 @@ export interface Channels {
  */
 export interface NamedScaleCreator {
 	name: string
-	scaleCreator: ScaleCreator<any>
+	scaleCreator: ScaleCreator
 }
 
 /**
  * A factory function that creates a scale instance.
  */
-export type ScaleCreator<Datum> = (
-	input: ScaleCreatorArgs<Datum>,
-) => Transformer<any, any>
+export type ScaleCreator = (input: CreateScaleArgs) => Scale<any, any>
 
 /**
  * Interface for the scale creation argument object, which is used to
  * create scale instances when a chart drawn or resized.
  */
-export interface ScaleCreatorArgs<Datum> {
+export interface CreateScaleArgs {
 	/**
 	 * The rectangle of the entire charting area
 	 */
@@ -128,21 +141,21 @@ export interface ScaleCreatorArgs<Datum> {
 	drawRect: ViewRect
 
 	/**
-	 * The data to evaluate when creating the scale
-	 */
-	data: Datum[]
-
-	/**
 	 * The current set of configured scales
 	 */
 	scales: Scales
+
+	/**
+	 * The dataset to bind with
+	 */
+	data: any[]
 }
 
 /**
  *  Basic interface for a scale, this type does not include some exotic
  * methods that may exist on specific d3-scales.
  */
-export type Transformer<In, Out> = (input?: In) => Out
+export type Scale<In, Out> = (input?: In) => Out
 
 /**
  * A view rectangle in the SVG, using SVG Coordinates

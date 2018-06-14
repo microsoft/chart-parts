@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { ChartContextConsumer } from '../ChartContext'
-import { SceneBuilder } from '@gog/scenegen'
+import { SceneNodeBuilderConsumer } from '../Context'
+import { SceneNodeBuilder } from '@gog/scenegen'
 
 export interface ScaleProps {
 	name: string
@@ -10,16 +10,16 @@ export interface ScaleProps {
 export class Scale extends React.PureComponent<ScaleProps> {
 	public render() {
 		return (
-			<ChartContextConsumer>
+			<SceneNodeBuilderConsumer>
 				{api => {
 					this.receiveApi(api)
 					return null
 				}}
-			</ChartContextConsumer>
+			</SceneNodeBuilderConsumer>
 		)
 	}
 
-	protected receiveApi(api: SceneBuilder) {
-		api.addScaleCreator(this.props.name, this.props.create)
+	protected receiveApi(api: SceneNodeBuilder) {
+		api.addScale(this.props.name, this.props.create)
 	}
 }

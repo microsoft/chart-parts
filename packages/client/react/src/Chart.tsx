@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { Renderer } from '@gog/render-interfaces'
 import { SceneBuilder } from '@gog/scenegen'
-import { ChartContextProvider } from './ChartContext'
+import { SceneBuilderProvider } from './Context'
 import { VirtualSvgPipeline } from '@gog/core'
 import { VSvgNode } from '@gog/vdom-interfaces'
+import { ChartNode } from './ChartNode'
 
 export interface ChartPadding {
 	top?: number
@@ -47,45 +48,22 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 
 	public render() {
 		return (
-			<ChartContextProvider value={this.sceneBuilder}>
-				{this.props.children}
-				{this.renderMarks()}
-			</ChartContextProvider>
+			<SceneBuilderProvider value={this.sceneBuilder}>
+				<ChartNode data={this.props.data}>
+					{this.props.children}
+					{this.renderMarks()}
+				</ChartNode>
+			</SceneBuilderProvider>
 		)
 	}
 
 	private renderMarks() {
 		const spec = this.sceneBuilder.build()
-		const rendered = this.pipeline.handleData(spec, this.props.data, {
+		const rendered = this.pipeline.handleData(spec, {
 			width: this.props.width,
 			height: this.props.height,
+			padding: this.props.padding,
 		})
 		return rendered
 	}
-
-	/*
-	private get topPadding() {
-		return this.getPadding('top')
-	}
-
-	private get leftPadding() {
-		return this.getPadding('left')
-	}
-
-	private get bottomPadding() {
-		return this.getPadding('bottom')
-	}
-
-	private get rightPadding() {
-		return this.getPadding('right')
-	}
-
-	private getPadding(name: string) {
-		if (typeof this.props.padding === 'object') {
-			return (this.props.padding as any)[name] || 0
-		} else {
-			return this.props.padding || 0
-		}
-	}
-	*/
 }

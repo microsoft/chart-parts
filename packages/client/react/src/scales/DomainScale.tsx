@@ -1,8 +1,8 @@
 // tslint:disable max-classes-per-file
 import * as React from 'react'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
-import { SceneBuilder } from '@gog/scenegen'
-import { ChartContextConsumer } from '../ChartContext'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { SceneNodeBuilder } from '@gog/scenegen'
+import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface DomainScaleProps<Domain> {
 	/**
@@ -20,23 +20,23 @@ export interface DomainScaleProps<Domain> {
 	 * Manually create the domain based on a scale-creation
 	 * context
 	 */
-	domain?: (args: ScaleCreatorArgs<any>) => Domain
+	domain?: (args: CreateScaleArgs) => Domain
 }
 
 export abstract class DomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain
 > extends React.PureComponent<Props> {
-	protected api: SceneBuilder | undefined
+	protected api: SceneNodeBuilder | undefined
 
 	public render() {
 		return (
-			<ChartContextConsumer>
-				{api => {
+			<SceneNodeBuilderConsumer>
+				{(api: SceneNodeBuilder) => {
 					this.api = api
 					return null
 				}}
-			</ChartContextConsumer>
+			</SceneNodeBuilderConsumer>
 		)
 	}
 
@@ -44,16 +44,18 @@ export abstract class DomainScale<
 		if (!this.api) {
 			throw new Error('expected API to be present')
 		}
-		this.api.addScaleCreator(this.props.name, args => this.createScale(args))
+		this.api.addScale(this.props.name, (args: CreateScaleArgs) =>
+			this.createScale(args),
+		)
 	}
 
-	protected abstract createScale(args: ScaleCreatorArgs<any>): any
+	protected abstract createScale(args: CreateScaleArgs): any
 
 	protected processDomainValues(values: any[]): Domain {
 		return (values as any) as Domain
 	}
 
-	protected getDomain(args: ScaleCreatorArgs<any>): Domain {
+	protected getDomain(args: CreateScaleArgs): Domain {
 		if (this.props.domain) {
 			return this.props.domain(args)
 		} else {
