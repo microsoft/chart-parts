@@ -4,61 +4,156 @@ import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
 import {
 	Mark as MarkSpec,
-	Scene as SceneSpec,
+	SceneNode,
 	MarkEncodings,
-	Scale,
+	ViewRect,
+	Channels,
+	Scales,
+	NamedScaleCreator,
 } from '@gog/mark-spec-interfaces'
 import * as SG from '@gog/scenegraph'
 
 type SGMarkAny = SGMark<SGItem>
 
 export class SceneInstance {
-	/**
-	 * The latest channel name
-	 */
 	private channelId: number = 0
 	private channelHandlers: { [key: string]: (arg: any) => void } = {}
-	private scales: { [key: string]: Scale<any, any> } = {}
+	private chartRect: ViewRect
 
-	constructor(private scene: SceneSpec, private options: ChartOptions) {}
-
-	public build() {
-		const { width, height } = this.options
-		const chartRect = {
+	constructor(
+		private scene: SceneNode,
+		private options: ChartOptions,
+		private tables: { [key: string]: any[] },
+	) {
+		this.chartRect = {
 			left: 0,
 			top: 0,
-			right: width || 250,
-			bottom: height || 250,
-		}
-		// TODO: change this when processing a group
-		const drawRect = chartRect
-		const rootMarks: SGMarkAny[] = []
-
-		this.scene.nodes.forEach(({ marks, scales, data }) => {
-			// Create scales for the scene node
-			scales.forEach(({ scaleCreator, name }) => {
-				this.scales[name] = scaleCreator({
-					drawRect,
-					chartRect,
-					scales: this.scales,
-					data,
-				})
-			})
-
-			// Create the marks for the scene node. This is done in one pass because these marks
-			// should only depend on the scales created in this context
-			rootMarks.push(...marks.map(mark => this.createMarkNode(mark, data)))
-		})
-
-		return {
-			root: createFrame(rootMarks),
-			channelHandlers: this.channelHandlers,
+			right: options.width || 250,
+			bottom: options.height || 250,
 		}
 	}
 
-	private createMarkNode(mark: MarkSpec, data: any[]): SGMarkAny {
-		const { type, encodings, channels } = mark
+	public build() {
+		const {
+			chartRect: { top, left, bottom, right },
+			channelHandlers,
+		} = this
+		const drawRect = {
+			top: top + this.paddingTop,
+			bottom: bottom - this.paddingBottom,
+			left: left + this.paddingLeft,
+			right: right - this.paddingRight,
+		}
 
+		const root = this.processNode(this.scene, {}, drawRect)
+		return { root, channelHandlers }
+	}
+
+	private get paddingTop() {
+		return this.getPadding('top')
+	}
+
+	private get paddingBottom() {
+		return this.getPadding('bottom')
+	}
+
+	private get paddingLeft() {
+		return this.getPadding('left')
+	}
+
+	private get paddingRight() {
+		return this.getPadding('right')
+	}
+
+	private getPadding(name: string) {
+		const paddingType = typeof this.options.padding
+		if (paddingType === 'number') {
+			return this.options.padding
+		} else if (paddingType === 'object') {
+			return (this.options.padding as any)[name] || 0
+		}
+		return 0
+	}
+
+	/**
+	 * Processes a scene specification node into the SceneGraph model
+	 * @param node The scene node to process
+	 * @param scales The scales available for the given scene node
+	 */
+	private processNode(
+		node: SceneNode,
+		scales: Scales,
+		drawRect: ViewRect,
+	): SGMarkAny {
+		const { mark } = node
+		const { type, table, channels, singleton } = mark
+		const data: any[] = singleton ? [{}] : this.tables[table]
+		const channelNames = this.mapMarkChannels(channels)
+
+		const items = data.map((row, index) => {
+			const item = this.createMarkItem(
+				mark,
+				row,
+				index,
+				data,
+				channelNames,
+				scales,
+			)
+			if (type === MarkType.Group) {
+				const groupItem = item as SGGroupItem
+				const itemScales: Scales = this.getScalesForItem(
+					node.scales,
+					drawRect,
+					scales,
+				)
+				groupItem.items = node.children.map(c =>
+					this.processNode(c, itemScales, drawRect),
+				)
+			}
+			return item
+		})
+
+		return SG.createMark(type, items)
+	}
+
+	private getScalesForItem(
+		creators: NamedScaleCreator[],
+		drawRect: ViewRect,
+		scales: Scales,
+	) {
+		const { chartRect } = this
+		const itemScales: Scales = creators.reduce(
+			(prev: Scales, { name, table, creator }) => {
+				const data = this.tables[table]
+				const scale = creator({ drawRect, chartRect, scales, data })
+				prev[name] = scale
+				return prev
+			},
+			{},
+		)
+		return { ...scales, ...itemScales }
+	}
+
+	private createMarkItem(
+		mark: MarkSpec,
+		row: any,
+		index: number,
+		data: any[],
+		channelNames: { [key: string]: string },
+		scales: Scales,
+	) {
+		const { type, encodings, name, role, zIndex } = mark
+		return SG.createItem(type, {
+			...this.transferEncodings(row, index, encodings, data, scales),
+			name,
+			role,
+			zIndex,
+			metadata: { dataRowIndex: index },
+			channels: channelNames,
+		})
+	}
+
+	private mapMarkChannels(channels: Channels): { [key: string]: string } {
 		// A mapping of event-name to channel-id, which is used to populate the serializable scenegraph
 		const channelNames: { [key: string]: string } = {}
 
@@ -73,16 +168,7 @@ export class SceneInstance {
 			this.channelHandlers[newChannelId] = handler
 		})
 
-		const items = data.map((row, index) =>
-			SG.createItem(type, {
-				...this.transferEncodings(row, index, encodings, data),
-				metadata: { dataRowIndex: index },
-				channels: channelNames,
-			}),
-		)
-
-		// TODO: Handle group item encoding
-		return SG.createMark(type, items)
+		return channelNames
 	}
 
 	private transferEncodings(
@@ -90,6 +176,7 @@ export class SceneInstance {
 		rowIndex: number,
 		encodings: MarkEncodings,
 		data: any[],
+		scales: Scales,
 	) {
 		const props: { [key: string]: any } = {}
 		Object.keys(encodings)
@@ -98,21 +185,16 @@ export class SceneInstance {
 				const encoding = encodings[key]
 				const encodingValue =
 					typeof encoding === 'function'
-						? encoding({ row, rowIndex, scales: this.scales, data })
+						? encoding({
+								row,
+								rowIndex,
+								scales,
+								data,
+								tables: this.tables,
+						  })
 						: encoding
 				props[key] = encodingValue
 			})
 		return props
 	}
-}
-
-function createFrame(items: SGMarkAny[]): SGMarkAny {
-	const groupItem = SG.createItem(MarkType.Group) as SGGroupItem
-	groupItem.items = items
-
-	const group = SG.createMark(MarkType.Group, [groupItem])
-	group.role = 'frame'
-	group.name = 'root'
-	group.zIndex = 0
-	return group
 }

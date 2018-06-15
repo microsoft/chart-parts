@@ -1,5 +1,5 @@
 import { ChartOptions } from '@gog/xform-sg-interfaces'
-import { Scene as SceneSpec } from '@gog/mark-spec-interfaces'
+import { SceneNode } from '@gog/mark-spec-interfaces'
 import { GeneratedScene } from './interfaces'
 import { SceneInstance } from './SceneInstance'
 
@@ -14,9 +14,10 @@ export class SceneGenerator {
 	 * @param options The charting options
 	 */
 	public generateScene(
-		scene: SceneSpec,
+		scene: SceneNode,
 		options: ChartOptions,
+		tables: { [key: string]: any[] },
 	): GeneratedScene {
-		return new SceneInstance(scene, options).build()
+		return new SceneInstance(scene, options, tables).build()
 	}
 }

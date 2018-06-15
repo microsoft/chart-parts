@@ -11,6 +11,11 @@ export interface DomainScaleProps<Domain> {
 	name: string
 
 	/**
+	 * The data set to bind to
+	 */
+	table: string
+
+	/**
 	 * Binds the domain of the scale to a field in the
 	 * data
 	 */
@@ -44,8 +49,10 @@ export abstract class DomainScale<
 		if (!this.api) {
 			throw new Error('expected API to be present')
 		}
-		this.api.addScale(this.props.name, (args: CreateScaleArgs) =>
-			this.createScale(args),
+		this.api.addScale(
+			this.props.name,
+			this.props.table,
+			(args: CreateScaleArgs) => this.createScale(args),
 		)
 	}
 

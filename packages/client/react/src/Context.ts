@@ -9,4 +9,4 @@ export const {
 export const {
 	Consumer: SceneNodeBuilderConsumer,
 	Provider: SceneNodeBuilderProvider,
-} = React.createContext<SceneNodeBuilder>(new SceneNodeBuilder([]))
+} = React.createContext<SceneNodeBuilder>(new SceneNodeBuilder())

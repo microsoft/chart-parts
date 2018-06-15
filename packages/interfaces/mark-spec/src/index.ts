@@ -1,34 +1,20 @@
 import { MarkType } from '@gog/mark-interfaces'
 
 /**
- * Specification for rendering a scene
- */
-export interface Scene {
-	/**
-	 * The nodes representing this scene
-	 */
-	nodes: SceneNode[]
-}
-
-/**
  * Each scene node binds data with a set of marks and scales
  */
 export interface SceneNode {
-	/**
-	 * The bound data table for this scene node
-	 */
-	data: any[]
+	mark: Mark
 
 	/**
-	 * The marks that compose this scene
-	 */
-	marks: Mark[]
-
-	/**
-	 * Scale factories used to generate scales, which are used by marks to
-	 * transform logical values to screen values
+	 * The scales defined under this scene node
 	 */
 	scales: NamedScaleCreator[]
+
+	/**
+	 * The children scene nodes
+	 */
+	children: SceneNode[]
 }
 
 /**
@@ -41,6 +27,11 @@ export interface Mark {
 	type: MarkType
 
 	/**
+	 * The name of the data-table to bind this mark to
+	 */
+	table?: string
+
+	/**
 	 * The encodings, which map data values into attribute values
 	 */
 	encodings: MarkEncodings
@@ -49,17 +40,37 @@ export interface Mark {
 	 * The event channels of the mark to listen to
 	 */
 	channels: Channels
+
+	/**
+	 * The role of this mark
+	 */
+	role?: string
+
+	/**
+	 * A helpful name for this mark
+	 */
+	name?: string
+
+	/**
+	 * If true, this mark will have a single item instance unbound to data
+	 */
+	singleton?: boolean
+
+	/**
+	 * Ordering information for this mark
+	 */
+	zIndex?: number
 }
 
 /**
  * An encoding specification for a mark property. This can either be a static
  * primitive or a function that generates the value
  */
-export type MarkEncoding =
-	| number
-	| string
-	| boolean
-	| ((arg: MarkEncodingFunctionArgs) => any)
+export type MarkEncodingFunction = (
+	args: MarkEncodingFunctionArgs,
+) => number | string | boolean
+
+export type MarkEncoding = number | string | boolean | MarkEncodingFunction
 
 /**
  * The arguments used for mark encoding functions
@@ -81,9 +92,14 @@ export interface MarkEncodingFunctionArgs {
 	scales: Scales
 
 	/**
-	 * The full dataset
+	 * The bound dataset
 	 */
 	data: any[]
+
+	/**
+	 * The full dataset
+	 */
+	tables: { [key: string]: any[] }
 }
 
 /**
@@ -115,8 +131,20 @@ export interface Channels {
  * An hash of scale-name to scale-creator functions
  */
 export interface NamedScaleCreator {
+	/**
+	 * The name of the scale
+	 */
 	name: string
-	scaleCreator: ScaleCreator
+
+	/**
+	 * The table this scale is applied to when computing domain
+	 */
+	table: string
+
+	/**
+	 * The creator function for this scale
+	 */
+	creator: ScaleCreator
 }
 
 /**

@@ -113,15 +113,17 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 		console.log('Render Chart')
 
 		return (
-			<Chart width={500} height={200} data={data} renderer={renderer}>
+			<Chart width={500} height={200} data={{ data }} renderer={renderer}>
 				<BandScale
 					name="x"
+					table="data"
 					widthName="width"
 					bindRange={Dimension.WIDTH}
 					bindDomain="x"
 				/>
 				<LinearScale
 					name="y"
+					table="data"
 					bindRange={Dimension.HEIGHT}
 					bindDomain="y1"
 					nice={true}
@@ -129,10 +131,12 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 				/>
 				<OrdinalScale
 					name="color"
+					table="data"
 					bindDomain="c"
 					colorScheme={CategoricalColorScheme.category10}
 				/>
 				<Rect
+					table="data"
 					x={({ scales: { x }, row }) => x(row.x)}
 					width={({ scales: { width }, row }) => width()}
 					y={({ scales: { y }, row }) => y(row.y)}

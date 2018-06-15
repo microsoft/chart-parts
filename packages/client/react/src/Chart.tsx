@@ -13,11 +13,11 @@ export interface ChartPadding {
 	right?: number
 }
 
-export interface ChartProps<Row> {
+export interface ChartProps {
 	width: number
 	height: number
 	padding?: number | ChartPadding
-	data: Row[]
+	data: { [key: string]: any[] }
 	renderer: Renderer<VSvgNode, any>
 }
 
@@ -28,11 +28,11 @@ export interface ChartState {
 	rendered: React.ReactNode
 }
 
-export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
+export class Chart extends React.Component<ChartProps, ChartState> {
 	private pipeline: VirtualSvgPipeline<React.ReactNode>
 	private sceneBuilder: SceneBuilder = new SceneBuilder()
 
-	constructor(props: ChartProps<Row>) {
+	constructor(props: ChartProps) {
 		super(props)
 		this.pipeline = new VirtualSvgPipeline(props.renderer)
 		this.state = { rendered: null }
@@ -49,7 +49,7 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 	public render() {
 		return (
 			<SceneBuilderProvider value={this.sceneBuilder}>
-				<ChartNode data={this.props.data}>
+				<ChartNode>
 					{this.props.children}
 					{this.renderMarks()}
 				</ChartNode>
@@ -59,11 +59,15 @@ export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
 
 	private renderMarks() {
 		const spec = this.sceneBuilder.build()
-		const rendered = this.pipeline.handleData(spec, {
-			width: this.props.width,
-			height: this.props.height,
-			padding: this.props.padding,
-		})
+		const rendered = this.pipeline.handleData(
+			spec,
+			{
+				width: this.props.width,
+				height: this.props.height,
+				padding: this.props.padding,
+			},
+			this.props.data,
+		)
 		return rendered
 	}
 }

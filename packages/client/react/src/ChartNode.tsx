@@ -2,21 +2,13 @@ import * as React from 'react'
 import { SceneBuilder, SceneNodeBuilder } from '@gog/scenegen'
 import { SceneNodeBuilderProvider, SceneBuilderConsumer } from './Context'
 
-export interface ChartNodeProps {
-	data: any[]
-}
-
-export class ChartNode extends React.PureComponent<ChartNodeProps> {
+export class ChartNode extends React.PureComponent<{}> {
 	private sceneBuilder: SceneBuilder | undefined
 	private nodeBuilder: SceneNodeBuilder
 
-	constructor(props: ChartNodeProps) {
+	constructor(props: {}) {
 		super(props)
-		this.nodeBuilder = new SceneNodeBuilder(props.data)
-	}
-
-	public componentDidUpdate(props: ChartNodeProps) {
-		this.nodeBuilder.setData(props.data)
+		this.nodeBuilder = new SceneNodeBuilder()
 	}
 
 	public componentDidMount() {

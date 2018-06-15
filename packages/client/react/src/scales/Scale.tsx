@@ -4,6 +4,7 @@ import { SceneNodeBuilder } from '@gog/scenegen'
 
 export interface ScaleProps {
 	name: string
+	table: string
 	create: (args: any) => any
 }
 
@@ -20,6 +21,6 @@ export class Scale extends React.PureComponent<ScaleProps> {
 	}
 
 	protected receiveApi(api: SceneNodeBuilder) {
-		api.addScale(this.props.name, this.props.create)
+		api.addScale(this.props.name, this.props.table, this.props.create)
 	}
 }

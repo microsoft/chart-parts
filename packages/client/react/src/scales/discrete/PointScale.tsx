@@ -34,8 +34,11 @@ export class PointScale extends DomainRangeScale<
 > {
 	public componentDidMount() {
 		super.componentDidMount()
-		this.api.addScale(this.props.widthName, ({ scales }) => () =>
-			(scales[this.props.name] as ScalePoint<any>).bandwidth(),
+		this.api.addScale(
+			this.props.widthName,
+			this.props.table,
+			({ scales }) => () =>
+				(scales[this.props.name] as ScalePoint<any>).bandwidth(),
 		)
 	}
 

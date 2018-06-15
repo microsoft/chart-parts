@@ -1,19 +1,13 @@
-import { Scene } from '@gog/mark-spec-interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
+import { MarkType } from '@gog/mark-interfaces'
 
-export class SceneBuilder {
-	private nodes: SceneNodeBuilder[] = []
-
-	public addNode(node: SceneNodeBuilder) {
-		this.nodes.push(node)
-	}
-
-	/**
-	 * Builds the scene object
-	 */
-	public build(): Scene {
-		return {
-			nodes: this.nodes.map(n => n.build()),
-		}
+export class SceneBuilder extends SceneNodeBuilder {
+	constructor() {
+		super()
+		this.setRole('frame')
+			.setName('root')
+			.setZIndex(0)
+			.setType(MarkType.Group)
+			.setSingleton(true)
 	}
 }

@@ -44,6 +44,7 @@ export class BandScale extends DomainRangeScale<
 		super.componentDidMount()
 		this.api.addScale(
 			this.props.widthName,
+			this.props.table,
 			({ scales }: CreateScaleArgs) => () =>
 				(scales[this.props.name] as ScaleBand<any>).bandwidth(),
 		)

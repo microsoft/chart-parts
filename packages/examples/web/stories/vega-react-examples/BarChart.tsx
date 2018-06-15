@@ -3,6 +3,8 @@ import * as React from 'react'
 import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
 
+const renderer = new Renderer()
+
 const data = [
 	{ category: 'A', amount: 28 },
 	{ category: 'B', amount: 55 },
@@ -37,15 +39,18 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				this.setState({ hoverRowIndex: undefined })
 			}
 		}
+
 		return (
-			<Chart width={400} height={200} data={data} renderer={new Renderer()}>
+			<Chart width={400} height={200} renderer={renderer} data={{ data }}>
 				<LinearScale
 					name="yscale"
+					table="data"
 					bindDomain="amount"
 					bindRange={Dimension.HEIGHT}
 					nice={true}
 				/>
 				<BandScale
+					table="data"
 					name="xscale"
 					widthName="xband"
 					bindDomain="category"
@@ -55,6 +60,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				{/* <Axis orient="bottom" scale="xscale" />
 				<Ax is orient="left" scale="yscale" /> */}
 				<Rect
+					table="data"
 					eventHandlers={{ onMouseEnter, onMouseLeave }}
 					x={({ row, scales: { xscale } }) => xscale(row.category)}
 					y={({ row, scales: { yscale } }) => yscale(row.amount)}
