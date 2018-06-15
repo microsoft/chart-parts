@@ -11,7 +11,6 @@ export interface GroupProps extends CommonMarkProps {
 	items?: React.ReactChildren
 }
 
-// TODO: Handle Mark Children
 export class Group extends BaseMark<GroupProps> {
 	public markType = MarkType.Group
 
@@ -24,7 +23,6 @@ export class Group extends BaseMark<GroupProps> {
 	}
 
 	protected renderInner() {
-		console.log('Render Inner')
 		return <ChartNode>{this.props.children}</ChartNode>
 	}
 }

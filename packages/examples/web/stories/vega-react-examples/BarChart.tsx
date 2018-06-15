@@ -27,7 +27,6 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	}
 
 	public render() {
-		console.log('Render Chart')
 		// Externalized Event Handlers
 		const onMouseEnter = ({ metadata: { dataRowIndex } }: any) => {
 			if (this.state.hoverRowIndex !== dataRowIndex) {

@@ -110,8 +110,6 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 		this.state = {}
 	}
 	public render() {
-		console.log('Render Chart')
-
 		return (
 			<Chart width={500} height={200} data={{ data }} renderer={renderer}>
 				<BandScale
