@@ -2,7 +2,6 @@ import * as React from 'react'
 import { SceneNodeBuilderConsumer } from '../Context'
 import { MarkType } from '@gog/mark-interfaces'
 import { SceneNodeBuilder } from '@gog/scenegen'
-import { Mark } from '@gog/mark-spec-interfaces'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<
@@ -13,7 +12,6 @@ export abstract class BaseMark<
 	private api: SceneNodeBuilder | undefined
 
 	public componentDidMount() {
-		console.log('Mounting Mark', this)
 		if (!this.api) {
 			throw new Error('expected API to be present')
 		}
@@ -26,15 +24,7 @@ export abstract class BaseMark<
 			)
 		}
 
-		this.addMark({
-			type: this.markType,
-			bindTo: this.props.table,
-			channels,
-			encodings: {
-				...captureCommonEncodings(this.props),
-				...this.encodeCustomProperties(),
-			},
-		})
+		this.addMark()
 	}
 
 	public render() {
@@ -48,11 +38,40 @@ export abstract class BaseMark<
 		)
 	}
 
-	protected addMark(mark: Mark) {
+	protected get channels() {
+		const channels: { [key: string]: (arg: any) => void } = {}
+		const eventHandlers: { [key: string]: (arg: any) => void } = this.props
+			.eventHandlers as any
+		if (eventHandlers) {
+			Object.entries(eventHandlers).forEach(
+				([eventName, handler]) => (channels[eventName] = handler),
+			)
+		}
+		return channels
+	}
+
+	protected get encodings() {
+		return {
+			...captureCommonEncodings(this.props),
+			...this.encodeCustomProperties(),
+		}
+	}
+
+	protected addMark() {
 		if (!this.api) {
 			throw new Error('api must be defined')
 		}
-		this.api.addMark(mark)
+
+		const { channels, encodings, markType } = this
+		const { table, name, role, singleton } = this.props
+		this.api
+			.setType(markType)
+			.setTable(table)
+			.addChannels(channels)
+			.addEncodings(encodings)
+			.setName(name)
+			.setRole(role)
+			.setSingleton(singleton)
 	}
 
 	protected renderInner(): React.ReactNode {

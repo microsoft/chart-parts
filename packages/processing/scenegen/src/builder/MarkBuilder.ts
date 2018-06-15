@@ -13,7 +13,6 @@ export class MarkBuilder {
 	private table: string | undefined
 	private role: string | undefined
 	private name: string | undefined
-	private zIndex: number | undefined
 	private singleton: boolean = false
 	private channels: Channels = {}
 	private encodings: MarkEncodings = {}
@@ -23,28 +22,33 @@ export class MarkBuilder {
 		return this
 	}
 
-	public setTable(table: string) {
+	public setTable(table: string | undefined) {
 		this.table = table
 		return this
 	}
 
-	public setRole(role: string) {
+	public setRole(role: string | undefined) {
 		this.role = role
 		return this
 	}
 
-	public setName(name: string) {
+	public setName(name: string | undefined) {
 		this.name = name
 		return this
 	}
 
-	public setZIndex(zIndex: number) {
-		this.zIndex = zIndex
+	public setZIndex(zIndex: number | undefined) {
+		if (zIndex !== undefined) {
+			this.addEncoding('zIndex', zIndex)
+		} else {
+			delete this.encodings.zIndex
+		}
+
 		return this
 	}
 
-	public setSingleton(value: boolean) {
-		this.singleton = value
+	public setSingleton(value: boolean | undefined) {
+		this.singleton = !!value
 		return this
 	}
 
@@ -53,27 +57,30 @@ export class MarkBuilder {
 		return this
 	}
 
+	public addChannels(channels: Channels) {
+		Object.entries(channels).forEach(
+			([name, handler]) => (this.channels[name] = handler),
+		)
+	}
+
 	public addEncoding(key: string, encoding: MarkEncoding) {
 		this.encodings[key] = encoding
 		return this
 	}
 
+	public addEncodings(encodings: MarkEncodings) {
+		Object.entries(encodings).forEach(
+			([name, encoding]) => (this.encodings[name] = encoding),
+		)
+	}
+
 	public build(): Mark {
-		const {
-			type,
-			table,
-			channels,
-			encodings,
-			role,
-			name,
-			zIndex,
-			singleton,
-		} = this
+		const { type, table, channels, encodings, role, name, singleton } = this
 		if (!type) {
 			throw new Error('mark type must be set')
 		}
 		if (!singleton && !table) {
-			throw new Error('mark table must be set')
+			throw new Error('mark table must be set or the mark must be a singleton')
 		}
 		return {
 			table,
@@ -82,7 +89,6 @@ export class MarkBuilder {
 			encodings,
 			role,
 			name,
-			zIndex,
 			singleton,
 		}
 	}

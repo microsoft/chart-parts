@@ -87,7 +87,10 @@ export class SceneInstance {
 	): SGMarkAny {
 		const { mark } = node
 		const { type, table, channels, singleton } = mark
-		const data: any[] = singleton ? [{}] : this.tables[table]
+		if (!singleton && !table) {
+			throw new Error('marks that are non-singletons must be data-bound')
+		}
+		const data: any[] = singleton ? [{}] : this.tables[table as string]
 		const channelNames = this.mapMarkChannels(channels)
 
 		const items = data.map((row, index) => {
@@ -142,12 +145,11 @@ export class SceneInstance {
 		channelNames: { [key: string]: string },
 		scales: Scales,
 	) {
-		const { type, encodings, name, role, zIndex } = mark
+		const { type, encodings, name, role } = mark
 		return SG.createItem(type, {
 			...this.transferEncodings(row, index, encodings, data, scales),
 			name,
 			role,
-			zIndex,
 			metadata: { dataRowIndex: index },
 			channels: channelNames,
 		})

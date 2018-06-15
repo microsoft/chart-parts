@@ -15,9 +15,24 @@ export interface CommonMarkProps {
 	/**
 	 * The name of the data-table to bind to
 	 */
-	table: string
+	table?: string
 
-	// Common Mark Properties
+	/**
+	 * If true, emits a single item instead of one item per row in bound-data
+	 */
+	singleton?: boolean
+
+	/**
+	 * A helpful name for the mark
+	 */
+	name?: string
+
+	/**
+	 * A role description of this mark
+	 */
+	role?: string
+
+	// Common Mark Value Encodings
 	x?: MarkEncoding
 	x2?: MarkEncoding
 	xc?: MarkEncoding

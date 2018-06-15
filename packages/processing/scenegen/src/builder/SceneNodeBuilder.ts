@@ -5,6 +5,8 @@ import {
 	ChannelHandler,
 	MarkEncoding,
 	NamedScaleCreator,
+	Channels,
+	MarkEncodings,
 } from '@gog/mark-spec-interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { MarkType } from '@gog/mark-interfaces'
@@ -41,8 +43,18 @@ export class SceneNodeBuilder {
 		return this
 	}
 
+	public addChannels(channels: Channels) {
+		this.markBuilder.addChannels(channels)
+		return this
+	}
+
 	public addEncoding(key: string, encoding: MarkEncoding) {
 		this.markBuilder.addEncoding(key, encoding)
+		return this
+	}
+
+	public addEncodings(encodings: MarkEncodings) {
+		this.markBuilder.addEncodings(encodings)
 		return this
 	}
 
@@ -51,27 +63,27 @@ export class SceneNodeBuilder {
 		return this
 	}
 
-	public setTable(table: string) {
+	public setTable(table: string | undefined) {
 		this.markBuilder.setTable(table)
 		return this
 	}
 
-	public setRole(role: string) {
+	public setRole(role: string | undefined) {
 		this.markBuilder.setRole(role)
 		return this
 	}
 
-	public setName(name: string) {
+	public setName(name: string | undefined) {
 		this.markBuilder.setName(name)
 		return this
 	}
 
-	public setZIndex(zIndex: number) {
+	public setZIndex(zIndex: number | undefined) {
 		this.markBuilder.setZIndex(zIndex)
 		return this
 	}
 
-	public setSingleton(value: boolean) {
+	public setSingleton(value: boolean | undefined) {
 		this.markBuilder.setSingleton(value)
 		return this
 	}

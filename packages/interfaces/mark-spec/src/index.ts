@@ -55,11 +55,6 @@ export interface Mark {
 	 * If true, this mark will have a single item instance unbound to data
 	 */
 	singleton?: boolean
-
-	/**
-	 * Ordering information for this mark
-	 */
-	zIndex?: number
 }
 
 /**

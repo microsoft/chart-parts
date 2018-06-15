@@ -4,18 +4,17 @@ import { SceneNodeBuilderProvider, SceneBuilderConsumer } from './Context'
 
 export class ChartNode extends React.PureComponent<{}> {
 	private sceneBuilder: SceneBuilder | undefined
-	private nodeBuilder: SceneNodeBuilder
+	private sceneNodeBuilder: SceneNodeBuilder | undefined
 
 	constructor(props: {}) {
 		super(props)
-		this.nodeBuilder = new SceneNodeBuilder()
 	}
 
 	public componentDidMount() {
 		if (!this.sceneBuilder) {
 			throw new Error('expected API to be present')
 		}
-		this.sceneBuilder.addNode(this.nodeBuilder)
+		this.sceneNodeBuilder = this.sceneBuilder.push()
 	}
 
 	public render() {
@@ -23,8 +22,9 @@ export class ChartNode extends React.PureComponent<{}> {
 			<SceneBuilderConsumer>
 				{sceneBuilder => {
 					this.sceneBuilder = sceneBuilder
+					this.sceneNodeBuilder = sceneBuilder.push()
 					return (
-						<SceneNodeBuilderProvider value={this.nodeBuilder}>
+						<SceneNodeBuilderProvider value={this.sceneNodeBuilder}>
 							{this.props.children}
 						</SceneNodeBuilderProvider>
 					)
