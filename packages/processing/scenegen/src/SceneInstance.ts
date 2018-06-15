@@ -10,6 +10,7 @@ import {
 	Channels,
 	Scales,
 	NamedScaleCreator,
+	CreateScaleArgs,
 } from '@gog/mark-spec-interfaces'
 import * as SG from '@gog/scenegraph'
 
@@ -85,6 +86,7 @@ export class SceneInstance {
 		scales: Scales,
 		drawRect: ViewRect,
 	): SGMarkAny {
+		const { chartRect } = this
 		const { mark } = node
 		const { type, table, channels, singleton } = mark
 		if (!singleton && !table) {
@@ -93,6 +95,11 @@ export class SceneInstance {
 		const data: any[] = singleton ? [{}] : this.tables[table as string]
 		const channelNames = this.mapMarkChannels(channels)
 
+		const nodeScales: Scales = this.getNextScaleFrame(node.scales, scales, {
+			drawRect,
+			chartRect,
+		})
+
 		const items = data.map((row, index) => {
 			const item = this.createMarkItem(
 				mark,
@@ -100,17 +107,25 @@ export class SceneInstance {
 				index,
 				data,
 				channelNames,
-				scales,
+				nodeScales,
 			)
 			if (type === MarkType.Group) {
 				const groupItem = item as SGGroupItem
-				const itemScales: Scales = this.getScalesForItem(
+				// TODO: Regenerate draw rect
+				const itemScales: Scales = this.getNextScaleFrame(
 					node.scales,
-					drawRect,
-					scales,
+					nodeScales,
+					{
+						drawRect,
+						chartRect,
+					},
 				)
 				groupItem.items = node.children.map(c =>
-					this.processNode(c, itemScales, drawRect),
+					this.processNode(
+						c,
+						{ ...scales, ...nodeScales, ...itemScales },
+						drawRect,
+					),
 				)
 			}
 			return item
@@ -119,22 +134,18 @@ export class SceneInstance {
 		return SG.createMark(type, items)
 	}
 
-	private getScalesForItem(
+	private getNextScaleFrame(
 		creators: NamedScaleCreator[],
-		drawRect: ViewRect,
-		scales: Scales,
+		parentFrame: Scales,
+		partialArgs: Partial<CreateScaleArgs>,
 	) {
-		const { chartRect } = this
-		const itemScales: Scales = creators.reduce(
-			(prev: Scales, { name, table, creator }) => {
-				const data = this.tables[table]
-				const scale = creator({ drawRect, chartRect, scales, data })
-				prev[name] = scale
-				return prev
-			},
-			{},
-		)
-		return { ...scales, ...itemScales }
+		const result = { ...parentFrame }
+		creators.forEach(({ name, table, creator }) => {
+			const data = this.tables[table]
+			const scale = creator({ ...partialArgs, data, scales: result })
+			result[name] = scale
+		})
+		return result
 	}
 
 	private createMarkItem(
@@ -180,6 +191,7 @@ export class SceneInstance {
 		data: any[],
 		scales: Scales,
 	) {
+		const tables = this.tables
 		const props: { [key: string]: any } = {}
 		Object.keys(encodings)
 			.filter(t => t !== 'items')
@@ -192,7 +204,7 @@ export class SceneInstance {
 								rowIndex,
 								scales,
 								data,
-								tables: this.tables,
+								tables,
 						  })
 						: encoding
 				props[key] = encodingValue

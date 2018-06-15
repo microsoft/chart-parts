@@ -15,15 +15,6 @@ export abstract class BaseMark<
 		if (!this.api) {
 			throw new Error('expected API to be present')
 		}
-		const channels: { [key: string]: (arg: any) => void } = {}
-		const eventHandlers: { [key: string]: (arg: any) => void } = this.props
-			.eventHandlers as any
-		if (eventHandlers) {
-			Object.entries(eventHandlers).forEach(
-				([eventName, handler]) => (channels[eventName] = handler),
-			)
-		}
-
 		this.addMark()
 	}
 
