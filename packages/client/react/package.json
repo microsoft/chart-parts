@@ -29,7 +29,8 @@
 		"@gog/xform-vsvg": "0.0.0",
 		"d3-array": "^1.2.1",
 		"d3-scale": "^2.0.0",
-		"d3-scale-chromatic": "^1.3.0"
+		"d3-scale-chromatic": "^1.3.0",
+		"shallowequal": "^1.0.2"
 	},
 	"peerDependencies": {
 		"react": ">= 16.3"

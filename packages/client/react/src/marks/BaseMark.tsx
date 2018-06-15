@@ -9,20 +9,14 @@ export abstract class BaseMark<
 > extends React.PureComponent<T> {
 	protected abstract markType: MarkType
 
-	private api: SceneNodeBuilder | undefined
-
-	public componentDidMount() {
-		if (!this.api) {
-			throw new Error('expected API to be present')
-		}
-		this.addMark()
-	}
+	private apiInstance: SceneNodeBuilder | undefined
 
 	public render() {
 		return (
 			<SceneNodeBuilderConsumer>
 				{api => {
-					this.api = api
+					this.apiInstance = api
+					this.addMark()
 					return this.renderInner()
 				}}
 			</SceneNodeBuilderConsumer>
@@ -48,21 +42,23 @@ export abstract class BaseMark<
 		}
 	}
 
-	protected addMark() {
-		if (!this.api) {
+	protected get api() {
+		if (!this.apiInstance) {
 			throw new Error('api must be defined')
 		}
 
-		const { channels, encodings, markType } = this
-		const { table, name, role, singleton } = this.props
+		return this.apiInstance
+	}
+
+	protected addMark() {
 		this.api
-			.setType(markType)
-			.setTable(table)
-			.addChannels(channels)
-			.addEncodings(encodings)
-			.setName(name)
-			.setRole(role)
-			.setSingleton(singleton)
+			.setType(this.markType)
+			.addChannels(this.channels)
+			.addEncodings(this.encodings)
+			.setTable(this.props.table)
+			.setName(this.props.name)
+			.setRole(this.props.role)
+			.setSingleton(this.props.singleton)
 	}
 
 	protected renderInner(): React.ReactNode {

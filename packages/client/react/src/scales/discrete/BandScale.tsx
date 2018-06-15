@@ -37,16 +37,13 @@ export class BandScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	public componentDidMount() {
-		if (!this.api) {
-			throw new Error('expected API to be present')
-		}
-		super.componentDidMount()
+	protected addScale() {
+		super.addScale()
 		this.api.addScale(
 			this.props.widthName,
 			this.props.table,
 			({ scales }: CreateScaleArgs) => () => {
-				const rootScale = scales[this.props.name]
+				const rootScale: ScaleBand<string> = scales[this.props.name] as any
 				return rootScale.bandwidth()
 			},
 		)

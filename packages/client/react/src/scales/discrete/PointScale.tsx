@@ -32,8 +32,8 @@ export class PointScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	public componentDidMount() {
-		super.componentDidMount()
+	protected addScale() {
+		super.addScale()
 		this.api.addScale(
 			this.props.widthName,
 			this.props.table,

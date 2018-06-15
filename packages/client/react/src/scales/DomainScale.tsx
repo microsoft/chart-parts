@@ -32,23 +32,28 @@ export abstract class DomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain
 > extends React.PureComponent<Props> {
-	protected api: SceneNodeBuilder | undefined
+	protected apiInstance: SceneNodeBuilder | undefined
 
 	public render() {
 		return (
 			<SceneNodeBuilderConsumer>
 				{(api: SceneNodeBuilder) => {
-					this.api = api
+					this.apiInstance = api
+					this.addScale()
 					return null
 				}}
 			</SceneNodeBuilderConsumer>
 		)
 	}
 
-	public componentDidMount() {
-		if (!this.api) {
-			throw new Error('expected API to be present')
+	protected get api(): SceneNodeBuilder {
+		if (!this.apiInstance) {
+			throw new Error('api must be defined')
 		}
+		return this.apiInstance as SceneNodeBuilder
+	}
+
+	protected addScale() {
 		this.api.addScale(
 			this.props.name,
 			this.props.table,

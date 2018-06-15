@@ -4,7 +4,8 @@ import { SceneBuilder } from '@gog/scenegen'
 import { SceneBuilderProvider } from './Context'
 import { VirtualSvgPipeline } from '@gog/core'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { ChartNode } from './ChartNode'
+import { ChartSpec } from './ChartSpec'
+const shallowequal = require('shallowequal')
 
 export interface ChartPadding {
 	top?: number
@@ -30,35 +31,29 @@ export interface ChartState {
 
 export class Chart extends React.Component<ChartProps, ChartState> {
 	private pipeline: VirtualSvgPipeline<React.ReactNode>
-	private sceneBuilder: SceneBuilder = new SceneBuilder()
 
 	constructor(props: ChartProps) {
 		super(props)
 		this.pipeline = new VirtualSvgPipeline(props.renderer)
 		this.state = { rendered: null }
+		this.receiveSpec = this.receiveSpec.bind(this)
 	}
 
-	public shouldComponentUpdate() {
-		return true
-	}
-
-	public componentDidMount() {
-		this.setState({})
+	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
+		return !shallowequal(this.props, props) || !shallowequal(this.state, state)
 	}
 
 	public render() {
-		return (
-			<SceneBuilderProvider value={this.sceneBuilder}>
-				<ChartNode>
-					{this.props.children}
-					{this.renderMarks()}
-				</ChartNode>
-			</SceneBuilderProvider>
-		)
+		const { renderer, ...props } = this.props
+		return [
+			<ChartSpec key="spec" {...props} onSpecReady={this.receiveSpec}>
+				{this.props.children}
+			</ChartSpec>,
+			this.state.rendered,
+		]
 	}
 
-	private renderMarks() {
-		const spec = this.sceneBuilder.build()
+	private receiveSpec(spec: any) {
 		const rendered = this.pipeline.handleData(
 			spec,
 			{
@@ -68,6 +63,6 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 			},
 			this.props.data,
 		)
-		return rendered
+		this.setState({ rendered })
 	}
 }

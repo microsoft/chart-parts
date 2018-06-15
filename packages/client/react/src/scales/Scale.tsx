@@ -1,6 +1,7 @@
 import * as React from 'react'
-import { SceneNodeBuilderConsumer } from '../Context'
 import { SceneNodeBuilder } from '@gog/scenegen'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {
 	name: string
@@ -9,18 +10,33 @@ export interface ScaleProps {
 }
 
 export class Scale extends React.PureComponent<ScaleProps> {
+	protected apiInstance: SceneNodeBuilder | undefined
+
 	public render() {
 		return (
 			<SceneNodeBuilderConsumer>
 				{api => {
-					this.receiveApi(api)
+					this.apiInstance = api
+					this.addScale()
 					return null
 				}}
 			</SceneNodeBuilderConsumer>
 		)
 	}
 
-	protected receiveApi(api: SceneNodeBuilder) {
-		api.addScale(this.props.name, this.props.table, this.props.create)
+	protected get api(): SceneNodeBuilder {
+		if (!this.apiInstance) {
+			throw new Error('api must be defined')
+		}
+
+		return this.apiInstance as SceneNodeBuilder
+	}
+
+	protected addScale() {
+		this.api.addScale(
+			this.props.name,
+			this.props.table,
+			(args: CreateScaleArgs) => this.props.create(args),
+		)
 	}
 }
