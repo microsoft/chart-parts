@@ -1,5 +1,12 @@
 import { SGMark } from '@gog/scenegraph-interfaces'
 
+export interface PaddingObject {
+	top?: number
+	right?: number
+	bottom?: number
+	left?: number
+}
+
 /**
  * The top-level chart rendering options. This includes dimensions, scaling parameters, and
  * coloration at the top level
@@ -31,6 +38,8 @@ export interface ChartOptions {
 	 * The background color of the chart
 	 */
 	backgroundColor?: string
+
+	padding?: number | PaddingObject
 }
 
 export interface ScenegraphConverter<IntermediateForm> {

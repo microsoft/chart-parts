@@ -4,14 +4,14 @@ import {
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export class UtcScale extends QuantitativeScale<
 	QuantitativeScaleProps<TimeValue, number>,
 	TimeValue,
 	number
 > {
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const result = scaleUtc()

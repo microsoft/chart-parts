@@ -4,14 +4,14 @@ import {
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export class SqrtScale extends QuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
 	number
 > {
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const result = scaleSqrt()

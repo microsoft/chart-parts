@@ -1,7 +1,7 @@
 import { scaleBand, ScaleBand } from 'd3-scale'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 import { Dimension } from '../../interfaces'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -37,17 +37,19 @@ export class BandScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	public componentDidMount() {
-		if (!this.api) {
-			throw new Error('expected API to be present')
-		}
-		super.componentDidMount()
-		this.api.addScaleCreator(this.props.widthName, ({ scales }) => () =>
-			(scales[this.props.name] as ScaleBand<any>).bandwidth(),
+	protected addScale() {
+		super.addScale()
+		this.api.addScale(
+			this.props.widthName,
+			this.props.table,
+			({ scales }: CreateScaleArgs) => () => {
+				const rootScale: ScaleBand<string> = scales[this.props.name] as any
+				return rootScale.bandwidth()
+			},
 		)
 	}
 
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const result = scaleBand()
 			.domain(this.getDomain(args))
 			.range(this.getRange(args))
@@ -69,7 +71,7 @@ export class BandScale extends DomainRangeScale<
 	}
 
 	protected handleRangeBind(
-		args: ScaleCreatorArgs<any>,
+		args: CreateScaleArgs,
 		rangeBind: Dimension,
 	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {

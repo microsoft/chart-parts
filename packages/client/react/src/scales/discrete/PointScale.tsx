@@ -1,7 +1,7 @@
 import { scalePoint, ScalePoint } from 'd3-scale'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 import { Dimension } from '../../interfaces'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export interface PointScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -32,14 +32,17 @@ export class PointScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	public componentDidMount() {
-		super.componentDidMount()
-		this.api.addScaleCreator(this.props.widthName, ({ scales }) => () =>
-			(scales[this.props.name] as ScalePoint<any>).bandwidth(),
+	protected addScale() {
+		super.addScale()
+		this.api.addScale(
+			this.props.widthName,
+			this.props.table,
+			({ scales }) => () =>
+				(scales[this.props.name] as ScalePoint<any>).bandwidth(),
 		)
 	}
 
-	protected createScale(args: ScaleCreatorArgs<any>) {
+	protected createScale(args: CreateScaleArgs) {
 		const result = scalePoint()
 			.domain(this.getDomain(args))
 			.range(this.getRange(args))
@@ -54,7 +57,10 @@ export class PointScale extends DomainRangeScale<
 		return result
 	}
 
-	protected handleRangeBind(args: ScaleCreatorArgs<any>, rangeBind: Dimension) {
+	protected handleRangeBind(
+		args: CreateScaleArgs,
+		rangeBind: Dimension,
+	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
 			return [args.drawRect.bottom, args.drawRect.top]
 		} else {

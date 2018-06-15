@@ -1,9 +1,11 @@
 import * as React from 'react'
 import { Renderer } from '@gog/render-interfaces'
 import { SceneBuilder } from '@gog/scenegen'
-import { ChartContextProvider } from './ChartContext'
+import { SceneBuilderProvider } from './Context'
 import { VirtualSvgPipeline } from '@gog/core'
 import { VSvgNode } from '@gog/vdom-interfaces'
+import { ChartSpec } from './ChartSpec'
+const shallowequal = require('shallowequal')
 
 export interface ChartPadding {
 	top?: number
@@ -12,11 +14,11 @@ export interface ChartPadding {
 	right?: number
 }
 
-export interface ChartProps<Row> {
+export interface ChartProps {
 	width: number
 	height: number
 	padding?: number | ChartPadding
-	data: Row[]
+	data: { [key: string]: any[] }
 	renderer: Renderer<VSvgNode, any>
 }
 
@@ -27,65 +29,40 @@ export interface ChartState {
 	rendered: React.ReactNode
 }
 
-export class Chart<Row> extends React.Component<ChartProps<Row>, ChartState> {
+export class Chart extends React.Component<ChartProps, ChartState> {
 	private pipeline: VirtualSvgPipeline<React.ReactNode>
-	private sceneBuilder: SceneBuilder = new SceneBuilder()
 
-	constructor(props: ChartProps<Row>) {
+	constructor(props: ChartProps) {
 		super(props)
 		this.pipeline = new VirtualSvgPipeline(props.renderer)
 		this.state = { rendered: null }
+		this.receiveSpec = this.receiveSpec.bind(this)
 	}
 
-	public shouldComponentUpdate() {
-		return true
-	}
-
-	public componentDidMount() {
-		this.setState({})
+	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
+		return !shallowequal(this.props, props) || !shallowequal(this.state, state)
 	}
 
 	public render() {
-		return (
-			<ChartContextProvider value={this.sceneBuilder}>
+		const { renderer, ...props } = this.props
+		return [
+			<ChartSpec key="spec" {...props} onSpecReady={this.receiveSpec}>
 				{this.props.children}
-				{this.renderMarks()}
-			</ChartContextProvider>
+			</ChartSpec>,
+			this.state.rendered,
+		]
+	}
+
+	private receiveSpec(spec: any) {
+		const rendered = this.pipeline.handleData(
+			spec,
+			{
+				width: this.props.width,
+				height: this.props.height,
+				padding: this.props.padding,
+			},
+			this.props.data,
 		)
+		this.setState({ rendered })
 	}
-
-	private renderMarks() {
-		const spec = this.sceneBuilder.build()
-		const rendered = this.pipeline.handleData(spec, this.props.data, {
-			width: this.props.width,
-			height: this.props.height,
-		})
-		return rendered
-	}
-
-	/*
-	private get topPadding() {
-		return this.getPadding('top')
-	}
-
-	private get leftPadding() {
-		return this.getPadding('left')
-	}
-
-	private get bottomPadding() {
-		return this.getPadding('bottom')
-	}
-
-	private get rightPadding() {
-		return this.getPadding('right')
-	}
-
-	private getPadding(name: string) {
-		if (typeof this.props.padding === 'object') {
-			return (this.props.padding as any)[name] || 0
-		} else {
-			return this.props.padding || 0
-		}
-	}
-	*/
 }

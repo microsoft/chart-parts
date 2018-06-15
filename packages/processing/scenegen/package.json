@@ -19,6 +19,7 @@
 		"@gog/mark-spec-interfaces": "0.0.0",
 		"@gog/scenegraph-interfaces": "0.0.0",
 		"@gog/xform-sg-interfaces": "0.0.0",
-		"@gog/scenegraph": "0.0.0"
+		"@gog/scenegraph": "0.0.0",
+		"lodash": "^4.17.10"
 	}
 }

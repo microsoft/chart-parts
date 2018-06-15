@@ -1,6 +1,8 @@
 import { MarkEncoding } from '@gog/mark-spec-interfaces'
 
 export enum Dimension {
+	CHART_HEIGHT = 'chartheight',
+	CHART_WIDTH = 'chartwidth',
 	HEIGHT = 'height',
 	WIDTH = 'width',
 }
@@ -9,7 +11,28 @@ export enum Dimension {
  * Common mark-component properties
  */
 export interface CommonMarkProps {
-	// Common Mark Properties
+	// Data-binding
+	/**
+	 * The name of the data-table to bind to
+	 */
+	table?: string
+
+	/**
+	 * If true, emits a single item instead of one item per row in bound-data
+	 */
+	singleton?: boolean
+
+	/**
+	 * A helpful name for the mark
+	 */
+	name?: string
+
+	/**
+	 * A role description of this mark
+	 */
+	role?: string
+
+	// Common Mark Value Encodings
 	x?: MarkEncoding
 	x2?: MarkEncoding
 	xc?: MarkEncoding

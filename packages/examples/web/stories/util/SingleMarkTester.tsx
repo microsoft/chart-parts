@@ -1,4 +1,4 @@
-// tslint:disable jsx-no-lambda jsx-no-lambda-props
+// tslint:disable jsx-no-lambda jsx-no-lambda-props react-component-classes-should-implement-scu
 import * as React from 'react'
 import styled from 'styled-components'
 import { SGChart } from './Chart'
@@ -60,10 +60,6 @@ export class SingleMarkTester extends React.Component<
 	constructor(props: SingleMarkTesterProps) {
 		super(props)
 		this.state = { scenegraph: props.initialScenegraph }
-	}
-
-	public shouldComponentUpdate() {
-		return true
 	}
 
 	public render() {

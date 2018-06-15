@@ -1,29 +1,35 @@
 import { MarkType } from '@gog/mark-interfaces'
 
 /**
- * Specification for rendering a scene
+ * Each scene node binds data with a set of marks and scales
  */
-export interface SceneSpec {
-	/**
-	 * The marks that compose this scene
-	 */
-	marks: MarkSpec[]
+export interface SceneNode {
+	mark: Mark
 
 	/**
-	 * Scale factories used to generate scales, which are used by marks to
-	 * transform logical values to screen values
+	 * The scales defined under this scene node
 	 */
 	scales: NamedScaleCreator[]
+
+	/**
+	 * The children scene nodes
+	 */
+	children: SceneNode[]
 }
 
 /**
  * Specification for rendering a mark in a scene
  */
-export interface MarkSpec {
+export interface Mark {
 	/**
 	 * The type of mark to render
 	 */
 	type: MarkType
+
+	/**
+	 * The name of the data-table to bind this mark to
+	 */
+	table?: string
 
 	/**
 	 * The encodings, which map data values into attribute values
@@ -34,17 +40,32 @@ export interface MarkSpec {
 	 * The event channels of the mark to listen to
 	 */
 	channels: Channels
+
+	/**
+	 * The role of this mark
+	 */
+	role?: string
+
+	/**
+	 * A helpful name for this mark
+	 */
+	name?: string
+
+	/**
+	 * If true, this mark will have a single item instance unbound to data
+	 */
+	singleton?: boolean
 }
 
 /**
  * An encoding specification for a mark property. This can either be a static
  * primitive or a function that generates the value
  */
-export type MarkEncoding =
-	| number
-	| string
-	| boolean
-	| ((arg: MarkEncodingFunctionArgs) => any)
+export type MarkEncodingFunction = (
+	args: MarkEncodingFunctionArgs,
+) => number | string | boolean
+
+export type MarkEncoding = number | string | boolean | MarkEncodingFunction
 
 /**
  * The arguments used for mark encoding functions
@@ -66,9 +87,14 @@ export interface MarkEncodingFunctionArgs {
 	scales: Scales
 
 	/**
+	 * The bound dataset
+	 */
+	data: any[]
+
+	/**
 	 * The full dataset
 	 */
-	data: any
+	tables: { [key: string]: any[] }
 }
 
 /**
@@ -77,7 +103,7 @@ export interface MarkEncodingFunctionArgs {
  * primitive type
  */
 export interface Scales {
-	[key: string]: Transformer<any, any>
+	[key: string]: Scale<any, any>
 }
 
 /**
@@ -100,22 +126,32 @@ export interface Channels {
  * An hash of scale-name to scale-creator functions
  */
 export interface NamedScaleCreator {
+	/**
+	 * The name of the scale
+	 */
 	name: string
-	scaleCreator: ScaleCreator<any>
+
+	/**
+	 * The table this scale is applied to when computing domain
+	 */
+	table: string
+
+	/**
+	 * The creator function for this scale
+	 */
+	creator: ScaleCreator
 }
 
 /**
  * A factory function that creates a scale instance.
  */
-export type ScaleCreator<Datum> = (
-	input: ScaleCreatorArgs<Datum>,
-) => Transformer<any, any>
+export type ScaleCreator = (input: CreateScaleArgs) => Scale<any, any>
 
 /**
  * Interface for the scale creation argument object, which is used to
  * create scale instances when a chart drawn or resized.
  */
-export interface ScaleCreatorArgs<Datum> {
+export interface CreateScaleArgs {
 	/**
 	 * The rectangle of the entire charting area
 	 */
@@ -128,21 +164,21 @@ export interface ScaleCreatorArgs<Datum> {
 	drawRect: ViewRect
 
 	/**
-	 * The data to evaluate when creating the scale
-	 */
-	data: Datum[]
-
-	/**
 	 * The current set of configured scales
 	 */
 	scales: Scales
+
+	/**
+	 * The dataset to bind with
+	 */
+	data: any[]
 }
 
 /**
  *  Basic interface for a scale, this type does not include some exotic
  * methods that may exist on specific d3-scales.
  */
-export type Transformer<In, Out> = (input?: In) => Out
+export type Scale<In, Out> = (input?: In) => Out
 
 /**
  * A view rectangle in the SVG, using SVG Coordinates

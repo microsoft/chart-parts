@@ -1,7 +1,7 @@
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { Dimension } from '../../interfaces'
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
@@ -44,7 +44,7 @@ export abstract class QuantitativeScale<
 	}
 
 	protected handleRangeBind(
-		args: ScaleCreatorArgs<any>,
+		args: CreateScaleArgs,
 		rangeBind: Dimension,
 	): [RangeValue, RangeValue] {
 		if (rangeBind === Dimension.HEIGHT) {

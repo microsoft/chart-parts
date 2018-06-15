@@ -1,25 +1,42 @@
 import * as React from 'react'
-import { ChartContextConsumer } from '../ChartContext'
-import { SceneBuilder } from '@gog/scenegen'
+import { SceneNodeBuilder } from '@gog/scenegen'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {
 	name: string
+	table: string
 	create: (args: any) => any
 }
 
 export class Scale extends React.PureComponent<ScaleProps> {
+	protected apiInstance: SceneNodeBuilder | undefined
+
 	public render() {
 		return (
-			<ChartContextConsumer>
+			<SceneNodeBuilderConsumer>
 				{api => {
-					this.receiveApi(api)
+					this.apiInstance = api
+					this.addScale()
 					return null
 				}}
-			</ChartContextConsumer>
+			</SceneNodeBuilderConsumer>
 		)
 	}
 
-	protected receiveApi(api: SceneBuilder) {
-		api.addScaleCreator(this.props.name, this.props.create)
+	protected get api(): SceneNodeBuilder {
+		if (!this.apiInstance) {
+			throw new Error('api must be defined')
+		}
+
+		return this.apiInstance as SceneNodeBuilder
+	}
+
+	protected addScale() {
+		this.api.addScale(
+			this.props.name,
+			this.props.table,
+			(args: CreateScaleArgs) => this.props.create(args),
+		)
 	}
 }

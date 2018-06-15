@@ -1,2 +1,3 @@
+export * from './builder'
 export * from './SceneGenerator'
-export * from './SceneBuilder'
+export * from './interfaces'

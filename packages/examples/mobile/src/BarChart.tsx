@@ -25,7 +25,6 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	}
 
 	public render() {
-		console.log('Render Chart')
 		// Externalized Event Handlers
 		const onPress = ({ metadata: { dataRowIndex } }) => {
 			if (this.state.hoverRowIndex !== dataRowIndex) {

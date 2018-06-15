@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import { ScaleCreatorArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 import { DomainScale, DomainScaleProps } from './DomainScale'
 
 export interface DomainScaleProps<Domain> {
@@ -18,7 +18,7 @@ export interface DomainScaleProps<Domain> {
 	 * Manually create the domain based on a scale-creation
 	 * context
 	 */
-	domain?: (args: ScaleCreatorArgs<any>) => Domain
+	domain?: (args: CreateScaleArgs) => Domain
 }
 
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>
@@ -33,7 +33,7 @@ export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	 * Manually create the rangse based on a scale-creation
 	 * context
 	 */
-	range?: (args: ScaleCreatorArgs<any>) => Range
+	range?: (args: CreateScaleArgs) => Range
 }
 export abstract class DomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
@@ -42,11 +42,11 @@ export abstract class DomainRangeScale<
 	RangeBind
 > extends DomainScale<Props, Domain> {
 	protected abstract handleRangeBind(
-		args: ScaleCreatorArgs<any>,
+		args: CreateScaleArgs,
 		bind: RangeBind,
 	): Range
 
-	protected getRange(args: ScaleCreatorArgs<any>): Range {
+	protected getRange(args: CreateScaleArgs): Range {
 		if (this.props.range) {
 			return this.props.range(args)
 		} else {
