@@ -100,7 +100,7 @@ export class SceneInstance {
 			chartRect,
 		})
 
-		const items = data.map((row, index) => {
+		const items = (data || []).map((row, index) => {
 			const item = this.createMarkItem(
 				mark,
 				row,
@@ -120,7 +120,7 @@ export class SceneInstance {
 						chartRect,
 					},
 				)
-				groupItem.items = node.children.map(c =>
+				groupItem.items = (node.children || []).map(c =>
 					this.processNode(
 						c,
 						{ ...scales, ...nodeScales, ...itemScales },
