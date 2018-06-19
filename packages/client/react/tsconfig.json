@@ -3,7 +3,8 @@
     "compilerOptions": {
         "lib": ["esnext", "dom"],
         "declaration": true,
-        "outDir": "lib"
+        "outDir": "lib",
+        "experimentalDecorators": true
     },
     "files": [
         "src/index.ts"

@@ -142,7 +142,12 @@ export class SceneInstance {
 		const result = { ...parentFrame }
 		creators.forEach(({ name, table, creator }) => {
 			const data = this.tables[table]
-			const scale = creator({ ...partialArgs, data, scales: result })
+			const args: CreateScaleArgs = {
+				...partialArgs,
+				data,
+				scales: result,
+			} as any
+			const scale = creator(args)
 			result[name] = scale
 		})
 		return result

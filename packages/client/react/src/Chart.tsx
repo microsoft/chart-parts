@@ -1,10 +1,11 @@
+// tslint:disable no-var-requires
 import * as React from 'react'
 import { Renderer } from '@gog/render-interfaces'
-import { SceneBuilder } from '@gog/scenegen'
-import { SceneBuilderProvider } from './Context'
 import { VirtualSvgPipeline } from '@gog/core'
 import { VSvgNode } from '@gog/vdom-interfaces'
 import { ChartSpec } from './ChartSpec'
+import autobind from 'autobind-decorator'
+declare var require: any
 const shallowequal = require('shallowequal')
 
 export interface ChartPadding {
@@ -44,7 +45,7 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 	}
 
 	public render() {
-		const { renderer, ...props } = this.props
+		const { renderer, data, ...props } = this.props
 		return [
 			<ChartSpec key="spec" {...props} onSpecReady={this.receiveSpec}>
 				{this.props.children}
@@ -53,6 +54,7 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 		]
 	}
 
+	@autobind
 	private receiveSpec(spec: any) {
 		const rendered = this.pipeline.handleData(
 			spec,

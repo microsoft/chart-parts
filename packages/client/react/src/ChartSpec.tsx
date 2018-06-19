@@ -38,7 +38,9 @@ export class ChartSpec extends React.PureComponent<ChartSpecProps> {
 	}
 
 	private updateSpec() {
-		const spec = this.sceneBuilder.build()
-		this.props.onSpecReady(spec)
+		if (this.sceneBuilder) {
+			const spec = this.sceneBuilder.build()
+			this.props.onSpecReady(spec)
+		}
 	}
 }
