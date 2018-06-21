@@ -18,6 +18,6 @@ export class SceneGenerator {
 		options: ChartOptions,
 		tables: { [key: string]: any[] },
 	): GeneratedScene {
-		return new SceneInstance(scene, options, tables).build()
+		return new SceneInstance(scene, options).build(tables)
 	}
 }

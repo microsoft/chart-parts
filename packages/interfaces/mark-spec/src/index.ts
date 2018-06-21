@@ -55,6 +55,30 @@ export interface Mark {
 	 * If true, this mark will have a single item instance unbound to data
 	 */
 	singleton?: boolean
+
+	/**
+	 * For group marks, an optional parameter on data faceting
+	 */
+	facet?: Facet
+}
+
+/**
+ * Faceting configuration to apply on incoming data
+ */
+export interface Facet {
+	/**
+	 * The name of the facet-tables that dowstream marks will see
+	 */
+	name: string
+
+	/**
+	 * How incoming data will be split up.
+	 *
+	 * If the value is a string, then it indicates the name of a key proprtey that the rows will be partitioned
+	 * on.
+	 * If the value is a function, then the function describes how to get a partition key for a row.
+	 */
+	partitionOn: ((row: any) => any)
 }
 
 /**

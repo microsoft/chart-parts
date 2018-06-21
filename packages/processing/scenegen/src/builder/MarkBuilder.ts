@@ -5,6 +5,7 @@ import {
 	ChannelHandler,
 	MarkEncoding,
 	MarkEncodings,
+	Facet,
 } from '@gog/mark-spec-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
 
@@ -13,6 +14,7 @@ export class MarkBuilder {
 	private table: string | undefined
 	private role: string | undefined
 	private name: string | undefined
+	private facet: Facet | undefined
 	private singleton: boolean = false
 	private channels: Channels = {}
 	private encodings: MarkEncodings = {}
@@ -74,14 +76,31 @@ export class MarkBuilder {
 		)
 	}
 
+	public setFacet(facet: Facet) {
+		this.facet = facet
+	}
+
 	public build(): Mark {
-		const { type, table, channels, encodings, role, name, singleton } = this
+		const {
+			type,
+			table,
+			channels,
+			encodings,
+			role,
+			name,
+			singleton,
+			facet,
+		} = this
 		if (!type) {
 			throw new Error('mark type must be set')
 		}
 		if (!singleton && !table) {
 			throw new Error('mark table must be set or the mark must be a singleton')
 		}
+		if (this.facet && this.type !== MarkType.Group) {
+			throw new Error('faceting can only be applied to group type marks')
+		}
+
 		return {
 			table,
 			type,
@@ -90,6 +109,7 @@ export class MarkBuilder {
 			role,
 			name,
 			singleton,
+			facet,
 		}
 	}
 }

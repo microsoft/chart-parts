@@ -15,17 +15,16 @@ import {
 import * as SG from '@gog/scenegraph'
 
 type SGMarkAny = SGMark<SGItem>
+interface DataFrame {
+	[key: string]: any[]
+}
 
 export class SceneInstance {
 	private channelId: number = 0
 	private channelHandlers: { [key: string]: (arg: any) => void } = {}
 	private chartRect: ViewRect
 
-	constructor(
-		private scene: SceneNode,
-		private options: ChartOptions,
-		private tables: { [key: string]: any[] },
-	) {
+	constructor(private scene: SceneNode, private options: ChartOptions) {
 		this.chartRect = {
 			left: 0,
 			top: 0,
@@ -34,7 +33,7 @@ export class SceneInstance {
 		}
 	}
 
-	public build() {
+	public build(data: DataFrame) {
 		const {
 			chartRect: { top, left, bottom, right },
 			channelHandlers,
@@ -46,7 +45,7 @@ export class SceneInstance {
 			right: right - this.paddingRight,
 		}
 
-		const root = this.processNode(this.scene, {}, drawRect)
+		const root = this.processNode(this.scene, {}, data, drawRect)
 		return { root, channelHandlers }
 	}
 
@@ -84,6 +83,7 @@ export class SceneInstance {
 	private processNode(
 		node: SceneNode,
 		scales: Scales,
+		dataFrame: DataFrame,
 		drawRect: ViewRect,
 	): SGMarkAny {
 		const { chartRect } = this
@@ -92,14 +92,19 @@ export class SceneInstance {
 		if (!singleton && !table) {
 			throw new Error('marks that are non-singletons must be data-bound')
 		}
-		const data: any[] = singleton ? [{}] : this.tables[table as string]
+
 		const channelNames = this.mapMarkChannels(channels)
+		const nodeScales: Scales = this.getNextScaleFrame(
+			scales,
+			node.scales,
+			{
+				drawRect,
+				chartRect,
+			},
+			dataFrame,
+		)
 
-		const nodeScales: Scales = this.getNextScaleFrame(node.scales, scales, {
-			drawRect,
-			chartRect,
-		})
-
+		const data: any[] = singleton ? [{}] : dataFrame[table as string]
 		const items = (data || []).map((row, index) => {
 			const item = this.createMarkItem(
 				mark,
@@ -108,22 +113,25 @@ export class SceneInstance {
 				data,
 				channelNames,
 				nodeScales,
+				dataFrame,
 			)
 			if (type === MarkType.Group) {
 				const groupItem = item as SGGroupItem
 				const innerDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
 				const itemScales: Scales = this.getNextScaleFrame(
-					node.scales,
 					nodeScales,
+					node.scales,
 					{
 						drawRect: innerDrawRect,
 						chartRect,
 					},
+					dataFrame,
 				)
 				groupItem.items = (node.children || []).map(c =>
 					this.processNode(
 						c,
 						{ ...scales, ...nodeScales, ...itemScales },
+						dataFrame,
 						drawRect,
 					),
 				)
@@ -133,6 +141,31 @@ export class SceneInstance {
 
 		return SG.createMark(type, items)
 	}
+
+	/*
+	private getBoundDataRows(mark: Mark) {
+		const { type, table, singleton, facet } = mark
+
+		if (singleton) {
+			return [{}]
+		}
+
+		const sourceTable = this.tables[table as string]
+		if (facet) {
+			const { name, partitionOn } = facet
+			const keySet = new Map<string, any[]>()
+
+			sourceTable.forEach(row => {
+				const key = partitionOn(row)
+				if (!keySet.keys())
+			})
+			return sourceTable
+		} else {
+			return sourceTable
+		}
+
+		return result
+	}*/
 
 	private calculateInnerDrawRect(item: SGGroupItem, drawRect: ViewRect) {
 		const left = drawRect.left + (item.x || 0)
@@ -150,14 +183,22 @@ export class SceneInstance {
 		}
 	}
 
+	private getNextDataFrame(
+		parentFrame: DataFrame,
+		newFrame: DataFrame,
+	): DataFrame {
+		return { ...parentFrame, ...newFrame }
+	}
+
 	private getNextScaleFrame(
-		creators: NamedScaleCreator[],
 		parentFrame: Scales,
+		creators: NamedScaleCreator[],
 		partialArgs: Partial<CreateScaleArgs>,
+		dataFrame: DataFrame,
 	) {
 		const result = { ...parentFrame }
 		creators.forEach(({ name, table, creator }) => {
-			const data = this.tables[table]
+			const data = dataFrame[table]
 			const args: CreateScaleArgs = {
 				...partialArgs,
 				data,
@@ -176,10 +217,11 @@ export class SceneInstance {
 		data: any[],
 		channelNames: { [key: string]: string },
 		scales: Scales,
+		dataFrame: DataFrame,
 	) {
 		const { type, encodings, name, role } = mark
 		return SG.createItem(type, {
-			...this.transferEncodings(row, index, encodings, data, scales),
+			...this.transferEncodings(row, index, encodings, data, scales, dataFrame),
 			name,
 			role,
 			metadata: { dataRowIndex: index },
@@ -211,8 +253,8 @@ export class SceneInstance {
 		encodings: MarkEncodings,
 		data: any[],
 		scales: Scales,
+		dataFrame: DataFrame,
 	) {
-		const tables = this.tables
 		const props: { [key: string]: any } = {}
 		Object.keys(encodings)
 			.filter(t => t !== 'items')
@@ -225,7 +267,7 @@ export class SceneInstance {
 								rowIndex,
 								scales,
 								data,
-								tables,
+								tables: dataFrame,
 						  })
 						: encoding
 				props[key] = encodingValue
