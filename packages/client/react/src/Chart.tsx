@@ -37,7 +37,6 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 		super(props)
 		this.pipeline = new VirtualSvgPipeline(props.renderer)
 		this.state = { rendered: null }
-		this.receiveSpec = this.receiveSpec.bind(this)
 	}
 
 	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
@@ -46,12 +45,14 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 
 	public render() {
 		const { renderer, data, ...props } = this.props
-		return [
-			<ChartSpec key="spec" {...props} onSpecReady={this.receiveSpec}>
-				{this.props.children}
-			</ChartSpec>,
-			this.state.rendered,
-		]
+		return (
+			<>
+				<ChartSpec {...props} onSpecReady={this.receiveSpec}>
+					{this.props.children}
+				</ChartSpec>
+				{this.state.rendered}
+			</>
+		)
 	}
 
 	@autobind

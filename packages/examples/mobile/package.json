@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "^16.4.0",
+    "react": "^16.4.1",
     "react-native": "0.55.4",
 		"react-native-svg": "^5.x",
     "@gog/core": "0.0.0",

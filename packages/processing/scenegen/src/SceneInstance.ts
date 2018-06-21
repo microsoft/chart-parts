@@ -111,12 +111,12 @@ export class SceneInstance {
 			)
 			if (type === MarkType.Group) {
 				const groupItem = item as SGGroupItem
-				// TODO: Regenerate draw rect
+				const innerDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
 				const itemScales: Scales = this.getNextScaleFrame(
 					node.scales,
 					nodeScales,
 					{
-						drawRect,
+						drawRect: innerDrawRect,
 						chartRect,
 					},
 				)
@@ -132,6 +132,22 @@ export class SceneInstance {
 		})
 
 		return SG.createMark(type, items)
+	}
+
+	private calculateInnerDrawRect(item: SGGroupItem, drawRect: ViewRect) {
+		const left = drawRect.left + (item.x || 0)
+		const width = item.width !== undefined ? item.width : (item.x2 || 0) - left
+		const right = left + width
+		const top = drawRect.top + (item.y || 0)
+		const height =
+			item.height !== undefined ? item.height : (item.y2 || 0) - top
+		const bottom = top + height
+		return {
+			left,
+			right,
+			top,
+			bottom,
+		}
 	}
 
 	private getNextScaleFrame(
