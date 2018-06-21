@@ -1,7 +1,7 @@
 import autobind from 'autobind-decorator'
 import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
 
-export interface DataStack extends Array<any> {
+interface DataStack extends Array<any> {
 	/**
 	 * The sum of values in the stack
 	 */
@@ -12,7 +12,7 @@ export interface DataStack extends Array<any> {
 	 */
 	max: number
 }
-export interface StackedDataSet extends Array<DataStack> {
+interface StackedDataSet extends Array<DataStack> {
 	/**
 	 * the maximum value found in the stacks
 	 */
@@ -24,7 +24,7 @@ export interface StackedDataSet extends Array<DataStack> {
 	sum: number
 }
 
-export class StackLayoutTransform {
+export class StackTransform {
 	private offset: Offset = Offset.zero
 	private outputFields: [string, string] = ['y0', 'y1']
 	private field: FieldAccessor | undefined
@@ -76,13 +76,13 @@ export class StackLayoutTransform {
 		return this
 	}
 
-	public transform(data: any[]): StackedDataSet {
+	public transform(data: any[]): any[] {
 		// Clone the data to keep this functional
 		const innerData = [...data.map(d => ({ ...d }))]
 		const rawGroups = this.partitionGroups(innerData)
 		const groups = this.computeMaxesAndSums(rawGroups as StackedDataSet)
 		this.processDataStacks(groups)
-		return groups
+		return groups.flatMap(t => t)
 	}
 
 	private get stacker() {

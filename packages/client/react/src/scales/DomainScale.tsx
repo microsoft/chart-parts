@@ -19,7 +19,7 @@ export interface DomainScaleProps<Domain> {
 	 * Binds the domain of the scale to a field in the
 	 * data
 	 */
-	bindDomain?: string
+	bindDomain?: string | string[]
 
 	/**
 	 * Manually create the domain based on a scale-creation
@@ -71,12 +71,21 @@ export abstract class DomainScale<
 		if (this.props.domain) {
 			return this.props.domain(args)
 		} else {
-			const { bindDomain } = this.props
-			if (!bindDomain) {
-				throw new Error('Either bindDomain or domain must be set')
-			}
+			const bindDomain = this.bindDomainArray
 			const { data } = args
-			return this.processDomainValues(data.map(d => d[bindDomain]))
+			const domainValues = data.flatMap(d => bindDomain.map(key => d[key]))
+			const result = this.processDomainValues(domainValues)
+			return result
 		}
+	}
+
+	protected get bindDomainArray(): string[] {
+		const { bindDomain } = this.props
+		if (!bindDomain) {
+			throw new Error('Either bindDomain or domain must be set')
+		}
+		return typeof bindDomain === 'string'
+			? [bindDomain]
+			: (bindDomain as string[])
 	}
 }

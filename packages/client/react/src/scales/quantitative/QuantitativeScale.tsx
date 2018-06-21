@@ -25,6 +25,13 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
 	nice?: boolean | number | string | object
+
+	/**
+	 * 	/**
+	 * Boolean flag indicating if the scale domain should include zero.
+	 * The default value is true for linear, sqrt and pow, and false otherwise.
+	 */
+	zero?: boolean
 }
 
 export abstract class QuantitativeScale<
@@ -37,10 +44,26 @@ export abstract class QuantitativeScale<
 	[RangeValue, RangeValue],
 	Dimension
 > {
+	protected defaultZero = false
+
 	protected processDomainValues(
 		values: QuantitativeValue[],
 	): [DomainValue, DomainValue] {
-		return extent(values as any[]) as [DomainValue, DomainValue]
+		const result = extent(values as any[]) as [DomainValue, DomainValue]
+		if (this.zero && !this.domainContainsZero(result)) {
+			const [min, max] = result
+			const zero = 0 as DomainValue
+			return 0 < min ? [zero, max] : [min, zero]
+		}
+		return result
+	}
+
+	protected domainContainsZero(domain: [DomainValue, DomainValue]) {
+		return 0 >= domain[0] && 0 <= domain[1]
+	}
+
+	protected get zero() {
+		return this.props.zero || this.defaultZero
 	}
 
 	protected handleRangeBind(

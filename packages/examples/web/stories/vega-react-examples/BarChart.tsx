@@ -65,11 +65,9 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					y={({ row, scales: { yscale } }) => yscale(row.amount)}
 					width={({ scales: { xband } }) => xband()}
 					y2={200}
-					fill={({ rowIndex }) => {
-						return this.state.hoverRowIndex === rowIndex
-							? 'firebrick'
-							: 'steelblue'
-					}}
+					fill={({ rowIndex }) =>
+						this.state.hoverRowIndex === rowIndex ? 'firebrick' : 'steelblue'
+					}
 				/>
 			</Chart>
 		)

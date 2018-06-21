@@ -18,7 +18,6 @@ export class RectRenderer implements VSvgMarkConverter {
 				const { x = 0, y = 0, x2 = 0, y2 = 0 } = item
 				const height = item.height || y2 - y
 				const width = item.width || x2 - x
-
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {

@@ -1,7 +1,7 @@
 import { CompareOrder } from '../../interfaces'
-import { StackLayoutTransform } from '../StackLayoutTransform'
+import { StackTransform } from '../StackTransform'
 
-describe('StackLayoutTransform', () => {
+describe('StackTransform', () => {
 	it('can stack values', () => {
 		const data = [
 			{ x: 0, y: 28, c: 0 },
@@ -26,15 +26,14 @@ describe('StackLayoutTransform', () => {
 			{ x: 9, y: 15, c: 1 },
 		]
 
-		const stacker = new StackLayoutTransform()
+		const stacker = new StackTransform()
 			.withField(r => r.y)
-			.withSort({ field: r => r.c, order: CompareOrder.descending })
+			.withSort({ field: r => r.c })
 			.withGroupBy(r => r.x)
 
 		const sltResult = stacker.transform(data)
 
 		// The result should not be the same instance (i.e. preserve the input for functional style)
 		expect(sltResult).not.toBe(data)
-		expect(sltResult.length).toBe(10)
 	})
 })

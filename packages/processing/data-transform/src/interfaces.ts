@@ -7,7 +7,7 @@ export enum CompareOrder {
 
 export interface Compare {
 	field: FieldAccessor
-	order: CompareOrder
+	order?: CompareOrder
 }
 
 export enum Offset {
@@ -20,7 +20,7 @@ export function createSorter(sorts: Compare[]) {
 	return (a: any, b: any) => {
 		let result = 0
 		for (const sort of sorts) {
-			const { order, field } = sort
+			const { order = CompareOrder.descending, field } = sort
 			const valueA = field(a)
 			const valueB = field(b)
 			if (order === CompareOrder.ascending) {

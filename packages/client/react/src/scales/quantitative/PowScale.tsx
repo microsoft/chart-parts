@@ -16,6 +16,8 @@ export class PowScale extends QuantitativeScale<
 	QuantitativeValue,
 	number
 > {
+	protected defaultZero = true
+
 	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
