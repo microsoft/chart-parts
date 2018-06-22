@@ -1,6 +1,7 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGAreaItem } from '@gog/scenegraph-interfaces'
-import { emitMarkGroup, commonProps, assertTypeIs, getItemSpace } from './util'
+import { getItemSpace } from '@gog/util'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
 

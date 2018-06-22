@@ -2,6 +2,7 @@
 import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
+import { getItemSpace } from '@gog/util'
 import {
 	Mark as MarkSpec,
 	SceneNode,
@@ -116,15 +117,8 @@ export class SceneInstance {
 				dataFrame,
 			)
 			if (mark.type === MarkType.Group) {
-				const groupItem = item as SGGroupItem
+				const groupItem: SGGroupItem = item as SGGroupItem
 				const groupDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
-				if (!groupItem.width) {
-					;(groupItem as any).width = groupDrawRect.right - groupDrawRect.left
-				}
-				if (!groupItem.height) {
-					;(groupItem as any).y2 = groupDrawRect.bottom - groupDrawRect.top
-				}
-
 				const itemScales: Scales = this.getNextScaleFrame(
 					scaleFrame,
 					node.scales,
@@ -204,34 +198,22 @@ export class SceneInstance {
 	}
 
 	private calculateInnerDrawRect(item: SGGroupItem, drawRect: ViewRect) {
-		const left = drawRect.left + (item.x || 0)
-		const top = drawRect.top + (item.y || 0)
+		const space = getItemSpace(item)
 
-		let width
-		let height
+		const right =
+			space.origin.x !== undefined && space.shape.width !== undefined
+				? space.origin.x + space.shape.width
+				: drawRect.right
 
-		if (item.x2 !== undefined) {
-			width = item.x2 - left
-		} else if (item.width !== undefined) {
-			width = item.width
-		} else {
-			width = drawRect.right - left
-		}
+		const bottom =
+			space.origin.y !== undefined && space.shape.height !== undefined
+				? space.origin.y + space.shape.height
+				: drawRect.bottom
 
-		if (item.y2 !== undefined) {
-			height = item.y2 - top
-		} else if (item.height !== undefined) {
-			height = item.height
-		} else {
-			height = drawRect.bottom - top
-		}
-
-		const right = left + width
-		const bottom = top + height
 		return {
-			left,
+			left: space.origin.x || 0,
+			top: space.origin.y || 0,
 			right,
-			top,
 			bottom,
 		}
 	}
