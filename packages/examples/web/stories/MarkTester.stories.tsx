@@ -81,6 +81,69 @@ storiesOf('Mark Testers', module)
 			}}
 		/>
 	))
+	.add('Group (using x2, y2)', () => (
+		<SingleMarkTester
+			initialScenegraph={{
+				marktype: 'group',
+				items: [
+					{
+						clip: false,
+						x: 25,
+						x2: 150,
+						y: 25,
+						y2: 150,
+						cornerRadius: 0,
+						strokeWidth: 4,
+						stroke: palette.CRIMSON,
+						fill: palette.GREY,
+						items: [
+							{
+								marktype: 'rect',
+								items: [
+									{
+										x: 75,
+										y: -10,
+										width: 10,
+										height: 20,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+									{
+										x: -5,
+										y: 50,
+										width: 50,
+										height: 50,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+									{
+										x: 100,
+										y: 100,
+										width: 75,
+										height: 85,
+										stroke: palette.CRIMSON,
+										strokeWidth: 2,
+										fill: 'white',
+									},
+								],
+							},
+						],
+					},
+				],
+			}}
+			toggles={[{ name: 'clip' }]}
+			sliders={[
+				{ name: 'x' },
+				{ name: 'y' },
+				{ name: 'x2' },
+				{ name: 'y2' },
+				{ name: 'cornerRadius', max: 20 },
+				{ name: 'strokeWidth', max: 10 },
+			]}
+		/>
+	))
 	.add('Group', () => (
 		<SingleMarkTester
 			initialScenegraph={{
@@ -89,7 +152,9 @@ storiesOf('Mark Testers', module)
 					{
 						clip: false,
 						x: 25,
+						x2: 150,
 						y: 25,
+						y2: 150,
 						width: 150,
 						height: 150,
 						cornerRadius: 0,

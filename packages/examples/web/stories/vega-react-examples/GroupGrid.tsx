@@ -87,7 +87,7 @@ export class GroupGrid extends React.Component<{}, GroupGridState> {
 					<BandScale
 						table="data"
 						name="xscale"
-						widthName="xband"
+						bandWidth="xband"
 						bindDomain="category"
 						padding={0.05}
 						bindRange={Dimension.WIDTH}

@@ -72,7 +72,7 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 				<BandScale
 					name="x"
 					table="data"
-					widthName="width"
+					bandWidth="width"
 					bindRange={Dimension.WIDTH}
 					bindDomain="x"
 				/>

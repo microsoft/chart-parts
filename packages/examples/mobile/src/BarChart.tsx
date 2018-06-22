@@ -40,7 +40,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				/>
 				<BandScale
 					name="xscale"
-					widthName="xband"
+					bandWidth="xband"
 					bindDomain="category"
 					padding={0.05}
 					bindRange={Dimension.WIDTH}

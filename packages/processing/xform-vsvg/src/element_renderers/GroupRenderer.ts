@@ -2,7 +2,7 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { commonProps, assertTypeIs, emitMarkGroup } from './util'
+import { commonProps, assertTypeIs, emitMarkGroup, getItemSpace } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
 import {
@@ -21,12 +21,16 @@ const flatMap = require('lodash/flatMap')
  * @param item
  */
 function renderGroupRectangle(item: SGGroupItem): VSvgNode {
-	const { x = 0, y = 0 } = item
+	const space = getItemSpace(item)
 	const groupRect: VSvgNode = {
 		type: 'path',
 		attrs: {
 			...commonProps(item),
-			d: rectangle(item, x, y).toString(),
+			d: rectangle(
+				{ ...item, ...space.shape } as any,
+				space.origin.x,
+				space.origin.y,
+			).toString(),
 		},
 		metadata: item.metadata,
 		channels: item.channels,
@@ -58,13 +62,14 @@ function renderChildren(
 }
 
 function renderGroup(item: SGGroupItem, children: VSvgNode[]): VSvgNode {
+	const { channels, metadata } = item
 	const group: VSvgNode = {
 		type: 'g',
 		attrs: commonProps(item),
 		transforms: [translate(item.x || 0, item.y || 0)],
 		children,
-		metadata: item.metadata,
-		channels: item.channels,
+		metadata,
+		channels,
 	}
 	return group
 }

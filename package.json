@@ -79,6 +79,7 @@
 		],
 		"collectCoverageFrom": [
 			"**/src/**/*.{ts,tsx}",
+			"!packages/examples/testdata/**",
 			"!**/__tests__/**"
 		],
 		"testPathIgnorePatterns": [

@@ -1,28 +1,37 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`The Arc Renderer can render an arc 1`] = `
-Array [
-  Object {
-    "attrs": Object {
-      "className": "mark-arc role-mark",
-    },
-    "children": Array [
-      Object {
-        "attrs": Object {
-          "d": "M6.123233995736766e-15,-100A100,100,0,0,1,84.14709848078965,-54.030230586813964L25.244129544236895,-16.20906917604419A30,30,0,0,0,1.83697019872103e-15,-30Z",
-          "fill": "red",
-          "origin": Array [
-            0,
-            0,
-          ],
-          "stroke": "blue",
-          "strokeLinecap": "butt",
-          "strokeLinejoin": "miter",
-        },
-        "type": "path",
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-arc role-mark",
       },
-    ],
-    "type": "g",
-  },
-]
+      "children": Array [
+        Object {
+          "attrs": Object {
+            "d": "M6.123233995736766e-15,-100A100,100,0,0,1,84.14709848078965,-54.030230586813964L25.244129544236895,-16.20906917604419A30,30,0,0,0,1.83697019872103e-15,-30Z",
+            "fill": "red",
+            "stroke": "blue",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "transforms": Array [
+            Object {
+              "type": "translate",
+              "value": Array [
+                0,
+                0,
+              ],
+            },
+          ],
+          "type": "path",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
 `;

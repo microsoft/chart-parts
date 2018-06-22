@@ -19,6 +19,10 @@ interface DataFrame {
 	[key: string]: any[]
 }
 
+interface ChannelNames {
+	[key: string]: string
+}
+
 export class SceneInstance {
 	private channelId: number = 0
 	private channelHandlers: { [key: string]: (arg: any) => void } = {}
@@ -78,102 +82,151 @@ export class SceneInstance {
 	/**
 	 * Processes a scene specification node into the SceneGraph model
 	 * @param node The scene node to process
-	 * @param scales The scales available for the given scene node
+	 * @param parentScaleFrame The scales available for the given scene node
 	 */
 	private processNode(
 		node: SceneNode,
-		scales: Scales,
-		dataFrame: DataFrame,
+		parentScaleFrame: Scales,
+		parentDataFrame: DataFrame,
 		drawRect: ViewRect,
 	): SGMarkAny {
-		const { chartRect } = this
 		const { mark } = node
-		const { type, table, channels, singleton } = mark
-		if (!singleton && !table) {
-			throw new Error('marks that are non-singletons must be data-bound')
-		}
-
-		const channelNames = this.mapMarkChannels(channels)
-		const nodeScales: Scales = this.getNextScaleFrame(
-			scales,
+		const channelNames = this.mapMarkChannels(mark.channels)
+		const boundData = this.getBoundData(mark, parentDataFrame)
+		const scaleFrame: Scales = this.getNextScaleFrame(
+			parentScaleFrame,
 			node.scales,
-			{
-				drawRect,
-				chartRect,
-			},
-			dataFrame,
+			drawRect,
+			parentDataFrame,
 		)
 
-		const data: any[] = singleton ? [{}] : dataFrame[table as string]
-		const items = (data || []).map((row, index) => {
+		const createBoundItem = (
+			row: any,
+			index: number,
+			table: any[],
+			dataFrame: DataFrame,
+		) => {
 			const item = this.createMarkItem(
 				mark,
 				row,
 				index,
-				data,
+				table,
 				channelNames,
-				nodeScales,
+				scaleFrame,
 				dataFrame,
 			)
-			if (type === MarkType.Group) {
+			if (mark.type === MarkType.Group) {
 				const groupItem = item as SGGroupItem
-				const innerDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
+				const groupDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
+				if (!groupItem.width) {
+					;(groupItem as any).width = groupDrawRect.right - groupDrawRect.left
+				}
+				if (!groupItem.height) {
+					;(groupItem as any).y2 = groupDrawRect.bottom - groupDrawRect.top
+				}
+
 				const itemScales: Scales = this.getNextScaleFrame(
-					nodeScales,
+					scaleFrame,
 					node.scales,
-					{
-						drawRect: innerDrawRect,
-						chartRect,
-					},
+					groupDrawRect,
 					dataFrame,
 				)
 				groupItem.items = (node.children || []).map(c =>
 					this.processNode(
 						c,
-						{ ...scales, ...nodeScales, ...itemScales },
+						{ ...scaleFrame, ...itemScales },
 						dataFrame,
 						drawRect,
 					),
 				)
 			}
 			return item
-		})
+		}
 
-		return SG.createMark(type, items)
+		/**
+		 * If the data is a faceted group, then bind one group per facet.
+		 * Otherwise bind one item per row.
+		 */
+		let items: any[] = []
+		if (Array.isArray(boundData)) {
+			items = boundData.map((d, index) =>
+				createBoundItem(d, index, boundData, parentDataFrame),
+			)
+		} else {
+			const { name, partitions } = boundData
+			items = partitions.map((partition, index) => {
+				const childDataFrame = { [name]: partition }
+				const nextDataFrame = this.getNextDataFrame(
+					parentDataFrame,
+					childDataFrame,
+				)
+				return createBoundItem(partition, index, partitions, nextDataFrame)
+			})
+		}
+
+		return SG.createMark(mark.type, items)
 	}
 
-	/*
-	private getBoundDataRows(mark: Mark) {
-		const { type, table, singleton, facet } = mark
+	private getBoundData(
+		mark: MarkSpec,
+		dataFrame: DataFrame,
+	): any[] | { name: string; partitions: any[][] } {
+		const { table, singleton, facet } = mark
+		if (!singleton && !table) {
+			throw new Error('marks that are non-singletons must be data-bound')
+		}
 
 		if (singleton) {
 			return [{}]
 		}
 
-		const sourceTable = this.tables[table as string]
-		if (facet) {
-			const { name, partitionOn } = facet
-			const keySet = new Map<string, any[]>()
-
-			sourceTable.forEach(row => {
-				const key = partitionOn(row)
-				if (!keySet.keys())
-			})
-			return sourceTable
-		} else {
-			return sourceTable
+		const sourceTable = dataFrame[table as string]
+		if (!facet) {
+			return sourceTable || []
 		}
 
-		return result
-	}*/
+		const { name, partitionOn } = facet
+		const partitionMap = new Map<string, any[]>()
+		const partitions: any[][] = []
+
+		sourceTable.forEach(row => {
+			const key = partitionOn(row)
+			if (!partitionMap.has(key)) {
+				const newPartition: any[] = []
+				partitions.push(newPartition)
+				partitionMap.set(key, newPartition)
+			}
+			const partition = partitionMap.get(key) as any[]
+			partition.push(row)
+		})
+
+		return { name, partitions }
+	}
 
 	private calculateInnerDrawRect(item: SGGroupItem, drawRect: ViewRect) {
 		const left = drawRect.left + (item.x || 0)
-		const width = item.width !== undefined ? item.width : (item.x2 || 0) - left
-		const right = left + width
 		const top = drawRect.top + (item.y || 0)
-		const height =
-			item.height !== undefined ? item.height : (item.y2 || 0) - top
+
+		let width
+		let height
+
+		if (item.x2 !== undefined) {
+			width = item.x2 - left
+		} else if (item.width !== undefined) {
+			width = item.width
+		} else {
+			width = drawRect.right - left
+		}
+
+		if (item.y2 !== undefined) {
+			height = item.y2 - top
+		} else if (item.height !== undefined) {
+			height = item.height
+		} else {
+			height = drawRect.bottom - top
+		}
+
+		const right = left + width
 		const bottom = top + height
 		return {
 			left,
@@ -192,15 +245,16 @@ export class SceneInstance {
 
 	private getNextScaleFrame(
 		parentFrame: Scales,
-		creators: NamedScaleCreator[],
-		partialArgs: Partial<CreateScaleArgs>,
+		scaleCreators: NamedScaleCreator[],
+		drawRect: ViewRect,
 		dataFrame: DataFrame,
 	) {
 		const result = { ...parentFrame }
-		creators.forEach(({ name, table, creator }) => {
+		scaleCreators.forEach(({ name, table, creator }) => {
 			const data = dataFrame[table]
 			const args: CreateScaleArgs = {
-				...partialArgs,
+				chartRect: this.chartRect,
+				drawRect,
 				data,
 				scales: result,
 			} as any
@@ -215,7 +269,7 @@ export class SceneInstance {
 		row: any,
 		index: number,
 		data: any[],
-		channelNames: { [key: string]: string },
+		channelNames: ChannelNames,
 		scales: Scales,
 		dataFrame: DataFrame,
 	) {
@@ -229,9 +283,9 @@ export class SceneInstance {
 		})
 	}
 
-	private mapMarkChannels(channels: Channels): { [key: string]: string } {
+	private mapMarkChannels(channels: Channels): ChannelNames {
 		// A mapping of event-name to channel-id, which is used to populate the serializable scenegraph
-		const channelNames: { [key: string]: string } = {}
+		const channelNames: ChannelNames = {}
 
 		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
 		// map the handler function in our scene result

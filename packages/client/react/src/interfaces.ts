@@ -62,41 +62,44 @@ export interface CommonMarkProps {
 }
 
 export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
-	return {
-		x: props.x,
-		x2: props.x2,
-		xc: props.xc,
-		width: props.width,
-		y: props.y,
-		y2: props.y2,
-		yc: props.yc,
-		height: props.height,
-		opacity: props.opacity,
-		fill: props.fill,
-		fillOpacity: props.fillOpacity,
-		stroke: props.stroke,
-		strokeOpacity: props.strokeOpacity,
-		strokeWidth: props.strokeWidth,
-		strokeCap: props.strokeCap,
-		strokeDash: props.strokeDash,
-		strokeDashOffset: props.strokeDashOffset,
-		strokeJoin: props.strokeJoin,
-		strokeMiterLimit: props.strokeMiterLimit,
-		cursor: props.cursor,
-		href: props.href,
-		tooltip: props.tooltip,
-		zIndex: props.zIndex,
+	const result: { [key: string]: any } = {}
+	const transferProp = (name: string) => {
+		const propVal = (props as any)[name]
+		if (propVal !== undefined) {
+			result[name] = propVal
+		}
 	}
+	;[
+		'x',
+		'x2',
+		'xc',
+		'width',
+		'y',
+		'y2',
+		'yc',
+		'height',
+		'opacity',
+		'fill',
+		'fillOpacity',
+		'stroke',
+		'strokeOpacity',
+		'strokeWidth',
+		'strokeCap',
+		'strokeDash',
+		'strokeDashOffset',
+		'strokeJoin',
+		'strokeMiterLimit',
+		'cursor',
+		'href',
+		'tooltip',
+		'zIndex',
+	].map(pv => transferProp(pv))
+	return result
 }
 
 export enum CategoricalColorScheme {
 	category10 = 'schemeCategory10',
-	accent = 'schemeAccent',
-	dark2 = 'schemeDark2',
-	paired = 'schemePaired',
-	pastel = 'schemePastel',
-	pastel2 = 'schemePastel2',
-	set1 = 'schemeSet1',
-	set2 = 'schemeSet2',
-	set3 = 'schemeSet3',
+	category20 = 'schemeAccent',
+	category20b = 'schemeDark2',
+	category20c = 'schemePaired',
 }

@@ -1,7 +1,7 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGRectItem } from '@gog/scenegraph-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { commonProps, assertTypeIs, emitMarkGroup } from './util'
+import { commonProps, assertTypeIs, emitMarkGroup, getItemSpace } from './util'
 import { rectangle } from '../path'
 import { VSvgMarkConverter } from './interfaces'
 
@@ -15,14 +15,16 @@ export class RectRenderer implements VSvgMarkConverter {
 			MarkType.Rect,
 			mark.role,
 			mark.items.map(item => {
-				const { x = 0, y = 0, x2 = 0, y2 = 0 } = item
-				const height = item.height || y2 - y
-				const width = item.width || x2 - x
+				const space = getItemSpace(item)
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {
 						...commonProps(item),
-						d: rectangle({ ...item, width, height }, x, y).toString(),
+						d: rectangle(
+							{ ...item, ...space.shape },
+							space.origin.x,
+							space.origin.y,
+						).toString(),
 					},
 					metadata: item.metadata,
 					channels: item.channels,

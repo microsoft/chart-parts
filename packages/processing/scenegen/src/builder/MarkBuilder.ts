@@ -63,6 +63,7 @@ export class MarkBuilder {
 		Object.entries(channels).forEach(
 			([name, handler]) => (this.channels[name] = handler),
 		)
+		return this
 	}
 
 	public addEncoding(key: string, encoding: MarkEncoding) {
@@ -74,10 +75,12 @@ export class MarkBuilder {
 		Object.entries(encodings).forEach(
 			([name, encoding]) => (this.encodings[name] = encoding),
 		)
+		return this
 	}
 
-	public setFacet(facet: Facet) {
+	public setFacet(facet: Facet | undefined) {
 		this.facet = facet
+		return this
 	}
 
 	public build(): Mark {
