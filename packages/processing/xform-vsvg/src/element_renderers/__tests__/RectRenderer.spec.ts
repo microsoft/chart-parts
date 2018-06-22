@@ -16,7 +16,7 @@ describe('The Rect Renderer', () => {
 		rect.stroke = 'blue'
 		mark.items.push(rect)
 
-		const result = renderMark(mark)
+		const result = renderMark(mark, { nextId: () => '' })
 		expect(result).toMatchSnapshot()
 	})
 })
