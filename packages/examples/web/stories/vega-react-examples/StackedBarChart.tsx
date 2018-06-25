@@ -36,15 +36,18 @@ const data = [
 	{ x: 9, y: 15, c: 1 },
 ]
 const stackedData = new StackTransform()
-	.withGroupBy((r: any) => r.x)
-	.withField((r: any) => r.y)
-	.withSort({ field: (r: any) => r.c })
+	.groupBy((r: any) => r.x)
+	.field((r: any) => r.y)
+	.sort({ field: (r: any) => r.c })
 	.transform(data)
 
 export interface StackedBarChartState {
 	hoverRowIndex?: number
 }
 
+/**
+ * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
+ */
 export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 	constructor(props: {}) {
 		super(props)
@@ -94,7 +97,7 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					eventHandlers={{ onMouseEnter, onMouseLeave }}
 					table="data"
 					x={({ scales: { x }, row }) => x(row.x)}
-					width={({ scales: { width }, row }) => width() - 1}
+					width={({ scales: { width } }) => width() - 1}
 					y={({ scales: { y }, row }) => y(row.y0)}
 					y2={({ scales: { y }, row }) => y(row.y1)}
 					fill={({ scales: { color }, row }) => color(row.c)}

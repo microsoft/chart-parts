@@ -3,13 +3,11 @@ import { parseScene } from '@gog/scenegraph'
 import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { VirtualSvgConverter } from '@gog/xform-vsvg'
 import { SceneNode } from '@gog/mark-spec-interfaces'
-import { SceneGenerator } from '@gog/scenegen'
+import { Scene } from '@gog/scenegen'
 
 const converter = new VirtualSvgConverter()
 
 export class VirtualSvgPipeline<T> {
-	private generator = new SceneGenerator()
-
 	constructor(private renderer: VDomRenderer<T>) {}
 
 	public handleScenegraph(rawScene: any, options: ChartOptions = {}): T {
@@ -23,7 +21,7 @@ export class VirtualSvgPipeline<T> {
 		options: ChartOptions = {},
 		tables: { [key: string]: any[] },
 	) {
-		const sg = this.generator.generateScene(scene, options, tables)
+		const sg = new Scene(scene, options).build(tables)
 		const vdom = converter.render(sg.root, options)
 		return this.renderer.render(vdom, sg.channelHandlers)
 	}

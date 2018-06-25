@@ -8,8 +8,8 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 	Group,
-	// Rect,
-	//	Text,
+	Rect,
+	Text,
 } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
 const renderer = new Renderer()
@@ -29,12 +29,15 @@ const data = [
 	{ category: 'C', position: 3, value: 0.7 },
 ]
 
+/**
+ * Adapted from https://vega.github.io/vega/examples/grouped-bar-chart/q
+ */
 export class GroupedBarChart extends React.Component<{}> {
 	public render() {
 		return (
 			<Chart
 				width={300}
-				height={500}
+				height={240}
 				padding={5}
 				data={{ data }}
 				renderer={renderer}
@@ -42,7 +45,7 @@ export class GroupedBarChart extends React.Component<{}> {
 				<BandScale
 					name="y"
 					table="data"
-					bandWidth="height"
+					bandWidth="categoryHeight"
 					bindRange={Dimension.HEIGHT}
 					bindDomain="category"
 					padding={0.2}
@@ -62,12 +65,12 @@ export class GroupedBarChart extends React.Component<{}> {
 					colorScheme={CategoricalColorScheme.category20}
 				/>
 				<Group
+					name="chartgroup"
 					table="data"
 					facetKey={row => row.category}
 					facetName="facet"
-					y={({ scales: { y }, row }) => y(row[0].category)}
-					stroke="black"
-					height={({ scales: { height } }) => height()}
+					y={({ scales, row }) => scales.y(row[0].category)}
+					height={({ scales }) => scales.categoryHeight()}
 				>
 					<BandScale
 						name="pos"
@@ -76,34 +79,27 @@ export class GroupedBarChart extends React.Component<{}> {
 						table="facet"
 						bindDomain="position"
 					/>
-					<Group
-						table="facet"
-						y={({ scales: { pos }, row }) => pos(row.position)}
-						stroke="red"
-						fill="blue"
-						fillOpacity={0.1}
-						height={({ scales: { rowHeight } }) => rowHeight()}
-					/>
-					{/* <Rect
+					<Rect
 						name="bars"
 						table="facet"
-						y={({ scales: { pos }, row }) => pos(row.position)}
 						x={({ scales: { x }, row }) => x(row.value)}
+						y={({ scales: { pos }, row }) => pos(row.position)}
 						x2={({ scales: { x } }) => x(0)}
 						fill={({ scales: { color }, row }) => color(row.position)}
 						height={({ scales: { rowHeight } }) => rowHeight()}
-					/> */}
-					{/* <Text
-						singleton={true}
-						//						table="bars"
-						//x={({ row }) => row.x2 - 5}
-						//						y={({ row }) => row.y - row.height * 0.5}
+					/>
+
+					<Text
+						table="facet"
+						x={({ scales: { x }, row }) => x(row.value) - 3}
+						y={({ scales: { pos, rowHeight }, row }) =>
+							pos(row.position) + rowHeight() * 0.5
+						}
 						fill={'white'}
 						align={'right'}
 						baseline={'middle'}
-						//						text={({ row }) => row.datum.value}
-						text={'Some text'}
-					/> */}
+						text={({ row }) => row.value}
+					/>
 				</Group>
 			</Chart>
 		)

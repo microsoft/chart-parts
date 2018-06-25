@@ -25,18 +25,18 @@ interface StackedDataSet extends Array<DataStack> {
 }
 
 export class StackTransform {
-	private offset: Offset = Offset.zero
+	private offsetVal: Offset = Offset.zero
 	private outputFields: [string, string] = ['y0', 'y1']
-	private field: FieldAccessor | undefined
-	private groupBy: FieldAccessor[] | undefined
-	private sort: Compare[] | undefined
+	private fieldVal: FieldAccessor | undefined
+	private groupByVal: FieldAccessor[] | undefined
+	private sortVal: Compare[] | undefined
 
 	/**
 	 * The data field that determines the stack heights.
 	 * @param field
 	 */
-	public withField(field: FieldAccessor) {
-		this.field = field
+	public field(field: FieldAccessor) {
+		this.fieldVal = field
 		return this
 	}
 
@@ -44,8 +44,8 @@ export class StackTransform {
 	 * An array of fields by which to partition the data into separate stacks.
 	 * @param groupBy
 	 */
-	public withGroupBy(...groupBy: FieldAccessor[]) {
-		this.groupBy = groupBy
+	public groupBy(...groupBy: FieldAccessor[]) {
+		this.groupByVal = groupBy
 		return this
 	}
 
@@ -53,8 +53,8 @@ export class StackTransform {
 	 * Criteria for sorting values within each stack.
 	 * @param sort
 	 */
-	public withSort(...sort: Compare[]) {
-		this.sort = sort
+	public sort(...sort: Compare[]) {
+		this.sortVal = sort
 		return this
 	}
 
@@ -62,8 +62,8 @@ export class StackTransform {
 	 * The baseline offset. One of “zero” (default), “center”, or “normalize”. The “center” offset will center the stacks. The “normalize” offset will compute percentage values for each stack point, with output values in the range [0,1].
 	 * @param offset
 	 */
-	public withOffset(offset: Offset) {
-		this.offset = offset
+	public offset(offset: Offset) {
+		this.offsetVal = offset
 		return this
 	}
 
@@ -71,7 +71,7 @@ export class StackTransform {
 	 * The output fields for the computed start and end stack values. The default is ["y0", "y1"].
 	 * @param outputFields
 	 */
-	public withOutput(start: string, end: string) {
+	public output(start: string, end: string) {
 		this.outputFields = [start, end]
 		return this
 	}
@@ -86,7 +86,7 @@ export class StackTransform {
 	}
 
 	private get stacker() {
-		switch (this.offset) {
+		switch (this.offsetVal) {
 			case Offset.zero:
 				return this.stackZero
 			case Offset.center:
@@ -94,12 +94,12 @@ export class StackTransform {
 			case Offset.normalize:
 				return this.stackNormalize
 			default:
-				throw new Error(`unknown offset: ${this.offset}`)
+				throw new Error(`unknown offset: ${this.offsetVal}`)
 		}
 	}
 
 	private partitionGroups(data: any[]): any[][] {
-		const groupBy = this.groupBy
+		const groupBy = this.groupByVal
 		const groups: any = []
 
 		if (groupBy === undefined) {
@@ -123,8 +123,8 @@ export class StackTransform {
 	}
 
 	private computeMaxesAndSums(groups: StackedDataSet): StackedDataSet {
-		const field = this.field as FieldAccessor
-		const sorter = this.sort && createSorter(this.sort)
+		const field = this.fieldVal as FieldAccessor
+		const sorter = this.sortVal && createSorter(this.sortVal)
 		let max = 0
 		let sum = 0
 
@@ -166,7 +166,7 @@ export class StackTransform {
 	@autobind
 	private stackCenter(group: DataStack, max: number) {
 		const [y0, y1] = this.outputFields
-		const field = this.field as FieldAccessor
+		const field = this.fieldVal as FieldAccessor
 		const sum = group.sum || 0
 
 		let last = (max - sum) / 2
@@ -180,7 +180,7 @@ export class StackTransform {
 	@autobind
 	private stackNormalize(group: DataStack) {
 		const [y0, y1] = this.outputFields
-		const field = this.field as FieldAccessor
+		const field = this.fieldVal as FieldAccessor
 		const scale = 1 / group.sum
 
 		let last = 0
@@ -195,7 +195,7 @@ export class StackTransform {
 	@autobind
 	private stackZero(group: DataStack) {
 		const [y0, y1] = this.outputFields
-		const field = this.field as FieldAccessor
+		const field = this.fieldVal as FieldAccessor
 
 		let lastPos = 0
 		let lastNeg = 0

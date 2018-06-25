@@ -2,7 +2,7 @@
 import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
-import { getItemSpace } from '@gog/util'
+import { getItemSpace, ItemSpace } from '@gog/util'
 import {
 	Mark as MarkSpec,
 	SceneNode,
@@ -24,7 +24,21 @@ interface ChannelNames {
 	[key: string]: string
 }
 
-export class SceneInstance {
+/**
+ * Localizes a draw rectangle to start ot (0,0) while retaining the same width, height dimensions
+ *
+ * @param param The view rectangle to localize
+ */
+function localizeRect({ bottom, left, top, right }: ViewRect): ViewRect {
+	return {
+		top: 0,
+		bottom: bottom - top,
+		left: 0,
+		right: right - left,
+	}
+}
+
+export class Scene {
 	private channelId: number = 0
 	private channelHandlers: { [key: string]: (arg: any) => void } = {}
 	private chartRect: ViewRect
@@ -107,7 +121,7 @@ export class SceneInstance {
 			table: any[],
 			dataFrame: DataFrame,
 		) => {
-			const item = this.createMarkItem(
+			let item = this.createMarkItem(
 				mark,
 				row,
 				index,
@@ -118,11 +132,12 @@ export class SceneInstance {
 			)
 			if (mark.type === MarkType.Group) {
 				const groupItem: SGGroupItem = item as SGGroupItem
-				const groupDrawRect = this.calculateInnerDrawRect(groupItem, drawRect)
+				const space = getItemSpace(item)
+				const groupDrawRect = this.calculateInnerDrawRect(space, drawRect)
 				const itemScales: Scales = this.getNextScaleFrame(
 					scaleFrame,
 					node.scales,
-					groupDrawRect,
+					localizeRect(groupDrawRect),
 					dataFrame,
 				)
 				groupItem.items = (node.children || []).map(c =>
@@ -133,20 +148,22 @@ export class SceneInstance {
 						drawRect,
 					),
 				)
+				item = {
+					...item,
+					x: groupDrawRect.left,
+					y: groupDrawRect.top,
+					x2: groupDrawRect.right,
+					y2: groupDrawRect.bottom,
+				}
 			}
 			return item
 		}
 
 		/**
 		 * If the data is a faceted group, then bind one group per facet.
-		 * Otherwise bind one item per row.
 		 */
 		let items: any[] = []
-		if (Array.isArray(boundData)) {
-			items = boundData.map((d, index) =>
-				createBoundItem(d, index, boundData, parentDataFrame),
-			)
-		} else {
+		if (!Array.isArray(boundData)) {
 			const { name, partitions } = boundData
 			items = partitions.map((partition, index) => {
 				const childDataFrame = { [name]: partition }
@@ -156,6 +173,13 @@ export class SceneInstance {
 				)
 				return createBoundItem(partition, index, partitions, nextDataFrame)
 			})
+		} else {
+			/**
+			 * Otherwise bind one item per row.
+			 */
+			items = boundData.map((d, index) =>
+				createBoundItem(d, index, boundData, parentDataFrame),
+			)
 		}
 
 		return SG.createMark(mark.type, items)
@@ -197,9 +221,7 @@ export class SceneInstance {
 		return { name, partitions }
 	}
 
-	private calculateInnerDrawRect(item: SGGroupItem, drawRect: ViewRect) {
-		const space = getItemSpace(item)
-
+	private calculateInnerDrawRect(space: ItemSpace, drawRect: ViewRect) {
 		const right =
 			space.origin.x !== undefined && space.shape.width !== undefined
 				? space.origin.x + space.shape.width

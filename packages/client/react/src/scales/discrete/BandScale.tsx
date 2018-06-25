@@ -54,9 +54,8 @@ export class BandScale extends DomainRangeScale<
 	protected createScale(args: CreateScaleArgs) {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
-		console.log('BANDSCALERANGE', range)
 		const result = scaleBand()
-			.domain(domain)
+			.domain(domain.map(d => '' + d))
 			.range(range)
 
 		if (this.props.align) {
@@ -80,7 +79,7 @@ export class BandScale extends DomainRangeScale<
 		rangeBind: Dimension,
 	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [args.drawRect.bottom, args.drawRect.top]
+			return [args.drawRect.top, args.drawRect.bottom]
 		} else {
 			return [args.drawRect.left, args.drawRect.right]
 		}

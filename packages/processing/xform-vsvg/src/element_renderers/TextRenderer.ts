@@ -6,28 +6,7 @@ import { VSvgMarkConverter, rotate, translate } from './interfaces'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
 const DEFAULT_FONT_SIZE = 11
-
-/**
- * Calculate vertical offset based on baseline (thanks, Vega!)
- * @param baseline
- * @param fontSize
- */
-function offset(
-	baseline: VerticalTextAlignment | undefined,
-	height: number = DEFAULT_FONT_SIZE,
-) {
-	// perform our own font baseline calculation
-	// why? not all browsers support SVG 1.1 'alignment-baseline' :(
-	if (baseline === VerticalTextAlignment.TOP) {
-		return 0.79 * height
-	} else if (baseline === VerticalTextAlignment.MIDDLE) {
-		return 0.3 * height
-	} else if (baseline === VerticalTextAlignment.BOTTOM) {
-		return -0.32 * height
-	} else {
-		return 0
-	}
-}
+const DEFAULT_FONT_FAMILY = 'sans-serif'
 
 function calculateTextOrigin({
 	x,
@@ -37,9 +16,8 @@ function calculateTextOrigin({
 	radius = 0,
 	theta = 0,
 }: SGTextItem): [number, number] {
-	const offsetY = offset(baseline, fontSize)
 	x = x || 0
-	y = (y || 0) + offsetY
+	y = y || 0
 
 	if (radius) {
 		const t = theta - Math.PI / 2
@@ -51,8 +29,12 @@ function calculateTextOrigin({
 
 function calculateBaseline(alignment: VerticalTextAlignment | undefined) {
 	switch (alignment) {
+		case VerticalTextAlignment.TOP:
+			return 'hanging'
 		case VerticalTextAlignment.MIDDLE:
 			return 'central'
+		case VerticalTextAlignment.BOTTOM:
+			return 'baseline'
 		default:
 			return undefined
 	}
@@ -96,15 +78,14 @@ export class TextRenderer implements VSvgMarkConverter {
 					attrs.textAnchor = alignments[item.align]
 				}
 				const children = item.text !== undefined ? [item.text] : undefined
-
 				const result: VSvgNode = {
 					type: 'text',
 					attrs,
 					style: {
-						fontSize: item.fontSize,
-						fontFamily: item.font,
+						fontSize: item.fontSize || DEFAULT_FONT_SIZE,
+						fontFamily: item.font || DEFAULT_FONT_FAMILY,
 						fontWeight: item.fontWeight,
-						fontStyle: item.fontSize,
+						fontStyle: item.fontStyle,
 						fontVariant: item.fontVariant,
 					},
 					transforms: getTextTransforms(item),

@@ -8,7 +8,7 @@ import { SGItem } from '@gog/scenegraph-interfaces'
  * The y, y2, yc and height properties are treated similarly.
  * @param item
  */
-export function getItemSpace(item: SGItem) {
+export function getItemSpace(item: SGItem): ItemSpace {
 	const { x, xc, x2, y, yc, y2, width, height } = item
 	const computeDimension = (
 		low: number | undefined,
@@ -55,12 +55,23 @@ export function getItemSpace(item: SGItem) {
 	const [originY, resultHeight] = computeDimension(y, y2, yc, height)
 	return {
 		origin: {
-			x: originX,
-			y: originY,
+			x: originX || 0,
+			y: originY || 0,
 		},
 		shape: {
 			width: resultWidth,
 			height: resultHeight,
 		},
+	}
+}
+
+export interface ItemSpace {
+	origin: {
+		x: number
+		y: number
+	}
+	shape: {
+		width: number | undefined
+		height: number | undefined
 	}
 }

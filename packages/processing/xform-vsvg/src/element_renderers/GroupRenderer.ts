@@ -2,8 +2,8 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { VSvgNode } from '@gog/vdom-interfaces'
-import { getItemSpace } from '@gog/util'
-import { commonProps, assertTypeIs, emitMarkGroup } from './util'
+import { getItemSpace, ItemSpace } from '@gog/util'
+import { commonProps, assertTypeIs } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
 import {
@@ -21,16 +21,15 @@ const flatMap = require('lodash/flatMap')
  * Renders a group's "rectangle", which can have a fill and stroke
  * @param item
  */
-function renderGroupRectangle(item: SGGroupItem): VSvgNode {
-	const space = getItemSpace(item)
+function renderGroupRectangle(item: SGGroupItem, space: ItemSpace): VSvgNode {
 	const groupRect: VSvgNode = {
 		type: 'path',
 		attrs: {
 			...commonProps(item),
 			d: rectangle(
 				{ ...item, ...space.shape } as any,
-				space.origin.x,
-				space.origin.y,
+				space.origin.x || 0,
+				space.origin.y || 0,
 			).toString(),
 		},
 		metadata: item.metadata,
@@ -62,12 +61,15 @@ function renderChildren(
 	return { defs, nodes }
 }
 
-function renderGroup(item: SGGroupItem, children: VSvgNode[]): VSvgNode {
+function renderGroup(
+	item: SGGroupItem,
+	space: ItemSpace,
+	children: VSvgNode[],
+): VSvgNode {
 	const { channels, metadata } = item
 	const group: VSvgNode = {
 		type: 'g',
-		attrs: commonProps(item),
-		transforms: [translate(item.x || 0, item.y || 0)],
+		transforms: [translate(space.origin.x, space.origin.y)],
 		children,
 		metadata,
 		channels,
@@ -101,38 +103,36 @@ export class GroupRenderer implements VSvgMarkConverter {
 	public render(mark: SGMark<SGGroupItem>, context: VSvgRenderContext) {
 		assertTypeIs(mark, GroupRenderer.TARGET_MARK_TYPE)
 
-		let defs: VSvgNode[] = []
-		const nodes = emitMarkGroup(
-			MarkType.Group,
-			mark.role,
-			flatMap(mark.items, (item: SGGroupItem) => {
-				// Render the Group's Rectangle
-				const groupRect = renderGroupRectangle(item)
+		const defs: VSvgNode[] = []
+		const nodes = flatMap(mark.items, (item: SGGroupItem) => {
+			const space = getItemSpace(item)
 
-				// Render the Group's children
-				const { defs: groupDefs, nodes: groupChildren } = renderChildren(
-					item,
-					context,
+			// Render the Group's Rectangle
+			const groupRect = renderGroupRectangle(item, space)
+
+			// Render the Group's children
+			const { defs: groupDefs, nodes: groupChildren } = renderChildren(
+				item,
+				context,
+			)
+			defs.push(...(groupDefs || []))
+			// Render the group
+			let group = renderGroup(item, space, groupChildren)
+
+			// Handle if the group is clipped
+			if (item.clip) {
+				const { group: groupWrapper, clipPath } = renderGroupClip(
+					`clip${context.nextId()}`,
+					group,
+					groupRect,
 				)
-				defs = [...defs, ...(groupDefs || [])]
+				defs.push(clipPath)
+				group = groupWrapper
+			}
 
-				// Render the group
-				let group = renderGroup(item, groupChildren)
+			return [groupRect, group]
+		})
 
-				// Handle if the group is clipped
-				if (item.clip) {
-					const { group: groupWrapper, clipPath } = renderGroupClip(
-						`clip${context.nextId()}`,
-						group,
-						groupRect,
-					)
-					defs.push(clipPath)
-					group = groupWrapper
-				}
-
-				return [groupRect, group]
-			}),
-		)
 		return { nodes, defs }
 	}
 }

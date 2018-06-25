@@ -20,6 +20,9 @@ export interface BarChartState {
 	hoverRowIndex: number | undefined
 }
 
+/**
+ * Adapted from https://vega.github.io/vega/examples/bar-chart/
+ */
 export class BarChart extends React.Component<{}, BarChartState> {
 	constructor(props: {}) {
 		super(props)

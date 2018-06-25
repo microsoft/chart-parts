@@ -29,6 +29,7 @@
 		"autobind-decorator": "^2.1.0",
 		"d3-array": "^1.2.1",
 		"d3-scale": "^2.0.0",
+		"lodash": "^4.17.10",
 		"shallowequal": "^1.0.2"
 	},
 	"peerDependencies": {
