@@ -59,9 +59,7 @@ export function commonProps(item: SGItem): any {
 		result.stroke = item.stroke
 	}
 
-	if (item.strokeWidth !== undefined) {
-		result.strokeWidth = item.strokeWidth
-	}
+	result.strokeWidth = item.strokeWidth || 1
 
 	if (item.strokeOpacity !== undefined) {
 		result.strokeOpacity = item.strokeOpacity

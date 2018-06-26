@@ -19,7 +19,7 @@ describe('Scene Instance', () => {
 
 		const data = [{}, {}, {}, {}]
 
-		const built = new SceneInstance(spec, {}, { data }).build()
+		const built = new SceneInstance(spec, {}).build({ data })
 
 		expect(Object.keys(built.channelHandlers).length).toEqual(1)
 		expect(built.root.marktype).toEqual('group')

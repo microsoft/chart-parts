@@ -1,7 +1,6 @@
 // tslint:disable no-submodule-imports
 import { Mark } from '@gog/scenegraph/lib/elements/Mark'
 import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
-import { RectRenderer } from '../RectRenderer'
 import { renderMark } from '../'
 
 describe('The Rect Renderer', () => {
@@ -17,7 +16,7 @@ describe('The Rect Renderer', () => {
 		rect.stroke = 'blue'
 		mark.items.push(rect)
 
-		const result = renderMark(mark)
+		const result = renderMark(mark, { nextId: () => '' })
 		expect(result).toMatchSnapshot()
 	})
 })

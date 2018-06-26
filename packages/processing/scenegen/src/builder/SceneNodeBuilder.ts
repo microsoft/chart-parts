@@ -7,6 +7,7 @@ import {
 	NamedScaleCreator,
 	Channels,
 	MarkEncodings,
+	Facet,
 } from '@gog/mark-spec-interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { MarkType } from '@gog/mark-interfaces'
@@ -80,6 +81,11 @@ export class SceneNodeBuilder {
 
 	public setZIndex(zIndex: number | undefined) {
 		this.markBuilder.setZIndex(zIndex)
+		return this
+	}
+
+	public setFacet(facet: Facet | undefined) {
+		this.markBuilder.setFacet(facet)
 		return this
 	}
 

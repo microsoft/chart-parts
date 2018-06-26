@@ -8,7 +8,7 @@ export interface BandScaleProps
 	/**
 	 * The name of the band-width static scale
 	 */
-	widthName: string
+	bandWidth?: string
 
 	/**
 	 * The outer and inner padding value
@@ -39,20 +39,24 @@ export class BandScale extends DomainRangeScale<
 > {
 	protected addScale() {
 		super.addScale()
-		this.api.addScale(
-			this.props.widthName,
-			this.props.table,
-			({ scales }: CreateScaleArgs) => () => {
-				const rootScale: ScaleBand<string> = scales[this.props.name] as any
-				return rootScale.bandwidth()
-			},
-		)
+		if (this.props.bandWidth) {
+			this.api.addScale(
+				this.props.bandWidth,
+				this.props.table,
+				({ scales }: CreateScaleArgs) => () => {
+					const rootScale: ScaleBand<string> = scales[this.props.name] as any
+					return rootScale.bandwidth()
+				},
+			)
+		}
 	}
 
 	protected createScale(args: CreateScaleArgs) {
+		const domain = this.getDomain(args)
+		const range = this.getRange(args)
 		const result = scaleBand()
-			.domain(this.getDomain(args))
-			.range(this.getRange(args))
+			.domain(domain.map(d => '' + d))
+			.range(range)
 
 		if (this.props.align) {
 			result.align(this.props.align)
@@ -75,9 +79,9 @@ export class BandScale extends DomainRangeScale<
 		rangeBind: Dimension,
 	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [args.drawRect.bottom, args.drawRect.top]
+			return [0, args.view.height]
 		} else {
-			return [args.drawRect.left, args.drawRect.right]
+			return [0, args.view.width]
 		}
 	}
 }

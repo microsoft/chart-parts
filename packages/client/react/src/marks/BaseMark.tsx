@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SceneNodeBuilderConsumer } from '../Context'
+import { SceneNodeBuilderConsumer, SceneNodeBuilderProvider } from '../Context'
 import { MarkType } from '@gog/mark-interfaces'
 import { SceneNodeBuilder } from '@gog/scenegen'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
@@ -16,8 +16,12 @@ export abstract class BaseMark<
 			<SceneNodeBuilderConsumer>
 				{api => {
 					this.apiInstance = api
-					this.addMark()
-					return this.renderInner()
+					const node = this.addMark()
+					return (
+						<SceneNodeBuilderProvider value={node}>
+							{this.props.children}
+						</SceneNodeBuilderProvider>
+					)
 				}}
 			</SceneNodeBuilderConsumer>
 		)
@@ -46,12 +50,12 @@ export abstract class BaseMark<
 		if (!this.apiInstance) {
 			throw new Error('api must be defined')
 		}
-
 		return this.apiInstance
 	}
 
 	protected addMark() {
-		this.api
+		const sceneNode = this.api.push()
+		return sceneNode
 			.setType(this.markType)
 			.addChannels(this.channels)
 			.addEncodings(this.encodings)
@@ -60,10 +64,5 @@ export abstract class BaseMark<
 			.setRole(this.props.role)
 			.setSingleton(this.props.singleton)
 	}
-
-	protected renderInner(): React.ReactNode {
-		return null
-	}
-
 	protected abstract encodeCustomProperties(): any
 }

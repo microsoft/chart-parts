@@ -73,7 +73,9 @@ export abstract class DomainScale<
 		} else {
 			const bindDomain = this.bindDomainArray
 			const { data } = args
-			const domainValues = data.flatMap(d => bindDomain.map(key => d[key]))
+			const domainValues = (data || []).flatMap(d =>
+				bindDomain.map(key => d[key]),
+			)
 			const result = this.processDomainValues(domainValues)
 			return result
 		}

@@ -20,6 +20,9 @@ export interface BarChartState {
 	hoverRowIndex: number | undefined
 }
 
+/**
+ * Adapted from https://vega.github.io/vega/examples/bar-chart/
+ */
 export class BarChart extends React.Component<{}, BarChartState> {
 	constructor(props: {}) {
 		super(props)
@@ -51,7 +54,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				<BandScale
 					table="data"
 					name="xscale"
-					widthName="xband"
+					bandWidth="xband"
 					bindDomain="category"
 					padding={0.05}
 					bindRange={Dimension.WIDTH}

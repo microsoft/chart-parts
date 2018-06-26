@@ -1,5 +1,6 @@
 import { MarkType } from '@gog/mark-interfaces'
 import { SGMark, SGAreaItem } from '@gog/scenegraph-interfaces'
+import { getItemSpace } from '@gog/util'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
@@ -14,10 +15,13 @@ export class AreaRenderer implements VSvgMarkConverter {
 			return { nodes: [] }
 		}
 
-		const areaItems = mark.items.map(a => ({
-			...a,
-			height: a.height || (a.y2 || 0) - (a.y || 0),
-		}))
+		const areaItems = mark.items.map(a => {
+			const space = getItemSpace(a)
+			return {
+				...a,
+				...space.shape,
+			}
+		})
 		const areaItem = {
 			type: 'path',
 			attrs: {
