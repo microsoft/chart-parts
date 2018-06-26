@@ -3,13 +3,7 @@ import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
 import { getItemSpace } from '@gog/util'
-import {
-	SceneNode,
-	ViewSize,
-	Channels,
-	ChannelNames,
-	DataFrame,
-} from '@gog/mark-spec-interfaces'
+import { SceneNode, DataFrame, ChannelHandler } from '@gog/mark-spec-interfaces'
 import { ChartOptionsManager } from './ChartOptionsManager'
 import {
 	getBoundData,
@@ -25,15 +19,10 @@ type SGMarkAny = SGMark<SGItem>
 export class Scene {
 	private channelId: number = 0
 	private channelHandlers: { [key: string]: (arg: any) => void } = {}
-	private chartRect: ViewSize
 	private options: ChartOptionsManager
 
 	constructor(private scene: SceneNode, options: ChartOptions) {
 		this.options = new ChartOptionsManager(options)
-		this.chartRect = {
-			width: this.options.width,
-			height: this.options.height,
-		}
 	}
 
 	/**
@@ -42,16 +31,11 @@ export class Scene {
 	 * @param data The data to bind with
 	 */
 	public build(data: DataFrame) {
-		const rootFrame = new SceneFrame((undefined as any) as SceneNode, data, {
-			width:
-				this.chartRect.width -
-				this.options.paddingLeft -
-				this.options.paddingRight,
-			height:
-				this.chartRect.height -
-				this.options.paddingTop -
-				this.options.paddingBottom,
-		})
+		const width = this.options.chartSpace.shape.width as number
+		const height = this.options.chartSpace.shape.height as number
+		const emptyNode = (undefined as any) as SceneNode
+		const rootFrame = new SceneFrame(emptyNode, data, { width, height })
+
 		return {
 			root: this.processNode(this.scene, rootFrame),
 			channelHandlers: this.channelHandlers,
@@ -65,9 +49,9 @@ export class Scene {
 	 */
 	private processNode(node: SceneNode, parentFrame: SceneFrame): SGMarkAny {
 		const { mark } = node
-		// Push channels onto the frame and recompute scales
-		const channelNames = this.mapChannels(mark.channels)
-		const frame = parentFrame.pushNode(node).pushChannels(channelNames)
+
+		// Push the new node, which registers channels and recomputes scales
+		const frame = parentFrame.pushNode(node, h => this.registerHandler(h))
 
 		/**
 		 * If the data is a faceted group, then bind one group per facet.
@@ -134,12 +118,10 @@ export class Scene {
 
 		// Update the view and recompute scales
 		const groupDrawRect = getNextDrawRect(getItemSpace(item), frame.view)
-		const itemFrame = frame
-			.pushView({
-				width: groupDrawRect.right - groupDrawRect.left,
-				height: groupDrawRect.bottom - groupDrawRect.top,
-			})
-			.pushNode(node)
+		const itemFrame = frame.pushView({
+			width: groupDrawRect.right - groupDrawRect.left,
+			height: groupDrawRect.bottom - groupDrawRect.top,
+		})
 
 		// Mash in the children and the bounds
 		const groupItem: SGGroupItem = {
@@ -153,21 +135,9 @@ export class Scene {
 		return groupItem
 	}
 
-	private mapChannels(channels: Channels): ChannelNames {
-		// A mapping of event-name to channel-id, which is used to populate the serializable scenegraph
-		const channelNames: ChannelNames = {}
-
-		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
-		// map the handler function in our scene result
-		Object.keys(channels).forEach(eventName => {
-			const handler = channels[eventName]
-			const newChannelId = `evt${this.channelId++}`
-			channelNames[eventName] = newChannelId
-
-			// Use the client-specified event handler for the channel id
-			this.channelHandlers[newChannelId] = handler
-		})
-
-		return channelNames
+	private registerHandler(handler: ChannelHandler) {
+		const id = `evt${this.channelId++}`
+		this.channelHandlers[id] = handler
+		return id
 	}
 }

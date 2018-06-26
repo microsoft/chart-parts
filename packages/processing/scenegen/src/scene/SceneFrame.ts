@@ -5,8 +5,14 @@ import {
 	ChannelNames,
 	SceneNode,
 	CreateScaleArgs,
+	ChannelHandler,
+	Channels,
 } from '@gog/mark-spec-interfaces'
 
+/**
+ * The scene frame is analagous to a stack-frame - it contains contextual
+ * information for a section of a scene, including dimensions, scales, data, and event handlers
+ */
 export class SceneFrame {
 	constructor(
 		public node: SceneNode,
@@ -17,24 +23,15 @@ export class SceneFrame {
 	) {}
 
 	/**
-	 * Emits a new scene frame with the given node.
-	 *
-	 * NOTE: This recomputes scales as well
-	 *
-	 * @param node The scene node to push
+	 * Emits a new scene frame with the given node. Recomputes scales and registers handelrs.
 	 */
-	public pushNode(node: SceneNode) {
-		const scales = { ...this.scales }
-		node.scales.forEach(({ name, table, creator }) => {
-			const args: CreateScaleArgs = {
-				view: this.view,
-				data: this.data[table],
-				scales,
-			} as any
-			const scale = creator(args)
-			scales[name] = scale
-		})
-		return new SceneFrame(node, this.data, this.view, scales, this.channels)
+	public pushNode(
+		node: SceneNode,
+		registerHandler: (handler: ChannelHandler) => string,
+	) {
+		const scales = this.getRecomputedScales(node, this.view)
+		const channels = this.registerChannels(node.mark.channels, registerHandler)
+		return new SceneFrame(node, this.data, this.view, scales, channels)
 	}
 
 	public pushData(data: DataFrame) {
@@ -48,34 +45,41 @@ export class SceneFrame {
 		)
 	}
 
+	/**
+	 * Pushes a new sceneframe with an updated viewspace. Recomputes scales
+	 * @param view The new view to push
+	 */
 	public pushView(view: ViewSize) {
-		return new SceneFrame(
-			this.node,
-			this.data,
-			view,
-			this.scales,
-			this.channels,
-		)
+		const scales = this.getRecomputedScales(this.node, view)
+		return new SceneFrame(this.node, this.data, view, scales, this.channels)
 	}
 
-	public pushScales(scales: Scales) {
-		const scaleFrame = { ...this.scales, ...scales }
-		return new SceneFrame(
-			this.node,
-			this.data,
-			this.view,
-			scaleFrame,
-			this.channels,
-		)
+	private getRecomputedScales(node: SceneNode, view: ViewSize) {
+		const scales = { ...this.scales }
+		node.scales.forEach(({ name, table, creator }) => {
+			const args: CreateScaleArgs = {
+				view,
+				data: this.data[table],
+				scales,
+			} as any
+			const scale = creator(args)
+			scales[name] = scale
+		})
+		return scales
 	}
 
-	public pushChannels(channels: ChannelNames) {
-		return new SceneFrame(
-			this.node,
-			this.data,
-			this.view,
-			this.scales,
-			channels,
+	private registerChannels(
+		channels: Channels,
+		registerHandler: (handler: ChannelHandler) => string,
+	): ChannelNames {
+		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
+		// map the handler function in our scene result
+		return Object.entries(channels).reduce(
+			(prev, [eventName, handler]) => {
+				prev[eventName] = registerHandler(handler)
+				return prev
+			},
+			({} as any) as ChannelNames,
 		)
 	}
 }
