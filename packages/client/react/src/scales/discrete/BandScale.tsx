@@ -79,9 +79,9 @@ export class BandScale extends DomainRangeScale<
 		rangeBind: Dimension,
 	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [args.drawRect.top, args.drawRect.bottom]
+			return [0, args.view.height]
 		} else {
-			return [args.drawRect.left, args.drawRect.right]
+			return [0, args.view.width]
 		}
 	}
 }

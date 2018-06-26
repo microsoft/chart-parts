@@ -71,15 +71,9 @@ export abstract class QuantitativeScale<
 		rangeBind: Dimension,
 	): [RangeValue, RangeValue] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [
-				args.drawRect.bottom as RangeValue,
-				args.drawRect.top as RangeValue,
-			]
+			return [args.view.height as RangeValue, 0 as RangeValue]
 		} else {
-			return [
-				args.drawRect.left as RangeValue,
-				args.drawRect.right as RangeValue,
-			]
+			return [0 as RangeValue, args.view.width as RangeValue]
 		}
 	}
 

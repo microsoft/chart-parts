@@ -62,9 +62,9 @@ export class PointScale extends DomainRangeScale<
 		rangeBind: Dimension,
 	): [number, number] {
 		if (rangeBind === Dimension.HEIGHT) {
-			return [args.drawRect.bottom, args.drawRect.top]
+			return [args.view.height, 0]
 		} else {
-			return [args.drawRect.left, args.drawRect.right]
+			return [0, args.view.width]
 		}
 	}
 }

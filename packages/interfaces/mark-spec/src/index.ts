@@ -177,15 +177,10 @@ export type ScaleCreator = (input: CreateScaleArgs) => Scale<any, any>
  */
 export interface CreateScaleArgs {
 	/**
-	 * The rectangle of the entire charting area
-	 */
-	chartRect: ViewRect
-
-	/**
 	 * The rectangle of the area that marks will be drawn in,
 	 * This is (chartRect - space reserved for axes)
 	 */
-	drawRect: ViewRect
+	view: ViewSize
 
 	/**
 	 * The current set of configured scales
@@ -207,9 +202,15 @@ export type Scale<In, Out> = (input?: In) => Out
 /**
  * A view rectangle in the SVG, using SVG Coordinates
  */
-export interface ViewRect {
-	top: number
-	left: number
-	bottom: number
-	right: number
+export interface ViewSize {
+	width: number
+	height: number
+}
+
+export interface DataFrame {
+	[key: string]: any[]
+}
+
+export interface ChannelNames {
+	[key: string]: string
 }
