@@ -2,6 +2,7 @@ import { MarkType } from '@gog/mark-interfaces'
 import { MarkEncoding } from '@gog/mark-spec-interfaces'
 import { CommonMarkProps } from '../interfaces'
 import { BaseMark } from './BaseMark'
+import { SceneNodeBuilder } from '@gog/scenegen'
 
 export interface GroupProps extends CommonMarkProps {
 	clip?: MarkEncoding
@@ -27,6 +28,12 @@ export class Group extends BaseMark<GroupProps> {
 			clip,
 			cornerRadius,
 		}
+	}
+
+	protected addMark(): SceneNodeBuilder {
+		let node: SceneNodeBuilder | undefined
+		this.api.mark(this.createMark().child(n => (node = n)))
+		return node as any
 	}
 
 	protected createMark() {

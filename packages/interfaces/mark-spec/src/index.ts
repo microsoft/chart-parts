@@ -4,17 +4,15 @@ import { MarkType } from '@gog/mark-interfaces'
  * Each scene node binds data with a set of marks and scales
  */
 export interface SceneNode {
-	mark: Mark
-
 	/**
-	 * The scales defined under this scene node
+	 * The scales defined at this scene node
 	 */
 	scales: ScaleCreator[]
 
 	/**
-	 * The children scene nodes
+	 * The marks defined at this scene-node. Scales defined in this node apply to these marks
 	 */
-	children: SceneNode[]
+	marks: Mark[]
 }
 
 /**
@@ -60,6 +58,11 @@ export interface Mark {
 	 * For group marks, an optional parameter on data faceting
 	 */
 	facet?: Facet
+
+	/**
+	 * The child scene of this mark
+	 */
+	child?: SceneNode
 }
 
 /**

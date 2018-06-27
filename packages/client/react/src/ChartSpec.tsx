@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { SceneBuilder } from '@gog/scenegen'
-import { SceneBuilderProvider, SceneNodeBuilderProvider } from './Context'
+import { scene, SceneNodeBuilder } from '@gog/scenegen'
+import { SceneNodeBuilderProvider } from './Context'
 
 export interface ChartPadding {
 	top?: number
@@ -17,15 +17,15 @@ export interface ChartSpecProps {
 }
 
 export class ChartSpec extends React.PureComponent<ChartSpecProps> {
-	private sceneBuilder: SceneBuilder | undefined
+	private sceneBuilder: SceneNodeBuilder | undefined
+
 	public render() {
-		this.sceneBuilder = new SceneBuilder()
+		let sceneNodeBuilder: SceneNodeBuilder | undefined
+		this.sceneBuilder = scene(node => (sceneNodeBuilder = node))
 		return (
-			<SceneBuilderProvider value={this.sceneBuilder}>
-				<SceneNodeBuilderProvider value={this.sceneBuilder}>
-					{this.props.children}
-				</SceneNodeBuilderProvider>
-			</SceneBuilderProvider>
+			<SceneNodeBuilderProvider value={sceneNodeBuilder as SceneNodeBuilder}>
+				{this.props.children}
+			</SceneNodeBuilderProvider>
 		)
 	}
 

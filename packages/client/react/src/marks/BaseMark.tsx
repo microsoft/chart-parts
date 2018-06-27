@@ -72,9 +72,7 @@ export abstract class BaseMark<
 	}
 
 	protected addMark(): SceneNodeBuilder {
-		let node: SceneNodeBuilder | undefined
-		this.api.push(n => (node = n.mark(this.createMark())))
-		return node as any
+		return this.api.mark(this.createMark())
 	}
 
 	protected createMark() {

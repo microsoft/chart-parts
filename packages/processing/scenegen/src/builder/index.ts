@@ -1,16 +1,23 @@
-import { SceneBuilder } from './SceneBuilder'
 import { MarkBuilder } from './MarkBuilder'
 import { MarkType } from '@gog/mark-interfaces'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export * from './MarkBuilder'
-export * from './SceneBuilder'
 export * from './SceneNodeBuilder'
 
 /**
  * A factory function for creating a new scene
  */
-export function scene() {
-	return new SceneBuilder()
+export function scene(
+	cb: (child: SceneNodeBuilder) => SceneNodeBuilder,
+): SceneNodeBuilder {
+	return new SceneNodeBuilder().mark(
+		group('root')
+			.role('frame')
+			.zIndex(0)
+			.singleton(true)
+			.child(cb),
+	)
 }
 
 /**

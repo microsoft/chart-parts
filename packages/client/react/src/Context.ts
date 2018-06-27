@@ -1,10 +1,5 @@
 import * as React from 'react'
-import { SceneBuilder, SceneNodeBuilder } from '@gog/scenegen'
-
-export const {
-	Consumer: SceneBuilderConsumer,
-	Provider: SceneBuilderProvider,
-} = React.createContext<SceneBuilder>(new SceneBuilder())
+import { SceneNodeBuilder } from '@gog/scenegen'
 
 export const {
 	Consumer: SceneNodeBuilderConsumer,

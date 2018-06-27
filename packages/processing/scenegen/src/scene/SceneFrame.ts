@@ -7,6 +7,7 @@ import {
 	CreateScaleArgs,
 	ChannelHandler,
 	Channels,
+	Mark,
 } from '@gog/mark-spec-interfaces'
 
 /**
@@ -16,6 +17,7 @@ import {
 export class SceneFrame {
 	constructor(
 		public node: SceneNode,
+		public mark: Mark | undefined,
 		public data: DataFrame,
 		public view: ViewSize,
 		public scales: Scales = {},
@@ -25,19 +27,31 @@ export class SceneFrame {
 	/**
 	 * Emits a new scene frame with the given node. Recomputes scales and registers handelrs.
 	 */
-	public pushNode(
-		node: SceneNode,
+	public pushNode(node: SceneNode) {
+		const scales = this.getRecomputedScales(node, this.view)
+		return new SceneFrame(node, undefined, this.data, this.view, scales)
+	}
+
+	public pushMark(
+		mark: Mark,
 		registerHandler: (handler: ChannelHandler) => string,
 	) {
-		const scales = this.getRecomputedScales(node, this.view)
-		const channels = this.registerChannels(node.mark.channels, registerHandler)
-		return new SceneFrame(node, this.data, this.view, scales, channels)
+		const channels = this.registerChannels(mark.channels, registerHandler)
+		return new SceneFrame(
+			this.node,
+			mark,
+			this.data,
+			this.view,
+			this.scales,
+			channels,
+		)
 	}
 
 	public pushData(data: DataFrame) {
 		const dataFrame = { ...this.data, ...data }
 		return new SceneFrame(
 			this.node,
+			this.mark,
 			dataFrame,
 			this.view,
 			this.scales,
@@ -51,7 +65,14 @@ export class SceneFrame {
 	 */
 	public pushView(view: ViewSize) {
 		const scales = this.getRecomputedScales(this.node, view)
-		return new SceneFrame(this.node, this.data, view, scales, this.channels)
+		return new SceneFrame(
+			this.node,
+			this.mark,
+			this.data,
+			view,
+			scales,
+			this.channels,
+		)
 	}
 
 	private getRecomputedScales(node: SceneNode, view: ViewSize) {

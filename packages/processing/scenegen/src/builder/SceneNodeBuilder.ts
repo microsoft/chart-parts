@@ -1,20 +1,14 @@
 // tslint:disable no-this-assignment
 import { SceneNode, ScaleCreator } from '@gog/mark-spec-interfaces'
 import { MarkBuilder } from './MarkBuilder'
-import { MarkType } from '@gog/mark-interfaces'
 
 export class SceneNodeBuilder {
-	private markBuilder: MarkBuilder | undefined
+	private marks: MarkBuilder[] = []
 
 	/**
 	 * The scales defined for children of this node
 	 */
 	private scales: ScaleCreator[] = []
-
-	/**
-	 * The child scene
-	 */
-	private children: SceneNodeBuilder[] = []
 
 	/**
 	 * Adds a scale-creator to the scene configuration
@@ -33,18 +27,8 @@ export class SceneNodeBuilder {
 		return this
 	}
 
-	public mark(builder: MarkBuilder): SceneNodeBuilder {
-		this.markBuilder = builder
-		return this
-	}
-
-	/**
-	 * Pushes a new scene node onto the graph
-	 */
-	public push(callback: (b: SceneNodeBuilder) => void): SceneNodeBuilder {
-		const newNode = new SceneNodeBuilder()
-		this.children.push(newNode)
-		callback(newNode)
+	public mark(...builders: MarkBuilder[]): SceneNodeBuilder {
+		this.marks.push(...builders)
 		return this
 	}
 
@@ -52,15 +36,13 @@ export class SceneNodeBuilder {
 	 * Builds the scene object
 	 */
 	public build(): SceneNode {
-		const { scales, markBuilder, children: builderChildren } = this
-		if (!markBuilder) {
+		const { scales, marks } = this
+		if (marks.length === 0) {
 			throw new Error('scene node has no mark set')
 		}
-		const mark = markBuilder.build()
-		const children = builderChildren.map(c => c.build())
-		if (children.length > 0 && mark.type !== MarkType.Group) {
-			throw new Error('only group marks may have children')
+		return {
+			marks: marks.map(m => m.build()),
+			scales,
 		}
-		return { mark, scales, children }
 	}
 }

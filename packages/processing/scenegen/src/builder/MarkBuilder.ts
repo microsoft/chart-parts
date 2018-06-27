@@ -8,8 +8,10 @@ import {
 	Facet,
 } from '@gog/mark-spec-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {
+	private childNode: SceneNodeBuilder | undefined
 	private typeVal: MarkType | undefined
 	private tableVal: string | undefined
 	private roleVal: string | undefined
@@ -106,6 +108,15 @@ export class MarkBuilder {
 		return this
 	}
 
+	/**
+	 * Pushes a new scene node onto the graph
+	 */
+	public child(callback: (b: SceneNodeBuilder) => void): MarkBuilder {
+		this.childNode = new SceneNodeBuilder()
+		callback(this.childNode)
+		return this
+	}
+
 	public build(): Mark {
 		const {
 			typeVal: type,
@@ -116,6 +127,7 @@ export class MarkBuilder {
 			nameVal: name,
 			singletonVal: singleton,
 			facetVal: facet,
+			childNode,
 		} = this
 
 		if (!type) {
@@ -137,6 +149,7 @@ export class MarkBuilder {
 			name,
 			singleton,
 			facet,
+			child: childNode && childNode.build(),
 		}
 	}
 }

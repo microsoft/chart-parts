@@ -35,21 +35,21 @@ export class BarChart extends React.Component<{}, BarChartState> {
 		this.state = { hoverRowIndex: undefined }
 		const isHovered = (index: number) => this.state.hoverRowIndex === index
 
-		this.chart = scene()
-			.scale(
-				linear('y')
-					.table('data')
-					.bindDomain('amount')
-					.bindRange(Dimension.HEIGHT)
-					.nice(),
-				band('x', 'xband')
-					.table('data')
-					.bindDomain('category')
-					.bindRange(Dimension.WIDTH)
-					.padding(0.05),
-			)
-			.push(n =>
-				n.mark(
+		this.chart = scene(n =>
+			n
+				.scale(
+					linear('y')
+						.table('data')
+						.bindDomain('amount')
+						.bindRange(Dimension.HEIGHT)
+						.nice(),
+					band('x', 'xband')
+						.table('data')
+						.bindDomain('category')
+						.bindRange(Dimension.WIDTH)
+						.padding(0.05),
+				)
+				.mark(
 					rect()
 						.table('data')
 						.encode({
@@ -73,8 +73,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 							},
 						}),
 				),
-			)
-			.build()
+		).build()
 	}
 
 	public render() {

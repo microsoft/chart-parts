@@ -12,6 +12,7 @@ export function registerRenderer(
 
 export function renderMark(mark: SGMark<any>, context: VSvgRenderContext) {
 	if (!mark.marktype) {
+		console.log('MARK', mark)
 		throw new Error(`Unhandled mark type "${mark.marktype}"`)
 	}
 	const renderer = itemRendererRegistry.get(mark.marktype)

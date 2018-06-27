@@ -3,7 +3,12 @@ import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
 import { MarkType } from '@gog/mark-interfaces'
 import { getItemSpace } from '@gog/util'
-import { SceneNode, DataFrame, ChannelHandler } from '@gog/mark-spec-interfaces'
+import {
+	SceneNode,
+	DataFrame,
+	ChannelHandler,
+	Mark,
+} from '@gog/mark-spec-interfaces'
 import { ChartOptionsManager } from './ChartOptionsManager'
 import {
 	getBoundData,
@@ -34,10 +39,13 @@ export class Scene {
 		const width = this.options.chartSpace.shape.width as number
 		const height = this.options.chartSpace.shape.height as number
 		const emptyNode = (undefined as any) as SceneNode
-		const rootFrame = new SceneFrame(emptyNode, data, { width, height })
+		const rootFrame = new SceneFrame(emptyNode, undefined, data, {
+			width,
+			height,
+		})
 
 		return {
-			root: this.processNode(this.scene, rootFrame),
+			root: this.processNode(this.scene, rootFrame)[0],
 			channelHandlers: this.channelHandlers,
 		}
 	}
@@ -47,20 +55,23 @@ export class Scene {
 	 * @param node The scene node to process
 	 * @param scaleFrame The scales available for the given scene node
 	 */
-	private processNode(node: SceneNode, parentFrame: SceneFrame): SGMarkAny {
-		const { mark } = node
+	private processNode(node: SceneNode, parentFrame: SceneFrame): SGMarkAny[] {
+		const { marks } = node
 
 		// Push the new node, which registers channels and recomputes scales
-		const frame = parentFrame.pushNode(node, h => this.registerHandler(h))
+		const frame = parentFrame.pushNode(node)
 
-		/**
-		 * If the data is a faceted group, then bind one group per facet.
-		 */
-		const boundData = getBoundData(mark, frame.data)
-		const items = Array.isArray(boundData)
-			? this.createItemPerDataRow(frame, boundData)
-			: this.createItemPerFacet(frame, boundData)
-		return createMark(mark.type, items)
+		return marks.map(mark => {
+			const markFrame = frame.pushMark(mark, h => this.registerHandler(h))
+			/**
+			 * If the data is a faceted group, then bind one group per facet.
+			 */
+			const boundData = getBoundData(mark, markFrame.data)
+			const items = Array.isArray(boundData)
+				? this.createItemPerDataRow(markFrame, boundData)
+				: this.createItemPerFacet(markFrame, boundData)
+			return createMark(mark.type, items)
+		})
 	}
 
 	/**
@@ -108,8 +119,7 @@ export class Scene {
 		index: number,
 		table: any[],
 	) {
-		const node = frame.node as SceneNode
-		const { mark } = node
+		const mark = frame.mark as Mark
 
 		const item = createMarkItem(mark, row, index, table, frame)
 		if (mark.type !== MarkType.Group) {
@@ -126,7 +136,7 @@ export class Scene {
 		// Mash in the children and the bounds
 		const groupItem: SGGroupItem = {
 			...item,
-			items: (node.children || []).map(c => this.processNode(c, itemFrame)),
+			items: mark.child ? this.processNode(mark.child, itemFrame) : [],
 			x: groupDrawRect.left,
 			y: groupDrawRect.top,
 			x2: groupDrawRect.right,
