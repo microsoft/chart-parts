@@ -54,15 +54,24 @@ export class MarkBuilder {
 		return this
 	}
 
-	public channel(name: string, handler: ChannelHandler): MarkBuilder {
-		this.channelsVal[name] = handler
-		return this
-	}
+	public handle(name: string, handler: ChannelHandler): MarkBuilder
+	public handle(channels: Channels): MarkBuilder
+	public handle(
+		name: string | Channels,
+		handler?: ChannelHandler,
+	): MarkBuilder {
+		if (typeof name === 'string') {
+			if (!handler) {
+				throw new Error(`handler function must be defined for handler ${name}`)
+			}
+			this.channelsVal[name] = handler
+		} else {
+			const channels = name as Channels
+			Object.entries(channels).forEach(
+				([nameVal, handlerVal]) => (this.channelsVal[nameVal] = handlerVal),
+			)
+		}
 
-	public channels(channels: Channels): MarkBuilder {
-		Object.entries(channels).forEach(([name, handler]) =>
-			this.channel(name, handler),
-		)
 		return this
 	}
 

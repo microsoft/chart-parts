@@ -61,8 +61,7 @@ export class GroupedBarChart extends React.Component<{}> {
 							.bindRange(Dimension.HEIGHT),
 					)
 					.mark(
-						group()
-							.name('chartgroup')
+						group('chartgroup')
 							.table('data')
 							.facet({
 								name: 'facet',
@@ -75,8 +74,7 @@ export class GroupedBarChart extends React.Component<{}> {
 					)
 					.push(n2 =>
 						n2.mark(
-							rect()
-								.name('bars')
+							rect('bars')
 								.table('facet')
 								.encode({
 									x: ({ datum }, { x }) => x(datum.value),

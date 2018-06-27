@@ -2,12 +2,7 @@
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
 import { scene, rect } from '@gog/scenegen'
-import {
-	Dimension,
-	SceneNode,
-	ChannelHandler,
-	MarkEncoding,
-} from '@gog/mark-spec-interfaces'
+import { Dimension, SceneNode } from '@gog/mark-spec-interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
@@ -64,8 +59,8 @@ export class BarChart extends React.Component<{}, BarChartState> {
 							width: (d, { xband }) => xband(),
 							fill: ({ index }) =>
 								isHovered(index) ? 'firebrick' : 'steelblue',
-						} as { [key: string]: MarkEncoding })
-						.channels({
+						})
+						.handle({
 							onMouseEnter: (evt, { index }) => {
 								if (this.state.hoverRowIndex !== index) {
 									this.setState({ hoverRowIndex: index })
@@ -76,7 +71,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 									this.setState({ hoverRowIndex: undefined })
 								}
 							},
-						} as { [key: string]: ChannelHandler }),
+						}),
 				),
 			)
 			.build()

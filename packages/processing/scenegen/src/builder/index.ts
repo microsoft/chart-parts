@@ -24,36 +24,36 @@ export function mark(type: MarkType) {
 //
 // Utility functions for creating typed marks
 //
-export function arc() {
-	return mark(MarkType.Arc)
+export function arc(name?: string) {
+	return mark(MarkType.Arc).name(name)
 }
-export function area() {
-	return mark(MarkType.Area)
+export function area(name?: string) {
+	return mark(MarkType.Area).name(name)
 }
-export function group() {
-	return mark(MarkType.Group)
+export function group(name?: string) {
+	return mark(MarkType.Group).name(name)
 }
-export function image() {
-	return mark(MarkType.Image)
+export function image(name?: string) {
+	return mark(MarkType.Image).name(name)
 }
-export function path() {
-	return mark(MarkType.Path)
+export function path(name?: string) {
+	return mark(MarkType.Path).name(name)
 }
-export function rect() {
-	return mark(MarkType.Rect)
+export function rect(name?: string) {
+	return mark(MarkType.Rect).name(name)
 }
-export function rule() {
-	return mark(MarkType.Rule)
+export function rule(name?: string) {
+	return mark(MarkType.Rule).name(name)
 }
-export function shape() {
-	return mark(MarkType.Shape)
+export function shape(name?: string) {
+	return mark(MarkType.Shape).name(name)
 }
-export function symbol() {
-	return mark(MarkType.Symbol)
+export function symbol(name?: string) {
+	return mark(MarkType.Symbol).name(name)
 }
-export function text() {
-	return mark(MarkType.Text)
+export function text(name?: string) {
+	return mark(MarkType.Text).name(name)
 }
-export function trail() {
-	return mark(MarkType.Trail)
+export function trail(name?: string) {
+	return mark(MarkType.Trail).name(name)
 }

@@ -71,15 +71,15 @@ export abstract class BaseMark<
 		return this.apiInstance
 	}
 
-	protected addMark() {
-		let node
+	protected addMark(): SceneNodeBuilder {
+		let node: SceneNodeBuilder | undefined
 		this.api.push(n => (node = n.mark(this.createMark())))
-		return node
+		return node as any
 	}
 
 	protected createMark() {
 		return mark(this.markType)
-			.channels(this.channels)
+			.handle(this.channels)
 			.encode(this.encodings)
 			.table(this.props.table)
 			.name(this.props.name)
