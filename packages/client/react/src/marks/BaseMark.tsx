@@ -3,7 +3,11 @@ import { SceneNodeBuilderConsumer, SceneNodeBuilderProvider } from '../Context'
 import { MarkType } from '@gog/mark-interfaces'
 import { SceneNodeBuilder, mark } from '@gog/scenegen'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
-import { MarkEncodings, MarkEncoding } from '@gog/mark-spec-interfaces'
+import {
+	MarkEncodings,
+	MarkEncoding,
+	ChannelHandler,
+} from '@gog/mark-spec-interfaces'
 
 export abstract class BaseMark<
 	T extends CommonMarkProps
@@ -29,14 +33,15 @@ export abstract class BaseMark<
 	}
 
 	protected get channels() {
-		const channels: { [key: string]: (arg: any) => void } = {}
-		const eventHandlers: { [key: string]: (arg: any) => void } = this.props
-			.eventHandlers as any
-		if (eventHandlers) {
-			Object.entries(eventHandlers).forEach(
-				([eventName, handler]) => (channels[eventName] = handler),
-			)
+		const eventHandlers = this.props.eventHandlers || {}
+		const channels: { [key: string]: ChannelHandler } = {
+			...eventHandlers,
 		}
+		Object.keys(this.props).forEach(propKey => {
+			if (propKey.startsWith('on')) {
+				channels[propKey] = (this.props[propKey] as any) as ChannelHandler
+			}
+		})
 		return channels
 	}
 

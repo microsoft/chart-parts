@@ -2,7 +2,6 @@
 import * as React from 'react'
 import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { ChannelHandler } from '@gog/mark-spec-interfaces'
 
 const renderer = new Renderer()
 
@@ -52,20 +51,16 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				<Axis orient="left" scale="y" /> */}
 				<Rect
 					table="data"
-					eventHandlers={
-						{
-							onMouseEnter: (evt: any, { index }) => {
-								if (this.state.hoverRowIndex !== index) {
-									this.setState({ hoverRowIndex: index })
-								}
-							},
-							onMouseLeave: (evt: any, { index }) => {
-								if (this.state.hoverRowIndex === index) {
-									this.setState({ hoverRowIndex: undefined })
-								}
-							},
-						} as { [key: string]: ChannelHandler }
-					}
+					onMouseEnter={(evt: any, { index }) => {
+						if (this.state.hoverRowIndex !== index) {
+							this.setState({ hoverRowIndex: index })
+						}
+					}}
+					onMouseLeave={(evt: any, { index }) => {
+						if (this.state.hoverRowIndex === index) {
+							this.setState({ hoverRowIndex: undefined })
+						}
+					}}
 					x={({ datum }, { x }) => x(datum.category)}
 					y={({ datum }, { y }) => y(datum.amount)}
 					width={(d, { band }) => band()}

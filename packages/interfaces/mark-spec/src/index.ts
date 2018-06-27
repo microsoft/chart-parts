@@ -129,9 +129,21 @@ export interface MarkEncodings {
 	[key: string]: MarkEncoding
 }
 
+export interface HandlerMetadata {
+	/**
+	 * The index of the item in it's respective bound dataset
+	 */
+	index: number
+
+	/**
+	 * Additional metadata keys attached to the item in the scenegraph
+	 */
+	[key: string]: any
+}
+
 export type ChannelHandler = (
 	nativeEventArgument: any,
-	metadata: { [key: string]: any },
+	metadata: HandlerMetadata,
 ) => void
 
 /**

@@ -4,7 +4,7 @@ import {
 	VSvgTransformType,
 	VSvgTransform,
 } from '@gog/vdom-interfaces'
-import { ChannelHandler } from '@gog/mark-spec-interfaces'
+import { ChannelHandler, HandlerMetadata } from '@gog/mark-spec-interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
@@ -32,7 +32,8 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (eventArg: any) => handler(eventArg, metadata)
+		reactAttrs[reactEventName] = (eventArg: any) =>
+			handler(eventArg, metadata as HandlerMetadata)
 	})
 
 	return React.createElement(
