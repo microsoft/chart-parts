@@ -1,4 +1,4 @@
-import { MarkEncoding } from '@gog/mark-spec-interfaces'
+import { MarkEncoding, ChannelHandler } from '@gog/mark-spec-interfaces'
 
 export type MarkEncodingProp = MarkEncoding | string | number | boolean
 
@@ -53,7 +53,7 @@ export interface CommonMarkProps {
 	zIndex?: MarkEncodingProp
 
 	// Events
-	eventHandlers?: { [key: string]: (arg: any) => void }
+	eventHandlers?: { [key: string]: ChannelHandler }
 }
 
 export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {

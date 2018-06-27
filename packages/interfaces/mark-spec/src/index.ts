@@ -129,7 +129,10 @@ export interface MarkEncodings {
 	[key: string]: MarkEncoding
 }
 
-export type ChannelHandler = (arg: any) => void
+export type ChannelHandler = (
+	nativeEventArgument: any,
+	metadata: { [key: string]: any },
+) => void
 
 /**
  * A hash of mark event channels by event name

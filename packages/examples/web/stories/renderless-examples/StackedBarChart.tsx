@@ -11,6 +11,7 @@ import {
 } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
 import { StackTransform } from '@gog/data-transform'
+import { ChannelHandler } from '@gog/mark-spec-interfaces'
 
 const renderer = new Renderer()
 const data = [
@@ -83,18 +84,20 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					colorScheme={CategoricalColorScheme.category10}
 				/>
 				<Rect
-					eventHandlers={{
-						onMouseEnter: ({ metadata: { index } }: any) => {
-							if (this.state.hoverRowIndex !== index) {
-								this.setState({ hoverRowIndex: index })
-							}
-						},
-						onMouseLeave: ({ metadata: { index } }: any) => {
-							if (this.state.hoverRowIndex === index) {
-								this.setState({ hoverRowIndex: undefined })
-							}
-						},
-					}}
+					eventHandlers={
+						{
+							onMouseEnter: (evt, { index }) => {
+								if (this.state.hoverRowIndex !== index) {
+									this.setState({ hoverRowIndex: index })
+								}
+							},
+							onMouseLeave: (evt, { index }) => {
+								if (this.state.hoverRowIndex === index) {
+									this.setState({ hoverRowIndex: undefined })
+								}
+							},
+						} as { [key: string]: ChannelHandler }
+					}
 					table="data"
 					x={({ datum }, { x }) => x(datum.x)}
 					width={(d, { width }) => width() - 1}

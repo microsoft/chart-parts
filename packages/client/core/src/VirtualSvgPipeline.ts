@@ -2,7 +2,7 @@ import { VDomRenderer } from '@gog/vdom-interfaces'
 import { parseScene } from '@gog/scenegraph'
 import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { VirtualSvgConverter } from '@gog/xform-vsvg'
-import { SceneNode } from '@gog/mark-spec-interfaces'
+import { SceneNode, DataFrame } from '@gog/mark-spec-interfaces'
 import { Scene } from '@gog/scenegen'
 
 const converter = new VirtualSvgConverter()
@@ -19,7 +19,7 @@ export class VirtualSvgPipeline<T> {
 	public handleData(
 		scene: SceneNode,
 		options: ChartOptions = {},
-		tables: { [key: string]: any[] },
+		tables: DataFrame,
 	) {
 		const sg = new Scene(scene, options).build(tables)
 		const vdom = converter.render(sg.root, options)

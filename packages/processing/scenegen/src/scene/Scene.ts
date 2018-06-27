@@ -18,7 +18,7 @@ type SGMarkAny = SGMark<SGItem>
 
 export class Scene {
 	private channelId: number = 0
-	private channelHandlers: { [key: string]: (arg: any) => void } = {}
+	private channelHandlers: { [key: string]: ChannelHandler } = {}
 	private options: ChartOptionsManager
 
 	constructor(private scene: SceneNode, options: ChartOptions) {

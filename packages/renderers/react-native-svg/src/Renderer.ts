@@ -1,11 +1,12 @@
 import * as React from 'react'
 import elementMap from './elementMap'
 import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
+import { ChannelHandler }from '@gog/mark-spec-interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key: string,
-	handlers: { [key: string]: (arg: any) => void },
+	handlers: { [key: string]: ChannelHandler,
 ): React.ReactElement<any> | null {
 	const {
 		type,
@@ -14,7 +15,7 @@ function createElementFor(
 		style,
 		transforms = [],
 		channels = {},
-		metadata = {},
+		metadata = { index: -1 },
 	} = vdom
 	const reactSvgType = elementMap.get(type)
 	if (!reactSvgType) {
@@ -48,10 +49,7 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (reactArg: any) => {
-			console.log('METADATA', metadata)
-			handler({ event: reactArg, metadata })
-		}
+		reactAttrs[reactEventName] = (eventArg: any) => handler(eventArg, metadata)
 	})
 
 	return React.createElement(

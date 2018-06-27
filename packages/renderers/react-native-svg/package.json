@@ -19,6 +19,7 @@
 	},
 	"dependencies": {
 		"@gog/vdom-interfaces": "0.0.0",
+		"@gog/mark-spec-interfaces": "0.0.0",
 		"lodash": "^4.17.10",
 		"react-native-svg": "^5.x"
 	},

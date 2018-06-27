@@ -26,13 +26,13 @@ export class BarChart extends React.Component<{}, BarChartState> {
 
 	public render() {
 		// Externalized Event Handlers
-		const onPress = ({ metadata: { dataRowIndex } }) => {
-			if (this.state.hoverRowIndex !== dataRowIndex) {
-				this.setState({ hoverRowIndex: dataRowIndex })
+		const onPress = (evt, { index }) => {
+			if (this.state.hoverRowIndex !== index) {
+				this.setState({ hoverRowIndex: index })
 			}
 		}
 		return (
-			<Chart width={400} height={200} data={data} renderer={new Renderer()}>
+			<Chart width={400} height={200} data={{ data }} renderer={new Renderer()}>
 				<LinearScale
 					name="yscale"
 					table="data"
@@ -52,12 +52,12 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				<Ax is orient="left" scale="yscale" /> */}
 				<Rect
 					eventHandlers={{ onPress }}
-					x={({ row, scales: { xscale } }) => xscale(row.category)}
-					y={({ row, scales: { yscale } }) => yscale(row.amount)}
-					width={({ scales: { xband } }) => xband()}
+					x={({ datum }, { xscale }) => xscale(datum.category)}
+					y={({ datum }, { yscale }) => yscale(datum.amount)}
+					width={(d, { xband }) => xband()}
 					y2={200}
-					fill={({ rowIndex }) => {
-						return this.state.hoverRowIndex === rowIndex
+					fill={({ index }) => {
+						return this.state.hoverRowIndex === index
 							? 'firebrick'
 							: 'steelblue'
 					}}
