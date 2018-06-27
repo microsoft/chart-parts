@@ -11,8 +11,7 @@ export class LinearScale extends QuantitativeScale<
 	number
 > {
 	protected createScale() {
-		return linear()
-			.name(this.props.name)
+		return linear(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

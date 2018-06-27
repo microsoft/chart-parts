@@ -40,12 +40,9 @@ export class Group extends BaseMark<GroupProps> {
 				)
 			}
 
-			const partitionOn: (row: any) => any =
-				typeof facetKey === 'string' ? row => row[facetKey] : facetKey
-
 			nodeBuilder.facet({
 				name: facetName,
-				partitionOn,
+				partitionOn: facetKey,
 			})
 		}
 		return nodeBuilder

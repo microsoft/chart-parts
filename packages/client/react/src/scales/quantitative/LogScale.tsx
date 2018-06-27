@@ -16,8 +16,7 @@ export class LogScale extends QuantitativeScale<
 	number
 > {
 	protected createScale() {
-		return log()
-			.name(this.props.name)
+		return log(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

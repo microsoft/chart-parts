@@ -22,16 +22,18 @@ export class SceneNodeBuilder {
 	 * @param table The name of the bound datatable to use
 	 * @param creator The scale-creator
 	 */
-	public scale(creator: ScaleCreator | { build: () => ScaleCreator }) {
-		this.scales.push(
-			typeof (creator as any).build === 'function'
-				? (creator as any).build()
-				: creator,
+	public scale(
+		...creators: Array<ScaleCreator | { build: () => ScaleCreator }>
+	): SceneNodeBuilder {
+		creators.forEach(c =>
+			this.scales.push(
+				typeof (c as any).build === 'function' ? (c as any).build() : c,
+			),
 		)
 		return this
 	}
 
-	public mark(builder: MarkBuilder) {
+	public mark(builder: MarkBuilder): SceneNodeBuilder {
 		this.markBuilder = builder
 		return this
 	}
@@ -39,10 +41,11 @@ export class SceneNodeBuilder {
 	/**
 	 * Pushes a new scene node onto the graph
 	 */
-	public push() {
+	public push(callback: (b: SceneNodeBuilder) => void): SceneNodeBuilder {
 		const newNode = new SceneNodeBuilder()
 		this.children.push(newNode)
-		return newNode
+		callback(newNode)
+		return this
 	}
 
 	/**

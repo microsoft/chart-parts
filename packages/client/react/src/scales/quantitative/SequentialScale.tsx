@@ -13,8 +13,7 @@ export class SequantialScale extends DomainScale<
 	QuantitativeSpan
 > {
 	protected createScale() {
-		return sequential()
-			.name(this.props.name)
+		return sequential(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

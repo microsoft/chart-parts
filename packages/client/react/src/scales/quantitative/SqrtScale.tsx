@@ -11,8 +11,7 @@ export class SqrtScale extends QuantitativeScale<
 	number
 > {
 	protected createScale() {
-		return sqrt()
-			.name(this.props.name)
+		return sqrt(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

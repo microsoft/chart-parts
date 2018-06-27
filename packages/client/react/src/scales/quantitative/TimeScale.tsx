@@ -14,8 +14,7 @@ export class TimeScale extends QuantitativeScale<
 	number
 > {
 	protected createScale() {
-		return time()
-			.name(this.props.name)
+		return time(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

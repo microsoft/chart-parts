@@ -1,12 +1,12 @@
 import * as React from 'react'
 import elementMap from './elementMap'
 import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
-import { ChannelHandler, HandlerMetadata }from '@gog/mark-spec-interfaces'
+import { ChannelHandler, HandlerMetadata } from '@gog/mark-spec-interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key: string,
-	handlers: { [key: string]: ChannelHandler,
+	handlers: { [key: string]: ChannelHandler },
 ): React.ReactElement<any> | null {
 	const {
 		type,
@@ -49,7 +49,8 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (eventArg: any) => handler(eventArg, metadata as HandlerMetadata)
+		reactAttrs[reactEventName] = (eventArg: any) =>
+			handler(eventArg, metadata as HandlerMetadata)
 	})
 
 	return React.createElement(

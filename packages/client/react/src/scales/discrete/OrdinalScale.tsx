@@ -19,8 +19,7 @@ export class OrdinalScale<RangeType> extends DomainScale<
 	string[]
 > {
 	protected createScale() {
-		return ordinal()
-			.name(this.props.name)
+		return ordinal(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

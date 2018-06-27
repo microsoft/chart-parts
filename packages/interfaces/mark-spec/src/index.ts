@@ -78,7 +78,7 @@ export interface Facet {
 	 * on.
 	 * If the value is a function, then the function describes how to get a partition key for a row.
 	 */
-	partitionOn: ((row: any) => any)
+	partitionOn: string | ((row: any) => any)
 }
 
 export interface MarkData {

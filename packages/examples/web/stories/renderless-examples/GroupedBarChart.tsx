@@ -88,7 +88,6 @@ export class GroupedBarChart extends React.Component<{}> {
 						fill={({ datum }, { color }) => color(datum.position)}
 						height={(d, { rowHeight }) => rowHeight()}
 					/>
-
 					<Text
 						table="facet"
 						x={({ datum }, { x }) => x(datum.value) - 3}

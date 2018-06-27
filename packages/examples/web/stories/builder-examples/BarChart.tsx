@@ -42,44 +42,42 @@ export class BarChart extends React.Component<{}, BarChartState> {
 
 		this.chart = scene()
 			.scale(
-				linear()
-					.name('y')
+				linear('y')
 					.table('data')
 					.bindDomain('amount')
 					.bindRange(Dimension.HEIGHT)
 					.nice(),
-			)
-			.scale(
-				band()
-					.name('x')
+				band('x', 'xband')
 					.table('data')
-					.bandwidth('xband')
 					.bindDomain('category')
 					.bindRange(Dimension.WIDTH)
 					.padding(0.05),
 			)
-			.mark(
-				rect()
-					.table('data')
-					.encodings({
-						x: ({ datum }, { x }) => x(datum.category),
-						y: ({ datum }, { y }) => y(datum.amount),
-						y2: () => 200,
-						width: (d, { xband }) => xband(),
-						fill: ({ index }) => (isHovered(index) ? 'firebrick' : 'steelblue'),
-					} as { [key: string]: MarkEncoding })
-					.channels({
-						onMouseEnter: (evt, { index }) => {
-							if (this.state.hoverRowIndex !== index) {
-								this.setState({ hoverRowIndex: index })
-							}
-						},
-						onMouseLeave: (evt, { index }) => {
-							if (this.state.hoverRowIndex === index) {
-								this.setState({ hoverRowIndex: undefined })
-							}
-						},
-					} as { [key: string]: ChannelHandler }),
+			.push(n =>
+				n.mark(
+					rect()
+						.table('data')
+						.encode({
+							x: ({ datum }, { x }) => x(datum.category),
+							y: ({ datum }, { y }) => y(datum.amount),
+							y2: () => 200,
+							width: (d, { xband }) => xband(),
+							fill: ({ index }) =>
+								isHovered(index) ? 'firebrick' : 'steelblue',
+						} as { [key: string]: MarkEncoding })
+						.channels({
+							onMouseEnter: (evt, { index }) => {
+								if (this.state.hoverRowIndex !== index) {
+									this.setState({ hoverRowIndex: index })
+								}
+							},
+							onMouseLeave: (evt, { index }) => {
+								if (this.state.hoverRowIndex === index) {
+									this.setState({ hoverRowIndex: undefined })
+								}
+							},
+						} as { [key: string]: ChannelHandler }),
+				),
 			)
 			.build()
 	}

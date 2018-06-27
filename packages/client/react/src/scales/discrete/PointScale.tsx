@@ -7,7 +7,7 @@ export interface PointScaleProps
 	/**
 	 * The name of the Point-width static scale
 	 */
-	widthName: string
+	stepName: string
 
 	/**
 	 * Bin alignment 0-beginning, 1=end
@@ -18,11 +18,6 @@ export interface PointScaleProps
 	 * The outer and inner padding value
 	 */
 	padding?: number
-
-	/**
-	 * The outer padding value
-	 */
-	paddingOuter?: number
 }
 
 export class PointScale extends DomainRangeScale<
@@ -32,17 +27,15 @@ export class PointScale extends DomainRangeScale<
 	Dimension
 > {
 	protected createScale() {
-		return point()
-			.name(this.props.name)
+		return point(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)
 			.range(this.props.range)
 			.bindRange(this.props.bindRange)
-			.widthName(this.props.widthName)
+			.stepName(this.props.stepName)
 			.align(this.props.align)
 			.padding(this.props.padding)
-			.paddingOuter(this.props.paddingOuter)
 			.build()
 	}
 }

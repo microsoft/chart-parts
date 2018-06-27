@@ -19,27 +19,27 @@ export class MarkBuilder {
 	private channelsVal: Channels = {}
 	private encodingsVal: MarkEncodings = {}
 
-	public type(type: MarkType) {
+	public type(type: MarkType): MarkBuilder {
 		this.typeVal = type
 		return this
 	}
 
-	public table(table: string | undefined) {
+	public table(table: string | undefined): MarkBuilder {
 		this.tableVal = table
 		return this
 	}
 
-	public role(role: string | undefined) {
+	public role(role: string | undefined): MarkBuilder {
 		this.roleVal = role
 		return this
 	}
 
-	public name(name: string | undefined) {
+	public name(name: string | undefined): MarkBuilder {
 		this.nameVal = name
 		return this
 	}
 
-	public zIndex(zIndex: number | undefined) {
+	public zIndex(zIndex: number | undefined): MarkBuilder {
 		if (zIndex !== undefined) {
 			this.encode('zIndex', () => zIndex)
 		} else {
@@ -49,36 +49,50 @@ export class MarkBuilder {
 		return this
 	}
 
-	public singleton(value: boolean | undefined) {
+	public singleton(value: boolean | undefined): MarkBuilder {
 		this.singletonVal = !!value
 		return this
 	}
 
-	public channel(name: string, handler: ChannelHandler) {
+	public channel(name: string, handler: ChannelHandler): MarkBuilder {
 		this.channelsVal[name] = handler
 		return this
 	}
 
-	public channels(channels: Channels) {
+	public channels(channels: Channels): MarkBuilder {
 		Object.entries(channels).forEach(([name, handler]) =>
 			this.channel(name, handler),
 		)
 		return this
 	}
 
-	public encode(key: string, encoding: MarkEncoding) {
-		this.encodingsVal[key] = encoding
+	public encode(key: string, encoding: MarkEncoding): MarkBuilder
+	public encode(encodings: MarkEncodings): MarkBuilder
+
+	// Polymorphic function definition
+	public encode(
+		first: string | MarkEncodings,
+		encoding?: MarkEncoding,
+	): MarkBuilder {
+		if (typeof first === 'string') {
+			// Handle encode(key, encoding) invocations
+			const key: string = first
+			if (!encoding) {
+				throw new Error(`encoding must be defined for key ${key}`)
+			}
+			this.encodingsVal[key] = encoding
+		} else {
+			// Handle encode(map) invocations
+			const encodings = first as MarkEncodings
+			Object.entries(encodings).forEach(
+				([name, entryEncoding]) => (this.encodingsVal[name] = entryEncoding),
+			)
+			return this
+		}
 		return this
 	}
 
-	public encodings(encodings: MarkEncodings) {
-		Object.entries(encodings).forEach(
-			([name, encoding]) => (this.encodingsVal[name] = encoding),
-		)
-		return this
-	}
-
-	public facet(facet: Facet | undefined) {
+	public facet(facet: Facet | undefined): MarkBuilder {
 		this.facetVal = facet
 		return this
 	}

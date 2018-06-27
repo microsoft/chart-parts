@@ -18,8 +18,7 @@ export class PowScale extends QuantitativeScale<
 	protected defaultZero = true
 
 	protected createScale() {
-		return pow()
-			.name(this.props.name)
+		return pow(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)

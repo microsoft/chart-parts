@@ -33,13 +33,16 @@ export abstract class BaseMark<
 	}
 
 	protected get channels() {
-		const eventHandlers = this.props.eventHandlers || {}
+		const eventHandlers =
+			(this.props.eventHandlers as { [key: string]: ChannelHandler }) || {}
 		const channels: { [key: string]: ChannelHandler } = {
 			...eventHandlers,
 		}
 		Object.keys(this.props).forEach(propKey => {
 			if (propKey.startsWith('on')) {
-				channels[propKey] = (this.props[propKey] as any) as ChannelHandler
+				channels[propKey] = ((this.props as any)[
+					propKey
+				] as any) as ChannelHandler
 			}
 		})
 		return channels
@@ -69,13 +72,15 @@ export abstract class BaseMark<
 	}
 
 	protected addMark() {
-		return this.api.push().mark(this.createMark())
+		let node
+		this.api.push(n => (node = n.mark(this.createMark())))
+		return node
 	}
 
 	protected createMark() {
 		return mark(this.markType)
 			.channels(this.channels)
-			.encodings(this.encodings)
+			.encode(this.encodings)
 			.table(this.props.table)
 			.name(this.props.name)
 			.role(this.props.role)

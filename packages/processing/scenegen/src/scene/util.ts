@@ -69,11 +69,13 @@ export function getBoundData(
 	}
 
 	const { name, partitionOn } = facet
+	const getFacetKey =
+		typeof partitionOn === 'function' ? partitionOn : (d: any) => d[partitionOn]
 	const partitionMap = new Map<string, any[]>()
 	const partitions: any[][] = []
 
 	sourceTable.forEach((row: any) => {
-		const key = partitionOn(row)
+		const key = getFacetKey(row)
 		if (!partitionMap.has(key)) {
 			const newPartition: any[] = []
 			partitions.push(newPartition)
@@ -104,6 +106,9 @@ export function createMarkItem(
 	frame: SceneFrame,
 ) {
 	const { type, encodings, name, role } = mark
+	if (!encodings) {
+		console.log('NULL ENCODINGS', frame, mark.type, mark.name)
+	}
 	return createItem(type, {
 		...transferEncodings(row, index, data, encodings, frame),
 		name,

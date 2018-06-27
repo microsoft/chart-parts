@@ -11,7 +11,7 @@ export class UtcScale extends QuantitativeScale<
 	number
 > {
 	protected createScale() {
-		return utc()
+		return utc(this.props.name)
 			.name(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)

@@ -37,15 +37,13 @@ export class BandScale extends DomainRangeScale<
 	Dimension
 > {
 	protected createScale() {
-		return band()
-			.name(this.props.name)
+		return band(this.props.name, this.props.bandWidth)
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.bindDomain(this.props.bindDomain)
 			.range(this.props.range)
 			.bindRange(this.props.bindRange)
 			.align(this.props.align)
-			.bandwidth(this.props.bandWidth)
 			.padding(this.props.padding)
 			.paddingOuter(this.props.paddingOuter)
 			.paddingInner(this.props.paddingInner)

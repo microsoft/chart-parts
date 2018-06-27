@@ -43,7 +43,7 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * The name of the band-width static scale
 	 */
-	public bandwidth(value?: string) {
+	public bandwidthName(value?: string) {
 		this.bandwidthValue = value
 		return this
 	}

@@ -5,7 +5,7 @@ import { MarkBuilder } from './MarkBuilder'
 export class SceneBuilder extends SceneNodeBuilder {
 	constructor() {
 		super()
-		this.mark(
+		super.mark(
 			new MarkBuilder()
 				.role('frame')
 				.name('root')
@@ -13,5 +13,9 @@ export class SceneBuilder extends SceneNodeBuilder {
 				.type(MarkType.Group)
 				.singleton(true),
 		)
+	}
+
+	public mark(builder: MarkBuilder): SceneNodeBuilder {
+		throw new Error('must push() new node to create marks in scene')
 	}
 }
