@@ -54,14 +54,14 @@ export class MarkBuilder {
 		return this
 	}
 
-	public channel(key: string, handler: ChannelHandler) {
-		this.channelsVal[key] = handler
+	public channel(name: string, handler: ChannelHandler) {
+		this.channelsVal[name] = handler
 		return this
 	}
 
 	public channels(channels: Channels) {
-		Object.entries(channels).forEach(
-			([name, handler]) => (this.channelsVal[name] = handler),
+		Object.entries(channels).forEach(([name, handler]) =>
+			this.channel(name, handler),
 		)
 		return this
 	}

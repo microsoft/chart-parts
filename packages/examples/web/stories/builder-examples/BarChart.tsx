@@ -1,13 +1,14 @@
 // tslint:disable
 import * as React from 'react'
-import { Chart } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
 import { scene, mark } from '@gog/scenegen'
 import { MarkType } from '@gog/core'
 import { Dimension, SceneNode } from '@gog/mark-spec-interfaces'
 import { linear, band } from '@gog/scales'
+import { VirtualSvgPipeline } from '@gog/core'
 
 const renderer = new Renderer()
+const pipeline = new VirtualSvgPipeline(renderer)
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -56,33 +57,34 @@ export class BarChart extends React.Component<{}, BarChartState> {
 			.mark(
 				mark(MarkType.Rect)
 					.table('data')
-					.encode('x', ({ datum }, { x }) => x(datum.category))
-					.encode('y', ({ datum }, { y }) => y(datum.amount))
-					.encode('y2', () => 200)
-					.encode('width', (d, { xband }) => xband())
-					.encode(
-						'fill',
-						({ index }) => (isHovered(index) ? 'firebrick' : 'steelblue'),
-					)
-					.channel('onMouseEnter', ({ metadata: { index } }: any) => {
-						if (isHovered(index)) {
-							this.setState({ hoverRowIndex: index })
-						}
+					.encodings({
+						x: ({ datum }, { x }) => x(datum.category),
+						y: ({ datum }, { y }) => y(datum.amount),
+						y2: () => 200,
+						width: (d, { xband }) => xband(),
+						fill: ({ index }) => (isHovered(index) ? 'firebrick' : 'steelblue'),
 					})
-					.channel('onMouseLeave', ({ metadata: { index } }: any) => {
-						if (isHovered(index)) {
-							this.setState({ hoverRowIndex: undefined })
-						}
+					.channels({
+						onMouseEnter: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex !== index) {
+								this.setState({ hoverRowIndex: index })
+							}
+						},
+						onMouseLeave: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex === index) {
+								this.setState({ hoverRowIndex: undefined })
+							}
+						},
 					}),
 			)
 			.build()
-
-		console.log('chart', this.chart)
 	}
 
 	public render() {
-		return (
-			<Chart width={400} height={200} renderer={renderer} data={{ data }} />
+		return pipeline.handleData(
+			this.chart,
+			{ width: 400, height: 200 },
+			{ data },
 		)
 	}
 }
