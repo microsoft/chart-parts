@@ -1,9 +1,13 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { scene, mark } from '@gog/scenegen'
-import { MarkType } from '@gog/core'
-import { Dimension, SceneNode, ChannelHandler } from '@gog/mark-spec-interfaces'
+import { scene, rect } from '@gog/scenegen'
+import {
+	Dimension,
+	SceneNode,
+	ChannelHandler,
+	MarkEncoding,
+} from '@gog/mark-spec-interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
@@ -55,7 +59,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					.padding(0.05),
 			)
 			.mark(
-				mark(MarkType.Rect)
+				rect()
 					.table('data')
 					.encodings({
 						x: ({ datum }, { x }) => x(datum.category),
@@ -63,7 +67,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 						y2: () => 200,
 						width: (d, { xband }) => xband(),
 						fill: ({ index }) => (isHovered(index) ? 'firebrick' : 'steelblue'),
-					})
+					} as { [key: string]: MarkEncoding })
 					.channels({
 						onMouseEnter: (evt, { index }) => {
 							if (this.state.hoverRowIndex !== index) {
