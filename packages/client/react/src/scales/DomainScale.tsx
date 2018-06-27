@@ -54,40 +54,8 @@ export abstract class DomainScale<
 	}
 
 	protected addScale() {
-		this.api.addScale(
-			this.props.name,
-			this.props.table,
-			(args: CreateScaleArgs) => this.createScale(args),
-		)
+		this.api.scale(this.createScale())
 	}
 
-	protected abstract createScale(args: CreateScaleArgs): any
-
-	protected processDomainValues(values: any[]): Domain {
-		return (values as any) as Domain
-	}
-
-	protected getDomain(args: CreateScaleArgs): Domain {
-		if (this.props.domain) {
-			return this.props.domain(args)
-		} else {
-			const bindDomain = this.bindDomainArray
-			const { data } = args
-			const domainValues = (data || []).flatMap(d =>
-				bindDomain.map(key => d[key]),
-			)
-			const result = this.processDomainValues(domainValues)
-			return result
-		}
-	}
-
-	protected get bindDomainArray(): string[] {
-		const { bindDomain } = this.props
-		if (!bindDomain) {
-			throw new Error('Either bindDomain or domain must be set')
-		}
-		return typeof bindDomain === 'string'
-			? [bindDomain]
-			: (bindDomain as string[])
-	}
+	protected abstract createScale(): any
 }

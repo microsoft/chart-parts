@@ -29,8 +29,8 @@ export class Group extends BaseMark<GroupProps> {
 		}
 	}
 
-	protected addMark() {
-		const nodeBuilder = super.addMark()
+	protected createMark() {
+		const nodeBuilder = super.createMark()
 		const { facetName, facetKey } = this.props
 
 		if (facetName || facetKey) {
@@ -43,7 +43,7 @@ export class Group extends BaseMark<GroupProps> {
 			const partitionOn: (row: any) => any =
 				typeof facetKey === 'string' ? row => row[facetKey] : facetKey
 
-			nodeBuilder.setFacet({
+			nodeBuilder.facet({
 				name: facetName,
 				partitionOn,
 			})

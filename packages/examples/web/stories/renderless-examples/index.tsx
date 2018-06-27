@@ -4,7 +4,7 @@ import { BarChart } from './BarChart'
 import { StackedBarChart } from './StackedBarChart'
 import { GroupedBarChart } from './GroupedBarChart'
 
-storiesOf('Vega Examples (React Pipeline)', module)
-	.add('Bar Chart', () => <BarChart key="bar" />)
+storiesOf('Renderless React Examples', module)
+	.add('Bar Chart', () => <BarChart />)
 	.add('Stacked Bar Chart', () => <StackedBarChart />)
 	.add('Grouped Bar Chart', () => <GroupedBarChart />)

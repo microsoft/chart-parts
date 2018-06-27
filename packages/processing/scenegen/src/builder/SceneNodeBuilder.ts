@@ -1,27 +1,15 @@
 // tslint:disable no-this-assignment
-import {
-	SceneNode,
-	ScaleCreator,
-	ChannelHandler,
-	MarkEncoding,
-	NamedScaleCreator,
-	Channels,
-	MarkEncodings,
-	Facet,
-} from '@gog/mark-spec-interfaces'
+import { SceneNode, ScaleCreator } from '@gog/mark-spec-interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { MarkType } from '@gog/mark-interfaces'
 
 export class SceneNodeBuilder {
-	/**
-	 * The mark for this node
-	 */
-	private markBuilder: MarkBuilder = new MarkBuilder()
+	private markBuilder: MarkBuilder | undefined
 
 	/**
 	 * The scales defined for children of this node
 	 */
-	private scales: NamedScaleCreator[] = []
+	private scales: ScaleCreator[] = []
 
 	/**
 	 * The child scene
@@ -34,63 +22,17 @@ export class SceneNodeBuilder {
 	 * @param table The name of the bound datatable to use
 	 * @param creator The scale-creator
 	 */
-	public addScale(name: string, table: string, creator: ScaleCreator) {
-		this.scales.push({ name, creator, table })
+	public scale(creator: ScaleCreator | { build: () => ScaleCreator }) {
+		this.scales.push(
+			typeof (creator as any).build === 'function'
+				? (creator as any).build()
+				: creator,
+		)
 		return this
 	}
 
-	public addChannel(key: string, handler: ChannelHandler) {
-		this.markBuilder.addChannel(key, handler)
-		return this
-	}
-
-	public addChannels(channels: Channels) {
-		this.markBuilder.addChannels(channels)
-		return this
-	}
-
-	public addEncoding(key: string, encoding: MarkEncoding) {
-		this.markBuilder.addEncoding(key, encoding)
-		return this
-	}
-
-	public addEncodings(encodings: MarkEncodings) {
-		this.markBuilder.addEncodings(encodings)
-		return this
-	}
-
-	public setType(type: MarkType) {
-		this.markBuilder.setType(type)
-		return this
-	}
-
-	public setTable(table: string | undefined) {
-		this.markBuilder.setTable(table)
-		return this
-	}
-
-	public setRole(role: string | undefined) {
-		this.markBuilder.setRole(role)
-		return this
-	}
-
-	public setName(name: string | undefined) {
-		this.markBuilder.setName(name)
-		return this
-	}
-
-	public setZIndex(zIndex: number | undefined) {
-		this.markBuilder.setZIndex(zIndex)
-		return this
-	}
-
-	public setFacet(facet: Facet | undefined) {
-		this.markBuilder.setFacet(facet)
-		return this
-	}
-
-	public setSingleton(value: boolean | undefined) {
-		this.markBuilder.setSingleton(value)
+	public mark(builder: MarkBuilder) {
+		this.markBuilder = builder
 		return this
 	}
 
@@ -108,6 +50,9 @@ export class SceneNodeBuilder {
 	 */
 	public build(): SceneNode {
 		const { scales, markBuilder, children: builderChildren } = this
+		if (!markBuilder) {
+			throw new Error('scene node has no mark set')
+		}
 		const mark = markBuilder.build()
 		const children = builderChildren.map(c => c.build())
 		if (children.length > 0 && mark.type !== MarkType.Group) {

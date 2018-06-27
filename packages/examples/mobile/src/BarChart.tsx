@@ -35,11 +35,13 @@ export class BarChart extends React.Component<{}, BarChartState> {
 			<Chart width={400} height={200} data={data} renderer={new Renderer()}>
 				<LinearScale
 					name="yscale"
+					table="data"
 					bindDomain="amount"
 					bindRange={Dimension.HEIGHT}
 				/>
 				<BandScale
 					name="xscale"
+					table="data"
 					bandWidth="xband"
 					bindDomain="category"
 					padding={0.05}

@@ -30,22 +30,10 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	}
 
 	public render() {
-		// Externalized Event Handlers
-		const onMouseEnter = ({ metadata: { dataRowIndex } }: any) => {
-			if (this.state.hoverRowIndex !== dataRowIndex) {
-				this.setState({ hoverRowIndex: dataRowIndex })
-			}
-		}
-		const onMouseLeave = ({ metadata: { dataRowIndex } }: any) => {
-			if (this.state.hoverRowIndex === dataRowIndex) {
-				this.setState({ hoverRowIndex: undefined })
-			}
-		}
-
 		return (
 			<Chart width={400} height={200} renderer={renderer} data={{ data }}>
 				<LinearScale
-					name="yscale"
+					name="y"
 					table="data"
 					bindDomain="amount"
 					bindRange={Dimension.HEIGHT}
@@ -53,23 +41,34 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				/>
 				<BandScale
 					table="data"
-					name="xscale"
-					bandWidth="xband"
+					name="x"
+					bandWidth="band"
 					bindDomain="category"
 					padding={0.05}
 					bindRange={Dimension.WIDTH}
 				/>
-				{/* <Axis orient="bottom" scale="xscale" />
-				<Ax is orient="left" scale="yscale" /> */}
+				{/* <Axis orient="bottom" scale="x" />
+				<Axis orient="left" scale="y" /> */}
 				<Rect
 					table="data"
-					eventHandlers={{ onMouseEnter, onMouseLeave }}
-					x={({ row, scales: { xscale } }) => xscale(row.category)}
-					y={({ row, scales: { yscale } }) => yscale(row.amount)}
-					width={({ scales: { xband } }) => xband()}
+					eventHandlers={{
+						onMouseEnter: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex !== index) {
+								this.setState({ hoverRowIndex: index })
+							}
+						},
+						onMouseLeave: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex === index) {
+								this.setState({ hoverRowIndex: undefined })
+							}
+						},
+					}}
+					x={({ datum }, { x }) => x(datum.category)}
+					y={({ datum }, { y }) => y(datum.amount)}
+					width={(d, { band }) => band()}
 					y2={200}
-					fill={({ rowIndex }) =>
-						this.state.hoverRowIndex === rowIndex ? 'firebrick' : 'steelblue'
+					fill={({ index }) =>
+						this.state.hoverRowIndex === index ? 'firebrick' : 'steelblue'
 					}
 				/>
 			</Chart>

@@ -10,97 +10,98 @@ import {
 import { MarkType } from '@gog/mark-interfaces'
 
 export class MarkBuilder {
-	private type: MarkType | undefined
-	private table: string | undefined
-	private role: string | undefined
-	private name: string | undefined
-	private facet: Facet | undefined
-	private singleton: boolean = false
-	private channels: Channels = {}
-	private encodings: MarkEncodings = {}
+	private typeVal: MarkType | undefined
+	private tableVal: string | undefined
+	private roleVal: string | undefined
+	private nameVal: string | undefined
+	private facetVal: Facet | undefined
+	private singletonVal: boolean = false
+	private channelsVal: Channels = {}
+	private encodingsVal: MarkEncodings = {}
 
-	public setType(type: MarkType) {
-		this.type = type
+	public type(type: MarkType) {
+		this.typeVal = type
 		return this
 	}
 
-	public setTable(table: string | undefined) {
-		this.table = table
+	public table(table: string | undefined) {
+		this.tableVal = table
 		return this
 	}
 
-	public setRole(role: string | undefined) {
-		this.role = role
+	public role(role: string | undefined) {
+		this.roleVal = role
 		return this
 	}
 
-	public setName(name: string | undefined) {
-		this.name = name
+	public name(name: string | undefined) {
+		this.nameVal = name
 		return this
 	}
 
-	public setZIndex(zIndex: number | undefined) {
+	public zIndex(zIndex: number | undefined) {
 		if (zIndex !== undefined) {
-			this.addEncoding('zIndex', zIndex)
+			this.encode('zIndex', () => zIndex)
 		} else {
-			delete this.encodings.zIndex
+			delete this.encodingsVal.zIndex
 		}
 
 		return this
 	}
 
-	public setSingleton(value: boolean | undefined) {
-		this.singleton = !!value
+	public singleton(value: boolean | undefined) {
+		this.singletonVal = !!value
 		return this
 	}
 
-	public addChannel(key: string, handler: ChannelHandler) {
-		this.channels[key] = handler
+	public channel(key: string, handler: ChannelHandler) {
+		this.channelsVal[key] = handler
 		return this
 	}
 
-	public addChannels(channels: Channels) {
+	public channels(channels: Channels) {
 		Object.entries(channels).forEach(
-			([name, handler]) => (this.channels[name] = handler),
+			([name, handler]) => (this.channelsVal[name] = handler),
 		)
 		return this
 	}
 
-	public addEncoding(key: string, encoding: MarkEncoding) {
-		this.encodings[key] = encoding
+	public encode(key: string, encoding: MarkEncoding) {
+		this.encodingsVal[key] = encoding
 		return this
 	}
 
-	public addEncodings(encodings: MarkEncodings) {
+	public encodings(encodings: MarkEncodings) {
 		Object.entries(encodings).forEach(
-			([name, encoding]) => (this.encodings[name] = encoding),
+			([name, encoding]) => (this.encodingsVal[name] = encoding),
 		)
 		return this
 	}
 
-	public setFacet(facet: Facet | undefined) {
-		this.facet = facet
+	public facet(facet: Facet | undefined) {
+		this.facetVal = facet
 		return this
 	}
 
 	public build(): Mark {
 		const {
-			type,
-			table,
-			channels,
-			encodings,
-			role,
-			name,
-			singleton,
-			facet,
+			typeVal: type,
+			tableVal: table,
+			channelsVal: channels,
+			encodingsVal: encodings,
+			roleVal: role,
+			nameVal: name,
+			singletonVal: singleton,
+			facetVal: facet,
 		} = this
+
 		if (!type) {
 			throw new Error('mark type must be set')
 		}
 		if (!singleton && !table) {
 			throw new Error('mark table must be set or the mark must be a singleton')
 		}
-		if (this.facet && this.type !== MarkType.Group) {
+		if (this.facetVal && this.typeVal !== MarkType.Group) {
 			throw new Error('faceting can only be applied to group type marks')
 		}
 

@@ -1,7 +1,5 @@
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { extent } from 'd3-array'
-import { Dimension } from '../../interfaces'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { Dimension } from '@gog/mark-spec-interfaces'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
@@ -43,49 +41,4 @@ export abstract class QuantitativeScale<
 	[DomainValue, DomainValue],
 	[RangeValue, RangeValue],
 	Dimension
-> {
-	protected defaultZero = false
-
-	protected processDomainValues(
-		values: QuantitativeValue[],
-	): [DomainValue, DomainValue] {
-		const result = extent(values as any[]) as [DomainValue, DomainValue]
-		if (this.zero && !this.domainContainsZero(result)) {
-			const [min, max] = result
-			const zero = 0 as DomainValue
-			return 0 < min ? [zero, max] : [min, zero]
-		}
-		return result
-	}
-
-	protected domainContainsZero(domain: [DomainValue, DomainValue]) {
-		return 0 >= domain[0] && 0 <= domain[1]
-	}
-
-	protected get zero() {
-		return this.props.zero || this.defaultZero
-	}
-
-	protected handleRangeBind(
-		args: CreateScaleArgs,
-		rangeBind: Dimension,
-	): [RangeValue, RangeValue] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [args.view.height as RangeValue, 0 as RangeValue]
-		} else {
-			return [0 as RangeValue, args.view.width as RangeValue]
-		}
-	}
-
-	protected addCommonProperties(scale: any) {
-		if (this.props.nice === true) {
-			scale.nice()
-		} else if (this.props.nice !== undefined) {
-			scale.nice(this.props.nice)
-		}
-
-		if (this.props.clamp !== undefined) {
-			scale.clamp(this.props.clamp)
-		}
-	}
-}
+> {}

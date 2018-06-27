@@ -1,10 +1,9 @@
-import { scaleTime } from 'd3-scale'
+import { time } from '@gog/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export interface TimeScaleProps
 	extends QuantitativeScaleProps<TimeValue, number> {}
@@ -14,14 +13,17 @@ export class TimeScale extends QuantitativeScale<
 	TimeValue,
 	number
 > {
-	protected createScale(args: CreateScaleArgs) {
-		const domain = this.getDomain(args)
-		const range = this.getRange(args)
-		const result = scaleTime()
-			.domain(domain)
-			.range(range)
-
-		this.addCommonProperties(result)
-		return result
+	protected createScale() {
+		return time()
+			.name(this.props.name)
+			.table(this.props.table)
+			.domain(this.props.domain)
+			.bindDomain(this.props.bindDomain)
+			.range(this.props.range)
+			.bindRange(this.props.bindRange)
+			.zero(this.props.zero)
+			.clamp(this.props.clamp)
+			.nice(this.props.nice)
+			.build()
 	}
 }

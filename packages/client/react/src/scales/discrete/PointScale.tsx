@@ -1,7 +1,6 @@
-import { scalePoint, ScalePoint } from 'd3-scale'
+import { point } from '@gog/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { Dimension } from '../../interfaces'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { Dimension } from '@gog/mark-spec-interfaces'
 
 export interface PointScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -32,39 +31,18 @@ export class PointScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	protected addScale() {
-		super.addScale()
-		this.api.addScale(
-			this.props.widthName,
-			this.props.table,
-			({ scales }) => () =>
-				(scales[this.props.name] as ScalePoint<any>).bandwidth(),
-		)
-	}
-
-	protected createScale(args: CreateScaleArgs) {
-		const result = scalePoint()
-			.domain(this.getDomain(args))
-			.range(this.getRange(args))
-
-		if (this.props.padding !== undefined) {
-			result.padding(this.props.padding)
-		}
-		if (this.props.align !== undefined) {
-			result.align(this.props.align)
-		}
-
-		return result
-	}
-
-	protected handleRangeBind(
-		args: CreateScaleArgs,
-		rangeBind: Dimension,
-	): [number, number] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [args.view.height, 0]
-		} else {
-			return [0, args.view.width]
-		}
+	protected createScale() {
+		return point()
+			.name(this.props.name)
+			.table(this.props.table)
+			.domain(this.props.domain)
+			.bindDomain(this.props.bindDomain)
+			.range(this.props.range)
+			.bindRange(this.props.bindRange)
+			.widthName(this.props.widthName)
+			.align(this.props.align)
+			.padding(this.props.padding)
+			.paddingOuter(this.props.paddingOuter)
+			.build()
 	}
 }

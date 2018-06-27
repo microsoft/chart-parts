@@ -40,21 +40,4 @@ export abstract class DomainRangeScale<
 	Domain,
 	Range,
 	RangeBind
-> extends DomainScale<Props, Domain> {
-	protected abstract handleRangeBind(
-		args: CreateScaleArgs,
-		bind: RangeBind,
-	): Range
-
-	protected getRange(args: CreateScaleArgs): Range {
-		if (this.props.range) {
-			return this.props.range(args)
-		} else {
-			const { bindRange } = this.props
-			if (!bindRange) {
-				throw new Error('Either bindRange or range must be set')
-			}
-			return this.handleRangeBind(args, bindRange as RangeBind)
-		}
-	}
-}
+> extends DomainScale<Props, Domain> {}

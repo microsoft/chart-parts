@@ -1,4 +1,3 @@
-import { CategoricalColorScheme } from '../interfaces'
 const category10 = [
 	'#1f77b4',
 	'#ff7f0e',
@@ -80,6 +79,13 @@ const category20c = [
 	'#bdbdbd',
 	'#d9d9d9',
 ]
+
+export enum CategoricalColorScheme {
+	category10 = 'category10',
+	category20 = 'category20',
+	category20b = 'category20b',
+	category20c = 'category20c',
+}
 
 export const colorSchemeMap = new Map<CategoricalColorScheme, any>()
 colorSchemeMap.set(CategoricalColorScheme.category10, category10)

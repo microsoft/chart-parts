@@ -9,7 +9,7 @@ export interface SceneNode {
 	/**
 	 * The scales defined under this scene node
 	 */
-	scales: NamedScaleCreator[]
+	scales: ScaleCreator[]
 
 	/**
 	 * The children scene nodes
@@ -81,34 +81,16 @@ export interface Facet {
 	partitionOn: ((row: any) => any)
 }
 
-/**
- * An encoding specification for a mark property. This can either be a static
- * primitive or a function that generates the value
- */
-export type MarkEncodingFunction = (
-	args: MarkEncodingFunctionArgs,
-) => number | string | boolean
-
-export type MarkEncoding = number | string | boolean | MarkEncodingFunction
-
-/**
- * The arguments used for mark encoding functions
- */
-export interface MarkEncodingFunctionArgs {
+export interface MarkData {
 	/**
 	 * The current row of the data to encode.
 	 */
-	row: any
+	datum: any
 
 	/**
-	 * The index of the current Row
+	 * The index of the datum within the data collection
 	 */
-	rowIndex: number
-
-	/**
-	 * The configured scales, which may be used to transform row data
-	 */
-	scales: Scales
+	index: number
 
 	/**
 	 * The bound dataset
@@ -118,7 +100,17 @@ export interface MarkEncodingFunctionArgs {
 	/**
 	 * The full dataset
 	 */
-	tables: { [key: string]: any[] }
+	tables: DataFrame
+}
+
+export type MarkEncoding = (
+	data: MarkData,
+	scales: Scales,
+) => number | string | boolean
+
+export enum Dimension {
+	HEIGHT = 'height',
+	WIDTH = 'width',
 }
 
 /**
@@ -147,29 +139,9 @@ export interface Channels {
 }
 
 /**
- * An hash of scale-name to scale-creator functions
- */
-export interface NamedScaleCreator {
-	/**
-	 * The name of the scale
-	 */
-	name: string
-
-	/**
-	 * The table this scale is applied to when computing domain
-	 */
-	table: string
-
-	/**
-	 * The creator function for this scale
-	 */
-	creator: ScaleCreator
-}
-
-/**
  * A factory function that creates a scale instance.
  */
-export type ScaleCreator = (input: CreateScaleArgs) => Scale<any, any>
+export type ScaleCreator = (input: CreateScaleArgs) => Scales
 
 /**
  * Interface for the scale creation argument object, which is used to
@@ -190,7 +162,7 @@ export interface CreateScaleArgs {
 	/**
 	 * The dataset to bind with
 	 */
-	data: any[]
+	data: DataFrame
 }
 
 /**

@@ -1,25 +1,26 @@
-import { scaleSqrt } from 'd3-scale'
+import { sqrt } from '@gog/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export class SqrtScale extends QuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
 	number
 > {
-	protected defaultZero = true
-
-	protected createScale(args: CreateScaleArgs) {
-		const domain = this.getDomain(args)
-		const range = this.getRange(args)
-		const result = scaleSqrt()
-			.domain(domain)
-			.range(range)
-		this.addCommonProperties(result)
-		return result
+	protected createScale() {
+		return sqrt()
+			.name(this.props.name)
+			.table(this.props.table)
+			.domain(this.props.domain)
+			.bindDomain(this.props.bindDomain)
+			.range(this.props.range)
+			.bindRange(this.props.bindRange)
+			.zero(this.props.zero)
+			.clamp(this.props.clamp)
+			.nice(this.props.nice)
+			.build()
 	}
 }

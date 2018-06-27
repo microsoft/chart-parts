@@ -1,10 +1,9 @@
-import { scaleLog } from 'd3-scale'
+import { log } from '@gog/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export interface LogScaleProps
 	extends QuantitativeScaleProps<QuantitativeValue, number> {
@@ -16,17 +15,18 @@ export class LogScale extends QuantitativeScale<
 	QuantitativeValue,
 	number
 > {
-	protected createScale(args: CreateScaleArgs) {
-		const domain = this.getDomain(args)
-		const range = this.getRange(args)
-		const result = scaleLog()
-			.domain(domain)
-			.range(range)
-		this.addCommonProperties(result)
-
-		if (this.props.base !== undefined) {
-			result.base(this.props.base)
-		}
-		return result
+	protected createScale() {
+		return log()
+			.name(this.props.name)
+			.table(this.props.table)
+			.domain(this.props.domain)
+			.bindDomain(this.props.bindDomain)
+			.range(this.props.range)
+			.bindRange(this.props.bindRange)
+			.zero(this.props.zero)
+			.clamp(this.props.clamp)
+			.nice(this.props.nice)
+			.base(this.props.base)
+			.build()
 	}
 }

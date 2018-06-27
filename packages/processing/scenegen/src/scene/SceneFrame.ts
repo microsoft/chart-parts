@@ -55,15 +55,13 @@ export class SceneFrame {
 	}
 
 	private getRecomputedScales(node: SceneNode, view: ViewSize) {
-		const scales = { ...this.scales }
-		node.scales.forEach(({ name, table, creator }) => {
-			const args: CreateScaleArgs = {
-				view,
-				data: this.data[table],
-				scales,
-			} as any
-			const scale = creator(args)
-			scales[name] = scale
+		const data = this.data
+
+		let scales = { ...this.scales }
+		node.scales.forEach(creator => {
+			const args: CreateScaleArgs = { view, data, scales }
+			const newScales = creator(args)
+			scales = { ...scales, ...newScales }
 		})
 		return scales
 	}

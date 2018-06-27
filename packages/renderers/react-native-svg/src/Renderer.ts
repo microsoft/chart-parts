@@ -48,8 +48,10 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (reactArg: any) =>
-			handler({ eventArg: reactArg, metadata })
+		reactAttrs[reactEventName] = (reactArg: any) => {
+			console.log('METADATA', metadata)
+			handler({ event: reactArg, metadata })
+		}
 	})
 
 	return React.createElement(

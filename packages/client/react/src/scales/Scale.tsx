@@ -33,10 +33,6 @@ export class Scale extends React.PureComponent<ScaleProps> {
 	}
 
 	protected addScale() {
-		this.api.addScale(
-			this.props.name,
-			this.props.table,
-			(args: CreateScaleArgs) => this.props.create(args),
-		)
+		this.api.scale((args: CreateScaleArgs) => this.props.create(args))
 	}
 }

@@ -69,8 +69,8 @@ export class GroupedBarChart extends React.Component<{}> {
 					table="data"
 					facetKey={row => row.category}
 					facetName="facet"
-					y={({ scales, row }) => scales.y(row[0].category)}
-					height={({ scales }) => scales.categoryHeight()}
+					y={({ datum }, { y }) => y(datum[0].category)}
+					height={(d, { categoryHeight }) => categoryHeight()}
 				>
 					<BandScale
 						name="pos"
@@ -82,23 +82,23 @@ export class GroupedBarChart extends React.Component<{}> {
 					<Rect
 						name="bars"
 						table="facet"
-						x={({ scales: { x }, row }) => x(row.value)}
-						y={({ scales: { pos }, row }) => pos(row.position)}
-						x2={({ scales: { x } }) => x(0)}
-						fill={({ scales: { color }, row }) => color(row.position)}
-						height={({ scales: { rowHeight } }) => rowHeight()}
+						x={({ datum }, { x }) => x(datum.value)}
+						y={({ datum }, { pos }) => pos(datum.position)}
+						x2={(d, { x }) => x(0)}
+						fill={({ datum }, { color }) => color(datum.position)}
+						height={(d, { rowHeight }) => rowHeight()}
 					/>
 
 					<Text
 						table="facet"
-						x={({ scales: { x }, row }) => x(row.value) - 3}
-						y={({ scales: { pos, rowHeight }, row }) =>
-							pos(row.position) + rowHeight() * 0.5
+						x={({ datum }, { x }) => x(datum.value) - 3}
+						y={({ datum }, { pos, rowHeight }) =>
+							pos(datum.position) + rowHeight() * 0.5
 						}
 						fill={'white'}
 						align={'right'}
 						baseline={'middle'}
-						text={({ row }) => row.value}
+						text={({ datum }) => datum.value}
 					/>
 				</Group>
 			</Chart>

@@ -1,7 +1,6 @@
-import { scaleBand, ScaleBand } from 'd3-scale'
+import { band } from '@gog/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { Dimension } from '../../interfaces'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { Dimension } from '@gog/mark-spec-interfaces'
 
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -37,51 +36,19 @@ export class BandScale extends DomainRangeScale<
 	[number, number],
 	Dimension
 > {
-	protected addScale() {
-		super.addScale()
-		if (this.props.bandWidth) {
-			this.api.addScale(
-				this.props.bandWidth,
-				this.props.table,
-				({ scales }: CreateScaleArgs) => () => {
-					const rootScale: ScaleBand<string> = scales[this.props.name] as any
-					return rootScale.bandwidth()
-				},
-			)
-		}
-	}
-
-	protected createScale(args: CreateScaleArgs) {
-		const domain = this.getDomain(args)
-		const range = this.getRange(args)
-		const result = scaleBand()
-			.domain(domain.map(d => '' + d))
-			.range(range)
-
-		if (this.props.align) {
-			result.align(this.props.align)
-		}
-		if (this.props.padding) {
-			result.padding(this.props.padding)
-		}
-		if (this.props.paddingOuter) {
-			result.paddingOuter(this.props.paddingOuter)
-		}
-		if (this.props.paddingInner) {
-			result.paddingInner(this.props.paddingInner)
-		}
-
-		return result
-	}
-
-	protected handleRangeBind(
-		args: CreateScaleArgs,
-		rangeBind: Dimension,
-	): [number, number] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [0, args.view.height]
-		} else {
-			return [0, args.view.width]
-		}
+	protected createScale() {
+		return band()
+			.name(this.props.name)
+			.table(this.props.table)
+			.domain(this.props.domain)
+			.bindDomain(this.props.bindDomain)
+			.range(this.props.range)
+			.bindRange(this.props.bindRange)
+			.align(this.props.align)
+			.bandwidth(this.props.bandWidth)
+			.padding(this.props.padding)
+			.paddingOuter(this.props.paddingOuter)
+			.paddingInner(this.props.paddingInner)
+			.build()
 	}
 }

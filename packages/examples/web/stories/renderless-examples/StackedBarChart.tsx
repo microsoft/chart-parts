@@ -54,17 +54,6 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 		this.state = {}
 	}
 	public render() {
-		// Externalized Event Handlers
-		const onMouseEnter = ({ metadata: { dataRowIndex } }: any) => {
-			if (this.state.hoverRowIndex !== dataRowIndex) {
-				this.setState({ hoverRowIndex: dataRowIndex })
-			}
-		}
-		const onMouseLeave = ({ metadata: { dataRowIndex } }: any) => {
-			if (this.state.hoverRowIndex === dataRowIndex) {
-				this.setState({ hoverRowIndex: undefined })
-			}
-		}
 		return (
 			<Chart
 				width={500}
@@ -94,15 +83,26 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					colorScheme={CategoricalColorScheme.category10}
 				/>
 				<Rect
-					eventHandlers={{ onMouseEnter, onMouseLeave }}
+					eventHandlers={{
+						onMouseEnter: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex !== index) {
+								this.setState({ hoverRowIndex: index })
+							}
+						},
+						onMouseLeave: ({ metadata: { index } }: any) => {
+							if (this.state.hoverRowIndex === index) {
+								this.setState({ hoverRowIndex: undefined })
+							}
+						},
+					}}
 					table="data"
-					x={({ scales: { x }, row }) => x(row.x)}
-					width={({ scales: { width } }) => width() - 1}
-					y={({ scales: { y }, row }) => y(row.y0)}
-					y2={({ scales: { y }, row }) => y(row.y1)}
-					fill={({ scales: { color }, row }) => color(row.c)}
-					fillOpacity={({ rowIndex }) =>
-						this.state.hoverRowIndex === rowIndex ? 0.5 : 1
+					x={({ datum }, { x }) => x(datum.x)}
+					width={(d, { width }) => width() - 1}
+					y={({ datum }, { y }) => y(datum.y0)}
+					y2={({ datum }, { y }) => y(datum.y1)}
+					fill={({ datum }, { color }) => color(datum.c)}
+					fillOpacity={({ index }) =>
+						this.state.hoverRowIndex === index ? 0.5 : 1
 					}
 				/>
 			</Chart>

@@ -1,11 +1,6 @@
 import { MarkEncoding } from '@gog/mark-spec-interfaces'
 
-export enum Dimension {
-	CHART_HEIGHT = 'chartheight',
-	CHART_WIDTH = 'chartwidth',
-	HEIGHT = 'height',
-	WIDTH = 'width',
-}
+export type MarkEncodingProp = MarkEncoding | string | number | boolean
 
 /**
  * Common mark-component properties
@@ -33,29 +28,29 @@ export interface CommonMarkProps {
 	role?: string
 
 	// Common Mark Value Encodings
-	x?: MarkEncoding
-	x2?: MarkEncoding
-	xc?: MarkEncoding
-	width?: MarkEncoding
-	y?: MarkEncoding
-	y2?: MarkEncoding
-	yc?: MarkEncoding
-	height?: MarkEncoding
-	opacity?: MarkEncoding
-	fill?: MarkEncoding
-	fillOpacity?: MarkEncoding
-	stroke?: MarkEncoding
-	strokeOpacity?: MarkEncoding
-	strokeWidth?: MarkEncoding
-	strokeCap?: MarkEncoding
-	strokeDash?: MarkEncoding
-	strokeDashOffset?: MarkEncoding
-	strokeJoin?: MarkEncoding
-	strokeMiterLimit?: MarkEncoding
-	cursor?: MarkEncoding
-	href?: MarkEncoding
-	tooltip?: MarkEncoding
-	zIndex?: MarkEncoding
+	x?: MarkEncodingProp
+	x2?: MarkEncodingProp
+	xc?: MarkEncodingProp
+	width?: MarkEncodingProp
+	y?: MarkEncodingProp
+	y2?: MarkEncodingProp
+	yc?: MarkEncodingProp
+	height?: MarkEncodingProp
+	opacity?: MarkEncodingProp
+	fill?: MarkEncodingProp
+	fillOpacity?: MarkEncodingProp
+	stroke?: MarkEncodingProp
+	strokeOpacity?: MarkEncodingProp
+	strokeWidth?: MarkEncodingProp
+	strokeCap?: MarkEncodingProp
+	strokeDash?: MarkEncodingProp
+	strokeDashOffset?: MarkEncodingProp
+	strokeJoin?: MarkEncodingProp
+	strokeMiterLimit?: MarkEncodingProp
+	cursor?: MarkEncodingProp
+	href?: MarkEncodingProp
+	tooltip?: MarkEncodingProp
+	zIndex?: MarkEncodingProp
 
 	// Events
 	eventHandlers?: { [key: string]: (arg: any) => void }
@@ -95,11 +90,4 @@ export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
 		'zIndex',
 	].map(pv => transferProp(pv))
 	return result
-}
-
-export enum CategoricalColorScheme {
-	category10 = 'schemeCategory10',
-	category20 = 'schemeAccent',
-	category20b = 'schemeDark2',
-	category20c = 'schemePaired',
 }

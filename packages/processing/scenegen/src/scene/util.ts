@@ -105,36 +105,33 @@ export function createMarkItem(
 ) {
 	const { type, encodings, name, role } = mark
 	return createItem(type, {
-		...transferEncodings(row, index, encodings, data, frame),
+		...transferEncodings(row, index, data, encodings, frame),
 		name,
 		role,
-		metadata: { dataRowIndex: index },
+		metadata: { index },
 		channels: frame.channels,
 	})
 }
 
 function transferEncodings(
-	row: any,
-	rowIndex: number,
-	encodings: MarkEncodings,
+	datum: any,
+	index: number,
 	data: any[],
-	{ scales, data: tables }: SceneFrame,
+	encodings: MarkEncodings,
+	frame: SceneFrame,
 ) {
 	const props: { [key: string]: any } = {}
 	Object.keys(encodings)
 		.filter(t => t !== 'items')
 		.forEach(key => {
 			const encoding = encodings[key]
-			const encodingValue =
-				typeof encoding === 'function'
-					? encoding({
-							row,
-							rowIndex,
-							data,
-							scales,
-							tables,
-					  })
-					: encoding
+			const dataContext = {
+				datum,
+				index,
+				data,
+				tables: frame.data,
+			}
+			const encodingValue = encoding(dataContext, frame.scales)
 			props[key] = encodingValue
 		})
 	return props
