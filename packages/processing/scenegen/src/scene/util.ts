@@ -106,9 +106,6 @@ export function createMarkItem(
 	frame: SceneFrame,
 ) {
 	const { type, encodings, name, role } = mark
-	if (!encodings) {
-		console.log('NULL ENCODINGS', frame, mark.type, mark.name)
-	}
 	return createItem(type, {
 		...transferEncodings(row, index, data, encodings, frame),
 		name,
