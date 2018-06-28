@@ -1,4 +1,4 @@
-import { SGMark } from '@gog/scenegraph-interfaces'
+import { SGMark } from './scenegraph'
 
 export interface PaddingObject {
 	top?: number
@@ -39,6 +39,9 @@ export interface ChartOptions {
 	 */
 	backgroundColor?: string
 
+	/**
+	 * Padding to apply to the chartw
+	 */
 	padding?: number | PaddingObject
 }
 

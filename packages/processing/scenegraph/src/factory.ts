@@ -1,5 +1,5 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { SGItem } from '@gog/scenegraph-interfaces'
+import { MarkType } from '@gog/interfaces'
+import { SGItem } from '@gog/interfaces'
 import * as Elements from './elements'
 import { createItemType } from './registry'
 

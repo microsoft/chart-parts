@@ -1,6 +1,6 @@
+import { Dimension } from '@gog/interfaces'
 import { band } from '@gog/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { Dimension } from '@gog/mark-spec-interfaces'
 
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {

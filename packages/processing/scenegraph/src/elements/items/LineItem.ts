@@ -1,5 +1,5 @@
-import { MarkType, Interpolation } from '@gog/mark-interfaces'
-import { SGLineItem } from '@gog/scenegraph-interfaces'
+import { MarkType, Interpolation } from '@gog/interfaces'
+import { SGLineItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class LineItem extends Item implements SGLineItem {

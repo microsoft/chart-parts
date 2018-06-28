@@ -1,6 +1,6 @@
 import { scaleOrdinal } from 'd3-scale'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { DomainScale } from '../DomainScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
 
 export class OrdinalScale<RangeType> extends DomainScale<string[]> {

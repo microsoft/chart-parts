@@ -1,11 +1,9 @@
 // tslint:disable no-var-requires
 import * as React from 'react'
-import { Renderer } from '@gog/render-interfaces'
+import { Renderer, VSvgNode, SceneNode } from '@gog/interfaces'
 import { VirtualSvgPipeline } from '@gog/core'
-import { VSvgNode } from '@gog/vdom-interfaces'
 import { ChartSpec } from './ChartSpec'
 import autobind from 'autobind-decorator'
-import { SceneNode } from '@gog/mark-spec-interfaces'
 declare var require: any
 const shallowequal = require('shallowequal')
 

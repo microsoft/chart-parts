@@ -2,8 +2,8 @@ import {
 	MarkType,
 	HorizontalAlignment,
 	VerticalAlignment,
-} from '@gog/mark-interfaces'
-import { SGImageItem } from '@gog/scenegraph-interfaces'
+} from '@gog/interfaces'
+import { SGImageItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class ImageItem extends Item implements SGImageItem {

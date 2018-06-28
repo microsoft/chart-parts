@@ -1,5 +1,5 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { SGRuleItem } from '@gog/scenegraph-interfaces'
+import { MarkType } from '@gog/interfaces'
+import { SGRuleItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class RuleItem extends Item implements SGRuleItem {

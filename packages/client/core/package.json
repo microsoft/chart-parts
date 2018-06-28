@@ -18,10 +18,6 @@
 		"@gog/scenegen": "0.0.0",
 		"@gog/scenegraph": "0.0.0",
 		"@gog/xform-vsvg": "0.0.0",
-		"@gog/render-interfaces": "0.0.0",
-		"@gog/mark-interfaces": "0.0.0",
-		"@gog/mark-spec-interfaces": "0.0.0",
-		"@gog/xform-sg-interfaces": "0.0.0",
-		"@gog/vdom-interfaces": "0.0.0"
+		"@gog/interfaces": "0.0.0"
 	}
 }

@@ -4,7 +4,7 @@ import {
 	Mark as MarkSpec,
 	MarkEncodings,
 	ViewSize,
-} from '@gog/mark-spec-interfaces'
+} from '@gog/interfaces'
 import { createItem } from '@gog/scenegraph'
 import { SceneFrame } from './SceneFrame'
 

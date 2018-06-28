@@ -1,6 +1,6 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { SGMark, SGRuleItem } from '@gog/scenegraph-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { MarkType } from '@gog/interfaces'
+import { SGMark, SGRuleItem } from '@gog/interfaces'
+import { VSvgNode } from '@gog/interfaces'
 import { assertTypeIs, emitMarkGroup, commonProps } from './util'
 import { VSvgMarkConverter, translate } from './interfaces'
 

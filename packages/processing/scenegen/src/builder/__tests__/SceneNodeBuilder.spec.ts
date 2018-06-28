@@ -1,24 +1,24 @@
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
-import { MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/interfaces'
 
 describe('Scene Node Builder', () => {
 	describe('error conditions', () => {
 		it('throws during build() if the mark type is not set', () => {
-			const builder = new SceneNodeBuilder().setTable('data')
+			const builder = new SceneNodeBuilder().table('data')
 			expect(() => builder.build()).toThrow('mark type must be set')
 		})
 
 		it('throws during build() if the mark table is not set', () => {
 			const builder = new SceneNodeBuilder()
-			builder.setType(MarkType.Rect)
+			builder.type(MarkType.Rect)
 			expect(() => builder.build()).toThrow('mark table must be set')
 		})
 
 		it('throws during build() if there are nested children and the marktype is not a group', () => {
 			const builder = new SceneNodeBuilder()
-			builder.setType(MarkType.Rect).setTable('data')
+			builder.type(MarkType.Rect).setTable('data')
 			const nested = builder.push()
-			nested.setType(MarkType.Arc).setTable('data')
+			nested.type(MarkType.Arc).setTable('data')
 
 			expect(() => builder.build()).toThrow(
 				'only group marks may have children',
@@ -28,8 +28,8 @@ describe('Scene Node Builder', () => {
 
 	it('can build a shallow scene', () => {
 		const builder = new SceneNodeBuilder()
-			.setType(MarkType.Rect)
-			.setTable('data')
+			.type(MarkType.Rect)
+			.table('data')
 			.addScale('x', 'data', () => x => 2 * x)
 			.addScale('y', 'data', () => y => 3 * y)
 			.addEncoding('x', ({ row, scales: { x } }) => x(row.x))

@@ -1,6 +1,6 @@
 // tslint:disable max-classes-per-file
 import * as React from 'react'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { SceneNodeBuilder } from '@gog/scenegen'
 import { SceneNodeBuilderConsumer } from '../Context'
 

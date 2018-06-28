@@ -1,5 +1,5 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { SGMark, SGAreaItem } from '@gog/scenegraph-interfaces'
+import { MarkType } from '@gog/interfaces'
+import { SGMark, SGAreaItem } from '@gog/interfaces'
 import { getItemSpace } from '@gog/util'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'

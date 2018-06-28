@@ -1,6 +1,6 @@
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {

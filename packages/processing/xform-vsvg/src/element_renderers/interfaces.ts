@@ -1,5 +1,5 @@
-import { VSvgNode, VSvgTransformType } from '@gog/vdom-interfaces'
-import { MarkConverter } from '@gog/xform-sg-interfaces'
+import { VSvgNode, VSvgTransformType } from '@gog/interfaces'
+import { MarkConverter } from '@gog/interfaces'
 
 export interface VSvgMarkOutput {
 	nodes: VSvgNode[]

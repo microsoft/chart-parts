@@ -1,6 +1,6 @@
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
-import { CreateScaleArgs, Dimension } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs, Dimension } from '@gog/interfaces'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }

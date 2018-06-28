@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
 import { scene, rect } from '@gog/scenegen'
-import { Dimension, SceneNode } from '@gog/mark-spec-interfaces'
+import { Dimension, SceneNode } from '@gog/interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
@@ -35,44 +35,46 @@ export class BarChart extends React.Component<{}, BarChartState> {
 		this.state = { hoverRowIndex: undefined }
 		const isHovered = (index: number) => this.state.hoverRowIndex === index
 
-		this.chart = scene(n =>
-			n
-				.scale(
-					linear('y')
-						.table('data')
-						.bindDomain('amount')
-						.bindRange(Dimension.HEIGHT)
-						.nice(),
-					band('x', 'xband')
-						.table('data')
-						.bindDomain('category')
-						.bindRange(Dimension.WIDTH)
-						.padding(0.05),
-				)
-				.mark(
-					rect()
-						.table('data')
-						.encode({
-							x: ({ datum }, { x }) => x(datum.category),
-							y: ({ datum }, { y }) => y(datum.amount),
-							y2: () => 200,
-							width: (d, { xband }) => xband(),
-							fill: ({ index }) =>
-								isHovered(index) ? 'firebrick' : 'steelblue',
-						})
-						.handle({
-							onMouseEnter: (evt, { index }) => {
-								if (this.state.hoverRowIndex !== index) {
-									this.setState({ hoverRowIndex: index })
-								}
-							},
-							onMouseLeave: (evt, { index }) => {
-								if (this.state.hoverRowIndex === index) {
-									this.setState({ hoverRowIndex: undefined })
-								}
-							},
-						}),
-				),
+		this.chart = scene(
+			n =>
+				n
+					.scale(
+						linear('y')
+							.table('data')
+							.bindDomain('amount')
+							.bindRange(Dimension.HEIGHT)
+							.nice(),
+						band('x', 'xband')
+							.table('data')
+							.bindDomain('category')
+							.bindRange(Dimension.WIDTH)
+							.padding(0.05),
+					)
+					.mark(
+						rect()
+							.table('data')
+							.encode({
+								x: ({ datum }, { x }) => x(datum.category),
+								y: ({ datum }, { y }) => y(datum.amount),
+								y2: () => 200,
+								width: (d, { xband }) => xband(),
+								fill: ({ index }) =>
+									isHovered(index) ? 'firebrick' : 'steelblue',
+							})
+							.handle({
+								onMouseEnter: (evt, { index }) => {
+									if (this.state.hoverRowIndex !== index) {
+										this.setState({ hoverRowIndex: index })
+									}
+								},
+								onMouseLeave: (evt, { index }) => {
+									if (this.state.hoverRowIndex === index) {
+										this.setState({ hoverRowIndex: undefined })
+									}
+								},
+							}),
+					),
+			{ width: 400, height: 200 },
 		).build()
 	}
 

@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Scales } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs, Scales } from '@gog/interfaces'
 
 export abstract class DomainScale<Domain> {
 	protected bindDomainValue?: string | string[]

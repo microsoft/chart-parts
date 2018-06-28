@@ -6,13 +6,7 @@
 		"@gog/react": "../../client/react",
 		"@gog/testdata": "../testdata",
 
-		"@gog/mark-interfaces": "../../interfaces/mark",
-		"@gog/mark-spec-interfaces": "../../interfaces/mark-spec",
-		"@gog/render-interfaces": "../../interfaces/render",
-		"@gog/scenegraph-interfaces": "../../interfaces/scenegraph",
-		"@gog/vdom-interfaces": "../../interfaces/vdom",
-		"@gog/xform-sg-interfaces": "../../interfaces/xform-sg",
-
+		"@gog/interfaces": "../../client/interfaces",
 		"@gog/scenegraph": "../../processing/scenegraph",
 		"@gog/scenegen": "../../processing/scenegen",
 		"@gog/shapes": "../../processing/shapes",

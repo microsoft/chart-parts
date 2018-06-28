@@ -1,14 +1,16 @@
 // tslint:disable no-this-assignment no-submodule-imports no-var-requires
-import { ChartOptions } from '@gog/xform-sg-interfaces'
-import { SGMark, SGItem, SGGroupItem } from '@gog/scenegraph-interfaces'
-import { MarkType } from '@gog/mark-interfaces'
-import { getItemSpace } from '@gog/util'
 import {
+	ChartOptions,
+	SGMark,
+	SGItem,
+	SGGroupItem,
+	MarkType,
 	SceneNode,
 	DataFrame,
 	ChannelHandler,
 	Mark,
-} from '@gog/mark-spec-interfaces'
+} from '@gog/interfaces'
+import { getItemSpace } from '@gog/util'
 import { ChartOptionsManager } from './ChartOptionsManager'
 import {
 	getBoundData,

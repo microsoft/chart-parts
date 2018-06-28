@@ -1,5 +1,5 @@
-import { SGMark, SGItem } from '@gog/scenegraph-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { SGMark, SGItem } from '@gog/interfaces'
+import { VSvgNode } from '@gog/interfaces'
 
 /**
  * Perform an invariant assertion that a mark is of a given type

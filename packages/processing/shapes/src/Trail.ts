@@ -1,5 +1,5 @@
 import { path, Path } from 'd3-path'
-import { SGTrailItem } from '@gog/scenegraph-interfaces'
+import { SGTrailItem } from '@gog/interfaces'
 import { Xform } from './util'
 
 const pi = Math.PI

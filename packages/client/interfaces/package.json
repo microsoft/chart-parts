@@ -1,6 +1,6 @@
 {
-	"name": "@gog/mark-interfaces",
-	"description": "Common interfaces for mark descriptions and scenegraph parameters",
+	"name": "@gog/interfaces",
+	"description": "Common interfaces for GoG, including marks, mark specifications, scenegraphs, and virtual dom definitions",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",

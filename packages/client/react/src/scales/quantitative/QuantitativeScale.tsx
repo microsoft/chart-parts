@@ -1,5 +1,5 @@
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { Dimension } from '@gog/mark-spec-interfaces'
+import { Dimension } from '@gog/interfaces'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }

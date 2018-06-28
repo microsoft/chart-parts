@@ -1,5 +1,5 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { SGArcItem } from '@gog/scenegraph-interfaces'
+import { MarkType } from '@gog/interfaces'
+import { SGArcItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class ArcItem extends Item implements SGArcItem {

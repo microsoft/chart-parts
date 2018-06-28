@@ -1,4 +1,7 @@
-import { MarkType } from '@gog/mark-interfaces'
+import { MarkType } from './enums'
+
+export const DEFAULT_WIDTH = 250
+export const DEFAULT_HEIGHT = 250
 
 /**
  * Each scene node binds data with a set of marks and scales

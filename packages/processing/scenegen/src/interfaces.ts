@@ -1,4 +1,4 @@
-import { SGMark, SGItem } from '@gog/scenegraph-interfaces'
+import { SGMark, SGItem } from '@gog/interfaces'
 
 /**
  * Interface for the result of scene-generation

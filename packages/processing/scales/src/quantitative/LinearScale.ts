@@ -1,6 +1,6 @@
 import { scaleLinear } from 'd3-scale'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
 
 export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true

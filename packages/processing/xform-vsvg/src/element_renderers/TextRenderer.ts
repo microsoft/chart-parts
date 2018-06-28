@@ -1,6 +1,6 @@
-import { SGMark, SGTextItem } from '@gog/scenegraph-interfaces'
-import { MarkType, VerticalTextAlignment } from '@gog/mark-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { SGMark, SGTextItem } from '@gog/interfaces'
+import { MarkType, VerticalTextAlignment } from '@gog/interfaces'
+import { VSvgNode } from '@gog/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { VSvgMarkConverter, rotate, translate } from './interfaces'
 

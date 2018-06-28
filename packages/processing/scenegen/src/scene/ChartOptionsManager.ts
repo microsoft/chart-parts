@@ -1,8 +1,5 @@
-import { ChartOptions } from '@gog/xform-sg-interfaces'
+import { ChartOptions, DEFAULT_HEIGHT, DEFAULT_WIDTH } from '@gog/interfaces'
 import { ItemSpace } from '@gog/util'
-
-const DEFAULT_WIDTH = 250
-const DEFAULT_HEIGHT = 250
 
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions) {}

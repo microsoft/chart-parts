@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType } from '@gog/scenegraph-interfaces'
+import { SGMark, SGNodeType } from '@gog/interfaces'
 import { Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 

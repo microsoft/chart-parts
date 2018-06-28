@@ -1,6 +1,6 @@
 import { scaleTime } from 'd3-scale'
 import { QuantitativeScale, TimeValue } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 
 export class TimeScale extends QuantitativeScale<TimeValue, number> {
 	protected createScale(args: CreateScaleArgs) {

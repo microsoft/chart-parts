@@ -1,6 +1,6 @@
 import { scaleLog } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 
 export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 	private baseValue?: number

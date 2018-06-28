@@ -1,13 +1,13 @@
 import * as React from 'react'
 import { SceneNodeBuilderConsumer, SceneNodeBuilderProvider } from '../Context'
-import { MarkType } from '@gog/mark-interfaces'
-import { SceneNodeBuilder, mark } from '@gog/scenegen'
-import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 import {
+	MarkType,
 	MarkEncodings,
 	MarkEncoding,
 	ChannelHandler,
-} from '@gog/mark-spec-interfaces'
+} from '@gog/interfaces'
+import { SceneNodeBuilder, mark } from '@gog/scenegen'
+import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<
 	T extends CommonMarkProps

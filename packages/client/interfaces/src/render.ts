@@ -1,4 +1,4 @@
-import { ChannelHandler } from '@gog/mark-spec-interfaces'
+import { ChannelHandler } from './specification'
 
 /**
  * Basic interface for a rendering implementation

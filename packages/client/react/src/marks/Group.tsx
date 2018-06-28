@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/mark-interfaces'
-import { MarkEncoding } from '@gog/mark-spec-interfaces'
+import { MarkType, MarkEncoding } from '@gog/interfaces'
 import { CommonMarkProps } from '../interfaces'
 import { BaseMark } from './BaseMark'
 import { SceneNodeBuilder } from '@gog/scenegen'

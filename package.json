@@ -42,7 +42,6 @@
 	},
 	"workspaces": {
 		"packages": [
-			"packages/interfaces/*",
 			"packages/examples/*",
 			"packages/renderers/*",
 			"packages/processing/*",

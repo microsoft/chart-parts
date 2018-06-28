@@ -1,5 +1,5 @@
+import { MarkType, DEFAULT_HEIGHT, DEFAULT_WIDTH } from '@gog/interfaces'
 import { MarkBuilder } from './MarkBuilder'
-import { MarkType } from '@gog/mark-interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export * from './MarkBuilder'
@@ -10,12 +10,20 @@ export * from './SceneNodeBuilder'
  */
 export function scene(
 	cb: (child: SceneNodeBuilder) => SceneNodeBuilder,
+	dimensions: { width: number; height: number },
+	origin: [number, number] = [0, 0],
 ): SceneNodeBuilder {
 	return new SceneNodeBuilder().mark(
 		group('root')
 			.role('frame')
 			.zIndex(0)
 			.singleton(true)
+			.encode({
+				x: () => origin[0],
+				y: () => origin[1],
+				width: () => dimensions.width || DEFAULT_WIDTH,
+				height: () => dimensions.height || DEFAULT_HEIGHT,
+			})
 			.child(cb),
 	)
 }

@@ -1,4 +1,4 @@
-import { Renderer } from '@gog/render-interfaces'
+import { Renderer } from '../render'
 
 /**
  * Interface describing a Virtual Dom representation of a Node

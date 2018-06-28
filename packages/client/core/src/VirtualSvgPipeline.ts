@@ -1,8 +1,11 @@
-import { VDomRenderer } from '@gog/vdom-interfaces'
+import {
+	VDomRenderer,
+	ChartOptions,
+	SceneNode,
+	DataFrame,
+} from '@gog/interfaces'
 import { parseScene } from '@gog/scenegraph'
-import { ChartOptions } from '@gog/xform-sg-interfaces'
 import { VirtualSvgConverter } from '@gog/xform-vsvg'
-import { SceneNode, DataFrame } from '@gog/mark-spec-interfaces'
 import { Scene } from '@gog/scenegen'
 
 const converter = new VirtualSvgConverter()

@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { SceneNodeBuilder } from '@gog/scenegen'
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {

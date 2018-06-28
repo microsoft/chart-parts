@@ -1,6 +1,6 @@
 import { scaleBand } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { CreateScaleArgs, Dimension, Scales } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs, Dimension, Scales } from '@gog/interfaces'
 
 export interface BandScaleProps {
 	/**

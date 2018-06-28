@@ -1,4 +1,4 @@
-import { MarkType } from '@gog/mark-interfaces'
+import { MarkType } from '@gog/interfaces'
 import { registerRenderer } from './registry'
 
 import { ArcRenderer } from './ArcRenderer'

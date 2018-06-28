@@ -1,4 +1,4 @@
-import { StrokeCap, StrokeJoin } from '@gog/mark-interfaces'
+import { StrokeCap, StrokeJoin } from '../enums'
 import { VDomNode } from './base'
 
 export type FlexAlignType =

@@ -8,7 +8,7 @@ import {
 	SymbolType,
 	VerticalTextAlignment,
 	TextDirection,
-} from '@gog/mark-interfaces'
+} from './enums'
 
 export enum SGNodeType {
 	Mark = 'mark',

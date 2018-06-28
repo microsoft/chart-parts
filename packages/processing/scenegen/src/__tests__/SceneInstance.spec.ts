@@ -1,7 +1,6 @@
+import { SGRectItem, SGGroupItem, SGMark, MarkType } from '@gog/interfaces'
 import { SceneInstance } from '../SceneInstance'
 import { SceneBuilder } from '../builder'
-import { MarkType } from '@gog/mark-interfaces'
-import { SGRectItem, SGGroupItem, SGMark } from '@gog/scenegraph-interfaces'
 
 describe('Scene Instance', () => {
 	it('can build out a basic, flat scene', () => {

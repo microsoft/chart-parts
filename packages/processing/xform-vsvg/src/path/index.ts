@@ -6,8 +6,8 @@ import {
 	SGRectItem,
 	SGTrailItem,
 	SGSymbolItem,
-} from '@gog/scenegraph-interfaces'
-import { Interpolation, Orientation } from '@gog/mark-interfaces'
+} from '@gog/interfaces'
+import { Interpolation, Orientation } from '@gog/interfaces'
 import {
 	rectShape,
 	trailShape,

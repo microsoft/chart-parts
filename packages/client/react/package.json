@@ -19,11 +19,8 @@
 	"dependencies": {
 		"@gog/core": "0.0.0",
 		"@gog/scales": "0.0.0",
-		"@gog/mark-interfaces": "0.0.0",
-		"@gog/mark-spec-interfaces": "0.0.0",
-		"@gog/render-interfaces": "0.0.0",
+		"@gog/interfaces": "0.0.0",
 		"@gog/scenegen": "0.0.0",
-		"@gog/vdom-interfaces": "0.0.0",
 		"@gog/xform-vsvg": "0.0.0",
 		"autobind-decorator": "^2.1.0",
 		"lodash": "^4.17.10",

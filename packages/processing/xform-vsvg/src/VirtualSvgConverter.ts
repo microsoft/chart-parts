@@ -1,11 +1,10 @@
-import { SGMark } from '@gog/scenegraph-interfaces'
-import { ScenegraphConverter, ChartOptions } from '@gog/xform-sg-interfaces'
-import { VSvgNode } from '@gog/vdom-interfaces'
+import { SGMark } from '@gog/interfaces'
+import { ScenegraphConverter, ChartOptions } from '@gog/interfaces'
+import { VSvgNode } from '@gog/interfaces'
+import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from '@gog/interfaces'
 import { renderMark } from './element_renderers'
 import { translate } from './element_renderers/interfaces'
 
-const DEFAULT_WIDTH = 250
-const DEFAULT_HEIGHT = 250
 const DEFAULT_BG_COLOR = 'transparent'
 const DEFAULT_ORIGIN: [number, number] = [0, 0]
 

@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType } from '@gog/scenegraph-interfaces'
+import { SGMark, SGNodeType } from '@gog/interfaces'
 import { Item } from './items/Item'
 import { SceneNode } from './SceneNode'
 

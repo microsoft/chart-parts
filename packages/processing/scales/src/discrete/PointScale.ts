@@ -1,6 +1,6 @@
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { Dimension, CreateScaleArgs, Scales } from '@gog/mark-spec-interfaces'
+import { Dimension, CreateScaleArgs, Scales } from '@gog/interfaces'
 
 export class PointScale extends DomainRangeScale<
 	string[],

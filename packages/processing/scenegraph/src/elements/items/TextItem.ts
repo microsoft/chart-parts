@@ -3,8 +3,8 @@ import {
 	HorizontalAlignment,
 	VerticalTextAlignment,
 	TextDirection,
-} from '@gog/mark-interfaces'
-import { SGTextItem } from '@gog/scenegraph-interfaces'
+} from '@gog/interfaces'
+import { SGTextItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {

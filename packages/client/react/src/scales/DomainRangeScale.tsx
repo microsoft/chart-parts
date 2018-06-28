@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import { CreateScaleArgs } from '@gog/mark-spec-interfaces'
+import { CreateScaleArgs } from '@gog/interfaces'
 import { DomainScale, DomainScaleProps } from './DomainScale'
 
 export interface DomainScaleProps<Domain> {

@@ -1,5 +1,5 @@
-import { MarkType, SymbolType } from '@gog/mark-interfaces'
-import { SGSymbolItem } from '@gog/scenegraph-interfaces'
+import { MarkType, SymbolType } from '@gog/interfaces'
+import { SGSymbolItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class SymbolItem extends Item implements SGSymbolItem {

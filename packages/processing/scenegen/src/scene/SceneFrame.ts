@@ -8,7 +8,7 @@ import {
 	ChannelHandler,
 	Channels,
 	Mark,
-} from '@gog/mark-spec-interfaces'
+} from '@gog/interfaces'
 
 /**
  * The scene frame is analagous to a stack-frame - it contains contextual
