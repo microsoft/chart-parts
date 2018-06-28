@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SceneNodeBuilder } from '@gog/scene'
+import { SceneNodeBuilder } from '@gog/builder'
 import { CreateScaleArgs } from '@gog/interfaces'
 import { SceneNodeBuilderConsumer } from '../Context'
 

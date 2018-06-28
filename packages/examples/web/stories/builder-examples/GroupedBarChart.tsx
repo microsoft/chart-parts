@@ -1,10 +1,9 @@
 // tslint:disable
 import * as React from 'react'
-import { Dimension, CategoricalColorScheme } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { SceneNode } from '@gog/interfaces'
-import { scene, rect, group, text } from '@gog/scene'
-import { band, linear, ordinal } from '@gog/scales'
+import { SceneNode, Dimension } from '@gog/interfaces'
+import { scene, rect, group, text } from '@gog/builder'
+import { band, linear, ordinal, CategoricalColorScheme } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
 const renderer = new Renderer()

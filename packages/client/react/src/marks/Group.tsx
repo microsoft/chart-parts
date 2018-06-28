@@ -1,7 +1,7 @@
 import { MarkType, MarkEncoding } from '@gog/interfaces'
+import { SceneNodeBuilder } from '@gog/builder'
 import { CommonMarkProps } from '../interfaces'
 import { BaseMark } from './BaseMark'
-import { SceneNodeBuilder } from '@gog/scene'
 
 export interface GroupProps extends CommonMarkProps {
 	clip?: MarkEncoding

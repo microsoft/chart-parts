@@ -1,4 +1,4 @@
-import { SGMark, SGItem } from '@gog/interfaces'
+import { SGMark, SGItem, Channels } from '@gog/interfaces'
 
 /**
  * Interface for the result of scene-generation
@@ -12,5 +12,5 @@ export interface GeneratedScene {
 	/**
 	 * The event channels of this scene, a key of channel name to event handlers
 	 */
-	channelHandlers: { [key: string]: (arg: any) => void }
+	channelHandlers: Channels
 }

@@ -7,7 +7,6 @@ import {
 	MarkType,
 	SceneNode,
 	DataFrame,
-	Channels,
 	getItemSpace,
 	MarkSpec,
 	MarkEncodings,
@@ -17,6 +16,7 @@ import {
 import { createMark, createItem } from '@gog/scenegraph'
 import { ChartOptionsManager } from './ChartOptionsManager'
 import { SceneFrame } from './SceneFrame'
+import { GeneratedScene } from '../interfaces'
 
 interface FacetPartitions {
 	name: string
@@ -24,11 +24,6 @@ interface FacetPartitions {
 }
 
 type SGMarkAny = SGMark<SGItem>
-
-export interface ScenegraphResult {
-	root: SGMark<SGItem>
-	channelHandlers: Channels
-}
 
 /**
  * Builds a new scenegraph instance by binding data to a scene specification.
@@ -39,7 +34,7 @@ export function createScenegraph(
 	root: SceneNode,
 	data: DataFrame,
 	options: ChartOptions,
-): ScenegraphResult {
+): GeneratedScene {
 	const optionsManager = new ChartOptionsManager(options)
 	const width = optionsManager.chartSpace.shape.width as number
 	const height = optionsManager.chartSpace.shape.height as number

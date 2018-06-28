@@ -1,6 +1,6 @@
 {
-	"name": "@gog/scene",
-	"description": "GoG Scene-to-Scenegraph Processing",
+	"name": "@gog/builder",
+	"description": "GoG Scene-Building Components",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -16,7 +16,6 @@
 	},
 	"dependencies": {
 		"@gog/interfaces": "0.0.0",
-		"@gog/scenegraph": "0.0.0",
-		"lodash": "^4.17.10"
+ 		"lodash": "^4.17.10"
 	}
 }

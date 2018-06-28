@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { scene, rect } from '@gog/scene'
+import { scene, rect } from '@gog/builder'
 import { Dimension, SceneNode } from '@gog/interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
