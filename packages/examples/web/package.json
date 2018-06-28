@@ -13,7 +13,7 @@
     "@gog/react": "0.0.0",
     "@gog/scales": "0.0.0",
     "@gog/react-svg-renderer": "0.0.0",
-    "@gog/data-transform": "0.0.0",
+    "@gog/transform": "0.0.0",
     "@gog/testdata": "0.0.0",
     "@storybook/addon-actions": "^4.0.0-alpha.8",
     "@storybook/addon-links": "^4.0.0-alpha.8",

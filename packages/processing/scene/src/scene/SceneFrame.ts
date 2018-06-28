@@ -22,6 +22,8 @@ export class SceneFrame {
 		public view: ViewSize,
 		public scales: Scales = {},
 		public channels: ChannelNames = {},
+		public channelId: number = 0,
+		public channelHandlers: { [key: string]: ChannelHandler } = {},
 	) {}
 
 	/**
@@ -29,14 +31,20 @@ export class SceneFrame {
 	 */
 	public pushNode(node: SceneNode) {
 		const scales = this.getRecomputedScales(node, this.view)
-		return new SceneFrame(node, undefined, this.data, this.view, scales)
+		return new SceneFrame(
+			node,
+			undefined,
+			this.data,
+			this.view,
+			scales,
+			{},
+			this.channelId,
+			this.channelHandlers,
+		)
 	}
 
-	public pushMark(
-		mark: Mark,
-		registerHandler: (handler: ChannelHandler) => string,
-	) {
-		const channels = this.registerChannels(mark.channels, registerHandler)
+	public pushMark(mark: Mark) {
+		const channels = this.registerChannels(mark.channels)
 		return new SceneFrame(
 			this.node,
 			mark,
@@ -44,6 +52,8 @@ export class SceneFrame {
 			this.view,
 			this.scales,
 			channels,
+			this.channelId,
+			this.channelHandlers,
 		)
 	}
 
@@ -56,6 +66,8 @@ export class SceneFrame {
 			this.view,
 			this.scales,
 			this.channels,
+			this.channelId,
+			this.channelHandlers,
 		)
 	}
 
@@ -72,6 +84,8 @@ export class SceneFrame {
 			view,
 			scales,
 			this.channels,
+			this.channelId,
+			this.channelHandlers,
 		)
 	}
 
@@ -87,18 +101,21 @@ export class SceneFrame {
 		return scales
 	}
 
-	private registerChannels(
-		channels: Channels,
-		registerHandler: (handler: ChannelHandler) => string,
-	): ChannelNames {
+	private registerChannels(channels: Channels): ChannelNames {
 		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
 		// map the handler function in our scene result
 		return Object.entries(channels).reduce(
 			(prev, [eventName, handler]) => {
-				prev[eventName] = registerHandler(handler)
+				prev[eventName] = this.registerHandler(handler)
 				return prev
 			},
 			({} as any) as ChannelNames,
 		)
+	}
+
+	private registerHandler(handler: ChannelHandler) {
+		const id = `evt${this.channelId++}`
+		this.channelHandlers[id] = handler
+		return id
 	}
 }

@@ -1,4 +1,4 @@
-import { SGItem } from '@gog/interfaces'
+import { SGItem } from '../scenegraph'
 
 /**
  * For marks that support width and height settings (including rect and area),

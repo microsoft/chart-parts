@@ -1,9 +1,9 @@
-import { ItemSpace } from '@gog/util'
 import {
 	DataFrame,
 	Mark as MarkSpec,
 	MarkEncodings,
 	ViewSize,
+	ItemSpace,
 } from '@gog/interfaces'
 import { createItem } from '@gog/scenegraph'
 import { SceneFrame } from './SceneFrame'

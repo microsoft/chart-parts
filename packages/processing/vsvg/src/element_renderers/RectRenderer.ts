@@ -1,7 +1,10 @@
-import { MarkType } from '@gog/interfaces'
-import { SGMark, SGRectItem } from '@gog/interfaces'
-import { VSvgNode } from '@gog/interfaces'
-import { getItemSpace } from '@gog/util'
+import {
+	MarkType,
+	SGMark,
+	SGRectItem,
+	getItemSpace,
+	VSvgNode,
+} from '@gog/interfaces'
 import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import { rectangle } from '../path'
 import { VSvgMarkConverter } from './interfaces'

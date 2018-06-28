@@ -5,8 +5,8 @@ import {
 	DataFrame,
 } from '@gog/interfaces'
 import { parseScene } from '@gog/scenegraph'
-import { VirtualSvgConverter } from '@gog/xform-vsvg'
-import { Scene } from '@gog/scenegen'
+import { VirtualSvgConverter } from '@gog/vsvg'
+import { createScenegraph } from '@gog/scene'
 
 const converter = new VirtualSvgConverter()
 
@@ -24,7 +24,7 @@ export class VirtualSvgPipeline<T> {
 		options: ChartOptions = {},
 		tables: DataFrame,
 	) {
-		const sg = new Scene(scene, options).build(tables)
+		const sg = createScenegraph(scene, tables, options)
 		const vdom = converter.render(sg.root, options)
 		return this.renderer.render(vdom, sg.channelHandlers)
 	}

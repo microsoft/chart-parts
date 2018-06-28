@@ -1,5 +1,9 @@
-import { ChartOptions, DEFAULT_HEIGHT, DEFAULT_WIDTH } from '@gog/interfaces'
-import { ItemSpace } from '@gog/util'
+import {
+	ChartOptions,
+	DEFAULT_HEIGHT,
+	DEFAULT_WIDTH,
+	ItemSpace,
+} from '@gog/interfaces'
 
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions) {}

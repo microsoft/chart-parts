@@ -1,3 +1,3 @@
 export * from './builder'
-export * from './scene/Scene'
+export * from './scene'
 export * from './interfaces'

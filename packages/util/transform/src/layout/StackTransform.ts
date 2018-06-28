@@ -1,5 +1,8 @@
+// tslint:disable no-var-requires no-submodule-imports
 import autobind from 'autobind-decorator'
 import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
+
+declare var require: any
 const flatMap = require('lodash/flatMap')
 
 interface DataStack extends Array<any> {
@@ -83,7 +86,7 @@ export class StackTransform {
 		const rawGroups = this.partitionGroups(innerData)
 		const groups = this.computeMaxesAndSums(rawGroups as StackedDataSet)
 		this.processDataStacks(groups)
-		return flatMap(groups, t => t)
+		return flatMap(groups, (t: DataStack) => t)
 	}
 
 	private get stacker() {

@@ -1,7 +1,7 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { scene, rect } from '@gog/scenegen'
+import { scene, rect } from '@gog/scene'
 import { Dimension, SceneNode } from '@gog/interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
@@ -81,7 +81,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	public render() {
 		return pipeline.handleData(
 			this.chart,
-			{ width: 400, height: 200 },
+			{ width: 400, height: 200, padding: 30 },
 			{ data },
 		)
 	}

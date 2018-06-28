@@ -1,6 +1,6 @@
 {
-	"name": "@gog/xform-vsvg",
-	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate form",
+	"name": "@gog/vsvg",
+	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -14,7 +14,6 @@
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"@gog/scenegraph": "0.0.0",
-		"@gog/util": "0.0.0",
 		"rimraf": "^2.6.2",
 		"typescript": "2.9.1"
 	},

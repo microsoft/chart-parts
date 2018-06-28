@@ -15,9 +15,9 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/scenegen": "0.0.0",
+		"@gog/scene": "0.0.0",
 		"@gog/scenegraph": "0.0.0",
-		"@gog/xform-vsvg": "0.0.0",
+		"@gog/vsvg": "0.0.0",
 		"@gog/interfaces": "0.0.0"
 	}
 }

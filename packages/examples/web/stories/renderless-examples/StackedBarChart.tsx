@@ -10,7 +10,7 @@ import {
 	CategoricalColorScheme,
 } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { StackTransform } from '@gog/data-transform'
+import { StackTransform } from '@gog/transform'
 
 const renderer = new Renderer()
 const data = [

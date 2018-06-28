@@ -6,7 +6,7 @@ import {
 	MarkEncoding,
 	ChannelHandler,
 } from '@gog/interfaces'
-import { SceneNodeBuilder, mark } from '@gog/scenegen'
+import { SceneNodeBuilder, mark } from '@gog/scene'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<

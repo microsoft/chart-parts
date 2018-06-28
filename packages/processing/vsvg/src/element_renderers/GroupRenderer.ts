@@ -1,8 +1,12 @@
 // tslint:disable no-submodule-imports
-import { MarkType } from '@gog/interfaces'
-import { SGMark, SGGroupItem } from '@gog/interfaces'
-import { VSvgNode } from '@gog/interfaces'
-import { getItemSpace, ItemSpace } from '@gog/util'
+import {
+	MarkType,
+	SGMark,
+	SGGroupItem,
+	VSvgNode,
+	getItemSpace,
+	ItemSpace,
+} from '@gog/interfaces'
 import { commonProps, assertTypeIs } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'

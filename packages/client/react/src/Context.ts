@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SceneNodeBuilder } from '@gog/scenegen'
+import { SceneNodeBuilder } from '@gog/scene'
 
 export const {
 	Consumer: SceneNodeBuilderConsumer,

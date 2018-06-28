@@ -1,6 +1,6 @@
 {
-	"name": "@gog/data-transform",
-	"description": "Data transformation utilities",
+	"name": "@gog/scene",
+	"description": "GoG Scene-Building Components",
 	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
@@ -15,7 +15,8 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"autobind-decorator": "^2.1.0",
+		"@gog/interfaces": "0.0.0",
+		"@gog/scenegraph": "0.0.0",
 		"lodash": "^4.17.10"
 	}
 }

@@ -1,6 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGMark, SGAreaItem } from '@gog/interfaces'
-import { getItemSpace } from '@gog/util'
+import { MarkType, SGMark, SGAreaItem, getItemSpace } from '@gog/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
