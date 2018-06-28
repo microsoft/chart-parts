@@ -8,7 +8,7 @@ import {
 	SceneNode,
 	DataFrame,
 	getItemSpace,
-	MarkSpec,
+	Mark,
 	MarkEncodings,
 	ViewSize,
 	ItemSpace,
@@ -117,7 +117,7 @@ function createBoundItem(
 	index: number,
 	table: any[],
 ) {
-	const mark = frame.mark as MarkSpec
+	const mark = frame.mark as Mark
 
 	const item = createMarkItem(mark, row, index, table, frame)
 	if (mark.type !== MarkType.Group) {
@@ -181,7 +181,7 @@ function getNextDrawRect(space: ItemSpace, drawRect: ViewSize) {
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
 function getBoundData(
-	mark: MarkSpec,
+	mark: Mark,
 	dataFrame: DataFrame,
 ): any[] | FacetPartitions {
 	const { table, singleton, facet } = mark
@@ -229,7 +229,7 @@ function getBoundData(
  * @param dataFrame The current data frame, required to encode item properties
  */
 function createMarkItem(
-	mark: MarkSpec,
+	mark: Mark,
 	row: any,
 	index: number,
 	data: any[],

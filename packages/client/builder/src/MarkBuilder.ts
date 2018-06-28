@@ -1,6 +1,6 @@
 // tslint:disable no-this-assignment
 import {
-	MarkSpec,
+	Mark,
 	Channels,
 	ChannelHandler,
 	MarkEncoding,
@@ -117,7 +117,7 @@ export class MarkBuilder {
 		return this
 	}
 
-	public build(): MarkSpec {
+	public build(): Mark {
 		const {
 			typeVal: type,
 			tableVal: table,
