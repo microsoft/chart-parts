@@ -1,5 +1,5 @@
-import { getItemSpace } from '../util'
 import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
+import { getItemSpace } from '../getItemSpace'
 
 describe('Rendering Utilities', () => {
 	describe('getItemSpace', () => {
@@ -19,8 +19,8 @@ describe('Rendering Utilities', () => {
 			item.x2 = 10
 			item.y2 = 80
 			const space = getItemSpace(item)
-			expect(space.origin.x).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
+			expect(space.origin.y).toEqual(0)
 			expect(space.shape.width).toBeUndefined()
 			expect(space.shape.height).toBeUndefined()
 		})
@@ -33,7 +33,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(70)
 			expect(space.origin.x).toEqual(10)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using x and x2 inverted', () => {
@@ -44,7 +44,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(70)
 			expect(space.origin.x).toEqual(10)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using x and xc', () => {
@@ -55,7 +55,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(140)
 			expect(space.origin.x).toEqual(10)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using x and xc inverted', () => {
@@ -66,7 +66,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(140)
 			expect(space.origin.x).toEqual(10)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using x and width', () => {
@@ -77,7 +77,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(100)
 			expect(space.origin.x).toEqual(10)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using x2 and width', () => {
@@ -88,7 +88,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(100)
 			expect(space.origin.x).toEqual(-20)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using xc and width', () => {
@@ -99,7 +99,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(20)
 			expect(space.origin.x).toEqual(40)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using xc and x2', () => {
@@ -110,7 +110,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(40)
 			expect(space.origin.x).toEqual(30)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute width using xc and x2 inverted', () => {
@@ -121,7 +121,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.width).toEqual(60)
 			expect(space.origin.x).toEqual(20)
 			expect(space.shape.height).toBeUndefined()
-			expect(space.origin.y).toBeUndefined()
+			expect(space.origin.y).toEqual(0)
 		})
 
 		it('can compute height using y and y', () => {
@@ -141,7 +141,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(70)
 			expect(space.origin.y).toEqual(10)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using y and yc', () => {
@@ -152,7 +152,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(140)
 			expect(space.origin.y).toEqual(10)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using y and yc inverted', () => {
@@ -163,7 +163,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(140)
 			expect(space.origin.y).toEqual(10)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using y and height', () => {
@@ -174,7 +174,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(100)
 			expect(space.origin.y).toEqual(10)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using y2 and height', () => {
@@ -185,7 +185,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(100)
 			expect(space.origin.y).toEqual(-20)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using yc and height', () => {
@@ -196,7 +196,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(20)
 			expect(space.origin.y).toEqual(40)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using yc and y2', () => {
@@ -207,7 +207,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(40)
 			expect(space.origin.y).toEqual(30)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 
 		it('can compute height using yc and y2 inverted', () => {
@@ -218,7 +218,7 @@ describe('Rendering Utilities', () => {
 			expect(space.shape.height).toEqual(60)
 			expect(space.origin.y).toEqual(20)
 			expect(space.shape.width).toBeUndefined()
-			expect(space.origin.x).toBeUndefined()
+			expect(space.origin.x).toEqual(0)
 		})
 	})
 })

@@ -1,5 +1,6 @@
 import autobind from 'autobind-decorator'
 import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
+const flatMap = require('lodash/flatMap')
 
 interface DataStack extends Array<any> {
 	/**
@@ -82,7 +83,7 @@ export class StackTransform {
 		const rawGroups = this.partitionGroups(innerData)
 		const groups = this.computeMaxesAndSums(rawGroups as StackedDataSet)
 		this.processDataStacks(groups)
-		return groups.flatMap(t => t)
+		return flatMap(groups, t => t)
 	}
 
 	private get stacker() {

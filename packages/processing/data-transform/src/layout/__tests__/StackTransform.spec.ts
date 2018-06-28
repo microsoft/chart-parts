@@ -1,4 +1,3 @@
-import { CompareOrder } from '../../interfaces'
 import { StackTransform } from '../StackTransform'
 
 describe('StackTransform', () => {
@@ -27,9 +26,9 @@ describe('StackTransform', () => {
 		]
 
 		const stacker = new StackTransform()
-			.withField(r => r.y)
-			.withSort({ field: r => r.c })
-			.withGroupBy(r => r.x)
+			.field(r => r.y)
+			.sort({ field: r => r.c })
+			.groupBy(r => r.x)
 
 		const sltResult = stacker.transform(data)
 
