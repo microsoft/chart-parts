@@ -15,13 +15,13 @@ export interface SceneNode {
 	/**
 	 * The marks defined at this scene-node. Scales defined in this node apply to these marks
 	 */
-	marks: Mark[]
+	marks: MarkSpec[]
 }
 
 /**
  * Specification for rendering a mark in a scene
  */
-export interface Mark {
+export interface MarkSpec {
 	/**
 	 * The type of mark to render
 	 */
@@ -85,6 +85,11 @@ export interface Facet {
 	 * If the value is a function, then the function describes how to get a partition key for a row.
 	 */
 	partitionOn: string | ((row: any) => any)
+
+	/**
+	 * Data transformation to apply on data partitions after partitioning
+	 */
+	transform?: (data: any[]) => any[]
 }
 
 export interface MarkData {

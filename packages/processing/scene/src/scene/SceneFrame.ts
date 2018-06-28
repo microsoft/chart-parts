@@ -7,7 +7,7 @@ import {
 	CreateScaleArgs,
 	ChannelHandler,
 	Channels,
-	Mark,
+	MarkSpec,
 } from '@gog/interfaces'
 
 /**
@@ -17,7 +17,7 @@ import {
 export class SceneFrame {
 	constructor(
 		public node: SceneNode,
-		public mark: Mark | undefined,
+		public mark: MarkSpec | undefined,
 		public data: DataFrame,
 		public view: ViewSize,
 		public scales: Scales = {},
@@ -43,7 +43,7 @@ export class SceneFrame {
 		)
 	}
 
-	public pushMark(mark: Mark) {
+	public pushMark(mark: MarkSpec) {
 		const channels = this.registerChannels(mark.channels)
 		return new SceneFrame(
 			this.node,
