@@ -1,9 +1,11 @@
 // tslint:disable no-this-assignment
 import { SceneNode, ScaleCreator } from '@gog/interfaces'
 import { MarkBuilder } from './MarkBuilder'
+import { AxisBuilder } from './AxisBuilder'
 
 export class SceneNodeBuilder {
 	private marks: MarkBuilder[] = []
+	private axes: AxisBuilder[] = []
 
 	/**
 	 * The scales defined for children of this node
@@ -32,16 +34,22 @@ export class SceneNodeBuilder {
 		return this
 	}
 
+	public axis(...builders: AxisBuilder[]): SceneNodeBuilder {
+		this.axes.push(...builders)
+		return this
+	}
+
 	/**
 	 * Builds the scene object
 	 */
 	public build(): SceneNode {
-		const { scales, marks } = this
+		const { scales, marks, axes } = this
 		if (marks.length === 0) {
 			throw new Error('scene node has no mark set')
 		}
 		return {
 			marks: marks.map(m => m.build()),
+			axes: axes.map(m => m.build()),
 			scales,
 		}
 	}
