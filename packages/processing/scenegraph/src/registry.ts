@@ -8,7 +8,6 @@ export interface ItemConstructor {
 const itemTypeRegistry = new Map<string, ItemConstructor>()
 const restrictedPropNames = new Set<string>()
 restrictedPropNames.add('marktype')
-restrictedPropNames.add('items')
 
 /**
  * Registers an item type for use in parsing scene-graphs.

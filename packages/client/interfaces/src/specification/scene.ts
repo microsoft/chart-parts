@@ -1,5 +1,6 @@
 import { MarkType } from '../enums'
 import { Axis } from './axes'
+import { ItemSpace } from '../util'
 export const DEFAULT_WIDTH = 250
 export const DEFAULT_HEIGHT = 250
 
@@ -125,8 +126,8 @@ export type MarkEncoding = (
 ) => number | string | boolean
 
 export enum Dimension {
-	HEIGHT = 'height',
-	WIDTH = 'width',
+	Height = 'height',
+	Width = 'width',
 }
 
 /**
@@ -183,7 +184,7 @@ export interface CreateScaleArgs {
 	 * The rectangle of the area that marks will be drawn in,
 	 * This is (chartRect - space reserved for axes)
 	 */
-	view: ViewSize
+	view: ItemSpace
 
 	/**
 	 * The current set of configured scales
@@ -200,7 +201,12 @@ export interface CreateScaleArgs {
  *  Basic interface for a scale, this type does not include some exotic
  * methods that may exist on specific d3-scales.
  */
-export type Scale<In, Out> = (input?: In) => Out
+export interface Scale<In, Out> {
+	(input?: In): Out
+
+	range?: () => Out[]
+	domain?: () => In[]
+}
 
 /**
  * A view rectangle in the SVG, using SVG Coordinates

@@ -1,6 +1,7 @@
 import { scaleBand } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { CreateScaleArgs, Dimension, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Dimension, Scales, Scale } from '@gog/interfaces'
+import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {
 	/**
@@ -102,7 +103,10 @@ export class BandScale extends DomainRangeScale<
 
 		const result: Scales = { [this.nameValue as string]: bandscale }
 		if (this.bandwidthValue) {
-			result[this.bandwidthValue as string] = bandscale.bandwidth
+			result[this.bandwidthValue as string] = bandscale.bandwidth as Scale<
+				{},
+				number
+			>
 		}
 		return result
 	}
@@ -111,10 +115,6 @@ export class BandScale extends DomainRangeScale<
 		args: CreateScaleArgs,
 		rangeBind: Dimension,
 	): [number, number] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [0, args.view.height]
-		} else {
-			return [0, args.view.width]
-		}
+		return getBoundRange(args, rangeBind)
 	}
 }

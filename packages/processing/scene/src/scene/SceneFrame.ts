@@ -1,5 +1,4 @@
 import {
-	ViewSize,
 	Scales,
 	DataFrame,
 	ChannelNames,
@@ -7,6 +6,7 @@ import {
 	CreateScaleArgs,
 	ChannelHandler,
 	Channels,
+	ItemSpace,
 	Mark,
 } from '@gog/interfaces'
 
@@ -19,7 +19,7 @@ export class SceneFrame {
 		public node: SceneNode,
 		public mark: Mark | undefined,
 		public data: DataFrame,
-		public view: ViewSize,
+		public view: ItemSpace,
 		public scales: Scales = {},
 		public channels: ChannelNames = {},
 		public channelId: number = 0,
@@ -75,7 +75,7 @@ export class SceneFrame {
 	 * Pushes a new sceneframe with an updated viewspace. Recomputes scales
 	 * @param view The new view to push
 	 */
-	public pushView(view: ViewSize) {
+	public pushView(view: ItemSpace) {
 		const scales = this.getRecomputedScales(this.node, view)
 		return new SceneFrame(
 			this.node,
@@ -89,7 +89,7 @@ export class SceneFrame {
 		)
 	}
 
-	private getRecomputedScales(node: SceneNode, view: ViewSize) {
+	private getRecomputedScales(node: SceneNode, view: ItemSpace) {
 		const data = this.data
 
 		let scales = { ...this.scales }

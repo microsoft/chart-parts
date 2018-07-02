@@ -1,8 +1,8 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { scene, rect } from '@gog/builder'
-import { Dimension, SceneNode } from '@gog/interfaces'
+import { scene, rect, axis } from '@gog/builder'
+import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
 import { linear, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
@@ -42,13 +42,17 @@ export class BarChart extends React.Component<{}, BarChartState> {
 						linear('y')
 							.table('data')
 							.bindDomain('amount')
-							.bindRange(Dimension.HEIGHT)
+							.bindRange(Dimension.Height)
 							.nice(),
 						band('x', 'xband')
 							.table('data')
 							.bindDomain('category')
-							.bindRange(Dimension.WIDTH)
+							.bindRange(Dimension.Width)
 							.padding(0.05),
+					)
+					.axes(
+						axis('x', AxisOrientation.Bottom),
+						axis('y', AxisOrientation.Left),
 					)
 					.mark(
 						rect()
@@ -56,7 +60,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 							.encode({
 								x: ({ datum }, { x }) => x(datum.category),
 								y: ({ datum }, { y }) => y(datum.amount),
-								y2: () => 200,
+								y2: (d, { y }) => y(0),
 								width: (d, { xband }) => xband(),
 								fill: ({ index }) =>
 									isHovered(index) ? 'firebrick' : 'steelblue',

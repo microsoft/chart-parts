@@ -1,6 +1,7 @@
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { CreateScaleArgs, Dimension } from '@gog/interfaces'
+import { getBoundRange } from '../getBoundRange'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
@@ -72,11 +73,7 @@ export abstract class QuantitativeScale<
 		args: CreateScaleArgs,
 		rangeBind: Dimension,
 	): [RangeValue, RangeValue] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [args.view.height as RangeValue, 0 as RangeValue]
-		} else {
-			return [0 as RangeValue, args.view.width as RangeValue]
-		}
+		return getBoundRange(args, rangeBind) as [RangeValue, RangeValue]
 	}
 
 	protected addCommonProperties(scale: any) {

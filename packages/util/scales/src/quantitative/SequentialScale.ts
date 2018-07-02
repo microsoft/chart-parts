@@ -1,6 +1,6 @@
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
-import { CreateScaleArgs } from '@gog/interfaces'
+import { CreateScaleArgs, Scales, Scale } from '@gog/interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {
@@ -34,6 +34,8 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 		if (this.clampValue !== undefined) {
 			result.clamp(this.clampValue)
 		}
-		return { [this.nameValue as string]: result }
+		return ({
+			[this.nameValue as string]: result as Scale<QuantitativeValue, {}>,
+		} as any) as Scales
 	}
 }

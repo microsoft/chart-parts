@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGItem } from '@gog/interfaces'
+import { SGItem, MarkType } from '@gog/interfaces'
 import * as Elements from './elements'
 import { createItemType } from './registry'
 

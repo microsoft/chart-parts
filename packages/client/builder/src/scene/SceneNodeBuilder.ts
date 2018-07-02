@@ -4,8 +4,8 @@ import { MarkBuilder } from './MarkBuilder'
 import { AxisBuilder } from './AxisBuilder'
 
 export class SceneNodeBuilder {
-	private marks: MarkBuilder[] = []
-	private axes: AxisBuilder[] = []
+	private markBuilders: MarkBuilder[] = []
+	private axisBuilders: AxisBuilder[] = []
 
 	/**
 	 * The scales defined for children of this node
@@ -30,12 +30,12 @@ export class SceneNodeBuilder {
 	}
 
 	public mark(...builders: MarkBuilder[]): SceneNodeBuilder {
-		this.marks.push(...builders)
+		this.markBuilders.push(...builders)
 		return this
 	}
 
-	public axis(...builders: AxisBuilder[]): SceneNodeBuilder {
-		this.axes.push(...builders)
+	public axes(...builders: AxisBuilder[]): SceneNodeBuilder {
+		this.axisBuilders.push(...builders)
 		return this
 	}
 
@@ -43,13 +43,13 @@ export class SceneNodeBuilder {
 	 * Builds the scene object
 	 */
 	public build(): SceneNode {
-		const { scales, marks, axes } = this
-		if (marks.length === 0) {
+		const { scales, markBuilders, axisBuilders } = this
+		if (markBuilders.length === 0) {
 			throw new Error('scene node has no mark set')
 		}
 		return {
-			marks: marks.map(m => m.build()),
-			axes: axes.map(m => m.build()),
+			marks: markBuilders.map(m => m.build()),
+			axes: axisBuilders.map(m => m.build()),
 			scales,
 		}
 	}

@@ -37,7 +37,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					name="yscale"
 					table="data"
 					bindDomain="amount"
-					bindRange={Dimension.HEIGHT}
+					bindRange={Dimension.Height}
 				/>
 				<BandScale
 					name="xscale"
@@ -45,7 +45,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					bandWidth="xband"
 					bindDomain="category"
 					padding={0.05}
-					bindRange={Dimension.WIDTH}
+					bindRange={Dimension.Width}
 				/>
 
 				{/* <Axis orient="bottom" scale="xscale" />

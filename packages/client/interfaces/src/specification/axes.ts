@@ -1,8 +1,8 @@
 export enum AxisOrientation {
-	top = 'top',
-	left = 'left',
-	bottom = 'bottom',
-	right = 'right',
+	Top = 'top',
+	Left = 'left',
+	Bottom = 'bottom',
+	Right = 'right',
 }
 
 /** Axis definition */
@@ -16,6 +16,26 @@ export interface Axis {
 	 * The orientation of the axis.
 	 */
 	orient: AxisOrientation
+
+	/**
+	 * A boolean flag indicating if the domain (the axis baseline) should be included as part of the axis (default true).
+	 */
+	domain?: boolean
+
+	/**
+	 * Color of axis domain line.
+	 */
+	domainColor?: string
+
+	/**
+	 * Stroke width of axis domain line.
+	 */
+	domainWidth?: number
+
+	/**
+	 * A boolean flag indicating if ticks should be included as part of the axis (default true).
+	 */
+	ticks?: boolean
 }
 
 // /**
@@ -23,21 +43,6 @@ export interface Axis {
 //  * A value of 0 places ticks at the left edge of their bands. A value of 0.5 places ticks in the middle of their bands.
 //  */
 // bandPosition?: number
-
-// /**
-//  * A boolean flag indicating if the domain (the axis baseline) should be included as part of the axis (default true).
-//  */
-// domain?: boolean
-
-// /**
-//  * Color of axis domain line.
-//  */
-// domainColor?: string
-
-// /**
-//  * Stroke width of axis domain line.
-//  */
-// domainWidth?: number
 
 // // encode? Object	Optional mark encodings for custom axis styling. Supports encoding blocks for axis, ticks, grid, labels, title, and domain. See custom axis encodings.
 
@@ -174,11 +179,6 @@ export interface Axis {
 //  * The anchor position of the axis in pixels (default 0). For x-axes with top or bottom orientation, this sets the axis group x coordinate. For y-axes with left or right orientation, this sets the axis group y coordinate.
 //  */
 // position?: number
-
-// /**
-//  * A boolean flag indicating if ticks should be included as part of the axis (default true).
-//  */
-// ticks?: boolean
 
 // /**
 //  * 	Color of axis ticks.

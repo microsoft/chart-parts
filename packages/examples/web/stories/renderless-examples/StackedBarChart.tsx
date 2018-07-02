@@ -65,13 +65,13 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					name="x"
 					table="data"
 					bandWidth="width"
-					bindRange={Dimension.WIDTH}
+					bindRange={Dimension.Width}
 					bindDomain="x"
 				/>
 				<LinearScale
 					name="y"
 					table="data"
-					bindRange={Dimension.HEIGHT}
+					bindRange={Dimension.Height}
 					bindDomain="y1"
 					nice={true}
 					zero={true}

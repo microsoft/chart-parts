@@ -1,6 +1,7 @@
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { Dimension, CreateScaleArgs, Scales } from '@gog/interfaces'
+import { Dimension, CreateScaleArgs, Scales, Scale } from '@gog/interfaces'
+import { getBoundRange } from '../getBoundRange'
 
 export class PointScale extends DomainRangeScale<
 	string[],
@@ -57,7 +58,7 @@ export class PointScale extends DomainRangeScale<
 
 		const result: Scales = { [this.nameValue as string]: scale }
 		if (this.stepNameValue) {
-			result[this.stepNameValue as string] = scale.step
+			result[this.stepNameValue as string] = scale.step as Scale<{}, number>
 		}
 		return result
 	}
@@ -66,10 +67,6 @@ export class PointScale extends DomainRangeScale<
 		args: CreateScaleArgs,
 		rangeBind: Dimension,
 	): [number, number] {
-		if (rangeBind === Dimension.HEIGHT) {
-			return [args.view.height, 0]
-		} else {
-			return [0, args.view.width]
-		}
+		return getBoundRange(args, rangeBind)
 	}
 }
