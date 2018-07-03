@@ -1,35 +1,21 @@
-import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
-import { buildMark, createItem } from '@gog/scenegraph'
+import { Axis, AxisOrientation, ViewSize } from '@gog/interfaces'
 import { SceneFrame } from '../SceneFrame'
-import { createDomain } from './createDomain'
-import { SGMarkAny } from '../processNode'
 import { AxisSpace } from '../../interfaces'
 import { AxisContext } from './interfaces'
 
-export function buildAxesMarks(
-	frame: SceneFrame,
-	axisSpace: AxisSpace,
-): SGMarkAny[] {
-	return frame.node.axes.map(axis => buildAxisMark(axis, frame, axisSpace))
-}
-
-function buildAxisMark(
+export function getContext(
 	axis: Axis,
 	frame: SceneFrame,
 	axisSpace: AxisSpace,
-): SGMarkAny {
-	const { orient } = axis
+): AxisContext {
+	// Create the new axis space
 	const thickness = getThickness(axis, axisSpace)
-	const groupSize = getGroupSize(axis, thickness, frame.view)
-
-	// Push the space into the frame
 	const axisFrame = frame.pushView(
 		getScaleSize(axis, axisSpace, thickness, frame.view),
 		getScaleTL(axis, axisSpace, frame.view),
 		getScaleBR(axis, axisSpace, frame.view),
 	)
 
-	const children: SGMarkAny[] = []
 	const scaleName = axis.scale
 	const scale = axisFrame.scales[scaleName]
 	const range: [number, number] = ((scale.range && scale.range()) as [
@@ -37,33 +23,21 @@ function buildAxisMark(
 		number
 	]) || [0, 0]
 
-	const isHorizontal =
-		orient === AxisOrientation.Top || orient === AxisOrientation.Bottom
+	const horizontal =
+		axis.orient === AxisOrientation.Top ||
+		axis.orient === AxisOrientation.Bottom
 
-	const context: AxisContext = {
+	return {
 		axis,
 		range,
 		scale,
 		thickness,
-		horizontal: isHorizontal,
-		rangeStartProperty: isHorizontal ? 'x' : 'y',
-		rangeEndProperty: isHorizontal ? 'x2' : 'y2',
-		crossProperty: isHorizontal ? 'y' : 'x',
+		horizontal,
+		frame: axisFrame,
+		rangeStartProperty: horizontal ? 'x' : 'y',
+		rangeEndProperty: horizontal ? 'x2' : 'y2',
+		crossProperty: horizontal ? 'y' : 'x',
 	}
-
-	if (axis.domain) {
-		children.push(createDomain(context))
-	}
-
-	const axisGroupOrigin = getGroupOrigin(axis, thickness, frame.view)
-	return buildMark(MarkType.Group)
-		.role('axis')
-		.items({
-			items: children,
-			...axisGroupOrigin,
-			...groupSize,
-		})
-		.build()
 }
 
 function getThickness(axis: Axis, space: AxisSpace) {
@@ -78,50 +52,6 @@ function getThickness(axis: Axis, space: AxisSpace) {
 			return space.left
 		default:
 			return 0
-	}
-}
-
-function getGroupOrigin(
-	axis: Axis,
-	axisThickness: number,
-	availableSpace: ViewSize,
-) {
-	const { height: viewHeight = 0, width: viewWidth = 0 } = availableSpace
-	switch (axis.orient) {
-		case AxisOrientation.Top:
-			return { x: 0, y: 0 }
-		case AxisOrientation.Bottom:
-			return {
-				x: 0,
-				y: viewHeight - axisThickness,
-			}
-		case AxisOrientation.Left:
-			return { x: 0, y: 0 }
-		case AxisOrientation.Right:
-			return { x: viewWidth - axisThickness, y: 0 }
-	}
-}
-
-function getGroupSize(
-	axis: Axis,
-	axisThickness: number,
-	availableSpace: ViewSize,
-) {
-	const { height: viewHeight = 0, width: viewWidth = 0 } = availableSpace
-
-	const isHorizontal =
-		axis.orient === AxisOrientation.Top ||
-		axis.orient === AxisOrientation.Bottom
-	if (isHorizontal) {
-		return {
-			width: viewWidth,
-			height: axisThickness,
-		}
-	} else {
-		return {
-			width: axisThickness,
-			height: viewHeight,
-		}
 	}
 }
 

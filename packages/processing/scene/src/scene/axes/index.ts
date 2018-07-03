@@ -1,6 +1,6 @@
 import { SceneNode, ItemSpace, AxisOrientation, Axis } from '@gog/interfaces'
 import { SceneFrame } from '../SceneFrame'
-import { buildAxesMarks } from '../axes/buildAxesMarks'
+import { buildAxis } from '../axes/buildAxis'
 import { AxisSpace } from '../../interfaces'
 import { SGMarkAny } from '../processNode'
 
@@ -19,7 +19,7 @@ export function buildAxes(
 	}
 
 	const axisSpace = getAxisSpace(frame)
-	const axes = buildAxesMarks(frame, axisSpace)
+	const axes = node.axes.map(axis => buildAxis(axis, frame, axisSpace))
 
 	// Build the frame here so that the marks have updated scales
 	const remainingSpace = getRemainingSpace(frame, axisSpace)

@@ -1,7 +1,7 @@
 import { SGMark, SGItem, SceneNode, MarkType, ItemSpace } from '@gog/interfaces'
 import { SceneFrame } from './SceneFrame'
 import { buildMarkItem } from './marks/buildMarkItem'
-import { buildAxes } from './axes/buildAxes'
+import { buildAxes } from './axes'
 import { buildMark } from '@gog/scenegraph'
 
 export type SGMarkAny = SGMark<SGItem>

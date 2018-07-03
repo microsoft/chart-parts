@@ -1,5 +1,9 @@
 import { Axis, Scale } from '@gog/interfaces'
+import { SceneFrame } from '../SceneFrame'
 
+/**
+ * A context object for generating axis components
+ */
 export interface AxisContext {
 	axis: Axis
 	thickness: number
@@ -9,4 +13,5 @@ export interface AxisContext {
 	rangeEndProperty: string
 	crossProperty: string
 	horizontal: boolean
+	frame: SceneFrame
 }

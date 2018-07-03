@@ -1,6 +1,6 @@
 import { Axis, MarkType, AxisOrientation } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
-import { AxisContext } from './interfaces'
+import { AxisContext } from '../interfaces'
 
 const DEFAULT_DOMAIN_WIDTH = 0.5
 
