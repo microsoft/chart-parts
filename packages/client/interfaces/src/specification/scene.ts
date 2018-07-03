@@ -1,6 +1,5 @@
 import { MarkType } from '../enums'
 import { Axis } from './axes'
-import { ItemSpace } from '../util'
 export const DEFAULT_WIDTH = 250
 export const DEFAULT_HEIGHT = 250
 
@@ -184,7 +183,10 @@ export interface CreateScaleArgs {
 	 * The rectangle of the area that marks will be drawn in,
 	 * This is (chartRect - space reserved for axes)
 	 */
-	view: ItemSpace
+	viewBounds: {
+		x: [number, number]
+		y: [number, number]
+	}
 
 	/**
 	 * The current set of configured scales

@@ -6,7 +6,7 @@ import {
 	CreateScaleArgs,
 	ChannelHandler,
 	Channels,
-	ItemSpace,
+	ViewSize,
 	Mark,
 } from '@gog/interfaces'
 
@@ -19,7 +19,9 @@ export class SceneFrame {
 		public node: SceneNode,
 		public mark: Mark | undefined,
 		public data: DataFrame,
-		public view: ItemSpace,
+		public view: ViewSize,
+		public viewTL: [number, number] = [0, 0],
+		public viewBR: [number, number] = [view.height, view.width],
 		public scales: Scales = {},
 		public channels: ChannelNames = {},
 		public channelId: number = 0,
@@ -30,12 +32,14 @@ export class SceneFrame {
 	 * Emits a new scene frame with the given node. Recomputes scales and registers handelrs.
 	 */
 	public pushNode(node: SceneNode) {
-		const scales = this.getRecomputedScales(node, this.view)
+		const scales = this.getRecomputedScales(node, this.viewTL, this.viewBR)
 		return new SceneFrame(
 			node,
 			undefined,
 			this.data,
 			this.view,
+			this.viewTL,
+			this.viewBR,
 			scales,
 			{},
 			this.channelId,
@@ -50,6 +54,8 @@ export class SceneFrame {
 			mark,
 			this.data,
 			this.view,
+			this.viewTL,
+			this.viewBR,
 			this.scales,
 			channels,
 			this.channelId,
@@ -64,6 +70,8 @@ export class SceneFrame {
 			this.mark,
 			dataFrame,
 			this.view,
+			this.viewTL,
+			this.viewBR,
 			this.scales,
 			this.channels,
 			this.channelId,
@@ -72,16 +80,27 @@ export class SceneFrame {
 	}
 
 	/**
-	 * Pushes a new sceneframe with an updated viewspace. Recomputes scales
-	 * @param view The new view to push
+	 * Pushes a new sceneframe with an updated viewspace. Recomputes scales.
+	 *
+	 * @param view The new view to push. This is the size of the group that will be inserted
+	 * @param viewTL The top-left of the draw-area within the view. This does not affect the emitted
+	 * group, but does affect draw-scales
+	 * @param viewBR The bottom-right of the draw-area within the view. This does not affect the emitted
+	 * group, but does affect draw-scales
 	 */
-	public pushView(view: ItemSpace) {
-		const scales = this.getRecomputedScales(this.node, view)
+	public pushView(
+		view: ViewSize,
+		viewTL: [number, number] = [0, 0],
+		viewBR: [number, number] = [view.height, view.width],
+	) {
+		const scales = this.getRecomputedScales(this.node, viewTL, viewBR)
 		return new SceneFrame(
 			this.node,
 			this.mark,
 			this.data,
 			view,
+			viewTL,
+			viewBR,
 			scales,
 			this.channels,
 			this.channelId,
@@ -89,12 +108,23 @@ export class SceneFrame {
 		)
 	}
 
-	private getRecomputedScales(node: SceneNode, view: ItemSpace) {
+	private getRecomputedScales(
+		node: SceneNode,
+		viewTL: [number, number],
+		viewBR: [number, number],
+	) {
 		const data = this.data
-
 		let scales = { ...this.scales }
+
+		const xBounds: [number, number] = [viewTL[1], viewBR[1]]
+		const yBounds: [number, number] = [viewBR[0], viewTL[0]]
+
 		node.scales.forEach(creator => {
-			const args: CreateScaleArgs = { view, data, scales }
+			const args: CreateScaleArgs = {
+				viewBounds: { x: xBounds, y: yBounds },
+				data,
+				scales,
+			}
 			const newScales = creator(args)
 			scales = { ...scales, ...newScales }
 		})

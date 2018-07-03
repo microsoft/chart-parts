@@ -5,6 +5,7 @@ import {
 	Mark,
 	ItemSpace,
 	MarkEncodings,
+	ViewSize,
 } from '@gog/interfaces'
 import { createItem } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
@@ -33,11 +34,8 @@ export function createBoundItem(
 	// Update the view and recompute scales
 	const groupDrawRect = getNextDrawRect(getItemSpace(item), frame.view)
 	const itemFrame = frame.pushView({
-		origin: { x: 0, y: 0 },
-		shape: {
-			width: groupDrawRect.right - groupDrawRect.left,
-			height: groupDrawRect.bottom - groupDrawRect.top,
-		},
+		width: groupDrawRect.right - groupDrawRect.left,
+		height: groupDrawRect.bottom - groupDrawRect.top,
 	})
 
 	// Mash in the children and the bounds
@@ -80,7 +78,7 @@ function createItemFromMark(
 }
 
 /**
- * Computes the draw-rectangle for a given group item's space and the parent draw space.
+ * Computes the draw-rectangle for a group given its item-space and it's parent's draw space.
  *
  * It's important to note that these are a group's dimensions, because they will greedily
  * use parent space if their space has not been specified
@@ -88,18 +86,15 @@ function createItemFromMark(
  * @param space The space measured for the group item
  * @param drawRect
  */
-function getNextDrawRect(space: ItemSpace, drawSpace: ItemSpace) {
-	const {
-		origin: { x: originX = 0, y: originY = 0 },
-		shape: { width: availableWidth = 0, height: availableHeight = 0 },
-	} = drawSpace
+function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
+	const { width: availableWidth, height: availableHeight } = viewSize
 	const {
 		origin: { x = 0, y = 0 },
 		shape: { width = availableWidth, height = availableHeight },
 	} = space
 
-	const top = originY + y
-	const left = originX + x
+	const top = y
+	const left = x
 	const right = left + width
 	const bottom = top + height
 

@@ -20,11 +20,8 @@ export function createScenegraph(
 	const height = optionsManager.chartSpace.shape.height as number
 	const emptyNode = (undefined as any) as SceneNode
 	const rootFrame = new SceneFrame(emptyNode, undefined, data, {
-		origin: { x: 0, y: 0 },
-		shape: {
-			width,
-			height,
-		},
+		width,
+		height,
 	})
 
 	return {

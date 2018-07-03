@@ -14,3 +14,10 @@ export interface GeneratedScene {
 	 */
 	channelHandlers: Channels
 }
+
+export interface AxisSpace {
+	top: number
+	right: number
+	bottom: number
+	left: number
+}

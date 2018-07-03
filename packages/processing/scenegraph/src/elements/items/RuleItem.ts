@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGRuleItem } from '@gog/interfaces'
+import { MarkType, SGRuleItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class RuleItem extends Item implements SGRuleItem {

@@ -2,14 +2,17 @@ import {
 	SGMark,
 	SGItem,
 	SceneNode,
-	// MarkType,
-	// SGGroupItem,
-	// ItemSpace,
+	MarkType,
+	SGGroupItem,
+	ItemSpace,
+	AxisOrientation,
+	Axis,
 } from '@gog/interfaces'
 import { SceneFrame } from './SceneFrame'
 import { buildMarkItem } from './marks/buildMarkItem'
-// import { buildAxisItems } from './axes/buildAxisItems'
-// import { createMark, createItem } from '@gog/scenegraph'
+import { buildAxesMarks } from './axes/buildAxesMarks'
+import { createMark, createItem } from '@gog/scenegraph'
+import { AxisSpace } from '../interfaces'
 
 export type SGMarkAny = SGMark<SGItem>
 
@@ -26,59 +29,93 @@ export function processNode(
 	const frame = parentFrame.pushNode(node)
 
 	// Build out the axes, which may or may not update the frame
-	// const axisResult = buildAxes(node, frame)
-	// frame = axisResult.frame
+	const { remainingSpace, axes } = buildAxes(node, frame)
 
 	// Construct the items for the marks
-	return node.marks.map(mark => buildMarkItem(mark, frame))
+	const markFrame = frame.pushView(remainingSpace.shape as any)
+	const markItems = node.marks.map(mark => buildMarkItem(mark, markFrame))
 
 	// Emit the result - if axes are present, wrap the marks in a group to put them in the correct space
-	// if (node.axes.length > 0 && axisResult.remaining) {
-	// 	return [
-	// 		...axisResult.axes,
-	// 		createMarkGroup(markItems, axisResult.remaining),
-	// 	]
-	// } else {
-	// 	return markItems
-	// }
-	// }
+	if (axes.length > 0) {
+		return [...axes, createMarkGroup(markItems, remainingSpace)]
+	} else {
+		return markItems
+	}
+}
+function buildAxes(
+	node: SceneNode,
+	frame: SceneFrame,
+): {
+	axes: SGMarkAny[]
+	remainingSpace: ItemSpace
+} {
+	if (node.axes.length === 0) {
+		return {
+			axes: [],
+			remainingSpace: { origin: { x: 0, y: 0 }, shape: frame.view },
+		}
+	}
 
-	// function buildAxes(node: SceneNode, frame: SceneFrame): {
-	// 	remaining:
-	// 	frame: SceneFrame
-	// } {
-	// 	//	if (node.axes.length === 0) {
-	// 	return {
-	// 		axes: [],
-	// 		remaining: undefined,
-	// 		frame,
-	// 	}
-	// 	//	}
+	const axisSpace = getAxisSpace(frame)
+	const axes = buildAxesMarks(frame, axisSpace)
 
-	// 	/*
-	// 	// Build the frame here so that the marks have updated scales
-	// 	const remaining: ItemSpace = viewSpaceMinusAxisSpace(node, frame)
-	// 	const viewFrame = frame.pushView(remaining.shape as {
-	// 		width: number
-	// 		height: number
-	// 	})
+	// Build the frame here so that the marks have updated scales
+	const remainingSpace = getRemainingSpace(frame, axisSpace)
+	return {
+		axes,
+		remainingSpace,
+	}
+}
 
-	// 	const { items: axes, remaining: freeSpace } = buildAxisItems(frame, viewFrame)
-	// 	remaining = freeSpace
-	// 	axes.push(...items)
+function getRemainingSpace(frame: SceneFrame, axisSpace: AxisSpace): ItemSpace {
+	const { width: availableWidth = 0, height: availableHeight = 0 } = frame.view
+	// Build the frame here so that the marks have updated scales
+	const remainingSpace: ItemSpace = {
+		origin: {
+			x: axisSpace.left,
+			y: axisSpace.top,
+		},
+		shape: {
+			width: availableWidth - axisSpace.left - axisSpace.right,
+			height: availableHeight - axisSpace.top - axisSpace.bottom,
+		},
+	}
+	return remainingSpace
+}
 
-	// 	return { axes, remaining, frame: viewFrame }
-	// 	*/
-	// }
+/**
+ * Gets the space consumed by the axes. Each key is an axis orientation, and the values are their respective thickness
+ * @param frame
+ */
+function getAxisSpace(frame: SceneFrame) {
+	const result = { top: 0, left: 0, bottom: 0, right: 0 }
+	frame.node.axes.forEach(a => {
+		const thickness = axisThickness(a)
+		switch (a.orient) {
+			case AxisOrientation.Top:
+				result.top = Math.max(result.top, thickness)
+			case AxisOrientation.Right:
+				result.right = Math.max(result.right, thickness)
+			case AxisOrientation.Bottom:
+				result.bottom = Math.max(result.bottom, thickness)
+			case AxisOrientation.Left:
+				result.left = Math.max(result.left, thickness)
+		}
+	})
+	return result
+}
 
-	// function createMarkGroup(items: Array<SGMark<SGItem>>, space: ItemSpace) {
-	// 	return createMark(MarkType.Group, [
-	// 		createItem(MarkType.Group, {
-	// 			role: 'marks',
-	// 			...space.origin,
-	// 			...space.shape,
-	// 			items,
-	// 		}),
-	// 	]) as SGMark<SGGroupItem>
-	// }
+function axisThickness(axis: Axis) {
+	return 20
+}
+
+function createMarkGroup(items: Array<SGMark<SGItem>>, space: ItemSpace) {
+	return createMark(MarkType.Group, [
+		createItem(MarkType.Group, {
+			role: 'marks',
+			...space.origin,
+			...space.shape,
+			items,
+		}),
+	]) as SGMark<SGGroupItem>
 }
