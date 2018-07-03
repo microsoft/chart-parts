@@ -45,21 +45,11 @@ export class MarkBuilder {
 
 	public build(): SGMark<any> {
 		const result = createMark(this.markType, this.itemsValue)
-		if (this.clipValue != null) {
-			result.clip = this.clipValue
-		}
-		if (this.clipValue != null) {
-			result.interactive = this.interactiveValue
-		}
-		if (this.roleValue != null) {
-			result.role = this.roleValue
-		}
-		if (this.nameValue != null) {
-			result.name = this.nameValue
-		}
-		if (this.zIndexValue != null) {
-			result.zIndex = this.zIndexValue
-		}
+		result.clip = this.clipValue
+		result.interactive = this.interactiveValue
+		result.role = this.roleValue
+		result.name = this.nameValue
+		result.zIndex = this.zIndexValue
 		return result
 	}
 }
