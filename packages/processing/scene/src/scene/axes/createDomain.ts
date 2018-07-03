@@ -14,7 +14,6 @@ export function createDomain({
 		createItem(MarkType.Rule, {
 			stroke: axis.domainColor,
 			strokeWidth: axis.domainWidth,
-			strokeJoin: 'round',
 			[rangeStartProperty]: Math.floor(range[0]),
 			[rangeEndProperty]: Math.floor(range[1]),
 			[crossProperty]: getCrossValue(axis, thickness),
@@ -28,6 +27,10 @@ function getCrossValue(axis: Axis, thickness: number) {
 		case AxisOrientation.Bottom:
 			return domainWidth
 		case AxisOrientation.Left:
+			return thickness - (domainWidth || 1)
+		case AxisOrientation.Right:
+			return domainWidth || 1
+		case AxisOrientation.Top:
 			return thickness - (domainWidth || 1)
 	}
 }
