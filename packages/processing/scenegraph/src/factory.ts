@@ -1,6 +1,7 @@
 import { SGItem, MarkType } from '@gog/interfaces'
 import * as Elements from './elements'
 import { createItemType } from './registry'
+import { MarkBuilder } from './MarkBuilder'
 
 /**
  *
@@ -28,4 +29,8 @@ export function createItem(
 	props: { [key: string]: any } = {},
 ): SGItem {
 	return createItemType(itemType, props)
+}
+
+export function buildMark(markType: MarkType) {
+	return new MarkBuilder(markType)
 }

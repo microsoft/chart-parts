@@ -1,5 +1,5 @@
 import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
-import { createMark, createItem } from '@gog/scenegraph'
+import { buildMark, createItem } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createDomain } from './createDomain'
 import { SGMarkAny } from '../processNode'
@@ -56,13 +56,14 @@ function buildAxisMark(
 	}
 
 	const axisGroupOrigin = getGroupOrigin(axis, thickness, frame.view)
-	return createMark(MarkType.Group, [
-		createItem(MarkType.Group, {
+	return buildMark(MarkType.Group)
+		.role('axis')
+		.items({
 			items: children,
 			...axisGroupOrigin,
 			...groupSize,
-		}),
-	])
+		})
+		.build()
 }
 
 function getThickness(axis: Axis, space: AxisSpace) {

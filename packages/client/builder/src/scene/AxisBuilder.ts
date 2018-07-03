@@ -5,8 +5,8 @@ export class AxisBuilder {
 	private orientValue: AxisOrientation | undefined
 	private ticksValue: boolean | undefined = true
 	private domainValue: boolean | undefined = true
-	private domainColorValue: string | undefined = '#777'
-	private domainWidthValue: number | undefined = 1
+	private domainColorValue: string | undefined = '#555'
+	private domainWidthValue: number | undefined = 0.5
 
 	/**
 	 * Sets the name of the scale to use for drawing this axis.

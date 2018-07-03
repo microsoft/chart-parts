@@ -1,8 +1,8 @@
 import { Axis, MarkType, AxisOrientation } from '@gog/interfaces'
-import { createMark, createItem } from '@gog/scenegraph'
+import { buildMark } from '@gog/scenegraph'
 import { AxisContext } from './interfaces'
 
-const DEFAULT_DOMAIN_WIDTH = 1
+const DEFAULT_DOMAIN_WIDTH = 0.5
 
 export function createDomain({
 	axis,
@@ -14,15 +14,16 @@ export function createDomain({
 }: AxisContext) {
 	const maxRange = Math.max(...range)
 	const minRange = Math.min(...range)
-	return createMark(MarkType.Rule, [
-		createItem(MarkType.Rule, {
+	return buildMark(MarkType.Rule)
+		.role('axis-domain')
+		.items({
 			stroke: axis.domainColor,
 			strokeWidth: axis.domainWidth,
-			[rangeStartProperty]: minRange - 1,
-			[rangeEndProperty]: maxRange + 1,
+			[rangeStartProperty]: minRange - 0.5,
+			[rangeEndProperty]: maxRange + 0.5,
 			[crossProperty]: getCrossValue(axis, thickness),
-		}),
-	])
+		})
+		.build()
 }
 
 function getCrossValue(axis: Axis, thickness: number): number {

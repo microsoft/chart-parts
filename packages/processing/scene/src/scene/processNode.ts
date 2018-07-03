@@ -1,15 +1,8 @@
-import {
-	SGMark,
-	SGItem,
-	SceneNode,
-	MarkType,
-	SGGroupItem,
-	ItemSpace,
-} from '@gog/interfaces'
+import { SGMark, SGItem, SceneNode, MarkType, ItemSpace } from '@gog/interfaces'
 import { SceneFrame } from './SceneFrame'
 import { buildMarkItem } from './marks/buildMarkItem'
 import { buildAxes } from './axes/buildAxes'
-import { createMark, createItem } from '@gog/scenegraph'
+import { buildMark } from '@gog/scenegraph'
 
 export type SGMarkAny = SGMark<SGItem>
 
@@ -41,12 +34,12 @@ export function processNode(
 }
 
 function createMarkGroup(items: Array<SGMark<SGItem>>, space: ItemSpace) {
-	return createMark(MarkType.Group, [
-		createItem(MarkType.Group, {
-			role: 'marks',
+	return buildMark(MarkType.Group)
+		.role('marks')
+		.items({
 			...space.origin,
 			...space.shape,
 			items,
-		}),
-	]) as SGMark<SGGroupItem>
+		})
+		.build()
 }
