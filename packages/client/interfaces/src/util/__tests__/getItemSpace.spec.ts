@@ -1,5 +1,5 @@
 import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
-import { getItemSpace } from '../../../../client/interfaces/src/util/getItemSpace'
+import { getItemSpace } from '../getItemSpace'
 
 describe('Rendering Utilities', () => {
 	describe('getItemSpace', () => {

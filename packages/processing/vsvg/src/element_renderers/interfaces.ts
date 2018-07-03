@@ -1,5 +1,4 @@
-import { VSvgNode, VSvgTransformType } from '@gog/interfaces'
-import { MarkConverter } from '@gog/interfaces'
+import { MarkConverter, VSvgNode, VSvgTransformType } from '@gog/interfaces'
 
 export interface VSvgMarkOutput {
 	nodes: VSvgNode[]

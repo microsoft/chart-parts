@@ -53,6 +53,8 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					.axes(
 						axis('x', AxisOrientation.Bottom),
 						axis('y', AxisOrientation.Left),
+						axis('x', AxisOrientation.Top),
+						axis('y', AxisOrientation.Right),
 					)
 					.mark(
 						rect()

@@ -6,8 +6,9 @@ import {
 	SGRectItem,
 	SGTrailItem,
 	SGSymbolItem,
+	Interpolation,
+	Orientation,
 } from '@gog/interfaces'
-import { Interpolation, Orientation } from '@gog/interfaces'
 import {
 	rectShape,
 	trailShape,

@@ -1,6 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGMark, SGSymbolItem } from '@gog/interfaces'
-import { VSvgNode } from '@gog/interfaces'
+import { MarkType, SGMark, SGSymbolItem, VSvgNode } from '@gog/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { symbol } from '../path'
 import { VSvgMarkConverter, translate } from './interfaces'

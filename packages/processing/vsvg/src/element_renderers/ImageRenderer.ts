@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGMark, SGImageItem } from '@gog/interfaces'
+import { MarkType, SGMark, SGImageItem } from '@gog/interfaces'
 import { assertTypeIs } from './util'
 import { VSvgMarkConverter } from './interfaces'
 

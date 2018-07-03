@@ -1,5 +1,4 @@
-import { SGMark, SGItem } from '@gog/interfaces'
-import { VSvgNode } from '@gog/interfaces'
+import { SGMark, SGItem, VSvgNode } from '@gog/interfaces'
 
 /**
  * Perform an invariant assertion that a mark is of a given type
