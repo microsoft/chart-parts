@@ -1,7 +1,5 @@
 import { Axis, Scale } from '@gog/interfaces'
-import { AxisContext, PositionedTickValue } from './interfaces'
-
-const DEFAULT_TICK_WIDTH = 1
+import { AxisContext, PositionedTickValue } from '../../interfaces'
 
 /**
  * Gets logical tick values and their associated labels
@@ -22,22 +20,24 @@ export function getTickValues(context: AxisContext): PositionedTickValue[] {
 			: []
 }
 
-function getDomainScaleValue(
-	t: any,
-	scale: Scale<any, any>,
-	round: boolean = false,
-) {
-	const result = scale.bandwidth ? scale(t) + scale.bandwidth() / 2 : t
-	return round ? Math.round(result) : result
+function getDomainScaleValue(t: any, scale: Scale<any, any>, axis: Axis) {
+	const { tickRound, bandPosition } = axis
+	const result = scale.bandwidth
+		? scale(t) + scale.bandwidth() * bandPosition
+		: t
+	return tickRound ? Math.round(result) : result
 }
 
 function getTicksFromScaleTicks(context: AxisContext) {
-	const { axis, scale, tickWidth = DEFAULT_TICK_WIDTH } = context
+	const { axis, scale } = context
+	const tickWidth = axis.tickWidth as number
+
 	if (!scale.ticks) {
 		throw new Error('cannot extract scale domain')
 	}
 	const ticks =
 		axis.tickCount != null ? scale.ticks(axis.tickCount) : scale.ticks()
+
 	return ticks.map((t: number) => {
 		const position = scale(t)
 		return {
@@ -57,7 +57,7 @@ function getTicksFromScaleDomain(axis: Axis, scale: Scale<any, any>) {
 	const domain = scale.domain()
 	return domain.map((t: any) => ({
 		value: t,
-		position: getDomainScaleValue(t, scale, axis.tickRound),
+		position: getDomainScaleValue(t, scale, axis),
 		label: `${t}`,
 	}))
 }

@@ -2,17 +2,12 @@ import { Axis, AxisOrientation, ViewSize } from '@gog/interfaces'
 import { SceneFrame } from '../SceneFrame'
 import { AxisSpace } from '../../interfaces'
 import { AxisContext } from './interfaces'
-import { getTickValues } from './getTickValues'
-
-const DEFAULT_TICK_SIZE = 5
-const DEFAULT_TICK_WIDTH = 1
-const tickSize = (axis: Axis) => axis.tickSize || DEFAULT_TICK_SIZE
 
 export function getContext(
 	axis: Axis,
 	frame: SceneFrame,
 	axisSpace: AxisSpace,
-): AxisContext {
+): Partial<AxisContext> {
 	// Create the new axis space
 	const thickness = getThickness(axis, axisSpace)
 	const axisFrame = frame.pushView(
@@ -35,7 +30,7 @@ export function getContext(
 	const topOrLeft =
 		axis.orient === AxisOrientation.Top || axis.orient === AxisOrientation.Left
 
-	const result: Partial<AxisContext> = {
+	return {
 		axis,
 		range,
 		scale,
@@ -43,15 +38,11 @@ export function getContext(
 		horizontal,
 		topOrLeft,
 		frame: axisFrame,
-		tickSize: tickSize(axis),
-		tickWidth: axis.tickWidth || DEFAULT_TICK_WIDTH,
-		rangeStartProperty: horizontal ? 'x' : 'y',
+		rangeProperty: horizontal ? 'x' : 'y',
 		rangeEndProperty: horizontal ? 'x2' : 'y2',
-		crossStartProperty: horizontal ? 'y' : 'x',
+		crossProperty: horizontal ? 'y' : 'x',
 		crossEndProperty: horizontal ? 'y2' : 'x2',
 	}
-	result.ticks = getTickValues(result as AxisContext)
-	return result as AxisContext
 }
 
 function getThickness(axis: Axis, space: AxisSpace) {

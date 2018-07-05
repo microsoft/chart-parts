@@ -1,9 +1,7 @@
 import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
-import { createDomain } from './components/domain'
-import { createTickLines } from './components/tickLines'
-import { createTickLabels } from './components/tickLabels'
+import { components } from './components'
 import { SGMarkAny } from '../processNode'
 import { AxisSpace } from '../../interfaces'
 import { getContext } from './getContext'
@@ -14,21 +12,17 @@ export function buildAxis(
 	frame: SceneFrame,
 	axisSpace: AxisSpace,
 ): SGMarkAny {
-	const context = getContext(axis, frame, axisSpace)
+	const context = createPopulatedContext(axis, frame, axisSpace)
 	const groupSize = getGroupSize(context, frame.view)
 	const origin = getGroupOrigin(context, frame.view)
 
 	// Build the components of the axis
 	const items: SGMarkAny[] = []
-	if (axis.domain) {
-		items.push(createDomain(context))
-	}
-	if (axis.ticks) {
-		items.push(createTickLines(context))
-	}
-	if (axis.labels) {
-		items.push(createTickLabels(context))
-	}
+	components.forEach(e => {
+		if (e.isScenegraphElementGenerated(context)) {
+			items.push(e.createScenegraphElement(context))
+		}
+	})
 
 	return buildMark(MarkType.Group)
 		.role('axis')
@@ -39,6 +33,18 @@ export function buildAxis(
 			...groupSize,
 		})
 		.build()
+}
+
+function createPopulatedContext(
+	axis: Axis,
+	frame: SceneFrame,
+	axisSpace: AxisSpace,
+): AxisContext {
+	return components.reduce((ctx, c) => c.createContext(ctx), getContext(
+		axis,
+		frame,
+		axisSpace,
+	) as Partial<AxisContext>) as AxisContext
 }
 
 function getGroupOrigin(context: AxisContext, availableSpace: ViewSize) {

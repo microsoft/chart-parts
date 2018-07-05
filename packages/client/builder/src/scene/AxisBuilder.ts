@@ -6,33 +6,49 @@ import {
 	TickValue,
 } from '@gog/interfaces'
 
-export class AxisBuilder {
-	private scaleName: string | undefined
-	private orientValue: AxisOrientation | undefined
+const DEFAULT_COLOR = '#777'
+const DEFAULT_TEXT_COLOR = '#000'
+const DEFAULT_STROKE = 1
+const DEFAULT_TICK_SIZE = 5
+const DEFAULT_FONT_SIZE = 10
+const DEFAULT_FONT = 'sans-serif'
+const DEFAULT_LABEL_PADDING = 1
+const DEFAULT_BAND_POSITION = 0.5
 
+export class AxisBuilder {
 	// #region Domain Configuration Fields
-	private domainValue: boolean | undefined = true
-	private domainColorValue: string | undefined
-	private domainWidthValue: number | undefined
+	private domainValue: boolean = true
+	private domainColorValue: string = DEFAULT_COLOR
+	private domainWidthValue: number = DEFAULT_STROKE
 	// #endregion
 
 	// #region Tick Configuration Fields
-	private ticksValue: boolean | undefined = true
-	private tickColorValue: string | undefined
-	private tickCountValue: number | TickUnit | TickUnitInterval | undefined
-	private tickOffsetValue: number | undefined
-	private tickRoundValue: boolean | undefined
-	private tickSizeValue: number | undefined
-	private tickWidthValue: number | undefined
-	private tickValues: TickValue[] | undefined
+	private ticksValue: boolean = true
+	private tickColorValue: string = DEFAULT_COLOR
+	private tickCountValue?: number | TickUnit | TickUnitInterval
+	private tickOffsetValue: number = 0
+	private tickRoundValue: boolean = false
+	private tickSizeValue: number = DEFAULT_TICK_SIZE
+	private tickWidthValue: number = DEFAULT_STROKE
+	private tickValues?: TickValue[]
 	// #endregion
 
 	// #region Label Configuration Fields
 	private labelsValue: boolean = true
-	private labelFontValue: string = 'sans-serif'
-	private labelFontSizeValue: number = 10
+	private labelFontValue: string = DEFAULT_FONT
+	private labelFontSizeValue: number = DEFAULT_FONT_SIZE
+	private labelColorValue: string = DEFAULT_TEXT_COLOR
+	private labelPaddingValue: number = DEFAULT_LABEL_PADDING
+	private bandPositionValue?: number = DEFAULT_BAND_POSITION
+	private labelFontWeightValue?: string | number
+	private labelAlignValue?: string
+	private labelAngleValue?: number
 
 	// #endregion
+	constructor(
+		private scaleName: string,
+		private orientValue: AxisOrientation,
+	) {}
 
 	// #region General Axis Config
 	/**
@@ -55,59 +71,60 @@ export class AxisBuilder {
 	// #endregion
 
 	// #region Domain Configuration
-	public domain(value: boolean | undefined): AxisBuilder {
+	public domain(value: boolean): AxisBuilder {
 		this.domainValue = value
 		return this
 	}
 
-	public domainWidth(value: number | undefined): AxisBuilder {
+	public domainWidth(value: number): AxisBuilder {
 		this.domainWidthValue = value
 		return this
 	}
 
-	public domainColor(value: string | undefined): AxisBuilder {
+	public domainColor(value: string): AxisBuilder {
 		this.domainColorValue = value
 		return this
 	}
 	// #endregion
 
 	// #region Tick Configuration
-	public ticks(value: boolean | undefined): AxisBuilder {
-		if (value !== undefined) {
-			this.ticksValue = value
-		}
+	public ticks(value: boolean): AxisBuilder {
+		this.ticksValue = value
 		return this
 	}
 
-	public tickColor(value: string | string): AxisBuilder {
+	public tickColor(value: string): AxisBuilder {
 		this.tickColorValue = value
 		return this
 	}
 
-	public tickCount(
-		value: number | TickUnit | TickUnitInterval | undefined,
-	): AxisBuilder {
+	public tickCount(value: number | TickUnit | TickUnitInterval): AxisBuilder {
 		this.tickCountValue = value
 		return this
 	}
 
-	public tickOffset(value: number | undefined): AxisBuilder {
+	public tickOffset(value: number): AxisBuilder {
 		this.tickOffsetValue = value
 		return this
 	}
 
-	public tickRound(value: boolean | undefined): AxisBuilder {
+	public tickRound(value: boolean): AxisBuilder {
 		this.tickRoundValue = value
 		return this
 	}
 
-	public tickSize(value: number | undefined): AxisBuilder {
+	public tickSize(value: number): AxisBuilder {
 		this.tickSizeValue = value
 		return this
 	}
 
-	public tickWidth(value: number | undefined): AxisBuilder {
+	public tickWidth(value: number): AxisBuilder {
 		this.tickWidthValue = value
+		return this
+	}
+
+	public bandPosition(value: number): AxisBuilder {
+		this.bandPositionValue = value
 		return this
 	}
 
@@ -134,7 +151,28 @@ export class AxisBuilder {
 		return this
 	}
 
+	public labelColor(value: string): AxisBuilder {
+		this.labelColorValue = value
+		return this
+	}
+
+	public labelPadding(value: number): AxisBuilder {
+		this.labelPaddingValue = value
+		return this
+	}
+
+	public labelFontWeight(value: number | string): AxisBuilder {
+		this.labelFontWeightValue = value
+		return this
+	}
+
+	public labelAngle(value: number): AxisBuilder {
+		this.labelAngleValue = value
+		return this
+	}
+
 	// #endregion
+
 	public build(): Axis {
 		if (!this.scaleName) {
 			throw new Error('scale name must be defined')
@@ -147,8 +185,8 @@ export class AxisBuilder {
 			scale: this.scaleName,
 			orient: this.orientValue,
 			domain: this.domainValue,
-			domainWidth: this.domainWidthValue || 1,
-			domainColor: this.domainColorValue || 'black',
+			domainWidth: this.domainWidthValue,
+			domainColor: this.domainColorValue,
 			ticks: this.ticksValue,
 			tickCount: this.tickCountValue,
 			tickColor: this.tickColorValue,
@@ -160,6 +198,12 @@ export class AxisBuilder {
 			labels: this.labelsValue,
 			labelFont: this.labelFontValue,
 			labelFontSize: this.labelFontSizeValue,
+			labelColor: this.labelColorValue,
+			labelPadding: this.labelPaddingValue,
+			labelAlign: this.labelAlignValue,
+			labelFontWeight: this.labelFontWeightValue,
+			bandPosition: this.bandPositionValue,
+			labelAngle: this.labelAngleValue,
 		}
 	}
 }

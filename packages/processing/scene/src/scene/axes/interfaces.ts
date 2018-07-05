@@ -1,4 +1,4 @@
-import { Axis, Scale, TickValue } from '@gog/interfaces'
+import { SGMark, Axis, Scale, TickValue } from '@gog/interfaces'
 import { SceneFrame } from '../SceneFrame'
 
 /**
@@ -9,20 +9,52 @@ export interface AxisContext {
 	thickness: number
 	scale: Scale<any, any>
 	range: [number, number]
-	rangeStartProperty: string
+	rangeProperty: string
 	rangeEndProperty: string
-	crossStartProperty: string
+	crossProperty: string
 	crossEndProperty: string
 	horizontal: boolean
 	topOrLeft: boolean
 	frame: SceneFrame
 
+	// Domain Data
+	domainCross: number
+	domainMinRange: number
+	domainMaxRange: number
+
 	// Tick Data
 	ticks: PositionedTickValue[]
-	tickSize: number
-	tickWidth: number
+	tickCrossStart: number
+	tickCrossEnd: number
 }
 
 export interface PositionedTickValue extends TickValue {
 	position: number
+}
+
+/**
+ * Interface for axis components such as ticks and labels
+ */
+export interface AxisComponent {
+	/**
+	 * Constructs the AxisContext object, which is used to render all axis components. Any
+	 * pieces of context which this component generates or knows about should be populated here.
+	 *
+	 * @param context The intermediate context-object, which may be partially defined at this point
+	 */
+	createContext(context: Partial<AxisContext>): Partial<AxisContext>
+
+	/**
+	 * Determines whether the axis configuration results in this component emitting any information.
+	 *
+	 * @param context The axis context object
+	 */
+	isScenegraphElementGenerated(context: AxisContext): boolean
+
+	/**
+	 * Creates the scenegraph items for this axis component
+	 *
+	 * @param context The axis context object
+	 */
+	createScenegraphElement(context: AxisContext): SGMark<any>
 }

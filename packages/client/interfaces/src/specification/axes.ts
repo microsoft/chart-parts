@@ -94,6 +94,12 @@ export interface Axis {
 	tickWidth?: number
 
 	/**
+	 * An interpolation fraction indicating where, for band scales, axis ticks should be positioned.
+	 * A value of 0 places ticks at the left edge of their bands. A value of 0.5 places ticks in the middle of their bands.
+	 */
+	bandPosition?: number
+
+	/**
 	 * 	Explicitly set the visible axis tick and label values.
 	 */
 	values?: TickValue[]
@@ -122,30 +128,9 @@ export interface Axis {
 	labelBaseline?: string
 
 	/**
-	 * Indicates if labels should be hidden if they exceed the axis range. If false (the default) no bounds overlap analysis is performed.
-	 * If true, labels will be hidden if they exceed the axis range by more than 1 pixel.
-	 * If this property is a number, it specifies the pixel tolerance: the maximum amount by which a label bounding box may exceed the axis range.
-	 */
-	labelBound?: boolean | number
-
-	/**
 	 * 	Text color of axis tick labels.
 	 */
 	labelColor?: string
-
-	/**
-	 * 	Indicates if labels at the beginning or end of the axis should be aligned flush with the scale range.
-	 * If a number, indicates a pixel distance threshold: labels with anchor coordinates within the threshold distance for an axis end-point will be flush-adjusted.
-	 * If true, a default threshold of 1 pixel is used. Flush alignment for a horizontal axis will left-align labels near the beginning of the axis and right-align
-	 * labels near the end. For vertical axes, bottom and top text baselines will be applied instead.
-	 */
-	labelFlush?: boolean | number
-
-	/**
-	 * Indicates the number of pixels by which to offset flush-adjusted labels (default 0). For example, a value of 2 will push flush-adjusted labels 2 pixels outward
-	 * from the center of the axis. Offsets can help the labels better visually group with corresponding axis ticks.
-	 */
-	labelFlushOffset?: number
 
 	/**
 	 * Font name for axis tick labels.
@@ -163,18 +148,6 @@ export interface Axis {
 	labelFontWeight?: string | number
 
 	/**
-	 * The maximum allowed length in pixels of axis tick labels.
-	 */
-	labelLimit?: number
-
-	/**
-	 * The strategy to use for resolving overlap of axis labels. If false (the default), no overlap reduction is attempted.
-	 * If set to true or "parity", a strategy of removing every other label is used (this works well for standard linear axes).
-	 * If set to "greedy", a linear scan of the labels is performed, removing any label that overlaps with the last visible label (this often works better for log-scaled axes).
-	 */
-	labelOverlap?: boolean | string
-
-	/**
 	 * The padding in pixels between labels and ticks.
 	 */
 	labelPadding?: number
@@ -182,11 +155,41 @@ export interface Axis {
 	// #endregion
 }
 
+// #region TODO: Support These Options?
+
 // /**
-//  * An interpolation fraction indicating where, for band scales, axis ticks should be positioned.
-//  * A value of 0 places ticks at the left edge of their bands. A value of 0.5 places ticks in the middle of their bands.
+//  * Indicates if labels should be hidden if they exceed the axis range. If false (the default) no bounds overlap analysis is performed.
+//  * If true, labels will be hidden if they exceed the axis range by more than 1 pixel.
+//  * If this property is a number, it specifies the pixel tolerance: the maximum amount by which a label bounding box may exceed the axis range.
 //  */
-// bandPosition?: number
+// labelBound?: boolean | number
+
+// /**
+//  * The maximum allowed length in pixels of axis tick labels.
+//  */
+// labelLimit?: number
+
+// /**
+//  * The strategy to use for resolving overlap of axis labels. If false (the default), no overlap reduction is attempted.
+//  * If set to true or "parity", a strategy of removing every other label is used (this works well for standard linear axes).
+//  * If set to "greedy", a linear scan of the labels is performed, removing any label that overlaps with the last visible label (this often works better for log-scaled axes).
+//  */
+// labelOverlap?: boolean | string
+
+// /**
+//  * 	Indicates if labels at the beginning or end of the axis should be aligned flush with the scale range.
+//  * If a number, indicates a pixel distance threshold: labels with anchor coordinates within the threshold distance for an axis end-point will be flush-adjusted.
+//  * If true, a default threshold of 1 pixel is used. Flush alignment for a horizontal axis will left-align labels near the beginning of the axis and right-align
+//  * labels near the end. For vertical axes, bottom and top text baselines will be applied instead.
+//  */
+// labelFlush?: boolean | number
+
+// /**
+//  * Indicates the number of pixels by which to offset flush-adjusted labels (default 0). For example, a value of 2 will push flush-adjusted labels 2 pixels outward
+//  * from the center of the axis. Offsets can help the labels better visually group with corresponding axis ticks.
+//  */
+// labelFlushOffset?: number
+// #endregion
 
 // // encode? Object	Optional mark encodings for custom axis styling. Supports encoding blocks for axis, ticks, grid, labels, title, and domain. See custom axis encodings.
 

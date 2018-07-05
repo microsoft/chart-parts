@@ -11,48 +11,44 @@ import {
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {
-	private childNode: SceneNodeBuilder | undefined
-	private typeVal: MarkType | undefined
-	private tableVal: string | undefined
-	private roleVal: string | undefined
-	private nameVal: string | undefined
-	private facetVal: Facet | undefined
-	private singletonVal: boolean = false
-	private channelsVal: Channels = {}
-	private encodingsVal: MarkEncodings = {}
+	private childNode?: SceneNodeBuilder
+	private singletonValue: boolean = false
+	private tableValue?: string
+	private roleValue?: string
+	private nameValue?: string
+	private facetValue?: Facet
+	private channelsValue: Channels = {}
+	private encodingsValue: MarkEncodings = {}
 
-	public type(type: MarkType): MarkBuilder {
-		this.typeVal = type
+	constructor(private type: MarkType) {}
+
+	public table(table: string): MarkBuilder {
+		this.tableValue = table
 		return this
 	}
 
-	public table(table: string | undefined): MarkBuilder {
-		this.tableVal = table
+	public role(role: string): MarkBuilder {
+		this.roleValue = role
 		return this
 	}
 
-	public role(role: string | undefined): MarkBuilder {
-		this.roleVal = role
+	public name(name: string): MarkBuilder {
+		this.nameValue = name
 		return this
 	}
 
-	public name(name: string | undefined): MarkBuilder {
-		this.nameVal = name
-		return this
-	}
-
-	public zIndex(zIndex: number | undefined): MarkBuilder {
+	public zIndex(zIndex: number): MarkBuilder {
 		if (zIndex !== undefined) {
 			this.encode('zIndex', () => zIndex)
 		} else {
-			delete this.encodingsVal.zIndex
+			delete this.encodingsValue.zIndex
 		}
 
 		return this
 	}
 
-	public singleton(value: boolean | undefined): MarkBuilder {
-		this.singletonVal = !!value
+	public singleton(value: boolean): MarkBuilder {
+		this.singletonValue = value
 		return this
 	}
 
@@ -66,11 +62,11 @@ export class MarkBuilder {
 			if (!handler) {
 				throw new Error(`handler function must be defined for handler ${name}`)
 			}
-			this.channelsVal[name] = handler
+			this.channelsValue[name] = handler
 		} else {
 			const channels = name as Channels
 			Object.entries(channels).forEach(
-				([nameVal, handlerVal]) => (this.channelsVal[nameVal] = handlerVal),
+				([nameVal, handlerVal]) => (this.channelsValue[nameVal] = handlerVal),
 			)
 		}
 
@@ -91,20 +87,20 @@ export class MarkBuilder {
 			if (!encoding) {
 				throw new Error(`encoding must be defined for key ${key}`)
 			}
-			this.encodingsVal[key] = encoding
+			this.encodingsValue[key] = encoding
 		} else {
 			// Handle encode(map) invocations
 			const encodings = first as MarkEncodings
 			Object.entries(encodings).forEach(
-				([name, entryEncoding]) => (this.encodingsVal[name] = entryEncoding),
+				([name, entryEncoding]) => (this.encodingsValue[name] = entryEncoding),
 			)
 			return this
 		}
 		return this
 	}
 
-	public facet(facet: Facet | undefined): MarkBuilder {
-		this.facetVal = facet
+	public facet(facet: Facet): MarkBuilder {
+		this.facetValue = facet
 		return this
 	}
 
@@ -119,14 +115,14 @@ export class MarkBuilder {
 
 	public build(): Mark {
 		const {
-			typeVal: type,
-			tableVal: table,
-			channelsVal: channels,
-			encodingsVal: encodings,
-			roleVal: role,
-			nameVal: name,
-			singletonVal: singleton,
-			facetVal: facet,
+			type,
+			tableValue: table,
+			channelsValue: channels,
+			encodingsValue: encodings,
+			roleValue: role,
+			nameValue: name,
+			singletonValue: singleton,
+			facetValue: facet,
 			childNode,
 		} = this
 
@@ -136,7 +132,7 @@ export class MarkBuilder {
 		if (!singleton && !table) {
 			throw new Error('mark table must be set or the mark must be a singleton')
 		}
-		if (this.facetVal && this.typeVal !== MarkType.Group) {
+		if (this.facetValue && type !== MarkType.Group) {
 			throw new Error('faceting can only be applied to group type marks')
 		}
 

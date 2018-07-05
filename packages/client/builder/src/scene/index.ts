@@ -39,44 +39,49 @@ export function scene(
  * @param type The mark type to create
  */
 export function mark(type: MarkType) {
-	return new MarkBuilder().type(type)
+	return new MarkBuilder(type)
 }
 
 //
 // Utility functions for creating typed marks
 //
 export function arc(name?: string) {
-	return mark(MarkType.Arc).name(name)
+	return markWithName(MarkType.Arc, name)
 }
 export function area(name?: string) {
-	return mark(MarkType.Area).name(name)
+	return markWithName(MarkType.Area, name)
 }
 export function group(name?: string) {
-	return mark(MarkType.Group).name(name)
+	return markWithName(MarkType.Group, name)
 }
 export function image(name?: string) {
-	return mark(MarkType.Image).name(name)
+	return markWithName(MarkType.Image, name)
 }
 export function path(name?: string) {
-	return mark(MarkType.Path).name(name)
+	return markWithName(MarkType.Path, name)
 }
 export function rect(name?: string) {
-	return mark(MarkType.Rect).name(name)
+	return markWithName(MarkType.Rect, name)
 }
 export function rule(name?: string) {
-	return mark(MarkType.Rule).name(name)
+	return markWithName(MarkType.Rule, name)
 }
 export function shape(name?: string) {
-	return mark(MarkType.Shape).name(name)
+	return markWithName(MarkType.Shape, name)
 }
 export function symbol(name?: string) {
-	return mark(MarkType.Symbol).name(name)
+	return markWithName(MarkType.Symbol, name)
 }
 export function text(name?: string) {
-	return mark(MarkType.Text).name(name)
+	return markWithName(MarkType.Text, name)
 }
 export function trail(name?: string) {
-	return mark(MarkType.Trail).name(name)
+	return markWithName(MarkType.Trail, name)
+}
+
+function markWithName(markType: MarkType, name?: string) {
+	const result = mark(markType)
+	return name ? result.name(name) : result
 }
 
 /**
@@ -85,5 +90,5 @@ export function trail(name?: string) {
  * @param orientation The positioning of the axis in the view-space
  */
 export function axis(scale: string, orientation: AxisOrientation): AxisBuilder {
-	return new AxisBuilder().scale(scale).orient(orientation)
+	return new AxisBuilder(scale, orientation)
 }

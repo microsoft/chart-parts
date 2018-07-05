@@ -6,7 +6,7 @@ import {
 	MarkEncoding,
 	ChannelHandler,
 } from '@gog/interfaces'
-import { SceneNodeBuilder, mark } from '@gog/builder'
+import { SceneNodeBuilder, mark, MarkBuilder } from '@gog/builder'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<
@@ -75,14 +75,26 @@ export abstract class BaseMark<
 		return this.api.mark(this.createMark())
 	}
 
-	protected createMark() {
-		return mark(this.markType)
+	protected createMark(): MarkBuilder {
+		const { table, name, role, singleton } = this.props
+		let result = mark(this.markType)
 			.handle(this.channels)
 			.encode(this.encodings)
-			.table(this.props.table)
-			.name(this.props.name)
-			.role(this.props.role)
-			.singleton(this.props.singleton)
+			.singleton(!!singleton)
+
+		if (table) {
+			result = result.table(table as string)
+		}
+
+		if (name) {
+			result = result.name(name as string)
+		}
+
+		if (role) {
+			result = result.role(role as string)
+		}
+
+		return result
 	}
 
 	protected abstract encodeCustomProperties(): any
