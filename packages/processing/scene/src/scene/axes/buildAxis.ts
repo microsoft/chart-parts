@@ -2,6 +2,7 @@ import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createDomain } from './components/domain'
+import { createTicks } from './components/ticks'
 import { SGMarkAny } from '../processNode'
 import { AxisSpace } from '../../interfaces'
 import { getContext } from './getContext'
@@ -14,19 +15,23 @@ export function buildAxis(
 ): SGMarkAny {
 	const context = getContext(axis, frame, axisSpace)
 	const groupSize = getGroupSize(context, frame.view)
-	const axisGroupOrigin = getGroupOrigin(context, frame.view)
+	const origin = getGroupOrigin(context, frame.view)
 
 	// Build the components of the axis
 	const items: SGMarkAny[] = []
 	if (axis.domain) {
 		items.push(createDomain(context))
 	}
+	if (axis.ticks) {
+		items.push(createTicks(context))
+	}
 
 	return buildMark(MarkType.Group)
 		.role('axis')
 		.items({
 			items,
-			...axisGroupOrigin,
+			x: origin.x,
+			y: origin.y,
 			...groupSize,
 		})
 		.build()

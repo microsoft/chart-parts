@@ -3,30 +3,36 @@ import { buildMark } from '@gog/scenegraph'
 import { AxisContext } from '../interfaces'
 
 const DEFAULT_DOMAIN_WIDTH = 0.5
+const DEFAULT_DOMAIN_COLOR = '#555'
+const BLEED = 0.5
 
 export function createDomain({
 	axis,
 	range,
 	rangeStartProperty,
 	rangeEndProperty,
-	crossProperty,
+	crossStartProperty,
 	thickness,
 }: AxisContext) {
 	const maxRange = Math.max(...range)
 	const minRange = Math.min(...range)
+
 	return buildMark(MarkType.Rule)
 		.role('axis-domain')
 		.items({
-			stroke: axis.domainColor,
-			strokeWidth: axis.domainWidth,
-			[rangeStartProperty]: minRange - 0.5,
-			[rangeEndProperty]: maxRange + 0.5,
-			[crossProperty]: getCrossValue(axis, thickness),
+			stroke: stroke(axis),
+			strokeWidth: strokeWidth(axis),
+			[rangeStartProperty]: minRange - BLEED,
+			[rangeEndProperty]: maxRange + BLEED,
+			[crossStartProperty]: crossValue(axis, thickness),
 		})
 		.build()
 }
 
-function getCrossValue(axis: Axis, thickness: number): number {
+const stroke = (axis: Axis) => axis.domainColor || DEFAULT_DOMAIN_COLOR
+const strokeWidth = (axis: Axis) => axis.domainWidth || DEFAULT_DOMAIN_WIDTH
+
+function crossValue(axis: Axis, thickness: number): number {
 	const { domainWidth, orient } = axis
 	let result = DEFAULT_DOMAIN_WIDTH
 	switch (orient) {

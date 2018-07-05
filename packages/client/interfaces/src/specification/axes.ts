@@ -5,6 +5,26 @@ export enum AxisOrientation {
 	Right = 'right',
 }
 
+export type TickUnit =
+	| 'millisecond'
+	| 'second'
+	| 'minute'
+	| 'hour'
+	| 'day'
+	| 'week'
+	| 'month'
+	| 'year'
+
+export interface TickUnitInterval {
+	interval: TickUnit
+	step: number
+}
+
+export interface TickValue {
+	value: number
+	label: string
+}
+
 /** Axis definition */
 export interface Axis {
 	/**
@@ -36,6 +56,44 @@ export interface Axis {
 	 * A boolean flag indicating if ticks should be included as part of the axis (default true).
 	 */
 	ticks?: boolean
+
+	/**
+	 * 	Color of axis ticks.
+	 */
+	tickColor?: string
+
+	/**
+	 * A desired number of ticks, for axes visualizing quantitative scales. The resulting number may be different so that values are “nice” (multiples of 2, 5, 10) and lie within the underlying scale’s range.
+	 * For scales of type time or utc, the tick count can instead be a time interval specifier.
+	 * Legal string values are "millisecond", "second", "minute", "hour", "day", "week", "month", and "year".
+	 * Alternatively, an object-valued interval specifier of the form {"interval": "month", "step": 3} includes a desired number of interval steps. Here, ticks are generated for each quarter (Jan, Apr, Jul, Oct) boundary.
+	 */
+	tickCount?: number | TickUnit | TickUnitInterval
+
+	/**
+	 * Position offset in pixels to apply to ticks, labels, and gridlines.
+	 */
+	tickOffset?: number
+
+	/**
+	 * Boolean flag indicating if pixel position values should be rounded to the nearest integer.
+	 */
+	tickRound?: boolean
+
+	/**
+	 * The length in pixels of axis ticks.
+	 */
+	tickSize?: number
+
+	/**
+	 * Width in pixels of axis ticks.
+	 */
+	tickWidth?: number
+
+	/**
+	 * 	Explicitly set the visible axis tick and label values.
+	 */
+	values?: TickValue[]
 }
 
 // /**
@@ -181,46 +239,6 @@ export interface Axis {
 // position?: number
 
 // /**
-//  * 	Color of axis ticks.
-//  */
-// tickColor?: string
-
-// /**
-//  * A desired number of ticks, for axes visualizing quantitative scales. The resulting number may be different so that values are “nice” (multiples of 2, 5, 10) and lie within the underlying scale’s range.
-//  * For scales of type time or utc, the tick count can instead be a time interval specifier.
-//  * Legal string values are "millisecond", "second", "minute", "hour", "day", "week", "month", and "year".
-//  * Alternatively, an object-valued interval specifier of the form {"interval": "month", "step": 3} includes a desired number of interval steps. Here, ticks are generated for each quarter (Jan, Apr, Jul, Oct) boundary.
-//  */
-// tickCount?: number | string | object
-
-// /**
-//  * Boolean flag indicating if an extra axis tick should be added for the initial position of the axis.
-//  * This flag is useful for styling axes for band scales such that ticks are placed on band boundaries rather in the middle of a band.
-//  * Use in conjunction with "bandPostion": 1 and an axis "padding" value of 0.
-//  */
-// tickExtra?: boolean
-
-// /**
-//  * Position offset in pixels to apply to ticks, labels, and gridlines.
-//  */
-// tickOffset?: number
-
-// /**
-//  * Boolean flag indicating if pixel position values should be rounded to the nearest integer.
-//  */
-// tickRound?: boolean
-
-// /**
-//  * The length in pixels of axis ticks.
-//  */
-// tickSize?: number
-
-// /**
-//  * Width in pixels of axis ticks.
-//  */
-// tickWidth?: number
-
-// /**
 //  * A title for the axis (none by default).
 //  */
 // title?: string
@@ -280,9 +298,18 @@ export interface Axis {
 //  */
 // titleY?: number
 
-// //values?:	Array	Explicitly set the visible axis tick and label values.
-
 // /**
 //  * The integer z-index indicating the layering of the axis group relative to other axis, mark and legend groups. The default value is 0 and axes and grid lines are drawn behind any marks defined in the same specification level. Higher values (1) will cause axes and grid lines to be drawn on top of marks.
 //  */
 // zindex?: number
+
+// #region TODO should we even support these options?
+
+// /**
+//  * Boolean flag indicating if an extra axis tick should be added for the initial position of the axis.
+//  * This flag is useful for styling axes for band scales such that ticks are placed on band boundaries rather in the middle of a band.
+//  * Use in conjunction with "bandPostion": 1 and an axis "padding" value of 0.
+//  */
+// tickExtra?: boolean
+
+// #endregion

@@ -34,7 +34,7 @@ export abstract class QuantitativeScale<
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value?: boolean | number | string | object) {
+	public nice(value: boolean | number | string | object = true) {
 		this.niceValue = value
 		return this
 	}
@@ -82,7 +82,6 @@ export abstract class QuantitativeScale<
 		} else if (this.niceValue !== undefined) {
 			scale.nice(this.niceValue)
 		}
-
 		if (this.clampValue !== undefined) {
 			scale.clamp(this.clampValue)
 		}

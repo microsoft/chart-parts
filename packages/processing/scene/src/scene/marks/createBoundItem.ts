@@ -124,21 +124,8 @@ function transferEncodings(
 				data,
 				tables: frame.data,
 			}
-			const value = scrubbed(key, encoding(dataContext, frame.scales))
+			const value = encoding(dataContext, frame.scales)
 			props[key] = value
 		})
 	return props
-}
-
-const scrubbedKeys: Set<string> = new Set()
-scrubbedKeys.add('x')
-scrubbedKeys.add('x2')
-scrubbedKeys.add('y')
-scrubbedKeys.add('y2')
-scrubbedKeys.add('width')
-scrubbedKeys.add('height')
-
-// TODO: Is this really adding any value?
-function scrubbed(key: string, value: any) {
-	return scrubbedKeys.has(key) ? Math.min(value) : value
 }

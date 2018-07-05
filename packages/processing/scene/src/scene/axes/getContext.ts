@@ -36,7 +36,8 @@ export function getContext(
 		frame: axisFrame,
 		rangeStartProperty: horizontal ? 'x' : 'y',
 		rangeEndProperty: horizontal ? 'x2' : 'y2',
-		crossProperty: horizontal ? 'y' : 'x',
+		crossStartProperty: horizontal ? 'y' : 'x',
+		crossEndProperty: horizontal ? 'y2' : 'x2',
 	}
 }
 

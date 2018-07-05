@@ -1,4 +1,4 @@
-import { Axis, Scale } from '@gog/interfaces'
+import { Axis, Scale, TickValue } from '@gog/interfaces'
 import { SceneFrame } from '../SceneFrame'
 
 /**
@@ -11,7 +11,17 @@ export interface AxisContext {
 	range: [number, number]
 	rangeStartProperty: string
 	rangeEndProperty: string
-	crossProperty: string
+	crossStartProperty: string
+	crossEndProperty: string
 	horizontal: boolean
 	frame: SceneFrame
+
+	// Tick Data
+	ticks?: PositionedTickValue[]
+	tickSize?: number
+	tickWidth?: number
+}
+
+export interface PositionedTickValue extends TickValue {
+	position: number
 }

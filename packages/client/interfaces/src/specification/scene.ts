@@ -208,6 +208,9 @@ export interface Scale<In, Out> {
 
 	range?: () => Out[]
 	domain?: () => In[]
+	ticks?: any
+	tickFormat?: any
+	bandwidth?: any
 }
 
 /**
