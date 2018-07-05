@@ -80,14 +80,14 @@ export class BarChart extends React.Component<{}, BarChartState> {
 								},
 							}),
 					),
-			{ width: 400, height: 200 },
+			{ width: 800, height: 400 },
 		).build()
 	}
 
 	public render() {
 		return pipeline.handleData(
 			this.chart,
-			{ width: 400, height: 200, padding: 30 },
+			{ width: 800, height: 400, padding: 30 },
 			{ data },
 		)
 	}

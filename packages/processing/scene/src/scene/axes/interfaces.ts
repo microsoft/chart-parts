@@ -14,6 +14,7 @@ export interface AxisContext {
 	crossStartProperty: string
 	crossEndProperty: string
 	horizontal: boolean
+	topOrLeft: boolean
 	frame: SceneFrame
 
 	// Tick Data

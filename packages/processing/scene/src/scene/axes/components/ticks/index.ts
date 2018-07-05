@@ -39,23 +39,22 @@ function createTickItem(
 	} = context
 	return {
 		[context.rangeStartProperty]: tick.position + strokeWidth,
-		[context.crossStartProperty]: crossStart,
-		[context.crossEndProperty]: crossEnd,
+		[context.crossStartProperty]: crossStart + DEFAULT_TICK_WIDTH / 2,
+		[context.crossEndProperty]:
+			crossEnd + (context.topOrLeft ? strokeWidth : 0),
 		stroke,
 		strokeWidth,
 	}
 }
 
 function getCrossStart(context: AxisContext) {
-	return context.axis.orient === AxisOrientation.Top ||
-		context.axis.orient === AxisOrientation.Left
+	return context.topOrLeft
 		? context.thickness - tickSize(context.axis)
 		: tickSize(context.axis)
 }
 
 function getCrossEnd(context: AxisContext) {
-	return context.axis.orient === AxisOrientation.Top ||
-		context.axis.orient === AxisOrientation.Left
-		? context.thickness - (context.tickWidth || 0.5)
-		: 0.5
+	return context.topOrLeft
+		? context.thickness - (context.tickWidth || DEFAULT_TICK_WIDTH)
+		: DEFAULT_TICK_WIDTH
 }

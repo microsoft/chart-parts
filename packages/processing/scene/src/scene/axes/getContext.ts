@@ -27,12 +27,16 @@ export function getContext(
 		axis.orient === AxisOrientation.Top ||
 		axis.orient === AxisOrientation.Bottom
 
+	const topOrLeft =
+		axis.orient === AxisOrientation.Top || axis.orient === AxisOrientation.Left
+
 	return {
 		axis,
 		range,
 		scale,
 		thickness,
 		horizontal,
+		topOrLeft,
 		frame: axisFrame,
 		rangeStartProperty: horizontal ? 'x' : 'y',
 		rangeEndProperty: horizontal ? 'x2' : 'y2',

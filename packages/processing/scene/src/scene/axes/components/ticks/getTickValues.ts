@@ -1,6 +1,8 @@
 import { Axis, Scale } from '@gog/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
 
+const DEFAULT_TICK_WIDTH = 0.5
+
 /**
  * Gets logical tick values and their associated labels
  * @param context The axis context
@@ -14,7 +16,7 @@ export function getTickValues(context: AxisContext): PositionedTickValue[] {
 
 	// Try to get the ticks from the `tick` utility built into d3 scales
 	return scale.ticks
-		? getTicksFromScaleTicks(axis, scale)
+		? getTicksFromScaleTicks(context)
 		: scale.domain
 			? getTicksFromScaleDomain(axis, scale)
 			: []
@@ -29,7 +31,8 @@ function getDomainScaleValue(
 	return round ? Math.round(result) : result
 }
 
-function getTicksFromScaleTicks(axis: Axis, scale: Scale<any, any>) {
+function getTicksFromScaleTicks(context: AxisContext) {
+	const { axis, scale, tickWidth = DEFAULT_TICK_WIDTH } = context
 	if (!scale.ticks) {
 		throw new Error('cannot extract scale domain')
 	}
@@ -39,7 +42,9 @@ function getTicksFromScaleTicks(axis: Axis, scale: Scale<any, any>) {
 		const position = scale(t)
 		return {
 			value: t,
-			position: axis.tickRound ? Math.round(position) : position,
+			position: axis.tickRound
+				? Math.round(position)
+				: position - tickWidth / 2,
 			label: `${t}`,
 		}
 	})
