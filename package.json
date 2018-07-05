@@ -6,7 +6,7 @@
 		"clean": "lerna run clean",
 		"build": "lerna run build --stream",
 		"start:packages": "lerna run start --parallel --stream",
-		"lint": "tslint packages/*/*/src/**/*.ts*",
+		"lint": "tslint \"packages/{client,examples,renderers,processing,util}/*/src/**/*.ts*\"",
 		"unit_test": "jest --coverage",
 		"test": "run-s lint build unit_test",
 		"start": "run-s build start:packages"

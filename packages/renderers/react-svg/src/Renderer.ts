@@ -1,6 +1,11 @@
 import * as React from 'react'
-import { VSvgNode, VSvgTransformType, VSvgTransform } from '@gog/interfaces'
-import { ChannelHandler, HandlerMetadata } from '@gog/interfaces'
+import {
+	VSvgNode,
+	VSvgTransformType,
+	VSvgTransform,
+	ChannelHandler,
+	HandlerMetadata,
+} from '@gog/interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,

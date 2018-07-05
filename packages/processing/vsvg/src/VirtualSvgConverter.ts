@@ -1,7 +1,11 @@
-import { SGMark } from '@gog/interfaces'
-import { ScenegraphConverter, ChartOptions } from '@gog/interfaces'
-import { VSvgNode } from '@gog/interfaces'
-import { DEFAULT_HEIGHT, DEFAULT_WIDTH } from '@gog/interfaces'
+import {
+	SGMark,
+	ScenegraphConverter,
+	ChartOptions,
+	VSvgNode,
+	DEFAULT_HEIGHT,
+	DEFAULT_WIDTH,
+} from '@gog/interfaces'
 import { renderMark } from './element_renderers'
 import { translate } from './element_renderers/interfaces'
 

@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGArcItem } from '@gog/interfaces'
+import { MarkType, SGArcItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class ArcItem extends Item implements SGArcItem {

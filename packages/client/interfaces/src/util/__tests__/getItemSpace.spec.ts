@@ -1,3 +1,4 @@
+// tslint:disable no-submodule-imports no-implicit-dependencies
 import { RectItem } from '@gog/scenegraph/lib/elements/items/RectItem'
 import { getItemSpace } from '../getItemSpace'
 

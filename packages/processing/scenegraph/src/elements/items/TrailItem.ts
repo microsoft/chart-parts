@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGTrailItem } from '@gog/interfaces'
+import { MarkType, SGTrailItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class TrailItem extends Item implements SGTrailItem {

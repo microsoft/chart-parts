@@ -27,6 +27,13 @@ export class AxisBuilder {
 	private tickValues: TickValue[] | undefined
 	// #endregion
 
+	// #region Label Configuration Fields
+	private labelsValue: boolean = true
+	private labelFontValue: string = 'sans-serif'
+	private labelFontSizeValue: number = 10
+
+	// #endregion
+
 	// #region General Axis Config
 	/**
 	 * Sets the name of the scale to use for drawing this axis.
@@ -66,7 +73,9 @@ export class AxisBuilder {
 
 	// #region Tick Configuration
 	public ticks(value: boolean | undefined): AxisBuilder {
-		this.ticksValue = value
+		if (value !== undefined) {
+			this.ticksValue = value
+		}
 		return this
 	}
 
@@ -109,6 +118,23 @@ export class AxisBuilder {
 
 	// #endregion
 
+	// #region Labels Configuratino
+	public labels(value: boolean): AxisBuilder {
+		this.labelsValue = value
+		return this
+	}
+
+	public labelFont(value: string): AxisBuilder {
+		this.labelFontValue = value
+		return this
+	}
+
+	public labelFontSize(value: number): AxisBuilder {
+		this.labelFontSizeValue = value
+		return this
+	}
+
+	// #endregion
 	public build(): Axis {
 		if (!this.scaleName) {
 			throw new Error('scale name must be defined')
@@ -131,6 +157,9 @@ export class AxisBuilder {
 			tickSize: this.tickSizeValue,
 			tickWidth: this.tickWidthValue,
 			values: this.tickValues,
+			labels: this.labelsValue,
+			labelFont: this.labelFontValue,
+			labelFontSize: this.labelFontSizeValue,
 		}
 	}
 }

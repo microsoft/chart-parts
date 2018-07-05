@@ -2,7 +2,8 @@ import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createDomain } from './components/domain'
-import { createTicks } from './components/ticks'
+import { createTickLines } from './components/tickLines'
+import { createTickLabels } from './components/tickLabels'
 import { SGMarkAny } from '../processNode'
 import { AxisSpace } from '../../interfaces'
 import { getContext } from './getContext'
@@ -23,7 +24,10 @@ export function buildAxis(
 		items.push(createDomain(context))
 	}
 	if (axis.ticks) {
-		items.push(createTicks(context))
+		items.push(createTickLines(context))
+	}
+	if (axis.labels) {
+		items.push(createTickLabels(context))
 	}
 
 	return buildMark(MarkType.Group)

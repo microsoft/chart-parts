@@ -1,5 +1,4 @@
-import { MarkType } from '@gog/interfaces'
-import { SGShapeItem } from '@gog/interfaces'
+import { MarkType, SGShapeItem } from '@gog/interfaces'
 import { Item } from './Item'
 
 export class ShapeItem extends Item implements SGShapeItem {

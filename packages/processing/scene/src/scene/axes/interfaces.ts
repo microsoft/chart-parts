@@ -18,9 +18,9 @@ export interface AxisContext {
 	frame: SceneFrame
 
 	// Tick Data
-	ticks?: PositionedTickValue[]
-	tickSize?: number
-	tickWidth?: number
+	ticks: PositionedTickValue[]
+	tickSize: number
+	tickWidth: number
 }
 
 export interface PositionedTickValue extends TickValue {

@@ -1,5 +1,5 @@
 import { Axis, Scale } from '@gog/interfaces'
-import { AxisContext, PositionedTickValue } from '../../interfaces'
+import { AxisContext, PositionedTickValue } from './interfaces'
 
 const DEFAULT_TICK_WIDTH = 1
 
