@@ -12,8 +12,8 @@ export class AxisBuilder {
 
 	// #region Domain Configuration Fields
 	private domainValue: boolean | undefined = true
-	private domainColorValue: string | undefined = '#555'
-	private domainWidthValue: number | undefined = 0.5
+	private domainColorValue: string | undefined
+	private domainWidthValue: number | undefined
 	// #endregion
 
 	// #region Tick Configuration Fields

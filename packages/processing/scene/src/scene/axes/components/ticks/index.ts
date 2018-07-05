@@ -1,10 +1,10 @@
-import { Axis, MarkType, AxisOrientation } from '@gog/interfaces'
+import { Axis, MarkType } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
 import { getTickValues } from './getTickValues'
 
 const DEFAULT_TICK_COLOR = '#555'
-const DEFAULT_TICK_WIDTH = 0.5
+const DEFAULT_TICK_WIDTH = 1
 const DEFAULT_TICK_SIZE = 5
 
 const tickSize = (axis: Axis) => axis.tickSize || DEFAULT_TICK_SIZE

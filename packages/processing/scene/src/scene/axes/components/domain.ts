@@ -2,7 +2,7 @@ import { Axis, MarkType, AxisOrientation } from '@gog/interfaces'
 import { buildMark } from '@gog/scenegraph'
 import { AxisContext } from '../interfaces'
 
-const DEFAULT_DOMAIN_WIDTH = 0.5
+const DEFAULT_DOMAIN_WIDTH = 1
 const DEFAULT_DOMAIN_COLOR = '#555'
 
 export function createDomain({

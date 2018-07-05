@@ -1,7 +1,7 @@
 import { Axis, Scale } from '@gog/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
 
-const DEFAULT_TICK_WIDTH = 0.5
+const DEFAULT_TICK_WIDTH = 1
 
 /**
  * Gets logical tick values and their associated labels
