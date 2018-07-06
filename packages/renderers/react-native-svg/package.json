@@ -1,7 +1,6 @@
 {
 	"name": "@gog/react-native-svg-renderer",
 	"description": "A virtual dom renderer that emits react-native-svg elements",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

@@ -1,7 +1,6 @@
 {
 	"name": "@gog/transform",
 	"description": "Data transformation utilities",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

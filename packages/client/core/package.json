@@ -1,7 +1,6 @@
 {
 	"name": "@gog/core",
 	"description": "The central entry point for interacting with the graphics system",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

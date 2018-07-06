@@ -1,7 +1,6 @@
 {
 	"name": "@gog/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

@@ -1,7 +1,6 @@
 {
 	"name": "@gog/react",
 	"description": "React Utilities for the Gog system",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

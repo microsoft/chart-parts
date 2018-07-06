@@ -1,7 +1,6 @@
 {
 	"name": "@gog/scales",
 	"description": "Scaling utilities for Gog",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

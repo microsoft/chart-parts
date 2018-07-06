@@ -1,7 +1,6 @@
 {
 	"name": "@gog/scenegraph",
 	"description": "A library that parses Vega scenegraphs into an object model",
-	"private": true,
 	"version": "0.0.0",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
