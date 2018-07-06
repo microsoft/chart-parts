@@ -1,9 +1,8 @@
 import * as React from 'react'
+import { AxisOrientation } from '@gog/interfaces'
 import { SceneNodeBuilder, axis } from '@gog/builder'
 import { SceneNodeBuilderConsumer } from './Context'
 import { TickValue } from '@gog/core'
-
-export type AxisOrientation = 'top' | 'left' | 'bottom' | 'right'
 
 /**
  * Axis Component Props
