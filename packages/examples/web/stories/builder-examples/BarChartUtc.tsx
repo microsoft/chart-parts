@@ -1,9 +1,9 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@gog/react-svg-renderer'
-import { scene, rect, axis } from '@gog/builder'
+import { scene, rect, area, axis } from '@gog/builder'
 import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
-import { linear, time } from '@gog/scales'
+import { linear, time, band } from '@gog/scales'
 import { VirtualSvgPipeline } from '@gog/core'
 
 const renderer = new Renderer()
@@ -47,6 +47,10 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 							.bindDomain('date')
 							.bindRange(Dimension.Width)
 							.nice(),
+						band('xband', 'xbandwidth')
+							.table('data')
+							.bindDomain('date')
+							.bindRange(Dimension.Width),
 					)
 					.axes(
 						axis('y', AxisOrientation.Left),
@@ -55,15 +59,25 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 							.labelFormat('%b %m %d'),
 					)
 					.mark(
-						rect()
+						area('dataline')
 							.table('data')
 							.encode({
-								x: ({ datum }, { x }) => x(datum.date),
+								x: ({ datum }, { xband }) => xband(datum.date),
 								y: ({ datum }, { y }) => y(datum.amount),
 								y2: (d, { y }) => y(0),
-								width: () => 3,
+								stroke: () => 'black',
+								strokeWidth: () => 0.5,
+								fill: () => 'green',
+							}),
+						rect('highlight')
+							.table('data')
+							.encode({
+								x: ({ datum }, { xband }) => xband(datum.date),
+								y: ({ datum }, { y }) => y(datum.amount),
+								y2: (d, { y }) => y(0),
+								width: (d, { xbandwidth }) => xbandwidth(),
 								fill: ({ index }) =>
-									isHovered(index) ? 'firebrick' : 'steelblue',
+									isHovered(index) ? 'firebrick' : 'transparent',
 							})
 							.handle({
 								onMouseEnter: (evt, { index }) => {

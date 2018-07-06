@@ -57,6 +57,9 @@ export function group(name?: string) {
 export function image(name?: string) {
 	return markWithName(MarkType.Image, name)
 }
+export function line(name?: string) {
+	return markWithName(MarkType.Line, name)
+}
 export function path(name?: string) {
 	return markWithName(MarkType.Path, name)
 }
