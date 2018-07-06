@@ -50,21 +50,59 @@ function getRemainingSpace(frame: SceneFrame, axisSpace: AxisSpace): ItemSpace {
  * @param frame
  */
 function getAxisSpace(frame: SceneFrame) {
-	const result = { top: 0, left: 0, bottom: 0, right: 0 }
+	/**
+	 * Hard space is space required by an axis. Soft space is space
+	 * required for labels to not bleed over the edge. Soft space is only used
+	 * if hard space is zero.
+	 */
+	const space = {
+		top: {
+			hard: 0,
+			soft: 0,
+		},
+		left: {
+			hard: 0,
+			soft: 0,
+		},
+		bottom: {
+			hard: 0,
+			soft: 0,
+		},
+		right: {
+			hard: 0,
+			soft: 0,
+		},
+	}
+
 	frame.node.axes.forEach(a => {
 		const thickness = axisThickness(a)
+		const fontSize = a.labelFontSize as number
+		const fontPad = fontSize / 2
 		switch (a.orient) {
 			case AxisOrientation.Top:
-				result.top = Math.max(result.top, thickness)
+				space.top.hard = Math.max(space.top.hard, thickness)
+				break
 			case AxisOrientation.Right:
-				result.right = Math.max(result.right, thickness)
+				space.right.hard = Math.max(space.right.hard, thickness)
+				space.top.soft = Math.max(space.top.soft, fontPad)
+				space.bottom.soft = Math.max(space.top.soft, fontPad)
+				break
 			case AxisOrientation.Bottom:
-				result.bottom = Math.max(result.bottom, thickness)
+				space.bottom.hard = Math.max(space.bottom.hard, thickness)
+				break
 			case AxisOrientation.Left:
-				result.left = Math.max(result.left, thickness)
+				space.left.hard = Math.max(space.left.hard, thickness)
+				space.top.soft = Math.max(space.top.soft, fontPad)
+				space.bottom.soft = Math.max(space.top.soft, fontPad)
+				break
 		}
 	})
-	return result
+	return {
+		top: Math.max(space.top.hard, space.top.soft),
+		left: Math.max(space.left.hard, space.left.soft),
+		bottom: Math.max(space.bottom.hard, space.bottom.soft),
+		right: Math.max(space.right.hard, space.right.soft),
+	}
 }
 
 function axisThickness(axis: Axis) {

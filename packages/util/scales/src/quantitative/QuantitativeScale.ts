@@ -53,7 +53,8 @@ export abstract class QuantitativeScale<
 		values: QuantitativeValue[],
 	): [DomainValue, DomainValue] {
 		const result = extent(values as any[]) as [DomainValue, DomainValue]
-		if (this.zero && !this.domainContainsZero(result)) {
+
+		if (this.getZero() && !this.domainContainsZero(result)) {
 			const [min, max] = result
 			const zero = 0 as DomainValue
 			return 0 < min ? [zero, max] : [min, zero]

@@ -6,19 +6,17 @@ import {
 	PositionedTickValue,
 } from '../../interfaces'
 import { getTickValues } from './getTickValues'
+import { getLabelFormatter } from './getLabelFormatter'
 
 export class TickLines implements AxisComponent {
 	public createContext(context: AxisContext) {
 		const tickCrossStart = getTickCrossStart(context as AxisContext)
 		const tickCrossEnd = getTickCrossEnd(context as AxisContext)
+		const labelFormatter = getLabelFormatter(context)
+		context = { ...context, labelFormatter, tickCrossEnd, tickCrossStart }
 		const ticks = getTickValues(context as AxisContext)
-
-		return {
-			...context,
-			ticks,
-			tickCrossStart,
-			tickCrossEnd,
-		}
+		context = { ...context, ticks }
+		return context
 	}
 
 	public isScenegraphElementGenerated(context: AxisContext): boolean {

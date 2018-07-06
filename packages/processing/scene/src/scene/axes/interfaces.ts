@@ -26,6 +26,9 @@ export interface AxisContext {
 	ticks: PositionedTickValue[]
 	tickCrossStart: number
 	tickCrossEnd: number
+
+	// Labels
+	labelFormatter: (input: any) => string
 }
 
 export interface PositionedTickValue extends TickValue {

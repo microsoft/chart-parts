@@ -211,6 +211,11 @@ export interface Scale<In, Out> {
 	ticks?: any
 	tickFormat?: any
 	bandwidth?: any
+
+	/**
+	 * The kind of scale this is, used for downstream logic (e.g. utc, time, etc..)
+	 */
+	__scaletype__?: string
 }
 
 /**

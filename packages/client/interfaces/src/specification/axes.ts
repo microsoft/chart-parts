@@ -152,6 +152,12 @@ export interface Axis {
 	 */
 	labelPadding?: number
 
+	/**
+	 * The format specifier pattern for axis labels. For numerical values, must be a legal d3-format specifier.
+	 * For date-time values, must be a legal d3-time-format specifier.
+	 */
+	labelFormat?: string
+
 	// #endregion
 }
 
@@ -192,12 +198,6 @@ export interface Axis {
 // #endregion
 
 // // encode? Object	Optional mark encodings for custom axis styling. Supports encoding blocks for axis, ticks, grid, labels, title, and domain. See custom axis encodings.
-
-// /**
-//  * The format specifier pattern for axis labels. For numerical values, must be a legal d3-format specifier.
-//  * For date-time values, must be a legal d3-time-format specifier.
-//  */
-// format?: string
 
 // /**
 //  * A boolean flag indicating if grid lines should be included as part of the axis (default false).

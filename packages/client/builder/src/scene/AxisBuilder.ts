@@ -43,6 +43,7 @@ export class AxisBuilder {
 	private labelFontWeightValue?: string | number
 	private labelAlignValue?: string
 	private labelAngleValue?: number
+	private labelFormatValue?: string
 
 	// #endregion
 	constructor(
@@ -171,6 +172,11 @@ export class AxisBuilder {
 		return this
 	}
 
+	public labelFormat(value: string): AxisBuilder {
+		this.labelFormatValue = value
+		return this
+	}
+
 	// #endregion
 
 	public build(): Axis {
@@ -204,6 +210,7 @@ export class AxisBuilder {
 			labelFontWeight: this.labelFontWeightValue,
 			bandPosition: this.bandPositionValue,
 			labelAngle: this.labelAngleValue,
+			labelFormat: this.labelFormatValue,
 		}
 	}
 }

@@ -21,7 +21,8 @@ export function getTickValues(context: AxisContext): PositionedTickValue[] {
 }
 
 function getDomainScaleValue(t: any, scale: Scale<any, any>, axis: Axis) {
-	const { tickRound, bandPosition } = axis
+	const tickRound = axis.tickRound
+	const bandPosition = axis.bandPosition as number
 	const result = scale.bandwidth
 		? scale(t) + scale.bandwidth() * bandPosition
 		: t
@@ -45,7 +46,7 @@ function getTicksFromScaleTicks(context: AxisContext) {
 			position: axis.tickRound
 				? Math.round(position)
 				: position - tickWidth / 2,
-			label: `${t}`,
+			label: context.labelFormatter(t),
 		}
 	})
 }

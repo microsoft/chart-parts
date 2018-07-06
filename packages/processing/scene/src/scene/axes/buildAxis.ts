@@ -40,11 +40,11 @@ function createPopulatedContext(
 	frame: SceneFrame,
 	axisSpace: AxisSpace,
 ): AxisContext {
-	return components.reduce((ctx, c) => c.createContext(ctx), getContext(
-		axis,
-		frame,
-		axisSpace,
-	) as Partial<AxisContext>) as AxisContext
+	const initialContext = getContext(axis, frame, axisSpace)
+
+	let result = initialContext
+	components.forEach(component => (result = component.createContext(result)))
+	return result as AxisContext
 }
 
 function getGroupOrigin(context: AxisContext, availableSpace: ViewSize) {

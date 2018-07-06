@@ -14,7 +14,7 @@ import {
 
 export class TickLabels implements AxisComponent {
 	public createContext(context: Partial<AxisContext>) {
-		return { ...context }
+		return context
 	}
 
 	public isScenegraphElementGenerated(context: AxisContext) {
