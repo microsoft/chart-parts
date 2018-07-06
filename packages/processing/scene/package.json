@@ -1,7 +1,7 @@
 {
 	"name": "@gog/scene",
 	"description": "GoG Scene-to-Scenegraph Processing",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -14,8 +14,8 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "0.0.0",
-		"@gog/scenegraph": "0.0.0",
+		"@gog/interfaces": "^0.0.1",
+		"@gog/scenegraph": "^0.0.1",
 		"@types/d3-format": "^1.3.0",
 		"@types/d3-time-format": "^2.1.0",
 		"d3-format": "^1.3.0",
