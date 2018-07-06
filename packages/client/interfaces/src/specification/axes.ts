@@ -5,21 +5,6 @@ export enum AxisOrientation {
 	Right = 'right',
 }
 
-export type TickUnit =
-	| 'millisecond'
-	| 'second'
-	| 'minute'
-	| 'hour'
-	| 'day'
-	| 'week'
-	| 'month'
-	| 'year'
-
-export interface TickUnitInterval {
-	interval: TickUnit
-	step: number
-}
-
 export interface TickValue {
 	value: number
 	label: string
@@ -71,7 +56,7 @@ export interface Axis {
 	 * Legal string values are "millisecond", "second", "minute", "hour", "day", "week", "month", and "year".
 	 * Alternatively, an object-valued interval specifier of the form {"interval": "month", "step": 3} includes a desired number of interval steps. Here, ticks are generated for each quarter (Jan, Apr, Jul, Oct) boundary.
 	 */
-	tickCount?: number | TickUnit | TickUnitInterval
+	tickCount?: number
 
 	/**
 	 * Position offset in pixels to apply to ticks, labels, and gridlines.
@@ -195,6 +180,24 @@ export interface Axis {
 //  * from the center of the axis. Offsets can help the labels better visually group with corresponding axis ticks.
 //  */
 // labelFlushOffset?: number
+
+// Tick Count Options
+
+// export type TickUnit =
+// 	| 'millisecond'
+// 	| 'second'
+// 	| 'minute'
+// 	| 'hour'
+// 	| 'day'
+// 	| 'week'
+// 	| 'month'
+// 	| 'year'
+
+// export interface TickUnitInterval {
+// 	interval: TickUnit
+// 	step: number
+// }
+
 // #endregion
 
 // // encode? Object	Optional mark encodings for custom axis styling. Supports encoding blocks for axis, ticks, grid, labels, title, and domain. See custom axis encodings.

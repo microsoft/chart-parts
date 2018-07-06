@@ -1,10 +1,4 @@
-import {
-	Axis,
-	AxisOrientation,
-	TickUnit,
-	TickUnitInterval,
-	TickValue,
-} from '@gog/interfaces'
+import { Axis, AxisOrientation, TickValue } from '@gog/interfaces'
 
 const DEFAULT_COLOR = '#777'
 const DEFAULT_TEXT_COLOR = '#000'
@@ -25,7 +19,7 @@ export class AxisBuilder {
 	// #region Tick Configuration Fields
 	private ticksValue: boolean = true
 	private tickColorValue: string = DEFAULT_COLOR
-	private tickCountValue?: number | TickUnit | TickUnitInterval
+	private tickCountValue?: number
 	private tickOffsetValue: number = 0
 	private tickRoundValue: boolean = false
 	private tickSizeValue: number = DEFAULT_TICK_SIZE
@@ -99,7 +93,7 @@ export class AxisBuilder {
 		return this
 	}
 
-	public tickCount(value: number | TickUnit | TickUnitInterval): AxisBuilder {
+	public tickCount(value: number): AxisBuilder {
 		this.tickCountValue = value
 		return this
 	}
