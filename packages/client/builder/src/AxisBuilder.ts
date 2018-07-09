@@ -40,30 +40,14 @@ export class AxisBuilder {
 	private labelFormatValue?: string
 
 	// #endregion
-	constructor(
-		private scaleName: string,
-		private orientValue: AxisOrientation,
-	) {}
-
-	// #region General Axis Config
-	/**
-	 * Sets the name of the scale to use for drawing this axis.
-	 * @param value The name of the scale to use
-	 */
-	public scale(value: string): AxisBuilder {
-		this.scaleName = value
-		return this
+	constructor(private scaleName: string, private orientValue: AxisOrientation) {
+		if (!this.scaleName) {
+			throw new Error('scale name must be defined')
+		}
+		if (!this.orientValue) {
+			throw new Error('axis orientation must be defined')
+		}
 	}
-
-	/**
-	 * Sets the axis orientation, which is where in the view-space this
-	 * axis will be drawn
-	 */
-	public orient(value: AxisOrientation): AxisBuilder {
-		this.orientValue = value
-		return this
-	}
-	// #endregion
 
 	// #region Domain Configuration
 	public domain(value: boolean): AxisBuilder {
@@ -174,13 +158,6 @@ export class AxisBuilder {
 	// #endregion
 
 	public build(): Axis {
-		if (!this.scaleName) {
-			throw new Error('scale name must be defined')
-		}
-		if (!this.orientValue) {
-			throw new Error('axis orientation must be defined')
-		}
-
 		return {
 			scale: this.scaleName,
 			orient: this.orientValue,
