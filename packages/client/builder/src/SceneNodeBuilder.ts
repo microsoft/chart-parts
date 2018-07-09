@@ -1,5 +1,5 @@
 // tslint:disable no-this-assignment
-import { SceneNode, ScaleCreator } from '@gog/interfaces'
+import { SceneNode, ScaleCreator } from '../../interfaces/lib'
 import { MarkBuilder } from './MarkBuilder'
 import { AxisBuilder } from './AxisBuilder'
 

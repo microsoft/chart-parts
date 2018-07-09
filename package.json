@@ -75,9 +75,10 @@
 			"^.+\\.tsx?$": "ts-jest"
 		},
 		"testMatch": [
-			"**/__tests__/**/*.ts(x|)"
+			"**/__tests__/**/*.spec.ts(x|)"
 		],
 		"collectCoverageFrom": [
+			"**/src/*.{ts,tsx}",
 			"**/src/**/*.{ts,tsx}",
 			"!packages/examples/testdata/**",
 			"!**/__tests__/**"

@@ -7,7 +7,7 @@ import {
 	MarkEncodings,
 	Facet,
 	MarkType,
-} from '@gog/interfaces'
+} from '../../interfaces/lib'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {
@@ -47,8 +47,8 @@ export class MarkBuilder {
 		return this
 	}
 
-	public singleton(value: boolean): MarkBuilder {
-		this.singletonValue = value
+	public singleton(value?: boolean): MarkBuilder {
+		this.singletonValue = value === undefined ? true : value
 		return this
 	}
 
@@ -100,6 +100,9 @@ export class MarkBuilder {
 	}
 
 	public facet(facet: Facet): MarkBuilder {
+		if (facet !== undefined && this.type !== MarkType.Group) {
+			throw new Error('faceting can only be applied to group type marks')
+		}
 		this.facetValue = facet
 		return this
 	}
@@ -131,9 +134,6 @@ export class MarkBuilder {
 		}
 		if (!singleton && !table) {
 			throw new Error('mark table must be set or the mark must be a singleton')
-		}
-		if (this.facetValue && type !== MarkType.Group) {
-			throw new Error('faceting can only be applied to group type marks')
 		}
 
 		return {

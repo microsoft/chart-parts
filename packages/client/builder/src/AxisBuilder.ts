@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation, TickValue } from '@gog/interfaces'
+import { Axis, AxisOrientation, TickValue } from '../../interfaces/lib'
 
 const DEFAULT_COLOR = '#777'
 const DEFAULT_TEXT_COLOR = '#000'
