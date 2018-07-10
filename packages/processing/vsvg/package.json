@@ -11,12 +11,12 @@
 	},
 	"devDependencies": {
 		"@gog/scenegraph": "^0.0.1",
-		"@types/d3-path": "^1.0.7",
-		"@types/d3-shape": "^1.2.3",
 		"rimraf": "^2.6.2",
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
+		"@types/d3-path": "^1.0.7",
+		"@types/d3-shape": "^1.2.3",
 		"@gog/interfaces": "^0.0.1",
 		"@gog/shapes": "^0.0.1",
 		"d3-path": "^1.0.5",
