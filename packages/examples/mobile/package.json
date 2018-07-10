@@ -1,6 +1,6 @@
 {
   "name": "@gog/examples-mobile",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": true,
   "scripts": {
     "rn:start": "node node_modules/react-native/local-cli/cli.js start",
@@ -11,10 +11,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@gog/core": "^0.0.1",
-    "@gog/react": "^0.0.1",
-    "@gog/react-native-svg-renderer": "^0.0.1",
-    "@gog/testdata": "^0.0.1",
+    "@gog/core": "^0.0.2",
+    "@gog/react": "^0.0.2",
+    "@gog/react-native-svg-renderer": "^0.0.2",
+    "@gog/testdata": "^0.0.2",
     "react": "^16.4.1",
     "react-native": "0.55.4",
     "react-native-svg": "^5.x"

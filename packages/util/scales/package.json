@@ -1,7 +1,7 @@
 {
 	"name": "@gog/scales",
 	"description": "Scaling utilities for Gog",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -14,9 +14,9 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
+		"@gog/interfaces": "^0.0.2",
 		"@types/d3-array": "^1.2.1",
 		"@types/d3-scale": "^2.0.1",
-		"@gog/interfaces": "^0.0.1",
 		"d3-array": "^1.2.1",
 		"d3-scale": "^2.0.0"
 	}
