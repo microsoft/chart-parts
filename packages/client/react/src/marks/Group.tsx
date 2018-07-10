@@ -1,5 +1,5 @@
 import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { SceneNodeBuilder } from '@gog/builder'
+import { SceneNodeBuilder, MarkBuilder } from '@gog/builder'
 import { CommonMarkProps } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
@@ -35,7 +35,7 @@ export class Group extends BaseMark<GroupProps> {
 		return node as any
 	}
 
-	protected createMark() {
+	protected createMark(): MarkBuilder {
 		const nodeBuilder = super.createMark()
 		const { facetName, facetKey } = this.props
 
