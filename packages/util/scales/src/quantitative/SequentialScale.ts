@@ -23,7 +23,7 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs) {
+	protected createScale(args: CreateScaleArgs): Scales {
 		if (!this.interpolatorValue) {
 			throw new Error('interpolator must be set')
 		}

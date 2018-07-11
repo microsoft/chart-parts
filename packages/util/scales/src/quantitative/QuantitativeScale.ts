@@ -1,6 +1,6 @@
+import { CreateScaleArgs, Dimension } from '@gog/interfaces'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
-import { CreateScaleArgs, Dimension } from '@gog/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export type TimeValue = QuantitativeValue | Date

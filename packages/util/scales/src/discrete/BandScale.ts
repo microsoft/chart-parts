@@ -81,7 +81,7 @@ export class BandScale extends DomainRangeScale<
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs) {
+	protected createScale(args: CreateScaleArgs): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const bandscale = scaleBand()

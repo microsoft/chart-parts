@@ -39,7 +39,7 @@ export class PointScale extends DomainRangeScale<
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs) {
+	protected createScale(args: CreateScaleArgs): Scales {
 		const scale = scalePoint()
 			.domain(this.getDomain(args))
 			.range(this.getRange(args))

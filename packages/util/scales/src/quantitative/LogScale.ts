@@ -1,6 +1,6 @@
+import { CreateScaleArgs, Scales } from '@gog/interfaces'
 import { scaleLog } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { CreateScaleArgs } from '@gog/interfaces'
 
 export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 	private baseValue?: number
@@ -10,7 +10,7 @@ export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs) {
+	protected createScale(args: CreateScaleArgs): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const result = scaleLog()

@@ -1,11 +1,11 @@
 import { scaleLinear } from 'd3-scale'
-import { CreateScaleArgs } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@gog/interfaces'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
 
 export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true
 
-	protected createScale(args: CreateScaleArgs) {
+	protected createScale(args: CreateScaleArgs): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const scale = scaleLinear()
