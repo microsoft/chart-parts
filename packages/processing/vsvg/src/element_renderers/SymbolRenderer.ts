@@ -10,7 +10,7 @@ export class SymbolRenderer implements VSvgMarkConverter {
 		assertTypeIs(mark, SymbolRenderer.TARGET_MARK_TYPE)
 
 		const nodes = emitMarkGroup(
-			MarkType.Rect,
+			MarkType.Symbol,
 			mark.role,
 			mark.items.map(item => {
 				const { x = 0, y = 0 } = item

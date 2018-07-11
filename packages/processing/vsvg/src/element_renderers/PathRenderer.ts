@@ -9,7 +9,7 @@ export class PathRenderer implements VSvgMarkConverter {
 		assertTypeIs(mark, PathRenderer.TARGET_MARK_TYPE)
 
 		const nodes = emitMarkGroup(
-			MarkType.Arc,
+			MarkType.Path,
 			mark.role,
 			mark.items.map(item => {
 				const { x = 0, y = 0 } = item
