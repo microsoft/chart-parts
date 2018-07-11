@@ -1,7 +1,7 @@
 {
   "name": "@gog/examples-web",
   "private": true,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "scripts": {
     "//serve": "webpack-dev-server --mode development --open --host 0.0.0.0",
     "storybook": "start-storybook -p 6006",
@@ -10,9 +10,9 @@
   },
   "dependencies": {
     "@gog/core": "^0.0.2",
-    "@gog/react": "^0.0.4",
+    "@gog/react": "^0.0.5",
     "@gog/react-svg-renderer": "^0.0.2",
-    "@gog/scales": "^0.0.2",
+    "@gog/scales": "^0.0.5",
     "@gog/testdata": "^0.0.2",
     "@gog/transform": "^0.0.1",
     "@storybook/addon-actions": "^4.0.0-alpha.8",

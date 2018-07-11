@@ -1,7 +1,7 @@
 {
 	"name": "@gog/react",
 	"description": "React Utilities for the Gog system",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -16,10 +16,10 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/builder": "^0.0.4",
+		"@gog/builder": "^0.0.5",
 		"@gog/core": "^0.0.2",
 		"@gog/interfaces": "^0.0.2",
-		"@gog/scales": "^0.0.2",
+		"@gog/scales": "^0.0.5",
 		"autobind-decorator": "^2.1.0",
 		"lodash": "^4.17.10",
 		"shallowequal": "^1.0.2"
