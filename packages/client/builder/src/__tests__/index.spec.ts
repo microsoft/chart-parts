@@ -1,6 +1,6 @@
+import { MarkType, AxisOrientation } from '@gog/interfaces'
 import * as builderModule from '../index'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
-import { MarkType, AxisOrientation } from '../../../interfaces/lib'
 
 describe('The builder module', () => {
 	it('contains the correct API', () => {
