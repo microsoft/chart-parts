@@ -8,6 +8,8 @@
 		"lint": "tslint \"packages/{client,examples,renderers,processing,util}/*/src/**/*.ts*\"",
 		"unit_test": "jest --coverage",
 		"test": "run-s lint build unit_test",
+		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
+		"release": "run-s clean build lerna:publish",
 		"start": "run-s build start:packages"
 	},
 	"devDependencies": {
