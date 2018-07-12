@@ -1,12 +1,12 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ImageProps extends CommonMarkProps {
-	url?: MarkEncoding
-	aspect?: MarkEncoding
-	align?: MarkEncoding
-	baseline?: MarkEncoding
+	url?: MarkEncodingProp
+	aspect?: MarkEncodingProp
+	align?: MarkEncodingProp
+	baseline?: MarkEncodingProp
 }
 
 export class Image extends BaseMark<ImageProps> {

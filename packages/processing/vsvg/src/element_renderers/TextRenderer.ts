@@ -33,11 +33,11 @@ function calculateTextOrigin({
 
 function calculateBaseline(alignment: VerticalTextAlignment | undefined) {
 	switch (alignment) {
-		case VerticalTextAlignment.TOP:
+		case VerticalTextAlignment.Top:
 			return 'hanging'
-		case VerticalTextAlignment.MIDDLE:
+		case VerticalTextAlignment.Middle:
 			return 'central'
-		case VerticalTextAlignment.BOTTOM:
+		case VerticalTextAlignment.Bottom:
 			return 'baseline'
 		default:
 			return undefined

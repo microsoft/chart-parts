@@ -1,9 +1,9 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface RectProps extends CommonMarkProps {
-	cornerRadius?: MarkEncoding
+	cornerRadius?: MarkEncodingProp
 }
 
 export class Rect extends BaseMark<RectProps> {

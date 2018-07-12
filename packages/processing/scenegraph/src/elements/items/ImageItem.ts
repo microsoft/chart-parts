@@ -12,6 +12,6 @@ export class ImageItem extends Item implements SGImageItem {
 
 	public url?: string
 	public aspect?: boolean = true
-	public align?: HorizontalAlignment = HorizontalAlignment.LEFT
-	public baseline?: VerticalAlignment = VerticalAlignment.TOP
+	public align?: HorizontalAlignment = HorizontalAlignment.Left
+	public baseline?: VerticalAlignment = VerticalAlignment.Top
 }

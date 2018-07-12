@@ -1,9 +1,9 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ShapeProps extends CommonMarkProps {
-	itemtype?: MarkEncoding
+	itemtype?: MarkEncodingProp
 }
 
 export class Shape extends BaseMark<ShapeProps> {

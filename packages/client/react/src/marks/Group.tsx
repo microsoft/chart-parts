@@ -1,11 +1,11 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
+import { MarkType } from '@gog/interfaces'
 import { SceneNodeBuilder, MarkBuilder } from '@gog/builder'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface GroupProps extends CommonMarkProps {
-	clip?: MarkEncoding
-	cornerRadius?: MarkEncoding
+	clip?: MarkEncodingProp
+	cornerRadius?: MarkEncodingProp
 
 	/**
 	 * If faceting is enabled, the name of the facet table to provide to children

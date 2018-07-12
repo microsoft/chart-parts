@@ -1,11 +1,11 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface LineProps extends CommonMarkProps {
-	interpolate?: MarkEncoding
-	tension?: MarkEncoding
-	defined?: MarkEncoding
+	interpolate?: MarkEncodingProp
+	tension?: MarkEncodingProp
+	defined?: MarkEncodingProp
 }
 
 export class Line extends BaseMark<LineProps> {

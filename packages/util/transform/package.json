@@ -4,6 +4,7 @@
 	"version": "0.0.1",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"license": "MIT",
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",

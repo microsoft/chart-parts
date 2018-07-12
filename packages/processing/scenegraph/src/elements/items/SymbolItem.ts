@@ -6,5 +6,5 @@ export class SymbolItem extends Item implements SGSymbolItem {
 	public readonly itemtype: string = SymbolItem.ITEM_TYPE
 
 	public size?: number
-	public shape?: SymbolType | string = SymbolType.CIRCLE
+	public shape?: SymbolType | string = SymbolType.Circle
 }

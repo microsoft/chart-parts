@@ -1,10 +1,10 @@
 // tslint:disable
 import * as React from 'react'
-import { SymbolType, VerticalTextAlignment } from '@gog/interfaces'
+import { VerticalTextAlignment } from '@gog/interfaces'
 import {
 	Chart,
 	Group,
-	Symbol,
+	Circle,
 	Line,
 	LinearScale,
 	BandScale,
@@ -150,20 +150,14 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						y={({ datum }, { y }) => y(datum.y)}
 						stroke={({ datum }) => datum.line}
 					/>
-					<Symbol
+					<Circle
 						table="facetedSeries"
 						fill={({ datum }) => datum.fill}
-						shape={() => SymbolType.CIRCLE}
+						size={50}
 						x={({ datum }, { x }) => x(datum.x)}
 						y={({ datum }, { y }) => y(datum.y)}
-						size={() => 50}
 					/>
-					<Group
-						x={() => 140}
-						y={() => 60}
-						width={50}
-						height={TEXT_GROUP_HEIGHT}
-					>
+					<Group x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
 							name="kpiLoc"
 							table="kpis"
@@ -179,13 +173,13 @@ export class LineChart extends React.Component<{}, BarChartState> {
 							height={(d, { kpiHeight }) => kpiHeight()}
 						>
 							<Text
-								baseline={VerticalTextAlignment.TOP}
+								baseline={VerticalTextAlignment.Top}
 								text={({ datum }) => datum.value}
 								fill={'black'}
 								fontSize={15}
 							/>
 							<Text
-								baseline={VerticalTextAlignment.TOP}
+								baseline={VerticalTextAlignment.Top}
 								y={15}
 								text={({ datum }) => datum.label}
 								fill={({ datum }) => datum.fill}

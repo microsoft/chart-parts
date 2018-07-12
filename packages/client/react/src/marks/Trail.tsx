@@ -1,10 +1,10 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface TrailProps extends CommonMarkProps {
-	size?: MarkEncoding
-	defined?: MarkEncoding
+	size?: MarkEncodingProp
+	defined?: MarkEncodingProp
 }
 
 export class Trail extends BaseMark<TrailProps> {

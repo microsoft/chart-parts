@@ -26,9 +26,9 @@ export function arc(item: SGArcItem, context?: Path) {
 
 export function area(items: SGAreaItem[], context?: Path) {
 	const first = items[0]
-	const interp = first.interpolate || Interpolation.LINEAR
+	const interp = first.interpolate || Interpolation.Linear
 
-	return (first.orient === Orientation.HORIZONTAL ? areahShape : areavShape)
+	return (first.orient === Orientation.Horizontal ? areahShape : areavShape)
 		.curve(curves(interp, first.orient, first.tension))
 		.context(context as any)(items as any) // TODO: is this correct?
 }

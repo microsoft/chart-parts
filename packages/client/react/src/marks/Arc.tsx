@@ -1,14 +1,14 @@
-import { MarkType, MarkEncoding } from '@gog/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { MarkType } from '@gog/interfaces'
+import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ArcProps extends CommonMarkProps {
-	startAngle?: MarkEncoding
-	endAngle?: MarkEncoding
-	padAngle?: MarkEncoding
-	innerRadius?: MarkEncoding
-	outerRadius?: MarkEncoding
-	cornerRadius?: MarkEncoding
+	startAngle?: MarkEncodingProp
+	endAngle?: MarkEncodingProp
+	padAngle?: MarkEncodingProp
+	innerRadius?: MarkEncodingProp
+	outerRadius?: MarkEncodingProp
+	cornerRadius?: MarkEncodingProp
 }
 
 export class Arc extends BaseMark<ArcProps> {

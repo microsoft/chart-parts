@@ -79,7 +79,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The stroke cap for line ending style. One of butt (default), round or square.
 	 */
-	public strokeCap?: StrokeCap = StrokeCap.BUTT
+	public strokeCap?: StrokeCap = StrokeCap.Butt
 
 	/**
 	 * An array of [stroke, space] lengths for creating dashed or dotted lines.
@@ -94,7 +94,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The stroke line join method. One of miter (default), round or bevel.
 	 */
-	public strokeJoin?: StrokeJoin = StrokeJoin.MITER
+	public strokeJoin?: StrokeJoin = StrokeJoin.Miter
 
 	/**
 	 * The miter limit at which to bevel a line join.

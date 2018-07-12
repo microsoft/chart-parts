@@ -62,7 +62,7 @@ function createTickLabel(tick: PositionedTickValue, context: AxisContext) {
 		align,
 	}
 	if (labelAngle !== undefined) {
-		result.theta = (labelAngle * Math.PI) / 180
+		result.theta = labelAngle * Math.PI / 180
 	}
 	return result
 }
@@ -73,12 +73,12 @@ function getBaseline(axis: Axis): VerticalTextAlignment {
 	}
 	switch (axis.orient) {
 		case AxisOrientation.Top:
-			return VerticalTextAlignment.BOTTOM
+			return VerticalTextAlignment.Bottom
 		case AxisOrientation.Bottom:
-			return VerticalTextAlignment.TOP
+			return VerticalTextAlignment.Top
 		case AxisOrientation.Left:
 		case AxisOrientation.Right:
-			return VerticalTextAlignment.MIDDLE
+			return VerticalTextAlignment.Middle
 	}
 }
 
@@ -89,10 +89,10 @@ function getHorizontalAlignment(axis: Axis): HorizontalAlignment {
 	switch (axis.orient) {
 		case AxisOrientation.Top:
 		case AxisOrientation.Bottom:
-			return HorizontalAlignment.CENTER
+			return HorizontalAlignment.Center
 		case AxisOrientation.Left:
-			return HorizontalAlignment.RIGHT
+			return HorizontalAlignment.Right
 		case AxisOrientation.Right:
-			return HorizontalAlignment.LEFT
+			return HorizontalAlignment.Left
 	}
 }
