@@ -44,9 +44,6 @@ export class SceneNodeBuilder {
 	 */
 	public build(): SceneNode {
 		const { scales, markBuilders, axisBuilders } = this
-		if (markBuilders.length === 0) {
-			throw new Error('scene node has no mark set')
-		}
 		return {
 			marks: markBuilders.map(m => m.build()),
 			axes: axisBuilders.map(m => m.build()),
