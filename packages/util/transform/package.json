@@ -1,7 +1,7 @@
 {
 	"name": "@gog/transform",
 	"description": "Data transformation utilities",
-	"version": "0.0.1",
+	"version": "0.0.12",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",

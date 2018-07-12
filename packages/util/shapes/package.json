@@ -1,7 +1,7 @@
 {
 	"name": "@gog/shapes",
 	"description": "Shape-drawing utilities",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
@@ -15,7 +15,7 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.11",
+		"@gog/interfaces": "^0.0.12",
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"d3-path": "^1.0.5",

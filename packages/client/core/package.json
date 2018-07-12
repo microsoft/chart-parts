@@ -1,7 +1,7 @@
 {
 	"name": "@gog/core",
 	"description": "The central entry point for interacting with the graphics system",
-	"version": "0.0.11",
+	"version": "0.0.12",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
@@ -15,9 +15,9 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.11",
-		"@gog/scene": "^0.0.11",
-		"@gog/scenegraph": "^0.0.11",
-		"@gog/vsvg": "^0.0.11"
+		"@gog/interfaces": "^0.0.12",
+		"@gog/scene": "^0.0.12",
+		"@gog/scenegraph": "^0.0.12",
+		"@gog/vsvg": "^0.0.12"
 	}
 }
