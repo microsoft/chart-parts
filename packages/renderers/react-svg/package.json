@@ -1,7 +1,7 @@
 {
 	"name": "@gog/react-svg-renderer",
 	"description": "A virtual dom renderer that emits React-DOM Svg",
-	"version": "0.0.2",
+	"version": "0.0.11",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -16,7 +16,7 @@
 		"typescript": "2.9.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.2",
+		"@gog/interfaces": "^0.0.11",
 		"lodash": "^4.17.10"
 	},
 	"peerDependencies": {
