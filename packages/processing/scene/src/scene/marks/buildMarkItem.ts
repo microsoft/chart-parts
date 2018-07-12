@@ -1,6 +1,6 @@
 import { DataFrame, Mark } from '@gog/interfaces'
 import { createMark } from '@gog/scenegraph'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame, SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
 export interface FacetPartitions {
@@ -13,7 +13,7 @@ export function buildMarkItem(mark: Mark, frame: SceneFrame) {
 	/**
 	 * If the data is a faceted group, then bind one group per facet.
 	 */
-	const boundData = getBoundData(mark, markFrame.data)
+	const boundData = getBoundData(mark, markFrame)
 	const items = Array.isArray(boundData)
 		? createItemPerDataRow(markFrame, boundData)
 		: createItemPerFacet(markFrame, boundData)
@@ -58,20 +58,17 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  * @param mark The mark to bind data to
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
-function getBoundData(
-	mark: Mark,
-	dataFrame: DataFrame,
-): any[] | FacetPartitions {
+function getBoundData(mark: Mark, frame: SceneFrame): any[] | FacetPartitions {
 	const { table, singleton, facet } = mark
 	if (!singleton && !table) {
 		throw new Error('marks that are non-singletons must be data-bound')
 	}
 
 	if (singleton) {
-		return [{}]
+		return [frame.boundDataItem]
 	}
 
-	const sourceTable = dataFrame[table as string]
+	const sourceTable = frame.data[table as string]
 	if (!facet) {
 		return sourceTable || []
 	}

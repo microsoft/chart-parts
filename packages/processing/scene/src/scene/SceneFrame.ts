@@ -26,6 +26,7 @@ export class SceneFrame {
 		public channels: ChannelNames = {},
 		public channelId: number = 0,
 		public channelHandlers: { [key: string]: ChannelHandler } = {},
+		public boundDataItem: any = {},
 	) {}
 
 	/**
@@ -44,6 +45,7 @@ export class SceneFrame {
 			{},
 			this.channelId,
 			this.channelHandlers,
+			this.boundDataItem,
 		)
 	}
 
@@ -60,6 +62,7 @@ export class SceneFrame {
 			channels,
 			this.channelId,
 			this.channelHandlers,
+			this.boundDataItem,
 		)
 	}
 
@@ -76,6 +79,7 @@ export class SceneFrame {
 			this.channels,
 			this.channelId,
 			this.channelHandlers,
+			this.boundDataItem,
 		)
 	}
 
@@ -105,6 +109,23 @@ export class SceneFrame {
 			this.channels,
 			this.channelId,
 			this.channelHandlers,
+			this.boundDataItem,
+		)
+	}
+
+	public pushBoundDataItem(dataItem: any) {
+		return new SceneFrame(
+			this.node,
+			this.mark,
+			this.data,
+			this.view,
+			this.viewTL,
+			this.viewBR,
+			this.scales,
+			this.channels,
+			this.channelId,
+			this.channelHandlers,
+			dataItem,
 		)
 	}
 

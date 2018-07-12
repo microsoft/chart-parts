@@ -33,10 +33,12 @@ export function createBoundItem(
 
 	// Update the view and recompute scales
 	const groupDrawRect = getNextDrawRect(getItemSpace(item), frame.view)
-	const itemFrame = frame.pushView({
-		width: groupDrawRect.right - groupDrawRect.left,
-		height: groupDrawRect.bottom - groupDrawRect.top,
-	})
+	const itemFrame = frame
+		.pushView({
+			width: groupDrawRect.right - groupDrawRect.left,
+			height: groupDrawRect.bottom - groupDrawRect.top,
+		})
+		.pushBoundDataItem(row)
 
 	// Mash in the children and the bounds
 	const groupItem: SGGroupItem = {
