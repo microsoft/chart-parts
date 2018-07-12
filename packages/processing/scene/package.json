@@ -1,7 +1,7 @@
 {
 	"name": "@gog/scene",
 	"description": "GoG Scene-to-Scenegraph Processing",
-	"version": "0.0.2",
+	"version": "0.0.10",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {

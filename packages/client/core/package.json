@@ -1,7 +1,7 @@
 {
 	"name": "@gog/core",
 	"description": "The central entry point for interacting with the graphics system",
-	"version": "0.0.6",
+	"version": "0.0.10",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -15,7 +15,7 @@
 	},
 	"dependencies": {
 		"@gog/interfaces": "^0.0.2",
-		"@gog/scene": "^0.0.2",
+		"@gog/scene": "^0.0.10",
 		"@gog/scenegraph": "^0.0.2",
 		"@gog/vsvg": "^0.0.6"
 	}
