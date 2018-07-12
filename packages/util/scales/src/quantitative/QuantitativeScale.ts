@@ -19,6 +19,7 @@ export abstract class QuantitativeScale<
 	protected clampValue?: boolean
 	protected niceValue?: boolean | number | string | object
 	protected zeroValue?: boolean
+	protected paddingValue?: number
 
 	/**
 	 * A boolean indicating if output values should be clamped to the range (default false).
@@ -40,6 +41,15 @@ export abstract class QuantitativeScale<
 	}
 
 	/**
+	 * Adjusts the range of the scale to account for a pixel-padding on each end.
+	 * @param paddingValue The number of pixels to pad each end of the scale's range with.
+	 */
+	public padding(paddingValue?: number) {
+		this.paddingValue = paddingValue
+		return this
+	}
+
+	/**
 	 * Boolean flag indicating if the scale domain should include zero.
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
@@ -47,6 +57,19 @@ export abstract class QuantitativeScale<
 	public zero(value?: boolean) {
 		this.zeroValue = value
 		return this
+	}
+
+	protected getRange(args: CreateScaleArgs): [RangeValue, RangeValue] {
+		const range = super.getRange(args)
+		if (this.paddingValue !== undefined) {
+			const [start, end]: any = range
+			const pad = this.paddingValue
+			const newStart = start > end ? start - pad : start + pad
+			const newEnd = end > start ? end - pad : end + pad
+			return [newStart, newEnd] as [RangeValue, RangeValue]
+		} else {
+			return range
+		}
 	}
 
 	protected processDomainValues(

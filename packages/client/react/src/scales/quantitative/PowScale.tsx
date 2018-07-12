@@ -28,6 +28,8 @@ export class PowScale extends QuantitativeScale<
 			.clamp(this.props.clamp)
 			.nice(this.props.nice)
 			.exponent(this.props.exponent)
+			.padding(this.props.padding)
+			.reverse(this.props.reverse)
 			.build()
 	}
 }

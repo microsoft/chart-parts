@@ -47,6 +47,7 @@ export class BandScale extends DomainRangeScale<
 			.padding(this.props.padding)
 			.paddingOuter(this.props.paddingOuter)
 			.paddingInner(this.props.paddingInner)
+			.reverse(this.props.reverse)
 			.build()
 	}
 }

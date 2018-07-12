@@ -34,6 +34,11 @@ export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	 * context
 	 */
 	range?: (args: CreateScaleArgs) => Range
+
+	/**
+	 * Reverse the range
+	 */
+	reverse?: boolean
 }
 export abstract class DomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,

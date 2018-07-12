@@ -9,9 +9,15 @@ export abstract class DomainRangeScale<
 > extends DomainScale<Domain> {
 	protected bindRangeValue?: RangeBind
 	protected rangeValue?: (args: CreateScaleArgs) => Range
+	protected reverseValue?: boolean
 
 	public bindRange(value?: RangeBind) {
 		this.bindRangeValue = value
+		return this
+	}
+
+	public reverse(reversed?: boolean) {
+		this.reverseValue = reversed === undefined ? true : reversed
 		return this
 	}
 
@@ -26,6 +32,15 @@ export abstract class DomainRangeScale<
 	): Range
 
 	protected getRange(args: CreateScaleArgs): Range {
+		const range = this.determineRange(args)
+		return this.reverseValue ? this.reverseRange(range) : range
+	}
+
+	protected reverseRange(range: Range): Range {
+		return (range as any).reverse() as Range
+	}
+
+	private determineRange(args: CreateScaleArgs): Range {
 		if (this.rangeValue) {
 			return this.rangeValue(args)
 		} else {

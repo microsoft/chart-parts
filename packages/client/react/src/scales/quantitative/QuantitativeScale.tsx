@@ -25,11 +25,15 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	nice?: boolean | number | string | object
 
 	/**
-	 * 	/**
 	 * Boolean flag indicating if the scale domain should include zero.
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
 	zero?: boolean
+
+	/**
+	 * The number of pixels to pad the target range with
+	 */
+	padding?: number
 }
 
 export abstract class QuantitativeScale<
