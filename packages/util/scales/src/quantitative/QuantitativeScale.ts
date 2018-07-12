@@ -66,6 +66,7 @@ export abstract class QuantitativeScale<
 			const pad = this.paddingValue
 			const newStart = start > end ? start - pad : start + pad
 			const newEnd = end > start ? end - pad : end + pad
+
 			return [newStart, newEnd] as [RangeValue, RangeValue]
 		} else {
 			return range

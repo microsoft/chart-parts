@@ -18,6 +18,7 @@
 		"@types/d3-array": "^1.2.1",
 		"@types/d3-scale": "^2.0.1",
 		"d3-array": "^1.2.1",
-		"d3-scale": "^2.0.0"
+		"d3-scale": "^2.0.0",
+		"lodash": "^4.17.10"
 	}
 }

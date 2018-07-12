@@ -45,4 +45,8 @@ export abstract class DomainRangeScale<
 	Domain,
 	Range,
 	RangeBind
-> extends DomainScale<Props, Domain> {}
+> extends DomainScale<Props, Domain> {
+	protected get isReversed() {
+		return this.props.reverse || false
+	}
+}

@@ -1,6 +1,9 @@
-// tslint:disable max-classes-per-file
+// tslint:disable max-classes-per-file no-var-requires no-submodule-imports
 import { CreateScaleArgs } from '@gog/interfaces'
 import { DomainScale } from './DomainScale'
+
+declare var require: any
+const reverse = require('lodash/reverse')
 
 export abstract class DomainRangeScale<
 	Domain,
@@ -33,11 +36,13 @@ export abstract class DomainRangeScale<
 
 	protected getRange(args: CreateScaleArgs): Range {
 		const range = this.determineRange(args)
-		return this.reverseValue ? this.reverseRange(range) : range
+		const result = this.reverseValue ? this.reverseRange(range) : range
+		return result
 	}
 
 	protected reverseRange(range: Range): Range {
-		return (range as any).reverse() as Range
+		const result: any = [...(range as any)]
+		return reverse(result) as Range
 	}
 
 	private determineRange(args: CreateScaleArgs): Range {

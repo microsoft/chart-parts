@@ -8,11 +8,12 @@ export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected createScale(args: CreateScaleArgs): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
+
 		const scale = scaleLinear()
 			.domain(domain)
 			.range(range)
-
 		this.addCommonProperties(scale)
+
 		return {
 			[this.nameValue as string]: scale,
 		}

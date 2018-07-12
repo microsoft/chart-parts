@@ -36,7 +36,7 @@ export class PointScale extends DomainRangeScale<
 			.stepName(this.props.stepName)
 			.align(this.props.align)
 			.padding(this.props.padding)
-			.reverse(this.props.reverse)
+			.reverse(this.isReversed)
 			.build()
 	}
 }

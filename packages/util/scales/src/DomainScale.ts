@@ -1,4 +1,8 @@
+// tslint:disable no-var-requires no-submodule-imports
 import { CreateScaleArgs, Scales } from '@gog/interfaces'
+
+declare var require: any
+const flatMap = require('lodash/flatMap')
 
 export abstract class DomainScale<Domain> {
 	protected bindDomainValue?: string | string[]
@@ -51,7 +55,9 @@ export abstract class DomainScale<Domain> {
 			}
 			const bindDomain = this.bindDomainArray
 			const data = args.data[this.tableValue] || []
-			const domainValues = data.flatMap(d => bindDomain.map(key => d[key]))
+			const domainValues = flatMap(data, (d: any) =>
+				bindDomain.map(key => d[key]),
+			)
 			const result = this.processDomainValues(domainValues)
 			return result
 		}

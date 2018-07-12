@@ -27,7 +27,7 @@ export class LogScale extends QuantitativeScale<
 			.nice(this.props.nice)
 			.base(this.props.base)
 			.padding(this.props.padding)
-			.reverse(this.props.reverse)
+			.reverse(this.isReversed)
 			.build()
 	}
 }

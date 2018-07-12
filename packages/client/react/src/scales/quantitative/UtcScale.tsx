@@ -22,7 +22,7 @@ export class UtcScale extends QuantitativeScale<
 			.clamp(this.props.clamp)
 			.nice(this.props.nice)
 			.padding(this.props.padding)
-			.reverse(this.props.reverse)
+			.reverse(this.isReversed)
 			.build()
 	}
 }

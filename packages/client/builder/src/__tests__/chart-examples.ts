@@ -1,3 +1,4 @@
+// tslint:disable no-implicit-dependencies
 import { linear, band, ordinal, CategoricalColorScheme } from '@gog/scales'
 import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
 import { scene, rect, axis, group, text } from '../index'
