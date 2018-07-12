@@ -1,6 +1,6 @@
-import { DataFrame, Mark } from '@gog/interfaces'
+import { Mark } from '@gog/interfaces'
 import { createMark } from '@gog/scenegraph'
-import { SceneFrame, SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
 export interface FacetPartitions {
