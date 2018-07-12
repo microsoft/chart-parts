@@ -8,7 +8,7 @@ describe('The Mark Builder', () => {
 
 	it('can have a name set', () => {
 		const builder = new MarkBuilder(MarkType.Rect)
-		const updatedBuilder = builder.name('my_name').singleton()
+		const updatedBuilder = builder.name('my_name')
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
@@ -25,7 +25,7 @@ describe('The Mark Builder', () => {
 	})
 
 	it('can have a z-index set', () => {
-		const builder = new MarkBuilder(MarkType.Rect).singleton()
+		const builder = new MarkBuilder(MarkType.Rect)
 		const updatedBuilder = builder.zIndex(3)
 		expect(updatedBuilder).toBe(builder)
 
@@ -35,10 +35,7 @@ describe('The Mark Builder', () => {
 	})
 
 	it('can unset the z-index', () => {
-		const builder = new MarkBuilder(MarkType.Rect)
-			.singleton()
-			.zIndex(3)
-			.zIndex(undefined)
+		const builder = new MarkBuilder(MarkType.Rect).zIndex(3).zIndex(undefined)
 
 		const built = builder.build()
 		const zIndexEncoding = built.encodings.zIndex
@@ -66,7 +63,6 @@ describe('The Mark Builder', () => {
 	describe('channel handler definition', () => {
 		it('can handle channel handlers by name', () => {
 			const builder = new MarkBuilder(MarkType.Rect)
-				.singleton()
 				.handle('click', () => 1)
 				.handle('mouseenter', () => 2)
 
@@ -78,7 +74,7 @@ describe('The Mark Builder', () => {
 		})
 
 		it('can handle a channel handler set', () => {
-			const builder = new MarkBuilder(MarkType.Rect).singleton().handle({
+			const builder = new MarkBuilder(MarkType.Rect).handle({
 				click: () => 1,
 				mouseenter: () => 2,
 			})
@@ -92,7 +88,7 @@ describe('The Mark Builder', () => {
 
 		it('throws if the single-channel handler api is invoked without a handler function', () => {
 			expect(() =>
-				new MarkBuilder(MarkType.Rect).singleton().handle('click', undefined),
+				new MarkBuilder(MarkType.Rect).handle('click', undefined),
 			).toThrow('handler function must be defined for handler click')
 		})
 	})
@@ -100,7 +96,6 @@ describe('The Mark Builder', () => {
 	describe('encoding definition', () => {
 		it('can handle encodings by name', () => {
 			const builder = new MarkBuilder(MarkType.Rect)
-				.singleton()
 				.encode('x', () => 3)
 				.encode('y', () => 4)
 			const built = builder.build()
@@ -110,7 +105,7 @@ describe('The Mark Builder', () => {
 		})
 
 		it('can handle encodings map', () => {
-			const builder = new MarkBuilder(MarkType.Rect).singleton().encode({
+			const builder = new MarkBuilder(MarkType.Rect).encode({
 				x: () => 3,
 				y: () => 4,
 			})
@@ -122,7 +117,7 @@ describe('The Mark Builder', () => {
 
 		it('throws if the single-encoding handler api is invoked without a handler function', () => {
 			expect(() =>
-				new MarkBuilder(MarkType.Rect).singleton().encode('x', undefined),
+				new MarkBuilder(MarkType.Rect).encode('x', undefined),
 			).toThrow('encoding must be defined for key x')
 		})
 	})
@@ -131,13 +126,6 @@ describe('The Mark Builder', () => {
 		it('throws if the mark types is not set when being built', () => {
 			expect(() => new MarkBuilder(undefined).build()).toThrow(
 				'mark type must be set',
-			)
-		})
-
-		it('throws if neither a table nor singleton definition is set', () => {
-			const builder = new MarkBuilder(MarkType.Group)
-			expect(() => builder.build()).toThrow(
-				'mark table must be set or the mark must be a singleton',
 			)
 		})
 	})

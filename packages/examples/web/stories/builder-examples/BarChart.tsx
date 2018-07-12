@@ -41,13 +41,13 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					.scale(
 						linear('y')
 							.table('data')
-							.bindDomain('amount')
-							.bindRange(Dimension.Height)
+							.domain('amount')
+							.range(Dimension.Height)
 							.nice(),
 						band('x', 'xband')
 							.table('data')
-							.bindDomain('category')
-							.bindRange(Dimension.Width)
+							.domain('category')
+							.range(Dimension.Width)
 							.padding(0.05),
 					)
 					.axes(

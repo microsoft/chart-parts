@@ -11,13 +11,13 @@ describe('Building Charts', () => {
 					.scale(
 						linear('y')
 							.table('data')
-							.bindDomain('amount')
-							.bindRange(Dimension.Height)
+							.domain('amount')
+							.range(Dimension.Height)
 							.nice(),
 						band('x', 'xband')
 							.table('data')
-							.bindDomain('category')
-							.bindRange(Dimension.Width)
+							.domain('category')
+							.range(Dimension.Width)
 							.padding(0.05),
 					)
 					.axes(
@@ -55,18 +55,18 @@ describe('Building Charts', () => {
 					.scale(
 						band('y', 'categoryHeight')
 							.table('data')
-							.bindRange(Dimension.Height)
-							.bindDomain('category')
+							.range(Dimension.Height)
+							.domain('category')
 							.padding(0.2),
 						linear('x')
 							.table('data')
-							.bindDomain('value')
-							.bindRange(Dimension.Width)
+							.domain('value')
+							.range(Dimension.Width)
 							.nice(true)
 							.zero(true),
 						ordinal('color')
 							.table('data')
-							.bindDomain('position')
+							.domain('position')
 							.colorScheme(CategoricalColorScheme.category20),
 					)
 					.mark(
@@ -85,8 +85,8 @@ describe('Building Charts', () => {
 									.scale(
 										band('pos', 'rowHeight')
 											.table('facet')
-											.bindDomain('position')
-											.bindRange(Dimension.Height),
+											.domain('position')
+											.range(Dimension.Height),
 									)
 									.mark(
 										rect('bars')

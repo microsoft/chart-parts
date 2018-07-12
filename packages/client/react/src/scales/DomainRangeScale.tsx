@@ -2,44 +2,24 @@
 import { CreateScaleArgs } from '@gog/interfaces'
 import { DomainScale, DomainScaleProps } from './DomainScale'
 
-export interface DomainScaleProps<Domain> {
-	/**
-	 * The name of the scale
-	 */
-	name: string
-
-	/**
-	 * Binds the domain of the scale to a field in the
-	 * data
-	 */
-	bindDomain?: string
-
-	/**
-	 * Manually create the domain based on a scale-creation
-	 * context
-	 */
-	domain?: (args: CreateScaleArgs) => Domain
-}
-
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	extends DomainScaleProps<Domain> {
 	/**
-	 * Binds the range of the scale to a chart dimension
-	 * in the mark's draw-rect
+	 * Sets the range of the scale.
+	 *
+	 * If an array is provided, it is treated as an explicit range value.
+	 * If a function is proveded, it is treated as a factory function for generating the range.
+	 * If any other value is provided, it is treated as a "range binder" and its behavior is
+	 * dependent on the scale implementation.
 	 */
-	bindRange?: RangeBind
-
-	/**
-	 * Manually create the rangse based on a scale-creation
-	 * context
-	 */
-	range?: (args: CreateScaleArgs) => Range
+	range?: RangeBind | ((args: CreateScaleArgs) => Range) | Range
 
 	/**
 	 * Reverse the range
 	 */
 	reverse?: boolean
 }
+
 export abstract class DomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
 	Domain,

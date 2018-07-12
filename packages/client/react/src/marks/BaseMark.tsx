@@ -76,11 +76,10 @@ export abstract class BaseMark<
 	}
 
 	protected createMark(): MarkBuilder {
-		const { table, name, role, singleton } = this.props
+		const { table, name, role } = this.props
 		let result = mark(this.markType)
 			.handle(this.channels)
 			.encode(this.encodings)
-			.singleton(!!singleton)
 
 		if (table) {
 			result = result.table(table as string)

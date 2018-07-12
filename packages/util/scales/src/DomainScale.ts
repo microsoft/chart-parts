@@ -1,12 +1,9 @@
-// tslint:disable no-var-requires no-submodule-imports
 import { CreateScaleArgs, Scales } from '@gog/interfaces'
-
-declare var require: any
-const flatMap = require('lodash/flatMap')
+export type DomainCreator<Domain> = (args: CreateScaleArgs) => Domain
 
 export abstract class DomainScale<Domain> {
-	protected bindDomainValue?: string | string[]
-	protected domainValue?: (args: CreateScaleArgs) => Domain
+	protected bindDomainValue?: string
+	protected domainValue?: DomainCreator<Domain>
 	protected nameValue?: string
 	protected tableValue?: string
 
@@ -20,13 +17,17 @@ export abstract class DomainScale<Domain> {
 		return this
 	}
 
-	public bindDomain(value?: string | string[]) {
-		this.bindDomainValue = value
-		return this
-	}
-
-	public domain(value?: (args: CreateScaleArgs) => Domain) {
-		this.domainValue = value
+	public domain(arg?: string | DomainCreator<Domain> | Domain) {
+		if (typeof arg === 'function') {
+			this.domainValue = arg
+		} else if (Array.isArray(arg)) {
+			this.domainValue = () => arg as Domain
+		} else if (arg !== undefined && typeof arg === 'string') {
+			this.bindDomainValue = arg as string
+		} else {
+			this.domainValue = undefined
+			this.bindDomainValue = undefined
+		}
 		return this
 	}
 
@@ -53,11 +54,13 @@ export abstract class DomainScale<Domain> {
 			if (!this.tableValue) {
 				throw new Error('table must be defined')
 			}
-			const bindDomain = this.bindDomainArray
+
+			if (!this.bindDomainValue) {
+				throw new Error('domain must be defined')
+			}
+			const bind = this.bindDomainValue
 			const data = args.data[this.tableValue] || []
-			const domainValues = flatMap(data, (d: any) =>
-				bindDomain.map(key => d[key]),
-			)
+			const domainValues = data.map((d: any) => d[bind])
 			const result = this.processDomainValues(domainValues)
 			return result
 		}

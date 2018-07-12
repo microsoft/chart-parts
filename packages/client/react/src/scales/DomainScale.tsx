@@ -13,19 +13,19 @@ export interface DomainScaleProps<Domain> {
 	/**
 	 * The data set to bind to
 	 */
-	table: string
+	table?: string
 
 	/**
-	 * Binds the domain of the scale to a field in the
-	 * data
+	 * Sets the domain.
+	 *
+	 * If a string is used, it is used as the name of the
+	 * field to bind to in the data
+	 *
+	 * If a function is provided, it should construct the domain from the arguments providiedi.
+	 *
+	 * If an array is provided, it is treated as the explicit domain
 	 */
-	bindDomain?: string | string[]
-
-	/**
-	 * Manually create the domain based on a scale-creation
-	 * context
-	 */
-	domain?: (args: CreateScaleArgs) => Domain
+	domain?: string | ((args: CreateScaleArgs) => Domain) | Domain
 }
 
 export abstract class DomainScale<

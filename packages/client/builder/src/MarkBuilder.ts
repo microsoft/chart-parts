@@ -12,7 +12,6 @@ import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {
 	private childNode?: SceneNodeBuilder
-	private singletonValue: boolean = false
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
@@ -44,11 +43,6 @@ export class MarkBuilder {
 			delete this.encodingsValue.zIndex
 		}
 
-		return this
-	}
-
-	public singleton(value?: boolean): MarkBuilder {
-		this.singletonValue = value === undefined ? true : value
 		return this
 	}
 
@@ -124,16 +118,12 @@ export class MarkBuilder {
 			encodingsValue: encodings,
 			roleValue: role,
 			nameValue: name,
-			singletonValue: singleton,
 			facetValue: facet,
 			childNode,
 		} = this
 
 		if (!type) {
 			throw new Error('mark type must be set')
-		}
-		if (!singleton && !table) {
-			throw new Error('mark table must be set or the mark must be a singleton')
 		}
 
 		return {
@@ -143,7 +133,6 @@ export class MarkBuilder {
 			encodings,
 			role,
 			name,
-			singleton,
 			facet,
 			child: childNode && childNode.build(),
 		}

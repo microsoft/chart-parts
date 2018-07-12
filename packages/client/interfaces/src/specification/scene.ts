@@ -33,7 +33,7 @@ export interface Mark {
 	type: MarkType
 
 	/**
-	 * The name of the data-table to bind this mark to
+	 * The name of the data-table to bind this mark to. If unset, this mark will render as a singleton
 	 */
 	table?: string
 
@@ -56,11 +56,6 @@ export interface Mark {
 	 * A helpful name for this mark
 	 */
 	name?: string
-
-	/**
-	 * If true, this mark will have a single item instance unbound to data
-	 */
-	singleton?: boolean
 
 	/**
 	 * For group marks, an optional parameter on data faceting

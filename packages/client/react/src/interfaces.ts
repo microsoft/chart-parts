@@ -13,11 +13,6 @@ export interface CommonMarkProps {
 	table?: string
 
 	/**
-	 * If true, emits a single item instead of one item per row in bound-data
-	 */
-	singleton?: boolean
-
-	/**
 	 * A helpful name for the mark
 	 */
 	name?: string

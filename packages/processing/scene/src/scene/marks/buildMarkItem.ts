@@ -59,12 +59,10 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
 function getBoundData(mark: Mark, frame: SceneFrame): any[] | FacetPartitions {
-	const { table, singleton, facet } = mark
-	if (!singleton && !table) {
-		throw new Error('marks that are non-singletons must be data-bound')
-	}
+	const { table, facet } = mark
 
-	if (singleton) {
+	// If the table is unset, render as a singleton of the existing bound data-item
+	if (!table) {
 		return [frame.boundDataItem]
 	}
 

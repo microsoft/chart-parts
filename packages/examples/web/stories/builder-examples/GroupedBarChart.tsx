@@ -39,18 +39,18 @@ export class GroupedBarChart extends React.Component<{}> {
 					.scale(
 						band('y', 'categoryHeight')
 							.table('data')
-							.bindRange(Dimension.Height)
-							.bindDomain('category')
+							.range(Dimension.Height)
+							.domain('category')
 							.padding(0.2),
 						linear('x')
 							.table('data')
-							.bindDomain('value')
-							.bindRange(Dimension.Width)
+							.domain('value')
+							.range(Dimension.Width)
 							.nice(true)
 							.zero(true),
 						ordinal('color')
 							.table('data')
-							.bindDomain('position')
+							.domain('position')
 							.colorScheme(CategoricalColorScheme.category20),
 					)
 					.mark(
@@ -69,8 +69,8 @@ export class GroupedBarChart extends React.Component<{}> {
 									.scale(
 										band('pos', 'rowHeight')
 											.table('facet')
-											.bindDomain('position')
-											.bindRange(Dimension.Height),
+											.domain('position')
+											.range(Dimension.Height),
 									)
 									.mark(
 										rect('bars')

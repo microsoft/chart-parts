@@ -7,6 +7,7 @@ import {
 	Symbol,
 	Line,
 	LinearScale,
+	BandScale,
 	Dimension,
 	Text,
 } from '@gog/react'
@@ -127,15 +128,15 @@ export class LineChart extends React.Component<{}, BarChartState> {
 				<LinearScale
 					name="x"
 					table="series"
-					bindDomain={'x'}
-					bindRange={Dimension.Width}
+					domain="x"
+					range={Dimension.Width}
 					padding={SCALE_PAD}
 				/>
 				<LinearScale
 					name="y"
-					bindDomain="y"
+					domain="y"
 					table="series"
-					bindRange={Dimension.Height}
+					range={Dimension.Height}
 					padding={SCALE_PAD}
 				/>
 				<Group
@@ -158,33 +159,34 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						size={() => 50}
 					/>
 					<Group
-						singleton={true}
-						stroke="red"
 						x={() => 140}
 						y={() => 60}
 						width={50}
 						height={TEXT_GROUP_HEIGHT}
 					>
-						<Group
+						<BandScale
+							name="kpiLoc"
 							table="kpis"
-							stroke="green"
-							y={({ index }) => index * (TEXT_GROUP_HEIGHT / kpis.length)}
-							height={() => TEXT_GROUP_HEIGHT / kpis.length}
+							domain="label"
+							range={Dimension.Height}
+							bandWidth="kpiHeight"
+							align={0}
+						/>
+						<Group
+							name="kpis"
+							table="kpis"
+							y={({ datum }, { kpiLoc }) => kpiLoc(datum.label)}
+							height={(d, { kpiHeight }) => kpiHeight()}
 						>
 							<Text
-								singleton={true}
 								baseline={VerticalTextAlignment.TOP}
-								x={3}
-								y={5}
 								text={({ datum }) => datum.value}
-								fill={({ datum }) => 'black'}
+								fill={'black'}
 								fontSize={15}
 							/>
 							<Text
-								singleton={true}
 								baseline={VerticalTextAlignment.TOP}
-								x={3}
-								y={20}
+								y={15}
 								text={({ datum }) => datum.label}
 								fill={({ datum }) => datum.fill}
 								fontSize={10}

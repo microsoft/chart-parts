@@ -23,7 +23,6 @@ export function scene(
 		group('root')
 			.role('frame')
 			.zIndex(0)
-			.singleton(true)
 			.encode({
 				x: () => origin[0],
 				y: () => origin[1],

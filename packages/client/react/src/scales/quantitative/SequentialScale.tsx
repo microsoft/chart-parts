@@ -16,7 +16,6 @@ export class SequantialScale extends DomainScale<
 		return sequential(this.props.name)
 			.table(this.props.table)
 			.domain(this.props.domain)
-			.bindDomain(this.props.bindDomain)
 			.clamp(this.props.clamp)
 			.interpolator(this.props.interpolator)
 			.build()

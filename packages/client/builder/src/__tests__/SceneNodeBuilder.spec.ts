@@ -10,23 +10,23 @@ describe('The scene node builder', () => {
 	})
 
 	it('can set scales', () => {
-		const scene = new SceneNodeBuilder().mark(rect().singleton()).scale(
+		const scene = new SceneNodeBuilder().mark(rect()).scale(
 			linear('x')
 				.table('data')
-				.bindDomain('amount')
-				.bindRange(Dimension.Height),
+				.domain('amount')
+				.range(Dimension.Height),
 		)
 		expect(scene.build().scales.length).toBe(1)
 	})
 
 	it('can set axes', () => {
 		const scene = new SceneNodeBuilder()
-			.mark(rect().singleton())
+			.mark(rect())
 			.scale(
 				linear('x')
 					.table('data')
-					.bindDomain('amount')
-					.bindRange(Dimension.Height),
+					.domain('amount')
+					.range(Dimension.Height),
 			)
 			.axes(axis('x', AxisOrientation.Left))
 

@@ -33,10 +33,7 @@ describe('The builder module', () => {
 
 	it('can build a basic scene specification', () => {
 		const scene = builderModule.scene((snb: SceneNodeBuilder) => {
-			const rect = builderModule
-				.rect()
-				.name('test_rect')
-				.singleton()
+			const rect = builderModule.rect().name('test_rect')
 			return snb.mark(rect)
 		})
 		const builtScene = scene.build()
@@ -58,10 +55,7 @@ describe('The builder module', () => {
 		const builtScene = builderModule
 			.scene(
 				(snb: SceneNodeBuilder) => {
-					const rect = builderModule
-						.rect()
-						.name('test_rect')
-						.singleton()
+					const rect = builderModule.rect().name('test_rect')
 					return snb.mark(rect)
 				},
 				{ width: 100, height: 200 },
@@ -79,10 +73,7 @@ describe('The builder module', () => {
 	it('sets default dimensions on the outer rect', () => {
 		const builtScene = builderModule
 			.scene((snb: SceneNodeBuilder) => {
-				const rect = builderModule
-					.rect()
-					.name('test_rect')
-					.singleton()
+				const rect = builderModule.rect().name('test_rect')
 				return snb.mark(rect)
 			})
 			.build()
