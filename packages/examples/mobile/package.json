@@ -1,6 +1,6 @@
 {
   "name": "@gog/examples-mobile",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "private": true,
   "scripts": {
     "rn:start": "node node_modules/react-native/local-cli/cli.js start",
@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@gog/core": "^0.0.6",
-    "@gog/react": "^0.0.6",
+    "@gog/react": "^0.0.7",
     "@gog/react-native-svg-renderer": "^0.0.2",
     "@gog/testdata": "^0.0.2",
     "react": "^16.4.1",
