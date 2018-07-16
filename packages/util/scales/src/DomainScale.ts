@@ -35,9 +35,6 @@ export abstract class DomainScale<Domain> {
 		if (!this.nameValue) {
 			throw new Error('scale name must be defined')
 		}
-		if (!this.tableValue) {
-			throw new Error('table name must be defined')
-		}
 		return (args: CreateScaleArgs) => this.createScale(args)
 	}
 
@@ -48,22 +45,24 @@ export abstract class DomainScale<Domain> {
 	}
 
 	protected getDomain(args: CreateScaleArgs): Domain {
-		if (this.domainValue) {
-			return this.domainValue(args)
-		} else {
-			if (!this.tableValue) {
-				throw new Error('table must be defined')
-			}
+		return this.domainValue
+			? this.domainValue(args)
+			: this.getDomainFromTableBinding(args)
+	}
 
-			if (!this.bindDomainValue) {
-				throw new Error('domain must be defined')
-			}
-			const bind = this.bindDomainValue
-			const data = args.data[this.tableValue] || []
-			const domainValues = data.map((d: any) => d[bind])
-			const result = this.processDomainValues(domainValues)
-			return result
+	private getDomainFromTableBinding(args: CreateScaleArgs): Domain {
+		if (!this.tableValue) {
+			throw new Error('table must be defined')
 		}
+
+		if (!this.bindDomainValue) {
+			throw new Error('domain must be defined')
+		}
+		const bind = this.bindDomainValue
+		const data = args.data[this.tableValue] || []
+		const domainValues = data.map((d: any) => d[bind])
+		const result = this.processDomainValues(domainValues)
+		return result
 	}
 
 	protected get bindDomainArray(): string[] {
