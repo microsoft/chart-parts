@@ -1,7 +1,7 @@
 {
 	"name": "@gog/builder",
 	"description": "GoG Scene-Building Components",
-	"version": "0.0.12",
+	"version": "0.0.13",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
@@ -11,7 +11,7 @@
 		"build": "tsc"
 	},
 	"devDependencies": {
-		"@gog/scales": "^0.0.12",
+		"@gog/scales": "^0.0.13",
 		"rimraf": "^2.6.2",
 		"typescript": "2.9.1"
 	},
