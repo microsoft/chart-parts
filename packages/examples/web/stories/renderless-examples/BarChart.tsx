@@ -1,6 +1,19 @@
 // tslint:disable
 import * as React from 'react'
-import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
+import {
+	Axis,
+	Chart,
+	Rect,
+	LinearScale,
+	BandScale,
+	Dimension,
+	Text,
+} from '@gog/react'
+import {
+	AxisOrientation,
+	VerticalTextAlignment,
+	HorizontalAlignment,
+} from '@gog/interfaces'
 import { Renderer } from '@gog/react-svg-renderer'
 
 const renderer = new Renderer()
@@ -30,6 +43,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 	}
 
 	public render() {
+		const { hoverRowIndex } = this.state
 		return (
 			<Chart width={400} height={200} renderer={renderer} data={{ data }}>
 				<LinearScale
@@ -47,28 +61,40 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					padding={0.05}
 					range={Dimension.Width}
 				/>
-				{/* <Axis orient="bottom" scale="x" />
-				<Axis orient="left" scale="y" /> */}
+				<Axis orient={AxisOrientation.Bottom} scale="x" />
+				<Axis orient={AxisOrientation.Left} scale="y" />
 				<Rect
 					table="data"
 					onMouseEnter={(evt: any, { index }) => {
-						if (this.state.hoverRowIndex !== index) {
+						if (hoverRowIndex !== index) {
 							this.setState({ hoverRowIndex: index })
 						}
 					}}
 					onMouseLeave={(evt: any, { index }) => {
-						if (this.state.hoverRowIndex === index) {
+						if (hoverRowIndex === index) {
 							this.setState({ hoverRowIndex: undefined })
 						}
 					}}
 					x={({ datum }, { x }) => x(datum.category)}
 					y={({ datum }, { y }) => y(datum.amount)}
 					width={(d, { band }) => band()}
-					y2={200}
+					y2={(d, { y }) => y(0)}
 					fill={({ index }) =>
-						this.state.hoverRowIndex === index ? 'firebrick' : 'steelblue'
+						hoverRowIndex === index ? 'firebrick' : 'steelblue'
 					}
 				/>
+				{hoverRowIndex === undefined ? null : (
+					<Text
+						text={d => d.tables.data[hoverRowIndex].amount}
+						fill="black"
+						x={({ tables }, { x, band }) =>
+							x(tables.data[hoverRowIndex].category) + band() / 2
+						}
+						y={({ tables }, { y }) => y(tables.data[hoverRowIndex].amount) - 3}
+						baseline={VerticalTextAlignment.Bottom}
+						align={HorizontalAlignment.Center}
+					/>
+				)}
 			</Chart>
 		)
 	}

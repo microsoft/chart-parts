@@ -17,10 +17,8 @@ export function processNode(
 ): SGMarkAny[] {
 	// Push the new node, which registers channels and recomputes scales
 	const frame = parentFrame.pushNode(node)
-
 	// Build out the axes, which may or may not update the frame
 	const { remainingSpace, axes } = buildAxes(node, frame)
-
 	// Construct the items for the marks
 	const markFrame = frame.pushView(remainingSpace.shape as any)
 	const markItems = node.marks.map(mark => buildMarkItem(mark, markFrame))

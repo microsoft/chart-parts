@@ -11,7 +11,7 @@
     "test": "jest"
   },
   "dependencies": {
-    "@gog/core": "^0.0.12",
+    "@gog/orchestrator": "^0.0.12",
     "@gog/react": "^0.0.13",
     "@gog/react-native-svg-renderer": "^0.0.12",
     "@gog/testdata": "^0.0.12",

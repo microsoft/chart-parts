@@ -18,8 +18,9 @@ import {
 } from './interfaces'
 
 declare var require: any
-// tslint:disable-next-line no-var-requires
+// tslint:disable no-var-requires
 const flatMap = require('lodash/flatMap')
+const assign = require('lodash/assign')
 
 /**
  * Renders a group's "rectangle", which can have a fill and stroke
@@ -28,14 +29,13 @@ const flatMap = require('lodash/flatMap')
 function renderGroupRectangle(item: SGGroupItem, space: ItemSpace): VSvgNode {
 	const groupRect: VSvgNode = {
 		type: 'path',
-		attrs: {
-			...commonProps(item),
+		attrs: assign({}, commonProps(item), {
 			d: rectangle(
-				{ ...item, ...space.shape } as any,
+				assign({}, item, space.shape),
 				space.origin.x || 0,
 				space.origin.y || 0,
 			).toString(),
-		},
+		}),
 		metadata: item.metadata,
 		channels: item.channels,
 	}

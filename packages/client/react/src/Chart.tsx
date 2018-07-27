@@ -1,9 +1,8 @@
 // tslint:disable no-var-requires
 import * as React from 'react'
 import { Renderer, VSvgNode, SceneNode } from '@gog/interfaces'
-import { VirtualSvgPipeline } from '@gog/core'
+import { Orchestrator } from '@gog/orchestrator'
 import { ChartSpec } from './ChartSpec'
-import autobind from 'autobind-decorator'
 declare var require: any
 const shallowequal = require('shallowequal')
 
@@ -31,12 +30,13 @@ export interface ChartState {
 }
 
 export class Chart extends React.Component<ChartProps, ChartState> {
-	private pipeline: VirtualSvgPipeline<React.ReactNode>
+	private pipeline: Orchestrator<React.ReactNode>
 
 	constructor(props: ChartProps) {
 		super(props)
-		this.pipeline = new VirtualSvgPipeline(props.renderer)
+		this.pipeline = new Orchestrator(props.renderer)
 		this.state = { rendered: null }
+		this.receiveSpec = this.receiveSpec.bind(this)
 	}
 
 	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
@@ -61,9 +61,8 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 		)
 	}
 
-	@autobind
 	private receiveSpec(spec: any) {
-		const rendered = this.pipeline.handleData(
+		const rendered = this.pipeline.renderScene(
 			spec,
 			{
 				width: this.props.width,

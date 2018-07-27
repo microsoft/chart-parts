@@ -18,7 +18,7 @@
 	},
 	"dependencies": {
 		"@gog/builder": "^0.0.13",
-		"@gog/core": "^0.0.12",
+		"@gog/orchestrator": "^0.0.12",
 		"@gog/interfaces": "^0.0.12",
 		"@gog/scales": "^0.0.13",
 		"autobind-decorator": "^2.1.0",

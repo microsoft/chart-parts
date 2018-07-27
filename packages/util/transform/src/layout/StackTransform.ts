@@ -1,5 +1,4 @@
 // tslint:disable no-var-requires no-submodule-imports
-import autobind from 'autobind-decorator'
 import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
 
 declare var require: any
@@ -34,6 +33,12 @@ export class StackTransform {
 	private fieldVal: FieldAccessor | undefined
 	private groupByVal: FieldAccessor[] | undefined
 	private sortVal: Compare[] | undefined
+
+	constructor() {
+		this.stackCenter = this.stackCenter.bind(this)
+		this.stackZero = this.stackZero.bind(this)
+		this.stackNormalize = this.stackNormalize.bind(this)
+	}
 
 	/**
 	 * The data field that determines the stack heights.
@@ -167,7 +172,6 @@ export class StackTransform {
 		groups.forEach(g => stacker(g, groups.max))
 	}
 
-	@autobind
 	private stackCenter(group: DataStack, max: number) {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor
@@ -181,7 +185,6 @@ export class StackTransform {
 		}
 	}
 
-	@autobind
 	private stackNormalize(group: DataStack) {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor
@@ -196,7 +199,6 @@ export class StackTransform {
 		}
 	}
 
-	@autobind
 	private stackZero(group: DataStack) {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor

@@ -1,9 +1,6 @@
 {
-	"extends": ["tslint:latest", "tslint-react", "tslint-react-perf", "tslint-config-prettier"],
+	"extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
 	"rules": {
-		// A little too aggressive ATM
-		"react-pure-components-have-simple-attributes": false,
-
 		"variable-name": false, 
 		
 		// Turned off because these rules suck

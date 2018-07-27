@@ -57,7 +57,7 @@ function createElementFor(
 			handler(eventArg, metadata as HandlerMetadata)
 	})
 
-	return React.createElement(
+	const result = React.createElement(
 		reactSvgType,
 		reactAttrs,
 		(children || [])
@@ -67,6 +67,7 @@ function createElementFor(
 			)
 			.filter(t => !!t),
 	)
+	return result
 }
 
 /**

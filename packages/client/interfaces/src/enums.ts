@@ -1,3 +1,18 @@
+/**
+ * An enumeration for the possible mark types.
+ * Possible values are
+ * 	'arc',
+ *  'area',
+ *  'group',
+ *  'image',
+ *  'line',
+ *  'path',
+ *  'rect',
+ *  'rule',
+ *  'symbol',
+ *  'text', and
+ *  'trail'.
+ */
 export enum MarkType {
 	Arc = 'arc',
 	Area = 'area',
@@ -13,11 +28,18 @@ export enum MarkType {
 	Shape = 'shape',
 }
 
+/**
+ * An enumeration for area marks. May be 'horizontal' or 'vertical'
+ */
 export enum Orientation {
 	Horizontal = 'horizontal',
 	Vertical = 'vertical',
 }
 
+/**
+ * Line interpolation types. These define if and how curves are
+ * smoothed in line, area, and stream marks.
+ */
 export enum Interpolation {
 	Basis = 'basis',
 	Bundle = 'bundle',
@@ -31,18 +53,27 @@ export enum Interpolation {
 	stepBefore = 'step-before',
 }
 
+/**
+ * Horizontal Alignment parameter for marks. Mostly useful for Text marks.
+ */
 export enum HorizontalAlignment {
 	Left = 'left',
 	Center = 'center',
 	Right = 'right',
 }
 
+/**
+ * Vertical Alignment enumeration for marks (Image and Text)
+ */
 export enum VerticalAlignment {
 	Top = 'top',
 	Middle = 'middle',
 	Bottom = 'bottom',
 }
 
+/**
+ * Vertical Text Alignment parameter for Text marks.
+ */
 export enum VerticalTextAlignment {
 	Alphabetic = 'alphabetic',
 	Top = 'top',
@@ -50,6 +81,9 @@ export enum VerticalTextAlignment {
 	Bottom = 'bottom',
 }
 
+/**
+ * An enumeration of the kinds of symbols the Symbol mark may represent.
+ */
 export enum SymbolType {
 	Circle = 'circle',
 	Square = 'square',
@@ -61,17 +95,26 @@ export enum SymbolType {
 	TriangleLeft = 'triangle-left',
 }
 
+/**
+ * An enumeration of the TextDirection values for Text marks.
+ */
 export enum TextDirection {
 	LTR = 'ltr',
 	RTL = 'rtl',
 }
 
+/**
+ * Stroke-cap style for Marks with lines.
+ */
 export enum StrokeCap {
 	Butt = 'butt',
 	Round = 'round',
 	Square = 'square',
 }
 
+/**
+ * Stroke-join style for Marks with lines.
+ */
 export enum StrokeJoin {
 	Miter = 'miter',
 	Round = 'round',

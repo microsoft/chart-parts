@@ -4,10 +4,10 @@ import { Renderer } from '@gog/react-svg-renderer'
 import { SceneNode, Dimension } from '@gog/interfaces'
 import { scene, rect, group, text } from '@gog/builder'
 import { band, linear, ordinal, CategoricalColorScheme } from '@gog/scales'
-import { VirtualSvgPipeline } from '@gog/core'
+import { Orchestrator } from '@gog/orchestrator'
 
 const renderer = new Renderer()
-const pipeline = new VirtualSvgPipeline(renderer)
+const pipeline = new Orchestrator(renderer)
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },
@@ -101,7 +101,7 @@ export class GroupedBarChart extends React.Component<{}> {
 	}
 
 	public render() {
-		return pipeline.handleData(
+		return pipeline.renderScene(
 			this.chart,
 			{ width: 400, height: 200 },
 			{ data },

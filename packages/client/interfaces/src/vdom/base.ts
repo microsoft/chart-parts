@@ -6,7 +6,7 @@ import { Renderer } from '../render'
 export interface VDomNode<Attrs, Style> {
 	type: string
 	attrs?: Attrs
-	style?: { [key: string]: any }
+	style?: Style & { [key: string]: any }
 	children?: Array<string | VDomNode<any, any>>
 	channels?: { [key: string]: string }
 	metadata?: { [key: string]: any }

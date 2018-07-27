@@ -2,18 +2,17 @@
 	"include": "/**/*.js",
 	"exclude": ["/node_modules/*", ".babelrc", ".git"],
 	"dependencies": {
-		"@gog/core": "../../client/core",
-		"@gog/react": "../../client/react",
 		"@gog/testdata": "../testdata",
-
+		"@gog/react": "../../client/react",
+		"@gog/builder": "../../client/builder",
 		"@gog/interfaces": "../../client/interfaces",
 		"@gog/scenegraph": "../../processing/scenegraph",
 		"@gog/scene": "../../processing/scene",
+		"@gog/orchestrator": "../../processing/orchestrator",
+		"@gog/vsvg": "../../processing/vsvg",
 		"@gog/shapes": "../../util/shapes",
 		"@gog/scales": "../../util/scales",
 		"@gog/transform": "../../util/transform",
-		"@gog/vsvg": "../../processing/vsvg",
-
 		"@gog/react-native-svg-renderer": "../../renderers/react-native-svg"
 	}
 }

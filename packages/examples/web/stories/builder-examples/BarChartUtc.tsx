@@ -4,10 +4,10 @@ import { Renderer } from '@gog/react-svg-renderer'
 import { scene, rect, area, axis } from '@gog/builder'
 import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
 import { linear, time, band } from '@gog/scales'
-import { VirtualSvgPipeline } from '@gog/core'
+import { Orchestrator } from '@gog/orchestrator'
 
 const renderer = new Renderer()
-const pipeline = new VirtualSvgPipeline(renderer)
+const pipeline = new Orchestrator(renderer)
 
 const data: any[] = []
 for (let month = 1; month <= 12; ++month) {
@@ -97,7 +97,7 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 	}
 
 	public render() {
-		return pipeline.handleData(
+		return pipeline.renderScene(
 			this.chart,
 			{ width: 400, height: 200, padding: 30 },
 			{ data },

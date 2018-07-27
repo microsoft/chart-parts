@@ -3,7 +3,9 @@
 	"private": true,
 	"scripts": {
 		"clean": "lerna run clean",
-		"build": "lerna run build --stream",
+		"build": "run-s build:libs build:docs",
+		"build:libs": "lerna run build --stream",
+		"build:docs": "lerna run build:docs --scope @gog/documentation --stream",
 		"start:packages": "lerna run start --parallel --stream",
 		"lint": "tslint \"packages/{client,examples,renderers,processing,util}/*/src/**/*.ts*\"",
 		"unit_test": "jest --coverage",
@@ -25,7 +27,6 @@
 		"tslint": "^5.10.0",
 		"tslint-config-prettier": "^1.13.0",
 		"tslint-react": "^3.6.0",
-		"tslint-react-perf": "^0.2.1",
 		"typescript": "2.9.1"
 	},
 	"prettier": {
@@ -43,6 +44,7 @@
 	},
 	"workspaces": {
 		"packages": [
+			"packages/documentation",
 			"packages/examples/*",
 			"packages/renderers/*",
 			"packages/processing/*",
@@ -63,6 +65,7 @@
 			"**/react-dom",
 			"**/react-dom/**",
 			"@gog/examples-mobile/**",
+			"@gog/documentation/**",
 			"@gog/react-svg-renderer",
 			"@gog/react-svg-renderer/**",
 			"@gog/react-native-svg-renderer",
@@ -96,6 +99,8 @@
 			"json",
 			"node"
 		],
-    	"snapshotSerializers": ["jest-html"]
+		"snapshotSerializers": [
+			"jest-html"
+		]
 	}
 }

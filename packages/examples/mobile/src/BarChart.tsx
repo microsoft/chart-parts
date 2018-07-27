@@ -1,7 +1,15 @@
 // tslint:disable
 import * as React from 'react'
-import { Chart, Rect, LinearScale, BandScale, Dimension } from '@gog/react'
+import {
+	Axis,
+	Chart,
+	Rect,
+	LinearScale,
+	BandScale,
+	Dimension,
+} from '@gog/react'
 import { Renderer } from '@gog/react-native-svg-renderer'
+import { AxisOrientation } from '../node_modules/@gog/interfaces'
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -14,11 +22,13 @@ const data = [
 	{ category: 'H', amount: 87 },
 ]
 
+const renderer = new Renderer()
+
 export interface BarChartState {
 	hoverRowIndex: number | undefined
 }
 
-export class BarChart extends React.Component<{}, BarChartState> {
+export default class BarChart extends React.Component<{}, BarChartState> {
 	constructor(props: {}) {
 		super(props)
 		this.state = { hoverRowIndex: undefined }
@@ -32,7 +42,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 			}
 		}
 		return (
-			<Chart width={400} height={200} data={{ data }} renderer={new Renderer()}>
+			<Chart width={400} height={200} data={{ data }} renderer={renderer}>
 				<LinearScale
 					name="yscale"
 					table="data"
@@ -48,8 +58,8 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					range={Dimension.Width}
 				/>
 
-				{/* <Axis orient="bottom" scale="xscale" />
-				<Ax is orient="left" scale="yscale" /> */}
+				<Axis orient={AxisOrientation.Bottom} scale="xscale" />
+				<Axis orient={AxisOrientation.Left} scale="yscale" />
 				<Rect
 					eventHandlers={{ onPress }}
 					x={({ datum }, { xscale }) => xscale(datum.category)}
