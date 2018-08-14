@@ -102,5 +102,8 @@
 		"snapshotSerializers": [
 			"jest-html"
 		]
+	},
+	"resolutions": {
+		"**/@types/react": "16.4.10"
 	}
 }
