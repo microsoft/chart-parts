@@ -10,9 +10,6 @@ import {
 import { createItem } from '@gog/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { processNode } from '../processNode'
-declare var require: any
-// tslint:disable no-var-requires no-submodule-imports
-const assign = require('lodash/assign')
 
 /**
  * Creates a scenegraph item bound to a data row
@@ -46,13 +43,14 @@ export function createBoundItem(
 
 	// Mash in the children and the bounds
 	const items = mark.child ? processNode(mark.child, itemFrame) : []
-	const groupItem: SGGroupItem = assign({}, item, {
+	const groupItem: SGGroupItem = {
+		...item,
 		items,
 		x: groupDrawRect.left,
 		y: groupDrawRect.top,
 		x2: groupDrawRect.right,
 		y2: groupDrawRect.bottom,
-	})
+	}
 	return groupItem
 }
 

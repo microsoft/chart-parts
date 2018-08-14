@@ -4,6 +4,7 @@ import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
 
 declare var require: any
+
 // tslint:disable-next-line no-var-requires no-submodule-imports
 const assign = require('lodash/assign')
 
