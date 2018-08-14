@@ -27,19 +27,24 @@ const flatMap = require('lodash/flatMap')
  */
 function renderGroupRectangle(item: SGGroupItem, space: ItemSpace): VSvgNode {
 	const groupRectCommonProps = commonProps(item)
+	const originX = space.origin.x || 0
+	const originY = space.origin.y || 0
+
+	const rectItem = item as any
+	rectItem.width = space.shape.width
+	rectItem.height = space.shape.height
+
 	const groupRectShape = {
-		d: rectangle(
-			{ ...item, ...space.shape } as any,
-			space.origin.x || 0,
-			space.origin.y || 0,
-		).toString(),
+		d: rectangle(item, originX, originY).toString(),
 	}
 
+	const attrs = { ...groupRectCommonProps, ...groupRectShape }
+	const { metadata, channels } = item
 	const groupRect: VSvgNode = {
 		type: 'path',
-		attrs: { ...groupRectCommonProps, ...groupRectShape },
-		metadata: item.metadata,
-		channels: item.channels,
+		attrs,
+		metadata,
+		channels,
 	}
 	return groupRect
 }

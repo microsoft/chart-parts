@@ -22,7 +22,7 @@
     "@babel/core": "7.0.0-rc.1",
     "@types/react": "^16.4.10",
     "@types/react-native": "^0.56.8",
-    "babel-preset-react-native": "4.0.0",
+    "babel-preset-react-native": "5.0.2",
     "react-test-renderer": "^16.4.2",
     "rimraf": "^2.6.2",
     "whackage": "^1.3.0"

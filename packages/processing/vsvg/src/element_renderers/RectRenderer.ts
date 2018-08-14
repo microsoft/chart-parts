@@ -19,21 +19,21 @@ export class RectRenderer implements VSvgMarkConverter {
 			MarkType.Rect,
 			mark.role,
 			mark.items.map(item => {
+				const { metadata, channels } = item
 				const space = getItemSpace(item)
-				const itemCommon = commonProps(item)
+				const attrs = commonProps(item)
+
+				const rectItem = item as any
+				rectItem.width = space.shape.width
+				rectItem.height = space.shape.height
+
+				attrs.d = rectangle(rectItem, space.origin.x, space.origin.y).toString()
 
 				const result: VSvgNode = {
 					type: 'path',
-					attrs: {
-						...itemCommon,
-						d: rectangle(
-							{ ...item, ...space.shape },
-							space.origin.x,
-							space.origin.y,
-						).toString(),
-					},
-					metadata: item.metadata,
-					channels: item.channels,
+					attrs,
+					metadata,
+					channels,
 				}
 				return result
 			}),
