@@ -12,11 +12,11 @@ export class PathRenderer implements VSvgMarkConverter {
 			MarkType.Path,
 			mark.role,
 			mark.items.map(item => {
-				const { x = 0, y = 0 } = item
+				const { x, y } = item
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: { ...commonProps(item), d: item.path },
-					transforms: [translate(x, y)],
+					transforms: [translate(x || 0, y || 0)],
 					metadata: item.metadata,
 					channels: item.channels,
 				}

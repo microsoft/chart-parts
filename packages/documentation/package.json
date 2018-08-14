@@ -4,7 +4,6 @@
   "version": "0.0.13",
   "private": true,
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.54",
     "@gog/orchestrator": "^0.0.12",
     "@gog/react": "^0.0.13",
     "@gog/react-svg-renderer": "^0.0.12",
@@ -12,8 +11,6 @@
     "@gog/testdata": "^0.0.12",
     "@gog/transform": "^0.0.12",
     "@types/react-helmet": "^5.0.6",
-    "babel-plugin-styled-components": "^1.5.1",
-    "babel-runtime": "^6.26.0",
     "gatsby": "^2.0.0-beta.46",
     "gatsby-plugin-react-helmet": "^3.0.0-beta.3",
     "gatsby-plugin-styled-components": "^3.0.0-beta.2",

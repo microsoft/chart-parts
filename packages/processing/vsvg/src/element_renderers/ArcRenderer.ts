@@ -13,14 +13,14 @@ export class ArcRenderer implements VSvgMarkConverter {
 			MarkType.Arc,
 			mark.role,
 			mark.items.map(item => {
-				const { x = 0, y = 0 } = item
+				const { x, y } = item
 				const result: VSvgNode = {
 					type: 'path',
 					attrs: {
 						...commonProps(item),
 						d: arc(item),
 					},
-					transforms: [translate(x, y)],
+					transforms: [translate(x || 0, y || 0)],
 					channels: item.channels,
 					metadata: item.metadata,
 				}
