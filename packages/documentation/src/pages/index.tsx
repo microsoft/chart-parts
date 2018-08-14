@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Header from '../components/header'
 import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
+import './site.css'
 
 export default () => (
   <Container>
