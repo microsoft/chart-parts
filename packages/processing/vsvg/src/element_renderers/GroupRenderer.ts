@@ -17,9 +17,10 @@ import {
 	translate,
 } from './interfaces'
 
-declare var require: any
-// tslint:disable no-var-requires
-const flatMap = require('lodash/flatMap')
+function flatMap<T, K>(items: T[], lambda: ((input: T) => K[])): K[] {
+	const mappedItems = items.map(lambda)
+	return Array.prototype.concat.apply([], mappedItems)
+}
 
 /**
  * Renders a group's "rectangle", which can have a fill and stroke

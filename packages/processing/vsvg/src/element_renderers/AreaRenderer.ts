@@ -3,11 +3,6 @@ import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
 
-declare var require: any
-
-// tslint:disable-next-line no-var-requires no-submodule-imports
-const assign = require('lodash/assign')
-
 export class AreaRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Area
 
@@ -20,7 +15,10 @@ export class AreaRenderer implements VSvgMarkConverter {
 
 		const areaItems = mark.items.map(a => {
 			const space = getItemSpace(a)
-			return assign({}, a, space.shape)
+			const ai = a as any
+			ai.width = space.shape.width
+			ai.height = space.shape.height
+			return ai
 		})
 		const areaItem = {
 			type: 'path',

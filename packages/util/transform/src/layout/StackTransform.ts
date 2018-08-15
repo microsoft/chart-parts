@@ -1,8 +1,10 @@
 // tslint:disable no-var-requires no-submodule-imports
 import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
 
-declare var require: any
-const flatMap = require('lodash/flatMap')
+function flatMap<T, K>(items: T[], lambda: ((input: T) => K[])): K[] {
+	const mappedItems = items.map(lambda)
+	return Array.prototype.concat.apply([], mappedItems)
+}
 
 interface DataStack extends Array<any> {
 	/**
