@@ -2,7 +2,7 @@
 	"name": "@gog/testdata",
 	"description": "Test data for charts",
 	"private": true,
-	"version": "0.0.14",
+	"version": "0.0.15",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"scripts": {
@@ -15,7 +15,7 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.14",
-		"@gog/scenegraph": "^0.0.14"
+		"@gog/interfaces": "^0.0.15",
+		"@gog/scenegraph": "^0.0.15"
 	}
 }
