@@ -1,7 +1,7 @@
 {
 	"name": "@gog/orchestrator",
 	"description": "Gog Rendering orchestration",
-	"version": "0.0.12",
+	"version": "0.0.14",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
@@ -15,9 +15,9 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.12",
-		"@gog/scene": "^0.0.12",
-		"@gog/scenegraph": "^0.0.12",
-		"@gog/vsvg": "^0.0.12"
+		"@gog/interfaces": "^0.0.14",
+		"@gog/scene": "^0.0.14",
+		"@gog/scenegraph": "^0.0.14",
+		"@gog/vsvg": "^0.0.14"
 	}
 }
