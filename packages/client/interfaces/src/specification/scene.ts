@@ -33,9 +33,14 @@ export interface Mark {
 	type: MarkType
 
 	/**
-	 * The name of the data-table to bind this mark to. If unset, this mark will render as a singleton
+	 * The name of the data-table to bind this mark to. Not required if singleton = true
 	 */
 	table?: string
+
+	/**
+	 * If true, this mark will render as a singleton
+	 */
+	singleton?: boolean
 
 	/**
 	 * The encodings, which map data values into attribute values

@@ -73,8 +73,8 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					table="data"
 					range={Dimension.Height}
 					domain="y1"
-					nice={true}
-					zero={true}
+					nice
+					zero
 				/>
 				<OrdinalScale
 					name="color"

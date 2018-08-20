@@ -51,7 +51,7 @@ export default class BarChart extends React.Component<{}, BarChartState> {
           table="data"
           domain="amount"
           range={Dimension.Height}
-          nice={true}
+          nice
         />
         <BandScale
           table="data"
@@ -85,6 +85,7 @@ export default class BarChart extends React.Component<{}, BarChartState> {
         />
         {hoverRowIndex === undefined ? null : (
           <Text
+            singleton
             text={d => d.tables.data[hoverRowIndex].amount}
             fill="black"
             x={({ tables }, { x, band }) =>

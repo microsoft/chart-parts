@@ -85,6 +85,11 @@ export abstract class BaseMark<
 			result = result.table(table as string)
 		}
 
+		const singleton = this.props.singleton
+		if (singleton) {
+			result = result.singleton(singleton as boolean)
+		}
+
 		if (name) {
 			result = result.name(name as string)
 		}

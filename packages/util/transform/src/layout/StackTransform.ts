@@ -36,12 +36,6 @@ export class StackTransform {
 	private groupByVal: FieldAccessor[] | undefined
 	private sortVal: Compare[] | undefined
 
-	constructor() {
-		this.stackCenter = this.stackCenter.bind(this)
-		this.stackZero = this.stackZero.bind(this)
-		this.stackNormalize = this.stackNormalize.bind(this)
-	}
-
 	/**
 	 * The data field that determines the stack heights.
 	 * @param field
@@ -174,7 +168,7 @@ export class StackTransform {
 		groups.forEach(g => stacker(g, groups.max))
 	}
 
-	private stackCenter(group: DataStack, max: number) {
+	private stackCenter = (group: DataStack, max: number) => {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor
 		const sum = group.sum || 0
@@ -187,7 +181,7 @@ export class StackTransform {
 		}
 	}
 
-	private stackNormalize(group: DataStack) {
+	private stackNormalize = (group: DataStack) => {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor
 		const scale = 1 / group.sum
@@ -201,7 +195,7 @@ export class StackTransform {
 		}
 	}
 
-	private stackZero(group: DataStack) {
+	private stackZero = (group: DataStack) => {
 		const [y0, y1] = this.outputFields
 		const field = this.fieldVal as FieldAccessor
 

@@ -36,7 +36,6 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 		super(props)
 		this.pipeline = new Orchestrator(props.renderer)
 		this.state = { rendered: null }
-		this.receiveSpec = this.receiveSpec.bind(this)
 	}
 
 	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
@@ -61,7 +60,7 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 		)
 	}
 
-	private receiveSpec(spec: any) {
+	private receiveSpec = (spec: SceneNode) => {
 		const rendered = this.pipeline.renderScene(
 			spec,
 			{

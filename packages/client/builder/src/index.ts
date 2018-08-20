@@ -22,6 +22,7 @@ export function scene(
 	return new SceneNodeBuilder().mark(
 		group('root')
 			.role('frame')
+			.singleton(true)
 			.zIndex(0)
 			.encode({
 				x: () => origin[0],

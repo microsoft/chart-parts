@@ -157,7 +157,7 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						x={({ datum }, { x }) => x(datum.x)}
 						y={({ datum }, { y }) => y(datum.y)}
 					/>
-					<Group x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
+					<Group singleton x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
 							name="kpiLoc"
 							table="kpis"
@@ -173,12 +173,14 @@ export class LineChart extends React.Component<{}, BarChartState> {
 							height={(d, { kpiHeight }) => kpiHeight()}
 						>
 							<Text
+								singleton
 								baseline={VerticalTextAlignment.Top}
 								text={({ datum }) => datum.value}
 								fill={'black'}
 								fontSize={15}
 							/>
 							<Text
+								singleton
 								baseline={VerticalTextAlignment.Top}
 								y={15}
 								text={({ datum }) => datum.label}

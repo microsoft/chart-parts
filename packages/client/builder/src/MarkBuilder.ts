@@ -15,6 +15,7 @@ export class MarkBuilder {
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
+	private singletonValue?: boolean
 	private facetValue?: Facet
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
@@ -23,6 +24,11 @@ export class MarkBuilder {
 
 	public table(table: string): MarkBuilder {
 		this.tableValue = table
+		return this
+	}
+
+	public singleton(value: boolean): MarkBuilder {
+		this.singletonValue = value
 		return this
 	}
 
@@ -119,6 +125,7 @@ export class MarkBuilder {
 			roleValue: role,
 			nameValue: name,
 			facetValue: facet,
+			singletonValue: singleton,
 			childNode,
 		} = this
 
@@ -134,6 +141,7 @@ export class MarkBuilder {
 			role,
 			name,
 			facet,
+			singleton,
 			child: childNode && childNode.build(),
 		}
 	}

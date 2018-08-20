@@ -29,7 +29,6 @@ export default class LinkTree extends React.Component<
   constructor(props: LinkTreeProps) {
     super(props)
     this.state = { expanded: !!props.expanded, hasBeenManuallyToggled: false }
-    this.onExpandCollapseClick = this.onExpandCollapseClick.bind(this)
   }
 
   public componentDidMount() {
@@ -118,7 +117,7 @@ export default class LinkTree extends React.Component<
     ))
   }
 
-  private onExpandCollapseClick() {
+  private onExpandCollapseClick = () => {
     this.setState({
       expanded: !this.state.expanded,
       hasBeenManuallyToggled: true,

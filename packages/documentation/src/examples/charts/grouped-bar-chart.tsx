@@ -55,8 +55,8 @@ export default class GroupedBarChart extends React.Component<{}> {
           table="data"
           range={Dimension.Width}
           domain="value"
-          nice={true}
-          zero={true}
+          nice
+          zero
         />
         <OrdinalScale
           name="color"

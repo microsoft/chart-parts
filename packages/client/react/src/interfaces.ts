@@ -8,7 +8,7 @@ export type MarkEncodingProp = MarkEncoding | string | number | boolean
 export interface CommonMarkProps {
 	// Data-binding
 	/**
-	 * The name of the data-table to bind to
+	 * The name of the data-table to bind to. Not necessary if singleton=true
 	 */
 	table?: string
 
@@ -21,6 +21,11 @@ export interface CommonMarkProps {
 	 * A role description of this mark
 	 */
 	role?: string
+
+	/**
+	 * Whether to render this mark as a singleton.
+	 */
+	singleton?: boolean
 
 	// Common Mark Value Encodings
 	x?: MarkEncodingProp

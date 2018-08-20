@@ -21,7 +21,6 @@
 		"@gog/interfaces": "^0.0.15",
 		"@gog/orchestrator": "^0.0.15",
 		"@gog/scales": "^0.0.15",
-		"autobind-decorator": "^2.1.0",
 		"lodash": "^4.17.10",
 		"shallowequal": "^1.1.0"
 	},
