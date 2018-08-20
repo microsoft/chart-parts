@@ -8,8 +8,11 @@ const DEFAULT_FONT_SIZE = 10
 const DEFAULT_FONT = 'sans-serif'
 const DEFAULT_LABEL_PADDING = 1
 const DEFAULT_BAND_POSITION = 0.5
+const DEFAULT_THICKNESS = 25
 
 export class AxisBuilder {
+	private thicknessValue: number = DEFAULT_THICKNESS
+
 	// #region Domain Configuration Fields
 	private domainValue: boolean = true
 	private domainColorValue: string = DEFAULT_COLOR
@@ -155,6 +158,11 @@ export class AxisBuilder {
 		return this
 	}
 
+	public thickness(value: number): AxisBuilder {
+		this.thicknessValue = value
+		return this
+	}
+
 	// #endregion
 
 	public build(): Axis {
@@ -182,6 +190,7 @@ export class AxisBuilder {
 			bandPosition: this.bandPositionValue,
 			labelAngle: this.labelAngleValue,
 			labelFormat: this.labelFormatValue,
+			thickness: this.thicknessValue,
 		}
 	}
 }

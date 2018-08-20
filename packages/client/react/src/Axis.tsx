@@ -17,6 +17,12 @@ export interface AxisProps {
 	 */
 	orient: AxisOrientation
 
+	/**
+	 * The thickness of the axis in pixels.
+	 * NOTE: Unfortunately we can't mesaure text dynamically in all situations.
+	 */
+	thickness?: number
+
 	// #region Domain Properties
 	domain?: boolean
 	domainWidth?: number

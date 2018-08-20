@@ -22,6 +22,13 @@ export interface Axis {
 	 */
 	orient: AxisOrientation
 
+	/**
+	 * The thickness of the axis in pixels.
+	 *
+	 * NOTE: Unfortunately we can't mesaure text dynamically in all situations, so we can set it here.
+	 */
+	thickness?: number
+
 	// #region Domain Properties
 	/**
 	 * A boolean flag indicating if the domain (the axis baseline) should be included as part of the axis (default true).

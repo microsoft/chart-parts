@@ -4,6 +4,16 @@ import { buildAxis } from '../axes/buildAxis'
 import { AxisSpace } from '../../interfaces'
 import { SGMarkAny } from '../processNode'
 
+/**
+ * TODO: Store these defaults in a unified place
+ */
+const DEFAULT_AXIS_THICKNESS = 25
+
+/**
+ * Builds axes into a screen frame
+ * @param node The current scene node
+ * @param frame Thec curren scene frame
+ */
 export function buildAxes(
 	node: SceneNode,
 	frame: SceneFrame,
@@ -11,6 +21,7 @@ export function buildAxes(
 	axes: SGMarkAny[]
 	remainingSpace: ItemSpace
 } {
+	// If no axes are present, return an empty axis array and an unchanged view
 	if (node.axes.length === 0) {
 		return {
 			axes: [],
@@ -106,5 +117,5 @@ function getAxisSpace(frame: SceneFrame) {
 }
 
 function axisThickness(axis: Axis) {
-	return 20
+	return axis.thickness || DEFAULT_AXIS_THICKNESS
 }

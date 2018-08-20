@@ -4,6 +4,7 @@ import {
   Chart,
   Rect,
   LinearScale,
+  Axis,
   BandScale,
   Dimension,
   OrdinalScale,
@@ -11,6 +12,7 @@ import {
 } from '@gog/react'
 import { Renderer } from '@gog/react-svg-renderer'
 import { StackTransform } from '@gog/transform'
+import { AxisOrientation } from '@gog/interfaces'
 
 const renderer = new Renderer()
 const data = [
@@ -64,6 +66,7 @@ export default class StackedBarChart extends React.Component<
         data={{ data: stackedData }}
         renderer={renderer}
       >
+        {/* Scale Definitions */}
         <BandScale
           name="x"
           table="data"
@@ -85,6 +88,12 @@ export default class StackedBarChart extends React.Component<
           domain="c"
           colorScheme={CategoricalColorScheme.category10}
         />
+
+        {/* Axes */}
+        <Axis orient={AxisOrientation.Bottom} scale="x" thickness={20} />
+        <Axis orient={AxisOrientation.Left} scale="y" thickness={30} />
+
+        {/* Marks */}
         <Rect
           onMouseEnter={(evt, { index }) => {
             if (this.state.hoverRowIndex !== index) {
