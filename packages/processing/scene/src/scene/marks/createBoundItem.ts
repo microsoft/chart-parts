@@ -6,8 +6,8 @@ import {
 	MarkEncodings,
 	ViewSize,
 	SGGroupItem,
-} from '@gog/interfaces'
-import { createItem } from '@gog/scenegraph'
+} from '@markable/interfaces'
+import { createItem } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { processNode } from '../processNode'
 

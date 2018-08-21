@@ -1,4 +1,4 @@
-import { SGMark, SGItem, Channels } from '@gog/interfaces'
+import { SGMark, SGItem, Channels } from '@markable/interfaces'
 
 /**
  * Interface for the result of scene-generation

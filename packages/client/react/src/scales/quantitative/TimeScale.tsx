@@ -1,4 +1,4 @@
-import { time } from '@gog/scales'
+import { time } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

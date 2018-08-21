@@ -1,4 +1,4 @@
-import { MarkType, Interpolation, SGLineItem } from '@gog/interfaces'
+import { MarkType, Interpolation, SGLineItem } from '@markable/interfaces'
 import { Item } from './Item'
 
 export class LineItem extends Item implements SGLineItem {

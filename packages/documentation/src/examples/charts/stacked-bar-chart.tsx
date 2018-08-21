@@ -9,10 +9,10 @@ import {
   Dimension,
   OrdinalScale,
   CategoricalColorScheme,
-} from '@gog/react'
-import { Renderer } from '@gog/react-svg-renderer'
-import { StackTransform } from '@gog/transform'
-import { AxisOrientation } from '@gog/interfaces'
+} from '@markable/react'
+import { Renderer } from '@markable/react-svg-renderer'
+import { StackTransform } from '@markable/transform'
+import { AxisOrientation } from '@markable/interfaces'
 
 const renderer = new Renderer()
 const data = [

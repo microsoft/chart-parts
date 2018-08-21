@@ -1,4 +1,4 @@
-import { SGMark, Axis, Scale, TickValue } from '@gog/interfaces'
+import { SGMark, Axis, Scale, TickValue } from '@markable/interfaces'
 import { SceneFrame } from '../SceneFrame'
 
 /**

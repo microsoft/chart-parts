@@ -1,11 +1,11 @@
 {
-	"name": "@gog/parent",
+	"name": "@markable/parent",
 	"private": true,
 	"scripts": {
 		"clean": "lerna run clean",
 		"build": "run-s build:libs build:docs",
 		"build:libs": "lerna run build --stream",
-		"build:docs": "lerna run build:docs --scope @gog/documentation --stream",
+		"build:docs": "lerna run build:docs --scope @markable/documentation --stream",
 		"start:packages": "lerna run start --parallel --stream",
 		"lint": "tslint \"packages/{client,examples,renderers,processing,util}/*/src/**/*.ts*\"",
 		"unit_test": "jest --coverage",
@@ -64,14 +64,14 @@
 			"**/react-native-svg/**",
 			"**/react-dom",
 			"**/react-dom/**",
-			"@gog/examples-mobile/**",
-			"@gog/documentation/**",
-			"@gog/react-svg-renderer",
-			"@gog/react-svg-renderer/**",
-			"@gog/react-native-svg-renderer",
-			"@gog/react-native-svg-renderer/**",
-			"**/@gog/react-native-svg-renderer/**",
-			"@gog/examples-web/**"
+			"@markable/examples-mobile/**",
+			"@markable/documentation/**",
+			"@markable/react-svg-renderer",
+			"@markable/react-svg-renderer/**",
+			"@markable/react-native-svg-renderer",
+			"@markable/react-native-svg-renderer/**",
+			"**/@markable/react-native-svg-renderer/**",
+			"@markable/examples-web/**"
 		]
 	},
 	"jest": {

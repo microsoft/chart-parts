@@ -1,10 +1,10 @@
 // tslint:disable
 import * as React from 'react'
-import { Renderer } from '@gog/react-svg-renderer'
-import { scene, rect, axis } from '@gog/builder'
-import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
-import { linear, band } from '@gog/scales'
-import { Orchestrator } from '@gog/orchestrator'
+import { Renderer } from '@markable/react-svg-renderer'
+import { scene, rect, axis } from '@markable/builder'
+import { Dimension, SceneNode, AxisOrientation } from '@markable/interfaces'
+import { linear, band } from '@markable/scales'
+import { Orchestrator } from '@markable/orchestrator'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

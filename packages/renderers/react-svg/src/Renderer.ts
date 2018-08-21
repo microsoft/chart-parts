@@ -5,7 +5,7 @@ import {
 	VSvgTransform,
 	ChannelHandler,
 	HandlerMetadata,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,

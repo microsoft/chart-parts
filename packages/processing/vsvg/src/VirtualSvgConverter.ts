@@ -5,7 +5,7 @@ import {
 	VSvgNode,
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { renderMark } from './element_renderers'
 import { translate } from './element_renderers/interfaces'
 

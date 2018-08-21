@@ -3,7 +3,7 @@ import {
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
 	ItemSpace,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions) {}

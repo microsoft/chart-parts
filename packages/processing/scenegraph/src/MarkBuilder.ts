@@ -1,4 +1,4 @@
-import { MarkType, SGItem, SGMark } from '@gog/interfaces'
+import { MarkType, SGItem, SGMark } from '@markable/interfaces'
 import { createItem, createMark } from './factory'
 
 export class MarkBuilder {

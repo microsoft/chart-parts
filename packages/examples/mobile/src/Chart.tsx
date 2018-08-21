@@ -1,9 +1,9 @@
 // tslint:disable jsx-no-object-literal-props jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
 import { FlatList, View } from 'react-native'
-import { Orchestrator } from '@gog/orchestrator'
-import { Renderer } from '@gog/react-native-svg-renderer'
-import { testCharts, TestScenegraph } from '@gog/testdata'
+import { Orchestrator } from '@markable/orchestrator'
+import { Renderer } from '@markable/react-native-svg-renderer'
+import { testCharts, TestScenegraph } from '@markable/testdata'
 
 const pipeline = new Orchestrator(new Renderer())
 const renderChart = (chart: TestScenegraph) =>

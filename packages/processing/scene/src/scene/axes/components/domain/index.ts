@@ -1,5 +1,5 @@
-import { Axis, MarkType } from '@gog/interfaces'
-import { buildMark } from '@gog/scenegraph'
+import { Axis, MarkType } from '@markable/interfaces'
+import { buildMark } from '@markable/scenegraph'
 import { AxisContext, AxisComponent } from '../../interfaces'
 import { crossValue } from './crossValue'
 

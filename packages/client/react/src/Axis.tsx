@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { AxisOrientation, TickValue } from '@gog/interfaces'
-import { SceneNodeBuilder, axis } from '@gog/builder'
+import { AxisOrientation, TickValue } from '@markable/interfaces'
+import { SceneNodeBuilder, axis } from '@markable/builder'
 import { SceneNodeBuilderConsumer } from './Context'
 
 /**

@@ -1,5 +1,5 @@
 {
-  "name": "@gog/examples-web",
+  "name": "@markable/examples-web",
   "private": true,
   "version": "0.0.15",
   "scripts": {
@@ -9,12 +9,12 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "@gog/orchestrator": "^0.0.15",
-    "@gog/react": "^0.0.15",
-    "@gog/react-svg-renderer": "^0.0.15",
-    "@gog/scales": "^0.0.15",
-    "@gog/testdata": "^0.0.15",
-    "@gog/transform": "^0.0.15",
+    "@markable/orchestrator": "^0.0.15",
+    "@markable/react": "^0.0.15",
+    "@markable/react-svg-renderer": "^0.0.15",
+    "@markable/scales": "^0.0.15",
+    "@markable/testdata": "^0.0.15",
+    "@markable/transform": "^0.0.15",
     "@storybook/addon-actions": "^4.0.0-alpha.8",
     "@storybook/addon-links": "^4.0.0-alpha.8",
     "@storybook/addons": "^4.0.0-alpha.8",

@@ -1,4 +1,4 @@
-import { MarkType, SymbolType, SGSymbolItem } from '@gog/interfaces'
+import { MarkType, SymbolType, SGSymbolItem } from '@markable/interfaces'
 import { Item } from './Item'
 
 export class SymbolItem extends Item implements SGSymbolItem {

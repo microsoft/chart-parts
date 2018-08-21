@@ -1,6 +1,6 @@
 // tslint:disable no-implicit-dependencies
-import { Dimension, AxisOrientation } from '@gog/interfaces'
-import { linear } from '@gog/scales'
+import { Dimension, AxisOrientation } from '@markable/interfaces'
+import { linear } from '@markable/scales'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
 import { rect, axis } from '../index'
 

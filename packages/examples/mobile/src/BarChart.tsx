@@ -7,9 +7,9 @@ import {
 	LinearScale,
 	BandScale,
 	Dimension,
-} from '@gog/react'
-import { Renderer } from '@gog/react-native-svg-renderer'
-import { AxisOrientation } from '../node_modules/@gog/interfaces'
+} from '@markable/react'
+import { Renderer } from '@markable/react-native-svg-renderer'
+import { AxisOrientation } from '../node_modules/@markable/interfaces'
 
 const data = [
 	{ category: 'A', amount: 28 },

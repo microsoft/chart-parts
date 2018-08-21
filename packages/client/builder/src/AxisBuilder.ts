@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation, TickValue, FontWeight } from '@gog/interfaces'
+import { Axis, AxisOrientation, TickValue, FontWeight } from '@markable/interfaces'
 
 const DEFAULT_COLOR = '#777'
 const DEFAULT_TEXT_COLOR = '#000'

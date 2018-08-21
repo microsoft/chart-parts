@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { scene, SceneNodeBuilder } from '@gog/builder'
+import { scene, SceneNodeBuilder } from '@markable/builder'
 import { SceneNodeBuilderProvider } from './Context'
 
 export interface ChartPadding {

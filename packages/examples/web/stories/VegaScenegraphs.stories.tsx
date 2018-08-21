@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { storiesOf } from '@storybook/react'
 import { SGChart } from './util'
-import { testCharts } from '@gog/testdata'
+import { testCharts } from '@markable/testdata'
 
 let stories = storiesOf('Vega Examples (Captured Scenegraphs)', module)
 testCharts.forEach(tc => {

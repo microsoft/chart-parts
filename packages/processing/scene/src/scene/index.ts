@@ -1,5 +1,5 @@
 // tslint:disable no-this-assignment no-submodule-imports no-var-requires
-import { ChartOptions, SceneNode, DataFrame } from '@gog/interfaces'
+import { ChartOptions, SceneNode, DataFrame } from '@markable/interfaces'
 import { ChartOptionsManager } from './ChartOptionsManager'
 import { SceneFrame } from './SceneFrame'
 import { GeneratedScene } from '../interfaces'

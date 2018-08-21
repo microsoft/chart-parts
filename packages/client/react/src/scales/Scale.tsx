@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { SceneNodeBuilder } from '@gog/builder'
-import { CreateScaleArgs } from '@gog/interfaces'
+import { SceneNodeBuilder } from '@markable/builder'
+import { CreateScaleArgs } from '@markable/interfaces'
 import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {

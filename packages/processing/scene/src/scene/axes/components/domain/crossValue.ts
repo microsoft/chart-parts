@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation } from '@gog/interfaces'
+import { Axis, AxisOrientation } from '@markable/interfaces'
 
 export function crossValue(axis: Axis, thickness: number): number {
 	const domainWidth = axis.domainWidth as number

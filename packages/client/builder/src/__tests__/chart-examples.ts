@@ -1,6 +1,6 @@
 // tslint:disable no-implicit-dependencies
-import { linear, band, ordinal, CategoricalColorScheme } from '@gog/scales'
-import { Dimension, SceneNode, AxisOrientation } from '@gog/interfaces'
+import { linear, band, ordinal, CategoricalColorScheme } from '@markable/scales'
+import { Dimension, SceneNode, AxisOrientation } from '@markable/interfaces'
 import { scene, rect, axis, group, text } from '../index'
 
 describe('Building Charts', () => {

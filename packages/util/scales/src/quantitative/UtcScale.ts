@@ -1,6 +1,6 @@
 import { scaleUtc } from 'd3-scale'
 import { QuantitativeScale, TimeValue } from './QuantitativeScale'
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 
 function setType(result: any) {
 	result.__scaletype__ = 'utc'

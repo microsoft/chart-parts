@@ -1,5 +1,5 @@
-import { Mark } from '@gog/interfaces'
-import { createMark } from '@gog/scenegraph'
+import { Mark } from '@markable/interfaces'
+import { createMark } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 

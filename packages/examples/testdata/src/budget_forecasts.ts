@@ -2,7 +2,7 @@
 
 // tslint:disable no-var-requires
 declare var require: any
-import { parseScene } from '@gog/scenegraph'
+import { parseScene } from '@markable/scenegraph'
 const data = require('../resources/budget_forecasts.json')
 
 export const scenegraph = parseScene(data)

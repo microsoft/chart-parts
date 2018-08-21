@@ -1,4 +1,4 @@
-import { MarkType, AxisOrientation } from '@gog/interfaces'
+import { MarkType, AxisOrientation } from '@markable/interfaces'
 import * as builderModule from '../index'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
 

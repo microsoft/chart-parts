@@ -1,4 +1,4 @@
-import { linear } from '@gog/scales'
+import { linear } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

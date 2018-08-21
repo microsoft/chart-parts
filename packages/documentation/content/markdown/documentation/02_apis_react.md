@@ -6,7 +6,7 @@ order: 2
 
 ## React API
 
-__Package__: [_@gog/react_](/apidocs/client/react/index.html)
+__Package__: [_@markable/react_](/apidocs/client/react/index.html)
 
 The React API contains a set of React Component classes for describing charting scene specifications. 
 These components use the Renderless Component pattern to interact with the SceneBuilder API. 

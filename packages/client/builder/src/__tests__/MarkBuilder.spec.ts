@@ -1,4 +1,4 @@
-import { MarkType } from '@gog/interfaces'
+import { MarkType } from '@markable/interfaces'
 import { MarkBuilder } from '../MarkBuilder'
 
 describe('The Mark Builder', () => {

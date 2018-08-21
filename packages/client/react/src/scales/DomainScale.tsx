@@ -1,7 +1,7 @@
 // tslint:disable max-classes-per-file
 import * as React from 'react'
-import { CreateScaleArgs } from '@gog/interfaces'
-import { SceneNodeBuilder } from '@gog/builder'
+import { CreateScaleArgs } from '@markable/interfaces'
+import { SceneNodeBuilder } from '@markable/builder'
 import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface DomainScaleProps<Domain> {

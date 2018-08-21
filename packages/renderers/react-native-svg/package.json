@@ -1,5 +1,5 @@
 {
-	"name": "@gog/react-native-svg-renderer",
+	"name": "@markable/react-native-svg-renderer",
 	"description": "A virtual dom renderer that emits react-native-svg elements",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -17,7 +17,7 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.15",
+		"@markable/interfaces": "^0.0.15",
 		"lodash": "^4.17.10",
 		"react-native-svg": "^5.x"
 	},

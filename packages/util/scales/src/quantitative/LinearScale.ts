@@ -1,5 +1,5 @@
 import { scaleLinear } from 'd3-scale'
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
 
 export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {

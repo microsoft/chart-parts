@@ -1,5 +1,5 @@
 {
-	"name": "@gog/vsvg",
+	"name": "@markable/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -11,13 +11,13 @@
 		"build": "tsc"
 	},
 	"devDependencies": {
-		"@gog/scenegraph": "^0.0.15",
+		"@markable/scenegraph": "^0.0.15",
 		"rimraf": "^2.6.2",
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.15",
-		"@gog/shapes": "^0.0.15",
+		"@markable/interfaces": "^0.0.15",
+		"@markable/shapes": "^0.0.15",
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"d3-path": "^1.0.5",

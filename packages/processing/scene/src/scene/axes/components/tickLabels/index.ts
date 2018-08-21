@@ -4,8 +4,8 @@ import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 	AxisOrientation,
-} from '@gog/interfaces'
-import { buildMark } from '@gog/scenegraph'
+} from '@markable/interfaces'
+import { buildMark } from '@markable/scenegraph'
 import {
 	AxisContext,
 	PositionedTickValue,

@@ -6,7 +6,7 @@ import {
 	VSvgNode,
 	getItemSpace,
 	ItemSpace,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { commonProps, assertTypeIs } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'

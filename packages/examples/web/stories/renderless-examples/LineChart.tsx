@@ -1,6 +1,6 @@
 // tslint:disable
 import * as React from 'react'
-import { VerticalTextAlignment } from '@gog/interfaces'
+import { VerticalTextAlignment } from '@markable/interfaces'
 import {
 	Chart,
 	Group,
@@ -10,8 +10,8 @@ import {
 	BandScale,
 	Dimension,
 	Text,
-} from '@gog/react'
-import { Renderer } from '@gog/react-svg-renderer'
+} from '@markable/react'
+import { Renderer } from '@markable/react-svg-renderer'
 
 const renderer = new Renderer()
 

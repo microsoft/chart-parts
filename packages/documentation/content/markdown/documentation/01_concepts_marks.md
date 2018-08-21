@@ -6,7 +6,7 @@ order: 1
 
 ## Marks
 
-Marks are a key concept in GoG, and any system implementing a _grammar-of-graphics_. Marks are the fundamental building blocks of these "grammars". Marks' relation to charts are analagous to words' relationship to text.
+*Marks* are a key concept in Markable, and any system implementing a _grammar-of-graphics_. Marks are the fundamental building blocks of these "grammars". Marks' relation to charts are analagous to words' relationship to text.
 
 ![Mark-to-word Analogy](/images/analogy.png)
 

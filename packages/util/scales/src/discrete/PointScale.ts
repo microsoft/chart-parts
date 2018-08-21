@@ -1,6 +1,6 @@
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { Dimension, CreateScaleArgs, Scales, Scale } from '@gog/interfaces'
+import { Dimension, CreateScaleArgs, Scales, Scale } from '@markable/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export class PointScale extends DomainRangeScale<

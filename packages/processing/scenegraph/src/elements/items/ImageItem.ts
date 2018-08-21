@@ -3,7 +3,7 @@ import {
 	HorizontalAlignment,
 	VerticalAlignment,
 	SGImageItem,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { Item } from './Item'
 
 export class ImageItem extends Item implements SGImageItem {

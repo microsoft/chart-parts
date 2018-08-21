@@ -1,5 +1,5 @@
 {
-	"name": "@gog/scenegraph",
+	"name": "@markable/scenegraph",
 	"description": "A library that parses Vega scenegraphs into an object model",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -15,6 +15,6 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.15"
+		"@markable/interfaces": "^0.0.15"
 	}
 }

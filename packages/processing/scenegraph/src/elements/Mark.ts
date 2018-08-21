@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType } from '@gog/interfaces'
+import { SGMark, SGNodeType } from '@markable/interfaces'
 import { Item } from './items/Item'
 import { SceneNode } from './SceneNode'
 

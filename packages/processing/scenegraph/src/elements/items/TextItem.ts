@@ -5,7 +5,7 @@ import {
 	TextDirection,
 	SGTextItem,
 	FontWeight,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {

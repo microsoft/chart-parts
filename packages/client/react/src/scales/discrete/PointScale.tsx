@@ -1,5 +1,5 @@
-import { Dimension } from '@gog/interfaces'
-import { point } from '@gog/scales'
+import { Dimension } from '@markable/interfaces'
+import { point } from '@markable/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 
 export interface PointScaleProps

@@ -1,4 +1,4 @@
-import { ordinal, CategoricalColorScheme } from '@gog/scales'
+import { ordinal, CategoricalColorScheme } from '@markable/scales'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
 
 export interface OrdinalScaleProps<RangeType>

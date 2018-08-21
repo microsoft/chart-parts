@@ -7,7 +7,7 @@ import {
 	MarkEncodings,
 	Facet,
 	MarkType,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {

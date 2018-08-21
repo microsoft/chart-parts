@@ -1,4 +1,4 @@
-import { log } from '@gog/scales'
+import { log } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

@@ -3,7 +3,7 @@ import {
 	Orientation,
 	Interpolation,
 	SGAreaItem,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { Item } from './Item'
 
 export class AreaItem extends Item implements SGAreaItem {

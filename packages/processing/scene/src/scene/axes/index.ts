@@ -1,4 +1,4 @@
-import { SceneNode, ItemSpace, AxisOrientation, Axis } from '@gog/interfaces'
+import { SceneNode, ItemSpace, AxisOrientation, Axis } from '@markable/interfaces'
 import { SceneFrame } from '../SceneFrame'
 import { buildAxis } from '../axes/buildAxis'
 import { AxisSpace } from '../../interfaces'

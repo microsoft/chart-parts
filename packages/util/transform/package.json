@@ -1,5 +1,5 @@
 {
-	"name": "@gog/transform",
+	"name": "@markable/transform",
 	"description": "Data transformation utilities",
 	"version": "0.0.15",
 	"main": "lib/index.js",

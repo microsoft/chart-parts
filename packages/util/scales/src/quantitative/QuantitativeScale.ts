@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Dimension } from '@gog/interfaces'
+import { CreateScaleArgs, Dimension } from '@markable/interfaces'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { getBoundRange } from '../getBoundRange'

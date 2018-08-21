@@ -20,7 +20,7 @@ import {
 	curveStepAfter,
 	curveStepBefore,
 } from 'd3-shape'
-import { Orientation } from '@gog/interfaces'
+import { Orientation } from '@markable/interfaces'
 
 const lookup: {
 	[key: string]: {

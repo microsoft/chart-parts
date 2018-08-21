@@ -8,7 +8,7 @@ import {
 	Channels,
 	ViewSize,
 	Mark,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 
 /**
  * The scene frame is analagous to a stack-frame - it contains contextual

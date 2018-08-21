@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 import { scalePow } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
 

@@ -10,8 +10,8 @@ import {
 	Group,
 	Rect,
 	Text,
-} from '@gog/react'
-import { Renderer } from '@gog/react-svg-renderer'
+} from '@markable/react'
+import { Renderer } from '@markable/react-svg-renderer'
 const renderer = new Renderer()
 
 const data = [

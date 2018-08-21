@@ -1,4 +1,4 @@
-import { sqrt } from '@gog/scales'
+import { sqrt } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

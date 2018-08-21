@@ -1,5 +1,5 @@
-import { MarkType } from '@gog/interfaces'
-import { SceneNodeBuilder, MarkBuilder } from '@gog/builder'
+import { MarkType } from '@markable/interfaces'
+import { SceneNodeBuilder, MarkBuilder } from '@markable/builder'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 

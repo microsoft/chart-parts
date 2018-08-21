@@ -1,4 +1,4 @@
-import { AxisOrientation } from '@gog/interfaces'
+import { AxisOrientation } from '@markable/interfaces'
 import { AxisBuilder } from '../AxisBuilder'
 
 describe('The Axis builder', () => {

@@ -10,7 +10,7 @@ Mark-based visualization systems implement a concept known as the _Grammar of Gr
 
 In _The Grammar of Graphics_, Leland Wilkinson envisions a sequenced pipeline of steps that are common to creating charts: including data transformations, scale applications, mark binding, and rendering of marks and guides. 
 
-![Leland Wilkinson's Grammar of Graphics Pipeline](/images/gog_pipeline.png)
+![Leland Wilkinson's Grammar of Graphics Pipeline](/images/pipeline.png)
 
 ### Vega 
 Mark-based systems are common in data-visualization research, but are relatively rare in practice. The most notable implementations of these systems presently are [Vega](http://vega.github.io/) and systems based on Vega such as [Vega-Lite](https://vega.github.io/vega-lite/) and [Altair](https://altair-viz.github.io/).

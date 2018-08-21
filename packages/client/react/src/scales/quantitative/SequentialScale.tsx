@@ -1,4 +1,4 @@
-import { sequential } from '@gog/scales'
+import { sequential } from '@markable/scales'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 

@@ -15,7 +15,7 @@ The charting process is very similar. In charting, our notion of an AST comes fr
 ![Architecture Pipeline Diagram](/images/architecture_pipeline.png)
 
 ### Frontend Charting Components
-The front-end of our charting system is comprised of everything required to turn data into a Scenegraph. The GoG frontend consists primarily of:
+The front-end of our charting system is comprised of everything required to turn data into a Scenegraph. The frontend consists primarily of:
 
 * A _SceneBuilder_ API that is used to create scene specifications.
 * A _React Renderless_ component set that is used as a convenience for the SceneBuilder API.

@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Dimension } from '@gog/interfaces'
+import { CreateScaleArgs, Dimension } from '@markable/interfaces'
 
 export function getBoundRange(
 	args: CreateScaleArgs,

@@ -1,6 +1,6 @@
 {
-	"name": "@gog/orchestrator",
-	"description": "Gog Rendering orchestration",
+	"name": "@markable/orchestrator",
+	"description": "Markable rendering orchestration",
 	"version": "0.0.15",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -15,9 +15,9 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.15",
-		"@gog/scene": "^0.0.15",
-		"@gog/scenegraph": "^0.0.15",
-		"@gog/vsvg": "^0.0.15"
+		"@markable/interfaces": "^0.0.15",
+		"@markable/scene": "^0.0.15",
+		"@markable/scenegraph": "^0.0.15",
+		"@markable/vsvg": "^0.0.15"
 	}
 }

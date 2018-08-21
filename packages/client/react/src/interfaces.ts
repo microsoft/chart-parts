@@ -1,4 +1,4 @@
-import { MarkEncoding, ChannelHandler, HandlerMetadata } from '@gog/interfaces'
+import { MarkEncoding, ChannelHandler, HandlerMetadata } from '@markable/interfaces'
 
 export type MarkEncodingProp = MarkEncoding | string | number | boolean
 

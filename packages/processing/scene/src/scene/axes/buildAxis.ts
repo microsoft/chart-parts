@@ -1,5 +1,5 @@
-import { Axis, MarkType, AxisOrientation, ViewSize } from '@gog/interfaces'
-import { buildMark } from '@gog/scenegraph'
+import { Axis, MarkType, AxisOrientation, ViewSize } from '@markable/interfaces'
+import { buildMark } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { components } from './components'
 import { SGMarkAny } from '../processNode'

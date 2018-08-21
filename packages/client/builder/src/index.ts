@@ -3,7 +3,7 @@ import {
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
 	AxisOrientation,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { AxisBuilder } from './AxisBuilder'

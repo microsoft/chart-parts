@@ -4,7 +4,7 @@ import {
 	MarkType,
 	VerticalTextAlignment,
 	VSvgNode,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { VSvgMarkConverter, rotate, translate } from './interfaces'
 

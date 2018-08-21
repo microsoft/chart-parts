@@ -1,6 +1,6 @@
 {
-	"name": "@gog/react",
-	"description": "React Utilities for the Gog system",
+	"name": "@markable/react",
+	"description": "React components for specifying data visualizations",
 	"version": "0.0.15",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -17,10 +17,10 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/builder": "^0.0.15",
-		"@gog/interfaces": "^0.0.15",
-		"@gog/orchestrator": "^0.0.15",
-		"@gog/scales": "^0.0.15",
+		"@markable/builder": "^0.0.15",
+		"@markable/interfaces": "^0.0.15",
+		"@markable/orchestrator": "^0.0.15",
+		"@markable/scales": "^0.0.15",
 		"lodash": "^4.17.10",
 		"shallowequal": "^1.1.0"
 	},

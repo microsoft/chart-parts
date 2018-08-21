@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file no-var-requires no-submodule-imports
-import { CreateScaleArgs } from '@gog/interfaces'
+import { CreateScaleArgs } from '@markable/interfaces'
 import { DomainScale } from './DomainScale'
 
 declare var require: any

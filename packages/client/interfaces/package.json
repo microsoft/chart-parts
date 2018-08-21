@@ -1,6 +1,6 @@
 {
-	"name": "@gog/interfaces",
-	"description": "Common interfaces for GoG, including marks, mark specifications, scenegraphs, and virtual dom definitions",
+	"name": "@markable/interfaces",
+	"description": "Common interfaces for the visualization system, including marks, mark specifications, scenegraphs, and virtual dom definitions",
 	"version": "0.0.15",
 	"main": "lib/index.js",
 	"types": "lib/index.d.ts",

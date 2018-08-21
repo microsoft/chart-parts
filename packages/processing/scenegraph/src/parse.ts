@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType } from '@gog/interfaces'
+import { SGMark, SGNodeType } from '@markable/interfaces'
 import { Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 

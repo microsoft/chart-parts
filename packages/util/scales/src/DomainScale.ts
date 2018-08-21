@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 export type DomainCreator<Domain> = (args: CreateScaleArgs) => Domain
 
 export abstract class DomainScale<Domain> {

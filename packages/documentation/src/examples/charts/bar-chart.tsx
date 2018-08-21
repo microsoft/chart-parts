@@ -8,13 +8,13 @@ import {
   BandScale,
   Dimension,
   Text,
-} from '@gog/react'
+} from '@markable/react'
 import {
   AxisOrientation,
   VerticalTextAlignment,
   HorizontalAlignment,
-} from '@gog/interfaces'
-import { Renderer } from '@gog/react-svg-renderer'
+} from '@markable/interfaces'
+import { Renderer } from '@markable/react-svg-renderer'
 
 const renderer = new Renderer()
 

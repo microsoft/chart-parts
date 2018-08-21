@@ -1,5 +1,5 @@
 {
-	"name": "@gog/testdata",
+	"name": "@markable/testdata",
 	"description": "Test data for charts",
 	"private": true,
 	"version": "0.0.15",
@@ -15,7 +15,7 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@gog/interfaces": "^0.0.15",
-		"@gog/scenegraph": "^0.0.15"
+		"@markable/interfaces": "^0.0.15",
+		"@markable/scenegraph": "^0.0.15"
 	}
 }

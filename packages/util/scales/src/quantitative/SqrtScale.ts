@@ -1,6 +1,6 @@
 import { scaleSqrt } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 
 export class SqrtScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true

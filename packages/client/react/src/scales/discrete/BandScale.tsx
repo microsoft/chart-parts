@@ -1,5 +1,5 @@
-import { Dimension } from '@gog/interfaces'
-import { band } from '@gog/scales'
+import { Dimension } from '@markable/interfaces'
+import { band } from '@markable/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 
 export interface BandScaleProps

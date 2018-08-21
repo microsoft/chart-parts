@@ -1,5 +1,5 @@
 {
-  "name": "@gog/examples-mobile",
+  "name": "@markable/examples-mobile",
   "version": "0.0.15",
   "private": true,
   "scripts": {
@@ -10,29 +10,29 @@
     "clean": "rimraf lib"
   },
   "dependencies": {
-    "@gog/orchestrator": "^0.0.15",
-    "@gog/react": "^0.0.15",
-    "@gog/react-native-svg-renderer": "^0.0.15",
-    "@gog/testdata": "^0.0.15",
+    "@markable/orchestrator": "^0.0.15",
+    "@markable/react": "^0.0.15",
+    "@markable/react-native-svg-renderer": "^0.0.15",
+    "@markable/testdata": "^0.0.15",
     "react": "^16.4.2",
     "react-native": "^0.56.0",
     "react-native-svg": "^5.5.1"
   },
   "about:devDependencies": {
-    "@gog/*": "These dependencies are here so that the 'rn-cli-config.js' can resolve them",
+    "@markable/*": "These dependencies are here so that the 'rn-cli-config.js' can resolve them",
     "d3-*": "same",
     "lodash": "same"
   },
   "devDependencies": {
     "@babel/core": "7.0.0-rc.1",
-    "@gog/builder": "^0.0.15",
-    "@gog/interfaces": "^0.0.15",
-    "@gog/scales": "^0.0.12",
-    "@gog/scene": "^0.0.15",
-    "@gog/scenegraph": "^0.0.15",
-    "@gog/shapes": "^0.0.15",
-    "@gog/transform": "^0.0.15",
-    "@gog/vsvg": "^0.0.15",
+    "@markable/builder": "^0.0.15",
+    "@markable/interfaces": "^0.0.15",
+    "@markable/scales": "^0.0.12",
+    "@markable/scene": "^0.0.15",
+    "@markable/scenegraph": "^0.0.15",
+    "@markable/shapes": "^0.0.15",
+    "@markable/transform": "^0.0.15",
+    "@markable/vsvg": "^0.0.15",
     "@types/react": "^16.4.10",
     "@types/react-native": "^0.56.8",
     "babel-preset-react-native": "5.0.2",

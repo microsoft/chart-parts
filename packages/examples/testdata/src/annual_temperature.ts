@@ -1,7 +1,7 @@
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 // tslint:disable no-var-requires
 declare var require: any
-import { parseScene } from '@gog/scenegraph'
+import { parseScene } from '@markable/scenegraph'
 const data = require('../resources/annual_temperature.json')
 
 export const scenegraph = parseScene(data)

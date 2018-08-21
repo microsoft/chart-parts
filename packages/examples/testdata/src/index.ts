@@ -1,4 +1,4 @@
-import { SGMark } from '@gog/interfaces'
+import { SGMark } from '@markable/interfaces'
 
 import * as BarChart from './bar_chart'
 import * as StackedBarChart from './stacked_bar_chart'

@@ -1,4 +1,4 @@
-import { Axis, Scale } from '@gog/interfaces'
+import { Axis, Scale } from '@markable/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
 
 /**

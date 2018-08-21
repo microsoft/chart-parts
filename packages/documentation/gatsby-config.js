@@ -2,8 +2,8 @@
 // This metadata is used by Gatsby to populate the 'siteMetadata' information in the GraphQL services
 //
 const siteMetadata = {
-  title: 'GoG',
-  githubUrl: 'https://github.com/Microsoft/GoG',
+  title: 'Markable',
+  githubUrl: 'https://github.com/Microsoft/Markable',
   description:
     'A flexible, react-friendly, Grammar of Graphics for data visualization',
   keywords: [

@@ -1,4 +1,4 @@
-import { pow } from '@gog/scales'
+import { pow } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

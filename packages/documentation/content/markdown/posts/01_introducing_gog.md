@@ -1,9 +1,9 @@
 ---
-title: 'Introducing GoG'
+title: 'Introducing Markable'
 date: '2018-07-18'
-path: '/blog/introducing_gog'
+path: '/blog/introduction '
 ---
 
-# Blog Post Introducing GoG
+# Blog Post Introducing Markable
 
 TODO

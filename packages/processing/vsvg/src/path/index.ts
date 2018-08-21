@@ -8,7 +8,7 @@ import {
 	SGSymbolItem,
 	Interpolation,
 	Orientation,
-} from '@gog/interfaces'
+} from '@markable/interfaces'
 import {
 	rectShape,
 	trailShape,
@@ -17,7 +17,7 @@ import {
 	areahShape,
 	lineShape,
 	symbolShape,
-} from '@gog/shapes'
+} from '@markable/shapes'
 import curves from './curves'
 
 export function arc(item: SGArcItem, context?: Path) {

@@ -5,5 +5,5 @@ export * from './interfaces'
 export * from './scales'
 export * from './marks'
 
-export { Dimension } from '@gog/interfaces'
-export { CategoricalColorScheme } from '@gog/scales'
+export { Dimension } from '@markable/interfaces'
+export { CategoricalColorScheme } from '@markable/scales'

@@ -5,8 +5,8 @@ import {
 	MarkEncodings,
 	MarkEncoding,
 	ChannelHandler,
-} from '@gog/interfaces'
-import { SceneNodeBuilder, mark, MarkBuilder } from '@gog/builder'
+} from '@markable/interfaces'
+import { SceneNodeBuilder, mark, MarkBuilder } from '@markable/builder'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<

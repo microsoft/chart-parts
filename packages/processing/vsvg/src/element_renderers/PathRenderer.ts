@@ -1,4 +1,4 @@
-import { MarkType, SGMark, SGPathItem, VSvgNode } from '@gog/interfaces'
+import { MarkType, SGMark, SGPathItem, VSvgNode } from '@markable/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { VSvgMarkConverter, translate } from './interfaces'
 

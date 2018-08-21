@@ -1,4 +1,4 @@
-import { MarkType } from '@gog/interfaces'
+import { MarkType } from '@markable/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 

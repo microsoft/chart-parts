@@ -8,9 +8,9 @@ import {
 	Dimension,
 	OrdinalScale,
 	CategoricalColorScheme,
-} from '@gog/react'
-import { Renderer } from '@gog/react-svg-renderer'
-import { StackTransform } from '@gog/transform'
+} from '@markable/react'
+import { Renderer } from '@markable/react-svg-renderer'
+import { StackTransform } from '@markable/transform'
 
 const renderer = new Renderer()
 const data = [

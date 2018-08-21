@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import { MarkType, SymbolType } from '@gog/interfaces'
+import { MarkType, SymbolType } from '@markable/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 

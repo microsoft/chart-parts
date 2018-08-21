@@ -1,5 +1,5 @@
 import { scaleOrdinal } from 'd3-scale'
-import { CreateScaleArgs, Scales } from '@gog/interfaces'
+import { CreateScaleArgs, Scales } from '@markable/interfaces'
 import { DomainScale } from '../DomainScale'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
 

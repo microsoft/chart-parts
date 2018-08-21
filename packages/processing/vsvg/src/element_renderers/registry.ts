@@ -1,4 +1,4 @@
-import { SGMark } from '@gog/interfaces'
+import { SGMark } from '@markable/interfaces'
 import { VSvgMarkConverter, VSvgRenderContext } from './interfaces'
 
 const itemRendererRegistry = new Map<string, VSvgMarkConverter>()

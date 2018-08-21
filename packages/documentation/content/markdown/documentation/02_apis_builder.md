@@ -6,7 +6,7 @@ order: 1
 
 ## Scene Builder API
 
-__Package__: [_@gog/builder_](/apidocs/client/builder/index.html)
+__Package__: [_@markable/builder_](/apidocs/client/builder/index.html)
 
 The Scene Builder API is a set of classes that implement a [builder pattern](https://en.wikipedia.org/wiki/Builder_pattern) for describing charting scene specifications. 
 

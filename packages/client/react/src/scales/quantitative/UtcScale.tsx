@@ -1,4 +1,4 @@
-import { utc } from '@gog/scales'
+import { utc } from '@markable/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

@@ -1,10 +1,10 @@
 // tslint:disable
 import * as React from 'react'
-import { Renderer } from '@gog/react-svg-renderer'
-import { SceneNode, Dimension } from '@gog/interfaces'
-import { scene, rect, group, text } from '@gog/builder'
-import { band, linear, ordinal, CategoricalColorScheme } from '@gog/scales'
-import { Orchestrator } from '@gog/orchestrator'
+import { Renderer } from '@markable/react-svg-renderer'
+import { SceneNode, Dimension } from '@markable/interfaces'
+import { scene, rect, group, text } from '@markable/builder'
+import { band, linear, ordinal, CategoricalColorScheme } from '@markable/scales'
+import { Orchestrator } from '@markable/orchestrator'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)
