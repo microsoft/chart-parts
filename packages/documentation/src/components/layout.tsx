@@ -2,10 +2,10 @@
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
+import styled from 'styled-components'
 import { SiteMetadata } from '../types'
 import Header from './header'
 import './layout.css'
-import styled from 'styled-components'
 import theme from '../util/theme'
 
 interface LayoutQueryResult {
@@ -36,7 +36,7 @@ const Layout: React.SFC<LayoutProps> = ({
       }
     `}
     render={({ site: { siteMetadata } }: LayoutQueryResult) => {
-      const { title, githubUrl } = siteMetadata
+      const { title } = siteMetadata
       return (
         <>
           <Helmet title={title} meta={getMeta(siteMetadata)} />

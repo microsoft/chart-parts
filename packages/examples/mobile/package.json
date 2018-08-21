@@ -27,7 +27,7 @@
     "@babel/core": "7.0.0-rc.1",
     "@markable/builder": "^0.0.15",
     "@markable/interfaces": "^0.0.15",
-    "@markable/scales": "^0.0.12",
+    "@markable/scales": "^0.0.15",
     "@markable/scene": "^0.0.15",
     "@markable/scenegraph": "^0.0.15",
     "@markable/shapes": "^0.0.15",

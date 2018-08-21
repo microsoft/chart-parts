@@ -1,12 +1,6 @@
 // tslint:disable jsx-no-lambda
 import * as React from 'react'
 import { SingleMarkTester } from './util/single-mark-tester'
-import * as palette from './util/palette'
-
-const BASE_ITEM = {
-  stroke: palette.CRIMSON,
-  fill: palette.GREY,
-}
 
 const TextTester: React.SFC = () => (
   <SingleMarkTester

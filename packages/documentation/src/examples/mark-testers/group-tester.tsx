@@ -13,6 +13,7 @@ const GroupTester: React.SFC = () => (
       marktype: 'group',
       items: [
         {
+          ...BASE_ITEM,
           clip: false,
           x: 25,
           x2: 150,
@@ -22,8 +23,6 @@ const GroupTester: React.SFC = () => (
           height: 150,
           cornerRadius: 0,
           strokeWidth: 4,
-          stroke: palette.CRIMSON,
-          fill: palette.GREY,
           items: [
             {
               marktype: 'rect',

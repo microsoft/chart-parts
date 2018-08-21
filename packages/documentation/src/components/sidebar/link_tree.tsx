@@ -4,9 +4,10 @@ import { TreeNode } from './interfaces'
 import { Link as RawLink } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../../util/theme'
-
-const ExpandedIconRaw = require('react-icons/lib/fa/angle-down')
-const CollapsedIconRaw = require('react-icons/lib/fa/angle-right')
+import {
+  FaAngleDown as ExpandedIconRaw,
+  FaAngleRight as CollapsedIconRaw,
+} from 'react-icons/fa'
 
 export interface LinkTreeProps {
   node: TreeNode
@@ -47,11 +48,12 @@ export default class LinkTree extends React.Component<
 
     const childKeys = Object.keys(children)
     const linkStyle = this.getLinkStyle()
+
     return (
       <Container>
         <CurrentLevel>
           {this.renderIcon(childKeys)}
-          <Link to={item.path} style={linkStyle}>
+          <Link to={item.path} {...{ style: linkStyle }}>
             {item.title || node.pathKey}
           </Link>
         </CurrentLevel>

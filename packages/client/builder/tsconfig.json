@@ -3,7 +3,7 @@
     "compilerOptions": {
         "lib": ["esnext", "dom"],        
         "declaration": true,
-        "outDir": "lib"
+        "outDir": "lib",
     },
     "files": [
         "src/index.ts"

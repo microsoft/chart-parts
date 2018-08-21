@@ -3,6 +3,7 @@
 	"description": "A virtual dom renderer that emits react-native-svg elements",
 	"version": "0.0.15",
 	"main": "lib/index.js",
+	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {

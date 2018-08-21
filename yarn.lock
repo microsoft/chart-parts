@@ -32,6 +32,12 @@
   dependencies:
     "@babel/highlight" "7.0.0-rc.1"
 
+"@babel/code-frame@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/code-frame/-/code-frame-7.0.0-rc.2.tgz#12b6daeb408238360744649d16c0e9fa7ab3859e"
+  dependencies:
+    "@babel/highlight" "7.0.0-rc.2"
+
 "@babel/code-frame@^7.0.0-beta.35":
   version "7.0.0-beta.46"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.46.tgz#e0d002100805daab1461c0fcb32a07e304f3a4f4"
@@ -97,6 +103,25 @@
     semver "^5.4.1"
     source-map "^0.5.0"
 
+"@babel/core@^7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/core/-/core-7.0.0-rc.2.tgz#dcb46b3adb63e35b1e82c35d9130d9c27be58427"
+  dependencies:
+    "@babel/code-frame" "7.0.0-rc.2"
+    "@babel/generator" "7.0.0-rc.2"
+    "@babel/helpers" "7.0.0-rc.2"
+    "@babel/parser" "7.0.0-rc.2"
+    "@babel/template" "7.0.0-rc.2"
+    "@babel/traverse" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.2"
+    convert-source-map "^1.1.0"
+    debug "^3.1.0"
+    json5 "^0.5.0"
+    lodash "^4.17.10"
+    resolve "^1.3.2"
+    semver "^5.4.1"
+    source-map "^0.5.0"
+
 "@babel/generator@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/generator/-/generator-7.0.0-beta.44.tgz#c7e67b9b5284afcf69b309b50d7d37f3e5033d42"
@@ -132,6 +157,16 @@
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/generator/-/generator-7.0.0-rc.1.tgz#739c87d70b31aeed802bd6bc9fd51480065c45e8"
   dependencies:
     "@babel/types" "7.0.0-rc.1"
+    jsesc "^2.5.1"
+    lodash "^4.17.10"
+    source-map "^0.5.0"
+    trim-right "^1.0.1"
+
+"@babel/generator@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/generator/-/generator-7.0.0-rc.2.tgz#7aed8fb4ef1bdcc168225096b5b431744ba76bf8"
+  dependencies:
+    "@babel/types" "7.0.0-rc.2"
     jsesc "^2.5.1"
     lodash "^4.17.10"
     source-map "^0.5.0"
@@ -261,6 +296,14 @@
     "@babel/template" "7.0.0-rc.1"
     "@babel/types" "7.0.0-rc.1"
 
+"@babel/helper-function-name@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-function-name/-/helper-function-name-7.0.0-rc.2.tgz#ad7bb9df383c5f53e4bf38c0fe0c7f93e6a27729"
+  dependencies:
+    "@babel/helper-get-function-arity" "7.0.0-rc.2"
+    "@babel/template" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.2"
+
 "@babel/helper-get-function-arity@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-get-function-arity/-/helper-get-function-arity-7.0.0-beta.44.tgz#d03ca6dd2b9f7b0b1e6b32c56c72836140db3a15"
@@ -284,6 +327,12 @@
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-get-function-arity/-/helper-get-function-arity-7.0.0-rc.1.tgz#60185957f72ed73766ce74c836ac574921743c46"
   dependencies:
     "@babel/types" "7.0.0-rc.1"
+
+"@babel/helper-get-function-arity@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-get-function-arity/-/helper-get-function-arity-7.0.0-rc.2.tgz#323cb82e2d805b40c0c36be1dfcb8ffcbd0434f3"
+  dependencies:
+    "@babel/types" "7.0.0-rc.2"
 
 "@babel/helper-hoist-variables@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -462,6 +511,12 @@
   dependencies:
     "@babel/types" "7.0.0-rc.1"
 
+"@babel/helper-split-export-declaration@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-split-export-declaration/-/helper-split-export-declaration-7.0.0-rc.2.tgz#726b2dec4e46baeab32db67caa6e88b6521464f8"
+  dependencies:
+    "@babel/types" "7.0.0-rc.2"
+
 "@babel/helper-wrap-function@7.0.0-beta.47":
   version "7.0.0-beta.47"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helper-wrap-function/-/helper-wrap-function-7.0.0-beta.47.tgz#6528b44a3ccb4f3aeeb79add0a88192f7eb81161"
@@ -503,6 +558,14 @@
     "@babel/template" "7.0.0-rc.1"
     "@babel/traverse" "7.0.0-rc.1"
     "@babel/types" "7.0.0-rc.1"
+
+"@babel/helpers@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/helpers/-/helpers-7.0.0-rc.2.tgz#e21f54451824f55b4f5022c6e9d6fa7df65e8746"
+  dependencies:
+    "@babel/template" "7.0.0-rc.2"
+    "@babel/traverse" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.2"
 
 "@babel/highlight@7.0.0-beta.42":
   version "7.0.0-beta.42"
@@ -552,6 +615,14 @@
     esutils "^2.0.2"
     js-tokens "^3.0.0"
 
+"@babel/highlight@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/highlight/-/highlight-7.0.0-rc.2.tgz#0af688a69e3709d9cf392e1837cda18c08d34d4f"
+  dependencies:
+    chalk "^2.0.0"
+    esutils "^2.0.2"
+    js-tokens "^4.0.0"
+
 "@babel/parser@7.0.0-beta.52":
   version "7.0.0-beta.52"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/parser/-/parser-7.0.0-beta.52.tgz#4e935b62cd9bf872bd37bcf1f63d82fe7b0237a2"
@@ -559,6 +630,10 @@
 "@babel/parser@7.0.0-rc.1":
   version "7.0.0-rc.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/parser/-/parser-7.0.0-rc.1.tgz#d009a9bba8175d7b971e30cd03535b278c44082d"
+
+"@babel/parser@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/parser/-/parser-7.0.0-rc.2.tgz#a98c01af5834e71d48a5108e3aeeee333cdf26c4"
 
 "@babel/plugin-external-helpers@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -665,12 +740,6 @@
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.0.0-beta.47.tgz#9d0b09b9af6fec87a7b22e406bf948089d58c188"
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.47"
-
-"@babel/plugin-syntax-flow@7.0.0-beta.52":
-  version "7.0.0-beta.52"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/plugin-syntax-flow/-/plugin-syntax-flow-7.0.0-beta.52.tgz#8125c1de15b352cb71f6e22200f888a546772c8c"
-  dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.52"
 
 "@babel/plugin-syntax-jsx@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -852,13 +921,6 @@
   dependencies:
     "@babel/helper-plugin-utils" "7.0.0-beta.47"
     "@babel/plugin-syntax-flow" "7.0.0-beta.47"
-
-"@babel/plugin-transform-flow-strip-types@7.0.0-beta.52":
-  version "7.0.0-beta.52"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/plugin-transform-flow-strip-types/-/plugin-transform-flow-strip-types-7.0.0-beta.52.tgz#321c1dd84ba44ee3429f995c7bf58cd0ababb714"
-  dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.52"
-    "@babel/plugin-syntax-flow" "7.0.0-beta.52"
 
 "@babel/plugin-transform-for-of@7.0.0-beta.47":
   version "7.0.0-beta.47"
@@ -1171,13 +1233,6 @@
     js-levenshtein "^1.1.3"
     semver "^5.3.0"
 
-"@babel/preset-flow@7.0.0-beta.52":
-  version "7.0.0-beta.52"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/preset-flow/-/preset-flow-7.0.0-beta.52.tgz#da2a0f576dfbe78b920a2ac2c47831a89c526004"
-  dependencies:
-    "@babel/helper-plugin-utils" "7.0.0-beta.52"
-    "@babel/plugin-transform-flow-strip-types" "7.0.0-beta.52"
-
 "@babel/preset-react@7.0.0-beta.52":
   version "7.0.0-beta.52"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/preset-react/-/preset-react-7.0.0-beta.52.tgz#3bd763d744f728a967a6c617c2f0fe8f5fdf6681"
@@ -1206,13 +1261,6 @@
     mkdirp "^0.5.1"
     pirates "^3.0.1"
     source-map-support "^0.4.2"
-
-"@babel/runtime@7.0.0-beta.51":
-  version "7.0.0-beta.51"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/runtime/-/runtime-7.0.0-beta.51.tgz#48b8ed18307034c6620f643514650ca2ccc0165a"
-  dependencies:
-    core-js "^2.5.7"
-    regenerator-runtime "^0.11.1"
 
 "@babel/runtime@7.0.0-beta.52":
   version "7.0.0-beta.52"
@@ -1256,6 +1304,14 @@
     "@babel/parser" "7.0.0-rc.1"
     "@babel/types" "7.0.0-rc.1"
     lodash "^4.17.10"
+
+"@babel/template@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/template/-/template-7.0.0-rc.2.tgz#53f6be6c1336ddc7744625c9bdca9d10be5d5d72"
+  dependencies:
+    "@babel/code-frame" "7.0.0-rc.2"
+    "@babel/parser" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.2"
 
 "@babel/traverse@7.0.0-beta.44":
   version "7.0.0-beta.44"
@@ -1316,6 +1372,20 @@
     globals "^11.1.0"
     lodash "^4.17.10"
 
+"@babel/traverse@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/traverse/-/traverse-7.0.0-rc.2.tgz#6e54ebe82aa1b3b3cf5ec05594bc14d7c59c9766"
+  dependencies:
+    "@babel/code-frame" "7.0.0-rc.2"
+    "@babel/generator" "7.0.0-rc.2"
+    "@babel/helper-function-name" "7.0.0-rc.2"
+    "@babel/helper-split-export-declaration" "7.0.0-rc.2"
+    "@babel/parser" "7.0.0-rc.2"
+    "@babel/types" "7.0.0-rc.2"
+    debug "^3.1.0"
+    globals "^11.1.0"
+    lodash "^4.17.10"
+
 "@babel/types@7.0.0-beta.32":
   version "7.0.0-beta.32"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.0.0-beta.32.tgz#c317d0ecc89297b80bbcb2f50608e31f6452a5ff"
@@ -1356,6 +1426,14 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
+"@babel/types@7.0.0-rc.2":
+  version "7.0.0-rc.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@babel/types/-/types-7.0.0-rc.2.tgz#8e025b78764cee8751823e308558a3ca144ebd9d"
+  dependencies:
+    esutils "^2.0.2"
+    lodash "^4.17.10"
+    to-fast-properties "^2.0.0"
+
 "@emotion/hash@^0.6.2":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@emotion/hash/-/hash-0.6.3.tgz#0e7a5604626fc6c6d4ac4061a2f5ac80d50262a4"
@@ -1377,21 +1455,6 @@
 "@emotion/unitless@^0.6.2":
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.6.3.tgz#65682e68a82701c70eefb38d7f941a2c0bfa90de"
-
-"@gog/interfaces@^0.0.12":
-  version "0.0.12"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@gog/interfaces/-/interfaces-0.0.12.tgz#24af6c6bddcc173924480661c3015797c836a803"
-
-"@gog/scales@^0.0.12":
-  version "0.0.12"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@gog/scales/-/scales-0.0.12.tgz#16d76408f20cfe4b327ae2ec9ebc3c190537adf5"
-  dependencies:
-    "@gog/interfaces" "^0.0.12"
-    "@types/d3-array" "^1.2.1"
-    "@types/d3-scale" "^2.0.1"
-    d3-array "^1.2.1"
-    d3-scale "^2.0.0"
-    lodash "^4.17.10"
 
 "@lerna/add@^3.0.4":
   version "3.0.4"
@@ -2204,6 +2267,10 @@
   version "0.0.29"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/debug/-/debug-0.0.29.tgz#a1e514adfbd92f03a224ba54d693111dbf1f3754"
 
+"@types/estree@0.0.39":
+  version "0.0.39"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
+
 "@types/events@*":
   version "1.2.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -2272,6 +2339,12 @@
   dependencies:
     "@types/react" "*"
 
+"@types/reach__router@^1.0.0":
+  version "1.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/reach__router/-/reach__router-1.0.0.tgz#c32d6a322f2dc8eb847df5ebe3fc931a340202c5"
+  dependencies:
+    "@types/react" "*"
+
 "@types/react-dom@^16.0.7":
   version "16.0.7"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react-dom/-/react-dom-16.0.7.tgz#54d0f867a76b90597e8432030d297982f25c20ba"
@@ -2291,7 +2364,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   dependencies:
@@ -2667,6 +2740,13 @@ after@0.8.1:
 after@0.8.2:
   version "0.8.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
+
+agadoo@^1.0.0:
+  version "1.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/agadoo/-/agadoo-1.0.0.tgz#b2e0052b30906a209954516cda896d17420b29cf"
+  dependencies:
+    rollup "^0.64.1"
+    rollup-plugin-virtual "^1.0.1"
 
 airbnb-js-shims@^1.5.1:
   version "1.6.0"
@@ -3064,15 +3144,15 @@ async-limiter@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/async-limiter/-/async-limiter-1.0.0.tgz#78faed8c3d074ab81f22b4e985d79e8738f720f8"
 
-async@^1.4.0, async@^1.5.0, async@^1.5.2:
-  version "1.5.2"
-  resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
-
-async@^2.1.2, async@^2.4.0:
+async@2.6.1, async@^2.4.0:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/async/-/async-2.6.1.tgz#b245a23ca71930044ec53fa46aa00a3e87c6a610"
   dependencies:
     lodash "^4.17.10"
+
+async@^1.4.0, async@^1.5.0, async@^1.5.2:
+  version "1.5.2"
+  resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
 
 async@^2.1.4, async@^2.6.0:
   version "2.6.0"
@@ -3087,6 +3167,10 @@ asynckit@^0.4.0:
 atob@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.1.tgz#ae2d5a729477f289d60dd7f96a6314a22dd6c22a"
+
+atob@^2.1.1:
+  version "2.1.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
 
 autoprefixer@^6.3.1:
   version "6.7.7"
@@ -3519,9 +3603,9 @@ babel-plugin-react-docgen@^2.0.0-rc.0:
     lodash "^4.17.0"
     react-docgen "^3.0.0-beta11"
 
-babel-plugin-remove-graphql-queries@^2.0.2-beta.8:
-  version "2.0.2-beta.8"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.0.2-beta.8.tgz#de90adfd7523c2f7dcca97aebda722c0b096ba9f"
+babel-plugin-remove-graphql-queries@^2.0.2-rc.0:
+  version "2.0.2-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.0.2-rc.0.tgz#b333ceb57b148989fd587a561ad2ab683f72f6e4"
 
 babel-plugin-styled-components@^1.5.1:
   version "1.5.1"
@@ -5235,7 +5319,7 @@ commander@2.11.0:
   version "2.11.0"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.11.0.tgz#157152fd1e7a6c8d98a5b715cf376df928004563"
 
-commander@2.15.x, commander@^2.12.1, commander@^2.14.1, commander@^2.15.1, commander@^2.9.0, commander@~2.15.0:
+commander@2.15.1, commander@2.15.x, commander@^2.12.1, commander@^2.14.1, commander@^2.15.1, commander@^2.9.0, commander@~2.15.0:
   version "2.15.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.15.1.tgz#df46e867d0fc2aec66a34662b406a9ccafff5b0f"
 
@@ -5844,6 +5928,15 @@ css-url-regex@^1.1.0:
 css-what@2.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-2.1.0.tgz#9467d032c38cfaefb9f2d79501253062f87fa1bd"
+
+css@2.2.3:
+  version "2.2.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/css/-/css-2.2.3.tgz#f861f4ba61e79bedc962aa548e5780fd95cbc6be"
+  dependencies:
+    inherits "^2.0.1"
+    source-map "^0.1.38"
+    source-map-resolve "^0.5.1"
+    urix "^0.1.0"
 
 cssesc@^0.1.0:
   version "0.1.0"
@@ -7459,6 +7552,25 @@ filename-regex@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/filename-regex/-/filename-regex-2.0.1.tgz#c1c4b9bee3e09725ddb106b75c1e301fe2f18b26"
 
+filename-reserved-regex@^1.0.0:
+  version "1.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/filename-reserved-regex/-/filename-reserved-regex-1.0.0.tgz#e61cf805f0de1c984567d0386dc5df50ee5af7e4"
+
+filenamify-url@^1.0.0:
+  version "1.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/filenamify-url/-/filenamify-url-1.0.0.tgz#b32bd81319ef5863b73078bed50f46a4f7975f50"
+  dependencies:
+    filenamify "^1.0.0"
+    humanize-url "^1.0.0"
+
+filenamify@^1.0.0:
+  version "1.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/filenamify/-/filenamify-1.2.1.tgz#a9f2ffd11c503bed300015029272378f1f1365a5"
+  dependencies:
+    filename-reserved-regex "^1.0.0"
+    strip-outer "^1.0.0"
+    trim-repeated "^1.0.0"
+
 fileset@^2.0.2:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/fileset/-/fileset-2.0.3.tgz#8e7548a96d3cc2327ee5e674168723a333bba2a0"
@@ -7689,12 +7801,6 @@ from@~0:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/from/-/from-0.1.7.tgz#83c60afc58b9c56997007ed1a768b3ab303a44fe"
 
-front-matter@^2.1.0:
-  version "2.3.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/front-matter/-/front-matter-2.3.0.tgz#7203af896ce357ee04e2aa45169ea91ed7f67504"
-  dependencies:
-    js-yaml "^3.10.0"
-
 fs-exists-cached@^1.0.0:
   version "1.0.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/fs-exists-cached/-/fs-exists-cached-1.0.0.tgz#cf25554ca050dc49ae6656b41de42258989dcbce"
@@ -7793,9 +7899,9 @@ fuse.js@^3.0.1, fuse.js@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.2.0.tgz#f0448e8069855bf2a3e683cdc1d320e7e2a07ef4"
 
-gatsby-cli@^2.0.0-beta.13:
-  version "2.0.0-beta.13"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-cli/-/gatsby-cli-2.0.0-beta.13.tgz#db3e029c044256e4d9f17850e94b0775b4d0a911"
+gatsby-cli@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-cli/-/gatsby-cli-2.0.0-rc.0.tgz#b818f9da5988308f612556f41f32d903478a9464"
   dependencies:
     "@babel/code-frame" "7.0.0-beta.52"
     "@babel/runtime" "7.0.0-beta.52"
@@ -7818,18 +7924,19 @@ gatsby-cli@^2.0.0-beta.13:
     yargs "^11.1.0"
     yurnalist "^0.2.1"
 
-gatsby-link@^2.0.0-beta.20:
-  version "2.0.0-beta.20"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-link/-/gatsby-link-2.0.0-beta.20.tgz#0966b7c2f920df7b879506512e114344b353984b"
+gatsby-link@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-link/-/gatsby-link-2.0.0-rc.0.tgz#50ac97368dc7e5f1d9a2fc9665945a63243b1b99"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
     "@reach/router" "^1.1.1"
+    "@types/reach__router" "^1.0.0"
     prop-types "^15.6.1"
     ric "^1.3.0"
 
-gatsby-plugin-page-creator@^2.0.0-beta.5:
-  version "2.0.0-beta.5"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.0-beta.5.tgz#36d19fcfb9dd72d213e5506f79fb7c6eaf7b548b"
+gatsby-plugin-page-creator@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.0-rc.0.tgz#aa8fced9d356afc8c1f8b3023b089734e15d130e"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
     bluebird "^3.5.0"
@@ -7840,62 +7947,62 @@ gatsby-plugin-page-creator@^2.0.0-beta.5:
     parse-filepath "^1.0.1"
     slash "^1.0.0"
 
-gatsby-plugin-react-helmet@^3.0.0-beta.4:
-  version "3.0.0-beta.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.0-beta.4.tgz#065bb67fec37e86db536c51d7a5006eee2ce89b9"
+gatsby-plugin-react-helmet@^3.0.0-rc.0:
+  version "3.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.0.0-rc.0.tgz#0b7bd136d5569732a643c5a3f02e14f770543e27"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
-gatsby-plugin-styled-components@^3.0.0-beta.3:
-  version "3.0.0-beta.3"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.0.0-beta.3.tgz#da93c5feb4c87cac39733de6366e0eb15b35feca"
+gatsby-plugin-styled-components@^3.0.0-rc.0:
+  version "3.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.0.0-rc.0.tgz#d7267edfd73c24d2f678f45cce12517a431191ef"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
-gatsby-plugin-typescript@^2.0.0-beta.9:
-  version "2.0.0-beta.9"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.0.0-beta.9.tgz#9187e31759f4af458a4dff105d79859e0cc0c080"
+gatsby-plugin-typescript@^2.0.0-rc.1:
+  version "2.0.0-rc.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.0.0-rc.1.tgz#d3cf51f14dedefc29d03e3c09de0dfbd85a5ba79"
   dependencies:
     "@babel/preset-typescript" "7.0.0-beta.52"
     "@babel/runtime" "7.0.0-beta.52"
-    babel-plugin-remove-graphql-queries "^2.0.2-beta.8"
+    babel-plugin-remove-graphql-queries "^2.0.2-rc.0"
 
-gatsby-plugin-typography@^2.2.0-beta.3:
-  version "2.2.0-beta.3"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-typography/-/gatsby-plugin-typography-2.2.0-beta.3.tgz#61d641faca00499fcda5348a6ec0de3f77febed1"
+gatsby-plugin-typography@^2.2.0-rc.0:
+  version "2.2.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-plugin-typography/-/gatsby-plugin-typography-2.2.0-rc.0.tgz#628b103325aae3ceb0719aeba59d53786994e60c"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
-gatsby-react-router-scroll@^2.0.0-beta.8:
-  version "2.0.0-beta.8"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.0-beta.8.tgz#6b18a280214d561e8d2ef0e0e82c600091a96cfd"
+gatsby-react-router-scroll@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-react-router-scroll/-/gatsby-react-router-scroll-2.0.0-rc.0.tgz#4aad0fc20412c10765ef5ca6da29fa9a19268682"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
-gatsby-remark-embed-snippet@^2.0.2:
-  version "2.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-remark-embed-snippet/-/gatsby-remark-embed-snippet-2.0.2.tgz#e5f3c38986957f5e47d92183fd4bdfe4467deec4"
+gatsby-remark-embed-snippet@^3.0.0-rc.0:
+  version "3.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-remark-embed-snippet/-/gatsby-remark-embed-snippet-3.0.0-rc.0.tgz#d7226adf69876715713d983637ca5aea2a272feb"
   dependencies:
-    babel-runtime "^6.26.0"
+    "@babel/runtime" "7.0.0-beta.52"
     normalize-path "^2.1.1"
     parse-numeric-range "^0.0.2"
     unist-util-map "^1.0.3"
 
-gatsby-remark-prismjs@^2.0.5:
-  version "2.0.5"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-remark-prismjs/-/gatsby-remark-prismjs-2.0.5.tgz#fda6c6a19604d153dc1be609465b22f5229c3c6b"
+gatsby-remark-prismjs@^3.0.0-rc.0:
+  version "3.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.0.0-rc.0.tgz#e75db3f153aab154be652d130ac98941512b7404"
   dependencies:
-    babel-runtime "^6.26.0"
-    parse-numeric-range "0.0.2"
+    "@babel/runtime" "7.0.0-beta.52"
+    parse-numeric-range "^0.0.2"
     unist-util-visit "^1.3.0"
 
-gatsby-source-filesystem@^2.0.1-beta.6:
-  version "2.0.1-beta.6"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.1-beta.6.tgz#b401731b74e5d06d5fdd67785f6d0963f6fe5def"
+gatsby-source-filesystem@^2.0.1-rc.0:
+  version "2.0.1-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.1-rc.0.tgz#927e729c9b24a3bfa522638eefe19101207de0e9"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.51"
+    "@babel/runtime" "7.0.0-beta.52"
     better-queue "^3.8.7"
     bluebird "^3.5.0"
     chokidar "^1.7.0"
@@ -7908,11 +8015,11 @@ gatsby-source-filesystem@^2.0.1-beta.6:
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-gatsby-transformer-remark@^2.1.1-beta.3:
-  version "2.1.1-beta.3"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-transformer-remark/-/gatsby-transformer-remark-2.1.1-beta.3.tgz#510961175f77ea7def7b87d6b3a5a3b7bfd231af"
+gatsby-transformer-remark@^2.1.1-rc.0:
+  version "2.1.1-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-transformer-remark/-/gatsby-transformer-remark-2.1.1-rc.0.tgz#2c16b61185af11ac55e7aa249e650eacf118c96e"
   dependencies:
-    "@babel/runtime" "7.0.0-beta.51"
+    "@babel/runtime" "7.0.0-beta.52"
     bluebird "^3.5.0"
     gray-matter "^4.0.0"
     hast-util-raw "^2.0.2"
@@ -7932,9 +8039,9 @@ gatsby-transformer-remark@^2.1.1-beta.3:
     unist-util-select "^1.5.0"
     unist-util-visit "^1.3.0"
 
-gatsby@^2.0.0-beta.100:
-  version "2.0.0-beta.100"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby/-/gatsby-2.0.0-beta.100.tgz#19b6ec407fec605975372fd6c22164e779875175"
+gatsby@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby/-/gatsby-2.0.0-rc.0.tgz#16f6160cc458d27702fd4197731c7c88974d9c6a"
   dependencies:
     "@babel/code-frame" "7.0.0-beta.52"
     "@babel/core" "7.0.0-beta.52"
@@ -7944,12 +8051,10 @@ gatsby@^2.0.0-beta.100:
     "@babel/plugin-transform-runtime" "7.0.0-beta.52"
     "@babel/polyfill" "7.0.0-beta.52"
     "@babel/preset-env" "7.0.0-beta.52"
-    "@babel/preset-flow" "7.0.0-beta.52"
     "@babel/preset-react" "7.0.0-beta.52"
     "@babel/runtime" "7.0.0-beta.52"
     "@babel/traverse" "7.0.0-beta.52"
     "@reach/router" "^1.1.1"
-    async "^2.1.2"
     autoprefixer "^8.6.5"
     babel-core "7.0.0-bridge.0"
     babel-eslint "^8.2.2"
@@ -7957,7 +8062,7 @@ gatsby@^2.0.0-beta.100:
     babel-plugin-add-module-exports "^0.2.1"
     babel-plugin-dynamic-import-node "^1.2.0"
     babel-plugin-macros "^2.4.0"
-    babel-plugin-remove-graphql-queries "^2.0.2-beta.8"
+    babel-plugin-remove-graphql-queries "^2.0.2-rc.0"
     better-queue "^3.8.6"
     bluebird "^3.5.0"
     chalk "^2.3.2"
@@ -7989,20 +8094,18 @@ gatsby@^2.0.0-beta.100:
     file-loader "^1.1.11"
     flat "^4.0.0"
     friendly-errors-webpack-plugin "^1.6.1"
-    front-matter "^2.1.0"
     fs-extra "^5.0.0"
-    gatsby-cli "^2.0.0-beta.13"
-    gatsby-link "^2.0.0-beta.20"
-    gatsby-plugin-page-creator "^2.0.0-beta.5"
-    gatsby-react-router-scroll "^2.0.0-beta.8"
+    gatsby-cli "^2.0.0-rc.0"
+    gatsby-link "^2.0.0-rc.0"
+    gatsby-plugin-page-creator "^2.0.0-rc.0"
+    gatsby-react-router-scroll "^2.0.0-rc.0"
     glob "^7.1.1"
     graphql "^0.13.2"
     graphql-relay "^0.5.5"
-    graphql-skip-limit "^2.0.0-beta.3"
+    graphql-skip-limit "^2.0.0-rc.0"
     graphql-tools "^3.0.4"
     graphql-type-json "^0.2.1"
     hash-mod "^0.0.5"
-    history "^4.6.2"
     invariant "^2.2.4"
     is-relative "^1.0.0"
     is-relative-url "^2.0.0"
@@ -8010,11 +8113,8 @@ gatsby@^2.0.0-beta.100:
     joi "12.x.x"
     json-loader "^0.5.7"
     json-stringify-safe "^5.0.1"
-    json5 "^0.5.0"
     kebab-hash "^0.1.2"
     lodash "^4.17.4"
-    lodash-id "^0.14.0"
-    lowdb "0.16.2"
     md5 "^2.2.1"
     md5-file "^3.1.1"
     mime "^2.2.0"
@@ -8023,13 +8123,11 @@ gatsby@^2.0.0-beta.100:
     mkdirp "^0.5.1"
     moment "^2.21.0"
     name-all-modules-plugin "^1.0.1"
-    node-libs-browser "^2.0.0"
     normalize-path "^2.1.1"
     null-loader "^0.1.1"
     opentracing "^0.14.3"
     opn "^5.3.0"
     parse-filepath "^1.0.1"
-    path-exists "^3.0.0"
     physical-cpu-count "^2.0.0"
     postcss-flexbugs-fixes "^3.0.0"
     postcss-loader "^2.1.3"
@@ -8047,7 +8145,6 @@ gatsby@^2.0.0-beta.100:
     socket.io "^2.0.3"
     string-similarity "^1.2.0"
     style-loader "^0.21.0"
-    treeify "^1.1.0"
     type-of "^2.0.1"
     uglifyjs-webpack-plugin "^1.2.4"
     url-loader "^1.0.1"
@@ -8057,7 +8154,6 @@ gatsby@^2.0.0-beta.100:
     webpack-dev-middleware "^3.0.1"
     webpack-dev-server "^3.1.1"
     webpack-hot-middleware "^2.21.0"
-    webpack-md5-hash "^0.0.6"
     webpack-merge "^4.1.0"
     webpack-stats-plugin "^0.1.5"
     yaml-loader "^0.5.0"
@@ -8131,6 +8227,18 @@ gh-got@^6.0.0:
   dependencies:
     got "^7.0.0"
     is-plain-obj "^1.1.0"
+
+gh-pages@^1.2.0:
+  version "1.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gh-pages/-/gh-pages-1.2.0.tgz#1acb92801078f7c038a167f447221d1496ccfbee"
+  dependencies:
+    async "2.6.1"
+    commander "2.15.1"
+    filenamify-url "^1.0.0"
+    fs-extra "^5.0.0"
+    globby "^6.1.0"
+    graceful-fs "4.1.11"
+    rimraf "^2.6.2"
 
 git-raw-commits@^1.3.6:
   version "1.3.6"
@@ -8355,7 +8463,7 @@ got@^8.3.1:
     url-parse-lax "^3.0.0"
     url-to-options "^1.0.1"
 
-graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
+graceful-fs@4.1.11, graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.6, graceful-fs@^4.1.9:
   version "4.1.11"
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.1.11.tgz#0e8bdfe4d1ddb8854d64e04ea7c00e2a026e5658"
 
@@ -8385,9 +8493,9 @@ graphql-request@^1.5.0:
   dependencies:
     cross-fetch "2.0.0"
 
-graphql-skip-limit@^2.0.0-beta.3:
-  version "2.0.0-beta.3"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/graphql-skip-limit/-/graphql-skip-limit-2.0.0-beta.3.tgz#e34b0fbfec7532fcc90af4b08adfa87a0cf2472b"
+graphql-skip-limit@^2.0.0-rc.0:
+  version "2.0.0-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/graphql-skip-limit/-/graphql-skip-limit-2.0.0-rc.0.tgz#d2305c7eb74f277fd968bae995be7e4726494585"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
 
@@ -8610,17 +8718,16 @@ hast-to-hyperscript@^3.0.0:
     trim "0.0.1"
     unist-util-is "^2.0.0"
 
-hast-to-hyperscript@^4.0.0:
-  version "4.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/hast-to-hyperscript/-/hast-to-hyperscript-4.0.0.tgz#3eb25483ec72a8e9a71e4b1ad7eb8f7c86f755db"
+hast-to-hyperscript@^5.0.0:
+  version "5.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/hast-to-hyperscript/-/hast-to-hyperscript-5.0.0.tgz#5106cbba78edb7c95e2e8a49079371eb196c1ced"
   dependencies:
     comma-separated-tokens "^1.0.0"
-    is-nan "^1.2.1"
-    kebab-case "^1.0.0"
-    property-information "^3.0.0"
+    property-information "^4.0.0"
     space-separated-tokens "^1.0.0"
-    trim "0.0.1"
+    style-to-object "^0.2.1"
     unist-util-is "^2.0.0"
+    web-namespaces "^1.1.2"
 
 hast-util-from-parse5@^2.0.0:
   version "2.1.0"
@@ -8711,16 +8818,6 @@ hex-color-regex@^1.1.0:
 highlight.js@^9.0.0, highlight.js@^9.3.0:
   version "9.12.0"
   resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
-
-history@^4.6.2:
-  version "4.7.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/history/-/history-4.7.2.tgz#22b5c7f31633c5b8021c7f4a8a954ac139ee8d5b"
-  dependencies:
-    invariant "^2.2.1"
-    loose-envify "^1.2.0"
-    resolve-pathname "^2.2.0"
-    value-equal "^0.4.0"
-    warning "^3.0.0"
 
 hmac-drbg@^1.0.0:
   version "1.0.1"
@@ -8904,6 +9001,13 @@ http-signature@~1.2.0:
 https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
+
+humanize-url@^1.0.0:
+  version "1.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/humanize-url/-/humanize-url-1.0.1.tgz#f4ab99e0d288174ca4e1e50407c55fbae464efff"
+  dependencies:
+    normalize-url "^1.0.0"
+    strip-url-auth "^1.0.0"
 
 husky@^0.14.3:
   version "0.14.3"
@@ -9148,7 +9252,7 @@ into-stream@^3.1.0:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
 
-invariant@^2.2.0, invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
+invariant@^2.2.0, invariant@^2.2.2, invariant@^2.2.3, invariant@^2.2.4:
   version "2.2.4"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.4.tgz#610f3c92c9359ce1db616e538008d23ff35158e6"
   dependencies:
@@ -10051,7 +10155,7 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
 
-"js-tokens@^3.0.0 || ^4.0.0":
+js-tokens@^4.0.0:
   version "4.0.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
 
@@ -10510,10 +10614,6 @@ lodash-es@^4.2.1:
   version "4.17.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lodash-es/-/lodash-es-4.17.10.tgz#62cd7104cdf5dd87f235a837f0ede0e8e5117e05"
 
-lodash-id@^0.14.0:
-  version "0.14.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lodash-id/-/lodash-id-0.14.0.tgz#baf48934e543a1b5d6346f8c84698b1a8c803896"
-
 lodash._getnative@^3.0.0:
   version "3.9.1"
   resolved "https://registry.yarnpkg.com/lodash._getnative/-/lodash._getnative-3.9.1.tgz#570bc7dede46d61cdcde687d65d3eecbaa3aaff5"
@@ -10675,7 +10775,7 @@ lodash.uniq@^4.5.0:
   version "4.5.0"
   resolved "https://registry.yarnpkg.com/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
 
-lodash@4, lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
+lodash@^4.11.1, lodash@^4.13.1, lodash@^4.14.0, lodash@^4.16.6, lodash@^4.17.0, lodash@^4.17.10, lodash@^4.17.2, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@^4.2.0, lodash@^4.2.1, lodash@^4.3.0, lodash@^4.6.1:
   version "4.17.10"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.10.tgz#1b7793cf7259ea38fb3661d4d38b3260af8ae4e7"
 
@@ -10731,27 +10831,12 @@ loose-envify@^1.0.0, loose-envify@^1.1.0, loose-envify@^1.3.1:
   dependencies:
     js-tokens "^3.0.0"
 
-loose-envify@^1.2.0:
-  version "1.4.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/loose-envify/-/loose-envify-1.4.0.tgz#71ee51fa7be4caec1a63839f7e682d8132d30caf"
-  dependencies:
-    js-tokens "^3.0.0 || ^4.0.0"
-
 loud-rejection@^1.0.0, loud-rejection@^1.2.0, loud-rejection@^1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/loud-rejection/-/loud-rejection-1.6.0.tgz#5b46f80147edee578870f086d04821cf998e551f"
   dependencies:
     currently-unhandled "^0.4.1"
     signal-exit "^3.0.0"
-
-lowdb@0.16.2:
-  version "0.16.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lowdb/-/lowdb-0.16.2.tgz#a2a976eb66ec57797291970f3c87cdb61126fa3a"
-  dependencies:
-    graceful-fs "^4.1.3"
-    is-promise "^2.1.0"
-    lodash "4"
-    steno "^0.4.1"
 
 lower-case@^1.1.1:
   version "1.1.4"
@@ -10866,7 +10951,7 @@ md5.js@^1.3.4:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-md5@^2.0.0, md5@^2.2.1:
+md5@^2.2.1:
   version "2.2.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/md5/-/md5-2.2.1.tgz#53ab38d5fe3c8891ba465329ea23fac0540126f9"
   dependencies:
@@ -11725,7 +11810,7 @@ normalize-url@2.0.1:
     query-string "^5.0.1"
     sort-keys "^2.0.0"
 
-normalize-url@^1.4.0:
+normalize-url@^1.0.0, normalize-url@^1.4.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/normalize-url/-/normalize-url-1.9.1.tgz#2cc0d66b31ea23036458436e3620d85954c66c3c"
   dependencies:
@@ -12249,7 +12334,7 @@ parse-latin@^4.0.0:
     unist-util-modify-children "^1.0.0"
     unist-util-visit-children "^1.0.0"
 
-parse-numeric-range@0.0.2, parse-numeric-range@^0.0.2:
+parse-numeric-range@^0.0.2:
   version "0.0.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/parse-numeric-range/-/parse-numeric-range-0.0.2.tgz#b4f09d413c7adbcd987f6e9233c7b4b210c938e4"
 
@@ -13162,6 +13247,12 @@ property-information@^3.0.0, property-information@^3.1.0:
   version "3.2.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/property-information/-/property-information-3.2.0.tgz#fd1483c8fbac61808f5fe359e7693a1f48a58331"
 
+property-information@^4.0.0:
+  version "4.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/property-information/-/property-information-4.1.0.tgz#16f817d8c087f3018b91877c193d730570487bb2"
+  dependencies:
+    xtend "^4.0.1"
+
 proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
@@ -13423,15 +13514,6 @@ react-docgen@^3.0.0-beta11:
     node-dir "^0.1.10"
     recast "^0.12.6"
 
-react-dom@^16.4.1:
-  version "16.4.1"
-  resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.4.1.tgz#7f8b0223b3a5fbe205116c56deb85de32685dad6"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
-
 react-dom@^16.4.2:
   version "16.4.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/react-dom/-/react-dom-16.4.2.tgz#4afed569689f2c561d2b8da0b819669c38a0bda4"
@@ -13494,6 +13576,10 @@ react-icons@^2.2.7:
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/react-icons/-/react-icons-2.2.7.tgz#d7860826b258557510dac10680abea5ca23cf650"
   dependencies:
     react-icon-base "2.1.0"
+
+react-icons@^3.0.5:
+  version "3.0.5"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/react-icons/-/react-icons-3.0.5.tgz#9f22a319a48b562e052af2255a3dda8ded363d1c"
 
 react-inspector@^2.3.0:
   version "2.3.0"
@@ -13667,15 +13753,6 @@ react-treebeard@^2.1.0:
 react-typography@^0.16.13:
   version "0.16.13"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/react-typography/-/react-typography-0.16.13.tgz#94bdd2a9448823bc74d8ebf7465d86c7dbe20dcf"
-
-react@^16.4.1:
-  version "16.4.1"
-  resolved "https://registry.yarnpkg.com/react/-/react-16.4.1.tgz#de51ba5764b5dbcd1f9079037b862bd26b82fe32"
-  dependencies:
-    fbjs "^0.8.16"
-    loose-envify "^1.1.0"
-    object-assign "^4.1.1"
-    prop-types "^15.6.0"
 
 react@^16.4.2:
   version "16.4.2"
@@ -14029,12 +14106,12 @@ regjsparser@^0.3.0:
   dependencies:
     jsesc "~0.5.0"
 
-rehype-react@^3.0.2:
-  version "3.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rehype-react/-/rehype-react-3.0.2.tgz#5aa35f6e07ca1a47f3c9aa9ab4361b1cba05a590"
+rehype-react@^3.0.3:
+  version "3.0.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rehype-react/-/rehype-react-3.0.3.tgz#868af1b6b454927af8052501910c3cdc531a2b37"
   dependencies:
     has "^1.0.1"
-    hast-to-hyperscript "^4.0.0"
+    hast-to-hyperscript "^5.0.0"
 
 relateurl@0.2.x:
   version "0.2.7"
@@ -14300,10 +14377,6 @@ resolve-from@^4.0.0:
   version "4.0.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/resolve-from/-/resolve-from-4.0.0.tgz#4abcd852ad32dd7baabfe9b40e00a36db5f392e6"
 
-resolve-pathname@^2.2.0:
-  version "2.2.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/resolve-pathname/-/resolve-pathname-2.2.0.tgz#7e9ae21ed815fd63ab189adeee64dc831eefa879"
-
 resolve-url@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/resolve-url/-/resolve-url-0.2.1.tgz#2c637fe77c893afd2a663fe21aa9080068e2052a"
@@ -14389,6 +14462,17 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
   dependencies:
     hash-base "^3.0.0"
     inherits "^2.0.1"
+
+rollup-plugin-virtual@^1.0.1:
+  version "1.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rollup-plugin-virtual/-/rollup-plugin-virtual-1.0.1.tgz#8227c94c605b981adfe433ea74de3551e42ffeb4"
+
+rollup@^0.64.1:
+  version "0.64.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rollup/-/rollup-0.64.1.tgz#9188ee368e5fcd43ffbc00ec414e72eeb5de87ba"
+  dependencies:
+    "@types/estree" "0.0.39"
+    "@types/node" "*"
 
 run-async@^2.0.0, run-async@^2.2.0:
   version "2.3.0"
@@ -14940,6 +15024,16 @@ source-map-resolve@^0.5.0:
     source-map-url "^0.4.0"
     urix "^0.1.0"
 
+source-map-resolve@^0.5.1:
+  version "0.5.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/source-map-resolve/-/source-map-resolve-0.5.2.tgz#72e2cc34095543e43b2c62b2c4c10d4a9054f259"
+  dependencies:
+    atob "^2.1.1"
+    decode-uri-component "^0.2.0"
+    resolve-url "^0.2.1"
+    source-map-url "^0.4.0"
+    urix "^0.1.0"
+
 source-map-support@^0.4.15, source-map-support@^0.4.2:
   version "0.4.18"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.4.18.tgz#0286a6de8be42641338594e97ccea75f0a2c585f"
@@ -14960,6 +15054,12 @@ source-map-url@^0.4.0:
 source-map@0.5.x, source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.1:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
+
+source-map@^0.1.38:
+  version "0.1.43"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/source-map/-/source-map-0.1.43.tgz#c24bc146ca517c1471f5dacbe2571b2b7f9e3346"
+  dependencies:
+    amdefine ">=0.0.4"
 
 source-map@^0.4.4:
   version "0.4.4"
@@ -15131,12 +15231,6 @@ statuses@~1.4.0:
 stealthy-require@^1.1.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/stealthy-require/-/stealthy-require-1.1.1.tgz#35b09875b4ff49f26a777e509b3090a3226bf24b"
-
-steno@^0.4.1:
-  version "0.4.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/steno/-/steno-0.4.4.tgz#071105bdfc286e6615c0403c27e9d7b5dcb855cb"
-  dependencies:
-    graceful-fs "^4.1.3"
 
 storyboard-core@^3.1.1:
   version "3.1.3"
@@ -15357,6 +15451,16 @@ strip-json-comments@~2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/strip-json-comments/-/strip-json-comments-2.0.1.tgz#3c531942e908c2697c0ec344858c286c7ca0a60a"
 
+strip-outer@^1.0.0:
+  version "1.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/strip-outer/-/strip-outer-1.0.1.tgz#b2fd2abf6604b9d1e6013057195df836b8a9d631"
+  dependencies:
+    escape-string-regexp "^1.0.2"
+
+strip-url-auth@^1.0.0:
+  version "1.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/strip-url-auth/-/strip-url-auth-1.0.1.tgz#22b0fa3a41385b33be3f331551bbb837fa0cd7ae"
+
 strong-log-transformer@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/strong-log-transformer/-/strong-log-transformer-1.0.6.tgz#f7fb93758a69a571140181277eea0c2eb1301fa3"
@@ -15374,6 +15478,12 @@ style-loader@^0.21.0:
     loader-utils "^1.1.0"
     schema-utils "^0.4.5"
 
+style-to-object@^0.2.1:
+  version "0.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/style-to-object/-/style-to-object-0.2.1.tgz#91529ed03a7996aa8ce89274766262984912bbbf"
+  dependencies:
+    css "2.2.3"
+
 styled-components@^3.3.2:
   version "3.3.2"
   resolved "https://registry.yarnpkg.com/styled-components/-/styled-components-3.3.2.tgz#087b96830ee3d60d9a8b5ef17c132b4f29cc71df"
@@ -15389,9 +15499,9 @@ styled-components@^3.3.2:
     stylis-rule-sheet "^0.0.10"
     supports-color "^3.2.3"
 
-styled-components@^3.4.2:
-  version "3.4.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/styled-components/-/styled-components-3.4.2.tgz#8f518419932327e47fe9144824e3184b3e2da95d"
+styled-components@^3.4.4:
+  version "3.4.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/styled-components/-/styled-components-3.4.4.tgz#dbd2ea6338fb050b5b56783e189434fd7f18eda5"
   dependencies:
     buffer "^5.0.3"
     css-to-react-native "^2.0.3"
@@ -15714,10 +15824,6 @@ tr46@^1.0.1:
   dependencies:
     punycode "^2.1.0"
 
-treeify@^1.1.0:
-  version "1.1.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/treeify/-/treeify-1.1.0.tgz#4e31c6a463accd0943879f30667c4fdaff411bb8"
-
 trim-lines@^1.0.0:
   version "1.1.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/trim-lines/-/trim-lines-1.1.1.tgz#da738ff58fa74817588455e30b11b85289f2a396"
@@ -15733,6 +15839,12 @@ trim-newlines@^2.0.0:
 trim-off-newlines@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/trim-off-newlines/-/trim-off-newlines-1.0.1.tgz#9f9ba9d9efa8764c387698bcbfeb2c848f11adb3"
+
+trim-repeated@^1.0.0:
+  version "1.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/trim-repeated/-/trim-repeated-1.0.0.tgz#e3646a2ea4e891312bf7eace6cfb05380bc01c21"
+  dependencies:
+    escape-string-regexp "^1.0.2"
 
 trim-right@^1.0.1:
   version "1.0.1"
@@ -16308,10 +16420,6 @@ validate-npm-package-name@^3.0.0:
   dependencies:
     builtins "^1.0.3"
 
-value-equal@^0.4.0:
-  version "0.4.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/value-equal/-/value-equal-0.4.0.tgz#c5bdd2f54ee093c04839d71ce2e4758a6890abc7"
-
 vary@~1.1.1, vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
@@ -16441,7 +16549,7 @@ wcwidth@^1.0.0:
   dependencies:
     defaults "^1.0.3"
 
-web-namespaces@^1.0.0:
+web-namespaces@^1.0.0, web-namespaces@^1.1.2:
   version "1.1.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/web-namespaces/-/web-namespaces-1.1.2.tgz#c8dc267ab639505276bae19e129dbd6ae72b22b4"
 
@@ -16567,12 +16675,6 @@ webpack-log@^1.0.1, webpack-log@^1.1.2:
     log-symbols "^2.1.0"
     loglevelnext "^1.0.1"
     uuid "^3.1.0"
-
-webpack-md5-hash@^0.0.6:
-  version "0.0.6"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/webpack-md5-hash/-/webpack-md5-hash-0.0.6.tgz#317b766a0a724eb5501610b3c8f4cddc4edf70f5"
-  dependencies:
-    md5 "^2.0.0"
 
 webpack-merge@^4.1.0:
   version "4.1.3"

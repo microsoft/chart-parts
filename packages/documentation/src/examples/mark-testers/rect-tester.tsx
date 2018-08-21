@@ -13,6 +13,7 @@ const RectTester: React.SFC = () => (
       marktype: 'rect',
       items: [
         {
+          ...BASE_ITEM,
           x: 50,
           y: 50,
           width: 75,

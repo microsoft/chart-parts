@@ -3,6 +3,7 @@
 	"description": "Data transformation utilities",
 	"version": "0.0.15",
 	"main": "lib/index.js",
+	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {

@@ -3,6 +3,7 @@
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"version": "0.0.15",
 	"main": "lib/index.js",
+	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
