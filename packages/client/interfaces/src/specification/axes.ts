@@ -1,3 +1,5 @@
+import { FontWeight } from '../enums'
+
 export enum AxisOrientation {
 	Top = 'top',
 	Left = 'left',
@@ -137,7 +139,7 @@ export interface Axis {
 	/**
 	 * Font weight of axis tick labels.
 	 */
-	labelFontWeight?: string | number
+	labelFontWeight?: FontWeight
 
 	/**
 	 * The padding in pixels between labels and ticks.

@@ -4,6 +4,7 @@ import {
 	VerticalTextAlignment,
 	TextDirection,
 	SGTextItem,
+	FontWeight,
 } from '@gog/interfaces'
 import { Item } from './Item'
 
@@ -20,7 +21,7 @@ export class TextItem extends Item implements SGTextItem {
 	public ellipsis?: string = '...'
 	public font?: string
 	public fontSize?: number
-	public fontWeight?: string | number
+	public fontWeight?: FontWeight
 	public fontVariant?: string | number
 	public fontStyle?: string
 	public limit?: number = 0

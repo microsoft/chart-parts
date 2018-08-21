@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation, TickValue } from '@gog/interfaces'
+import { Axis, AxisOrientation, TickValue, FontWeight } from '@gog/interfaces'
 
 const DEFAULT_COLOR = '#777'
 const DEFAULT_TEXT_COLOR = '#000'
@@ -37,7 +37,7 @@ export class AxisBuilder {
 	private labelColorValue: string = DEFAULT_TEXT_COLOR
 	private labelPaddingValue: number = DEFAULT_LABEL_PADDING
 	private bandPositionValue?: number = DEFAULT_BAND_POSITION
-	private labelFontWeightValue?: string | number
+	private labelFontWeightValue?: FontWeight
 	private labelAlignValue?: string
 	private labelAngleValue?: number
 	private labelFormatValue?: string
@@ -143,7 +143,7 @@ export class AxisBuilder {
 		return this
 	}
 
-	public labelFontWeight(value: number | string): AxisBuilder {
+	public labelFontWeight(value: FontWeight): AxisBuilder {
 		this.labelFontWeightValue = value
 		return this
 	}

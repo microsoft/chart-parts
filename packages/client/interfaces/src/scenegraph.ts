@@ -8,6 +8,7 @@ import {
 	SymbolType,
 	VerticalTextAlignment,
 	TextDirection,
+	FontWeight,
 } from './enums'
 
 export enum SGNodeType {
@@ -448,7 +449,7 @@ export interface SGTextItem extends SGItem {
 	/**
 	 * The font weight (e.g., normal or bold).
 	 */
-	fontWeight?: string | number
+	fontWeight?: FontWeight
 
 	/**
 	 * The variant of the font to use
