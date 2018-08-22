@@ -3,7 +3,7 @@ import { Item } from './Item'
 
 export class LineItem extends Item implements SGLineItem {
 	public static ITEM_TYPE = MarkType.Line
-	public readonly itemtype: string = LineItem.ITEM_TYPE
+	public readonly itemtype = LineItem.ITEM_TYPE
 
 	public interpolate?: Interpolation = Interpolation.Linear
 	public tension?: number

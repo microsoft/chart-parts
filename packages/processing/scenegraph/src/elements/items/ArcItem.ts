@@ -3,7 +3,7 @@ import { Item } from './Item'
 
 export class ArcItem extends Item implements SGArcItem {
 	public static ITEM_TYPE = MarkType.Arc
-	public readonly itemtype: string = ArcItem.ITEM_TYPE
+	public readonly itemtype = ArcItem.ITEM_TYPE
 
 	public startAngle?: number
 	public endAngle?: number

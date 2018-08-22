@@ -1,10 +1,10 @@
-import { SGMark, SGNodeType } from '@markable/interfaces'
+import { SGMark, SGNodeType, MarkType } from '@markable/interfaces'
 import { Item } from './items/Item'
 import { SceneNode } from './SceneNode'
 
 export class Mark<T extends Item> extends SceneNode implements SGMark<T> {
 	public readonly nodetype: SGNodeType = SGNodeType.Mark
-	public marktype?: string
+	public marktype?: MarkType
 	public items: T[] = []
 	public clip?: boolean
 	public interactive?: boolean

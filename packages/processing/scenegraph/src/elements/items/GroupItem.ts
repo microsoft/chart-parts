@@ -3,7 +3,7 @@ import { Item } from './Item'
 
 export class GroupItem extends Item implements SGGroupItem {
 	public static ITEM_TYPE = MarkType.Group
-	public readonly itemtype: string = GroupItem.ITEM_TYPE
+	public readonly itemtype = GroupItem.ITEM_TYPE
 
 	public clip?: boolean
 	public cornerRadius?: number = 0

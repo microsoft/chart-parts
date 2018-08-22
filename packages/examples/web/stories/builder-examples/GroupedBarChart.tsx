@@ -1,7 +1,12 @@
 // tslint:disable
 import * as React from 'react'
 import { Renderer } from '@markable/react-svg-renderer'
-import { SceneNode, Dimension } from '@markable/interfaces'
+import {
+	SceneNode,
+	Dimension,
+	HorizontalAlignment,
+	VerticalTextAlignment,
+} from '@markable/interfaces'
 import { scene, rect, group, text } from '@markable/builder'
 import { band, linear, ordinal, CategoricalColorScheme } from '@markable/scales'
 import { Orchestrator } from '@markable/orchestrator'
@@ -89,8 +94,8 @@ export class GroupedBarChart extends React.Component<{}> {
 												y: ({ d }, { pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
-												align: () => 'right',
-												baseline: () => 'middle',
+												align: () => HorizontalAlignment.Right,
+												baseline: () => VerticalTextAlignment.Middle,
 												text: ({ d }) => d.value,
 											}),
 									),

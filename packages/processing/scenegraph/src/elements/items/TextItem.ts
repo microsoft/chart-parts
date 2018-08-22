@@ -10,7 +10,7 @@ import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {
 	public static ITEM_TYPE = MarkType.Text
-	public readonly itemtype: string = TextItem.ITEM_TYPE
+	public readonly itemtype = TextItem.ITEM_TYPE
 
 	public align?: HorizontalAlignment = HorizontalAlignment.Left
 	public angle?: number = 0

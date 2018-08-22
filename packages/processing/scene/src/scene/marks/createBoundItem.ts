@@ -122,14 +122,16 @@ function transferEncodings(
 		.filter(t => t !== 'items')
 		.forEach(key => {
 			const encoding = encodings[key]
-			const dataContext = {
-				d,
-				index,
-				data,
-				tables: frame.data,
+			if (encoding) {
+				const dataContext = {
+					d,
+					index,
+					data,
+					tables: frame.data,
+				}
+				const value = encoding(dataContext, frame.scales)
+				props[key] = value
 			}
-			const value = encoding(dataContext, frame.scales)
-			props[key] = value
 		})
 	return props
 }

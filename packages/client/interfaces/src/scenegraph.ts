@@ -9,6 +9,7 @@ import {
 	VerticalTextAlignment,
 	TextDirection,
 	FontWeight,
+	MarkType,
 	Gradient,
 } from './common-types'
 
@@ -28,7 +29,7 @@ export interface SGMark<Item extends SGItem> extends SGNode {
 	/**
 	 * The type of mark this is
 	 */
-	readonly marktype?: string
+	readonly marktype?: MarkType
 
 	/**
 	 * The mark items

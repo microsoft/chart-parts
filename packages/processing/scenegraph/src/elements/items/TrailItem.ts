@@ -3,7 +3,7 @@ import { Item } from './Item'
 
 export class TrailItem extends Item implements SGTrailItem {
 	public static ITEM_TYPE = MarkType.Trail
-	public readonly itemtype: string = TrailItem.ITEM_TYPE
+	public readonly itemtype = TrailItem.ITEM_TYPE
 
 	/**
 	 * The width in pixels of the trail at the given data point.

@@ -1,8 +1,91 @@
-import { MarkType } from '../common-types'
+import {
+	MarkType,
+	Gradient,
+	StrokeCap,
+	StrokeJoin,
+	Orientation,
+	Interpolation,
+	HorizontalAlignment,
+	VerticalAlignment,
+	VerticalTextAlignment,
+	SymbolType,
+	TextDirection,
+	FontWeight,
+} from '../common-types'
 import { Axis } from './axes'
 
-export const DEFAULT_WIDTH = 250
-export const DEFAULT_HEIGHT = 250
+export enum MarkEncodingKey {
+	// Common encoding keys
+	x = 'x',
+	x2 = 'x2',
+	xc = 'xc',
+	y = 'y',
+	y2 = 'y2',
+	yc = 'yc',
+	width = 'width',
+	height = 'height',
+	opacity = 'opacity',
+	fill = 'fill',
+	fillOpacity = 'fillOpacity',
+	stroke = 'stroke',
+	strokeOpacity = 'strokeOpacity',
+	strokeWidth = 'strokeWidth',
+	strokeCap = 'strokeCap',
+	strokeDash = 'strokeDash',
+	strokeDashOffset = 'strokeDashOffset',
+	strokeJoin = 'strokeJoin',
+	strokeMiterLimit = 'strokeMiterLimit',
+	cursor = 'cursor',
+	href = 'href',
+	tooltip = 'tooltip',
+	zIndex = 'zIndex',
+
+	// Arc encoding keys
+	startAngle = 'startAngle',
+	endAngle = 'endAngle',
+	padAngle = 'padAngle',
+	innerRadius = 'innerRadius',
+	outerRadius = 'outerRadius',
+	cornerRadius = 'cornerRadius',
+
+	// Area encoding keys
+	orient = 'orient',
+	interpolate = 'interpolate',
+	tension = 'tension',
+	defined = 'defined',
+
+	// Group encoding keys
+	clip = 'clip',
+
+	// Image encoding keys
+	url = 'url',
+	aspect = 'aspect',
+	align = 'align',
+	baseline = 'baseline',
+
+	// Path encoding keys
+	path = 'path',
+
+	// Symbol encoding keys
+	size = 'size',
+	shape = 'shape',
+
+	// Text encoding keys
+	angle = 'angle',
+	dir = 'dir',
+	dx = 'dx',
+	dy = 'dy',
+	ellipsis = 'ellipsis',
+	font = 'font',
+	fontSize = 'fontSize',
+	fontWeight = 'fontWeight',
+	fontVariant = 'fontVariant',
+	fontStyle = 'fontStyle',
+	limit = 'limit',
+	radius = 'radius',
+	text = 'text',
+	theta = 'theta',
+}
 
 /**
  * Each scene node binds data with a set of marks and scales
@@ -140,7 +223,67 @@ export interface Scales {
  * A hash of mark encodings by property name
  */
 export interface MarkEncodings {
-	[key: string]: MarkEncoding<any>
+	[MarkEncodingKey.x]?: MarkEncoding<number>
+	[MarkEncodingKey.x2]?: MarkEncoding<number>
+	[MarkEncodingKey.xc]?: MarkEncoding<number>
+	[MarkEncodingKey.width]?: MarkEncoding<number>
+	[MarkEncodingKey.y]?: MarkEncoding<number>
+	[MarkEncodingKey.y2]?: MarkEncoding<number>
+	[MarkEncodingKey.yc]?: MarkEncoding<number>
+	[MarkEncodingKey.height]?: MarkEncoding<number>
+	[MarkEncodingKey.opacity]?: MarkEncoding<number>
+	[MarkEncodingKey.fill]?: MarkEncoding<string | Gradient>
+	[MarkEncodingKey.fillOpacity]?: MarkEncoding<number>
+	[MarkEncodingKey.stroke]?: MarkEncoding<string | Gradient>
+	[MarkEncodingKey.strokeOpacity]?: MarkEncoding<number>
+	[MarkEncodingKey.strokeWidth]?: MarkEncoding<number>
+	[MarkEncodingKey.strokeCap]?: MarkEncoding<StrokeCap>
+	[MarkEncodingKey.strokeDash]?: MarkEncoding<[number, number]>
+	[MarkEncodingKey.strokeDashOffset]?: MarkEncoding<number>
+	[MarkEncodingKey.strokeJoin]?: MarkEncoding<StrokeJoin>
+	[MarkEncodingKey.strokeMiterLimit]?: MarkEncoding<number>
+	[MarkEncodingKey.cursor]?: MarkEncoding<string>
+	[MarkEncodingKey.href]?: MarkEncoding<string>
+	[MarkEncodingKey.tooltip]?: MarkEncoding<string>
+	[MarkEncodingKey.zIndex]?: MarkEncoding<number>
+
+	[MarkEncodingKey.startAngle]?: MarkEncoding<number>
+	[MarkEncodingKey.endAngle]?: MarkEncoding<number>
+	[MarkEncodingKey.padAngle]?: MarkEncoding<number>
+	[MarkEncodingKey.innerRadius]?: MarkEncoding<number>
+	[MarkEncodingKey.outerRadius]?: MarkEncoding<number>
+	[MarkEncodingKey.cornerRadius]?: MarkEncoding<number>
+	[MarkEncodingKey.orient]?: MarkEncoding<Orientation>
+	[MarkEncodingKey.interpolate]?: MarkEncoding<Interpolation>
+	[MarkEncodingKey.tension]?: MarkEncoding<number>
+	[MarkEncodingKey.defined]?: MarkEncoding<boolean>
+	[MarkEncodingKey.clip]?: MarkEncoding<boolean>
+	[MarkEncodingKey.url]?: MarkEncoding<string>
+	[MarkEncodingKey.aspect]?: MarkEncoding<boolean>
+	[MarkEncodingKey.align]?: MarkEncoding<HorizontalAlignment>
+	[MarkEncodingKey.baseline]?: MarkEncoding<
+		VerticalAlignment | VerticalTextAlignment
+	>
+	[MarkEncodingKey.path]?: MarkEncoding<string>
+	[MarkEncodingKey.size]?: MarkEncoding<number>
+	[MarkEncodingKey.shape]?: MarkEncoding<SymbolType | string>
+	[MarkEncodingKey.angle]?: MarkEncoding<number>
+	[MarkEncodingKey.dir]?: MarkEncoding<TextDirection>
+	[MarkEncodingKey.dx]?: MarkEncoding<number>
+	[MarkEncodingKey.dy]?: MarkEncoding<number>
+	[MarkEncodingKey.ellipsis]?: MarkEncoding<string>
+	[MarkEncodingKey.font]?: MarkEncoding<string>
+	[MarkEncodingKey.fontSize]?: MarkEncoding<number>
+	[MarkEncodingKey.fontWeight]?: MarkEncoding<FontWeight>
+	[MarkEncodingKey.fontVariant]?: MarkEncoding<string | number>
+	[MarkEncodingKey.fontStyle]?: MarkEncoding<number>
+	[MarkEncodingKey.limit]?: MarkEncoding<number>
+	[MarkEncodingKey.radius]?: MarkEncoding<number>
+	[MarkEncodingKey.text]?: MarkEncoding<string>
+	[MarkEncodingKey.theta]?: MarkEncoding<number>
+
+	// catch all, and to allow indexing
+	[key: string]: MarkEncoding<any> | undefined
 }
 
 export interface HandlerMetadata {
