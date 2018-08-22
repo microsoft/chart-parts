@@ -3,8 +3,8 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface TrailProps extends CommonMarkProps {
-	size?: MarkEncodingProp
-	defined?: MarkEncodingProp
+	size?: MarkEncodingProp<number>
+	defined?: MarkEncodingProp<boolean>
 }
 
 export class Trail extends BaseMark<TrailProps> {

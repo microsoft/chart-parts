@@ -1,6 +1,10 @@
 // tslint:disable
 import * as React from 'react'
 import {
+  HorizontalAlignment,
+  VerticalTextAlignment,
+} from '@markable/interfaces'
+import {
   Chart,
   LinearScale,
   BandScale,
@@ -95,8 +99,8 @@ export default class GroupedBarChart extends React.Component<{}> {
               pos(datum.position) + rowHeight() * 0.5
             }
             fill={'white'}
-            align={'right'}
-            baseline={'middle'}
+            align={HorizontalAlignment.Right}
+            baseline={VerticalTextAlignment.Middle}
             text={({ datum }) => datum.value}
           />
         </Group>

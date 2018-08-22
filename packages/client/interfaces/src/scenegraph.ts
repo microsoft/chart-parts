@@ -9,7 +9,8 @@ import {
 	VerticalTextAlignment,
 	TextDirection,
 	FontWeight,
-} from './enums'
+	Gradient,
+} from './common-types'
 
 export enum SGNodeType {
 	Mark = 'mark',
@@ -111,7 +112,7 @@ export interface SGItem extends SGNode {
 	/**
 	 * The fill color.
 	 */
-	readonly fill?: string
+	readonly fill?: string | Gradient
 
 	/**
 	 * The fill opacity from 0 (transparent) to 1 (opaque).
@@ -121,7 +122,7 @@ export interface SGItem extends SGNode {
 	/**
 	 * The stroke color.
 	 */
-	readonly stroke?: string
+	readonly stroke?: string | Gradient
 
 	/**
 	 * The stroke opacity from 0 (transparent) to 1 (opaque).

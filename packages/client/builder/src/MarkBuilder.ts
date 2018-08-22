@@ -73,13 +73,13 @@ export class MarkBuilder {
 		return this
 	}
 
-	public encode(key: string, encoding: MarkEncoding): MarkBuilder
+	public encode(key: string, encoding: MarkEncoding<any>): MarkBuilder
 	public encode(encodings: MarkEncodings): MarkBuilder
 
 	// Polymorphic function definition
 	public encode(
 		first: string | MarkEncodings,
-		encoding?: MarkEncoding,
+		encoding?: MarkEncoding<any>,
 	): MarkBuilder {
 		if (typeof first === 'string') {
 			// Handle encode(key, encoding) invocations

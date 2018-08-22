@@ -4,7 +4,7 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface SymbolOfTypeProps extends CommonMarkProps {
-	size?: MarkEncodingProp
+	size?: MarkEncodingProp<number>
 }
 
 abstract class SymbolOfType extends BaseMark<SymbolOfTypeProps> {

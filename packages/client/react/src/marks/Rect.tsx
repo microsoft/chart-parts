@@ -3,7 +3,7 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface RectProps extends CommonMarkProps {
-	cornerRadius?: MarkEncodingProp
+	cornerRadius?: MarkEncodingProp<number>
 }
 
 export class Rect extends BaseMark<RectProps> {

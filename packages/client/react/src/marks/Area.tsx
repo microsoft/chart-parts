@@ -1,12 +1,12 @@
-import { MarkType } from '@markable/interfaces'
+import { MarkType, Orientation, Interpolation } from '@markable/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface AreaProps extends CommonMarkProps {
-	orient?: MarkEncodingProp
-	interpolate?: MarkEncodingProp
-	tension?: MarkEncodingProp
-	defined?: MarkEncodingProp
+	orient?: MarkEncodingProp<Orientation>
+	interpolate?: MarkEncodingProp<Interpolation>
+	tension?: MarkEncodingProp<number>
+	defined?: MarkEncodingProp<boolean>
 }
 
 export class Area extends BaseMark<AreaProps> {

@@ -3,7 +3,7 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ShapeProps extends CommonMarkProps {
-	itemtype?: MarkEncodingProp
+	itemtype?: MarkEncodingProp<string>
 }
 
 export class Shape extends BaseMark<ShapeProps> {

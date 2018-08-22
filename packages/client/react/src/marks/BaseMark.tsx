@@ -57,7 +57,7 @@ export abstract class BaseMark<
 			(prev, [name, propValue]) => {
 				prev[name] = (typeof propValue === 'function'
 					? propValue
-					: ((() => propValue) as any)) as MarkEncoding
+					: ((() => propValue) as any)) as MarkEncoding<any>
 				return prev
 			},
 			({} as any) as MarkEncodings,

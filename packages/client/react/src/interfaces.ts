@@ -1,6 +1,13 @@
-import { MarkEncoding, ChannelHandler, HandlerMetadata } from '@markable/interfaces'
+import {
+	MarkEncoding,
+	ChannelHandler,
+	HandlerMetadata,
+	Gradient,
+	StrokeCap,
+	StrokeJoin,
+} from '@markable/interfaces'
 
-export type MarkEncodingProp = MarkEncoding | string | number | boolean
+export type MarkEncodingProp<T> = MarkEncoding<T> | T
 
 /**
  * Common mark-component properties
@@ -28,29 +35,29 @@ export interface CommonMarkProps {
 	singleton?: boolean
 
 	// Common Mark Value Encodings
-	x?: MarkEncodingProp
-	x2?: MarkEncodingProp
-	xc?: MarkEncodingProp
-	width?: MarkEncodingProp
-	y?: MarkEncodingProp
-	y2?: MarkEncodingProp
-	yc?: MarkEncodingProp
-	height?: MarkEncodingProp
-	opacity?: MarkEncodingProp
-	fill?: MarkEncodingProp
-	fillOpacity?: MarkEncodingProp
-	stroke?: MarkEncodingProp
-	strokeOpacity?: MarkEncodingProp
-	strokeWidth?: MarkEncodingProp
-	strokeCap?: MarkEncodingProp
-	strokeDash?: MarkEncodingProp
-	strokeDashOffset?: MarkEncodingProp
-	strokeJoin?: MarkEncodingProp
-	strokeMiterLimit?: MarkEncodingProp
-	cursor?: MarkEncodingProp
-	href?: MarkEncodingProp
-	tooltip?: MarkEncodingProp
-	zIndex?: MarkEncodingProp
+	x?: MarkEncodingProp<number>
+	x2?: MarkEncodingProp<number>
+	xc?: MarkEncodingProp<number>
+	width?: MarkEncodingProp<number>
+	y?: MarkEncodingProp<number>
+	y2?: MarkEncodingProp<number>
+	yc?: MarkEncodingProp<number>
+	height?: MarkEncodingProp<number>
+	opacity?: MarkEncodingProp<number>
+	fill?: MarkEncodingProp<string | Gradient>
+	fillOpacity?: MarkEncodingProp<number>
+	stroke?: MarkEncodingProp<string | Gradient>
+	strokeOpacity?: MarkEncodingProp<number>
+	strokeWidth?: MarkEncodingProp<number>
+	strokeCap?: MarkEncodingProp<StrokeCap>
+	strokeDash?: MarkEncodingProp<[number, number]>
+	strokeDashOffset?: MarkEncodingProp<number>
+	strokeJoin?: MarkEncodingProp<StrokeJoin>
+	strokeMiterLimit?: MarkEncodingProp<number>
+	cursor?: MarkEncodingProp<string>
+	href?: MarkEncodingProp<string>
+	tooltip?: MarkEncodingProp<string>
+	zIndex?: MarkEncodingProp<number>
 
 	// Events
 	eventHandlers?: { [key: string]: ChannelHandler }

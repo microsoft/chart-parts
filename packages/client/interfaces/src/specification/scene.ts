@@ -1,5 +1,6 @@
-import { MarkType } from '../enums'
+import { MarkType } from '../common-types'
 import { Axis } from './axes'
+
 export const DEFAULT_WIDTH = 250
 export const DEFAULT_HEIGHT = 250
 
@@ -119,10 +120,7 @@ export interface MarkData {
 	tables: DataFrame
 }
 
-export type MarkEncoding = (
-	data: MarkData,
-	scales: Scales,
-) => number | string | boolean
+export type MarkEncoding<T> = (data: MarkData, scales: Scales) => T
 
 export enum Dimension {
 	Height = 'height',
@@ -142,7 +140,7 @@ export interface Scales {
  * A hash of mark encodings by property name
  */
 export interface MarkEncodings {
-	[key: string]: MarkEncoding
+	[key: string]: MarkEncoding<any>
 }
 
 export interface HandlerMetadata {

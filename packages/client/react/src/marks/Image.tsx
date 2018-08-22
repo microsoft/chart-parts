@@ -1,12 +1,16 @@
-import { MarkType } from '@markable/interfaces'
+import {
+	MarkType,
+	HorizontalAlignment,
+	VerticalAlignment,
+} from '@markable/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ImageProps extends CommonMarkProps {
-	url?: MarkEncodingProp
-	aspect?: MarkEncodingProp
-	align?: MarkEncodingProp
-	baseline?: MarkEncodingProp
+	url?: MarkEncodingProp<string>
+	aspect?: MarkEncodingProp<boolean>
+	align?: MarkEncodingProp<HorizontalAlignment>
+	baseline?: MarkEncodingProp<VerticalAlignment>
 }
 
 export class Image extends BaseMark<ImageProps> {

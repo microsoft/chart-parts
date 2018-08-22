@@ -135,3 +135,17 @@ export enum StrokeJoin {
 	Round = 'round',
 	Bevel = 'bevel',
 }
+
+export interface Gradient {
+	id: string
+	x1: number
+	y1: number
+	x2: number
+	y2: number
+	stops: GradientStop[]
+}
+
+export interface GradientStop {
+	color: string
+	offset: number
+}

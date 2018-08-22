@@ -1,4 +1,4 @@
-export * from './enums'
+export * from './common-types'
 export * from './render'
 export * from './scenegraph-transform'
 export * from './scenegraph'

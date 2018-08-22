@@ -1,4 +1,4 @@
-import { FontWeight } from '../enums'
+import { FontWeight } from '../common-types'
 
 export enum AxisOrientation {
 	Top = 'top',

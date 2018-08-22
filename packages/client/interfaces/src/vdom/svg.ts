@@ -1,4 +1,4 @@
-import { StrokeCap, StrokeJoin } from '../enums'
+import { StrokeCap, StrokeJoin, Gradient } from '../common-types'
 import { VDomNode } from './base'
 
 export type FlexAlignType =
@@ -113,7 +113,7 @@ export interface CommonSvgProps {
 	 * The color inside the shape.
 	 * @default '#000'
 	 */
-	fill?: string
+	fill?: string | Gradient
 
 	/**
 	 * This specifies the opacity of the color or the content the current object is filled with.
@@ -133,7 +133,7 @@ export interface CommonSvgProps {
 	 * 	'none'	The stroke prop controls how the outline of a shape appears.
 	 * @default 'none'
 	 */
-	stroke?: string
+	stroke?: string | Gradient
 
 	/**
 	 * 	The strokeWidth prop specifies the width of the outline on the current object.

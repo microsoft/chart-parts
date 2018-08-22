@@ -12,6 +12,10 @@ import {
 	Text,
 } from '@markable/react'
 import { Renderer } from '@markable/react-svg-renderer'
+import {
+	VerticalTextAlignment,
+	HorizontalAlignment,
+} from '@markable/interfaces'
 const renderer = new Renderer()
 
 const data = [
@@ -95,8 +99,8 @@ export class GroupedBarChart extends React.Component<{}> {
 							pos(datum.position) + rowHeight() * 0.5
 						}
 						fill={'white'}
-						align={'right'}
-						baseline={'middle'}
+						align={HorizontalAlignment.Right}
+						baseline={VerticalTextAlignment.Middle}
 						text={({ datum }) => datum.value}
 					/>
 				</Group>

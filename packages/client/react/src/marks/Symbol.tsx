@@ -1,10 +1,10 @@
-import { MarkType } from '@markable/interfaces'
+import { MarkType, SymbolType } from '@markable/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface SymbolProps extends CommonMarkProps {
-	size?: MarkEncodingProp
-	shape?: MarkEncodingProp
+	size?: MarkEncodingProp<number>
+	shape?: MarkEncodingProp<SymbolType | string>
 }
 
 export class Symbol extends BaseMark<SymbolProps> {

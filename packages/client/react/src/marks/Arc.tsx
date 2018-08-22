@@ -3,12 +3,12 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface ArcProps extends CommonMarkProps {
-	startAngle?: MarkEncodingProp
-	endAngle?: MarkEncodingProp
-	padAngle?: MarkEncodingProp
-	innerRadius?: MarkEncodingProp
-	outerRadius?: MarkEncodingProp
-	cornerRadius?: MarkEncodingProp
+	startAngle?: MarkEncodingProp<number>
+	endAngle?: MarkEncodingProp<number>
+	padAngle?: MarkEncodingProp<number>
+	innerRadius?: MarkEncodingProp<number>
+	outerRadius?: MarkEncodingProp<number>
+	cornerRadius?: MarkEncodingProp<number>
 }
 
 export class Arc extends BaseMark<ArcProps> {

@@ -4,8 +4,8 @@ import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 
 export interface GroupProps extends CommonMarkProps {
-	clip?: MarkEncodingProp
-	cornerRadius?: MarkEncodingProp
+	clip?: MarkEncodingProp<boolean>
+	cornerRadius?: MarkEncodingProp<number>
 
 	/**
 	 * If faceting is enabled, the name of the facet table to provide to children
