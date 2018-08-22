@@ -16,6 +16,7 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata,
+  pathPrefix: '/markable',
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',

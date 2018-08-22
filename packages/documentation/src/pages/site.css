@@ -1,3 +1,15 @@
-#___gatsby > div {
+body {
+    display: flex;
     height: 100%;
+    width: 100%;
+}
+
+#___gatsby {
+    flex: 1;
+    display: flex;
+}
+
+#___gatsby > div {
+    flex: 1;
+    display: flex;
 }

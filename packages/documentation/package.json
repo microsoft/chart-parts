@@ -58,7 +58,7 @@
     "gen:doc:transform": "LIB=util/transform yarn gen:doc",
     "gen:doc:react-native-svg": "LIB=renderers/react-native-svg yarn gen:doc",
     "gen:doc:react-svg": "LIB=renderers/react-svg yarn gen:doc",
-    "build_static_site": "gatsby build",
+    "build_static_site": "gatsby build --prefix-paths",
     "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public",
     "release": "run-s build_static_site"
   },

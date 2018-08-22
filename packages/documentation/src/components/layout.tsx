@@ -61,9 +61,8 @@ function getMeta({ description, keywords }: SiteMetadata) {
 }
 
 const BodyContent = styled.div`
-  height: 100%;
-  max-height: 100%;
   display: flex;
+  flex: 1;
   flex-direction: column;
 `
 
