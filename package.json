@@ -17,8 +17,11 @@
 		"start": "run-s build start:packages"
 	},
 	"devDependencies": {
+		"@babel/core": "^7.0.0-rc.2",
+		"@babel/preset-env": "^7.0.0-rc.2",
 		"@types/jest": "^23.3.1",
 		"agadoo": "^1.0.0",
+		"babel-jest": "^23.4.2",
 		"husky": "^0.14.3",
 		"jest": "^23.5.0",
 		"jest-html": "^1.4.0",
@@ -67,6 +70,7 @@
 			"**/react-native-svg/**",
 			"**/react-dom",
 			"**/react-dom/**",
+			"**/babel-core/**",
 			"@markable/examples-mobile/**",
 			"@markable/documentation/**",
 			"@markable/react-svg-renderer",
@@ -77,10 +81,17 @@
 			"@markable/examples-web/**"
 		]
 	},
+	"babel": {
+		"presets": ["@babel/preset-env"]
+	},
 	"jest": {
 		"transform": {
-			"^.+\\.tsx?$": "ts-jest"
+			"^.+\\.tsx?$": "ts-jest",
+			"^.+\\.jsx?$": "babel-jest"
 		},
+		"transformIgnorePatterns": [
+			"/node_modules/(?!@markable).+\\.js$"
+		],
 		"testMatch": [
 			"**/__tests__/**/*.spec.ts(x|)"
 		],

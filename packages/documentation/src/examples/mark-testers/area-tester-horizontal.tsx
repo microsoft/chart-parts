@@ -1,5 +1,6 @@
 // tslint:disable jsx-no-lambda
 import * as React from 'react'
+import { Orientation } from '@markable/interfaces'
 import { SingleMarkTester } from './util/single-mark-tester'
 import * as palette from './util/palette'
 
@@ -20,6 +21,7 @@ const AreaTesterHorizontal: React.SFC = () => (
       marktype: 'area',
       items: [
         {
+          orient: Orientation.Horizontal,
           x: 0,
           y: 98.18,
           y2: 200,

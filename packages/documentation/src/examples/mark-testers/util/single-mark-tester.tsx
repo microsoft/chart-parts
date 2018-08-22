@@ -62,6 +62,10 @@ export class SingleMarkTester extends React.Component<
     this.state = { scenegraph: props.initialScenegraph }
   }
 
+  public componentDidCatch(error: Error, info: React.ErrorInfo) {
+    console.log('Component coaught error', error, info)
+  }
+
   public render() {
     const {
       sliders = [],
