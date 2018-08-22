@@ -5,7 +5,7 @@ const siteMetadata = {
   title: 'Markable',
   githubUrl: 'https://github.com/Microsoft/Markable',
   description:
-    'A flexible, react-friendly, Grammar of Graphics for data visualization',
+    'A flexible, React-friendly, Grammar of Graphics for data visualization',
   keywords: [
     'visualization',
     'dataviz',

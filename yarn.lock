@@ -2364,7 +2364,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   dependencies:
