@@ -13,7 +13,7 @@ JSON.stringify(scene, (key, value) => {
 		key === 'group' ||
 		key === 'context' ||
 		key === 'source' ||
-		key === 'datum' ||
+		key === 'd' ||
 		key === 'bounds' ||
 		key === 'exit'
 	) {

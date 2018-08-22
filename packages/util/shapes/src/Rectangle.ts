@@ -13,25 +13,20 @@ export class Rectangle {
 
 	/**
 	 * Draws out the Rectangle Shape
-	 * @param datum
+	 * @param d The bound datum
 	 * @param x0 The offset x
 	 * @param y0 The offset y
 	 * @param context The drawing context (compatible with Canvas2DRenderingContext)
 	 *
 	 */
-	public build(
-		datum: SGRectItem,
-		x0?: number,
-		y0?: number,
-		context?: Path,
-	): Path {
+	public build(d: SGRectItem, x0?: number, y0?: number, context?: Path): Path {
 		// tslint:disable-next-line no-this-assignment
 		const { x, y, width, height, cornerRadius } = this
-		const x1 = x0 != null ? x0 : +x(datum)
-		const y1 = y0 != null ? y0 : +y(datum)
-		const w = +width(datum)
-		const h = +height(datum)
-		const cr = +cornerRadius(datum)
+		const x1 = x0 != null ? x0 : +x(d)
+		const y1 = y0 != null ? y0 : +y(d)
+		const w = +width(d)
+		const h = +height(d)
+		const cr = +cornerRadius(d)
 
 		if (!context) {
 			context = path()

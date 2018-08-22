@@ -113,15 +113,15 @@ export class StackTransform {
 		} else {
 			// For each row in the table, assign it to its group
 			const map = new Map<string, any[]>()
-			for (const datum of data) {
-				const groupKey = groupBy.map(gb => gb(datum)).join(',')
+			for (const d of data) {
+				const groupKey = groupBy.map(gb => gb(d)).join(',')
 				if (!map.has(groupKey)) {
 					const newGroup: any[] = []
 					map.set(groupKey, newGroup)
 					groups.push(newGroup)
 				}
 				const group = map.get(groupKey) as DataStack
-				group.push(datum)
+				group.push(d)
 			}
 		}
 		return groups
@@ -138,8 +138,8 @@ export class StackTransform {
 			let groupMax = 0
 			let groupSum = 0
 
-			for (const datum of group) {
-				const value = Math.abs(field(datum))
+			for (const d of group) {
+				const value = Math.abs(field(d))
 				if (value > groupMax) {
 					groupMax = value
 				}
@@ -174,10 +174,10 @@ export class StackTransform {
 		const sum = group.sum || 0
 
 		let last = (max - sum) / 2
-		for (const datum of group) {
-			const value = Math.abs(field(datum))
-			datum[y0] = last
-			datum[y1] = last += value
+		for (const d of group) {
+			const value = Math.abs(field(d))
+			d[y0] = last
+			d[y1] = last += value
 		}
 	}
 
@@ -188,10 +188,10 @@ export class StackTransform {
 
 		let last = 0
 		let v = 0
-		for (const datum of group) {
-			const value = Math.abs(field(datum))
-			datum[y0] = last
-			datum[y1] = last = scale * (v += value)
+		for (const d of group) {
+			const value = Math.abs(field(d))
+			d[y0] = last
+			d[y1] = last = scale * (v += value)
 		}
 	}
 
@@ -201,14 +201,14 @@ export class StackTransform {
 
 		let lastPos = 0
 		let lastNeg = 0
-		for (const datum of group) {
-			const v = field(datum)
+		for (const d of group) {
+			const v = field(d)
 			if (v < 0) {
-				datum[y0] = lastNeg
-				datum[y1] = lastNeg += v
+				d[y0] = lastNeg
+				d[y1] = lastNeg += v
 			} else {
-				datum[y0] = lastPos
-				datum[y1] = lastPos += v
+				d[y0] = lastPos
+				d[y1] = lastPos += v
 			}
 		}
 	}

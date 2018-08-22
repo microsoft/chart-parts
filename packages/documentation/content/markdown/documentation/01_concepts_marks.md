@@ -25,9 +25,9 @@ In our system, when we bind these parameters to our data, this is called an _enc
 ```jsx
     <Rect 
         table="my-data"
-        x={({ datum }, { x }) => x(datum.category)}
+        x={({ d }, { x }) => x(d.category)}
         y={0}
-        height={({ datum }, { y }) => y(datum.amount)}
+        height={({ d }, { y }) => y(d.amount)}
         width={30}
         fill='blue'
     />
@@ -38,9 +38,9 @@ In our system, when we bind these parameters to our data, this is called an _enc
     // SceneBuilder API
     rect().table('my-data')
     .encode({
-        x: ({ datum }, { x }) => x(datum.category),
+        x: ({ d }, { x }) => x(d.category),
         y: (d, { y }) => 0,
-        height: ({ datum }, { y }) => y(datum.amount),
+        height: ({ d }, { y }) => y(d.amount),
         width: () => 30,
         fill: () => 'blue'
     })
@@ -52,8 +52,8 @@ Encoding functions have the following signature:
 
 * **_encode_(_data_: MarkData, _scales_: Scales)**
     * __data__: this parameter contains the data context for binding the mark. This contains the following properties:
-        * __datum__: The current row in the bound data-table that this mark is reflecting
+        * __d__: The current datum (row) in the bound table that this mark is reflecting
         * __index__: The index of the current row in its table
-        * __data__: the table the current datum is a member of
+        * __data__: the table the current d is a member of
         * __tables__: An object where the keys are the names of all available tables and the values are the data-tables.
     * __scales__: an object where the keys are the names of the available scales and the values are the scales.

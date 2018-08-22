@@ -62,8 +62,8 @@ export default class BarChart extends React.Component<{}, BarChartState> {
 				<Axis orient={AxisOrientation.Left} scale="yscale" />
 				<Rect
 					eventHandlers={{ onPress }}
-					x={({ datum }, { xscale }) => xscale(datum.category)}
-					y={({ datum }, { yscale }) => yscale(datum.amount)}
+					x={({ d }, { xscale }) => xscale(d.category)}
+					y={({ d }, { yscale }) => yscale(d.amount)}
 					width={(d, { xband }) => xband()}
 					y2={200}
 					fill={({ index }) => {

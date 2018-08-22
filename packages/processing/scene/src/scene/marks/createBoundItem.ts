@@ -111,7 +111,7 @@ function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
 }
 
 function transferEncodings(
-	datum: any,
+	d: any,
 	index: number,
 	data: any[],
 	encodings: MarkEncodings,
@@ -123,7 +123,7 @@ function transferEncodings(
 		.forEach(key => {
 			const encoding = encodings[key]
 			const dataContext = {
-				datum,
+				d,
 				index,
 				data,
 				tables: frame.data,

@@ -28,8 +28,8 @@ describe('Building Charts', () => {
 						rect()
 							.table('data')
 							.encode({
-								x: ({ datum }, { x }) => x(datum.category),
-								y: ({ datum }, { y }) => y(datum.amount),
+								x: ({ d }, { x }) => x(d.category),
+								y: ({ d }, { y }) => y(d.amount),
 								y2: (d, { y }) => y(0),
 								width: (d, { xband }) => xband(),
 								fill: ({ index }) => 'steelblue',
@@ -77,7 +77,7 @@ describe('Building Charts', () => {
 								partitionOn: (r: any) => r.category,
 							})
 							.encode({
-								y: ({ datum }, { y }) => y(datum[0].category),
+								y: ({ d }, { y }) => y(d[0].category),
 								height: (d, { categoryHeight }) => categoryHeight(),
 							})
 							.child(node =>
@@ -92,22 +92,22 @@ describe('Building Charts', () => {
 										rect('bars')
 											.table('facet')
 											.encode({
-												x: ({ datum }, { x }) => x(datum.value),
-												y: ({ datum }, { pos }) => pos(datum.position),
+												x: ({ d }, { x }) => x(d.value),
+												y: ({ d }, { pos }) => pos(d.position),
 												x2: (d, { x }) => x(0),
-												fill: ({ datum }, { color }) => color(datum.position),
+												fill: ({ d }, { color }) => color(d.position),
 												height: (d, { rowHeight }) => rowHeight(),
 											}),
 										text()
 											.table('facet')
 											.encode({
-												x: ({ datum }, { x }) => x(datum.value) - 3,
-												y: ({ datum }, { pos, rowHeight }) =>
-													pos(datum.position) + rowHeight() * 0.5,
+												x: ({ d }, { x }) => x(d.value) - 3,
+												y: ({ d }, { pos, rowHeight }) =>
+													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
 												align: () => 'right',
 												baseline: () => 'middle',
-												text: ({ datum }) => datum.value,
+												text: ({ d }) => d.value,
 											}),
 									),
 							),

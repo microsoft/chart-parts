@@ -146,16 +146,16 @@ export class LineChart extends React.Component<{}, BarChartState> {
 				>
 					<Line
 						table="facetedSeries"
-						x={({ datum }, { x }) => x(datum.x)}
-						y={({ datum }, { y }) => y(datum.y)}
-						stroke={({ datum }) => datum.line}
+						x={({ d }, { x }) => x(d.x)}
+						y={({ d }, { y }) => y(d.y)}
+						stroke={({ d }) => d.line}
 					/>
 					<Circle
 						table="facetedSeries"
-						fill={({ datum }) => datum.fill}
+						fill={({ d }) => d.fill}
 						size={50}
-						x={({ datum }, { x }) => x(datum.x)}
-						y={({ datum }, { y }) => y(datum.y)}
+						x={({ d }, { x }) => x(d.x)}
+						y={({ d }, { y }) => y(d.y)}
 					/>
 					<Group singleton x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
@@ -169,13 +169,13 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						<Group
 							name="kpis"
 							table="kpis"
-							y={({ datum }, { kpiLoc }) => kpiLoc(datum.label)}
+							y={({ d }, { kpiLoc }) => kpiLoc(d.label)}
 							height={(d, { kpiHeight }) => kpiHeight()}
 						>
 							<Text
 								singleton
 								baseline={VerticalTextAlignment.Top}
-								text={({ datum }) => datum.value}
+								text={({ d }) => d.value}
 								fill={'black'}
 								fontSize={15}
 							/>
@@ -183,8 +183,8 @@ export class LineChart extends React.Component<{}, BarChartState> {
 								singleton
 								baseline={VerticalTextAlignment.Top}
 								y={15}
-								text={({ datum }) => datum.label}
-								fill={({ datum }) => datum.fill}
+								text={({ d }) => d.label}
+								fill={({ d }) => d.fill}
 								fontSize={10}
 							/>
 						</Group>

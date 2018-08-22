@@ -62,8 +62,8 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 						area('dataline')
 							.table('data')
 							.encode({
-								x: ({ datum }, { xband }) => xband(datum.date),
-								y: ({ datum }, { y }) => y(datum.amount),
+								x: ({ d }, { xband }) => xband(d.date),
+								y: ({ d }, { y }) => y(d.amount),
 								y2: (d, { y }) => y(0),
 								stroke: () => 'black',
 								strokeWidth: () => 0.5,
@@ -72,8 +72,8 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 						rect('highlight')
 							.table('data')
 							.encode({
-								x: ({ datum }, { xband }) => xband(datum.date),
-								y: ({ datum }, { y }) => y(datum.amount),
+								x: ({ d }, { xband }) => xband(d.date),
+								y: ({ d }, { y }) => y(d.amount),
 								y2: (d, { y }) => y(0),
 								width: (d, { xbandwidth }) => xbandwidth(),
 								fill: ({ index }) =>

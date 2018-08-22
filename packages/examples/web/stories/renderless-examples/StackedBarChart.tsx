@@ -94,11 +94,11 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 						}
 					}}
 					table="data"
-					x={({ datum }, { x }) => x(datum.x)}
+					x={({ d }, { x }) => x(d.x)}
 					width={(d, { width }) => width() - 1}
-					y={({ datum }, { y }) => y(datum.y0)}
-					y2={({ datum }, { y }) => y(datum.y1)}
-					fill={({ datum }, { color }) => color(datum.c)}
+					y={({ d }, { y }) => y(d.y0)}
+					y2={({ d }, { y }) => y(d.y1)}
+					fill={({ d }, { color }) => color(d.c)}
 					fillOpacity={({ index }) =>
 						this.state.hoverRowIndex === index ? 0.5 : 1
 					}

@@ -75,8 +75,8 @@ export default class BarChart extends React.Component<{}, BarChartState> {
               this.setState({ hoverRowIndex: undefined })
             }
           }}
-          x={({ datum }, { x }) => x(datum.category)}
-          y={({ datum }, { y }) => y(datum.amount)}
+          x={({ d }, { x }) => x(d.category)}
+          y={({ d }, { y }) => y(d.amount)}
           width={(d, { band }) => band()}
           y2={(d, { y }) => y(0)}
           fill={({ index }) =>

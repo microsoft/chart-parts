@@ -100,12 +100,12 @@ export interface Facet {
 
 export interface MarkData {
 	/**
-	 * The current row of the data to encode.
+	 * The current d to encode, essentially a row in the data array.
 	 */
-	datum: any
+	d: any
 
 	/**
-	 * The index of the datum within the data collection
+	 * The index of the d within the data collection
 	 */
 	index: number
 

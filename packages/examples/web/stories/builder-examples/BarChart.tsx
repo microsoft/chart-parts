@@ -60,8 +60,8 @@ export class BarChart extends React.Component<{}, BarChartState> {
 						rect()
 							.table('data')
 							.encode({
-								x: ({ datum }, { x }) => x(datum.category),
-								y: ({ datum }, { y }) => y(datum.amount),
+								x: ({ d }, { x }) => x(d.category),
+								y: ({ d }, { y }) => y(d.amount),
 								y2: (d, { y }) => y(0),
 								width: (d, { xband }) => xband(),
 								fill: ({ index }) =>
