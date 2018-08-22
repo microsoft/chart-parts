@@ -1,5 +1,6 @@
 // tslint:disable jsx-no-lambda
 import * as React from 'react'
+import { Orientation } from '@markable/interfaces'
 import { SingleMarkTester } from './util/single-mark-tester'
 import * as palette from './util/palette'
 
@@ -26,35 +27,31 @@ const AreaTesterVertical: React.SFC = () => (
           y: interval * 0,
           x: 98.18,
           x2: 400,
-          orient: 'vertical',
+          orient: Orientation.Horizontal,
           ...BASE_ITEM,
         },
         {
           y: interval,
           x: 0,
           x2: 400,
-          orient: 'vertical',
           ...BASE_ITEM,
         },
         {
           y: interval * 2,
           x: 47.27,
           x2: 400,
-          orient: 'vertical',
           ...BASE_ITEM,
         },
         {
           y: interval * 3,
           x: 76.36,
           x2: 400,
-          orient: 'vertical',
           ...BASE_ITEM,
         },
         {
           y: interval * 4,
           x: 25.4545,
           x2: 400,
-          orient: 'vertical',
           ...BASE_ITEM,
         },
       ],

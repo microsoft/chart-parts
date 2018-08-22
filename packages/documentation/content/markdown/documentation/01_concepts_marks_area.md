@@ -9,5 +9,3 @@ order: 1
 ### Horizontal Mode
 <area-tester-horizontal></area-tester-horizontal>
 
-### Vertical Mode
-<area-tester-vertical></area-tester-vertical>

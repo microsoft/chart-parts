@@ -26,11 +26,15 @@ export function arc(item: SGArcItem, context?: Path) {
 
 export function area(items: SGAreaItem[], context?: Path) {
 	const first = items[0]
-	const interp = first.interpolate || Interpolation.Linear
+	//	const interp = first.interpolate || Interpolation.Linear
+	const variant =
+		first.orient === Orientation.Horizontal ? areahShape : areavShape
 
-	return (first.orient === Orientation.Horizontal ? areahShape : areavShape)
-		.curve(curves(interp, first.orient, first.tension))
-		.context(context as any)(items as any) // TODO: is this correct?
+	const result = variant
+		//		.curve(curves(interp, first.orient, first.tension))
+		.context(context as any)(items)
+	console.log('RESULT', result, variant)
+	return result
 }
 
 export function line(items: SGLineItem[], context?: Path) {
