@@ -1,11 +1,17 @@
 const path = require('path')
+const fs = require('fs')
 
 /**
  * Dynamically creates pages in the static website
  */
 async function createPages({ actions, graphql }) {
-  function retrieveMarkdownPages() {
-    return graphql(`
+  await createMarkdownPages(actions, graphql)
+  await createApidocPages(actions, graphql)
+}
+
+async function createMarkdownPages(actions, graphql) {
+  const retrieveMarkdownPages = () =>
+    graphql(`
       {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
@@ -21,9 +27,7 @@ async function createPages({ actions, graphql }) {
         }
       }
     `)
-  }
 
-  const { createPage } = actions
   const blogTemplate = path.resolve(`src/templates/blogTemplate.tsx`)
   const docTemplate = path.resolve(`src/templates/docTemplate.tsx`)
   const result = await retrieveMarkdownPages()
@@ -38,12 +42,14 @@ async function createPages({ actions, graphql }) {
       frontmatter: { path: pagePath },
     } = node
     const category = pagePath.split('/').filter(t => !!t)[0]
-    createPage({
+    actions.createPage({
       path: pagePath,
       component: category === 'blog' ? blogTemplate : docTemplate,
       context: {}, // additional data can be passed via context
     })
   })
 }
+
+async function createApidocPages(acitons, graphql) {}
 
 exports.createPages = createPages
