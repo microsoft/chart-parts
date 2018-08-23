@@ -3,8 +3,11 @@ import styled from 'styled-components'
 import theme from '../util/theme'
 import PrivacyStatement from './privacy-statement'
 
-const Footer: React.SFC = () => (
-  <Container>
+export interface FooterProps {
+  style?: React.CSSProperties
+}
+const Footer: React.SFC<FooterProps> = style => (
+  <Container style={style}>
     <FooterColumn>
       <WithLove>with ♥ from Microsoft</WithLove>
     </FooterColumn>
@@ -30,18 +33,6 @@ const FooterColumn = styled.div`
 
 const WithLove = styled.div`
   color: ${theme.palette.whitish};
-  font-family: sans-serif;
-  font-size: 12px;
-`
-
-const PrivacyText = styled.div`
-  color: ${theme.palette.whitish};
-  font-family: sans-serif;
-  font-size: 12px;
-`
-
-const PrivacyLink = styled.a`
-  color: ${theme.palette.highlight};
   font-family: sans-serif;
   font-size: 12px;
 `

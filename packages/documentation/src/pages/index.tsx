@@ -19,7 +19,7 @@ export default () => (
     <Header />
     <HeroBanner style={{ flex: 8 }} />
     <BelowTheFold style={{ flex: 2 }} />
-    <Footer style={{ flexz: 1 }} />
+    <Footer style={{ flex: 1 }} />
   </Container>
 )
 
