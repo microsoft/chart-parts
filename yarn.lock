@@ -2362,9 +2362,9 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-native@^0.56.7", "@types/react-native@^0.56.8":
-  version "0.56.8"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react-native/-/react-native-0.56.8.tgz#7752e47369a59672bbabd5552d2de76a86442ecd"
+"@types/react-native@^0.56.11":
+  version "0.56.11"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react-native/-/react-native-0.56.11.tgz#03523c23e580f7c0e9297ca9af330bd12678e749"
   dependencies:
     "@types/react" "*"
 

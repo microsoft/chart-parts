@@ -14,6 +14,8 @@ export default {
     alt: '#335C67',
     alt2: '#E09F3E',
     alt3: '#540B0E',
+    grey: '#444',
+    whitish: '#FEFEFE',
   },
   backgrounds: {
     sidebar: '#F6F6F6',

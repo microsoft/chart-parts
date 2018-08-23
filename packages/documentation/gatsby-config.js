@@ -3,7 +3,7 @@
 //
 const siteMetadata = {
   title: 'Markable',
-  githubUrl: 'https://github.com/Microsoft/Markable',
+  githubUrl: 'https://github.com/Microsoft/markable',
   description:
     'A flexible, React-friendly, Grammar of Graphics for data visualization',
   keywords: [
