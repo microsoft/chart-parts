@@ -2279,9 +2279,9 @@
   version "1.2.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
 
-"@types/fs-extra@5.0.1":
-  version "5.0.1"
-  resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-5.0.1.tgz#cd856fbbdd6af2c11f26f8928fd8644c9e9616c9"
+"@types/fs-extra@^5.0.3":
+  version "5.0.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/fs-extra/-/fs-extra-5.0.4.tgz#b971134d162cc0497d221adde3dbb67502225599"
   dependencies:
     "@types/node" "*"
 
@@ -2301,25 +2301,25 @@
   version "0.12.6"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/graphql/-/graphql-0.12.6.tgz#3d619198585fcabe5f4e1adfb5cf5f3388c66c13"
 
-"@types/handlebars@4.0.36":
-  version "4.0.36"
-  resolved "https://registry.yarnpkg.com/@types/handlebars/-/handlebars-4.0.36.tgz#ff57c77fa1ab6713bb446534ddc4d979707a3a79"
+"@types/handlebars@^4.0.38":
+  version "4.0.39"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/handlebars/-/handlebars-4.0.39.tgz#961fb54db68030890942e6aeffe9f93a957807bd"
 
-"@types/highlight.js@9.12.2":
-  version "9.12.2"
-  resolved "https://registry.yarnpkg.com/@types/highlight.js/-/highlight.js-9.12.2.tgz#6ee7cd395effe5ec80b515d3ff1699068cd0cd1d"
+"@types/highlight.js@^9.12.3":
+  version "9.12.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/highlight.js/-/highlight.js-9.12.3.tgz#b672cfaac25cbbc634a0fd92c515f66faa18dbca"
 
 "@types/jest@^23.3.1":
   version "23.3.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/jest/-/jest-23.3.1.tgz#a4319aedb071d478e6f407d1c4578ec8156829cf"
 
-"@types/lodash@4.14.104":
-  version "4.14.104"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.104.tgz#53ee2357fa2e6e68379341d92eb2ecea4b11bb80"
+"@types/lodash@^4.14.110":
+  version "4.14.116"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
 
-"@types/marked@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/@types/marked/-/marked-0.3.0.tgz#583c223dd33385a1dda01aaf77b0cd0411c4b524"
+"@types/marked@^0.4.0":
+  version "0.4.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/marked/-/marked-0.4.1.tgz#6595701c4d0dfde9d04894d3be04b8a97a49e0d7"
 
 "@types/minimatch@*", "@types/minimatch@3.0.3":
   version "3.0.3"
@@ -2368,16 +2368,16 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   dependencies:
     "@types/prop-types" "*"
     csstype "^2.2.0"
 
-"@types/shelljs@0.7.8":
-  version "0.7.8"
-  resolved "https://registry.yarnpkg.com/@types/shelljs/-/shelljs-0.7.8.tgz#4b4d6ee7926e58d7bca448a50ba442fd9f6715bd"
+"@types/shelljs@^0.8.0":
+  version "0.8.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/shelljs/-/shelljs-0.8.0.tgz#0caa56b68baae4f68f44e0dd666ab30b098e3632"
   dependencies:
     "@types/glob" "*"
     "@types/node" "*"
@@ -6239,15 +6239,9 @@ debug@2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0:
+debug@^3.1.0, debug@~3.1.0:
   version "3.1.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  dependencies:
-    ms "2.0.0"
-
-debug@~3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
     ms "2.0.0"
 
@@ -7866,6 +7860,14 @@ fs-extra@^5.0.0:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
+fs-extra@^7.0.0:
+  version "7.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/fs-extra/-/fs-extra-7.0.0.tgz#8cc3f47ce07ef7b3593a11b9fb245f7e34c041d6"
+  dependencies:
+    graceful-fs "^4.1.2"
+    jsonfile "^4.0.0"
+    universalify "^0.1.0"
+
 fs-minipass@^1.2.5:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/fs-minipass/-/fs-minipass-1.2.5.tgz#06c277218454ec288df77ada54a03b8702aacb9d"
@@ -8031,6 +8033,18 @@ gatsby-remark-embed-snippet@^3.0.0-rc.0:
     normalize-path "^2.1.1"
     parse-numeric-range "^0.0.2"
     unist-util-map "^1.0.3"
+
+gatsby-remark-images@^2.0.1-rc.0:
+  version "2.0.1-rc.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/gatsby-remark-images/-/gatsby-remark-images-2.0.1-rc.0.tgz#c833a03991cd332c48ae001d9fb023a1108a7ee8"
+  dependencies:
+    "@babel/runtime" "7.0.0-beta.52"
+    cheerio "^1.0.0-rc.2"
+    is-relative-url "^2.0.0"
+    lodash "^4.17.4"
+    slash "^1.0.0"
+    unist-util-select "^1.5.0"
+    unist-util-visit-parents "^2.0.1"
 
 gatsby-remark-prismjs@^3.0.0-rc.0:
   version "3.0.0-rc.0"
@@ -10972,9 +10986,13 @@ markdown-table@^1.1.0:
   version "1.1.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/markdown-table/-/markdown-table-1.1.2.tgz#c78db948fa879903a41bce522e3b96f801c63786"
 
-marked@^0.3.17, marked@^0.3.5:
+marked@^0.3.5:
   version "0.3.19"
   resolved "https://registry.yarnpkg.com/marked/-/marked-0.3.19.tgz#5d47f709c4c9fc3c216b6d46127280f40b39d790"
+
+marked@^0.4.0:
+  version "0.4.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/marked/-/marked-0.4.0.tgz#9ad2c2a7a1791f10a852e0112f77b571dce10c66"
 
 math-expression-evaluator@^1.2.14:
   version "1.2.17"
@@ -14845,7 +14863,7 @@ shell-quote@1.6.1, shell-quote@^1.6.1:
     array-reduce "~0.0.0"
     jsonify "~0.0.0"
 
-shelljs@^0.8.0, shelljs@^0.8.1, shelljs@^0.8.2:
+shelljs@^0.8.0, shelljs@^0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/shelljs/-/shelljs-0.8.2.tgz#345b7df7763f4c2340d584abb532c5f752ca9e35"
   dependencies:
@@ -16037,33 +16055,29 @@ typedoc-default-themes@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/typedoc-default-themes/-/typedoc-default-themes-0.5.0.tgz#6dc2433e78ed8bea8e887a3acde2f31785bd6227"
 
-typedoc@^0.11.1:
-  version "0.11.1"
-  resolved "https://registry.yarnpkg.com/typedoc/-/typedoc-0.11.1.tgz#9f033887fd2218c769e1045feb88a1efed9f12c9"
+typedoc@^0.12.0:
+  version "0.12.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/typedoc/-/typedoc-0.12.0.tgz#c5d606f52af29d841658e18d9faa1a72acf0e270"
   dependencies:
-    "@types/fs-extra" "5.0.1"
-    "@types/handlebars" "4.0.36"
-    "@types/highlight.js" "9.12.2"
-    "@types/lodash" "4.14.104"
-    "@types/marked" "0.3.0"
+    "@types/fs-extra" "^5.0.3"
+    "@types/handlebars" "^4.0.38"
+    "@types/highlight.js" "^9.12.3"
+    "@types/lodash" "^4.14.110"
+    "@types/marked" "^0.4.0"
     "@types/minimatch" "3.0.3"
-    "@types/shelljs" "0.7.8"
-    fs-extra "^5.0.0"
+    "@types/shelljs" "^0.8.0"
+    fs-extra "^7.0.0"
     handlebars "^4.0.6"
     highlight.js "^9.0.0"
-    lodash "^4.17.5"
-    marked "^0.3.17"
+    lodash "^4.17.10"
+    marked "^0.4.0"
     minimatch "^3.0.0"
     progress "^2.0.0"
-    shelljs "^0.8.1"
+    shelljs "^0.8.2"
     typedoc-default-themes "^0.5.0"
-    typescript "2.7.2"
+    typescript "3.0.x"
 
-typescript@2.7.2:
-  version "2.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-2.7.2.tgz#2d615a1ef4aee4f574425cdff7026edf81919836"
-
-typescript@^3.0.1:
+typescript@3.0.x, typescript@^3.0.1:
   version "3.0.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/typescript/-/typescript-3.0.1.tgz#43738f29585d3a87575520a4b93ab6026ef11fdb"
 
@@ -16246,7 +16260,7 @@ unist-util-generated@^1.1.0:
   version "1.1.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/unist-util-generated/-/unist-util-generated-1.1.2.tgz#8b993f9239d8e560be6ee6e91c3f7b7208e5ce25"
 
-unist-util-is@^2.0.0, unist-util-is@^2.1.1:
+unist-util-is@^2.0.0, unist-util-is@^2.1.1, unist-util-is@^2.1.2:
   version "2.1.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/unist-util-is/-/unist-util-is-2.1.2.tgz#1193fa8f2bfbbb82150633f3a8d2eb9a1c1d55db"
 
@@ -16287,6 +16301,12 @@ unist-util-stringify-position@^1.0.0, unist-util-stringify-position@^1.1.1:
 unist-util-visit-children@^1.0.0:
   version "1.1.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/unist-util-visit-children/-/unist-util-visit-children-1.1.2.tgz#bd78b53db9644b9c339ac502854f15471f964f5b"
+
+unist-util-visit-parents@^2.0.1:
+  version "2.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/unist-util-visit-parents/-/unist-util-visit-parents-2.0.1.tgz#63fffc8929027bee04bfef7d2cce474f71cb6217"
+  dependencies:
+    unist-util-is "^2.1.2"
 
 unist-util-visit@^1.0.0, unist-util-visit@^1.1.0, unist-util-visit@^1.3.0:
   version "1.3.1"

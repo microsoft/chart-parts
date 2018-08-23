@@ -45,6 +45,11 @@ export function mark(type: MarkType) {
 //
 // Utility functions for creating typed marks
 //
+
+/**
+ * Initiates construction of a new _arc_ typed mark
+ * @param name
+ */
 export function arc(name?: string) {
 	return markWithName(MarkType.Arc, name)
 }

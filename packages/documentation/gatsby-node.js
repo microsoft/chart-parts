@@ -4,8 +4,8 @@ const path = require('path')
  * Dynamically creates pages in the static website
  */
 async function createPages({ actions, graphql }) {
-  function retrieveMarkdownPages() {
-    return graphql(`
+  const retrieveMarkdownPages = () =>
+    graphql(`
       {
         allMarkdownRemark(
           sort: { order: DESC, fields: [frontmatter___date] }
@@ -21,9 +21,7 @@ async function createPages({ actions, graphql }) {
         }
       }
     `)
-  }
 
-  const { createPage } = actions
   const blogTemplate = path.resolve(`src/templates/blogTemplate.tsx`)
   const docTemplate = path.resolve(`src/templates/docTemplate.tsx`)
   const result = await retrieveMarkdownPages()
@@ -38,7 +36,7 @@ async function createPages({ actions, graphql }) {
       frontmatter: { path: pagePath },
     } = node
     const category = pagePath.split('/').filter(t => !!t)[0]
-    createPage({
+    actions.createPage({
       path: pagePath,
       component: category === 'blog' ? blogTemplate : docTemplate,
       context: {}, // additional data can be passed via context
