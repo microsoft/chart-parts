@@ -34,7 +34,7 @@ const Header: React.SFC<HeaderProps> = ({ logoTo = '/' }) => (
             <Links>
               <OuterLink to="/">Home</OuterLink>
               <OuterLink to="/documentation">Docs</OuterLink>
-              <OuterLink to="/blog">Updates</OuterLink>
+              <OuterLink to="/blog">Blog</OuterLink>
               <OuterLink to={githubUrl}>Github</OuterLink>
             </Links>
           </InnerContainer>

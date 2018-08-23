@@ -8,14 +8,8 @@ export interface MarkdownAstNode {
   data: any
 }
 
-export interface MarkdownAst {
-  html: string
-  frontmatter: { [key: string]: any }
-  htmlAst: MarkdownAstNode
-}
-
-export default function processImagesInMarkdownAst(ast: MarkdownAst): void {
-  checkNode(ast.htmlAst)
+export default function processImagesInMarkdownAst(ast: MarkdownAstNode): void {
+  checkNode(ast)
 }
 
 function checkNode(node: MarkdownAstNode) {

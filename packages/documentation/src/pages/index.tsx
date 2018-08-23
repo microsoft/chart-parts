@@ -5,11 +5,13 @@ import Header from '../components/header'
 import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
 import './site.css'
+// tslint:disable-next-line
+const log = require('debug')('site:index')
 
 // tslint:disable-next-line no-var-requires
 const packageJson = require('../../package.json')
 // tslint:disable-next-line no-console
-console.log('Markable documentation, version', packageJson.version)
+log('Markable documentation, version', packageJson.version)
 
 export default () => (
   <Container>

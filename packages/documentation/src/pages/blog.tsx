@@ -5,16 +5,18 @@ import Sidebar from '../components/sidebar'
 import Layout from '../components/layout'
 import convertGraphqlToc from '../util/convertGraphqlToc'
 
-const Blog = ({ data: { toc, latestPost } }: any) => (
-  <Layout
-    logoTo="/documentation"
-    sidebar={
-      <Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
-    }
-  >
-    <Post post={latestPost.edges[0].node} />
-  </Layout>
-)
+const Blog = ({ data: { toc, latestPost } }: any) => {
+  return (
+    <Layout
+      logoTo="/documentation"
+      sidebar={
+        <Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
+      }
+    >
+      <Post post={latestPost.edges[0].node} />
+    </Layout>
+  )
+}
 
 export default Blog
 
@@ -28,6 +30,7 @@ export const query = graphql`
       edges {
         node {
           html
+          htmlAst
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
