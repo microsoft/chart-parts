@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Header from '../components/header'
 import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
+import Footer from '../components/footer'
 import './site.css'
 // tslint:disable-next-line
 const log = require('debug')('site:index')
@@ -16,8 +17,9 @@ log('Markable documentation, version', packageJson.version)
 export default () => (
   <Container>
     <Header />
-    <HeroBanner style={{ flex: 4 }} />
-    <BelowTheFold style={{ flex: 1 }} />
+    <HeroBanner style={{ flex: 8 }} />
+    <BelowTheFold style={{ flex: 2 }} />
+    <Footer style={{ flexz: 1 }} />
   </Container>
 )
 
@@ -25,7 +27,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   flex: 1;
-  height: 110%;
+  height: 130%;
 `
 
 export const BoxRow = styled.div`

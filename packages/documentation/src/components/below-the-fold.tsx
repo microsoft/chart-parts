@@ -34,7 +34,9 @@ const BelowTheFold: React.SFC<BelowTheFoldProps> = ({ style }) => (
             <StyledLink to="/blog">What's new?</StyledLink>
           </Box>
           <Box style={{ backgroundColor: theme.palette.alt3 }}>
-            <StyledLink to={githubUrl}>Browse the source</StyledLink>
+            <StyledAnchor target="_blank" href={githubUrl}>
+              Browse the source
+            </StyledAnchor>
           </Box>
         </BoxRow>
       )
@@ -44,7 +46,6 @@ const BelowTheFold: React.SFC<BelowTheFoldProps> = ({ style }) => (
 
 export const BoxRow = styled.div`
   display: flex;
-  flex: 1;
 `
 
 export const Box = styled.div`
@@ -53,10 +54,16 @@ export const Box = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 300px;
 `
 
 export const StyledLink = styled(Link)`
+  font-family: ${theme.text.fontFamily};
+  font-weight: bold;
+  font-size: 16px;
+  color: ${theme.palette.highlight};
+`
+
+export const StyledAnchor = styled.a`
   font-family: ${theme.text.fontFamily};
   font-weight: bold;
   font-size: 16px;
