@@ -4,63 +4,43 @@ import {
 	area as d3_area,
 	line as d3_line,
 } from 'd3-shape'
+import {
+	SGItem,
+	SGAreaItem,
+	SGLineItem,
+	SGSymbolItem,
+	SGArcItem,
+	SGRectItem,
+	SGTrailItem,
+	SGGroupItem,
+} from '@markable/interfaces'
 import { Rectangle } from './Rectangle'
 import { Trail } from './Trail'
 import symbols from './symbols'
 
-function x(item: any) {
-	return item.x || 0
-}
-function y(item: any) {
-	return item.y || 0
-}
-function w(item: any) {
-	return item.width || 0
-}
-function ts(item: any) {
-	return item.size || 1
-}
-function h(item: any) {
-	return item.height || 0
-}
-function xw(item: any) {
-	return (item.x || 0) + (item.width || 0)
-}
-function yh(item: any) {
-	return (item.y || 0) + (item.height || 0)
-}
-function sa(item: any) {
-	return item.startAngle || 0
-}
-function ea(item: any) {
-	return item.endAngle || 0
-}
-function pa(item: any) {
-	return item.padAngle || 0
-}
-function ir(item: any) {
-	return item.innerRadius || 0
-}
-function or(item: any) {
-	return item.outerRadius || 0
-}
-function cr(item: any) {
-	return item.cornerRadius || 0
-}
-function def(item: any) {
-	return !(item.defined === false)
-}
-function size(item: any) {
-	return item.size == null ? 64 : item.size
-}
-function type(item: any) {
-	return symbols(item.shape || 'circle')
-}
+const x = (item: SGItem) => item.x || 0
+const x2 = (item: SGItem) => item.x2 || 0
+const y = (item: SGItem) => item.y || 0
+const y2 = (item: SGItem) => item.y2 || 0
+const w = (item: SGItem) => item.width || 0
+const h = (item: SGItem) => item.height || 0
+const sa = (item: SGArcItem) => item.startAngle || 0
+const ea = (item: SGArcItem) => item.endAngle || 0
+const pa = (item: SGArcItem) => item.padAngle || 0
+const ir = (item: SGArcItem) => item.innerRadius || 0
+const or = (item: SGArcItem) => item.outerRadius || 0
+const cr = (item: SGArcItem | SGRectItem | SGGroupItem) =>
+	item.cornerRadius || 0
+const def = (item: SGAreaItem | SGLineItem | SGTrailItem) =>
+	item.defined == null ? true : item.defined
+const symbolSize = (item: SGSymbolItem) => (item.size == null ? 64 : item.size)
+const symbolType = (item: SGSymbolItem) => symbols(item.shape || 'circle')
+const trailSize = (item: SGTrailItem) => item.size || 1
 
 export const rectShape = new Rectangle(x, y, w, h, cr)
-export const trailShape = new Trail(x, y, ts, def)
+export const trailShape = new Trail(x, y, trailSize, def)
 
-export const arcShape = d3_arc()
+export const arcShape = d3_arc<SGArcItem>()
 	.startAngle(sa)
 	.endAngle(ea)
 	.padAngle(pa)
@@ -68,23 +48,23 @@ export const arcShape = d3_arc()
 	.outerRadius(or)
 	.cornerRadius(cr)
 
-export const areavShape = d3_area()
-	.x(x)
-	.y1(y)
-	.y0(yh)
-	.defined(def)
-
-export const areahShape = d3_area()
-	.y(y)
+export const areahShape = d3_area<SGAreaItem>()
 	.x1(x)
-	.x0(xw)
+	.x0(x2)
+	.y(y)
 	.defined(def)
 
-export const lineShape = d3_line()
+export const areavShape = d3_area<SGAreaItem>()
+	.y1(y)
+	.y0(y2)
+	.x(x)
+	.defined(def)
+
+export const lineShape = d3_line<SGLineItem>()
 	.x(x)
 	.y(y)
 	.defined(def)
 
-export const symbolShape = d3_symbol()
-	.type(type)
-	.size(size)
+export const symbolShape = d3_symbol<SGSymbolItem>()
+	.type(symbolType)
+	.size(symbolSize)

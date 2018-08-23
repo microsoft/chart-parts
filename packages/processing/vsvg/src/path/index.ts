@@ -21,16 +21,17 @@ import {
 import curves from './curves'
 
 export function arc(item: SGArcItem, context?: Path) {
-	return arcShape.context(context as any)(item as any)
+	return arcShape.context(context as any)(item)
 }
 
 export function area(items: SGAreaItem[], context?: Path) {
 	const first = items[0]
 	const interp = first.interpolate || Interpolation.Linear
-
-	return (first.orient === Orientation.Horizontal ? areahShape : areavShape)
+	const isHorizontal = first.orient === Orientation.Horizontal
+	const variant = isHorizontal ? areahShape : areavShape
+	return variant
 		.curve(curves(interp, first.orient, first.tension))
-		.context(context as any)(items as any) // TODO: is this correct?
+		.context(context as any)(items)
 }
 
 export function line(items: SGLineItem[], context?: Path) {
