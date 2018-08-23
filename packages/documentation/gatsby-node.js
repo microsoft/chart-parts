@@ -1,15 +1,9 @@
 const path = require('path')
-const fs = require('fs')
 
 /**
  * Dynamically creates pages in the static website
  */
 async function createPages({ actions, graphql }) {
-  await createMarkdownPages(actions, graphql)
-  await createApidocPages(actions, graphql)
-}
-
-async function createMarkdownPages(actions, graphql) {
   const retrieveMarkdownPages = () =>
     graphql(`
       {
@@ -49,7 +43,5 @@ async function createMarkdownPages(actions, graphql) {
     })
   })
 }
-
-async function createApidocPages(acitons, graphql) {}
 
 exports.createPages = createPages
