@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
     "target": "es2015",
-    "module": "es2015",
+    // Using es2015 here screws up testing. We'll have to revisit this
+    // to turn on tree-shaking
+    "module": "commonjs",
     "moduleResolution": "node",
     "jsx": "react",
     "strict": true,

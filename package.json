@@ -87,6 +87,7 @@
 		"collectCoverageFrom": [
 			"**/src/*.{ts,tsx}",
 			"**/src/**/*.{ts,tsx}",
+			"!**/src/**/*.d.ts",
 			"!packages/examples/testdata/**",
 			"!**/__tests__/**"
 		],

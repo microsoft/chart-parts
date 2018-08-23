@@ -23,14 +23,6 @@ describe('The builder module', () => {
 		expect(builderModule.shape).toBeDefined()
 	})
 
-	it('will throw if the child does not define a mark', () => {
-		const scene = builderModule.scene((snb: SceneNodeBuilder) => {
-			expect(snb).toBeDefined()
-			return snb
-		})
-		expect(() => scene.build()).toThrow(/has no mark set/)
-	})
-
 	it('can build a basic scene specification', () => {
 		const scene = builderModule.scene((snb: SceneNodeBuilder) => {
 			const rect = builderModule.rect().name('test_rect')
