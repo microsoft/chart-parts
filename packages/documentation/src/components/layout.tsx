@@ -5,8 +5,8 @@ import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { SiteMetadata } from '../types'
 import Header from './header'
-import './layout.css'
 import theme from '../util/theme'
+import './layout.css'
 
 interface LayoutQueryResult {
   site: {

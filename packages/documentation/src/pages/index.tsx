@@ -6,6 +6,11 @@ import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
 import './site.css'
 
+// tslint:disable-next-line no-var-requires
+const packageJson = require('../../package.json')
+// tslint:disable-next-line no-console
+console.log('Markable documentation, version', packageJson.version)
+
 export default () => (
   <Container>
     <Header />
