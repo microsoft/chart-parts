@@ -24,27 +24,36 @@ const HeroBanner: React.SFC<HeroBannerProps> = ({ style }) => (
         siteMetadata: { title, description },
       },
     }) => (
-      <Container style={style}>
-        <Title>{title}</Title>
-        <Description>{description}</Description>
-      </Container>
+      <ImageContainer style={style}>
+        <InnerContainer>
+          <Title>{title}</Title>
+          <Description>{description}</Description>
+        </InnerContainer>
+      </ImageContainer>
     )}
   />
 )
 
-const Container = styled.div`
-  width: 100%;
-  background: ${theme.backgrounds.header};
-  font-size: 42px;
-  padding: 30px;
+const InnerContainer = styled.div`
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: rgba(${theme.palette.primary.rgb.join(',')});  
+`
+
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100vh;
+  display: flex;
 `
 
 const Title = styled.h1`
   color: ${theme.palette.highlight};
+  font-weight: lighter;
+  font-size: 120px;
+  border: none;
 `
 
 const Description = styled.h3`

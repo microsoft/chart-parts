@@ -19,7 +19,11 @@ To support this, our view model supports the idea of recursively splitting view 
 __Group__ type marks are how we split views into sub-views. Each group instance provides a localized view-space to marks nested within it. Groups, like any other mark type, can be bound rows in a table or defined as singleton instances. When groups are data-bound they may optionally define a "facet" parameter to facet the source data table.
 
 ### Singletons
-Group marks may be specified as a _singleton_, in which case it is unbound to a data-table and emits only a single item. 
+Any mark be specified as a _singleton_, in which case it is unbound to a data-table and emits only a single item. 
+```js
+    group()
+    .singleton(true)
+```
 
 ### Faceting
 Groups may specify a __facet__ value that describes how to facet incoming data. In this case, the data is partitioned into a set of sub-tables, each representing a view of the source table, and one group item is emitted per each data partition. When faceting is used, the data partition is given a name and provided to child marks so that they can render based on the faceted view of the data the group provides.

@@ -44,11 +44,12 @@ const BelowTheFold: React.SFC<BelowTheFoldProps> = ({ style }) => (
   />
 )
 
-export const BoxRow = styled.div`
+const BoxRow = styled.div`
   display: flex;
+  height: 400px;
 `
 
-export const Box = styled.div`
+const Box = styled.div`
   display: flex;
   flex: 1;
   flex-direction: column;
@@ -56,14 +57,14 @@ export const Box = styled.div`
   align-items: center;
 `
 
-export const StyledLink = styled(Link)`
+const StyledLink = styled(Link)`
   font-family: ${theme.text.fontFamily};
   font-weight: bold;
   font-size: 16px;
   color: ${theme.palette.highlight};
 `
 
-export const StyledAnchor = styled.a`
+const StyledAnchor = styled.a`
   font-family: ${theme.text.fontFamily};
   font-weight: bold;
   font-size: 16px;
