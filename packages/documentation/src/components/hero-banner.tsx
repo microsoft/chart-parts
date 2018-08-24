@@ -40,7 +40,7 @@ const InnerContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: rgba(${theme.palette.primary.rgb.join(',')});  
+  background: ${theme.palette.primary};  
 `
 
 const ImageContainer = styled.div`
