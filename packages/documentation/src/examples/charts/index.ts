@@ -3,6 +3,7 @@ import GroupedBarChart from './grouped-bar-chart'
 import StackedBarChart from './stacked-bar-chart'
 import LineChart from './line-chart'
 import AreaChart from './area-chart'
+import StackedAreaChart from './stacked-area-chart'
 
 export default {
   // Bar Charts
@@ -13,4 +14,5 @@ export default {
   // Line & Area Charts
   'line-chart': LineChart,
   'area-chart': AreaChart,
+  'stacked-area-chart': StackedAreaChart,
 }

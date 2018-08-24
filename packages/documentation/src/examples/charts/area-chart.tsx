@@ -29,19 +29,10 @@ const data = [
   { u: 20, v: 15 },
 ]
 
-export interface BarChartState {
-  hoverRowIndex: number | undefined
-}
-
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export default class BarChart extends React.Component<{}, BarChartState> {
-  constructor(props: {}) {
-    super(props)
-    this.state = { hoverRowIndex: undefined }
-  }
-
+export default class AreaChart extends React.Component {
   public render() {
     return (
       <Chart width={500} height={200} renderer={renderer} data={{ data }}>
