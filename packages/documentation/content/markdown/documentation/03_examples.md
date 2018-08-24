@@ -13,3 +13,5 @@ order: 3
 
 ### Line & Area Charts
 * [Line Chart](/documentation/examples/line_chart)
+* [Area Chart](/documentation/examples/area_chart)
+* [Stacked Area Chart](/documentation/examples/stacked_area_chart)
