@@ -10,3 +10,8 @@ order: 3
 * [Bar Chart](/documentation/examples/bar_chart)
 * [Stacked Bar Chart](/documentation/examples/bar_chart)
 * [Grouped Bar Chart](/documentation/examples/grouped_bar_chart)
+
+### Line & Area Charts
+* [Line Chart](/documentation/examples/line_chart)
+* [Area Chart](/documentation/examples/area_chart)
+* [Stacked Area Chart](/documentation/examples/stacked_area_chart)
