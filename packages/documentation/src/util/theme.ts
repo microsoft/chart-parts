@@ -9,7 +9,7 @@ export default {
     highlight: '#2D882D',
   },
   palette: {
-    primary: '#AA3939',
+    primary: {...('#AA3939' as any), rgb: [170, 57, 57]},
     highlight: '#FFF3B0',
     alt: '#335C67',
     alt2: '#E09F3E',

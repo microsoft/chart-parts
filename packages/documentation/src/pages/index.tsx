@@ -31,16 +31,17 @@ export default class IndexPage extends React.Component {
   }
 
   public render() {
+    const { scrollPercent } = this.state
     return (
       <Container>
-        <Header opacity={Math.max(this.state.scrollPercent / 0.6)}/>
+        <Header opacity={Math.max(scrollPercent / 0.6)}/>
         <Wrapper>
           <OverflowContainer
             innerRef={this.scrollAreaRef}
             onScroll={this.onScroll}
           >
             <Content>
-              <HeroBanner />
+              <HeroBanner fadePercent={scrollPercent}/>
               <BelowTheFold />
               <Footer />
             </Content>
