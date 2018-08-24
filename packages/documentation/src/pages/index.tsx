@@ -6,6 +6,7 @@ import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
 import Footer from '../components/footer'
 import './site.css'
+
 // tslint:disable-next-line
 const log = require('debug')('site:index')
 
@@ -14,30 +15,84 @@ const packageJson = require('../../package.json')
 // tslint:disable-next-line no-console
 log('Markable documentation, version', packageJson.version)
 
-export default () => (
-  <Container>
-    <Header />
-    <HeroBanner style={{ flex: 8 }} />
-    <BelowTheFold style={{ flex: 2 }} />
-    <Footer style={{ flex: 1 }} />
-  </Container>
-)
+export interface IndexPageState {
+  scrollPercent: number
+}
 
-export const Container = styled.div`
+export default class IndexPage extends React.Component {
+  public state: IndexPageState = { scrollPercent: 0.0 }
+  private scrollAreaRef: React.RefObject<HTMLDivElement> = React.createRef()
+
+  public componentDidMount() {
+    // If all content is visible, show the header
+    if (this.isAllContentVisible) {
+      this.setState({scrollPercent: 1.0})
+    }
+  }
+
+  public render() {
+    return (
+      <Container>
+        <Header opacity={Math.max(this.state.scrollPercent / 0.6)}/>
+        <Wrapper>
+          <OverflowContainer
+            innerRef={this.scrollAreaRef}
+            onScroll={this.onScroll}
+          >
+            <Content>
+              <HeroBanner />
+              <BelowTheFold />
+              <Footer />
+            </Content>
+          </OverflowContainer>
+        </Wrapper>
+      </Container>
+    )
+  }
+
+  private onScroll = (e: React.UIEvent<HTMLDivElement>) => {
+    const scrollPercent = this.scrollPercent
+    this.setState({scrollPercent})
+  }
+
+  /**
+   * Gets the percentage the user has scrolled across the scrollable area
+   */
+  private get scrollPercent() {
+    const current = this.scrollAreaRef.current as HTMLDivElement
+    const value = current.offsetHeight + current.scrollTop
+    const start = current.offsetHeight
+    const stop = current.scrollHeight
+    return (value - start) / (stop - start)    
+  }
+
+  /**
+   * Determines if all content is visible prior to any scrolling interaction.
+   */
+  private get isAllContentVisible() {
+    const current = this.scrollAreaRef.current as HTMLDivElement
+    return current.scrollHeight === current.offsetHeight
+  }
+}
+
+const Wrapper = styled.div`
   display: flex;
-  flex-direction: column;
   flex: 1;
-  height: 130%;
+  min-height: 0px;
 `
 
-export const BoxRow = styled.div`
-  display: flex;
+const OverflowContainer = styled.div`
+  flex: 1;
+  overflow: auto;
 `
 
-export const Box = styled.div`
+const Content = styled.div`
+  max-height: 200px;
+`
+
+const Container = styled.div`
+  height: 100%;
+  width: 100%;
   display: flex;
-  flex: 1;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
 `
