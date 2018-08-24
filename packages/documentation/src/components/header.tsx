@@ -6,7 +6,7 @@ import theme from '../util/theme'
 
 export interface HeaderProps {
   logoTo?: string
-  opacity: number
+  opacity?: number
 }
 
 export default class Header extends React.PureComponent<HeaderProps> {
