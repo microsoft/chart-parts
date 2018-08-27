@@ -16,6 +16,7 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"lodash": "^4.17.10"
+		"lodash": "^4.17.10",
+		"rxjs": "^6.2.2"
 	}
 }
