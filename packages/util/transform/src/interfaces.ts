@@ -1,4 +1,4 @@
-export type FieldAccessor = (row: any) => number
+export type FieldAccessor = string | ((row: any) => number)
 
 export enum CompareOrder {
 	ascending = 'asc',
@@ -14,22 +14,4 @@ export enum Offset {
 	zero = 'zero',
 	center = 'center',
 	normalize = 'normalize',
-}
-
-export function createSorter(sorts: Compare[]) {
-	return (a: any, b: any) => {
-		let result = 0
-		for (const sort of sorts) {
-			const { order = CompareOrder.descending, field } = sort
-			const valueA = field(a)
-			const valueB = field(b)
-			if (order === CompareOrder.ascending) {
-				result = valueA - valueB
-			}
-			if (result !== 0) {
-				break
-			}
-		}
-		return result
-	}
 }

@@ -1,10 +1,6 @@
 // tslint:disable no-var-requires no-submodule-imports
-import { FieldAccessor, Compare, Offset, createSorter } from '../interfaces'
-
-function flatMap<T, K>(items: T[], lambda: ((input: T) => K[])): K[] {
-	const mappedItems = items.map(lambda)
-	return Array.prototype.concat.apply([], mappedItems)
-}
+import { FieldAccessor, Compare, Offset } from '../interfaces'
+import { getField, flatMap, createSorter } from '../util'
 
 interface DataStack extends Array<any> {
 	/**
@@ -114,7 +110,7 @@ export class StackTransform {
 			// For each row in the table, assign it to its group
 			const map = new Map<string, any[]>()
 			for (const d of data) {
-				const groupKey = groupBy.map(gb => gb(d)).join(',')
+				const groupKey = groupBy.map(gb => getField(d, gb)).join(',')
 				if (!map.has(groupKey)) {
 					const newGroup: any[] = []
 					map.set(groupKey, newGroup)
@@ -139,7 +135,7 @@ export class StackTransform {
 			let groupSum = 0
 
 			for (const d of group) {
-				const value = Math.abs(field(d))
+				const value = Math.abs(getField(d, field))
 				if (value > groupMax) {
 					groupMax = value
 				}
@@ -175,7 +171,7 @@ export class StackTransform {
 
 		let last = (max - sum) / 2
 		for (const d of group) {
-			const value = Math.abs(field(d))
+			const value = Math.abs(getField(d, field))
 			d[y0] = last
 			d[y1] = last += value
 		}
@@ -189,7 +185,7 @@ export class StackTransform {
 		let last = 0
 		let v = 0
 		for (const d of group) {
-			const value = Math.abs(field(d))
+			const value = Math.abs(getField(d, field))
 			d[y0] = last
 			d[y1] = last = scale * (v += value)
 		}
@@ -202,7 +198,7 @@ export class StackTransform {
 		let lastPos = 0
 		let lastNeg = 0
 		for (const d of group) {
-			const v = field(d)
+			const v = getField(d, field)
 			if (v < 0) {
 				d[y0] = lastNeg
 				d[y1] = lastNeg += v
