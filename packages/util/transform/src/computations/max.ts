@@ -5,9 +5,7 @@ import { CompareFunction, defaultComparator } from '../interfaces'
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function max<T>(
-	compare: CompareFunction<T> = defaultComparator,
-) {
+export function max<T>(compare: CompareFunction<T> = defaultComparator) {
 	let maxValue: T | undefined
 	return makeOperator<T, T | undefined>(v => {
 		if (isValid(v)) {

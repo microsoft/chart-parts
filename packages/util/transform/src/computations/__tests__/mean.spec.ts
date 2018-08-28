@@ -1,8 +1,7 @@
-import mean from '../mean'
+import { mean } from '../mean'
 import { from } from 'rxjs'
 import { takeLast, toArray } from 'rxjs/operators'
 import { numberStream } from './util'
-import valid from '../valid'
 
 describe('The mean computation node', () => {
 	it('can determine the mean value in a static array of numbers', async () => {

@@ -1,1 +1,1 @@
-export * from './StackTransform'
+export * from './stack'

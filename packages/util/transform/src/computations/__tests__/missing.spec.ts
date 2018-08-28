@@ -1,4 +1,4 @@
-import missing from '../missing'
+import { missing } from '../missing'
 import { from } from 'rxjs'
 import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'

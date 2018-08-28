@@ -1,7 +1,7 @@
-import valid from '../valid'
 import { from } from 'rxjs'
-import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'
+import { valid } from '../valid'
+import { numberStream } from './util'
 
 describe('The valid computation node', () => {
 	it('can determine the valid of values in a static array of numbers', async () => {

@@ -10,12 +10,15 @@ export type Stacker = (
 ) => void
 
 export function getStacker(context: StackBuilderContext): Stacker {
-	if (context.offset === Offset.zero) {
-		return stackZero
-	} else if (context.offset === Offset.normalize) {
-		return stackNormalize
-	} else if (context.offset === Offset.center) {
-		return stackCenter
+	switch (context.offset) {
+		case Offset.zero:
+			return stackZero
+		case Offset.normalize:
+			return stackNormalize
+		case Offset.center:
+			return stackCenter
+		default:
+			throw new Error('could not handle stack offset: ' + context.offset)
 	}
 }
 

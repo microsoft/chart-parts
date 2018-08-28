@@ -1,6 +1,6 @@
 import { from } from 'rxjs'
 import { toArray } from 'rxjs/operators'
-import count from '../count'
+import { count } from '../count'
 import { numberStream } from './util'
 
 describe('The count computation node', () => {

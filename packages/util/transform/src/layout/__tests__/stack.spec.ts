@@ -1,8 +1,11 @@
-import { StackTransform } from '../StackTransform'
+import { from } from 'rxjs'
+import { toArray } from 'rxjs/operators'
+import { stack } from '../stack'
+import { groupBy } from '../../computations/groupBy'
 
-describe('StackTransform', () => {
-	it('can stack values', () => {
-		const data = [
+describe('Stack Transform Computation Node', () => {
+	it('can stack values', async () => {
+		const res = await from([
 			{ x: 0, y: 28, c: 0 },
 			{ x: 0, y: 55, c: 1 },
 			{ x: 1, y: 43, c: 0 },
@@ -23,18 +26,15 @@ describe('StackTransform', () => {
 			{ x: 8, y: 16, c: 1 },
 			{ x: 9, y: 49, c: 0 },
 			{ x: 9, y: 15, c: 1 },
-		]
+		])
+			.pipe(
+				groupBy('x'),
+				stack('y').sort({ field: 'c' }),
+				toArray(),
+			)
+			.toPromise()
 
-		const stacker = new StackTransform()
-			.field('y')
-			.sort({ field: 'c' })
-			.groupBy('x')
-
-		const sltResult = stacker.transform(data)
-
-		// The result should not be the same instance (i.e. preserve the input for functional style)
-		expect(sltResult).not.toBe(data)
-		expect(sltResult).toEqual([
+		expect(res).toEqual([
 			{ x: 0, y: 28, c: 0, y0: 0, y1: 28 },
 			{ x: 0, y: 55, c: 1, y0: 28, y1: 83 },
 			{ x: 1, y: 43, c: 0, y0: 0, y1: 43 },
@@ -56,5 +56,6 @@ describe('StackTransform', () => {
 			{ x: 9, y: 49, c: 0, y0: 0, y1: 49 },
 			{ x: 9, y: 15, c: 1, y0: 49, y1: 64 },
 		])
+		expect(res).toBeDefined()
 	})
 })

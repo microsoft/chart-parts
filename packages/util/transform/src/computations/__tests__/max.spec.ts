@@ -1,4 +1,4 @@
-import max from '../max'
+import { max } from '../max'
 import { from } from 'rxjs'
 import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'

@@ -1,6 +1,6 @@
 import { from } from 'rxjs'
 import { toArray } from 'rxjs/operators'
-import groupBy from '../groupBy'
+import { groupBy } from '../groupBy'
 
 describe('The group by function', () => {
 	it('can group an incoming data stream', done => {

@@ -1,4 +1,4 @@
-import min from '../min'
+import { min } from '../min'
 import { from } from 'rxjs'
 import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'

@@ -1,4 +1,4 @@
-import distinct from '../distinct'
+import { distinct } from '../distinct'
 import { from } from 'rxjs'
 import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'

@@ -1,7 +1,7 @@
-import sum from '../sum'
 import { from } from 'rxjs'
-import { numberStream } from './util'
 import { toArray } from 'rxjs/operators'
+import { sum } from '../sum'
+import { numberStream } from './util'
 
 describe('The sum computation node', () => {
 	it('can determine the sum of values in a static array of numbers', async () => {

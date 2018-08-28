@@ -7,15 +7,15 @@ import {
 } from 'rxjs'
 import { takeLast, toArray } from 'rxjs/operators'
 import { FieldAccessor, Compare, Offset } from '../../interfaces'
-import max from '../max'
-import sum from '../sum'
-import accessField from '../accessField'
+import { max } from '../../computations/max'
+import { sum } from '../../computations/sum'
+import { accessField } from '../../computations/accessField'
 import { getStacker } from './stackers'
 
 export interface StackBuilder extends OperatorFunction<Observable<any>, any> {
-	sort(...sorts: Compare[])
-	offset(value: Offset)
-	output(start: string, end: string)
+	sort(...sorts: Compare[]): StackBuilder
+	offset(value: Offset): StackBuilder
+	output(start: string, end: string): StackBuilder
 }
 
 export interface StackBuilderContext {
@@ -29,13 +29,14 @@ export interface StackBuilderContext {
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function stack(field: FieldAccessor) {
+export function stack(field: FieldAccessor) {
 	const context: StackBuilderContext = {
 		field,
 		sorts: [],
 		offset: Offset.zero,
 		outputFields: ['y0', 'y1'],
 	}
+
 	function makeStack(source: Observable<Observable<any>>) {
 		return Observable.create((subscriber: Subscriber<any>) =>
 			source.subscribe(
@@ -62,19 +63,21 @@ export default function stack(field: FieldAccessor) {
 			),
 		)
 	}
-	;(makeStack as any).sort = (...sortBy: Compare[]) => {
+
+	const builder = makeStack as StackBuilder
+	builder.sort = (...sortBy: Compare[]) => {
 		context.sorts = sortBy
-		return makeStack
+		return builder
 	}
-	;(makeStack as any).offset = (value: Offset) => {
+	builder.offset = (value: Offset) => {
 		context.offset = value
-		return makeStack
+		return builder
 	}
-	;(makeStack as any).output = (start: string, end: string) => {
+	builder.output = (start: string, end: string) => {
 		context.outputFields = [start, end]
-		return makeStack
+		return builder
 	}
-	return makeStack as StackBuilder
+	return builder
 }
 
 function processGroup(
@@ -96,7 +99,7 @@ function processGroup(
 	zip(groupMax, groupSum, groupItems).subscribe(
 		([maxValue, sumValue, rows]) => {
 			// Apply the stack logic
-			getStacker(context)(context, rows, sumValue, maxValue)
+			getStacker(context)(context, rows, sumValue, maxValue as number)
 			rows.forEach(row => handleOutputRow(row))
 		},
 	)
