@@ -179,7 +179,10 @@ export class StackTransform {
 
 	private stackNormalize = (group: DataStack) => {
 		const [y0, y1] = this.outputFields
-		const field = this.fieldVal as FieldAccessor
+		const field = this.fieldVal
+		if (!field) {
+			throw new Error('StackTransform: field must be defined')
+		}
 		const scale = 1 / group.sum
 
 		let last = 0
@@ -193,7 +196,11 @@ export class StackTransform {
 
 	private stackZero = (group: DataStack) => {
 		const [y0, y1] = this.outputFields
-		const field = this.fieldVal as FieldAccessor
+		const field = this.fieldVal
+
+		if (!field) {
+			throw new Error('StackTransform: field must be defined')
+		}
 
 		let lastPos = 0
 		let lastNeg = 0

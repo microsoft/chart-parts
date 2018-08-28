@@ -1,26 +1,42 @@
-import { Observable, zip } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { Observable, zip, Subscriber } from 'rxjs'
 import { isValid, incrementalMean } from './util'
 import valid from './valid'
+import { MaybeNumber } from '../interfaces'
 
 /**
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function mean(source: Observable<number>) {
-	let prevMean: number | undefined
-	return zip(valid(source), source).pipe(
-		map(([n, curr]) => {
-			if (!isValid(curr)) {
-				return prevMean
-			} else if (prevMean === undefined) {
-				prevMean = curr
-				return curr
-			} else {
-				const nextMean = incrementalMean(curr, prevMean, n)
-				prevMean = nextMean
-				return nextMean
-			}
-		}),
-	)
+export default function mean() {
+	let prevMean: number = 0
+	return (source: Observable<MaybeNumber>) =>
+		Observable.create((subscriber: Subscriber<number>) =>
+			zip(source.pipe(valid()), source).subscribe(
+				([n, curr]) => {
+					try {
+						const nextMean = computeMean(curr, prevMean, n)
+						prevMean = nextMean
+						subscriber.next(nextMean)
+					} catch (err) {
+						subscriber.error(err)
+					}
+				},
+				err => subscriber.error(err),
+				() => subscriber.complete(),
+			),
+		)
+}
+
+function computeMean(
+	value: MaybeNumber,
+	prevMean: number,
+	count: number,
+): number {
+	if (!isValid(value)) {
+		return prevMean
+	} else if (prevMean === undefined) {
+		return value || 0
+	} else {
+		return incrementalMean(value as number, prevMean, count)
+	}
 }

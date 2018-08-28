@@ -28,7 +28,7 @@ describe('StackTransform', () => {
 		const stacker = new StackTransform()
 			.field('y')
 			.sort({ field: 'c' })
-			.groupBy(r => r.x)
+			.groupBy('x')
 
 		const sltResult = stacker.transform(data)
 

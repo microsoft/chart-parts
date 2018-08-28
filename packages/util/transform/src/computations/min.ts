@@ -1,20 +1,22 @@
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
-import { isValid } from './util'
+import { isValid, makeOperator } from './util'
+import { CompareFunction, defaultComparator } from '../interfaces'
 
 /**
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function min(source: Observable<number>) {
-	let minValue: undefined | number
-	return source.pipe(
-		map(v => {
-			if (!isValid(v)) {
-				return minValue
+export default function min<T>(
+	compare: CompareFunction<T> = defaultComparator,
+) {
+	let minValue: T | undefined
+	return makeOperator<T, T | undefined>(v => {
+		if (isValid(v)) {
+			if (minValue === undefined) {
+				minValue = v
 			}
-			minValue = minValue === undefined || v < minValue ? v : minValue
-			return minValue
-		}),
-	)
+
+			minValue = compare(v, minValue) > 0 ? minValue : v
+		}
+		return minValue
+	})
 }

@@ -6,18 +6,6 @@ import mean from './mean'
 import min from './min'
 import missing from './missing'
 import sum from './sum'
-import sumOfSquares from './sumOfSquares'
 import valid from './valid'
 
-export {
-	count,
-	distinct,
-	groupBy,
-	max,
-	mean,
-	min,
-	missing,
-	sum,
-	sumOfSquares,
-	valid,
-}
+export { count, distinct, groupBy, max, mean, min, missing, sum, valid }

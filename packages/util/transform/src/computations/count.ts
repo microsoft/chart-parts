@@ -1,11 +1,10 @@
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
+import { makeOperator } from './util'
 
 /**
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function count(source: Observable<number>) {
+export default function count() {
 	let n = 0
-	return source.pipe(map(v => ++n))
+	return makeOperator(() => ++n)
 }

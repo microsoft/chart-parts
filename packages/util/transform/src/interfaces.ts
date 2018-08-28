@@ -15,3 +15,11 @@ export enum Offset {
 	center = 'center',
 	normalize = 'normalize',
 }
+
+export type CompareFunction<T> = (a: T, b: T) => number
+
+export function defaultComparator<T>(a: T, b: T) {
+	return ((a as any) as number) - ((b as any) as number)
+}
+
+export type MaybeNumber = number | undefined

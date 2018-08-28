@@ -1,19 +1,15 @@
-import { Observable } from 'rxjs'
-import { map } from 'rxjs/operators'
-import { isValid } from './util'
+import { isValid, makeOperator } from './util'
 
 /**
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function sum(source: Observable<number>) {
+export default function sum() {
 	let sumValue = 0
-	return source.pipe(
-		map(v => {
-			if (isValid(v)) {
-				sumValue += v
-			}
-			return sumValue
-		}),
-	)
+	return makeOperator<number | undefined, number>(v => {
+		if (isValid(v)) {
+			sumValue += v as number
+		}
+		return sumValue
+	})
 }
