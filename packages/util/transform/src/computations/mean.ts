@@ -1,4 +1,4 @@
-import { Observable, zip, Subscriber } from 'rxjs'
+import { Observable, zip, Subscriber, OperatorFunction } from 'rxjs'
 import { isValid, incrementalMean } from './util'
 import valid from './valid'
 import { MaybeNumber } from '../interfaces'
@@ -7,7 +7,7 @@ import { MaybeNumber } from '../interfaces'
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function mean() {
+export default function mean(): OperatorFunction<MaybeNumber, number> {
 	let prevMean: number = 0
 	return (source: Observable<MaybeNumber>) =>
 		Observable.create((subscriber: Subscriber<number>) =>

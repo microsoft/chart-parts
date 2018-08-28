@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs'
+import { Observable, OperatorFunction } from 'rxjs'
 import { groupBy } from 'rxjs/operators'
 import { FieldAccessor } from '../interfaces'
 import { getField } from '../util'
@@ -9,10 +9,9 @@ import { getField } from '../util'
  * @param data the incoming data stream. An observable of rows.
  * @return An observable of groups, each group being an observable of rows
  */
-export default function doGroupBy(
-	fields: FieldAccessor[],
-	data: Observable<any>,
-): Observable<Observable<any>> {
+export default function incrementalGroupBy(
+	...fields: FieldAccessor[]
+): OperatorFunction<any, Observable<any>> {
 	const getKey = (d: any) => fields.map(f => getField(d, f)).join('::')
-	return data.pipe(groupBy(getKey))
+	return groupBy(getKey)
 }
