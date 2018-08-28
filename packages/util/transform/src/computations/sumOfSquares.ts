@@ -6,15 +6,16 @@ import { isValid } from './util'
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export default function max(source: Observable<number>) {
-	let maxValue: number | undefined
+export default function sumOfSquares(source: Observable<number>) {
+	let result = 0
 	return source.pipe(
 		map(v => {
 			if (!isValid(v)) {
-				return maxValue
+				return result
+			} else {
+				result += Math.pow(v, 2)
+				return result
 			}
-			maxValue = maxValue === undefined ? v : Math.max(v, maxValue)
-			return maxValue
 		}),
 	)
 }

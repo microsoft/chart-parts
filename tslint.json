@@ -6,6 +6,7 @@
 		// Turned off because these rules suck
 		"interface-name": false,
 		"ordered-imports": false,
-		"object-literal-sort-keys": false
+		"object-literal-sort-keys": false,
+		"no-submodule-imports": false
 	}
 }

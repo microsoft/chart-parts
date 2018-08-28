@@ -12,8 +12,7 @@ describe('The count computation node', () => {
 			v => counts.push(v),
 			err => done(err),
 			() => {
-				expect(countObservable.value).toEqual(5)
-				expect(counts.length).toEqual(0)
+				expect(counts).toEqual([1, 2, 3, 4, 5])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The count computation node', () => {
 			v => counts.push(v),
 			err => done(err),
 			() => {
-				expect(countObservable.value).toEqual(8)
-				expect(counts).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8])
+				expect(counts).toEqual([1, 2, 3, 4, 5, 6, 7, 8])
 				done()
 			},
 		)

@@ -12,8 +12,7 @@ describe('The max computation node', () => {
 			v => maxes.push(v),
 			err => done(err),
 			() => {
-				expect(maxObservable.value).toEqual(10)
-				expect(maxes.length).toEqual(0)
+				expect(maxes).toEqual([1, 2, 10, 10, 10])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The max computation node', () => {
 			v => maxes.push(v),
 			err => done(err),
 			() => {
-				expect(maxObservable.value).toEqual(10)
-				expect(maxes).toEqual([undefined, 1, 2, 10])
+				expect(maxes).toEqual([1, 2, 2, 2, 10, 10, 10])
 				done()
 			},
 		)

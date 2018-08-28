@@ -1,4 +1,5 @@
-import { BehaviorSubject, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 
 /**
  * Creates an observable node based on incoming number stream
@@ -6,16 +7,15 @@ import { BehaviorSubject, Observable } from 'rxjs'
  */
 export default function distinct(source: Observable<any>) {
 	const set = new Set<any>()
-	const result = new BehaviorSubject(0)
-	source.subscribe(
-		v => {
+	let numDistinct = 0
+	return source.pipe(
+		map(v => {
 			if (!set.has(v)) {
 				set.add(v)
-				result.next(result.value + 1)
+				return ++numDistinct
+			} else {
+				return numDistinct
 			}
-		},
-		err => result.error(err),
-		() => result.complete(),
+		}),
 	)
-	return result
 }

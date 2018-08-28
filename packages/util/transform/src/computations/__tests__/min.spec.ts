@@ -12,8 +12,7 @@ describe('The min computation node', () => {
 			v => mins.push(v),
 			err => done(err),
 			() => {
-				expect(minObservable.value).toEqual(1)
-				expect(mins.length).toEqual(0)
+				expect(mins).toEqual([10, 2, 2, 1, 1])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The min computation node', () => {
 			v => mins.push(v),
 			err => done(err),
 			() => {
-				expect(minObservable.value).toEqual(-50)
-				expect(mins).toEqual([undefined, 1, -1, -50])
+				expect(mins).toEqual([1, 1, 1, -1, -50, -50, -50, -50])
 				done()
 			},
 		)

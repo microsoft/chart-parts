@@ -11,8 +11,7 @@ describe('The distinct computation node', () => {
 			v => distincts.push(v),
 			err => done(err),
 			() => {
-				expect(distinctObservable.value).toEqual(4)
-				expect(distincts.length).toEqual(0)
+				expect(distincts).toEqual([1, 2, 3, 4, 4, 4])
 				done()
 			},
 		)
@@ -26,8 +25,7 @@ describe('The distinct computation node', () => {
 			v => distincts.push(v),
 			err => done(err),
 			() => {
-				expect(distinctObservable.value).toEqual(5)
-				expect(distincts).toEqual([0, 1, 2, 3, 4, 5])
+				expect(distincts).toEqual([1, 2, 2, 2, 3, 4, 5])
 				done()
 			},
 		)

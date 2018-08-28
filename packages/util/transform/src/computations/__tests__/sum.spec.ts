@@ -12,8 +12,7 @@ describe('The sum computation node', () => {
 			v => sums.push(v),
 			err => done(err),
 			() => {
-				expect(sumObservable.value).toEqual(25)
-				expect(sums.length).toEqual(0)
+				expect(sums).toEqual([10, 12, 19, 20, 25])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The sum computation node', () => {
 			v => sums.push(v),
 			err => done(err),
 			() => {
-				expect(sumObservable.value).toEqual(12)
-				expect(sums).toEqual([0, 1, 0, -50, 0, 7, 12])
+				expect(sums).toEqual([1, 0, -50, 0, 7, 12])
 				done()
 			},
 		)

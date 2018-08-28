@@ -12,8 +12,7 @@ describe('The valid computation node', () => {
 			v => valids.push(v),
 			err => done(err),
 			() => {
-				expect(validObservable.value).toEqual(4)
-				expect(valids.length).toEqual(0)
+				expect(valids).toEqual([1, 1, 1, 1, 2, 3, 4])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The valid computation node', () => {
 			v => valids.push(v),
 			err => done(err),
 			() => {
-				expect(validObservable.value).toEqual(5)
-				expect(valids).toEqual([0, 1, 2, 3, 4, 5])
+				expect(valids).toEqual([1, 2, 2, 2, 2, 3, 4, 5])
 				done()
 			},
 		)

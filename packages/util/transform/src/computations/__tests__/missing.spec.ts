@@ -12,8 +12,7 @@ describe('The missing computation node', () => {
 			v => missings.push(v),
 			err => done(err),
 			() => {
-				expect(missingObservable.value).toEqual(3)
-				expect(missings.length).toEqual(0)
+				expect(missings).toEqual([0, 1, 2, 3, 3, 3, 3])
 				done()
 			},
 		)
@@ -27,8 +26,7 @@ describe('The missing computation node', () => {
 			v => missings.push(v),
 			err => done(err),
 			() => {
-				expect(missingObservable.value).toEqual(3)
-				expect(missings).toEqual([0, 1, 2, 3])
+				expect(missings).toEqual([0, 0, 1, 2, 3, 3, 3, 3])
 				done()
 			},
 		)

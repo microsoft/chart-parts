@@ -1,4 +1,5 @@
-import { BehaviorSubject, Observable } from 'rxjs'
+import { Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 import { isValid } from './util'
 
 /**
@@ -6,14 +7,14 @@ import { isValid } from './util'
  * @param source An observable of numbers to emit the maximum value of
  */
 export default function min(source: Observable<number>) {
-	const result = new BehaviorSubject(undefined)
-	source.subscribe(
-		v =>
-			isValid(v) &&
-			(result.value === undefined || v < result.value) &&
-			result.next(v),
-		err => result.error(err),
-		() => result.complete(),
+	let minValue: undefined | number
+	return source.pipe(
+		map(v => {
+			if (!isValid(v)) {
+				return minValue
+			}
+			minValue = minValue === undefined || v < minValue ? v : minValue
+			return minValue
+		}),
 	)
-	return result
 }

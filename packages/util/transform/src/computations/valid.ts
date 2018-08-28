@@ -1,4 +1,5 @@
 import { BehaviorSubject, Observable } from 'rxjs'
+import { map } from 'rxjs/operators'
 import { isValid } from './util'
 
 /**
@@ -6,11 +7,6 @@ import { isValid } from './util'
  * @param source An observable of numbers to emit the maximum value of
  */
 export default function valid(source: Observable<number>) {
-	const result = new BehaviorSubject(0)
-	source.subscribe(
-		v => isValid(v) && result.next(result.value + 1),
-		err => result.error(err),
-		() => result.complete(),
-	)
-	return result
+	let numValid = 0
+	return source.pipe(map(v => (isValid(v) ? ++numValid : numValid)))
 }
