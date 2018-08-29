@@ -1,10 +1,14 @@
-import { makeOperator } from './util'
+import { observableStep } from './util'
 
 /**
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export function count() {
+export function count$() {
 	let n = 0
-	return makeOperator(() => ++n)
+	return observableStep(() => ++n)
+}
+
+export function count<T>() {
+	return (data: T[]) => data.length
 }

@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 import { toArray } from 'rxjs/operators'
 import { sum } from '../sum'
-import { numberStream } from './util'
+import { stream } from './util'
 
 describe('The sum computation node', () => {
 	it('can determine the sum of values in a static array of numbers', async () => {
@@ -15,7 +15,7 @@ describe('The sum computation node', () => {
 	})
 
 	it('can determine the sum of values in an async number stream', async () => {
-		const sums = await numberStream([1, -1, -50, 50, 7, 5])
+		const sums = await stream([1, -1, -50, 50, 7, 5])
 			.pipe(
 				sum(),
 				toArray(),

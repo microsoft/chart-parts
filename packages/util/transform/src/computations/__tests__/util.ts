@@ -1,17 +1,17 @@
 import { Observable, Subject } from 'rxjs'
 
-export function numberStream(numbers: number[]): Observable<number> {
-	const stream = new Subject<number>()
+export function stream<T>(items: T[]): Observable<T> {
+	const result = new Subject<T>()
 	let i = 0
 	const awaitNextNumber = () => {
-		stream.next(numbers[i++])
-		if (i < numbers.length) {
+		result.next(items[i++])
+		if (i < items.length) {
 			setTimeout(awaitNextNumber, 100)
 		} else {
-			stream.complete()
+			result.complete()
 		}
 	}
 
 	setTimeout(awaitNextNumber, 100)
-	return stream
+	return result
 }

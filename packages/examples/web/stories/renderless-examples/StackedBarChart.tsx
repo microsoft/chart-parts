@@ -37,6 +37,7 @@ const data = [
 	{ x: 9, y: 49, c: 0 },
 	{ x: 9, y: 15, c: 1 },
 ]
+
 const stackedData: Promise<any[]> = from(data)
 	.pipe(
 		groupBy('x'),

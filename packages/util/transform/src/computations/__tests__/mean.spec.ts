@@ -1,7 +1,7 @@
 import { mean } from '../mean'
 import { from } from 'rxjs'
 import { takeLast, toArray } from 'rxjs/operators'
-import { numberStream } from './util'
+import { stream } from './util'
 
 describe('The mean computation node', () => {
 	it('can determine the mean value in a static array of numbers', async () => {
@@ -16,7 +16,7 @@ describe('The mean computation node', () => {
 	})
 
 	it('can determine the mean value in an async number stream', async () => {
-		const means = await numberStream([1, 2, 1, -1, 10, 7, 5])
+		const means = await stream([1, 2, 1, -1, 10, 7, 5])
 			.pipe(
 				mean(),
 				takeLast(1),

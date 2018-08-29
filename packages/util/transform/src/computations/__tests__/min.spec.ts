@@ -1,6 +1,6 @@
 import { min } from '../min'
 import { from } from 'rxjs'
-import { numberStream } from './util'
+import { stream } from './util'
 import { toArray } from 'rxjs/operators'
 
 describe('The min computation node', () => {
@@ -15,7 +15,7 @@ describe('The min computation node', () => {
 	})
 
 	it('can determine the minimum value in an async number stream', async () => {
-		const mins = await numberStream([1, 2, 1, -1, -50, 10, 7, 5])
+		const mins = await stream([1, 2, 1, -1, -50, 10, 7, 5])
 			.pipe(
 				min(),
 				toArray(),

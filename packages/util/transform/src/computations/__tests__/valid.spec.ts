@@ -1,7 +1,7 @@
 import { from } from 'rxjs'
 import { toArray } from 'rxjs/operators'
 import { valid } from '../valid'
-import { numberStream } from './util'
+import { stream } from './util'
 
 describe('The valid computation node', () => {
 	it('can determine the valid of values in a static array of numbers', async () => {
@@ -15,7 +15,7 @@ describe('The valid computation node', () => {
 	})
 
 	it('can determine the valid of values in an async number stream', async () => {
-		const valids = await numberStream([1, 2, null, NaN, undefined, 10, 7, 5])
+		const valids = await stream([1, 2, null, NaN, undefined, 10, 7, 5])
 			.pipe(
 				valid(),
 				toArray(),

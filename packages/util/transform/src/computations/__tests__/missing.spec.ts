@@ -1,6 +1,6 @@
 import { missing } from '../missing'
 import { from } from 'rxjs'
-import { numberStream } from './util'
+import { stream } from './util'
 import { toArray } from 'rxjs/operators'
 
 describe('The missing computation node', () => {
@@ -15,7 +15,7 @@ describe('The missing computation node', () => {
 	})
 
 	it('can determine the missing of values in an async number stream', async () => {
-		const missings = await numberStream([1, 2, null, NaN, undefined, 10, 7, 5])
+		const missings = await stream([1, 2, null, NaN, undefined, 10, 7, 5])
 			.pipe(
 				missing(),
 				toArray(),

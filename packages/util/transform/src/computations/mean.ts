@@ -7,7 +7,7 @@ import { MaybeNumber } from '../interfaces'
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export function mean(): OperatorFunction<MaybeNumber, number> {
+export function mean$(): OperatorFunction<MaybeNumber, number> {
 	let prevMean: number = 0
 	return (source: Observable<MaybeNumber>) =>
 		Observable.create((subscriber: Subscriber<number>) =>

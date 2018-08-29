@@ -1,6 +1,6 @@
 import { max } from '../max'
 import { from } from 'rxjs'
-import { numberStream } from './util'
+import { stream } from './util'
 import { toArray } from 'rxjs/operators'
 
 describe('The max computation node', () => {
@@ -16,7 +16,7 @@ describe('The max computation node', () => {
 	})
 
 	it('can determine the maximum value in an async number stream', async () => {
-		const maxes = await numberStream([1, 2, 1, -1, 10, 7, 5])
+		const maxes = await stream([1, 2, 1, -1, 10, 7, 5])
 			.pipe(
 				max(),
 				toArray(),
