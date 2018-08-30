@@ -1,61 +1,93 @@
 import { from } from 'rxjs'
 import { toArray } from 'rxjs/operators'
 import { stack } from '../stack'
-import { groupBy } from '../../computations/groupBy'
+import { Offset } from '../../interfaces'
+
+const dataset = [
+	[
+		{ x: 0, y: 28, c: 0 },
+		{ x: 0, y: 55, c: 1 },
+		{ x: 1, y: 43, c: 0 },
+		{ x: 1, y: 91, c: 1 },
+		{ x: 2, y: 81, c: 0 },
+		{ x: 2, y: 53, c: 1 },
+		{ x: 3, y: 19, c: 0 },
+		{ x: 3, y: 87, c: 1 },
+		{ x: 4, y: 52, c: 0 },
+		{ x: 4, y: 48, c: 1 },
+		{ x: 5, y: 24, c: 0 },
+		{ x: 5, y: 49, c: 1 },
+		{ x: 6, y: 87, c: 0 },
+		{ x: 6, y: 66, c: 1 },
+		{ x: 7, y: 17, c: 0 },
+		{ x: 7, y: 27, c: 1 },
+		{ x: 8, y: 68, c: 0 },
+		{ x: 8, y: 16, c: 1 },
+		{ x: 9, y: 49, c: 0 },
+		{ x: 9, y: 15, c: 1 },
+	],
+]
 
 describe('Stack Transform Computation Node', () => {
 	it('can stack values', async () => {
-		const res = await from([
-			{ x: 0, y: 28, c: 0 },
-			{ x: 0, y: 55, c: 1 },
-			{ x: 1, y: 43, c: 0 },
-			{ x: 1, y: 91, c: 1 },
-			{ x: 2, y: 81, c: 0 },
-			{ x: 2, y: 53, c: 1 },
-			{ x: 3, y: 19, c: 0 },
-			{ x: 3, y: 87, c: 1 },
-			{ x: 4, y: 52, c: 0 },
-			{ x: 4, y: 48, c: 1 },
-			{ x: 5, y: 24, c: 0 },
-			{ x: 5, y: 49, c: 1 },
-			{ x: 6, y: 87, c: 0 },
-			{ x: 6, y: 66, c: 1 },
-			{ x: 7, y: 17, c: 0 },
-			{ x: 7, y: 27, c: 1 },
-			{ x: 8, y: 68, c: 0 },
-			{ x: 8, y: 16, c: 1 },
-			{ x: 9, y: 49, c: 0 },
-			{ x: 9, y: 15, c: 1 },
-		])
+		const res = await from(dataset)
 			.pipe(
-				groupBy('x'),
-				stack('y').sort({ field: 'c' }),
+				stack('y')
+					.groupBy('x')
+					.sort({ field: 'c' }),
 				toArray(),
 			)
 			.toPromise()
-
 		expect(res).toEqual([
-			{ x: 0, y: 28, c: 0, y0: 0, y1: 28 },
-			{ x: 0, y: 55, c: 1, y0: 28, y1: 83 },
-			{ x: 1, y: 43, c: 0, y0: 0, y1: 43 },
-			{ x: 1, y: 91, c: 1, y0: 43, y1: 134 },
-			{ x: 2, y: 81, c: 0, y0: 0, y1: 81 },
-			{ x: 2, y: 53, c: 1, y0: 81, y1: 134 },
-			{ x: 3, y: 19, c: 0, y0: 0, y1: 19 },
-			{ x: 3, y: 87, c: 1, y0: 19, y1: 106 },
-			{ x: 4, y: 52, c: 0, y0: 0, y1: 52 },
-			{ x: 4, y: 48, c: 1, y0: 52, y1: 100 },
-			{ x: 5, y: 24, c: 0, y0: 0, y1: 24 },
-			{ x: 5, y: 49, c: 1, y0: 24, y1: 73 },
-			{ x: 6, y: 87, c: 0, y0: 0, y1: 87 },
-			{ x: 6, y: 66, c: 1, y0: 87, y1: 153 },
-			{ x: 7, y: 17, c: 0, y0: 0, y1: 17 },
-			{ x: 7, y: 27, c: 1, y0: 17, y1: 44 },
-			{ x: 8, y: 68, c: 0, y0: 0, y1: 68 },
-			{ x: 8, y: 16, c: 1, y0: 68, y1: 84 },
-			{ x: 9, y: 49, c: 0, y0: 0, y1: 49 },
-			{ x: 9, y: 15, c: 1, y0: 49, y1: 64 },
+			[
+				{ x: 0, y: 28, c: 0, y0: 0, y1: 28 },
+				{ x: 0, y: 55, c: 1, y0: 28, y1: 83 },
+				{ x: 1, y: 43, c: 0, y0: 0, y1: 43 },
+				{ x: 1, y: 91, c: 1, y0: 43, y1: 134 },
+				{ x: 2, y: 81, c: 0, y0: 0, y1: 81 },
+				{ x: 2, y: 53, c: 1, y0: 81, y1: 134 },
+				{ x: 3, y: 19, c: 0, y0: 0, y1: 19 },
+				{ x: 3, y: 87, c: 1, y0: 19, y1: 106 },
+				{ x: 4, y: 52, c: 0, y0: 0, y1: 52 },
+				{ x: 4, y: 48, c: 1, y0: 52, y1: 100 },
+				{ x: 5, y: 24, c: 0, y0: 0, y1: 24 },
+				{ x: 5, y: 49, c: 1, y0: 24, y1: 73 },
+				{ x: 6, y: 87, c: 0, y0: 0, y1: 87 },
+				{ x: 6, y: 66, c: 1, y0: 87, y1: 153 },
+				{ x: 7, y: 17, c: 0, y0: 0, y1: 17 },
+				{ x: 7, y: 27, c: 1, y0: 17, y1: 44 },
+				{ x: 8, y: 68, c: 0, y0: 0, y1: 68 },
+				{ x: 8, y: 16, c: 1, y0: 68, y1: 84 },
+				{ x: 9, y: 49, c: 0, y0: 0, y1: 49 },
+				{ x: 9, y: 15, c: 1, y0: 49, y1: 64 },
+			],
 		])
-		expect(res).toBeDefined()
+	})
+
+	it('can stack values with center offset', async () => {
+		const res = await from(dataset)
+			.pipe(
+				stack('y')
+					.groupBy('x')
+					.offset(Offset.center)
+					.output('y2', 'y3')
+					.sort({ field: 'c' }),
+				toArray(),
+			)
+			.toPromise()
+		expect(res).toMatchSnapshot()
+	})
+
+	it('can stack values with normalize offset', async () => {
+		const res = await from(dataset)
+			.pipe(
+				stack('y')
+					.groupBy('x')
+					.offset(Offset.normalize)
+					.sort({ field: 'c' }),
+				toArray(),
+			)
+			.toPromise()
+		expect(res).toMatchSnapshot()
 	})
 })

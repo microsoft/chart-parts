@@ -18,7 +18,10 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
+		"@types/d3-array": "^1.2.1",
+		"d3-array": "^1.2.4",
 		"lodash": "^4.17.10",
-		"rxjs": "^6.2.2"
+		"rxjs": "^6.2.2",
+		"sorted-array": "^2.0.2"
 	}
 }

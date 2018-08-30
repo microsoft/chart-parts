@@ -1,4 +1,4 @@
-export type FieldAccessor = string | ((row: any) => number)
+export type FieldAccessor = string // | ((row: any) => number)
 
 export enum CompareOrder {
 	ascending = 'asc',

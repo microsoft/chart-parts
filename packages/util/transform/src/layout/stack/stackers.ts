@@ -31,11 +31,14 @@ const stackCenter = (
 	const [y0, y1] = context.outputFields
 	const field = context.field as FieldAccessor
 	let last = (max - sum) / 2
-	for (const d of rows) {
-		const value = Math.abs(getField(d, field))
-		d[y0] = last
-		d[y1] = last += value
-	}
+	return rows.map(row => {
+		const value = Math.abs(getField(row, field))
+		return {
+			...row,
+			[y0]: last,
+			[y1]: (last += value),
+		}
+	})
 }
 
 const stackNormalize = (
@@ -52,11 +55,12 @@ const stackNormalize = (
 
 	let last = 0
 	let v = 0
-	for (const d of rows) {
+	return rows.map(d => {
 		const value = Math.abs(getField(d, field))
-		d[y0] = last
-		d[y1] = last = scale * (v += value)
-	}
+		const y0Val = last
+		const y1Val = (last = scale * (v += value))
+		return { ...d, [y0]: y0Val, [y1]: y1Val }
+	})
 }
 
 const stackZero = (context: StackBuilderContext, rows: any[]) => {
@@ -69,7 +73,8 @@ const stackZero = (context: StackBuilderContext, rows: any[]) => {
 
 	let lastPos = 0
 	let lastNeg = 0
-	for (const d of rows) {
+	return rows.map(row => {
+		const d = { ...row }
 		const v = getField(d, field)
 		if (v < 0) {
 			d[y0] = lastNeg
@@ -78,5 +83,6 @@ const stackZero = (context: StackBuilderContext, rows: any[]) => {
 			d[y0] = lastPos
 			d[y1] = lastPos += v
 		}
-	}
+		return d
+	})
 }

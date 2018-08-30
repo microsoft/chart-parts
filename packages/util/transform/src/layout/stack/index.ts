@@ -1,25 +1,20 @@
-import {
-	Observable,
-	OperatorFunction,
-	Subscriber,
-	isObservable,
-	zip,
-} from 'rxjs'
-import { takeLast, toArray } from 'rxjs/operators'
+import { Observable, OperatorFunction } from 'rxjs'
+import { max, sum } from 'd3-array'
 import { FieldAccessor, Compare, Offset } from '../../interfaces'
-import { max } from '../../computations/max'
-import { sum } from '../../computations/sum'
-import { accessField } from '../../computations/accessField'
+import { createOperator, getField, flatMap } from '../../util'
+import { groupBy, GroupedData } from '../../groupBy'
 import { getStacker } from './stackers'
 
-export interface StackBuilder extends OperatorFunction<Observable<any>, any> {
-	sort(...sorts: Compare[]): StackBuilder
-	offset(value: Offset): StackBuilder
-	output(start: string, end: string): StackBuilder
+export interface StackBuilder<T> extends OperatorFunction<T[], any> {
+	sort(...sorts: Compare[]): StackBuilder<T>
+	offset(value: Offset): StackBuilder<T>
+	output(start: string, end: string): StackBuilder<T>
+	groupBy(...fields: FieldAccessor[]): StackBuilder<T>
 }
 
 export interface StackBuilderContext {
 	sorts: Compare[]
+	groupBy: FieldAccessor[]
 	offset: Offset
 	field: FieldAccessor
 	outputFields: [string, string]
@@ -29,44 +24,47 @@ export interface StackBuilderContext {
  * Creates an observable node based on incoming number stream
  * @param source An observable of numbers to emit the maximum value of
  */
-export function stack(field: FieldAccessor) {
+export function stack<T>(field: FieldAccessor): StackBuilder<T> {
 	const context: StackBuilderContext = {
 		field,
+		groupBy: [],
 		sorts: [],
 		offset: Offset.zero,
 		outputFields: ['y0', 'y1'],
 	}
 
-	function makeStack(source: Observable<Observable<any>>) {
-		return Observable.create((subscriber: Subscriber<any>) =>
-			source.subscribe(
-				group => {
-					if (!isObservable(group)) {
-						subscriber.error(
-							new Error(
-								`stack group is not an observable. 
-                            You may have forgotten to apply a groupBy() before applying stack()
-                            `,
-							),
-						)
-					}
-					try {
-						processGroup(group, context, outputRow =>
-							subscriber.next(outputRow),
-						)
-					} catch (err) {
-						subscriber.error(err)
-					}
-				},
-				err => subscriber.error(err),
-				() => subscriber.complete(),
-			),
-		)
+	const getFieldValue = (d: any) => getField(d, context.field)
+
+	function transform(data: GroupedData<T>) {
+		const { groups } = data
+		function processStacks() {
+			const keys = Array.from(groups.keys())
+			return keys.map(groupKey => {
+				const rows = Array.from(groups.get(groupKey) as any)
+				const maxValue = max(rows, getFieldValue)
+				const sumValue = sum(rows, getFieldValue)
+				const stacker = getStacker(context)
+				return stacker(context, rows, sumValue, maxValue as number)
+			})
+		}
+
+		return flatMap(processStacks(), (t: any) => t)
 	}
 
-	const builder = makeStack as StackBuilder
+	const makeStack = createOperator({
+		transform,
+		handleSource: (input: Observable<T[]>) => {
+			return input.pipe(groupBy(...context.groupBy))
+		},
+	})
+
+	const builder = (makeStack as any) as StackBuilder<T>
 	builder.sort = (...sortBy: Compare[]) => {
 		context.sorts = sortBy
+		return builder
+	}
+	builder.groupBy = (...fields: FieldAccessor[]) => {
+		context.groupBy = fields
 		return builder
 	}
 	builder.offset = (value: Offset) => {
@@ -78,29 +76,4 @@ export function stack(field: FieldAccessor) {
 		return builder
 	}
 	return builder
-}
-
-function processGroup(
-	group: Observable<any>,
-	context: StackBuilderContext,
-	handleOutputRow: (row: any) => void,
-) {
-	const groupMax = group.pipe(
-		accessField<number>(context.field),
-		max(),
-		takeLast(1),
-	)
-	const groupSum = group.pipe(
-		accessField<number>(context.field),
-		sum(),
-		takeLast(1),
-	)
-	const groupItems = group.pipe(toArray())
-	zip(groupMax, groupSum, groupItems).subscribe(
-		([maxValue, sumValue, rows]) => {
-			// Apply the stack logic
-			getStacker(context)(context, rows, sumValue, maxValue as number)
-			rows.forEach(row => handleOutputRow(row))
-		},
-	)
 }
