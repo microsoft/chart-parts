@@ -17,7 +17,7 @@ describe('The collect transformer', () => {
 				collect().sort({ field: 'x', order: CompareOrder.descending }),
 			)
 
-		expect(ds.get('data-asc').map(d => d.x)).toEqual([-1, 3, 5, 7])
-		expect(ds.get('data-desc').map(d => d.x)).toEqual([7, 5, 3, -1])
+		expect((ds.get('data-asc') as any[]).map(d => d.x)).toEqual([-1, 3, 5, 7])
+		expect((ds.get('data-desc') as any[]).map(d => d.x)).toEqual([7, 5, 3, -1])
 	})
 })
