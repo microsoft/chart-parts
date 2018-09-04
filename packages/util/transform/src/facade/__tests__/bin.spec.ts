@@ -18,7 +18,7 @@ describe('The Bin transform', () => {
 				.maxBins(5),
 		)
 
-		const binned = ds.get('data').map(d => ({
+		const binned = (ds.get('data') as any[]).map(d => ({
 			amount: d.amount,
 			bin0: d.bin0,
 			bin1: d.bin1,

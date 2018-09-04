@@ -15,11 +15,10 @@ export function createSorter(sorts: Compare[]) {
 			const { order = CompareOrder.descending, field } = sort
 			const valueA = getField(a, field)
 			const valueB = getField(b, field)
-			if (order === CompareOrder.ascending) {
-				result = valueA - valueB
-			} else {
-				result = valueB - valueA
-			}
+
+			result =
+				order === CompareOrder.ascending ? valueA - valueB : valueB - valueA
+
 			if (result !== 0) {
 				break
 			}

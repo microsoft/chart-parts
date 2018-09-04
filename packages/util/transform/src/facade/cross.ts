@@ -5,6 +5,9 @@ import { DatasetTransform } from './interfaces'
 declare var require: any
 const { cross: vegaCross } = require('vega-transforms')
 
+/**
+ * The cross transform compute the cross-product of a data stream with itself.
+ */
 export interface CrossBuilder extends DatasetTransform {
 	/**
 	 * An optional filter expression for limiting the results
