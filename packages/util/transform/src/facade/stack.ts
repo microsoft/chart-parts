@@ -31,7 +31,7 @@ export interface StackBuilder extends DatasetTransform {
 	 * Criteria for sorting values within each stack.
 	 * @param compare
 	 */
-	sort(compare: Compare): StackBuilder
+	sort(...compare: Compare[]): StackBuilder
 
 	/**
 	 * The baseline offset. One of “zero” (default), “center”, or “normalize”.
@@ -55,7 +55,7 @@ export interface StackBuilder extends DatasetTransform {
 
 export class StackBuilderImpl implements StackBuilder {
 	private groupByFields: FieldAccessor[] | undefined
-	private compareValue: Compare | undefined
+	private compareValue: Compare[] | undefined
 	private offsetValue: Offset | undefined
 	private asValue: [string, string] | undefined
 	private stackField: string | undefined
@@ -70,7 +70,7 @@ export class StackBuilderImpl implements StackBuilder {
 		return this
 	}
 
-	public sort(compare: Compare) {
+	public sort(...compare: Compare[]) {
 		this.compareValue = compare
 		return this
 	}
@@ -94,7 +94,7 @@ export class StackBuilderImpl implements StackBuilder {
 		if (this.groupByFields) {
 			spec.groupby = this.groupByFields.map(c => vegaField(c))
 		}
-		if (this.compareValue) {
+		if (this.compareValue !== undefined) {
 			spec.sort = createSorter(this.compareValue)
 		}
 		if (this.asValue) {

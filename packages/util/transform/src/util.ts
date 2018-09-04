@@ -8,7 +8,7 @@ export function getField(data: any, field: FieldAccessor): any {
 	return get(data, field)
 }
 
-export function createSorter(...sorts: Compare[]) {
+export function createSorter(sorts: Compare[]) {
 	return (a: any, b: any) => {
 		let result = 0
 		for (const sort of sorts) {
@@ -17,6 +17,8 @@ export function createSorter(...sorts: Compare[]) {
 			const valueB = getField(b, field)
 			if (order === CompareOrder.ascending) {
 				result = valueA - valueB
+			} else {
+				result = valueB - valueA
 			}
 			if (result !== 0) {
 				break
