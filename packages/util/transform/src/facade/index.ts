@@ -10,6 +10,7 @@ export * from './bin'
 export * from './collect'
 export * from './countPattern'
 export * from './cross'
+export * from './density'
 
 // Geo transforms
 // TODO: add vega-geo for contour,

@@ -1,0 +1,82 @@
+import { density, normal, uniform, kde, mixture } from '../density'
+import { dataset } from '../dataset'
+
+describe('The density() transform', () => {
+	it('can generate a new normal distribution', () => {
+		const ds = dataset().add(
+			'data',
+			[],
+			density()
+				.extent(0, 10)
+				.distribution(normal()),
+		)
+		const generated = ds.get('data') as any
+		expect(generated.length).toBeGreaterThan(0)
+	})
+
+	it('can generate a new uniform distribution', () => {
+		const ds = dataset().add(
+			'data',
+			[],
+			density()
+				.distribution(
+					uniform()
+						.min(10)
+						.max(1234),
+				)
+				.extent(0, 10),
+		)
+
+		const generated = ds.get('data') as any
+		expect(generated.length).toBeGreaterThan(0)
+	})
+
+	it('can generate a new kde distribution', () => {
+		const ds = dataset()
+			.add(
+				'generated',
+				[],
+				density()
+					.distribution(
+						uniform()
+							.min(10)
+							.max(1234),
+					)
+					.extent(0, 10),
+			)
+			.add(
+				'kde',
+				[],
+				density().distribution(
+					kde()
+						.from('generated')
+						.field('value')
+						.bandwidth(3),
+				),
+			)
+
+		const kdeResult = ds.get('kde') as any
+		expect(kdeResult.length).toBeGreaterThan(0)
+	})
+
+	it('can generate a new mixture distribution', () => {
+		const ds = dataset().add(
+			'data',
+			[],
+			density()
+				.extent(0, 10)
+				.distribution(
+					mixture()
+						.distributions(
+							normal(),
+							uniform()
+								.min(10)
+								.max(1234),
+						)
+						.weights(50, 50),
+				),
+		)
+		const generated = ds.get('data') as any
+		expect(generated.length).toBeGreaterThan(0)
+	})
+})

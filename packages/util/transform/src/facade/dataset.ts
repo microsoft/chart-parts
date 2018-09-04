@@ -29,7 +29,7 @@ export interface DatasetManager {
 	 * Gets a dataset
 	 * @param name The name of the dataset
 	 */
-	get(name: string): any[] | undefined
+	get(name: string): any[]
 }
 
 export class DatasetManagerImpl implements DatasetManager {
@@ -37,15 +37,19 @@ export class DatasetManagerImpl implements DatasetManager {
 	private pipelines: Map<string, Pipeline> = new Map()
 
 	public add(name: string, data: any[], ...transforms: DatasetTransform[]) {
-		const pipeline = createTransformPipeline(transforms)
+		const pipeline = createTransformPipeline(transforms, this)
 		pushData(data, pipeline)
 		this.pipelines.set(name, pipeline)
 		return this
 	}
 
-	public get(name: string): any[] | undefined {
+	public get(name: string): any[] {
 		const ds = this.pipelines.get(name)
-		return ds && ds.end.value
+		const result = ds && ds.end.value
+		if (!result) {
+			throw new Error(`could not get dataset ${name}`)
+		}
+		return result
 	}
 }
 
@@ -54,12 +58,15 @@ function pushData(data: any[], pipeline: Pipeline) {
 	dataflow.pulse(start, changeset().insert(data)).run()
 }
 
-function createTransformPipeline(transforms: DatasetTransform[]): Pipeline {
+function createTransformPipeline(
+	transforms: DatasetTransform[],
+	ds: DatasetManager,
+): Pipeline {
 	const df = new Dataflow()
 	const entry = df.add(collect)
 	let latest = entry
 
-	transforms.forEach(t => (latest = t.build(df, latest)))
+	transforms.forEach(t => (latest = t.build(df, latest, ds)))
 	latest = df.add(collect, { pulse: latest })
 
 	return {
