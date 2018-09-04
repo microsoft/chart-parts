@@ -7,7 +7,7 @@ const {
 	aggregate: vegaAggregate,
 	collect: vegaCollect,
 } = require('vega-transforms')
-const { field } = require('vega-util')
+const { field: vegaField } = require('vega-util')
 
 /**
  * Types of aggregate field operations
@@ -94,7 +94,8 @@ export enum AggregateOperation {
 }
 
 /**
- * Describes an aggregate computation field. This indicates performing a calculation over a field in a dataset as a new output field
+ * Describes an aggregate computation field. This indicates performing a calculation over a field in a
+ * dataset as a new output field
  */
 export interface AggregateComputeField {
 	op: AggregateOperation
@@ -102,6 +103,11 @@ export interface AggregateComputeField {
 	as?: string
 }
 
+/**
+ * The aggregate transform groups and summarizes an input data stream to produce a derived output stream.
+ * Aggregate transforms can be used to compute counts, sums, averages and other descriptive statistics over
+ * groups of data objects.
+ */
 export interface AggregateBuilder extends DatasetTransform {
 	/**
 	 * The data fields to group by. If not specified, a single group containing all data objects will be used.
@@ -167,8 +173,10 @@ export class AggregateBuilderImpl implements AggregateBuilder {
 
 	public build(df: any, from: any) {
 		const spec: any = {
-			groupby: this.groupByFields.map(c => field(c)),
-			fields: this.computeFields.map(c => (c.field ? field(c.field) : null)),
+			groupby: this.groupByFields.map(c => vegaField(c)),
+			fields: this.computeFields.map(
+				c => (c.field ? vegaField(c.field) : null),
+			),
 			ops: this.computeFields.map(c => c.op || null),
 			as: this.computeFields.map(c => c.as || null),
 			cross: this.crossValue,

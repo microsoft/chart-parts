@@ -5,12 +5,51 @@ import { createSorter } from '../util'
 
 declare var require: any
 const { stack: vegaStack } = require('vega-encode')
-const { field } = require('vega-util')
+const { field: vegaField } = require('vega-util')
 
+/**
+ * The stack transform computes a layout by stacking groups of values.
+ * The most common use case is to create stacked graphs, including
+ * stacked bar charts and stream graphs. This transform writes two
+ * properties to each datum, indicating the starting and ending stack values.
+ */
 export interface StackBuilder extends DatasetTransform {
+	/**
+	 * The data field that determines the stack heights.
+	 * @param field
+	 */
+	field(field: string): StackBuilder
+
+	/**
+	 * An array of fields by which to partition the data
+	 * into separate stacks.
+	 * @param fields
+	 */
 	groupBy(...fields: FieldAccessor[]): StackBuilder
+
+	/**
+	 * Criteria for sorting values within each stack.
+	 * @param compare
+	 */
 	sort(compare: Compare): StackBuilder
+
+	/**
+	 * The baseline offset. One of “zero” (default), “center”, or “normalize”.
+	 * The “center” offset will center the stacks. The “normalize” offset will
+	 * compute percentage values for each stack point, with output values in
+	 * the range [0,1].
+	 *
+	 * @param offset
+	 */
 	offset(offset: Offset): StackBuilder
+
+	/**
+	 * The output fields for the computed start and end stack values. The
+	 * default is ["y0", "y1"].
+	 *
+	 * @param start
+	 * @param end
+	 */
 	as(start: string, end: string): StackBuilder
 }
 
@@ -19,8 +58,12 @@ export class StackBuilderImpl implements StackBuilder {
 	private compareValue: Compare | undefined
 	private offsetValue: Offset | undefined
 	private asValue: [string, string] | undefined
+	private stackField: string | undefined
 
-	constructor(private stackField: string) {}
+	public field(value: string) {
+		this.stackField = value
+		return this
+	}
 
 	public groupBy(...fields: FieldAccessor[]) {
 		this.groupByFields = fields
@@ -44,12 +87,12 @@ export class StackBuilderImpl implements StackBuilder {
 
 	public build(df: any, from: any) {
 		const spec: any = {
-			field: field(this.stackField),
+			field: vegaField(this.stackField),
 			offset: this.offsetValue,
 			pulse: from,
 		}
 		if (this.groupByFields) {
-			spec.groupby = this.groupByFields.map(c => field(c))
+			spec.groupby = this.groupByFields.map(c => vegaField(c))
 		}
 		if (this.compareValue) {
 			spec.sort = createSorter(this.compareValue)
@@ -64,5 +107,5 @@ export class StackBuilderImpl implements StackBuilder {
 }
 
 export function stack(stackField: FieldAccessor): StackBuilder {
-	return new StackBuilderImpl(stackField)
+	return new StackBuilderImpl().field(stackField)
 }
