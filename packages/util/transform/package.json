@@ -12,16 +12,13 @@
 		"build": "tsc"
 	},
 	"devDependencies": {
-		"@types/lodash": "^4.14.116",
-		"lodash": "^4.17.10",
 		"rimraf": "^2.6.2",
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@types/d3-array": "^1.2.1",
-		"d3-array": "^1.2.4",
-		"lodash": "^4.17.10",
-		"rxjs": "^6.2.2",
-		"sorted-array": "^2.0.2"
+		"vega-dataflow": "^4.0.4",
+		"vega-encode": "^3.1.4",
+		"vega-transforms": "^2.2.0",
+		"vega-util": "^1.7.0"
 	}
 }

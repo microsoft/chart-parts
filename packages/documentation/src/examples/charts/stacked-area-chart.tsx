@@ -1,7 +1,5 @@
 // tslint:disable
 import * as React from 'react'
-import { from } from 'rxjs'
-import { toArray } from 'rxjs/operators'
 import {
   Area,
   Axis,
@@ -15,7 +13,7 @@ import {
 } from '@markable/react'
 import { AxisOrientation, Interpolation } from '@markable/interfaces'
 import { Renderer } from '@markable/react-svg-renderer'
-import { stack, groupBy } from '@markable/transform'
+import { stack, dataset } from '@markable/transform'
 
 const renderer = new Renderer()
 
@@ -41,32 +39,24 @@ const data = [
   { x: 9, y: 49, c: 0 },
   { x: 9, y: 15, c: 1 },
 ]
-const stackedDataSource = from(data)
-  .pipe(
-    groupBy('x'),
-    stack('y').sort({ field: 'c' }),
-    toArray()
-  )
-  .toPromise()
 
-interface StackedAreaChartState {
-  data?: any[]
-}
+const ds = dataset().add(
+  'data',
+  data,
+  stack('y')
+    .groupBy('x')
+    .sort({ field: 'c' })
+)
 
-export default class StackedAreaChart extends React.Component<
-  {},
-  StackedAreaChartState
-> {
-  public state: StackedAreaChartState = {}
-
-  public componentDidMount() {
-    stackedDataSource.then(data => this.setState({ data }))
-  }
-
+export default class StackedAreaChart extends React.Component {
   public render() {
-    const { data } = this.state
-    return data ? (
-      <Chart width={500} height={200} renderer={renderer} data={{ data }}>
+    return (
+      <Chart
+        width={500}
+        height={200}
+        renderer={renderer}
+        data={{ data: ds.get('data') as any[] }}
+      >
         <PointScale name="x" table="data" domain="x" range={Dimension.Width} />
         <LinearScale
           name="y"
@@ -97,6 +87,6 @@ export default class StackedAreaChart extends React.Component<
           />
         </Group>
       </Chart>
-    ) : null
+    )
   }
 }

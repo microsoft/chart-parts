@@ -11,13 +11,11 @@ import {
   CategoricalColorScheme,
 } from '@markable/react'
 import { Renderer } from '@markable/react-svg-renderer'
-import { from } from 'rxjs'
-import { toArray } from 'rxjs/operators'
-import { groupBy, stack } from '@markable/transform'
+import { stack, dataset } from '@markable/transform'
 import { AxisOrientation } from '@markable/interfaces'
 
 const renderer = new Renderer()
-const data = [
+const dataArray = [
   { x: 0, y: 28, c: 0 },
   { x: 0, y: 55, c: 1 },
   { x: 1, y: 43, c: 0 },
@@ -39,17 +37,16 @@ const data = [
   { x: 9, y: 49, c: 0 },
   { x: 9, y: 15, c: 1 },
 ]
-const stackedData: Promise<any[]> = from(data)
-  .pipe(
-    groupBy('x'),
-    stack('y').sort({ field: 'c' }),
-    toArray()
-  )
-  .toPromise()
+const ds = dataset().add(
+  'data',
+  dataArray,
+  stack('y')
+    .groupBy('x')
+    .sort({ field: 'c' })
+)
 
 export interface StackedBarChartState {
   hoverRowIndex?: number
-  data?: any[]
 }
 
 /**
@@ -61,14 +58,14 @@ export default class StackedBarChart extends React.Component<
 > {
   public state: StackedBarChartState = {}
 
-  public componentDidMount() {
-    stackedData.then(data => this.setState({ ...this.state, data }))
-  }
-
   public render() {
-    const { data } = this.state
-    return !data ? null : (
-      <Chart width={500} height={200} data={{ data }} renderer={renderer}>
+    return (
+      <Chart
+        width={500}
+        height={200}
+        data={{ data: ds.get('data') as any[] }}
+        renderer={renderer}
+      >
         {/* Scale Definitions */}
         <BandScale
           name="x"

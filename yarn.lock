@@ -1456,43 +1456,44 @@
   version "0.6.3"
   resolved "https://registry.yarnpkg.com/@emotion/unitless/-/unitless-0.6.3.tgz#65682e68a82701c70eefb38d7f941a2c0bfa90de"
 
-"@lerna/add@^3.0.4":
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/add/-/add-3.0.4.tgz#635b9569ac156151f158e6ede47428bc39f1d459"
+"@lerna/add@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/add/-/add-3.2.0.tgz#5b0a165a9fc776b5d78226cc5ff22bef58136a61"
   dependencies:
-    "@lerna/bootstrap" "^3.0.4"
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/bootstrap" "^3.2.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
+    "@lerna/npm-conf" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
     dedent "^0.7.0"
     npm-package-arg "^6.0.0"
     p-map "^1.2.0"
-    package-json "^4.0.1"
+    pacote "^9.1.0"
     semver "^5.5.0"
 
-"@lerna/batch-packages@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/batch-packages/-/batch-packages-3.0.0.tgz#960a3dbb5fbc17283e2850448c76c023f6a35200"
+"@lerna/batch-packages@^3.1.2":
+  version "3.1.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/batch-packages/-/batch-packages-3.1.2.tgz#74b5312a01a8916204cbc71237ffbe93144b99df"
   dependencies:
-    "@lerna/package-graph" "^3.0.0"
+    "@lerna/package-graph" "^3.1.2"
     "@lerna/validation-error" "^3.0.0"
     npmlog "^4.1.2"
 
-"@lerna/bootstrap@^3.0.4":
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/bootstrap/-/bootstrap-3.0.4.tgz#54a4a7ee1432016783c735c140d09e94fae26564"
+"@lerna/bootstrap@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/bootstrap/-/bootstrap-3.2.0.tgz#f6ed4e6b5eaaf4563f6f06f7b427679c910049f5"
   dependencies:
-    "@lerna/batch-packages" "^3.0.0"
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/batch-packages" "^3.1.2"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
     "@lerna/has-npm-version" "^3.0.4"
     "@lerna/npm-conf" "^3.0.0"
     "@lerna/npm-install" "^3.0.0"
     "@lerna/rimraf-dir" "^3.0.0"
-    "@lerna/run-lifecycle" "^3.0.0"
+    "@lerna/run-lifecycle" "^3.2.0"
     "@lerna/run-parallel-batches" "^3.0.0"
-    "@lerna/symlink-binary" "^3.0.0"
-    "@lerna/symlink-dependencies" "^3.0.0"
+    "@lerna/symlink-binary" "^3.1.4"
+    "@lerna/symlink-dependencies" "^3.1.4"
     "@lerna/validation-error" "^3.0.0"
     dedent "^0.7.0"
     get-port "^3.2.0"
@@ -1506,15 +1507,22 @@
     read-package-tree "^5.1.6"
     semver "^5.5.0"
 
-"@lerna/changed@^3.0.2":
-  version "3.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/changed/-/changed-3.0.2.tgz#c90b8d1a00c93ce99b4f6dc34653c3b835d8d468"
+"@lerna/changed@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/changed/-/changed-3.2.0.tgz#b82e7a64012bf9920b3abb07049f46d78963dcb6"
   dependencies:
-    "@lerna/collect-updates" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/collect-updates" "^3.1.0"
+    "@lerna/command" "^3.1.3"
     "@lerna/listable" "^3.0.0"
     "@lerna/output" "^3.0.0"
-    "@lerna/version" "^3.0.2"
+    "@lerna/version" "^3.2.0"
+
+"@lerna/check-working-tree@^3.1.0":
+  version "3.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/check-working-tree/-/check-working-tree-3.1.0.tgz#5304c58190bf6ad97b4985698ab9b5eb9a38a14e"
+  dependencies:
+    "@lerna/describe-ref" "^3.1.0"
+    "@lerna/validation-error" "^3.0.0"
 
 "@lerna/child-process@^3.0.0":
   version "3.0.0"
@@ -1524,64 +1532,49 @@
     execa "^0.10.0"
     strong-log-transformer "^1.0.6"
 
-"@lerna/clean@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/clean/-/clean-3.0.0.tgz#5e4dcf0fb376dda6fd5c717b4a6d1ceaff6284e9"
+"@lerna/clean@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/clean/-/clean-3.1.3.tgz#82cd56f33d2f72c03476cc443896eb37adbf5b0b"
   dependencies:
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
     "@lerna/prompt" "^3.0.0"
     "@lerna/rimraf-dir" "^3.0.0"
     p-map "^1.2.0"
     p-map-series "^1.0.0"
     p-waterfall "^1.0.0"
 
-"@lerna/cli@^3.0.4":
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/cli/-/cli-3.0.4.tgz#9339c47d2298607c01d8913537c160cfe3302354"
+"@lerna/cli@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/cli/-/cli-3.2.0.tgz#3ed25bcbc0b8f0878bc6a102ee0296f01476cfdf"
   dependencies:
-    "@lerna/add" "^3.0.4"
-    "@lerna/bootstrap" "^3.0.4"
-    "@lerna/changed" "^3.0.2"
-    "@lerna/clean" "^3.0.0"
-    "@lerna/create" "^3.0.0"
-    "@lerna/diff" "^3.0.0"
-    "@lerna/exec" "^3.0.2"
-    "@lerna/global-options" "^3.0.0"
-    "@lerna/import" "^3.0.0"
-    "@lerna/init" "^3.0.0"
-    "@lerna/link" "^3.0.0"
-    "@lerna/list" "^3.0.0"
-    "@lerna/publish" "^3.0.4"
-    "@lerna/run" "^3.0.2"
-    "@lerna/version" "^3.0.2"
+    "@lerna/global-options" "^3.1.3"
     dedent "^0.7.0"
-    is-ci "^1.0.10"
     npmlog "^4.1.2"
     yargs "^12.0.1"
 
-"@lerna/collect-updates@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/collect-updates/-/collect-updates-3.0.0.tgz#be4436e479adfc5540d9fb36e764d514ba9fb1c7"
+"@lerna/collect-updates@^3.1.0":
+  version "3.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/collect-updates/-/collect-updates-3.1.0.tgz#66a7e337416d26900dee3e8264fa875c99a56c4a"
   dependencies:
     "@lerna/child-process" "^3.0.0"
+    "@lerna/describe-ref" "^3.1.0"
     minimatch "^3.0.4"
     npmlog "^4.1.2"
     slash "^1.0.0"
 
-"@lerna/command@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/command/-/command-3.0.0.tgz#c974029dac0486688dcf3e01351b982e45727aae"
+"@lerna/command@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/command/-/command-3.1.3.tgz#c4f9ec54773555033885ecc28a2a8c026d21f302"
   dependencies:
     "@lerna/child-process" "^3.0.0"
-    "@lerna/collect-updates" "^3.0.0"
-    "@lerna/filter-packages" "^3.0.0"
-    "@lerna/package-graph" "^3.0.0"
+    "@lerna/package-graph" "^3.1.2"
     "@lerna/project" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
     "@lerna/write-log-file" "^3.0.0"
     dedent "^0.7.0"
     execa "^0.10.0"
+    is-ci "^1.0.10"
     lodash "^4.17.5"
     npmlog "^4.1.2"
 
@@ -1608,12 +1601,12 @@
     fs-extra "^6.0.1"
     npmlog "^4.1.2"
 
-"@lerna/create@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/create/-/create-3.0.0.tgz#93945e4f71cf2c3fc13500bc91526d7a5c07a84c"
+"@lerna/create@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/create/-/create-3.1.3.tgz#e71cfe803d5fb78807b4b25f1705552ae333ba67"
   dependencies:
     "@lerna/child-process" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/command" "^3.1.3"
     "@lerna/npm-conf" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
     camelcase "^4.1.0"
@@ -1627,31 +1620,41 @@
     slash "^1.0.0"
     validate-npm-package-license "^3.0.3"
     validate-npm-package-name "^3.0.0"
+    whatwg-url "^6.5.0"
 
-"@lerna/diff@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/diff/-/diff-3.0.0.tgz#7e7d175c5f6555d700b8b0592f154b11d2f7b646"
+"@lerna/describe-ref@^3.1.0":
+  version "3.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/describe-ref/-/describe-ref-3.1.0.tgz#11cabd76484f7e69e739aaa2d584105d03ed392e"
   dependencies:
     "@lerna/child-process" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    npmlog "^4.1.2"
+
+"@lerna/diff@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/diff/-/diff-3.1.3.tgz#5b3a5ca76468795a0e331171c43963db7c5c3609"
+  dependencies:
+    "@lerna/child-process" "^3.0.0"
+    "@lerna/command" "^3.1.3"
     "@lerna/validation-error" "^3.0.0"
     npmlog "^4.1.2"
 
-"@lerna/exec@^3.0.2":
-  version "3.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/exec/-/exec-3.0.2.tgz#97c055e5d636e4510362f0542f8b85ce9bc0a19b"
+"@lerna/exec@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/exec/-/exec-3.1.3.tgz#4e0f3d9b9213e1947f9ff2ae27306edb8aea1d0c"
   dependencies:
-    "@lerna/batch-packages" "^3.0.0"
+    "@lerna/batch-packages" "^3.1.2"
     "@lerna/child-process" "^3.0.0"
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
     "@lerna/run-parallel-batches" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
 
-"@lerna/filter-options@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/filter-options/-/filter-options-3.0.0.tgz#db329277f9c482b12993fa5c0ec4d145201ab399"
+"@lerna/filter-options@^3.1.2":
+  version "3.1.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/filter-options/-/filter-options-3.1.2.tgz#83f58ee3de886381b9092200f8c981741533ac15"
   dependencies:
+    "@lerna/collect-updates" "^3.1.0"
+    "@lerna/filter-packages" "^3.0.0"
     dedent "^0.7.0"
 
 "@lerna/filter-packages@^3.0.0":
@@ -1668,9 +1671,9 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/global-options@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/global-options/-/global-options-3.0.0.tgz#85d4878317816eba538b0d637e30dae89a2a9a92"
+"@lerna/global-options@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/global-options/-/global-options-3.1.3.tgz#cf85e24655a91d04d4efc9a80c1f83fc768d08ae"
 
 "@lerna/has-npm-version@^3.0.4":
   version "3.0.4"
@@ -1679,44 +1682,44 @@
     "@lerna/child-process" "^3.0.0"
     semver "^5.5.0"
 
-"@lerna/import@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/import/-/import-3.0.0.tgz#2fd206c41aa9e4bab2fbb362aefa31c8a340f61e"
+"@lerna/import@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/import/-/import-3.1.3.tgz#51cdcbb99c412644caa50014739dce82f9f24192"
   dependencies:
     "@lerna/child-process" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/command" "^3.1.3"
     "@lerna/prompt" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
     dedent "^0.7.0"
     fs-extra "^6.0.1"
     p-map-series "^1.0.0"
 
-"@lerna/init@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/init/-/init-3.0.0.tgz#11d7726bc65b9dbf67668be3b218c1e19d7ac541"
+"@lerna/init@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/init/-/init-3.1.3.tgz#214ff099561852d60ea3bdfdc2f028081ab4d629"
   dependencies:
     "@lerna/child-process" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/command" "^3.1.3"
     fs-extra "^6.0.1"
     p-map "^1.2.0"
     write-json-file "^2.3.0"
 
-"@lerna/link@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/link/-/link-3.0.0.tgz#874d57b104f1609e0e5887f795896c6983a2e229"
+"@lerna/link@^3.1.4":
+  version "3.1.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/link/-/link-3.1.4.tgz#a525db1e12b2d3d316f129718c16608ae65e419c"
   dependencies:
-    "@lerna/command" "^3.0.0"
-    "@lerna/package-graph" "^3.0.0"
-    "@lerna/symlink-dependencies" "^3.0.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/package-graph" "^3.1.2"
+    "@lerna/symlink-dependencies" "^3.1.4"
     p-map "^1.2.0"
     slash "^1.0.0"
 
-"@lerna/list@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/list/-/list-3.0.0.tgz#509bfe9853f18742f5375b8cc693ea843d27405a"
+"@lerna/list@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/list/-/list-3.1.3.tgz#872bfee719e5eccc622e60dc59a796a243be078a"
   dependencies:
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
     "@lerna/listable" "^3.0.0"
     "@lerna/output" "^3.0.0"
 
@@ -1763,9 +1766,9 @@
     signal-exit "^3.0.2"
     write-pkg "^3.1.0"
 
-"@lerna/npm-publish@^3.0.4":
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/npm-publish/-/npm-publish-3.0.4.tgz#0013bd7df93461efb3b5380c0f244c5c5924faae"
+"@lerna/npm-publish@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/npm-publish/-/npm-publish-3.2.0.tgz#b1d577c39462992f33e7df1835e815b0b7841e3e"
   dependencies:
     "@lerna/child-process" "^3.0.0"
     "@lerna/get-npm-exec-opts" "^3.0.0"
@@ -1789,10 +1792,11 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/package-graph@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/package-graph/-/package-graph-3.0.0.tgz#f2e9131856c4f43ea91f2cab1bfe5c9264079f53"
+"@lerna/package-graph@^3.1.2":
+  version "3.1.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/package-graph/-/package-graph-3.1.2.tgz#b70298a3a8c82e12090da33233bf242223a38f20"
   dependencies:
+    "@lerna/validation-error" "^3.0.0"
     npm-package-arg "^6.0.0"
     semver "^5.5.0"
 
@@ -1827,27 +1831,31 @@
     inquirer "^5.1.0"
     npmlog "^4.1.2"
 
-"@lerna/publish@^3.0.4":
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/publish/-/publish-3.0.4.tgz#ce720869746f1d38a857add8b0fc96a9c5ff2633"
+"@lerna/publish@^3.2.1":
+  version "3.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/publish/-/publish-3.2.1.tgz#09b264861dd5c1cbba6338e1973aef62f616e265"
   dependencies:
-    "@lerna/batch-packages" "^3.0.0"
+    "@lerna/batch-packages" "^3.1.2"
+    "@lerna/check-working-tree" "^3.1.0"
     "@lerna/child-process" "^3.0.0"
-    "@lerna/collect-updates" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/collect-updates" "^3.1.0"
+    "@lerna/command" "^3.1.3"
+    "@lerna/describe-ref" "^3.1.0"
     "@lerna/get-npm-exec-opts" "^3.0.0"
     "@lerna/npm-dist-tag" "^3.0.0"
-    "@lerna/npm-publish" "^3.0.4"
+    "@lerna/npm-publish" "^3.2.0"
     "@lerna/output" "^3.0.0"
-    "@lerna/run-lifecycle" "^3.0.0"
+    "@lerna/prompt" "^3.0.0"
+    "@lerna/run-lifecycle" "^3.2.0"
     "@lerna/run-parallel-batches" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
-    "@lerna/version" "^3.0.2"
+    "@lerna/version" "^3.2.0"
     fs-extra "^6.0.1"
     npm-package-arg "^6.0.0"
     npmlog "^4.1.2"
     p-finally "^1.0.0"
     p-map "^1.2.0"
+    p-pipe "^1.2.0"
     p-reduce "^1.0.0"
     semver "^5.5.0"
 
@@ -1868,9 +1876,9 @@
     path-exists "^3.0.0"
     rimraf "^2.6.2"
 
-"@lerna/run-lifecycle@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/run-lifecycle/-/run-lifecycle-3.0.0.tgz#3d9a09b390f53dd321ae4be8c7b779714d4037fe"
+"@lerna/run-lifecycle@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/run-lifecycle/-/run-lifecycle-3.2.0.tgz#0f68047faa0186d67be5b173b006f0420157def1"
   dependencies:
     "@lerna/npm-conf" "^3.0.0"
     npm-lifecycle "^2.0.0"
@@ -1883,22 +1891,22 @@
     p-map "^1.2.0"
     p-map-series "^1.0.0"
 
-"@lerna/run@^3.0.2":
-  version "3.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/run/-/run-3.0.2.tgz#ebda5894cf6c5b78442d510c6d6d86579945e8fb"
+"@lerna/run@^3.1.3":
+  version "3.1.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/run/-/run-3.1.3.tgz#198ead7163c277d1ead86c4de2ecd53f598ff14b"
   dependencies:
-    "@lerna/batch-packages" "^3.0.0"
-    "@lerna/command" "^3.0.0"
-    "@lerna/filter-options" "^3.0.0"
+    "@lerna/batch-packages" "^3.1.2"
+    "@lerna/command" "^3.1.3"
+    "@lerna/filter-options" "^3.1.2"
     "@lerna/npm-run-script" "^3.0.0"
     "@lerna/output" "^3.0.0"
     "@lerna/run-parallel-batches" "^3.0.0"
     "@lerna/validation-error" "^3.0.0"
     p-map "^1.2.0"
 
-"@lerna/symlink-binary@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/symlink-binary/-/symlink-binary-3.0.0.tgz#f4ea3817c0a38316eddc8a7a75311e8b85731240"
+"@lerna/symlink-binary@^3.1.4":
+  version "3.1.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/symlink-binary/-/symlink-binary-3.1.4.tgz#45160774beedcf3d96b0669873283fbadd9a7deb"
   dependencies:
     "@lerna/create-symlink" "^3.0.0"
     "@lerna/package" "^3.0.0"
@@ -1906,13 +1914,13 @@
     p-map "^1.2.0"
     read-pkg "^3.0.0"
 
-"@lerna/symlink-dependencies@^3.0.0":
-  version "3.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/symlink-dependencies/-/symlink-dependencies-3.0.0.tgz#649f4dc9225dfb047bd49fa4204b4859a7008db2"
+"@lerna/symlink-dependencies@^3.1.4":
+  version "3.1.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/symlink-dependencies/-/symlink-dependencies-3.1.4.tgz#c3de65b858f4588e69c4d4a5674257e736234279"
   dependencies:
     "@lerna/create-symlink" "^3.0.0"
     "@lerna/resolve-symlink" "^3.0.0"
-    "@lerna/symlink-binary" "^3.0.0"
+    "@lerna/symlink-binary" "^3.1.4"
     fs-extra "^6.0.1"
     p-finally "^1.0.0"
     p-map "^1.2.0"
@@ -1924,23 +1932,26 @@
   dependencies:
     npmlog "^4.1.2"
 
-"@lerna/version@^3.0.2":
-  version "3.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/version/-/version-3.0.2.tgz#befa2a09be44af56668ef34785269187fe08f7bb"
+"@lerna/version@^3.2.0":
+  version "3.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@lerna/version/-/version-3.2.0.tgz#d382189910f3868b31333d0e9d8b080de31172c1"
   dependencies:
+    "@lerna/batch-packages" "^3.1.2"
+    "@lerna/check-working-tree" "^3.1.0"
     "@lerna/child-process" "^3.0.0"
-    "@lerna/collect-updates" "^3.0.0"
-    "@lerna/command" "^3.0.0"
+    "@lerna/collect-updates" "^3.1.0"
+    "@lerna/command" "^3.1.3"
     "@lerna/conventional-commits" "^3.0.2"
     "@lerna/output" "^3.0.0"
     "@lerna/prompt" "^3.0.0"
-    "@lerna/run-lifecycle" "^3.0.0"
+    "@lerna/run-lifecycle" "^3.2.0"
     "@lerna/validation-error" "^3.0.0"
     chalk "^2.3.1"
     dedent "^0.7.0"
     minimatch "^3.0.4"
     npmlog "^4.1.2"
     p-map "^1.2.0"
+    p-pipe "^1.2.0"
     p-reduce "^1.0.0"
     p-waterfall "^1.0.0"
     semver "^5.5.0"
@@ -2271,10 +2282,6 @@
   version "0.0.30"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/debug/-/debug-0.0.30.tgz#dc1e40f7af3b9c815013a7860e6252f6352a84df"
 
-"@types/estree@0.0.39":
-  version "0.0.39"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/estree/-/estree-0.0.39.tgz#e177e699ee1b8c22d23174caaa7422644389509f"
-
 "@types/events@*":
   version "1.2.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/events/-/events-1.2.0.tgz#81a6731ce4df43619e5c8c945383b3e62a89ea86"
@@ -2313,7 +2320,7 @@
   version "23.3.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/jest/-/jest-23.3.1.tgz#a4319aedb071d478e6f407d1c4578ec8156829cf"
 
-"@types/lodash@^4.14.110", "@types/lodash@^4.14.116":
+"@types/lodash@^4.14.110":
   version "4.14.116"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/lodash/-/lodash-4.14.116.tgz#5ccf215653e3e8c786a58390751033a9adca0eb9"
 
@@ -2368,7 +2375,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   dependencies:
@@ -2677,6 +2684,13 @@ JSONStream@^1.0.4:
     jsonparse "^1.2.0"
     through ">=2.2.7 <3"
 
+JSONStream@^1.3.4:
+  version "1.3.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/JSONStream/-/JSONStream-1.3.4.tgz#615bb2adb0cd34c8f4c447b5f6512fa1d8f16a2e"
+  dependencies:
+    jsonparse "^1.2.0"
+    through ">=2.2.7 <3"
+
 abab@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/abab/-/abab-1.0.4.tgz#5faad9c2c07f60dd76770f71cf025b62a63cfd4e"
@@ -2745,12 +2759,17 @@ after@0.8.2:
   version "0.8.2"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/after/-/after-0.8.2.tgz#fedb394f9f0e02aa9768e702bda23b505fae7e1f"
 
-agadoo@^1.0.0:
-  version "1.0.0"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/agadoo/-/agadoo-1.0.0.tgz#b2e0052b30906a209954516cda896d17420b29cf"
+agent-base@4, agent-base@^4.1.0, agent-base@~4.2.0:
+  version "4.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/agent-base/-/agent-base-4.2.1.tgz#d89e5999f797875674c07d87f260fc41e83e8ca9"
   dependencies:
-    rollup "^0.64.1"
-    rollup-plugin-virtual "^1.0.1"
+    es6-promisify "^5.0.0"
+
+agentkeepalive@^3.4.1:
+  version "3.5.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/agentkeepalive/-/agentkeepalive-3.5.1.tgz#4eba75cf2ad258fc09efd506cdb8d8c2971d35a4"
+  dependencies:
+    humanize-ms "^1.2.1"
 
 airbnb-js-shims@^1.5.1:
   version "1.6.0"
@@ -4770,6 +4789,25 @@ cacache@^10.0.4:
     unique-filename "^1.1.0"
     y18n "^4.0.0"
 
+cacache@^11.0.1, cacache@^11.0.2:
+  version "11.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/cacache/-/cacache-11.2.0.tgz#617bdc0b02844af56310e411c0878941d5739965"
+  dependencies:
+    bluebird "^3.5.1"
+    chownr "^1.0.1"
+    figgy-pudding "^3.1.0"
+    glob "^7.1.2"
+    graceful-fs "^4.1.11"
+    lru-cache "^4.1.3"
+    mississippi "^3.0.0"
+    mkdirp "^0.5.1"
+    move-concurrently "^1.0.1"
+    promise-inflight "^1.0.1"
+    rimraf "^2.6.2"
+    ssri "^6.0.0"
+    unique-filename "^1.1.0"
+    y18n "^4.0.0"
+
 cache-base@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/cache-base/-/cache-base-1.0.1.tgz#0a7f46416831c8b662ee36fe4e7c59d76f666ab2"
@@ -5333,6 +5371,10 @@ comma-separated-tokens@^1.0.0, comma-separated-tokens@^1.0.1:
 command-exists@^1.2.2:
   version "1.2.7"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/command-exists/-/command-exists-1.2.7.tgz#16828f0c3ff2b0c58805861ef211b64fc15692a8"
+
+commander@2:
+  version "2.17.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/commander/-/commander-2.17.1.tgz#bd77ab7de6de94205ceacc72f1716d29f20a77bf"
 
 commander@2.11.0:
   version "2.11.0"
@@ -6097,13 +6139,13 @@ cyclist@~0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-0.2.2.tgz#1b33792e11e914a2fd6d6ed6447464444e5fa640"
 
+d3-array@1:
+  version "1.2.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
+
 d3-array@^1.2.0, d3-array@^1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.1.tgz#d1ca33de2f6ac31efadb8e050a021d7e2396d5dc"
-
-d3-array@^1.2.4:
-  version "1.2.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
 
 d3-collection@1:
   version "1.0.4"
@@ -6112,6 +6154,14 @@ d3-collection@1:
 d3-color@1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/d3-color/-/d3-color-1.2.0.tgz#d1ea19db5859c86854586276ec892cf93148459a"
+
+d3-dsv@^1.0.8:
+  version "1.0.10"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-dsv/-/d3-dsv-1.0.10.tgz#4371c489a2a654a297aca16fcaf605a6f31a6f51"
+  dependencies:
+    commander "2"
+    iconv-lite "0.4"
+    rw "1"
 
 d3-format@1, d3-format@^1.3.0:
   version "1.3.0"
@@ -6123,9 +6173,22 @@ d3-interpolate@1:
   dependencies:
     d3-color "1"
 
+d3-interpolate@^1.2.0:
+  version "1.3.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-interpolate/-/d3-interpolate-1.3.2.tgz#417d3ebdeb4bc4efcc8fd4361c55e4040211fd68"
+  dependencies:
+    d3-color "1"
+
 d3-path@1, d3-path@^1.0.5:
   version "1.0.5"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-path/-/d3-path-1.0.5.tgz#241eb1849bd9e9e8021c0d0a799f8a0e8e441764"
+
+d3-scale-chromatic@^1.3.0:
+  version "1.3.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-scale-chromatic/-/d3-scale-chromatic-1.3.3.tgz#dad4366f0edcb288f490128979c3c793583ed3c0"
+  dependencies:
+    d3-color "1"
+    d3-interpolate "1"
 
 d3-scale@^2.0.0:
   version "2.0.0"
@@ -6164,6 +6227,10 @@ d3-time-format@2, d3-time-format@^2.1.1:
 d3-time@1:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/d3-time/-/d3-time-1.0.8.tgz#dbd2d6007bf416fe67a76d17947b784bffea1e84"
+
+d3-time@^1.0.8:
+  version "1.0.10"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-time/-/d3-time-1.0.10.tgz#8259dd71288d72eeacfd8de281c4bf5c7393053c"
 
 d@1:
   version "1.0.0"
@@ -6243,7 +6310,7 @@ debug@2.6.8:
   dependencies:
     ms "2.0.0"
 
-debug@^3.1.0, debug@~3.1.0:
+debug@3.1.0, debug@^3.1.0, debug@~3.1.0:
   version "3.1.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
   dependencies:
@@ -6871,6 +6938,10 @@ eol@^0.8.1:
   version "0.8.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/eol/-/eol-0.8.1.tgz#defc3224990c7eca73bb34461a56cf9dc24761d0"
 
+err-code@^1.0.0:
+  version "1.1.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/err-code/-/err-code-1.1.2.tgz#06e0116d3028f6aef4806849eb0ea6a748ae6960"
+
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
@@ -6950,6 +7021,16 @@ es6-iterator@~2.0.3:
     d "1"
     es5-ext "^0.10.35"
     es6-symbol "^3.1.1"
+
+es6-promise@^4.0.3:
+  version "4.2.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/es6-promise/-/es6-promise-4.2.4.tgz#dc4221c2b16518760bd8c39a52d8f356fc00ed29"
+
+es6-promisify@^5.0.0:
+  version "5.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/es6-promisify/-/es6-promisify-5.0.0.tgz#5109d62f3e56ea967c4b63505aef08291c8a5203"
+  dependencies:
+    es6-promise "^4.0.3"
 
 es6-shim@^0.35.3:
   version "0.35.3"
@@ -7547,6 +7628,10 @@ fbjs@^0.8.0:
     promise "^7.1.1"
     setimmediate "^1.0.5"
     ua-parser-js "^0.7.18"
+
+figgy-pudding@^3.1.0, figgy-pudding@^3.2.1, figgy-pudding@^3.4.1, figgy-pudding@^3.5.1:
+  version "3.5.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/figgy-pudding/-/figgy-pudding-3.5.1.tgz#862470112901c727a0e495a80744bd5baa1d6790"
 
 figures@^1.7.0:
   version "1.7.0"
@@ -8240,6 +8325,10 @@ gauge@~2.7.3:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
+
+genfun@^4.0.1:
+  version "4.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/genfun/-/genfun-4.0.1.tgz#ed10041f2e4a7f1b0a38466d17a5c3e27df1dfc1"
 
 get-caller-file@^1.0.1:
   version "1.0.2"
@@ -9003,9 +9092,9 @@ htmlparser2@~3.3.0:
     domutils "1.1"
     readable-stream "1.0"
 
-http-cache-semantics@3.8.1:
+http-cache-semantics@3.8.1, http-cache-semantics@^3.8.1:
   version "3.8.1"
-  resolved "https://registry.yarnpkg.com/http-cache-semantics/-/http-cache-semantics-3.8.1.tgz#39b0e16add9b605bf0a9ef3d9daaf4843b4cacd2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/http-cache-semantics/-/http-cache-semantics-3.8.1.tgz#39b0e16add9b605bf0a9ef3d9daaf4843b4cacd2"
 
 http-deceiver@^1.2.7:
   version "1.2.7"
@@ -9032,6 +9121,13 @@ http-errors@1.6.3, http-errors@^1.3.0, http-errors@~1.6.1, http-errors@~1.6.2:
 http-parser-js@>=0.4.0:
   version "0.4.12"
   resolved "https://registry.yarnpkg.com/http-parser-js/-/http-parser-js-0.4.12.tgz#b9cfbf4a2cf26f0fc34b10ca1489a27771e3474f"
+
+http-proxy-agent@^2.1.0:
+  version "2.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/http-proxy-agent/-/http-proxy-agent-2.1.0.tgz#e4821beef5b2142a2026bd73926fe537631c5405"
+  dependencies:
+    agent-base "4"
+    debug "3.1.0"
 
 http-proxy-middleware@~0.18.0:
   version "0.18.0"
@@ -9062,6 +9158,19 @@ https-browserify@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/https-browserify/-/https-browserify-1.0.0.tgz#ec06c10e0a34c0f2faf199f7fd7fc78fffd03c73"
 
+https-proxy-agent@^2.2.1:
+  version "2.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/https-proxy-agent/-/https-proxy-agent-2.2.1.tgz#51552970fa04d723e04c56d04178c3f92592bbc0"
+  dependencies:
+    agent-base "^4.1.0"
+    debug "^3.1.0"
+
+humanize-ms@^1.2.1:
+  version "1.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/humanize-ms/-/humanize-ms-1.2.1.tgz#c46e3159a293f6b896da29316d8b6fe8bb79bbed"
+  dependencies:
+    ms "^2.0.0"
+
 humanize-url@^1.0.0:
   version "1.0.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/humanize-url/-/humanize-url-1.0.1.tgz#f4ab99e0d288174ca4e1e50407c55fbae464efff"
@@ -9080,6 +9189,12 @@ husky@^0.14.3:
 hyphenate-style-name@^1.0.1, hyphenate-style-name@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/hyphenate-style-name/-/hyphenate-style-name-1.0.2.tgz#31160a36930adaf1fc04c6074f7eb41465d4ec4b"
+
+iconv-lite@0.4:
+  version "0.4.24"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/iconv-lite/-/iconv-lite-0.4.24.tgz#2022b4b25fbddc21d2f524974a474aafe733908b"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3"
 
 iconv-lite@0.4.15:
   version "0.4.15"
@@ -10342,7 +10457,7 @@ json-loader@^0.5.7:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/json-loader/-/json-loader-0.5.7.tgz#dca14a70235ff82f0ac9a3abeb60d337a365185d"
 
-json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
+json-parse-better-errors@^1.0.0, json-parse-better-errors@^1.0.1, json-parse-better-errors@^1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/json-parse-better-errors/-/json-parse-better-errors-1.0.2.tgz#bb867cfb3450e69107c131d1c514bab3dc8bcaa9"
 
@@ -10507,11 +10622,25 @@ left-pad@^1.1.3, left-pad@^1.2.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/left-pad/-/left-pad-1.3.0.tgz#5b8a3a7765dfe001261dde915589e782f8c94d1e"
 
-lerna@^3.0.3:
-  version "3.0.4"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lerna/-/lerna-3.0.4.tgz#e072601abde4f1b2123bc459f6e1df1060feb71e"
+lerna@^3.2.1:
+  version "3.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lerna/-/lerna-3.2.1.tgz#7ec57c1972ec3fb6b0bced3cbbacd4485ebc1c14"
   dependencies:
-    "@lerna/cli" "^3.0.4"
+    "@lerna/add" "^3.2.0"
+    "@lerna/bootstrap" "^3.2.0"
+    "@lerna/changed" "^3.2.0"
+    "@lerna/clean" "^3.1.3"
+    "@lerna/cli" "^3.2.0"
+    "@lerna/create" "^3.1.3"
+    "@lerna/diff" "^3.1.3"
+    "@lerna/exec" "^3.1.3"
+    "@lerna/import" "^3.1.3"
+    "@lerna/init" "^3.1.3"
+    "@lerna/link" "^3.1.4"
+    "@lerna/list" "^3.1.3"
+    "@lerna/publish" "^3.2.1"
+    "@lerna/run" "^3.1.3"
+    "@lerna/version" "^3.2.0"
     import-local "^1.0.0"
     npmlog "^4.1.2"
 
@@ -10917,9 +11046,9 @@ lru-cache@^4.0.1:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
 
-lru-cache@^4.1.1:
+lru-cache@^4.1.1, lru-cache@^4.1.2, lru-cache@^4.1.3:
   version "4.1.3"
-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.3.tgz#a1175cf3496dfc8436c156c334b4955992bce69c"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/lru-cache/-/lru-cache-4.1.3.tgz#a1175cf3496dfc8436c156c334b4955992bce69c"
   dependencies:
     pseudomap "^1.0.2"
     yallist "^2.1.2"
@@ -10943,6 +11072,22 @@ make-dir@^1.1.0:
 make-error@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/make-error/-/make-error-1.3.4.tgz#19978ed575f9e9545d2ff8c13e33b5d18a67d535"
+
+make-fetch-happen@^4.0.1:
+  version "4.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/make-fetch-happen/-/make-fetch-happen-4.0.1.tgz#141497cb878f243ba93136c83d8aba12c216c083"
+  dependencies:
+    agentkeepalive "^3.4.1"
+    cacache "^11.0.1"
+    http-cache-semantics "^3.8.1"
+    http-proxy-agent "^2.1.0"
+    https-proxy-agent "^2.2.1"
+    lru-cache "^4.1.2"
+    mississippi "^3.0.0"
+    node-fetch-npm "^2.0.2"
+    promise-retry "^1.1.1"
+    socks-proxy-agent "^4.0.0"
+    ssri "^6.0.0"
 
 makeerror@1.0.x:
   version "1.0.11"
@@ -11501,6 +11646,13 @@ minipass@^2.2.1, minipass@^2.2.4:
     safe-buffer "^5.1.1"
     yallist "^3.0.0"
 
+minipass@^2.3.3:
+  version "2.3.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/minipass/-/minipass-2.3.4.tgz#4768d7605ed6194d6d576169b9e12ef71e9d9957"
+  dependencies:
+    safe-buffer "^5.1.2"
+    yallist "^3.0.0"
+
 minizlib@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.1.0.tgz#11e13658ce46bc3a70a267aac58359d1e0c29ceb"
@@ -11518,6 +11670,21 @@ mississippi@^2.0.0:
     from2 "^2.1.0"
     parallel-transform "^1.1.0"
     pump "^2.0.1"
+    pumpify "^1.3.3"
+    stream-each "^1.1.0"
+    through2 "^2.0.0"
+
+mississippi@^3.0.0:
+  version "3.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/mississippi/-/mississippi-3.0.0.tgz#ea0a3291f97e0b5e8776b363d5f0a12d94c67022"
+  dependencies:
+    concat-stream "^1.5.0"
+    duplexify "^3.4.2"
+    end-of-stream "^1.1.0"
+    flush-write-stream "^1.0.0"
+    from2 "^2.1.0"
+    parallel-transform "^1.1.0"
+    pump "^3.0.0"
     pumpify "^1.3.3"
     stream-each "^1.1.0"
     through2 "^2.0.0"
@@ -11586,9 +11753,9 @@ ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
 
-ms@2.1.1:
+ms@2.1.1, ms@^2.0.0:
   version "2.1.1"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
 
 multicast-dns-service-types@^1.1.0:
   version "1.1.0"
@@ -11697,6 +11864,14 @@ node-eta@^0.9.0:
   version "0.9.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/node-eta/-/node-eta-0.9.0.tgz#9fb0b099bcd2a021940e603c64254dc003d9a7a8"
 
+node-fetch-npm@^2.0.2:
+  version "2.0.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/node-fetch-npm/-/node-fetch-npm-2.0.2.tgz#7258c9046182dca345b4208eda918daf33697ff7"
+  dependencies:
+    encoding "^0.1.11"
+    json-parse-better-errors "^1.0.0"
+    safe-buffer "^5.1.1"
+
 node-fetch@2.0.0:
   version "2.0.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/node-fetch/-/node-fetch-2.0.0.tgz#982bba43ecd4f2922a29cc186a6bbb0bb73fcba6"
@@ -11707,6 +11882,10 @@ node-fetch@^1.0.1, node-fetch@^1.3.3:
   dependencies:
     encoding "^0.1.11"
     is-stream "^1.0.1"
+
+node-fetch@^2.1.2:
+  version "2.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/node-fetch/-/node-fetch-2.2.0.tgz#4ee79bde909262f9775f731e3656d0db55ced5b5"
 
 node-forge@0.7.5:
   version "0.7.5"
@@ -11843,7 +12022,7 @@ nopt@~1.0.10:
   dependencies:
     abbrev "1"
 
-normalize-package-data@^2.0.0, normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5:
+normalize-package-data@^2.0.0, normalize-package-data@^2.3.0, normalize-package-data@^2.3.2, normalize-package-data@^2.3.4, normalize-package-data@^2.3.5, normalize-package-data@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/normalize-package-data/-/normalize-package-data-2.4.0.tgz#12f95a307d58352075a04907b84ac8be98ac012f"
   dependencies:
@@ -11904,7 +12083,7 @@ npm-lifecycle@^2.0.0:
     umask "^1.1.0"
     which "^1.3.1"
 
-"npm-package-arg@^4.0.0 || ^5.0.0 || ^6.0.0", npm-package-arg@^6.0.0:
+"npm-package-arg@^4.0.0 || ^5.0.0 || ^6.0.0", npm-package-arg@^6.0.0, npm-package-arg@^6.1.0:
   version "6.1.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/npm-package-arg/-/npm-package-arg-6.1.0.tgz#15ae1e2758a5027efb4c250554b85a737db7fcc1"
   dependencies:
@@ -11912,6 +12091,13 @@ npm-lifecycle@^2.0.0:
     osenv "^0.1.5"
     semver "^5.5.0"
     validate-npm-package-name "^3.0.0"
+
+npm-packlist@^1.1.10:
+  version "1.1.11"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/npm-packlist/-/npm-packlist-1.1.11.tgz#84e8c683cbe7867d34b1d357d893ce29e28a02de"
+  dependencies:
+    ignore-walk "^3.0.1"
+    npm-bundled "^1.0.1"
 
 npm-packlist@^1.1.6:
   version "1.1.10"
@@ -11925,6 +12111,24 @@ npm-path@^2.0.2:
   resolved "https://registry.yarnpkg.com/npm-path/-/npm-path-2.0.4.tgz#c641347a5ff9d6a09e4d9bce5580c4f505278e64"
   dependencies:
     which "^1.2.10"
+
+npm-pick-manifest@^2.1.0:
+  version "2.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/npm-pick-manifest/-/npm-pick-manifest-2.1.0.tgz#dc381bdd670c35d81655e1d5a94aa3dd4d87fce5"
+  dependencies:
+    npm-package-arg "^6.0.0"
+    semver "^5.4.1"
+
+npm-registry-fetch@^3.0.0:
+  version "3.8.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/npm-registry-fetch/-/npm-registry-fetch-3.8.0.tgz#aa7d9a7c92aff94f48dba0984bdef4bd131c88cc"
+  dependencies:
+    JSONStream "^1.3.4"
+    bluebird "^3.5.1"
+    figgy-pudding "^3.4.1"
+    lru-cache "^4.1.3"
+    make-fetch-happen "^4.0.1"
+    npm-package-arg "^6.1.0"
 
 npm-run-all@^4.1.3:
   version "4.1.3"
@@ -12269,6 +12473,10 @@ p-map@^1.1.1, p-map@^1.2.0:
   version "1.2.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/p-map/-/p-map-1.2.0.tgz#e4e94f311eabbc8633a1e79908165fca26241b6b"
 
+p-pipe@^1.2.0:
+  version "1.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/p-pipe/-/p-pipe-1.2.0.tgz#4b1a11399a11520a67790ee5a0c1d5881d6befe9"
+
 p-reduce@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/p-reduce/-/p-reduce-1.0.0.tgz#18c2b0dd936a4690a529f8231f58a0fdb6a47dfa"
@@ -12299,7 +12507,7 @@ p-waterfall@^1.0.0:
   dependencies:
     p-reduce "^1.0.0"
 
-package-json@^4.0.0, package-json@^4.0.1:
+package-json@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/package-json/-/package-json-4.0.1.tgz#8869a0401253661c4c4ca3da6c2121ed555f5eed"
   dependencies:
@@ -12307,6 +12515,38 @@ package-json@^4.0.0, package-json@^4.0.1:
     registry-auth-token "^3.0.1"
     registry-url "^3.0.3"
     semver "^5.1.0"
+
+pacote@^9.1.0:
+  version "9.1.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/pacote/-/pacote-9.1.0.tgz#59810859bbd72984dcb267269259375d32f391e5"
+  dependencies:
+    bluebird "^3.5.1"
+    cacache "^11.0.2"
+    figgy-pudding "^3.2.1"
+    get-stream "^3.0.0"
+    glob "^7.1.2"
+    lru-cache "^4.1.3"
+    make-fetch-happen "^4.0.1"
+    minimatch "^3.0.4"
+    minipass "^2.3.3"
+    mississippi "^3.0.0"
+    mkdirp "^0.5.1"
+    normalize-package-data "^2.4.0"
+    npm-package-arg "^6.1.0"
+    npm-packlist "^1.1.10"
+    npm-pick-manifest "^2.1.0"
+    npm-registry-fetch "^3.0.0"
+    osenv "^0.1.5"
+    promise-inflight "^1.0.1"
+    promise-retry "^1.1.1"
+    protoduck "^5.0.0"
+    rimraf "^2.6.2"
+    safe-buffer "^5.1.2"
+    semver "^5.5.0"
+    ssri "^6.0.0"
+    tar "^4.4.3"
+    unique-filename "^1.1.0"
+    which "^1.3.0"
 
 pako@~1.0.5:
   version "1.0.6"
@@ -13276,6 +13516,13 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
 
+promise-retry@^1.1.1:
+  version "1.1.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/promise-retry/-/promise-retry-1.1.1.tgz#6739e968e3051da20ce6497fb2b50f6911df3d6d"
+  dependencies:
+    err-code "^1.0.0"
+    retry "^0.10.0"
+
 promise.prototype.finally@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/promise.prototype.finally/-/promise.prototype.finally-3.1.0.tgz#66f161b1643636e50e7cf201dc1b84a857f3864e"
@@ -13332,6 +13579,12 @@ proto-list@~1.2.1:
   version "1.2.4"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/proto-list/-/proto-list-1.2.4.tgz#212d5bfe1318306a420f6402b8e26ff39647a849"
 
+protoduck@^5.0.0:
+  version "5.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/protoduck/-/protoduck-5.0.0.tgz#752145e6be0ad834cb25716f670a713c860dce70"
+  dependencies:
+    genfun "^4.0.1"
+
 proxy-addr@~1.1.5:
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/proxy-addr/-/proxy-addr-1.1.5.tgz#71c0ee3b102de3f202f3b64f608d173fcba1a918"
@@ -13377,6 +13630,13 @@ public-encrypt@^4.0.0:
 pump@^2.0.0, pump@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/pump/-/pump-2.0.1.tgz#12399add6e4cf7526d973cbc8b5ce2e2908b3909"
+  dependencies:
+    end-of-stream "^1.1.0"
+    once "^1.3.1"
+
+pump@^3.0.0:
+  version "3.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/pump/-/pump-3.0.0.tgz#b4a2116815bde2f4e1ea602354e8c75565107a64"
   dependencies:
     end-of-stream "^1.1.0"
     once "^1.3.1"
@@ -14503,6 +14763,10 @@ retext-english@^3.0.0:
     parse-english "^4.0.0"
     unherit "^1.0.4"
 
+retry@^0.10.0:
+  version "0.10.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/retry/-/retry-0.10.1.tgz#e76388d217992c252750241d3d3956fed98d8ff4"
+
 rgb-regex@^1.0.1:
   version "1.0.1"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rgb-regex/-/rgb-regex-1.0.1.tgz#c0e0d6882df0e23be254a475e8edd41915feaeb1"
@@ -14538,17 +14802,6 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-rollup-plugin-virtual@^1.0.1:
-  version "1.0.1"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rollup-plugin-virtual/-/rollup-plugin-virtual-1.0.1.tgz#8227c94c605b981adfe433ea74de3551e42ffeb4"
-
-rollup@^0.64.1:
-  version "0.64.1"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rollup/-/rollup-0.64.1.tgz#9188ee368e5fcd43ffbc00ec414e72eeb5de87ba"
-  dependencies:
-    "@types/estree" "0.0.39"
-    "@types/node" "*"
-
 run-async@^2.0.0, run-async@^2.2.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/run-async/-/run-async-2.3.0.tgz#0371ab4ae0bdd720d4166d7dfda64ff7a445a6c0"
@@ -14560,6 +14813,10 @@ run-queue@^1.0.0, run-queue@^1.0.3:
   resolved "https://registry.yarnpkg.com/run-queue/-/run-queue-1.0.3.tgz#e848396f057d223f24386924618e25694161ec47"
   dependencies:
     aproba "^1.1.1"
+
+rw@1:
+  version "1.3.3"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/rw/-/rw-1.3.3.tgz#3f862dfa91ab766b14885ef4d01124bfda074fb4"
 
 rx-lite-aggregates@^4.0.8:
   version "4.0.8"
@@ -14927,6 +15184,10 @@ slide@^1.1.5, slide@^1.1.6:
   version "1.1.6"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/slide/-/slide-1.1.6.tgz#56eb027d65b4d2dce6cb2e2d32c4d4afc9e1d707"
 
+smart-buffer@^4.0.1:
+  version "4.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/smart-buffer/-/smart-buffer-4.0.1.tgz#07ea1ca8d4db24eb4cac86537d7d18995221ace3"
+
 snapdragon-node@^2.0.1:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/snapdragon-node/-/snapdragon-node-2.1.1.tgz#6c175f86ff14bdb0724563e8f3c1b021a286853b"
@@ -15073,6 +15334,20 @@ sockjs@0.3.19:
     faye-websocket "^0.10.0"
     uuid "^3.0.1"
 
+socks-proxy-agent@^4.0.0:
+  version "4.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/socks-proxy-agent/-/socks-proxy-agent-4.0.1.tgz#5936bf8b707a993079c6f37db2091821bffa6473"
+  dependencies:
+    agent-base "~4.2.0"
+    socks "~2.2.0"
+
+socks@~2.2.0:
+  version "2.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/socks/-/socks-2.2.1.tgz#68ad678b3642fbc5d99c64c165bc561eab0215f9"
+  dependencies:
+    ip "^1.1.5"
+    smart-buffer "^4.0.1"
+
 sort-keys@^1.0.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-1.1.2.tgz#441b6d4d346798f1b4e49e8920adfba0e543f9ad"
@@ -15084,10 +15359,6 @@ sort-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/sort-keys/-/sort-keys-2.0.0.tgz#658535584861ec97d730d6cf41822e1f56684128"
   dependencies:
     is-plain-obj "^1.0.0"
-
-sorted-array@^2.0.2:
-  version "2.0.2"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/sorted-array/-/sorted-array-2.0.2.tgz#b55123483a243e965adc79cc14c5160464d91d86"
 
 source-list-map@^2.0.0:
   version "2.0.0"
@@ -15259,6 +15530,12 @@ ssri@^5.2.4:
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
   dependencies:
     safe-buffer "^5.1.1"
+
+ssri@^6.0.0:
+  version "6.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"
+  dependencies:
+    figgy-pudding "^3.5.1"
 
 stable@~0.1.6:
   version "0.1.8"
@@ -15725,6 +16002,18 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
+tar@^4.4.3:
+  version "4.4.6"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/tar/-/tar-4.4.6.tgz#63110f09c00b4e60ac8bcfe1bf3c8660235fbc9b"
+  dependencies:
+    chownr "^1.0.1"
+    fs-minipass "^1.2.5"
+    minipass "^2.3.3"
+    minizlib "^1.1.0"
+    mkdirp "^0.5.0"
+    safe-buffer "^5.1.2"
+    yallist "^3.0.2"
+
 temp-dir@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/temp-dir/-/temp-dir-1.0.0.tgz#0a7c0ea26d3a39afa7e0ebea9c1fc0bc4daa011d"
@@ -15879,6 +16168,12 @@ topo@2.x.x:
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/topo/-/topo-2.0.2.tgz#cd5615752539057c0dc0491a621c3bc6fbe1d182"
   dependencies:
     hoek "4.x.x"
+
+topojson-client@^3.0.0:
+  version "3.0.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/topojson-client/-/topojson-client-3.0.0.tgz#1f99293a77ef42a448d032a81aa982b73f360d2f"
+  dependencies:
+    commander "2"
 
 toposort@^1.0.0:
   version "1.0.7"
@@ -16512,6 +16807,64 @@ vary@~1.1.1, vary@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
 
+vega-dataflow@^4.0.3, vega-dataflow@^4.0.4:
+  version "4.0.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-dataflow/-/vega-dataflow-4.0.4.tgz#e2f4b4805618d01c0b833a93484d3c244675fba3"
+  dependencies:
+    vega-loader "^3.0.1"
+    vega-util "^1.7.0"
+
+vega-encode@^3.1.4:
+  version "3.1.4"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-encode/-/vega-encode-3.1.4.tgz#ecf1bdeb7a01bc07ed86fb0bfb6ae32d34f6279b"
+  dependencies:
+    d3-array "^1.2.1"
+    d3-format "^1.3.0"
+    d3-interpolate "^1.2.0"
+    vega-dataflow "^4.0.3"
+    vega-scale "^2.4.0"
+    vega-util "^1.7.0"
+
+vega-loader@^3.0.1:
+  version "3.0.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-loader/-/vega-loader-3.0.1.tgz#728426b54e74de7dbc91d418e05230bc7ee23a88"
+  dependencies:
+    d3-dsv "^1.0.8"
+    d3-time-format "^2.1.1"
+    node-fetch "^2.1.2"
+    topojson-client "^3.0.0"
+    vega-util "^1.7.0"
+
+vega-scale@^2.4.0:
+  version "2.4.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-scale/-/vega-scale-2.4.0.tgz#184b11979e643463ed45dfae9142e42b5a35eecc"
+  dependencies:
+    d3-array "^1.2.1"
+    d3-interpolate "^1.2.0"
+    d3-scale "^2.1.0"
+    d3-scale-chromatic "^1.3.0"
+    d3-time "^1.0.8"
+    vega-util "^1.7.0"
+
+vega-statistics@^1.2.1:
+  version "1.2.1"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-statistics/-/vega-statistics-1.2.1.tgz#a35b3fc3d0039f8bb0a8ba1381d42a1df79ecb34"
+  dependencies:
+    d3-array "1"
+
+vega-transforms@^2.2.0:
+  version "2.2.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-transforms/-/vega-transforms-2.2.0.tgz#5f427632abf6d4226249435fadf0b8d7d74e79bc"
+  dependencies:
+    d3-array "^1.2.1"
+    vega-dataflow "^4.0.4"
+    vega-statistics "^1.2.1"
+    vega-util "^1.7.0"
+
+vega-util@^1.7.0:
+  version "1.7.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-util/-/vega-util-1.7.0.tgz#0ca0512bb8dcc6541165c34663d115d0712e0cf1"
+
 velocity-animate@^1.4.0:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/velocity-animate/-/velocity-animate-1.5.1.tgz#606837047bab8fbfb59a636d1d82ecc3f7bd71a6"
@@ -16874,6 +17227,14 @@ whatwg-mimetype@^2.0.0, whatwg-mimetype@^2.1.0:
 whatwg-url@^6.4.0:
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/whatwg-url/-/whatwg-url-6.4.1.tgz#fdb94b440fd4ad836202c16e9737d511f012fd67"
+  dependencies:
+    lodash.sortby "^4.7.0"
+    tr46 "^1.0.1"
+    webidl-conversions "^4.0.2"
+
+whatwg-url@^6.5.0:
+  version "6.5.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/whatwg-url/-/whatwg-url-6.5.0.tgz#f2df02bff176fd65070df74ad5ccbb5a199965a8"
   dependencies:
     lodash.sortby "^4.7.0"
     tr46 "^1.0.1"
