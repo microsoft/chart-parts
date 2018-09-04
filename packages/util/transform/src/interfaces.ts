@@ -1,5 +1,11 @@
 export type FieldAccessor = string // | ((row: any) => number)
 
+export enum TextCaseTransform {
+	lower = 'lower',
+	upper = 'upper',
+	mixed = 'mixed',
+}
+
 export enum CompareOrder {
 	ascending = 'asc',
 	descending = 'desc',
