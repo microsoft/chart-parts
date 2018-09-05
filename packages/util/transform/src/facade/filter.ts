@@ -6,7 +6,7 @@ declare var require: any
 const { filter: vegaFilter } = require('vega-transforms')
 
 /**
- * The cross transform compute the cross-product of a data stream with itself.
+ * The filter transform removes objects from a data stream based on a provided filter expression.
  */
 export interface FilterBuilder extends DatasetTransform {
 	/**
