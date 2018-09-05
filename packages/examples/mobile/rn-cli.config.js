@@ -1,5 +1,4 @@
 const path = require('path')
-// const blacklist = require('metro/src/blacklist')
 
 module.exports = {
 	extraNodeModules: {
