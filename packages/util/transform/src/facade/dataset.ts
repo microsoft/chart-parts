@@ -19,9 +19,15 @@ export interface DatasetManager {
 	 * @param name the name of the dataset to add
 	 * @param dataset the array of data rows to add
 	 */
-	add(
+	addTable(
 		name: string,
 		dataset: any[],
+		...transforms: DatasetTransform[]
+	): DatasetManager
+
+	addDerivedTable(
+		name: string,
+		source: string,
 		...transforms: DatasetTransform[]
 	): DatasetManager
 
@@ -29,25 +35,41 @@ export interface DatasetManager {
 	 * Gets a dataset
 	 * @param name The name of the dataset
 	 */
-	get(name: string): any[]
+	getTable(name: string): any[]
 }
 
 export class DatasetManagerImpl implements DatasetManager {
 	// Datasets are stored in a vega transform pipeline
 	private pipelines: Map<string, Pipeline> = new Map()
 
-	public add(name: string, data: any[], ...transforms: DatasetTransform[]) {
+	public addTable(
+		name: string,
+		data: any[],
+		...transforms: DatasetTransform[]
+	) {
 		const pipeline = createTransformPipeline(transforms, this)
 		pushData(data, pipeline)
 		this.pipelines.set(name, pipeline)
 		return this
 	}
 
-	public get(name: string): any[] {
+	public addDerivedTable(
+		name: string,
+		from: string,
+		...transforms: DatasetTransform[]
+	) {
+		const pipeline = createTransformPipeline(transforms, this)
+		const sourceTable = this.getTable(from)
+		pushData(sourceTable, pipeline)
+		this.pipelines.set(name, pipeline)
+		return this
+	}
+
+	public getTable(name: string): any[] {
 		const ds = this.pipelines.get(name)
 		const result = ds && ds.end.value
 		if (!result) {
-			throw new Error(`could not get dataset ${name}`)
+			throw new Error(`could not find table ${name}`)
 		}
 		return result
 	}

@@ -1,13 +1,12 @@
-import { dataset } from '../dataset'
-import { cross } from '../cross'
+import { dataset, cross } from '..'
 
 describe('The cross transform', () => {
 	it('can count instances of a pattern in text data', () => {
 		const data = [{ v: 1 }, { v: 2 }, { v: 3 }]
 
 		const ds = dataset()
-			.add('data-crossed', data, cross())
-			.add(
+			.addTable('data-crossed', data, cross())
+			.addTable(
 				'data-crossed-and-filtered',
 				data,
 				cross().filter((d: any) => d.a !== d.b),
@@ -18,8 +17,8 @@ describe('The cross transform', () => {
 			b: { v: d.b.v },
 		})
 
-		const crossed = (ds.get('data-crossed') as any[]).map(mapRow)
-		const crossedAndFiltered = (ds.get(
+		const crossed = (ds.getTable('data-crossed') as any[]).map(mapRow)
+		const crossedAndFiltered = (ds.getTable(
 			'data-crossed-and-filtered',
 		) as any[]).map(mapRow)
 

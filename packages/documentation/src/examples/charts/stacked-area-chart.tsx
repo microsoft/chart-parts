@@ -40,7 +40,7 @@ const data = [
   { x: 9, y: 15, c: 1 },
 ]
 
-const ds = dataset().add(
+const ds = dataset().addTable(
   'data',
   data,
   stack('y')
@@ -55,7 +55,7 @@ export default class StackedAreaChart extends React.Component {
         width={500}
         height={200}
         renderer={renderer}
-        data={{ data: ds.get('data') as any[] }}
+        data={{ data: ds.getTable('data') as any[] }}
       >
         <PointScale name="x" table="data" domain="x" range={Dimension.Width} />
         <LinearScale

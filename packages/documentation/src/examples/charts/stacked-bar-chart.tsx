@@ -37,7 +37,7 @@ const dataArray = [
   { x: 9, y: 49, c: 0 },
   { x: 9, y: 15, c: 1 },
 ]
-const ds = dataset().add(
+const ds = dataset().addTable(
   'data',
   dataArray,
   stack('y')
@@ -63,7 +63,7 @@ export default class StackedBarChart extends React.Component<
       <Chart
         width={500}
         height={200}
-        data={{ data: ds.get('data') as any[] }}
+        data={{ data: ds.getTable('data') as any[] }}
         renderer={renderer}
       >
         {/* Scale Definitions */}

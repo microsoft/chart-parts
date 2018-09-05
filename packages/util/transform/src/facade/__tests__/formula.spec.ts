@@ -1,5 +1,4 @@
-import { formula } from '../formula'
-import { dataset } from '../dataset'
+import { formula, dataset } from '..'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -26,10 +25,14 @@ const data = [
 
 describe('The formula transformation', () => {
 	it('can formula values', () => {
-		const ds = dataset().add('data', data, formula(d => d.c * 2).as('derp'))
+		const ds = dataset().addTable(
+			'data',
+			data,
+			formula(d => d.c * 2).as('derp'),
+		)
 
-		// The result should not be the same instance (i.e. preserve the input for functional style)
-		const transformed = ds.get('data')
+		// The result should not be the same instance (i.e. pr\eserve the input for functional style)
+		const transformed = ds.getTable('data')
 		expect(transformed.length).toEqual(data.length)
 		transformed.forEach(t => {
 			expect(t.derp).toEqual(t.c * 2)

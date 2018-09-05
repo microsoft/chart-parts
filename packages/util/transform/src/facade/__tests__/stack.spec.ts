@@ -1,5 +1,4 @@
-import { stack } from '../stack'
-import { dataset } from '../dataset'
+import { stack, dataset } from '..'
 import { Offset, CompareOrder } from '../../interfaces'
 
 const data = [
@@ -28,9 +27,9 @@ const data = [
 describe('The stack transformation', () => {
 	it('can stack values', () => {
 		const ds = dataset()
-			.add('data', data, stack('y'))
-			.add('data-grouped', data, stack('y').groupBy('x'))
-			.add(
+			.addTable('data', data, stack('y'))
+			.addTable('data-grouped', data, stack('y').groupBy('x'))
+			.addTable(
 				'data-grouped-sorted-and-offset',
 				data,
 				stack('y')
@@ -40,8 +39,8 @@ describe('The stack transformation', () => {
 			)
 
 		// The result should not be the same instance (i.e. preserve the input for functional style)
-		expect(ds.get('data')).toMatchSnapshot()
-		expect(ds.get('data-grouped')).toMatchSnapshot()
-		expect(ds.get('data-grouped-sorted-and-offset')).toMatchSnapshot()
+		expect(ds.getTable('data')).toMatchSnapshot()
+		expect(ds.getTable('data-grouped')).toMatchSnapshot()
+		expect(ds.getTable('data-grouped-sorted-and-offset')).toMatchSnapshot()
 	})
 })

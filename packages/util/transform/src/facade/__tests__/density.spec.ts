@@ -3,19 +3,19 @@ import { dataset } from '../dataset'
 
 describe('The density() transform', () => {
 	it('can generate a new normal distribution', () => {
-		const ds = dataset().add(
+		const ds = dataset().addTable(
 			'data',
 			[],
 			density()
 				.extent(0, 10)
 				.distribution(normal()),
 		)
-		const generated = ds.get('data') as any
+		const generated = ds.getTable('data') as any
 		expect(generated.length).toBeGreaterThan(0)
 	})
 
 	it('can generate a new uniform distribution', () => {
-		const ds = dataset().add(
+		const ds = dataset().addTable(
 			'data',
 			[],
 			density()
@@ -27,13 +27,13 @@ describe('The density() transform', () => {
 				.extent(0, 10),
 		)
 
-		const generated = ds.get('data') as any
+		const generated = ds.getTable('data') as any
 		expect(generated.length).toBeGreaterThan(0)
 	})
 
 	it('can generate a new kde distribution', () => {
 		const ds = dataset()
-			.add(
+			.addTable(
 				'generated',
 				[],
 				density()
@@ -44,7 +44,7 @@ describe('The density() transform', () => {
 					)
 					.extent(0, 10),
 			)
-			.add(
+			.addTable(
 				'kde',
 				[],
 				density().distribution(
@@ -55,12 +55,12 @@ describe('The density() transform', () => {
 				),
 			)
 
-		const kdeResult = ds.get('kde') as any
+		const kdeResult = ds.getTable('kde') as any
 		expect(kdeResult.length).toBeGreaterThan(0)
 	})
 
 	it('can generate a new mixture distribution', () => {
-		const ds = dataset().add(
+		const ds = dataset().addTable(
 			'data',
 			[],
 			density()
@@ -76,7 +76,7 @@ describe('The density() transform', () => {
 						.weights(50, 50),
 				),
 		)
-		const generated = ds.get('data') as any
+		const generated = ds.getTable('data') as any
 		expect(generated.length).toBeGreaterThan(0)
 	})
 })

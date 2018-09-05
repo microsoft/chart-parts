@@ -63,7 +63,7 @@ export class KdeDistributionBuilderImpl implements KdeDistributionBuilder {
 		}
 		return {
 			function: 'kde',
-			from: ds.get(this.fromValue),
+			from: ds.getTable(this.fromValue),
 			field: vegaField(this.fieldValue),
 			bandwidth: this.bandwidthValue,
 		}

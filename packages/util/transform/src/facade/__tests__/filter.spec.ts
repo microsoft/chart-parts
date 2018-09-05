@@ -1,5 +1,4 @@
-import { filter } from '../filter'
-import { dataset } from '../dataset'
+import { filter, dataset } from '..'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -26,9 +25,9 @@ const data = [
 
 describe('The filter transformation', () => {
 	it('can filter values', () => {
-		const ds = dataset().add('data', data, filter(d => d.x > 5))
+		const ds = dataset().addTable('data', data, filter(d => d.x > 5))
 
 		// The result should not be the same instance (i.e. preserve the input for functional style)
-		expect(ds.get('data').length).toEqual(8)
+		expect(ds.getTable('data').length).toEqual(8)
 	})
 })

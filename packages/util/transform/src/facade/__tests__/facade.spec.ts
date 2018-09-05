@@ -8,8 +8,8 @@ describe('The data management facade', () => {
 
 		it('can add new raw data tables', () => {
 			const table = [{ x: 1 }, { x: 2 }, { x: 3 }]
-			const ds = dataset().add('table', table)
-			expect(ds.get('table')).toEqual(table)
+			const ds = dataset().addTable('table', table)
+			expect(ds.getTable('table')).toEqual(table)
 		})
 
 		it('can perform a basic aggregation', () => {
@@ -20,7 +20,7 @@ describe('The data management facade', () => {
 				{ foo: null, bar: 3 },
 			]
 
-			const ds = dataset().add(
+			const ds = dataset().addTable(
 				'table',
 				data,
 				aggregate().compute(
@@ -30,7 +30,7 @@ describe('The data management facade', () => {
 				),
 			)
 
-			const aggregated = ds.get('table')
+			const aggregated = ds.getTable('table')
 			expect(aggregated[0].v).toEqual(2)
 			expect(aggregated[0].s).toEqual(6)
 			expect(aggregated[0].m).toEqual(2)
@@ -43,8 +43,8 @@ describe('The data management facade', () => {
 				{ foo: 'b', bar: 3 },
 			]
 
-			const ds = dataset().add('table', data, aggregate().groupBy('foo'))
-			const aggregated = ds.get('table')
+			const ds = dataset().addTable('table', data, aggregate().groupBy('foo'))
+			const aggregated = ds.getTable('table')
 			expect(aggregated.length).toEqual(2)
 		})
 	})
