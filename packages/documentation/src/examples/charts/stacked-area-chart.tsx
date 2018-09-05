@@ -13,7 +13,7 @@ import {
 } from '@markable/react'
 import { AxisOrientation, Interpolation } from '@markable/interfaces'
 import { Renderer } from '@markable/react-svg-renderer'
-import { StackTransform } from '@markable/transform'
+import { stack, dataset } from '@markable/transform'
 
 const renderer = new Renderer()
 
@@ -40,11 +40,13 @@ const data = [
   { x: 9, y: 15, c: 1 },
 ]
 
-const stackedData = new StackTransform()
-  .groupBy((r: any) => r.x)
-  .field((r: any) => r.y)
-  .sort({ field: (r: any) => r.c })
-  .transform(data)
+const ds = dataset().addTable(
+  'data',
+  data,
+  stack('y')
+    .groupBy('x')
+    .sort({ field: 'c' })
+)
 
 export default class StackedAreaChart extends React.Component {
   public render() {
@@ -53,7 +55,7 @@ export default class StackedAreaChart extends React.Component {
         width={500}
         height={200}
         renderer={renderer}
-        data={{ data: stackedData }}
+        data={{ data: ds.getTable('data') as any[] }}
       >
         <PointScale name="x" table="data" domain="x" range={Dimension.Width} />
         <LinearScale

@@ -16,6 +16,9 @@
 		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"lodash": "^4.17.10"
+		"vega-dataflow": "^4.0.4",
+		"vega-encode": "^3.1.4",
+		"vega-transforms": "^2.2.0",
+		"vega-util": "^1.7.0"
 	}
 }

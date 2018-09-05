@@ -10,7 +10,7 @@ import {
 	CategoricalColorScheme,
 } from '@markable/react'
 import { Renderer } from '@markable/react-svg-renderer'
-import { StackTransform } from '@markable/transform'
+import { dataset, stack } from '@markable/transform'
 
 const renderer = new Renderer()
 const data = [
@@ -35,12 +35,14 @@ const data = [
 	{ x: 9, y: 49, c: 0 },
 	{ x: 9, y: 15, c: 1 },
 ]
-const stackedData = new StackTransform()
-	.groupBy((r: any) => r.x)
-	.field((r: any) => r.y)
-	.sort({ field: (r: any) => r.c })
-	.transform(data)
 
+const ds = dataset().addTable(
+	'data',
+	data,
+	stack('y')
+		.groupBy('x')
+		.sort({ field: 'c' }),
+)
 export interface StackedBarChartState {
 	hoverRowIndex?: number
 }
@@ -49,16 +51,14 @@ export interface StackedBarChartState {
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
  */
 export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
-	constructor(props: {}) {
-		super(props)
-		this.state = {}
-	}
+	public state: StackedBarChartState = {}
+
 	public render() {
 		return (
 			<Chart
 				width={500}
 				height={200}
-				data={{ data: stackedData }}
+				data={{ data: ds.getTable('data') as any[] }}
 				renderer={renderer}
 			>
 				<BandScale

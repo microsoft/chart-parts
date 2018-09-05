@@ -1,4 +1,10 @@
-export type FieldAccessor = (row: any) => number
+export type FieldAccessor = string // | ((row: any) => number)
+
+export enum TextCaseTransform {
+	lower = 'lower',
+	upper = 'upper',
+	mixed = 'mixed',
+}
 
 export enum CompareOrder {
 	ascending = 'asc',
@@ -16,20 +22,10 @@ export enum Offset {
 	normalize = 'normalize',
 }
 
-export function createSorter(sorts: Compare[]) {
-	return (a: any, b: any) => {
-		let result = 0
-		for (const sort of sorts) {
-			const { order = CompareOrder.descending, field } = sort
-			const valueA = field(a)
-			const valueB = field(b)
-			if (order === CompareOrder.ascending) {
-				result = valueA - valueB
-			}
-			if (result !== 0) {
-				break
-			}
-		}
-		return result
-	}
-}
+export type CompareFunction<T> = (a: T, b: T) => number
+export type EqualityFunction<T> = (a: T, b: T) => boolean
+export type GetKeyFunction<T> = (item: T) => any
+export type Predicate<T> = (item: T) => boolean
+export type Transformer<T, K> = (input: T) => K
+
+export type MaybeNumber = number | undefined

@@ -1,0 +1,202 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Building Charts can build a basic bar chart 1`] = `
+Object {
+  "axes": Array [],
+  "marks": Array [
+    Object {
+      "channels": Object {},
+      "child": Object {
+        "axes": Array [
+          Object {
+            "bandPosition": 0.5,
+            "domain": true,
+            "domainColor": "#777",
+            "domainWidth": 1,
+            "labelAlign": undefined,
+            "labelAngle": undefined,
+            "labelColor": "#000",
+            "labelFont": "sans-serif",
+            "labelFontSize": 10,
+            "labelFontWeight": undefined,
+            "labelFormat": undefined,
+            "labelPadding": 1,
+            "labels": true,
+            "orient": "bottom",
+            "scale": "x",
+            "thickness": 25,
+            "tickColor": "#777",
+            "tickCount": undefined,
+            "tickOffset": 0,
+            "tickRound": false,
+            "tickSize": 5,
+            "tickWidth": 1,
+            "ticks": true,
+            "values": undefined,
+          },
+          Object {
+            "bandPosition": 0.5,
+            "domain": true,
+            "domainColor": "#777",
+            "domainWidth": 1,
+            "labelAlign": undefined,
+            "labelAngle": undefined,
+            "labelColor": "#000",
+            "labelFont": "sans-serif",
+            "labelFontSize": 10,
+            "labelFontWeight": undefined,
+            "labelFormat": undefined,
+            "labelPadding": 1,
+            "labels": true,
+            "orient": "left",
+            "scale": "y",
+            "thickness": 25,
+            "tickColor": "#777",
+            "tickCount": undefined,
+            "tickOffset": 0,
+            "tickRound": false,
+            "tickSize": 5,
+            "tickWidth": 1,
+            "ticks": true,
+            "values": undefined,
+          },
+        ],
+        "marks": Array [
+          Object {
+            "channels": Object {
+              "onMouseEnter": [Function],
+              "onMouseLeave": [Function],
+            },
+            "child": undefined,
+            "encodings": Object {
+              "fill": [Function],
+              "width": [Function],
+              "x": [Function],
+              "y": [Function],
+              "y2": [Function],
+            },
+            "facet": undefined,
+            "name": undefined,
+            "role": undefined,
+            "singleton": undefined,
+            "table": "data",
+            "type": "rect",
+          },
+        ],
+        "scales": Array [
+          [Function],
+          [Function],
+        ],
+      },
+      "encodings": Object {
+        "height": [Function],
+        "width": [Function],
+        "x": [Function],
+        "y": [Function],
+        "zIndex": [Function],
+      },
+      "facet": undefined,
+      "name": "root",
+      "role": "frame",
+      "singleton": true,
+      "table": undefined,
+      "type": "group",
+    },
+  ],
+  "scales": Array [],
+}
+`;
+
+exports[`Building Charts can build a grouped bar chart 1`] = `
+Object {
+  "axes": Array [],
+  "marks": Array [
+    Object {
+      "channels": Object {},
+      "child": Object {
+        "axes": Array [],
+        "marks": Array [
+          Object {
+            "channels": Object {},
+            "child": Object {
+              "axes": Array [],
+              "marks": Array [
+                Object {
+                  "channels": Object {},
+                  "child": undefined,
+                  "encodings": Object {
+                    "fill": [Function],
+                    "height": [Function],
+                    "x": [Function],
+                    "x2": [Function],
+                    "y": [Function],
+                  },
+                  "facet": undefined,
+                  "name": "bars",
+                  "role": undefined,
+                  "singleton": undefined,
+                  "table": "facet",
+                  "type": "rect",
+                },
+                Object {
+                  "channels": Object {},
+                  "child": undefined,
+                  "encodings": Object {
+                    "align": [Function],
+                    "baseline": [Function],
+                    "fill": [Function],
+                    "text": [Function],
+                    "x": [Function],
+                    "y": [Function],
+                  },
+                  "facet": undefined,
+                  "name": undefined,
+                  "role": undefined,
+                  "singleton": undefined,
+                  "table": "facet",
+                  "type": "text",
+                },
+              ],
+              "scales": Array [
+                [Function],
+              ],
+            },
+            "encodings": Object {
+              "height": [Function],
+              "y": [Function],
+            },
+            "facet": Object {
+              "name": "facet",
+              "partitionOn": [Function],
+            },
+            "name": "chartgroup",
+            "role": undefined,
+            "singleton": undefined,
+            "table": "data",
+            "type": "group",
+          },
+        ],
+        "scales": Array [
+          [Function],
+          [Function],
+          [Function],
+        ],
+      },
+      "encodings": Object {
+        "height": [Function],
+        "width": [Function],
+        "x": [Function],
+        "y": [Function],
+        "zIndex": [Function],
+      },
+      "facet": undefined,
+      "name": "root",
+      "role": "frame",
+      "singleton": true,
+      "table": undefined,
+      "type": "group",
+    },
+  ],
+  "scales": Array [],
+}
+`;
