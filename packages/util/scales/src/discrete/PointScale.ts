@@ -1,7 +1,13 @@
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { Dimension, ScaleCreationContext, Scales, Scale } from '@markable/interfaces'
+import {
+	Dimension,
+	ScaleCreationContext,
+	Scales,
+	Scale,
+} from '@markable/interfaces'
 import { getBoundRange } from '../getBoundRange'
+import { optionalArgument } from '../util'
 
 export class PointScale extends DomainRangeScale<
 	string[],
@@ -16,7 +22,7 @@ export class PointScale extends DomainRangeScale<
 	/**
 	 * Bin alignment 0-beginning, 1=end
 	 */
-	public align(value: number) {
+	public align(value?: number) {
 		this.alignValue = value
 		return this
 	}
@@ -24,13 +30,13 @@ export class PointScale extends DomainRangeScale<
 	/**
 	 * The outer and inner padding value
 	 */
-	public padding(value: number) {
+	public padding(value?: number) {
 		this.paddingValue = value
 		return this
 	}
 
-	public round(value: boolean) {
-		this.roundValue = value
+	public round(value?: boolean) {
+		this.roundValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
