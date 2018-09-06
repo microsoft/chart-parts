@@ -4,6 +4,7 @@ import {
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
+import { propToBool } from '../util'
 
 export interface LogScaleProps
 	extends QuantitativeScaleProps<QuantitativeValue, number> {
@@ -20,12 +21,12 @@ export class LogScale extends QuantitativeScale<
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
+			.zero(propToBool(this.props.zero))
+			.clamp(propToBool(this.props.clamp))
+			.nice(propToBool(this.props.nice))
+			.reverse(propToBool(this.isReversed))
 			.base(this.props.base)
 			.padding(this.props.padding)
-			.reverse(this.isReversed)
 			.build()
 	}
 }

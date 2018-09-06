@@ -27,7 +27,7 @@ export abstract class QuantitativeScale<
 	 *  may return a value outside the range through extrapolation. If clamping is enabled,
 	 * the output value of the scale is always within the scale’s range.
 	 */
-	public clamp(value?: boolean) {
+	public clamp(value: boolean = true) {
 		this.clampValue = value
 		return this
 	}
@@ -54,7 +54,7 @@ export abstract class QuantitativeScale<
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
 
-	public zero(value?: boolean) {
+	public zero(value: boolean = true) {
 		this.zeroValue = value
 		return this
 	}
@@ -91,7 +91,7 @@ export abstract class QuantitativeScale<
 	}
 
 	protected getZero() {
-		return this.zeroValue || this.defaultZero
+		return this.zeroValue !== undefined ? this.zeroValue : this.defaultZero
 	}
 
 	protected handleRangeBind(

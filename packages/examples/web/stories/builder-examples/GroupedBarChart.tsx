@@ -51,8 +51,8 @@ export class GroupedBarChart extends React.Component<{}> {
 							.table('data')
 							.domain('value')
 							.range(Dimension.Width)
-							.nice(true)
-							.zero(true),
+							.nice()
+							.zero(),
 						ordinal('color')
 							.table('data')
 							.domain('position')

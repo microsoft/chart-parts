@@ -1,6 +1,7 @@
 import { Dimension } from '@markable/interfaces'
 import { band } from '@markable/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
+import { propToBool } from '../util'
 
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -51,8 +52,8 @@ export class BandScale extends DomainRangeScale<
 			.padding(this.props.padding)
 			.paddingOuter(this.props.paddingOuter)
 			.paddingInner(this.props.paddingInner)
-			.round(this.props.round)
-			.reverse(this.isReversed)
+			.round(propToBool(this.props.round))
+			.reverse(propToBool(this.isReversed))
 			.build()
 	}
 }

@@ -1,7 +1,7 @@
 import { Dimension } from '@markable/interfaces'
 import { point } from '@markable/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-
+import { propToBool } from '../util'
 const DEFAULT_ALIGN = 0.5
 
 export interface PointScaleProps
@@ -37,7 +37,7 @@ export class PointScale extends DomainRangeScale<
 			.stepName(stepName)
 			.align(this.props.align == null ? DEFAULT_ALIGN : this.props.align)
 			.padding(this.props.padding || 0)
-			.reverse(this.isReversed)
+			.reverse(propToBool(this.isReversed))
 			.build()
 	}
 }

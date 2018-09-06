@@ -45,7 +45,13 @@ const data = [
 export default class LineChart extends React.Component {
   public render() {
     return (
-      <Chart width={500} height={200} renderer={renderer} data={{ data }}>
+      <Chart
+        width={500}
+        height={200}
+        padding={5}
+        renderer={renderer}
+        data={{ data }}
+      >
         <PointScale
           name="x"
           table="data"

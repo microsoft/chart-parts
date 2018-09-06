@@ -35,8 +35,20 @@ const data = [
 export default class AreaChart extends React.Component {
   public render() {
     return (
-      <Chart width={500} height={200} renderer={renderer} data={{ data }}>
-        <LinearScale name="x" table="data" domain="u" range={Dimension.Width} />
+      <Chart
+        width={500}
+        height={200}
+        padding={8}
+        renderer={renderer}
+        data={{ data }}
+      >
+        <LinearScale
+          name="x"
+          table="data"
+          domain="u"
+          range={Dimension.Width}
+          zero={false}
+        />
         <LinearScale
           name="y"
           table="data"

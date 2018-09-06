@@ -4,6 +4,7 @@ import {
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
+import { propToBool } from '../util'
 
 export class UtcScale extends QuantitativeScale<
 	QuantitativeScaleProps<TimeValue, number>,
@@ -16,11 +17,11 @@ export class UtcScale extends QuantitativeScale<
 			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
+			.zero(propToBool(this.props.zero))
+			.clamp(propToBool(this.props.clamp))
+			.nice(propToBool(this.props.nice))
+			.reverse(propToBool(this.isReversed))
 			.padding(this.props.padding)
-			.reverse(this.isReversed)
 			.build()
 	}
 }
