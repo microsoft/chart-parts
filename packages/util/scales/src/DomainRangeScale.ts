@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file no-var-requires no-submodule-imports
-import { CreateScaleArgs } from '@markable/interfaces'
+import { ScaleCreationContext } from '@markable/interfaces'
 import { DomainScale } from './DomainScale'
 
 declare var require: any
@@ -11,10 +11,10 @@ export abstract class DomainRangeScale<
 	RangeBind
 > extends DomainScale<Domain> {
 	protected bindRangeValue?: RangeBind
-	protected rangeValue?: (args: CreateScaleArgs) => Range
+	protected rangeValue?: (args: ScaleCreationContext) => Range
 	protected reverseValue?: boolean
 
-	public range(arg?: RangeBind | ((args: CreateScaleArgs) => Range) | Range) {
+	public range(arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range) {
 		if (typeof arg === 'function') {
 			this.rangeValue = arg
 		} else if (Array.isArray(arg)) {
@@ -33,11 +33,11 @@ export abstract class DomainRangeScale<
 		return this
 	}
 	protected abstract handleRangeBind(
-		args: CreateScaleArgs,
+		args: ScaleCreationContext,
 		bind: RangeBind,
 	): Range
 
-	protected getRange(args: CreateScaleArgs): Range {
+	protected getRange(args: ScaleCreationContext): Range {
 		const range = this.determineRange(args)
 		const result = this.reverseValue ? this.reverseRange(range) : range
 		return result
@@ -48,7 +48,7 @@ export abstract class DomainRangeScale<
 		return reverse(result) as Range
 	}
 
-	private determineRange(args: CreateScaleArgs): Range {
+	private determineRange(args: ScaleCreationContext): Range {
 		if (this.rangeValue) {
 			return this.rangeValue(args)
 		} else {

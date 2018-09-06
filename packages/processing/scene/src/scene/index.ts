@@ -1,6 +1,6 @@
 // tslint:disable no-this-assignment no-submodule-imports no-var-requires
 import { ChartOptions, SceneNode, DataFrame } from '@markable/interfaces'
-import { ChartOptionsManager } from './ChartOptionsManager'
+import { ChartOptionsManager } from '@markable/builder'
 import { SceneFrame } from './SceneFrame'
 import { GeneratedScene } from '../interfaces'
 import { processNode } from './processNode'

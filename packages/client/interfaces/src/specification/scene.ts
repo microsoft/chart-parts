@@ -181,7 +181,7 @@ export interface Facet {
 	transform?: (data: any[]) => any[]
 }
 
-export interface MarkData {
+export interface EncodingContext {
 	/**
 	 * The current d to encode, essentially a row in the data array.
 	 */
@@ -201,9 +201,14 @@ export interface MarkData {
 	 * The full dataset
 	 */
 	tables: DataFrame
+
+	/**
+	 * The dimensions of the current working view (e.g. Chart-Dimensions or current Group Dimensions)
+	 */
+	view: ViewSize
 }
 
-export type MarkEncoding<T> = (data: MarkData, scales: Scales) => T
+export type MarkEncoding<T> = (ctx: EncodingContext, scales: Scales) => T
 
 export enum Dimension {
 	Height = 'height',
@@ -313,13 +318,18 @@ export interface Channels {
 /**
  * A factory function that creates a scale instance.
  */
-export type ScaleCreator = (input: CreateScaleArgs) => Scales
+export type ScaleCreator = (input: ScaleCreationContext) => Scales
 
 /**
  * Interface for the scale creation argument object, which is used to
  * create scale instances when a chart drawn or resized.
  */
-export interface CreateScaleArgs {
+export interface ScaleCreationContext {
+	/**
+	 * The current view size
+	 */
+	view: ViewSize
+
 	/**
 	 * The rectangle of the area that marks will be drawn in,
 	 * This is (chartRect - space reserved for axes)

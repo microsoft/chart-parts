@@ -1,6 +1,6 @@
 // tslint:disable max-classes-per-file
 import * as React from 'react'
-import { CreateScaleArgs } from '@markable/interfaces'
+import { ScaleCreationContext } from '@markable/interfaces'
 import { SceneNodeBuilder } from '@markable/builder'
 import { SceneNodeBuilderConsumer } from '../Context'
 
@@ -25,7 +25,7 @@ export interface DomainScaleProps<Domain> {
 	 *
 	 * If an array is provided, it is treated as the explicit domain
 	 */
-	domain?: string | ((args: CreateScaleArgs) => Domain) | Domain
+	domain?: string | ((args: ScaleCreationContext) => Domain) | Domain
 }
 
 export abstract class DomainScale<

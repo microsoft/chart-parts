@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import { CreateScaleArgs } from '@markable/interfaces'
+import { ScaleCreationContext } from '@markable/interfaces'
 import { DomainScale, DomainScaleProps } from './DomainScale'
 
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>
@@ -12,7 +12,7 @@ export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	 * If any other value is provided, it is treated as a "range binder" and its behavior is
 	 * dependent on the scale implementation.
 	 */
-	range?: RangeBind | ((args: CreateScaleArgs) => Range) | Range
+	range?: RangeBind | ((args: ScaleCreationContext) => Range) | Range
 
 	/**
 	 * Reverse the range

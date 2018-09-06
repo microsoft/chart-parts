@@ -3,7 +3,7 @@ import {
 	DataFrame,
 	ChannelNames,
 	SceneNode,
-	CreateScaleArgs,
+	ScaleCreationContext,
 	ChannelHandler,
 	Channels,
 	ViewSize,
@@ -141,7 +141,8 @@ export class SceneFrame {
 		const yBounds: [number, number] = [viewBR[0], viewTL[0]]
 
 		node.scales.forEach(creator => {
-			const args: CreateScaleArgs = {
+			const args: ScaleCreationContext = {
+				view: this.view,
 				viewBounds: { x: xBounds, y: yBounds },
 				data,
 				scales,

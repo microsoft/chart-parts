@@ -1,7 +1,7 @@
-import { CreateScaleArgs, Dimension } from '@markable/interfaces'
+import { ScaleCreationContext, Dimension } from '@markable/interfaces'
 
 export function getBoundRange(
-	args: CreateScaleArgs,
+	args: ScaleCreationContext,
 	rangeBind: Dimension,
 ): [number, number] {
 	const {

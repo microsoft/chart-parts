@@ -1,34 +1,38 @@
 import {
 	MarkType,
-	DEFAULT_HEIGHT,
-	DEFAULT_WIDTH,
 	AxisOrientation,
+	EncodingContext,
+	ChartOptions,
 } from '@markable/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { AxisBuilder } from './AxisBuilder'
+import { ChartOptionsManager } from './ChartOptionsManager'
 
 export * from './MarkBuilder'
 export * from './SceneNodeBuilder'
+export * from './ChartOptionsManager'
 
 /**
  * A factory function for creating a new scene
  */
 export function scene(
 	cb: (child: SceneNodeBuilder) => SceneNodeBuilder,
-	dimensions?: { width: number; height: number },
-	origin: [number, number] = [0, 0],
+	opts: ChartOptions,
 ): SceneNodeBuilder {
+	const optsManager = new ChartOptionsManager(opts)
 	return new SceneNodeBuilder().mark(
 		group('root')
 			.role('frame')
 			.singleton(true)
 			.zIndex(0)
 			.encode({
-				x: () => origin[0],
-				y: () => origin[1],
-				width: () => (dimensions && dimensions.width) || DEFAULT_WIDTH,
-				height: () => (dimensions && dimensions.height) || DEFAULT_HEIGHT,
+				x: () => optsManager.paddingLeft,
+				y: () => optsManager.paddingTop,
+				width: (arg: EncodingContext) =>
+					optsManager.chartSpace.shape.width as number,
+				height: (arg: EncodingContext) =>
+					optsManager.chartSpace.shape.height as number,
 			})
 			.child(cb),
 	)

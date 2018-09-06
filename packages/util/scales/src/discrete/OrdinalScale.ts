@@ -1,5 +1,5 @@
 import { scaleOrdinal } from 'd3-scale'
-import { CreateScaleArgs, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@markable/interfaces'
 import { DomainScale } from '../DomainScale'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
 
@@ -23,7 +23,7 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs): Scales {
+	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange()
 		const scale = scaleOrdinal(this.rangeValue)

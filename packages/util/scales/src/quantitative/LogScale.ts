@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@markable/interfaces'
 import { scaleLog } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
 
@@ -10,7 +10,7 @@ export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs): Scales {
+	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const result = scaleLog()

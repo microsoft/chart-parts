@@ -1,6 +1,6 @@
 import { scaleBand } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { CreateScaleArgs, Dimension, Scales, Scale } from '@markable/interfaces'
+import { ScaleCreationContext, Dimension, Scales, Scale } from '@markable/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {
@@ -87,7 +87,7 @@ export class BandScale extends DomainRangeScale<
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs): Scales {
+	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const bandscale = scaleBand()
@@ -121,7 +121,7 @@ export class BandScale extends DomainRangeScale<
 	}
 
 	protected handleRangeBind(
-		args: CreateScaleArgs,
+		args: ScaleCreationContext,
 		rangeBind: Dimension,
 	): [number, number] {
 		return getBoundRange(args, rangeBind)

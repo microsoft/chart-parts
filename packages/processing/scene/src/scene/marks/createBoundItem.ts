@@ -33,7 +33,8 @@ export function createBoundItem(
 	}
 
 	// Update the view and recompute scales
-	const groupDrawRect = getNextDrawRect(getItemSpace(item), frame.view)
+	const itemSpace = getItemSpace(item)
+	const groupDrawRect = getNextDrawRect(itemSpace, frame.view)
 	const itemFrame = frame
 		.pushView({
 			width: groupDrawRect.right - groupDrawRect.left,
@@ -128,6 +129,7 @@ function transferEncodings(
 					index,
 					data,
 					tables: frame.data,
+					view: frame.view,
 				}
 				const value = encoding(dataContext, frame.scales)
 				props[key] = value
