@@ -28,6 +28,11 @@ export interface BandScaleProps
 	 * Bin alignment 0-beginning, 1=end
 	 */
 	align?: number
+
+	/**
+	 * If true, rounds numeric output values to integers. Helpful for snapping to the pixel grid.
+	 */
+	round?: boolean
 }
 
 export class BandScale extends DomainRangeScale<
@@ -46,6 +51,7 @@ export class BandScale extends DomainRangeScale<
 			.padding(this.props.padding)
 			.paddingOuter(this.props.paddingOuter)
 			.paddingInner(this.props.paddingInner)
+			.round(this.props.round)
 			.reverse(this.isReversed)
 			.build()
 	}

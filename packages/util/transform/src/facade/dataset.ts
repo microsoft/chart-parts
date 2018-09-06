@@ -15,6 +15,11 @@ interface Pipeline {
 
 export interface DatasetManager {
 	/**
+	 * The table set
+	 */
+	tables: { [key: string]: any[] }
+
+	/**
 	 * Adds a new data table to the dataset
 	 * @param name the name of the dataset to add
 	 * @param dataset the array of data rows to add
@@ -70,6 +75,15 @@ export class DatasetManagerImpl implements DatasetManager {
 		const result = ds && ds.end.value
 		if (!result) {
 			throw new Error(`could not find table ${name}`)
+		}
+		return result
+	}
+
+	public get tables() {
+		const keys = this.pipelines.keys()
+		const result: { [key: string]: any[] } = {}
+		for (const key of keys) {
+			result[key] = this.getTable(key)
 		}
 		return result
 	}

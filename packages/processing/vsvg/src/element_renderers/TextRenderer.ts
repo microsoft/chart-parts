@@ -81,7 +81,7 @@ export class TextRenderer implements VSvgMarkConverter {
 				if (item.align) {
 					attrs.textAnchor = alignments[item.align]
 				}
-				const children = item.text !== undefined ? [item.text] : undefined
+				const children = item.text !== undefined ? ['' + item.text] : undefined
 				const result: VSvgNode = {
 					type: 'text',
 					attrs,

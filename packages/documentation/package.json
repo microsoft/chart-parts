@@ -38,7 +38,8 @@
     "rehype-react": "^3.0.3",
     "styled-components": "^3.4.4",
     "typography": "^0.16.17",
-    "typography-theme-github": "^0.15.10"
+    "typography-theme-github": "^0.15.10",
+    "vega-datasets": "^1.19.0"
   },
   "license": "MIT",
   "scripts": {

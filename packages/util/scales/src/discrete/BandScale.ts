@@ -40,6 +40,7 @@ export class BandScale extends DomainRangeScale<
 	private paddingOuterValue?: number
 	private alignValue?: number
 	private bandwidthValue?: string
+	private roundValue?: boolean
 
 	/**
 	 * The name of the band-width static scale
@@ -81,6 +82,11 @@ export class BandScale extends DomainRangeScale<
 		return this
 	}
 
+	public round(value?: boolean) {
+		this.roundValue = value
+		return this
+	}
+
 	protected createScale(args: CreateScaleArgs): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
@@ -99,6 +105,9 @@ export class BandScale extends DomainRangeScale<
 		}
 		if (this.paddingInnerValue) {
 			bandscale.paddingInner(this.paddingInnerValue)
+		}
+		if (this.roundValue) {
+			bandscale.round(this.roundValue)
 		}
 
 		const result: Scales = { [this.nameValue as string]: bandscale }

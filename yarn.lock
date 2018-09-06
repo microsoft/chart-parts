@@ -2248,7 +2248,7 @@
 
 "@types/d3-format@^1.3.0":
   version "1.3.0"
-  resolved "https://registry.yarnpkg.com/@types/d3-format/-/d3-format-1.3.0.tgz#c5e115fac8e6861ce656fe9861892b22f6b0cfcb"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/d3-format/-/d3-format-1.3.0.tgz#c5e115fac8e6861ce656fe9861892b22f6b0cfcb"
 
 "@types/d3-path@*", "@types/d3-path@^1.0.7":
   version "1.0.7"
@@ -2375,7 +2375,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react@*", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   dependencies:
@@ -6166,6 +6166,10 @@ d3-dsv@^1.0.8:
 d3-format@1, d3-format@^1.3.0:
   version "1.3.0"
   resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-format/-/d3-format-1.3.0.tgz#a3ac44269a2011cdb87c7b5693040c18cddfff11"
+
+d3-format@^1.3.2:
+  version "1.3.2"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/d3-format/-/d3-format-1.3.2.tgz#6a96b5e31bcb98122a30863f7d92365c00603562"
 
 d3-interpolate@1:
   version "1.2.0"
@@ -16813,6 +16817,10 @@ vega-dataflow@^4.0.3, vega-dataflow@^4.0.4:
   dependencies:
     vega-loader "^3.0.1"
     vega-util "^1.7.0"
+
+vega-datasets@^1.19.0:
+  version "1.19.0"
+  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/vega-datasets/-/vega-datasets-1.19.0.tgz#0d853f7c6ea0a623d85d60ad42d895313e26acb8"
 
 vega-encode@^3.1.4:
   version "3.1.4"

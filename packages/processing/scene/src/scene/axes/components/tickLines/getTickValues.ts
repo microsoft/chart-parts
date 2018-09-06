@@ -1,5 +1,6 @@
 import { Axis, Scale } from '@markable/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
+import { format } from 'd3-format'
 
 /**
  * Gets logical tick values and their associated labels
@@ -16,7 +17,7 @@ export function getTickValues(context: AxisContext): PositionedTickValue[] {
 	return scale.ticks
 		? getTicksFromScaleTicks(context)
 		: scale.domain
-			? getTicksFromScaleDomain(axis, scale)
+			? getTicksFromScaleDomain(context, scale)
 			: []
 }
 
@@ -41,24 +42,29 @@ function getTicksFromScaleTicks(context: AxisContext) {
 
 	return ticks.map((t: number) => {
 		const position = scale(t)
+		const label = context.labelFormatter(t)
 		return {
 			value: t,
 			position: axis.tickRound
 				? Math.round(position)
 				: position - tickWidth / 2,
-			label: context.labelFormatter(t),
+			label,
 		}
 	})
 }
 
-function getTicksFromScaleDomain(axis: Axis, scale: Scale<any, any>) {
+function getTicksFromScaleDomain(context: AxisContext, scale: Scale<any, any>) {
+	const { axis } = context
 	if (!scale.domain) {
 		throw new Error('cannot extract scale domain')
 	}
 	const domain = scale.domain()
-	return domain.map((t: any) => ({
-		value: t,
-		position: getDomainScaleValue(t, scale, axis),
-		label: `${t}`,
-	}))
+	return domain.map((t: any) => {
+		const label = context.labelFormatter(t)
+		return {
+			value: t,
+			position: getDomainScaleValue(t, scale, axis),
+			label,
+		}
+	})
 }

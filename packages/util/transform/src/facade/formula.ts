@@ -10,12 +10,11 @@ const { formula: vegaFormula } = require('vega-transforms')
  */
 export interface FormulaBuilder extends DatasetTransform {
 	/**
-	 * The formula to use for limiting results. If the expression evaluates to
-	 * false, the data object will be formulaed.
+	 * The formula to use for calculating new results.
 	 *
 	 * @param value
 	 */
-	formula(value: Predicate<any>): FormulaBuilder
+	formula(value: Transformer<any, any>): FormulaBuilder
 
 	/**
 	 * The output field at which to write the formula value.

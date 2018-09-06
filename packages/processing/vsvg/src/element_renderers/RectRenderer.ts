@@ -26,7 +26,6 @@ export class RectRenderer implements VSvgMarkConverter {
 				const rectItem = item as any
 				rectItem.width = space.shape.width
 				rectItem.height = space.shape.height
-
 				attrs.d = rectangle(rectItem, space.origin.x, space.origin.y).toString()
 
 				const result: VSvgNode = {
