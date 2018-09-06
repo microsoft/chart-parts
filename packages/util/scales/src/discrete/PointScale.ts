@@ -1,6 +1,6 @@
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { Dimension, CreateScaleArgs, Scales, Scale } from '@markable/interfaces'
+import { Dimension, ScaleCreationContext, Scales, Scale } from '@markable/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export class PointScale extends DomainRangeScale<
@@ -39,7 +39,7 @@ export class PointScale extends DomainRangeScale<
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs): Scales {
+	protected createScale(args: ScaleCreationContext): Scales {
 		const scale = scalePoint()
 			.domain(this.getDomain(args))
 			.range(this.getRange(args))
@@ -64,7 +64,7 @@ export class PointScale extends DomainRangeScale<
 	}
 
 	protected handleRangeBind(
-		args: CreateScaleArgs,
+		args: ScaleCreationContext,
 		rangeBind: Dimension,
 	): [number, number] {
 		return getBoundRange(args, rangeBind)

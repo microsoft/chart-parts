@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { SceneNodeBuilder } from '@markable/builder'
-import { CreateScaleArgs } from '@markable/interfaces'
+import { ScaleCreationContext } from '@markable/interfaces'
 import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {
@@ -33,6 +33,6 @@ export class Scale extends React.PureComponent<ScaleProps> {
 	}
 
 	protected addScale() {
-		this.api.scale((args: CreateScaleArgs) => this.props.create(args))
+		this.api.scale((args: ScaleCreationContext) => this.props.create(args))
 	}
 }

@@ -20,18 +20,18 @@ import {
   VerticalTextAlignment,
   HorizontalAlignment,
   AxisOrientation,
+  ScaleCreationContext,
 } from '@markable/interfaces'
 import { Renderer } from '@markable/react-svg-renderer'
 
 const population = require('vega-datasets/data/population.json')
 const renderer = new Renderer()
 
-// TODO: Chart width, height available as encoding parameter
 const chartWidth = 600
-const chartHeight = 500
 const textLineWidth = 12
-const AXIS_THICKNESS = 20
-const chartSegment = (chartWidth - textLineWidth) / 2
+const AXIS_THICKNESS = 25
+const chartPadding = 10
+const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2
 
 export interface PopulationPyramidState {
   year: number
@@ -54,7 +54,6 @@ export default class PopulationPyramid extends React.Component<
       .addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
       .addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
 
-    console.log('DS', ds.tables)
     return (
       <div>
         <PyramidChart data={ds.tables} />
@@ -93,7 +92,8 @@ interface PyramidChartProps {
 const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
   <Chart
     width={chartWidth}
-    height={chartHeight}
+    height={500}
+    padding={chartPadding}
     renderer={renderer}
     data={data}
   >
@@ -101,7 +101,10 @@ const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
       name="y"
       bandWidth="yband"
       table="ageGroups"
-      range={[chartHeight - AXIS_THICKNESS, 0]}
+      range={(arg: ScaleCreationContext) => [
+        arg.view.height - AXIS_THICKNESS,
+        0,
+      ]}
       domain="age"
       padding={0.1}
       round={true}
@@ -116,8 +119,8 @@ const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
 const AgeLabels: React.SFC = () => (
   <Text
     table="ageGroups"
-    x={chartSegment + textLineWidth - 3} // TODO: get rid of the 3 pixel adjustment
-    y={({ d }, { y, yband }) => y(d.age)}
+    x={chartSegmentWidth + textLineWidth}
+    y={({ d }, { y, yband }) => y(d.age) + yband() / 2}
     text={({ d }) => d.age}
     baseline={VerticalTextAlignment.Middle}
     align={HorizontalAlignment.Center}
@@ -126,11 +129,16 @@ const AgeLabels: React.SFC = () => (
 )
 
 const FemalesPerYear: React.SFC = () => (
-  <Group singleton x={0} height={chartHeight}>
+  <Group
+    singleton
+    x={0}
+    height={({ view }) => view.height}
+    width={chartSegmentWidth}
+  >
     <LinearScale
       table="population"
       domain="people"
-      range={[chartSegment, 0]}
+      range={[chartSegmentWidth, 0]}
       name="x"
       nice
       zero
@@ -145,7 +153,7 @@ const FemalesPerYear: React.SFC = () => (
       table="females"
       x={({ d }, { x }) => x(d.people)}
       x2={(d, { x }) => x(0)}
-      y={({ d }, { y, yband }) => y(d.age) - yband() / 2}
+      y={({ d }, { y }) => y(d.age)}
       height={(d, { yband }) => yband()}
       fillOpacity={0.6}
       fill={({ d }, { c }) => c(d.sex)}
@@ -154,12 +162,17 @@ const FemalesPerYear: React.SFC = () => (
 )
 
 const MalesPerYear: React.SFC = () => (
-  <Group singleton x={chartWidth / 2} height={chartHeight}>
+  <Group
+    singleton
+    x={chartSegmentWidth + textLineWidth}
+    height={({ view }) => view.height}
+    width={chartSegmentWidth}
+  >
     <LinearScale
       table="population"
       domain="people"
       name="x"
-      range={[textLineWidth, chartSegment]}
+      range={[textLineWidth, chartSegmentWidth]}
       nice
       zero
     />
@@ -173,7 +186,7 @@ const MalesPerYear: React.SFC = () => (
       table="males"
       x={({ d }, { x }) => x(d.people)}
       x2={(d, { x }) => x(0)}
-      y={({ d }, { y, yband }) => y(d.age) - yband() / 2}
+      y={({ d }, { y }) => y(d.age)}
       height={(d, { yband }) => yband()}
       fillOpacity={0.6}
       fill={({ d }, { c }) => c(d.sex)}

@@ -1,18 +1,11 @@
 import * as React from 'react'
 import { scene, SceneNodeBuilder } from '@markable/builder'
 import { SceneNodeBuilderProvider } from './Context'
-
-export interface ChartPadding {
-	top?: number
-	bottom?: number
-	left?: number
-	right?: number
-}
-
+import { PaddingObject, ChartOptions } from '@markable/interfaces'
 export interface ChartSpecProps {
 	width: number
 	height: number
-	padding?: number | ChartPadding
+	padding?: number | PaddingObject
 	onSpecReady: (spec: any) => void
 }
 
@@ -23,8 +16,7 @@ export class ChartSpec extends React.PureComponent<ChartSpecProps> {
 		let sceneNodeBuilder: SceneNodeBuilder | undefined
 		this.sceneBuilder = scene(
 			node => (sceneNodeBuilder = node),
-			this.dimensions,
-			this.origin,
+			this.chartOptions,
 		)
 		return (
 			<SceneNodeBuilderProvider value={sceneNodeBuilder as SceneNodeBuilder}>
@@ -41,20 +33,15 @@ export class ChartSpec extends React.PureComponent<ChartSpecProps> {
 		return this.updateSpec()
 	}
 
-	private get origin(): [number, number] {
-		if (!this.props.padding) {
-			return [0, 0]
+	private get chartOptions(): ChartOptions {
+		const opts: ChartOptions = {
+			width: this.props.width,
+			height: this.props.height,
 		}
-		const pad = this.props.padding
-		const isNumberPad = typeof pad === 'number'
-		return isNumberPad
-			? [pad as number, pad as number]
-			: [(pad as ChartPadding).left || 0, (pad as ChartPadding).top || 0]
-	}
-
-	private get dimensions() {
-		const { width, height } = this.props
-		return { width, height }
+		if (this.props.padding) {
+			opts.padding = this.props.padding
+		}
+		return opts
 	}
 
 	private updateSpec() {

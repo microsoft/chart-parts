@@ -1,6 +1,13 @@
 // tslint:disable no-implicit-dependencies
 import { linear, band, ordinal, CategoricalColorScheme } from '@markable/scales'
-import { Dimension, SceneNode, AxisOrientation } from '@markable/interfaces'
+import {
+	Dimension,
+	SceneNode,
+	AxisOrientation,
+	HorizontalAlignment,
+	VerticalAlignment,
+	VerticalTextAlignment,
+} from '@markable/interfaces'
 import { scene, rect, axis, group, text } from '../index'
 
 describe('Building Charts', () => {
@@ -105,8 +112,8 @@ describe('Building Charts', () => {
 												y: ({ d }, { pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
-												align: () => 'right',
-												baseline: () => 'middle',
+												align: () => HorizontalAlignment.Right,
+												baseline: () => VerticalTextAlignment.Middle,
 												text: ({ d }) => d.value,
 											}),
 									),

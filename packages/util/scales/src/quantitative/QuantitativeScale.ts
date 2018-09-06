@@ -1,4 +1,4 @@
-import { CreateScaleArgs, Dimension } from '@markable/interfaces'
+import { ScaleCreationContext, Dimension } from '@markable/interfaces'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { getBoundRange } from '../getBoundRange'
@@ -59,7 +59,7 @@ export abstract class QuantitativeScale<
 		return this
 	}
 
-	protected getRange(args: CreateScaleArgs): [RangeValue, RangeValue] {
+	protected getRange(args: ScaleCreationContext): [RangeValue, RangeValue] {
 		const range = super.getRange(args)
 		if (this.paddingValue !== undefined) {
 			const [start, end]: any = range
@@ -95,7 +95,7 @@ export abstract class QuantitativeScale<
 	}
 
 	protected handleRangeBind(
-		args: CreateScaleArgs,
+		args: ScaleCreationContext,
 		rangeBind: Dimension,
 	): [RangeValue, RangeValue] {
 		return getBoundRange(args, rangeBind) as [RangeValue, RangeValue]

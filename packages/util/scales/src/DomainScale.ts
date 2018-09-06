@@ -1,5 +1,5 @@
-import { CreateScaleArgs, Scales } from '@markable/interfaces'
-export type DomainCreator<Domain> = (args: CreateScaleArgs) => Domain
+import { ScaleCreationContext, Scales } from '@markable/interfaces'
+export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
 export abstract class DomainScale<Domain> {
 	protected bindDomainValue?: string
@@ -35,22 +35,22 @@ export abstract class DomainScale<Domain> {
 		if (!this.nameValue) {
 			throw new Error('scale name must be defined')
 		}
-		return (args: CreateScaleArgs) => this.createScale(args)
+		return (args: ScaleCreationContext) => this.createScale(args)
 	}
 
-	protected abstract createScale(args: CreateScaleArgs): Scales
+	protected abstract createScale(args: ScaleCreationContext): Scales
 
 	protected processDomainValues(values: any[]): Domain {
 		return (values as any) as Domain
 	}
 
-	protected getDomain(args: CreateScaleArgs): Domain {
+	protected getDomain(args: ScaleCreationContext): Domain {
 		return this.domainValue
 			? this.domainValue(args)
 			: this.getDomainFromTableBinding(args)
 	}
 
-	private getDomainFromTableBinding(args: CreateScaleArgs): Domain {
+	private getDomainFromTableBinding(args: ScaleCreationContext): Domain {
 		if (!this.tableValue) {
 			throw new Error('table must be defined')
 		}

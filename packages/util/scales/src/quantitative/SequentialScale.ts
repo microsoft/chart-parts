@@ -1,6 +1,6 @@
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
-import { CreateScaleArgs, Scales, Scale } from '@markable/interfaces'
+import { ScaleCreationContext, Scales, Scale } from '@markable/interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {
@@ -23,7 +23,7 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 		return this
 	}
 
-	protected createScale(args: CreateScaleArgs): Scales {
+	protected createScale(args: ScaleCreationContext): Scales {
 		if (!this.interpolatorValue) {
 			throw new Error('interpolator must be set')
 		}

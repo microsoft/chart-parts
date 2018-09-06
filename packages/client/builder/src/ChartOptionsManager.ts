@@ -6,20 +6,24 @@ import {
 } from '@markable/interfaces'
 
 export class ChartOptionsManager {
-	constructor(private options: ChartOptions) {}
+	constructor(private options: ChartOptions = {}) {}
 
 	public get chartSpace(): ItemSpace {
-		const width = this.options.width || DEFAULT_WIDTH
-		const height = this.options.height || DEFAULT_HEIGHT
+		const chartWidth = this.options.width || DEFAULT_WIDTH
+		const chartHeight = this.options.height || DEFAULT_HEIGHT
+		const paddingLeft = this.paddingLeft
+		const paddingRight = this.paddingRight
+		const paddingTop = this.paddingTop
+		const paddingBottom = this.paddingBottom
+
+		const x = paddingLeft
+		const y = paddingTop
+		const width = chartWidth - paddingLeft - paddingRight
+		const height = chartHeight - paddingTop - paddingBottom
+
 		return {
-			origin: {
-				x: this.paddingLeft,
-				y: this.paddingTop,
-			},
-			shape: {
-				width: width - this.paddingLeft - this.paddingRight,
-				height: height - this.paddingTop - this.paddingBottom,
-			},
+			origin: { x, y },
+			shape: { width, height },
 		}
 	}
 
@@ -39,10 +43,10 @@ export class ChartOptionsManager {
 		return this.getPadding('right')
 	}
 
-	private getPadding(name: string) {
+	private getPadding(name: string): number {
 		const paddingType = typeof this.options.padding
 		if (paddingType === 'number') {
-			return this.options.padding
+			return this.options.padding as number
 		} else if (paddingType === 'object') {
 			return (this.options.padding as any)[name] || 0
 		}

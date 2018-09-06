@@ -1,6 +1,5 @@
 import { Axis, Scale } from '@markable/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
-import { format } from 'd3-format'
 
 /**
  * Gets logical tick values and their associated labels
