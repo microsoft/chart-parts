@@ -28,6 +28,7 @@ const population = require('vega-datasets/data/population.json')
 const renderer = new Renderer()
 
 const chartWidth = 600
+const chartHeight = 500
 const textLineWidth = 12
 const AXIS_THICKNESS = 25
 const chartPadding = 10
@@ -92,7 +93,7 @@ interface PyramidChartProps {
 const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
   <Chart
     width={chartWidth}
-    height={500}
+    height={chartHeight}
     padding={chartPadding}
     renderer={renderer}
     data={data}
@@ -111,8 +112,8 @@ const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
     />
     <OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
     <AgeLabels />
-    <MalesPerYear />
-    <FemalesPerYear />
+    <MPerYear />
+    <FPerYear />
   </Chart>
 )
 
@@ -128,7 +129,7 @@ const AgeLabels: React.SFC = () => (
   />
 )
 
-const FemalesPerYear: React.SFC = () => (
+const FPerYear: React.SFC = () => (
   <Group
     singleton
     x={0}
@@ -161,7 +162,7 @@ const FemalesPerYear: React.SFC = () => (
   </Group>
 )
 
-const MalesPerYear: React.SFC = () => (
+const MPerYear: React.SFC = () => (
   <Group
     singleton
     x={chartSegmentWidth + textLineWidth}

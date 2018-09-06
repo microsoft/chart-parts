@@ -52,6 +52,7 @@ export class BarChart extends React.Component<{}, BarChartState> {
 					domain="amount"
 					range={Dimension.Height}
 					nice
+					zero
 				/>
 				<BandScale
 					table="data"

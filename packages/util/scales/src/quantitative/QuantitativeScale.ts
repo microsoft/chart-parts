@@ -2,6 +2,7 @@ import { ScaleCreationContext, Dimension } from '@markable/interfaces'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { getBoundRange } from '../getBoundRange'
+import { optionalArgument } from '../util'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
@@ -28,15 +29,15 @@ export abstract class QuantitativeScale<
 	 * the output value of the scale is always within the scale’s range.
 	 */
 	public clamp(value?: boolean) {
-		this.clampValue = value
+		this.clampValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value: boolean | number | string | object = true) {
-		this.niceValue = value
+	public nice(value?: boolean | number | string | object) {
+		this.niceValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
@@ -55,7 +56,7 @@ export abstract class QuantitativeScale<
 	 */
 
 	public zero(value?: boolean) {
-		this.zeroValue = value
+		this.zeroValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
@@ -91,7 +92,7 @@ export abstract class QuantitativeScale<
 	}
 
 	protected getZero() {
-		return this.zeroValue || this.defaultZero
+		return this.zeroValue !== undefined ? this.zeroValue : this.defaultZero
 	}
 
 	protected handleRangeBind(

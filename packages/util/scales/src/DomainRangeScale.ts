@@ -1,6 +1,7 @@
 // tslint:disable max-classes-per-file no-var-requires no-submodule-imports
 import { ScaleCreationContext } from '@markable/interfaces'
 import { DomainScale } from './DomainScale'
+import { optionalArgument } from './util'
 
 declare var require: any
 const reverse = require('lodash/reverse')
@@ -14,7 +15,9 @@ export abstract class DomainRangeScale<
 	protected rangeValue?: (args: ScaleCreationContext) => Range
 	protected reverseValue?: boolean
 
-	public range(arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range) {
+	public range(
+		arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range,
+	) {
 		if (typeof arg === 'function') {
 			this.rangeValue = arg
 		} else if (Array.isArray(arg)) {
@@ -29,7 +32,12 @@ export abstract class DomainRangeScale<
 	}
 
 	public reverse(reversed?: boolean) {
-		this.reverseValue = reversed === undefined ? true : reversed
+		this.reverseValue = optionalArgument(
+			reversed,
+			arguments.length,
+			true,
+			false,
+		)
 		return this
 	}
 	protected abstract handleRangeBind(

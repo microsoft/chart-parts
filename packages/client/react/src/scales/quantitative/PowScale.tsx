@@ -15,8 +15,6 @@ export class PowScale extends QuantitativeScale<
 	QuantitativeValue,
 	number
 > {
-	protected defaultZero = true
-
 	protected createScale() {
 		return pow(this.props.name)
 			.table(this.props.table)
@@ -25,9 +23,9 @@ export class PowScale extends QuantitativeScale<
 			.zero(this.props.zero)
 			.clamp(this.props.clamp)
 			.nice(this.props.nice)
+			.reverse(this.props.reverse)
 			.exponent(this.props.exponent)
 			.padding(this.props.padding)
-			.reverse(this.isReversed)
 			.build()
 	}
 }

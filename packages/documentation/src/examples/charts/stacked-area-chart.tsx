@@ -54,6 +54,7 @@ export default class StackedAreaChart extends React.Component {
       <Chart
         width={500}
         height={200}
+        padding={8}
         renderer={renderer}
         data={{ data: ds.getTable('data') as any[] }}
       >
