@@ -2,6 +2,7 @@ import { ScaleCreationContext, Dimension } from '@markable/interfaces'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
 import { getBoundRange } from '../getBoundRange'
+import { optionalArgument } from '../util'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
@@ -27,16 +28,16 @@ export abstract class QuantitativeScale<
 	 *  may return a value outside the range through extrapolation. If clamping is enabled,
 	 * the output value of the scale is always within the scale’s range.
 	 */
-	public clamp(value: boolean = true) {
-		this.clampValue = value
+	public clamp(value?: boolean) {
+		this.clampValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value: boolean | number | string | object = true) {
-		this.niceValue = value
+	public nice(value?: boolean | number | string | object) {
+		this.niceValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
@@ -54,8 +55,8 @@ export abstract class QuantitativeScale<
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
 
-	public zero(value: boolean = true) {
-		this.zeroValue = value
+	public zero(value?: boolean) {
+		this.zeroValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
