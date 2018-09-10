@@ -1,5 +1,6 @@
 // tslint:disable no-var-requires
-import { DatasetTransform } from './interfaces'
+import { DatasetTransform, Facet } from './interfaces'
+import { facet } from './facet'
 declare var require: any
 const { Dataflow, changeset } = require('vega-dataflow')
 const { collect } = require('vega-transforms')

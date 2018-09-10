@@ -141,8 +141,10 @@ export class LineChart extends React.Component<{}, BarChartState> {
 				/>
 				<Group
 					table="series"
-					facetKey={d => d.__series_id}
-					facetName="facetedSeries"
+					facet={{
+						groupBy: '__series_id',
+						name: 'facetedSeries',
+					}}
 				>
 					<Line
 						table="facetedSeries"

@@ -1,6 +1,6 @@
 // tslint:disable no-var-requires
-import { FieldAccessor } from '../../interfaces'
-import { DatasetTransform } from '../interfaces'
+import { FieldAccessor } from '../interfaces'
+import { DatasetTransform } from './interfaces'
 
 declare var require: any
 const {
@@ -83,6 +83,16 @@ export enum AggregateOperation {
 	q3 = 'q3',
 
 	/**
+	 * The lower boundary of the bootstrapped 95% confidence interval of the mean field value.
+	 */
+	ci0 = 'ci0',
+
+	/**
+	 * The upper boundary of the bootstrapped 95% confidence interval of the mean field value.
+	 */
+	ci1 = 'ci1',
+
+	/**
 	 * The minimum field value.
 	 */
 	min = 'min',
@@ -91,6 +101,16 @@ export enum AggregateOperation {
 	 * The maximum field value.
 	 */
 	max = 'max',
+
+	/**
+	 * An input data object containing the minimum field value.
+	 */
+	argmin = 'argmin',
+
+	/**
+	 * 	An input data object containing the maximum field value.
+	 */
+	argmax = 'argmax',
 }
 
 /**

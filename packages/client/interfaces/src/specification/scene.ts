@@ -167,13 +167,16 @@ export interface Facet {
 	name: string
 
 	/**
-	 * How incoming data will be split up.
-	 *
-	 * If the value is a string, then it indicates the name of a key proprtey that the rows will be partitioned
-	 * on.
-	 * If the value is a function, then the function describes how to get a partition key for a row.
+	 * The name of the source table to generate facets from. If not defined,
+	 * then the parent table will be used
 	 */
-	partitionOn: string | ((row: any) => any)
+	table?: string
+
+	/**
+	 * For data-driven facets, an array of field names by which to partition the data.
+	 * This property is required if using data-driven facets.
+	 */
+	groupBy?: string | string[] | ((row: any) => any)
 
 	/**
 	 * Data transformation to apply on data partitions after partitioning
@@ -206,6 +209,12 @@ export interface EncodingContext {
 	 * The dimensions of the current working view (e.g. Chart-Dimensions or current Group Dimensions)
 	 */
 	view: ViewSize
+
+	/**
+	 * In the case of rendering elements within a faceted group, this represents the
+	 * datum bound to the group item, which will share the same groupby key as the facet table.
+	 */
+	parent?: any
 }
 
 export type MarkEncoding<T> = (ctx: EncodingContext, scales: Scales) => T

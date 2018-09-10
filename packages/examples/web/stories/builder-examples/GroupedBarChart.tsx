@@ -63,7 +63,8 @@ export class GroupedBarChart extends React.Component<{}> {
 							.table('data')
 							.facet({
 								name: 'facet',
-								partitionOn: (r: any) => r.category,
+								table: 'data',
+								groupBy: 'category',
 							})
 							.encode({
 								y: ({ d }, { y }) => y(d[0].category),

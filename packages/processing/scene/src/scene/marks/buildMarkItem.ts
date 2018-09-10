@@ -1,23 +1,33 @@
-import { Mark } from '@markable/interfaces'
+import { Mark, Facet, SGItem } from '@markable/interfaces'
 import { createMark } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
-export interface FacetPartitions {
+export interface FacetedData {
 	name: string
-	partitions: any[][]
+	facets: DataFacet[]
 }
+
+export interface DataFacet {
+	parent: any
+	data: any[]
+}
+
+type BoundData = any[] | FacetedData
 
 export function buildMarkItem(mark: Mark, frame: SceneFrame) {
 	const markFrame = frame.pushMark(mark)
-	/**
-	 * If the data is a faceted group, then bind one group per facet.
-	 */
 	const boundData = getBoundData(mark, markFrame)
-	const items = Array.isArray(boundData)
-		? createItemPerDataRow(markFrame, boundData)
-		: createItemPerFacet(markFrame, boundData)
+	const items = createItems(markFrame, boundData)
 	return createMark(mark.type, items)
+}
+
+function createItems(frame: SceneFrame, boundData: BoundData): SGItem[] {
+	if (Array.isArray(boundData)) {
+		return createItemPerDataRow(frame, boundData)
+	}
+
+	return createItemPerFacet(frame, boundData)
 }
 
 /**
@@ -26,17 +36,10 @@ export function buildMarkItem(mark: Mark, frame: SceneFrame) {
  * @param frame The current scene frame
  * @param partitions the item faceting configuration
  */
-function createItemPerFacet(
-	frame: SceneFrame,
-	{ name, partitions }: FacetPartitions,
-) {
-	return partitions.map((partition, index) => {
-		return createBoundItem(
-			frame.pushData({ [name]: partition }),
-			partition,
-			index,
-			partitions,
-		)
+function createItemPerFacet(frame: SceneFrame, { name, facets }: FacetedData) {
+	return facets.map((facet, index) => {
+		const facetFrame = frame.pushData({ [name]: facet.data }, facet.parent)
+		return createBoundItem(facetFrame, facet.parent, index, facets)
 	})
 }
 
@@ -58,7 +61,7 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  * @param mark The mark to bind data to
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
-function getBoundData(mark: Mark, frame: SceneFrame): any[] | FacetPartitions {
+function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 	const { singleton, table, facet } = mark
 
 	// If the table is unset, render as a singleton of the existing bound data-item
@@ -66,34 +69,82 @@ function getBoundData(mark: Mark, frame: SceneFrame): any[] | FacetPartitions {
 		return [frame.boundDataItem]
 	}
 
-	if (!table) {
-		console.log('error with mark', mark)
+	if (!table && !facet) {
 		throw new Error(
-			'mark must either have singleton set to true or have no data defined',
+			'unfaceted mark must either have singleton set to true or have no data defined',
 		)
 	}
 
-	const sourceTable = frame.data[table as string]
-	if (!facet) {
-		return sourceTable || []
+	const markSourceTable = frame.data[table as string]
+	if (!markSourceTable) {
+		throw new Error(`could not find table ${table}`)
 	}
 
-	const { name, partitionOn } = facet
-	const getFacetKey =
-		typeof partitionOn === 'function' ? partitionOn : (d: any) => d[partitionOn]
-	const partitionMap = new Map<string, any[]>()
-	const partitions: any[][] = []
-
-	sourceTable.forEach((row: any) => {
-		const key = getFacetKey(row)
-		if (!partitionMap.has(key)) {
-			const newPartition: any[] = []
-			partitions.push(newPartition)
-			partitionMap.set(key, newPartition)
+	if (facet) {
+		const facetSourceTable = facet.table || table
+		if (!facetSourceTable) {
+			throw new Error('mark does not have table or faceting table defined')
 		}
-		const partition = partitionMap.get(key) as any[]
-		partition.push(row)
+		const facetSource = frame.data[facetSourceTable]
+		if (facet.groupBy) {
+			return createFacetedData(facet, facetSource, markSourceTable)
+		} else {
+			throw new Error('faceting must groupBy defined')
+		}
+	} else {
+		return markSourceTable
+	}
+}
+
+function createFacetedData(
+	facet: Facet,
+	facetSourceTable: any[],
+	markSourceTable: any[],
+): FacetedData {
+	const getKey = keyGetter(facet.groupBy!)
+	const facetMap = new Map<string, DataFacet>()
+	const markMap = new Map<string, any>()
+	const facets: DataFacet[] = []
+
+	// If the mark source table is defineod, then the rows _should_ represent
+	// aggregations over the facet source table, so try to link them up
+	// start by mapping them by key
+	if (markSourceTable) {
+		markSourceTable.forEach(markRow => {
+			const key = getKey(markRow)
+			markMap.set(key, markRow)
+		})
+	}
+
+	// Map the data from the facet source table into the faceting structure
+	facetSourceTable.forEach((row: any) => {
+		const key = getKey(row)
+		if (!facetMap.has(key)) {
+			const parent = markMap.get(key) || {}
+			const newFacet: DataFacet = {
+				data: [],
+				parent,
+			}
+			facets.push(newFacet)
+			facetMap.set(key, newFacet)
+		}
+		const f = facetMap.get(key)!
+		f.data.push(row)
 	})
 
-	return { name, partitions }
+	// Return the faceting results
+	return {
+		name: facet.name,
+		facets,
+	}
+}
+
+function keyGetter(groupBy: string | string[] | ((row: any) => any)) {
+	if (typeof groupBy === 'function') {
+		return groupBy
+	} else {
+		const groupByKeys: string[] =
+			typeof groupBy === 'string' ? [groupBy] : groupBy
+		return (row: any) => groupByKeys.map(g => row[g]).join('|')
+	}
 }

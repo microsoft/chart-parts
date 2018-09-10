@@ -336,7 +336,7 @@ export class MarkBuilder {
 
 	public facet(facet: Facet): MarkBuilder {
 		if (facet !== undefined && this.type !== MarkType.Group) {
-			throw new Error('faceting can only be applied to group type marks')
+			throw new Error('faceting can only be applied to "group" type marks')
 		}
 		this.facetValue = facet
 		return this

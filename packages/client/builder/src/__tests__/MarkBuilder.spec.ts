@@ -1,4 +1,4 @@
-import { MarkType } from '@markable/interfaces'
+import { MarkType, MarkEncodingKey } from '@markable/interfaces'
 import { MarkBuilder } from '../MarkBuilder'
 
 describe('The Mark Builder', () => {
@@ -45,19 +45,19 @@ describe('The Mark Builder', () => {
 	it('can set data faceting', () => {
 		const builder = new MarkBuilder(MarkType.Group)
 			.table('data')
-			.facet({ name: 'data_part', partitionOn: row => row.x })
+			.facet({ name: 'data_part', table: 'data', groupBy: 'x' })
 
 		const built = builder.build()
 		expect(built.facet.name).toEqual('data_part')
-		expect(built.facet.partitionOn).toBeDefined()
+		expect(built.facet.groupBy).toBeDefined()
 	})
 
 	it('throws if data faceting is defined for a non-group marktype', () => {
 		const builder = new MarkBuilder(MarkType.Rect).table('data')
 
 		expect(() =>
-			builder.facet({ name: 'data_part', partitionOn: row => row.x }),
-		).toThrow('faceting can only be applied to group type marks')
+			builder.facet({ name: 'data_part', table: 'data', groupBy: 'x' }),
+		).toThrow('faceting can only be applied to "group" type marks')
 	})
 
 	describe('channel handler definition', () => {
@@ -96,8 +96,8 @@ describe('The Mark Builder', () => {
 	describe('encoding definition', () => {
 		it('can handle encodings by name', () => {
 			const builder = new MarkBuilder(MarkType.Rect)
-				.encode('x', () => 3)
-				.encode('y', () => 4)
+				.encode(MarkEncodingKey.x, () => 3)
+				.encode(MarkEncodingKey.y, () => 4)
 			const built = builder.build()
 
 			expect(built.encodings.x(undefined, undefined)).toEqual(3)
@@ -117,7 +117,7 @@ describe('The Mark Builder', () => {
 
 		it('throws if the single-encoding handler api is invoked without a handler function', () => {
 			expect(() =>
-				new MarkBuilder(MarkType.Rect).encode('x', undefined),
+				new MarkBuilder(MarkType.Rect).encode(MarkEncodingKey.x, undefined),
 			).toThrow('encoding must be defined for key x')
 		})
 	})

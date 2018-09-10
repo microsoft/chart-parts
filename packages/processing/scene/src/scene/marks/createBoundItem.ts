@@ -130,6 +130,7 @@ function transferEncodings(
 					data,
 					tables: frame.data,
 					view: frame.view,
+					parent: frame.parent,
 				}
 				const value = encoding(dataContext, frame.scales)
 				props[key] = value

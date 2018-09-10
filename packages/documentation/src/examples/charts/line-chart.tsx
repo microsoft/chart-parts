@@ -76,7 +76,7 @@ export default class LineChart extends React.Component {
         <Axis orient={AxisOrientation.Bottom} scale="x" />
         <Axis orient={AxisOrientation.Left} scale="y" />
 
-        <Group table="data" facetKey="c" facetName="facetedData">
+        <Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
           <Line
             table="facetedData"
             x={({ d }, { x }) => x(d.x)}

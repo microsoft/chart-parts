@@ -77,7 +77,7 @@ export default class StackedAreaChart extends React.Component {
         <Axis orient={AxisOrientation.Bottom} scale="x" />
         <Axis orient={AxisOrientation.Left} scale="y" />
 
-        <Group table="data" facetKey="c" facetName="faceted">
+        <Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
           <Area
             table="faceted"
             x={({ d }, { x }) => x(d.x)}

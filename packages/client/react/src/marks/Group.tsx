@@ -1,4 +1,4 @@
-import { MarkType } from '@markable/interfaces'
+import { MarkType, Facet } from '@markable/interfaces'
 import { SceneNodeBuilder, MarkBuilder } from '@markable/builder'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
@@ -6,16 +6,7 @@ import { BaseMark } from './BaseMark'
 export interface GroupProps extends CommonMarkProps {
 	clip?: MarkEncodingProp<boolean>
 	cornerRadius?: MarkEncodingProp<number>
-
-	/**
-	 * If faceting is enabled, the name of the facet table to provide to children
-	 */
-	facetName?: string
-
-	/**
-	 * If faceting is enabled, partitioning key to use
-	 */
-	facetKey?: string | ((row: any) => any)
+	facet?: Facet
 }
 
 export class Group extends BaseMark<GroupProps> {
@@ -37,20 +28,12 @@ export class Group extends BaseMark<GroupProps> {
 
 	protected createMark(): MarkBuilder {
 		const nodeBuilder = super.createMark()
-		const { facetName, facetKey } = this.props
+		const { facet } = this.props
 
-		if (facetName || facetKey) {
-			if (!facetName || !facetKey) {
-				throw new Error(
-					'Both facetName and facetKey props must be defined to enable faceting',
-				)
-			}
-
-			nodeBuilder.facet({
-				name: facetName,
-				partitionOn: facetKey,
-			})
+		if (facet) {
+			nodeBuilder.facet(facet)
 		}
+
 		return nodeBuilder
 	}
 }

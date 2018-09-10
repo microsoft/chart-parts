@@ -27,6 +27,7 @@ export class SceneFrame {
 		public channelId: number = 0,
 		public channelHandlers: { [key: string]: ChannelHandler } = {},
 		public boundDataItem: any = {},
+		public parent: any = {},
 	) {}
 
 	/**
@@ -46,6 +47,7 @@ export class SceneFrame {
 			this.channelId,
 			this.channelHandlers,
 			this.boundDataItem,
+			this.parent,
 		)
 	}
 
@@ -63,10 +65,16 @@ export class SceneFrame {
 			this.channelId,
 			this.channelHandlers,
 			this.boundDataItem,
+			this.parent,
 		)
 	}
 
-	public pushData(data: DataFrame) {
+	/**
+	 * Push data into a new frame
+	 * @param data The new data tables eto register
+	 * @param parent The new parent row to register (for group faceting)
+	 */
+	public pushData(data: DataFrame, parent?: any) {
 		const dataFrame = { ...this.data, ...data }
 		return new SceneFrame(
 			this.node,
@@ -80,6 +88,7 @@ export class SceneFrame {
 			this.channelId,
 			this.channelHandlers,
 			this.boundDataItem,
+			parent,
 		)
 	}
 
@@ -110,6 +119,7 @@ export class SceneFrame {
 			this.channelId,
 			this.channelHandlers,
 			this.boundDataItem,
+			this.parent,
 		)
 	}
 
@@ -126,6 +136,7 @@ export class SceneFrame {
 			this.channelId,
 			this.channelHandlers,
 			dataItem,
+			this.parent,
 		)
 	}
 
