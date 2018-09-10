@@ -35,23 +35,22 @@ export function createBoundItem(
 
 	// Update the view and recompute scales
 	const itemSpace = getItemSpace(item)
-	const groupDrawRect = getNextDrawRect(itemSpace, frame.view)
-	const itemFrame = frame
-		.pushView({
-			width: groupDrawRect.right - groupDrawRect.left,
-			height: groupDrawRect.bottom - groupDrawRect.top,
-		})
-		.pushBoundDataItem(row)
+	const drawRect = getNextDrawRect(itemSpace, frame.view)
+	const nextView = {
+		width: drawRect.right - drawRect.left,
+		height: drawRect.bottom - drawRect.top,
+	}
+	const itemFrame = frame.pushView(nextView).pushBoundDataItem(row)
 
 	// Mash in the children and the bounds
 	const items = mark.child ? processNode(mark.child, itemFrame) : []
 	const groupItem: SGGroupItem = {
 		...item,
 		items,
-		x: groupDrawRect.left,
-		y: groupDrawRect.top,
-		x2: groupDrawRect.right,
-		y2: groupDrawRect.bottom,
+		x: drawRect.left,
+		y: drawRect.top,
+		x2: drawRect.right,
+		y2: drawRect.bottom,
 	}
 	return groupItem
 }

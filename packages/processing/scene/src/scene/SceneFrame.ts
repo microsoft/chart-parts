@@ -102,6 +102,13 @@ export class SceneFrame {
 		viewTL: [number, number] = [0, 0],
 		viewBR: [number, number] = [view.height, view.width],
 	) {
+		if (
+			areViewSizesEqual(view, this.view) &&
+			areCoordsEqual(viewTL, this.viewTL) &&
+			areCoordsEqual(viewBR, this.viewBR)
+		) {
+			return this
+		}
 		const scales = this.getRecomputedScales(this.node, viewTL, viewBR)
 		return new SceneFrame(
 			this.node,
@@ -175,4 +182,12 @@ export class SceneFrame {
 		this.channelHandlers[id] = handler
 		return id
 	}
+}
+
+function areViewSizesEqual(a: ViewSize, b: ViewSize) {
+	return a.height === b.height && a.width === b.width
+}
+
+function areCoordsEqual(a: [number, number], b: [number, number]) {
+	return a[0] === b[0] && a[1] === b[1]
 }
