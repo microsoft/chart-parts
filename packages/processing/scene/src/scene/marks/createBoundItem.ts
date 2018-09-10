@@ -6,6 +6,7 @@ import {
 	MarkEncodings,
 	ViewSize,
 	SGGroupItem,
+	EncodingContext,
 } from '@markable/interfaces'
 import { createItem } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
@@ -124,13 +125,11 @@ function transferEncodings(
 		.forEach(key => {
 			const encoding = encodings[key]
 			if (encoding) {
-				const dataContext = {
+				const dataContext: EncodingContext = {
 					d,
 					index,
-					data,
-					tables: frame.data,
 					view: frame.view,
-					parent: frame.parent,
+					...frame.data,
 				}
 				const value = encoding(dataContext, frame.scales)
 				props[key] = value

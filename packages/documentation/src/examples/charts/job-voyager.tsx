@@ -144,6 +144,7 @@ export default class JobVoyager extends React.Component {
           table="series"
           facet={{
             groupBy: ['job', 'sex'],
+            parentName: 'agg',
             table: 'jobs',
             name: 'facet',
           }}
@@ -154,7 +155,7 @@ export default class JobVoyager extends React.Component {
             y={({ d }, { y }) => y(d.y0)}
             y2={({ d }, { y }) => y(d.y1)}
             fill={({ d }, { color }) => color(d.sex)}
-            fillOpacity={({ parent }, { alpha }) => alpha(parent.sum)}
+            fillOpacity={({ agg }, { alpha }) => alpha(agg.sum)}
           />
         </Group>
         <Text

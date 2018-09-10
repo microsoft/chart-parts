@@ -1,15 +1,16 @@
-import { Mark, Facet, SGItem } from '@markable/interfaces'
+import { Mark, Facet, SGItem, DataFrame } from '@markable/interfaces'
 import { createMark } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
 export interface FacetedData {
 	name: string
+	parentName?: string
 	facets: DataFacet[]
 }
 
 export interface DataFacet {
-	parent: any
+	parent?: any
 	data: any[]
 }
 
@@ -36,10 +37,24 @@ function createItems(frame: SceneFrame, boundData: BoundData): SGItem[] {
  * @param frame The current scene frame
  * @param partitions the item faceting configuration
  */
-function createItemPerFacet(frame: SceneFrame, { name, facets }: FacetedData) {
+function createItemPerFacet(
+	frame: SceneFrame,
+	{ name, parentName, facets }: FacetedData,
+) {
 	return facets.map((facet, index) => {
-		const facetFrame = frame.pushData({ [name]: facet.data }, facet.parent)
-		return createBoundItem(facetFrame, facet.parent, index, facets)
+		const newData: DataFrame = {
+			[name]: facet.data,
+		}
+		if (parentName) {
+			newData[parentName] = facet.parent
+		}
+		const facetFrame = frame.pushData(newData)
+		return createBoundItem(
+			facetFrame,
+			facet.parent || facet.data,
+			index,
+			facets,
+		)
 	})
 }
 
@@ -76,10 +91,6 @@ function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 	}
 
 	const markSourceTable = frame.data[table as string]
-	if (!markSourceTable) {
-		throw new Error(`could not find table ${table}`)
-	}
-
 	if (facet) {
 		const facetSourceTable = facet.table || table
 		if (!facetSourceTable) {
@@ -92,6 +103,9 @@ function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 			throw new Error('faceting must groupBy defined')
 		}
 	} else {
+		if (!markSourceTable) {
+			throw new Error(`could not find table ${table}`)
+		}
 		return markSourceTable
 	}
 }
@@ -120,7 +134,7 @@ function createFacetedData(
 	facetSourceTable.forEach((row: any) => {
 		const key = getKey(row)
 		if (!facetMap.has(key)) {
-			const parent = markMap.get(key) || {}
+			const parent = markMap.get(key)
 			const newFacet: DataFacet = {
 				data: [],
 				parent,
@@ -133,10 +147,12 @@ function createFacetedData(
 	})
 
 	// Return the faceting results
-	return {
+	const result = {
 		name: facet.name,
+		parentName: facet.parentName,
 		facets,
 	}
+	return result
 }
 
 function keyGetter(groupBy: string | string[] | ((row: any) => any)) {

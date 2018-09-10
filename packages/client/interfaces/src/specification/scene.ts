@@ -167,6 +167,12 @@ export interface Facet {
 	name: string
 
 	/**
+	 * The name to use for the parent mark's bound data row in the context of
+	 * facet encoding.
+	 */
+	parentName?: string
+
+	/**
 	 * The name of the source table to generate facets from. If not defined,
 	 * then the parent table will be used
 	 */
@@ -196,25 +202,19 @@ export interface EncodingContext {
 	index: number
 
 	/**
-	 * The bound dataset
-	 */
-	data: any[]
-
-	/**
-	 * The full dataset
-	 */
-	tables: DataFrame
-
-	/**
-	 * The dimensions of the current working view (e.g. Chart-Dimensions or current Group Dimensions)
+	 * The dimensions of the current working view (e.g. Chart-Dimensions or
+	 * current Group Dimensions)
 	 */
 	view: ViewSize
 
 	/**
-	 * In the case of rendering elements within a faceted group, this represents the
-	 * datum bound to the group item, which will share the same groupby key as the facet table.
+	 * Named data tables and datums. The data tables are derived from the
+	 * source dataset and any faceting tables created at this point.
+	 *
+	 * Nomed datums are derived from faceting when the parent row is
+	 * named.
 	 */
-	parent?: any
+	[key: string]: any | any[]
 }
 
 export type MarkEncoding<T> = (ctx: EncodingContext, scales: Scales) => T
@@ -386,8 +386,11 @@ export interface ViewSize {
 	height: number
 }
 
+/**
+ * Named tables and rows for various encoding contexts
+ */
 export interface DataFrame {
-	[key: string]: any[]
+	[key: string]: any[] | any
 }
 
 export interface ChannelNames {
