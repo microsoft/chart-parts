@@ -15,7 +15,7 @@ export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 		this.addCommonProperties(scale)
 
 		return {
-			[this.nameValue as string]: scale,
+			[this.nameValue!]: scale,
 		}
 	}
 }

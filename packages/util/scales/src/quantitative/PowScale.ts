@@ -24,6 +24,6 @@ export class PowScale extends QuantitativeScale<QuantitativeValue, number> {
 			result.exponent(this.exponentValue)
 		}
 
-		return { [this.nameValue as string]: result }
+		return { [this.nameValue!]: result }
 	}
 }

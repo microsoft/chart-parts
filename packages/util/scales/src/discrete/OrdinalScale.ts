@@ -29,7 +29,7 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 		const scale = scaleOrdinal(this.rangeValue)
 			.domain(domain)
 			.range(range)
-		return { [this.nameValue as string]: scale }
+		return { [this.nameValue!]: scale }
 	}
 
 	protected getRange() {
