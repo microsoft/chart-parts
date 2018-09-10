@@ -9,11 +9,13 @@ import {
   SqrtScale,
   Axis,
   Text,
+  QuantizeScale,
 } from '@markable/react'
 import {
   Dimension,
   AxisOrientation,
   VerticalTextAlignment,
+  HorizontalAlignment,
 } from '@markable/interfaces'
 import {
   dataset,
@@ -107,6 +109,23 @@ export default class JobVoyager extends React.Component {
           zero={true}
           // round={true}
         />
+        <QuantizeScale
+          name="align"
+          table="series"
+          domain="argmax.perc"
+          range={[
+            HorizontalAlignment.Left,
+            HorizontalAlignment.Center,
+            HorizontalAlignment.Right,
+          ]}
+        />
+        <QuantizeScale
+          name="offset"
+          domain={[1730, 2130]}
+          range={[6, 0, -6]}
+          zero={false}
+        />
+
         {/* Quantized Scales         
         {
       "name": "opacity",
@@ -114,18 +133,6 @@ export default class JobVoyager extends React.Component {
       "range": [0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0],
       "domain": {"data": "series", "field": "argmax.perc"}
     },
-            {
-            "name": "align",
-            "type": "quantize",
-            "range": ["left", "center", "right"], "zero": false,
-            "domain": [1730, 2130]
-            },
-            {
-            "name": "offset",
-            "type": "quantize",
-            "range": [6, 0, -6], "zero": false,
-            "domain": [1730, 2130]
-            }
         */}
         <Axis
           orient={AxisOrientation.Bottom}
@@ -161,13 +168,13 @@ export default class JobVoyager extends React.Component {
         <Text
           table="series"
           x={({ d }, { x }) => x(d.argmax.year)}
-          //dx={({ d }, { offset }) => offset(d.argmax.year)}
+          dx={({ d }, { offset }) => offset(d.argmax.year)}
           y={({ d }, { y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
           fill="#000"
           //fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
           fontSize={({ d }, { font }) => font(d.argmax.perc)}
           text={({ d }) => d.job}
-          //align={({ d }, { align }) => align(d.year)}
+          align={({ d }, { align }) => align(d.year)}
           baseline={VerticalTextAlignment.Middle}
         />
       </Chart>

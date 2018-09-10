@@ -1,4 +1,7 @@
+// tslint:disable no-var-requires
 import { ScaleCreationContext, Scales } from '@markable/interfaces'
+declare var require: any
+const get = require('lodash/get')
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
 export abstract class DomainScale<Domain> {
@@ -60,7 +63,7 @@ export abstract class DomainScale<Domain> {
 		}
 		const bind = this.bindDomainValue
 		const data = args.data[this.tableValue] || []
-		const domainValues = data.map((d: any) => d[bind])
+		const domainValues = data.map((d: any) => get(d, bind))
 		const result = this.processDomainValues(domainValues)
 		return result
 	}

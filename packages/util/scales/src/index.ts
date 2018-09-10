@@ -8,9 +8,11 @@ import {
 	UtcScale,
 } from './quantitative'
 import { BandScale, OrdinalScale, PointScale } from './discrete'
+import { QuantizeScale } from './QuantizeScale'
 
 export * from './quantitative'
 export * from './discrete'
+export * from './QuantizeScale'
 export { CategoricalColorScheme } from './colorSchemeMap'
 
 // Quantitative Scale Factories
@@ -28,3 +30,6 @@ export const band = (name: string, bandwidth?: string) =>
 export const ordinal = (name: string) => new OrdinalScale().name(name)
 export const point = (name: string, step?: string) =>
 	new PointScale().name(name).stepName(step)
+
+// Other
+export const quantize = (name: string) => new QuantizeScale().name(name)
