@@ -18,8 +18,10 @@
 	"dependencies": {
 		"@markable/interfaces": "^0.0.15",
 		"@types/d3-array": "^1.2.1",
+		"@types/d3-interpolate": "^1.2.0",
 		"@types/d3-scale": "^2.0.1",
 		"d3-array": "^1.2.1",
+		"d3-interpolate": "^1.3.2",
 		"d3-scale": "^2.1.0",
 		"lodash": "^4.17.10"
 	}

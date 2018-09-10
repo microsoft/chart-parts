@@ -1,9 +1,9 @@
 import { ScaleCreationContext, Dimension } from '@markable/interfaces'
-import { DomainRangeScale } from '../DomainRangeScale'
 import { extent } from 'd3-array'
+import { interpolateRound } from 'd3-interpolate'
+import { DomainRangeScale } from '../DomainRangeScale'
 import { getBoundRange } from '../getBoundRange'
 import { optionalArgument } from '../util'
-
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
 export type QuantitativeSpan = [QuantitativeValue, QuantitativeValue]
@@ -21,6 +21,7 @@ export abstract class QuantitativeScale<
 	protected niceValue?: boolean | number | string | object
 	protected zeroValue?: boolean
 	protected paddingValue?: number
+	protected roundValue?: boolean
 
 	/**
 	 * A boolean indicating if output values should be clamped to the range (default false).
@@ -38,6 +39,14 @@ export abstract class QuantitativeScale<
 	 */
 	public nice(value?: boolean | number | string | object) {
 		this.niceValue = optionalArgument(value, arguments.length, true, false)
+		return this
+	}
+
+	/**
+	 * Extends the domain so that it starts and ends on nice round values.
+	 */
+	public round(value?: boolean) {
+		this.roundValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
@@ -110,6 +119,9 @@ export abstract class QuantitativeScale<
 		}
 		if (this.clampValue !== undefined) {
 			scale.clamp(this.clampValue)
+		}
+		if (this.roundValue === true) {
+			scale.interpolate(interpolateRound)
 		}
 	}
 }

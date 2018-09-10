@@ -34,6 +34,11 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	 * The number of pixels to pad the target range with
 	 */
 	padding?: number
+
+	/**
+	 * A flag that indicating whether to use range-rounding
+	 */
+	round?: boolean
 }
 
 export abstract class QuantitativeScale<

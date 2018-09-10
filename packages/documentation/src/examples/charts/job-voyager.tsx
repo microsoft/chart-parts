@@ -10,6 +10,7 @@ import {
   Axis,
   Text,
   QuantizeScale,
+  QuantileScale,
 } from '@markable/react'
 import {
   Dimension,
@@ -27,10 +28,7 @@ import {
 import { Renderer } from '@markable/react-svg-renderer'
 
 // TODO:
-// - Round option for continuous scales
-// - Quantized Scales
 // - Axis grid
-// - group faceting based on groupby table
 
 const renderer = new Renderer()
 const source = require('vega-datasets/data/jobs.json')
@@ -78,7 +76,7 @@ export default class JobVoyager extends React.Component {
           domain="year"
           range={Dimension.Width}
           zero={false}
-          //round=true
+          round={true}
         />
         <LinearScale
           name="y"
@@ -87,7 +85,7 @@ export default class JobVoyager extends React.Component {
           range={Dimension.Height}
           reverse={true}
           zero={true}
-          // round={true}
+          round={true}
         />
         <OrdinalScale
           name="color"
@@ -105,14 +103,14 @@ export default class JobVoyager extends React.Component {
           name="font"
           table="series"
           domain="argmax.perc"
-          range={[0, 20]}
+          range={[0, 22]}
           zero={true}
-          // round={true}
+          round={true}
         />
         <QuantizeScale
           name="align"
           table="series"
-          domain="argmax.perc"
+          domain="argmax.year"
           range={[
             HorizontalAlignment.Left,
             HorizontalAlignment.Center,
@@ -125,20 +123,18 @@ export default class JobVoyager extends React.Component {
           range={[6, 0, -6]}
           zero={false}
         />
-
-        {/* Quantized Scales         
-        {
-      "name": "opacity",
-      "type": "quantile",
-      "range": [0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0],
-      "domain": {"data": "series", "field": "argmax.perc"}
-    },
-        */}
+        <QuantileScale
+          name="opacity"
+          table="series"
+          domain="argmax.perc"
+          range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
+        />
         <Axis
           orient={AxisOrientation.Bottom}
           scale="x"
           labelFormat="d"
           tickCount={15}
+          domain={false}
         />
         <Axis
           orient={AxisOrientation.Right}
@@ -171,10 +167,10 @@ export default class JobVoyager extends React.Component {
           dx={({ d }, { offset }) => offset(d.argmax.year)}
           y={({ d }, { y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
           fill="#000"
-          //fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
+          fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
           fontSize={({ d }, { font }) => font(d.argmax.perc)}
           text={({ d }) => d.job}
-          align={({ d }, { align }) => align(d.year)}
+          align={({ d }, { align }) => align(d.argmax.year)}
           baseline={VerticalTextAlignment.Middle}
         />
       </Chart>

@@ -9,10 +9,12 @@ import {
 } from './quantitative'
 import { BandScale, OrdinalScale, PointScale } from './discrete'
 import { QuantizeScale } from './QuantizeScale'
+import { QuantileScale } from './QuantileScale'
 
 export * from './quantitative'
 export * from './discrete'
 export * from './QuantizeScale'
+export * from './QuantileScale'
 export { CategoricalColorScheme } from './colorSchemeMap'
 
 // Quantitative Scale Factories
@@ -33,3 +35,4 @@ export const point = (name: string, step?: string) =>
 
 // Other
 export const quantize = (name: string) => new QuantizeScale().name(name)
+export const quantile = (name: string) => new QuantileScale().name(name)
