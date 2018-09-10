@@ -144,7 +144,7 @@ export default class JobVoyager extends React.Component {
           table="series"
           facet={{
             groupBy: ['job', 'sex'],
-            parentName: 'agg',
+            keyRowName: 'agg',
             table: 'jobs',
             name: 'facet',
           }}

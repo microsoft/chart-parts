@@ -5,7 +5,7 @@ import { createBoundItem } from './createBoundItem'
 
 export interface FacetedData {
 	name: string
-	parentName?: string
+	keyRowName?: string
 	facets: DataFacet[]
 }
 
@@ -39,14 +39,14 @@ function createItems(frame: SceneFrame, boundData: BoundData): SGItem[] {
  */
 function createItemPerFacet(
 	frame: SceneFrame,
-	{ name, parentName, facets }: FacetedData,
+	{ name, keyRowName, facets }: FacetedData,
 ) {
 	return facets.map((facet, index) => {
 		const newData: DataFrame = {
 			[name]: facet.data,
 		}
-		if (parentName) {
-			newData[parentName] = facet.parent
+		if (keyRowName) {
+			newData[keyRowName] = facet.parent
 		}
 		const facetFrame = frame.pushData(newData)
 		return createBoundItem(
@@ -149,7 +149,7 @@ function createFacetedData(
 	// Return the faceting results
 	const result = {
 		name: facet.name,
-		parentName: facet.parentName,
+		keyRowName: facet.keyRowName,
 		facets,
 	}
 	return result

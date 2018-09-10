@@ -167,10 +167,12 @@ export interface Facet {
 	name: string
 
 	/**
-	 * The name to use for the parent mark's bound data row in the context of
-	 * facet encoding.
+	 * The name to use for the group mark's bound-data row in the context of
+	 * facet encoding. If the group mark has a bound data row, it will be mapped to
+	 * a facet partition using the facet's group-by mechanism. If the group is not
+	 * bound to a data row, it will be bound to the data facet partitions.
 	 */
-	parentName?: string
+	keyRowName?: string
 
 	/**
 	 * The name of the source table to generate facets from. If not defined,
