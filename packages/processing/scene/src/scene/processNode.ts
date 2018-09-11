@@ -1,6 +1,12 @@
-import { SGMark, SGItem, SceneNode, MarkType, ItemSpace } from '@markable/interfaces'
+import {
+	SGMark,
+	SGItem,
+	SceneNode,
+	MarkType,
+	ItemSpace,
+} from '@markable/interfaces'
 import { SceneFrame } from './SceneFrame'
-import { buildMarkItem } from './marks/buildMarkItem'
+import { processMark } from './marks/processMark'
 import { buildAxes } from './axes'
 import { buildMark } from '@markable/scenegraph'
 
@@ -17,21 +23,23 @@ export function processNode(
 ): SGMarkAny[] {
 	// Push the new node, which registers channels and recomputes scales
 	const frame = parentFrame.pushNode(node)
+
 	// Build out the axes, which may or may not update the frame
 	const { remainingSpace, axes } = buildAxes(node, frame)
+
 	// Construct the items for the marks
-	const markFrame = frame.pushView(remainingSpace.shape as any)
-	const markItems = node.marks.map(mark => buildMarkItem(mark, markFrame))
+	const viewFrame = frame.pushView(remainingSpace.shape as any)
+	const markItems = node.marks.map(mark => processMark(mark, viewFrame))
 
 	// Emit the result - if axes are present, wrap the marks in a group to put them in the correct space
 	if (axes.length > 0) {
-		return [...axes, createMarkGroup(markItems, remainingSpace)]
+		return [...axes, createMarkGrouping(markItems, remainingSpace)]
 	} else {
 		return markItems
 	}
 }
 
-function createMarkGroup(items: Array<SGMark<SGItem>>, space: ItemSpace) {
+function createMarkGrouping(items: Array<SGMark<SGItem>>, space: ItemSpace) {
 	return buildMark(MarkType.Group)
 		.role('marks')
 		.items({

@@ -64,16 +64,23 @@ const genderOptions = ['all', 'women', 'men']
 
 export interface JobVoyagerState {
   gender: string
+  selectedAreaId?: string
 }
 
 export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
-  public state = { gender: 'all' }
+  public state = { gender: 'all', selectedAreaId: undefined }
 
   public render() {
-    const { gender } = this.state
+    const { gender, selectedAreaId } = this.state
+    console.log('RENDER', selectedAreaId)
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
-        <JobVoyagerChart gender={this.state} />
+        <JobVoyagerChart
+          gender={gender}
+          selectedAreaId={selectedAreaId}
+          onMouseEnterArea={this.onEnterArea}
+          onMouseLeaveArea={this.onLeaveArea}
+        />
         <div>
           <div>
             {genderOptions.map(g => [
@@ -99,12 +106,30 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
   private changeGenderSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ gender: e.target.value })
   }
+
+  private onEnterArea = (id: string) => {
+    console.log('SELECT AREA', id)
+    this.setState({ selectedAreaId: id })
+  }
+
+  private onLeaveArea = (id: string) => {
+    console.log('UNSELECT AREA', id)
+    this.setState({ selectedAreaId: undefined })
+  }
 }
 
 interface JobVoyagerChartProps {
   gender: string
+  selectedAreaId?: string
+  onMouseEnterArea: (key: string) => any
+  onMouseLeaveArea: (key: string) => any
 }
-const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({ gender }) => (
+const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
+  gender,
+  selectedAreaId,
+  onMouseEnterArea,
+  onMouseLeaveArea,
+}) => (
   <Chart
     width={850}
     height={550}
@@ -112,6 +137,67 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({ gender }) => (
     renderer={renderer}
     data={ds.tables}
   >
+    <Scales />
+    <Axes />
+
+    <Group
+      table="series"
+      facet={{
+        groupBy: ['job', 'sex'],
+        keyRowName: 'agg',
+        table: 'jobs',
+        name: 'facet',
+      }}
+    >
+      <Area
+        table="facet"
+        x={({ d }, { x }) => x(d.year)}
+        y={({ d }, { y }) => y(d.y0)}
+        y2={({ d }, { y }) => y(d.y1)}
+        fill={({ d }, { color }) => color(d.sex)}
+        fillOpacity={({ agg, id }, { alpha }) =>
+          id === selectedAreaId ? 0.2 : alpha(agg.sum)
+        }
+        onMouseOver={(arg, { id }) => onMouseEnterArea(id)}
+        onMouseLeave={(arg, { id }) => onMouseLeaveArea(id)}
+      />
+    </Group>
+    <Text
+      table="series"
+      x={({ d }, { x }) => x(d.argmax.year)}
+      dx={({ d }, { offset }) => offset(d.argmax.year)}
+      y={({ d }, { y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
+      fill="#000"
+      fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
+      fontSize={({ d }, { font }) => font(d.argmax.perc)}
+      text={({ d }) => d.job}
+      align={({ d }, { align }) => align(d.argmax.year)}
+      baseline={VerticalTextAlignment.Middle}
+    />
+  </Chart>
+)
+
+const Axes: React.SFC = () => (
+  <>
+    <Axis
+      orient={AxisOrientation.Bottom}
+      scale="x"
+      labelFormat="d"
+      tickCount={15}
+      domain={false}
+    />
+    <Axis
+      orient={AxisOrientation.Right}
+      scale="y"
+      labelFormat="~%"
+      domain={false}
+      tickSize={12}
+    />
+  </>
+)
+
+const Scales: React.SFC = () => (
+  <>
     <LinearScale
       name="x"
       table="jobs"
@@ -171,49 +257,5 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({ gender }) => (
       domain="argmax.perc"
       range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
     />
-    <Axis
-      orient={AxisOrientation.Bottom}
-      scale="x"
-      labelFormat="d"
-      tickCount={15}
-      domain={false}
-    />
-    <Axis
-      orient={AxisOrientation.Right}
-      scale="y"
-      labelFormat="~%"
-      domain={false}
-      tickSize={12}
-    />
-    <Group
-      table="series"
-      facet={{
-        groupBy: ['job', 'sex'],
-        keyRowName: 'agg',
-        table: 'jobs',
-        name: 'facet',
-      }}
-    >
-      <Area
-        table="facet"
-        x={({ d }, { x }) => x(d.year)}
-        y={({ d }, { y }) => y(d.y0)}
-        y2={({ d }, { y }) => y(d.y1)}
-        fill={({ d }, { color }) => color(d.sex)}
-        fillOpacity={({ agg }, { alpha }) => alpha(agg.sum)}
-      />
-    </Group>
-    <Text
-      table="series"
-      x={({ d }, { x }) => x(d.argmax.year)}
-      dx={({ d }, { offset }) => offset(d.argmax.year)}
-      y={({ d }, { y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
-      fill="#000"
-      fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
-      fontSize={({ d }, { font }) => font(d.argmax.perc)}
-      text={({ d }) => d.job}
-      align={({ d }, { align }) => align(d.argmax.year)}
-      baseline={VerticalTextAlignment.Middle}
-    />
-  </Chart>
+  </>
 )

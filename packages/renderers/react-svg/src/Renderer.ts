@@ -44,7 +44,9 @@ function createElementFor(
 			.filter(c => !!c)
 			.map(
 				(c, index) =>
-					typeof c !== 'object' ? c : createElementFor(c, `${index}`, handlers),
+					typeof c !== 'object'
+						? c
+						: createElementFor(c, `${key}::${index}`, handlers),
 			),
 	)
 }

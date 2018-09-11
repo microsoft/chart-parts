@@ -7,6 +7,7 @@ import {
 	ViewSize,
 	SGGroupItem,
 	EncodingContext,
+	ItemIdGenerator,
 } from '@markable/interfaces'
 import { createItem } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
@@ -72,14 +73,28 @@ function createItemFromMark(
 	data: any[],
 	frame: SceneFrame,
 ) {
-	const { type, encodings, name, role } = mark
+	const { type, encodings, name, role, idGenerator } = mark
+	const id = `${frame.parentId}.${getItemId(row, index, data, idGenerator)}`
 	return createItem(type, {
-		...transferEncodings(row, index, data, encodings, frame),
+		...transferEncodings(id, row, index, data, encodings, frame),
 		name,
 		role,
-		metadata: { index },
+		metadata: { index, id },
 		channels: frame.channels,
 	})
+}
+
+function getItemId(
+	row: any,
+	index: number,
+	data: any[],
+	idGenerator: ItemIdGenerator | undefined,
+) {
+	if (!idGenerator) {
+		return `${index}`
+	} else {
+		return idGenerator(row, index, data)
+	}
 }
 
 /**
@@ -112,6 +127,7 @@ function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
 }
 
 function transferEncodings(
+	id: string,
 	d: any,
 	index: number,
 	data: any[],
@@ -125,6 +141,7 @@ function transferEncodings(
 			const encoding = encodings[key]
 			if (encoding) {
 				const dataContext: EncodingContext = {
+					id,
 					d,
 					index,
 					view: frame.view,

@@ -1,34 +1,51 @@
 import { MarkType, AxisOrientation } from '@markable/interfaces'
-import * as builderModule from '../index'
+import {
+	scene,
+	arc,
+	area,
+	group,
+	rect,
+	mark,
+	axis,
+	image,
+	line,
+	path,
+	rule,
+	symbol,
+	text,
+	shape,
+	trail,
+} from '../index'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
+const view = { width: 100, height: 200 }
 
 describe('The builder module', () => {
 	it('contains the correct API', () => {
-		expect(builderModule.scene).toBeDefined()
-		expect(builderModule.mark).toBeDefined()
-		expect(builderModule.axis).toBeDefined()
+		expect(scene).toBeDefined()
+		expect(mark).toBeDefined()
+		expect(axis).toBeDefined()
 
 		// Mork shorthands
-		expect(builderModule.arc).toBeDefined()
-		expect(builderModule.area).toBeDefined()
-		expect(builderModule.group).toBeDefined()
-		expect(builderModule.image).toBeDefined()
-		expect(builderModule.line).toBeDefined()
-		expect(builderModule.path).toBeDefined()
-		expect(builderModule.rect).toBeDefined()
-		expect(builderModule.rule).toBeDefined()
-		expect(builderModule.symbol).toBeDefined()
-		expect(builderModule.text).toBeDefined()
-		expect(builderModule.trail).toBeDefined()
-		expect(builderModule.shape).toBeDefined()
+		expect(arc).toBeDefined()
+		expect(area).toBeDefined()
+		expect(group).toBeDefined()
+		expect(image).toBeDefined()
+		expect(line).toBeDefined()
+		expect(path).toBeDefined()
+		expect(rect).toBeDefined()
+		expect(rule).toBeDefined()
+		expect(symbol).toBeDefined()
+		expect(text).toBeDefined()
+		expect(trail).toBeDefined()
+		expect(shape).toBeDefined()
 	})
 
 	it('can build a basic scene specification', () => {
-		const scene = builderModule.scene((snb: SceneNodeBuilder) => {
-			const rect = builderModule.rect().name('test_rect')
-			return snb.mark(rect)
-		})
-		const builtScene = scene.build()
+		const sc = scene(
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
+			view,
+		)
+		const builtScene = sc.build()
 		expect(builtScene).toBeDefined()
 
 		// Outer Group
@@ -44,13 +61,10 @@ describe('The builder module', () => {
 	})
 
 	it('encodes the outer rect appropriately', () => {
-		const view = { width: 100, height: 200 }
-		const builtScene = builderModule
-			.scene((snb: SceneNodeBuilder) => {
-				const rect = builderModule.rect().name('test_rect')
-				return snb.mark(rect)
-			}, view)
-			.build()
+		const builtScene = scene(
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
+			view,
+		).build()
 
 		const outerGroup = builtScene.marks[0]
 		expect(outerGroup.encodings.width({ view } as any, undefined)).toEqual(100)
@@ -59,13 +73,10 @@ describe('The builder module', () => {
 
 	it('sets default dimensions on the outer rect', () => {
 		// default view bounds
-		const view = { width: 250, height: 250 }
-		const builtScene = builderModule
-			.scene((snb: SceneNodeBuilder) => {
-				const rect = builderModule.rect().name('test_rect')
-				return snb.mark(rect)
-			})
-			.build()
+		const builtScene = scene(
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('`test_rect')),
+			{ width: 250, height: 250 },
+		).build()
 
 		const outerGroup = builtScene.marks[0]
 		expect(outerGroup.encodings.width({ view } as any, undefined)).toEqual(250)
@@ -73,34 +84,34 @@ describe('The builder module', () => {
 	})
 
 	it('can create mark builders for each mark type', () => {
-		expect(builderModule.arc()).toBeDefined()
-		expect(builderModule.arc('my_arc')).toBeDefined()
-		expect(builderModule.area()).toBeDefined()
-		expect(builderModule.area('my_area')).toBeDefined()
-		expect(builderModule.group()).toBeDefined()
-		expect(builderModule.group('my_group')).toBeDefined()
-		expect(builderModule.image()).toBeDefined()
-		expect(builderModule.image('my_image')).toBeDefined()
-		expect(builderModule.line()).toBeDefined()
-		expect(builderModule.line('my_line')).toBeDefined()
-		expect(builderModule.path()).toBeDefined()
-		expect(builderModule.path('my_path')).toBeDefined()
-		expect(builderModule.rect()).toBeDefined()
-		expect(builderModule.rect('my_rect')).toBeDefined()
-		expect(builderModule.rule()).toBeDefined()
-		expect(builderModule.rule('my_rule')).toBeDefined()
-		expect(builderModule.symbol()).toBeDefined()
-		expect(builderModule.symbol('my_symbol')).toBeDefined()
-		expect(builderModule.text()).toBeDefined()
-		expect(builderModule.text('my_text')).toBeDefined()
-		expect(builderModule.trail()).toBeDefined()
-		expect(builderModule.trail('my_trail')).toBeDefined()
-		expect(builderModule.shape()).toBeDefined()
-		expect(builderModule.shape('my_shape')).toBeDefined()
+		expect(arc()).toBeDefined()
+		expect(arc('my_arc')).toBeDefined()
+		expect(area()).toBeDefined()
+		expect(area('my_area')).toBeDefined()
+		expect(group()).toBeDefined()
+		expect(group('my_group')).toBeDefined()
+		expect(image()).toBeDefined()
+		expect(image('my_image')).toBeDefined()
+		expect(line()).toBeDefined()
+		expect(line('my_line')).toBeDefined()
+		expect(path()).toBeDefined()
+		expect(path('my_path')).toBeDefined()
+		expect(rect()).toBeDefined()
+		expect(rect('my_rect')).toBeDefined()
+		expect(rule()).toBeDefined()
+		expect(rule('my_rule')).toBeDefined()
+		expect(symbol()).toBeDefined()
+		expect(symbol('my_symbol')).toBeDefined()
+		expect(text()).toBeDefined()
+		expect(text('my_text')).toBeDefined()
+		expect(trail()).toBeDefined()
+		expect(trail('my_trail')).toBeDefined()
+		expect(shape()).toBeDefined()
+		expect(shape('my_shape')).toBeDefined()
 	})
 
 	it('can create axis builders', () => {
-		const builder = builderModule.axis('x', AxisOrientation.Bottom)
+		const builder = axis('x', AxisOrientation.Bottom)
 		expect(builder).toBeDefined()
 	})
 })

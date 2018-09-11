@@ -53,8 +53,13 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (eventArg: any) =>
-			handler(eventArg, metadata as HandlerMetadata)
+		reactAttrs[reactEventName] = (eventArg: any) => {
+			const handlerMetadata: HandlerMetadata = {
+				...(metadata as HandlerMetadata),
+				key,
+			}
+			handler(eventArg, handlerMetadata as HandlerMetadata)
+		}
 	})
 
 	const result = React.createElement(
@@ -63,7 +68,9 @@ function createElementFor(
 		(children || [])
 			.map(
 				(c, index) =>
-					typeof c !== 'object' ? c : createElementFor(c, `${index}`, handlers),
+					typeof c !== 'object'
+						? c
+						: createElementFor(c, `${key}::${index}`, handlers),
 			)
 			.filter(t => !!t),
 	)

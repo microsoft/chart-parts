@@ -19,6 +19,7 @@ import {
 	SymbolType,
 	FontWeight,
 	TextDirection,
+	ItemIdGenerator,
 } from '@markable/interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
@@ -29,9 +30,10 @@ export class MarkBuilder {
 	private nameValue?: string
 	private singletonValue?: boolean
 	private facetValue?: Facet
+	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
-
+	
 	constructor(private type: MarkType) {}
 
 	public table(table: string): MarkBuilder {
@@ -51,6 +53,11 @@ export class MarkBuilder {
 
 	public name(name: string): MarkBuilder {
 		this.nameValue = name
+		return this
+	}
+
+	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
+		this.itemIdGenerator = generator
 		return this
 	}
 
@@ -362,6 +369,7 @@ export class MarkBuilder {
 			facetValue: facet,
 			singletonValue: singleton,
 			childNode,
+			itemIdGenerator: idGenerator,
 		} = this
 
 		if (!type) {
@@ -377,6 +385,7 @@ export class MarkBuilder {
 			name,
 			facet,
 			singleton,
+			idGenerator,
 			child: childNode && childNode.build(),
 		}
 	}

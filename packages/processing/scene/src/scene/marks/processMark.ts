@@ -1,4 +1,4 @@
-import { Mark, Facet, SGItem, DataFrame } from '@markable/interfaces'
+import { Mark, Facet, SGItem, SGMark, DataFrame } from '@markable/interfaces'
 import { createMark } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
@@ -11,12 +11,13 @@ export interface FacetedData {
 
 export interface DataFacet {
 	parent?: any
+	key: string
 	data: any[]
 }
 
 type BoundData = any[] | FacetedData
 
-export function buildMarkItem(mark: Mark, frame: SceneFrame) {
+export function processMark(mark: Mark, frame: SceneFrame): SGMark<SGItem> {
 	const markFrame = frame.pushMark(mark)
 	const boundData = getBoundData(mark, markFrame)
 	const items = createItems(markFrame, boundData)
@@ -48,7 +49,7 @@ function createItemPerFacet(
 		if (keyRowName) {
 			newData[keyRowName] = facet.parent
 		}
-		const facetFrame = frame.pushData(newData)
+		const facetFrame = frame.pushData(newData, facet.key)
 		return createBoundItem(
 			facetFrame,
 			facet.parent || facet.data,
@@ -137,6 +138,7 @@ function createFacetedData(
 			const parent = markMap.get(key)
 			const newFacet: DataFacet = {
 				data: [],
+				key,
 				parent,
 			}
 			facets.push(newFacet)

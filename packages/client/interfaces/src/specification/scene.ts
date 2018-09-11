@@ -107,6 +107,8 @@ export interface SceneNode {
 	axes: Axis[]
 }
 
+export type ItemIdGenerator = (d: any, index: number, table: any[]) => string
+
 /**
  * Specification for rendering a mark in a scene
  */
@@ -125,6 +127,11 @@ export interface Mark {
 	 * If true, this mark will render as a singleton
 	 */
 	singleton?: boolean
+
+	/**
+	 * Optional generator for item ids. If this is unset, then the index of the item will be used
+	 */
+	idGenerator?: ItemIdGenerator
 
 	/**
 	 * The encodings, which map data values into attribute values
@@ -307,6 +314,11 @@ export interface HandlerMetadata {
 	 * The index of the item in it's respective bound dataset
 	 */
 	index: number
+
+	/**
+	 * The generated id of the bound item
+	 */
+	id: string
 
 	/**
 	 * Additional metadata keys attached to the item in the scenegraph

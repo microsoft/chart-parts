@@ -88,6 +88,7 @@
 			"**/src/**/*.{ts,tsx}",
 			"!**/src/**/*.d.ts",
 			"!packages/examples/testdata/**",
+			"!packages/documentation/**",
 			"!**/__tests__/**"
 		],
 		"testPathIgnorePatterns": [
