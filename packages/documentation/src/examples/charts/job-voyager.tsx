@@ -26,6 +26,7 @@ import {
   AggregateOperation,
 } from '@markable/transform'
 import { Renderer } from '@markable/react-svg-renderer'
+import { extent } from 'd3-array'
 
 // TODO:
 // - Axis grid
@@ -72,14 +73,13 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
 
   public render() {
     const { gender, selectedAreaId } = this.state
-    console.log('RENDER', selectedAreaId)
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <JobVoyagerChart
           gender={gender}
           selectedAreaId={selectedAreaId}
-          onMouseEnterArea={this.onEnterArea}
-          onMouseLeaveArea={this.onLeaveArea}
+          onEnterArea={this.onEnterArea}
+          onClickArea={this.onClickArea}
         />
         <div>
           <div>
@@ -108,27 +108,25 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
   }
 
   private onEnterArea = (id: string) => {
-    console.log('SELECT AREA', id)
     this.setState({ selectedAreaId: id })
   }
 
-  private onLeaveArea = (id: string) => {
-    console.log('UNSELECT AREA', id)
-    this.setState({ selectedAreaId: undefined })
+  private onClickArea = (id: string) => {
+    console.log('Click area', id)
   }
 }
 
 interface JobVoyagerChartProps {
   gender: string
   selectedAreaId?: string
-  onMouseEnterArea: (key: string) => any
-  onMouseLeaveArea: (key: string) => any
+  onEnterArea: (id: string) => any
+  onClickArea: (id: string) => any
 }
 const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
   gender,
   selectedAreaId,
-  onMouseEnterArea,
-  onMouseLeaveArea,
+  onEnterArea,
+  onClickArea,
 }) => (
   <Chart
     width={850}
@@ -158,8 +156,8 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
         fillOpacity={({ agg, id }, { alpha }) =>
           id === selectedAreaId ? 0.2 : alpha(agg.sum)
         }
-        onMouseOver={(arg, { id }) => onMouseEnterArea(id)}
-        onMouseLeave={(arg, { id }) => onMouseLeaveArea(id)}
+        onMouseOver={(arg, { id }) => onEnterArea(id)}
+        onClick={(arg, { id }) => onClickArea(id)}
       />
     </Group>
     <Text
@@ -196,12 +194,15 @@ const Axes: React.SFC = () => (
   </>
 )
 
+const yearExtent = extent(ds.tables.jobs, d => d.year)
+const y1Extent = extent(ds.tables.jobs, d => d.y1)
+
 const Scales: React.SFC = () => (
   <>
     <LinearScale
       name="x"
       table="jobs"
-      domain="year"
+      domain={yearExtent as [number, number]} // "year"
       range={Dimension.Width}
       zero={false}
       round={true}
@@ -209,7 +210,7 @@ const Scales: React.SFC = () => (
     <LinearScale
       name="y"
       table="jobs"
-      domain="y1"
+      domain={y1Extent as [number, number]} // "y1"
       range={Dimension.Height}
       reverse={true}
       zero={true}
