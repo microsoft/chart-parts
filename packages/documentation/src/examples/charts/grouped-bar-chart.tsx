@@ -69,8 +69,8 @@ export default class GroupedBarChart extends React.Component<{}> {
           name="chartgroup"
           table="data"
           facet={{ name: 'facet', groupBy: 'category' }}
-          height={({ categoryHeight }) => categoryHeight()}
-          y={({ d, y }) => y(d.category)}
+          height={({ categoryHeight }: any) => categoryHeight()}
+          y2={({ d, y }: any) => y(d.category)}
         >
           <BandScale
             name="pos"

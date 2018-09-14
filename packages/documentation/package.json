@@ -5,6 +5,7 @@
   "private": true,
   "dependencies": {
     "@babel/core": "^7.0.0-rc.2",
+    "@markable/interfaces": "^0.0.15",
     "@markable/orchestrator": "^0.0.15",
     "@markable/react": "^0.0.15",
     "@markable/react-svg-renderer": "^0.0.15",

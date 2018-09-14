@@ -61,21 +61,21 @@ export default class BarChart extends React.Component<{}, BarChartState> {
         <Axis orient={AxisOrientation.Left} scale="y" />
         <Rect
           table="data"
-          onMouseEnter={(evt: any, { index }) => {
+          onMouseEnter={(evt: any, { index }: any) => {
             if (hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
             }
           }}
-          onMouseLeave={(evt: any, { index }) => {
+          onMouseLeave={(evt: any, { index }: any) => {
             if (hoverRowIndex === index) {
               this.setState({ hoverRowIndex: undefined })
             }
           }}
-          x={({ d, x }) => x(d.category)}
-          y={({ d, y }) => y(d.amount)}
-          width={({ band }) => band()}
-          y2={({ y }) => y(0)}
-          fill={({ index }) =>
+          x={({ d, x }: any) => x(d.category)}
+          y={({ d, y }: any) => y(d.amount)}
+          width={({ band }: any) => band()}
+          y2={({ y }: any) => y(0)}
+          fill={({ index }: any) =>
             hoverRowIndex === index ? 'firebrick' : 'steelblue'
           }
         />
@@ -84,10 +84,10 @@ export default class BarChart extends React.Component<{}, BarChartState> {
             singleton
             text={d => d.data[hoverRowIndex].amount}
             fill="black"
-            x={({ data, x, band }) =>
+            x={({ data, x, band }: any) =>
               x(data[hoverRowIndex].category) + band() / 2
             }
-            y={({ data, y }) => y(data[hoverRowIndex].amount) - 3}
+            y={({ data, y }: any) => y(data[hoverRowIndex].amount) - 3}
             baseline={VerticalTextAlignment.Bottom}
             align={HorizontalAlignment.Center}
           />
