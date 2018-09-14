@@ -80,10 +80,10 @@ export default class StackedAreaChart extends React.Component {
         <Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
           <Area
             table="faceted"
-            x={({ d }, { x }) => x(d.x)}
-            y={({ d }, { y }) => y(d.y0)}
-            y2={({ d }, { y }) => y(d.y1)}
-            fill={({ d }, { color }) => color(d.c)}
+            x={({ d, x }) => x(d.x)}
+            y={({ d, y }) => y(d.y0)}
+            y2={({ d, y }) => y(d.y1)}
+            fill={({ d, color }) => color(d.c)}
             interpolate={Interpolation.Monotone}
           />
         </Group>

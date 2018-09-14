@@ -140,14 +140,15 @@ function transferEncodings(
 		.forEach(key => {
 			const encoding = encodings[key]
 			if (encoding) {
-				const dataContext: EncodingContext = {
+				const encodingContext: EncodingContext = {
 					id,
 					d,
 					index,
 					view: frame.view,
 					...frame.data,
+					...frame.scales,
 				}
-				const value = encoding(dataContext, frame.scales)
+				const value = encoding(encodingContext)
 				props[key] = value
 			}
 		})

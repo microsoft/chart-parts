@@ -76,22 +76,23 @@ export class BarChart extends React.Component<{}, BarChartState> {
 							this.setState({ hoverRowIndex: undefined })
 						}
 					}}
-					x={({ d }, { x }) => x(d.category)}
-					y={({ d }, { y }) => y(d.amount)}
-					width={(d, { band }) => band()}
-					y2={(d, { y }) => y(0)}
+					x={({ d, x }) => x(d.category)}
+					y={({ d, y }) => y(d.amount)}
+					width={({ band }) => band()}
+					y2={({ y }) => y(0)}
 					fill={({ index }) =>
 						hoverRowIndex === index ? 'firebrick' : 'steelblue'
 					}
 				/>
 				{hoverRowIndex === undefined ? null : (
 					<Text
-						text={d => d.tables.data[hoverRowIndex].amount}
+						singleton={true}
+						text={({ data }) => data[hoverRowIndex].amount}
 						fill="black"
-						x={({ tables }, { x, band }) =>
-							x(tables.data[hoverRowIndex].category) + band() / 2
+						x={({ data, x, band }) =>
+							x(data[hoverRowIndex].category) + band() / 2
 						}
-						y={({ tables }, { y }) => y(tables.data[hoverRowIndex].amount) - 3}
+						y={({ data, y }) => y(data[hoverRowIndex].amount) - 3}
 						baseline={VerticalTextAlignment.Bottom}
 						align={HorizontalAlignment.Center}
 					/>

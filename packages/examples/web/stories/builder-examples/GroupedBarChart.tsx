@@ -67,8 +67,8 @@ export class GroupedBarChart extends React.Component<{}> {
 								groupBy: 'category',
 							})
 							.encode({
-								y: ({ d }, { y }) => y(d.category),
-								height: (d, { categoryHeight }) => categoryHeight(),
+								y: ({ d, y }) => y(d.category),
+								height: ({ categoryHeight }) => categoryHeight(),
 							})
 							.child(node =>
 								node
@@ -82,17 +82,17 @@ export class GroupedBarChart extends React.Component<{}> {
 										rect('bars')
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value),
-												y: ({ d }, { pos }) => pos(d.position),
-												x2: (d, { x }) => x(0),
-												fill: ({ d }, { color }) => color(d.position),
-												height: (d, { rowHeight }) => rowHeight(),
+												x: ({ d, x }) => x(d.value),
+												y: ({ d, pos }) => pos(d.position),
+												x2: ({ x }) => x(0),
+												fill: ({ d, color }) => color(d.position),
+												height: ({ rowHeight }) => rowHeight(),
 											}),
 										text()
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value) - 3,
-												y: ({ d }, { pos, rowHeight }) =>
+												x: ({ d, x }) => x(d.value) - 3,
+												y: ({ d, pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
 												align: () => HorizontalAlignment.Right,

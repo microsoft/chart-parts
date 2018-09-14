@@ -165,6 +165,16 @@ export interface Mark {
 }
 
 /**
+ * A single data tuple.
+ */
+export type Datum = any
+
+/**
+ * A table of data
+ */
+export type Table = Datum[]
+
+/**
  * Faceting configuration to apply on incoming data
  */
 export interface Facet {
@@ -201,12 +211,12 @@ export interface Facet {
 
 export interface EncodingContext {
 	/**
-	 * The current d to encode, essentially a row in the data array.
+	 * The current datum to encode, e.g. a row in the bound data array.
 	 */
-	d: any
+	d: Datum
 
 	/**
-	 * The index of the d within the data collection
+	 * The index of the datum within the data collection
 	 */
 	index: number
 
@@ -217,16 +227,16 @@ export interface EncodingContext {
 	view: ViewSize
 
 	/**
-	 * Named data tables and datums. The data tables are derived from the
-	 * source dataset and any faceting tables created at this point.
+	 * Named data tables, datum instances, and scales..
 	 *
-	 * Nomed datums are derived from faceting when the parent row is
-	 * named.
+	 * The data tables are a combination of the source dataset and any faceting
+	 * tables created at this point. Nomed datums are generated from faceting
+	 * when the parent row is named.
 	 */
-	[key: string]: any | any[]
+	[key: string]: Datum | Table | Scale<any, any>
 }
 
-export type MarkEncoding<T> = (ctx: EncodingContext, scales: Scales) => T
+export type MarkEncoding<T> = (ctx: EncodingContext) => T
 
 export enum Dimension {
 	Height = 'height',
@@ -404,7 +414,7 @@ export interface ViewSize {
  * Named tables and rows for various encoding contexts
  */
 export interface DataFrame {
-	[key: string]: any[] | any
+	[key: string]: Table | Datum
 }
 
 export interface ChannelNames {

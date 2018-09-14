@@ -79,9 +79,9 @@ export default class LineChart extends React.Component {
         <Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
           <Line
             table="facetedData"
-            x={({ d }, { x }) => x(d.x)}
-            y={({ d }, { y }) => y(d.y)}
-            stroke={({ d }, { color }) => color(d.c)}
+            x={({ d, x }) => x(d.x)}
+            y={({ d, y }) => y(d.y)}
+            stroke={({ d, color }) => color(d.c)}
             strokeWidth={2}
           />
         </Group>

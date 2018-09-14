@@ -63,9 +63,9 @@ export default class AreaChart extends React.Component {
 
         <Area
           table="data"
-          x={({ d }, { x }) => x(d.u)}
-          y={({ d }, { y }) => y(d.v)}
-          y2={(d, { y }) => y(0)}
+          x={({ d, x }) => x(d.u)}
+          y={({ d, y }) => y(d.v)}
+          y2={({ y }) => y(0)}
           fill="steelblue"
           interpolate={Interpolation.Monotone}
         />

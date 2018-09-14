@@ -72,8 +72,8 @@ export default class GroupedBarChart extends React.Component<{}> {
           name="chartgroup"
           table="data"
           facet={{ name: 'facet', groupBy: 'category' }}
-          height={(d, { categoryHeight }) => categoryHeight()}
-          y={({ d }, { y }) => y(d.category)}
+          height={({ categoryHeight }) => categoryHeight()}
+          y={({ d, y }) => y(d.category)}
         >
           <BandScale
             name="pos"
@@ -85,18 +85,16 @@ export default class GroupedBarChart extends React.Component<{}> {
           <Rect
             name="bars"
             table="facet"
-            x={({ d }, { x }) => x(d.value)}
-            y={({ d }, { pos }) => pos(d.position)}
-            x2={(d, { x }) => x(0)}
-            fill={({ d }, { color }) => color(d.position)}
-            height={(d, { rowHeight }) => rowHeight()}
+            x={({ d, x }) => x(d.value)}
+            y={({ d, pos }) => pos(d.position)}
+            x2={({ x }) => x(0)}
+            fill={({ d, color }) => color(d.position)}
+            height={({ rowHeight }) => rowHeight()}
           />
           <Text
             table="facet"
-            x={({ d }, { x }) => x(d.value) - 3}
-            y={({ d }, { pos, rowHeight }) =>
-              pos(d.position) + rowHeight() * 0.5
-            }
+            x={({ d, x }) => x(d.value) - 3}
+            y={({ d, pos, rowHeight }) => pos(d.position) + rowHeight() * 0.5}
             fill={'white'}
             align={HorizontalAlignment.Right}
             baseline={VerticalTextAlignment.Middle}

@@ -91,6 +91,7 @@ export class StackBuilderImpl implements StackBuilder {
 			offset: this.offsetValue,
 			pulse: from,
 		}
+
 		if (this.groupByFields) {
 			spec.groupby = this.groupByFields.map(c => vegaField(c))
 		}

@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@types/jest": "^23.3.1",
 		"husky": "^0.14.3",
-		"jest": "^23.5.0",
+		"jest": "^23.6.0",
 		"jest-html": "^1.4.0",
 		"lerna": "^3.2.1",
 		"lint-staged": "^7.2.2",

@@ -148,16 +148,16 @@ export class LineChart extends React.Component<{}, BarChartState> {
 				>
 					<Line
 						table="facetedSeries"
-						x={({ d }, { x }) => x(d.x)}
-						y={({ d }, { y }) => y(d.y)}
+						x={({ d, x }) => x(d.x)}
+						y={({ d, y }) => y(d.y)}
 						stroke={({ d }) => d.line}
 					/>
 					<Circle
 						table="facetedSeries"
 						fill={({ d }) => d.fill}
 						size={50}
-						x={({ d }, { x }) => x(d.x)}
-						y={({ d }, { y }) => y(d.y)}
+						x={({ d, x }) => x(d.x)}
+						y={({ d, y }) => y(d.y)}
 					/>
 					<Group singleton x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
@@ -171,8 +171,8 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						<Group
 							name="kpis"
 							table="kpis"
-							y={({ d }, { kpiLoc }) => kpiLoc(d.label)}
-							height={(d, { kpiHeight }) => kpiHeight()}
+							y={({ d, kpiLoc }) => kpiLoc(d.label)}
+							height={({ kpiHeight }) => kpiHeight()}
 						>
 							<Text
 								singleton

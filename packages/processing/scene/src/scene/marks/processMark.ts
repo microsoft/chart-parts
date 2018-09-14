@@ -87,7 +87,9 @@ function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 
 	if (!table && !facet) {
 		throw new Error(
-			'unfaceted mark must either have singleton set to true or have no data defined',
+			`unfaceted mark must either have singleton set to true or have no data defined, name=${
+				mark.name
+			} type=${mark.type}`,
 		)
 	}
 

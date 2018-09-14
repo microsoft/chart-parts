@@ -24,43 +24,16 @@ import {
   CompareOrder,
   aggregate,
   AggregateOperation,
+  filter,
 } from '@markable/transform'
 import { Renderer } from '@markable/react-svg-renderer'
-import { extent } from 'd3-array'
+// import { extent } from 'd3-array'
 
 // TODO:
 // - Axis grid
 
 const renderer = new Renderer()
 const source = require('vega-datasets/data/jobs.json')
-const ds = dataset()
-  .addTable(
-    'jobs',
-    source,
-    stack('perc')
-      .groupBy('year')
-      .sort(
-        {
-          field: 'job',
-          order: CompareOrder.descending,
-        },
-        {
-          field: 'sex',
-          order: CompareOrder.descending,
-        }
-      )
-  )
-  .addDerivedTable(
-    'series',
-    'jobs',
-    aggregate()
-      .groupBy('job', 'sex')
-      .compute(
-        { op: AggregateOperation.sum, field: 'perc', as: 'sum' },
-        { op: AggregateOperation.argmax, field: 'perc', as: 'argmax' }
-      )
-  )
-
 const genderOptions = ['all', 'women', 'men']
 
 export interface JobVoyagerState {
@@ -73,10 +46,40 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
 
   public render() {
     const { gender, selectedAreaId } = this.state
+    console.log('Render for gender', gender)
+    const ds = dataset()
+      .addTable(
+        'jobs',
+        source,
+        filter(d => d.sex === gender || gender === 'all'),
+        stack('perc')
+          .groupBy('year')
+          .sort(
+            {
+              field: 'job',
+              order: CompareOrder.descending,
+            },
+            {
+              field: 'sex',
+              order: CompareOrder.descending,
+            }
+          )
+      )
+      .addDerivedTable(
+        'series',
+        'jobs',
+        aggregate()
+          .groupBy('job', 'sex')
+          .compute(
+            { op: AggregateOperation.sum, field: 'perc', as: 'sum' },
+            { op: AggregateOperation.argmax, field: 'perc', as: 'argmax' }
+          )
+      )
+
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <JobVoyagerChart
-          gender={gender}
+          data={ds.tables}
           selectedAreaId={selectedAreaId}
           onEnterArea={this.onEnterArea}
           onClickArea={this.onClickArea}
@@ -117,24 +120,18 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
 }
 
 interface JobVoyagerChartProps {
-  gender: string
+  data: any
   selectedAreaId?: string
   onEnterArea: (id: string) => any
   onClickArea: (id: string) => any
 }
 const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
-  gender,
+  data,
   selectedAreaId,
   onEnterArea,
   onClickArea,
 }) => (
-  <Chart
-    width={850}
-    height={550}
-    padding={10}
-    renderer={renderer}
-    data={ds.tables}
-  >
+  <Chart width={850} height={550} padding={10} renderer={renderer} data={data}>
     <Scales />
     <Axes />
 
@@ -149,11 +146,11 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
     >
       <Area
         table="facet"
-        x={({ d }, { x }) => x(d.year)}
-        y={({ d }, { y }) => y(d.y0)}
-        y2={({ d }, { y }) => y(d.y1)}
-        fill={({ d }, { color }) => color(d.sex)}
-        fillOpacity={({ agg, id }, { alpha }) =>
+        x={({ d, x }) => x(d.year)}
+        y={({ d, y }) => y(d.y0)}
+        y2={({ d, y }) => y(d.y1)}
+        fill={({ d, color }) => color(d.sex)}
+        fillOpacity={({ agg, id, alpha }) =>
           id === selectedAreaId ? 0.2 : alpha(agg.sum)
         }
         onMouseOver={(arg, { id }) => onEnterArea(id)}
@@ -162,14 +159,14 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
     </Group>
     <Text
       table="series"
-      x={({ d }, { x }) => x(d.argmax.year)}
-      dx={({ d }, { offset }) => offset(d.argmax.year)}
-      y={({ d }, { y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
+      x={({ d, x }) => x(d.argmax.year)}
+      dx={({ d, offset }) => offset(d.argmax.year)}
+      y={({ d, y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
       fill="#000"
-      fillOpacity={({ d }, { opacity }) => opacity(d.argmax.perc)}
-      fontSize={({ d }, { font }) => font(d.argmax.perc)}
+      fillOpacity={({ d, opacity }) => opacity(d.argmax.perc)}
+      fontSize={({ d, font }) => font(d.argmax.perc)}
       text={({ d }) => d.job}
-      align={({ d }, { align }) => align(d.argmax.year)}
+      align={({ d, align }) => align(d.argmax.year)}
       baseline={VerticalTextAlignment.Middle}
     />
   </Chart>
@@ -194,15 +191,12 @@ const Axes: React.SFC = () => (
   </>
 )
 
-const yearExtent = extent(ds.tables.jobs, d => d.year)
-const y1Extent = extent(ds.tables.jobs, d => d.y1)
-
 const Scales: React.SFC = () => (
   <>
     <LinearScale
       name="x"
       table="jobs"
-      domain={yearExtent as [number, number]} // "year"
+      domain="year"
       range={Dimension.Width}
       zero={false}
       round={true}
@@ -210,7 +204,7 @@ const Scales: React.SFC = () => (
     <LinearScale
       name="y"
       table="jobs"
-      domain={y1Extent as [number, number]} // "y1"
+      domain="y1"
       range={Dimension.Height}
       reverse={true}
       zero={true}

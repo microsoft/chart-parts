@@ -4,7 +4,6 @@ import {
 	Orientation,
 	Interpolation,
 	HorizontalAlignment,
-	VerticalAlignment,
 	SymbolType,
 	VerticalTextAlignment,
 	TextDirection,

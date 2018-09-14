@@ -60,10 +60,10 @@ export class BarChart extends React.Component<{}, BarChartState> {
 						rect()
 							.table('data')
 							.encode({
-								x: ({ d }, { x }) => x(d.category),
-								y: ({ d }, { y }) => y(d.amount),
-								y2: (d, { y }) => y(0),
-								width: (d, { xband }) => xband(),
+								x: ({ d, x }) => x(d.category),
+								y: ({ d, y }) => y(d.amount),
+								y2: ({ y }) => y(0),
+								width: ({ xband }) => xband(),
 								fill: ({ index }) =>
 									isHovered(index) ? 'firebrick' : 'steelblue',
 							})

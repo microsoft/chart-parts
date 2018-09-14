@@ -96,6 +96,7 @@ export class BinBuilderImpl implements BinBuilder {
 	private minStepValue: number | undefined
 	private niceValue: boolean | undefined
 	private asValue: [string, string] | undefined
+	private refValue: ((node: any) => any) | undefined
 
 	public field(value: FieldAccessor) {
 		this.fieldValue = value
@@ -152,6 +153,11 @@ export class BinBuilderImpl implements BinBuilder {
 		return this
 	}
 
+	public ref(cb: (node: any) => any) {
+		this.refValue = cb
+		return this
+	}
+
 	public build(df: any, from: any) {
 		if (this.fieldValue === undefined) {
 			throw new Error('field() must be set on bin transform')
@@ -194,6 +200,9 @@ export class BinBuilderImpl implements BinBuilder {
 		}
 
 		const binNode = df.add(vegaBin, spec)
+		if (this.refValue) {
+			this.refValue(binNode)
+		}
 		return binNode
 	}
 }
