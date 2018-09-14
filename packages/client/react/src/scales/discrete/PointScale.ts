@@ -29,13 +29,11 @@ export class PointScale extends DomainRangeScale<
 	protected createScale() {
 		const stepName = this.props.stepName || this.props.name + 'Step'
 		return point(this.props.name)
-			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
 			.stepName(stepName)
 			.align(this.props.align)
 			.padding(this.props.padding)
 			.reverse(this.props.reverse)
-			.build()
 	}
 }

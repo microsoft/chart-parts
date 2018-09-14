@@ -54,23 +54,20 @@ export default class LineChart extends React.Component {
       >
         <PointScale
           name="x"
-          table="data"
           stepName="xStep"
-          domain="x"
+          domain="data.x"
           range={Dimension.Width}
         />
         <LinearScale
           name="y"
-          table="data"
-          domain="y"
+          domain="data.y"
           range={Dimension.Height}
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="c"
+          domain="data.c"
           colorScheme={CategoricalColorScheme.category10}
         />
         <Axis orient={AxisOrientation.Bottom} scale="x" />

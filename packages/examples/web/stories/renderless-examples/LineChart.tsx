@@ -127,15 +127,13 @@ export class LineChart extends React.Component<{}, BarChartState> {
 			>
 				<LinearScale
 					name="x"
-					table="series"
-					domain="x"
+					domain="series.x"
 					range={Dimension.Width}
 					padding={SCALE_PAD}
 				/>
 				<LinearScale
 					name="y"
-					domain="y"
-					table="series"
+					domain="series.y"
 					range={Dimension.Height}
 					padding={SCALE_PAD}
 				/>
@@ -162,8 +160,7 @@ export class LineChart extends React.Component<{}, BarChartState> {
 					<Group singleton x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
 							name="kpiLoc"
-							table="kpis"
-							domain="label"
+							domain="kpis.label"
 							range={Dimension.Height}
 							bandWidth="kpiHeight"
 							align={0}

@@ -51,7 +51,7 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
       .addTable(
         'jobs',
         source,
-        filter(d => d.sex === gender || gender === 'all'),
+        filter((d: any) => d.sex === gender || gender === 'all'),
         stack('perc')
           .groupBy('year')
           .sort(
@@ -195,16 +195,14 @@ const Scales: React.SFC = () => (
   <>
     <LinearScale
       name="x"
-      table="jobs"
-      domain="year"
+      domain="jobs.year"
       range={Dimension.Width}
       zero={false}
       round={true}
     />
     <LinearScale
       name="y"
-      table="jobs"
-      domain="y1"
+      domain="jobs.y1"
       range={Dimension.Height}
       reverse={true}
       zero={true}
@@ -218,22 +216,19 @@ const Scales: React.SFC = () => (
     <LinearScale
       name="alpha"
       zero={true}
-      table="series"
-      domain="sum"
+      domain="series.sum"
       range={[0.4, 0.8]}
     />
     <SqrtScale
       name="font"
-      table="series"
-      domain="argmax.perc"
+      domain="series.argmax.perc"
       range={[0, 22]}
       zero={true}
       round={true}
     />
     <QuantizeScale
       name="align"
-      table="series"
-      domain="argmax.year"
+      domain="series.argmax.year"
       range={[
         HorizontalAlignment.Left,
         HorizontalAlignment.Center,
@@ -248,8 +243,7 @@ const Scales: React.SFC = () => (
     />
     <QuantileScale
       name="opacity"
-      table="series"
-      domain="argmax.perc"
+      domain="series.argmax.perc"
       range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
     />
   </>

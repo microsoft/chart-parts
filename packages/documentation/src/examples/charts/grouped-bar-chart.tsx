@@ -48,24 +48,21 @@ export default class GroupedBarChart extends React.Component<{}> {
       >
         <BandScale
           name="y"
-          table="data"
           bandWidth="categoryHeight"
           range={Dimension.Height}
-          domain="category"
+          domain="data.category"
           padding={0.2}
         />
         <LinearScale
           name="x"
-          table="data"
           range={Dimension.Width}
-          domain="value"
+          domain="data.value"
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="position"
+          domain="data.position"
           colorScheme={CategoricalColorScheme.category20}
         />
         <Group
@@ -79,8 +76,7 @@ export default class GroupedBarChart extends React.Component<{}> {
             name="pos"
             bandWidth="rowHeight"
             range={Dimension.Height}
-            table="facet"
-            domain="position"
+            domain="facet.position"
           />
           <Rect
             name="bars"

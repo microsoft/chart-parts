@@ -48,17 +48,15 @@ export class BarChart extends React.Component<{}, BarChartState> {
 			<Chart width={400} height={200} renderer={renderer} data={{ data }}>
 				<LinearScale
 					name="y"
-					table="data"
-					domain="amount"
+					domain="data.amount"
 					range={Dimension.Height}
 					nice
 					zero
 				/>
 				<BandScale
-					table="data"
 					name="x"
 					bandWidth="band"
-					domain="category"
+					domain="data.category"
 					padding={0.05}
 					range={Dimension.Width}
 				/>

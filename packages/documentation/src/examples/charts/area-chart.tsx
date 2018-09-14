@@ -44,15 +44,13 @@ export default class AreaChart extends React.Component {
       >
         <LinearScale
           name="x"
-          table="data"
-          domain="u"
+          domain="data.u"
           range={Dimension.Width}
           zero={false}
         />
         <LinearScale
           name="y"
-          table="data"
-          domain="v"
+          domain="data.v"
           range={Dimension.Height}
           nice
           zero

@@ -56,21 +56,19 @@ export default class StackedAreaChart extends React.Component {
         height={200}
         padding={8}
         renderer={renderer}
-        data={{ data: ds.getTable('data') as any[] }}
+        data={ds.tables}
       >
-        <PointScale name="x" table="data" domain="x" range={Dimension.Width} />
+        <PointScale name="x" domain="data.x" range={Dimension.Width} />
         <LinearScale
           name="y"
-          table="data"
-          domain="y1"
+          domain="data.y1"
           range={Dimension.Height}
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="c"
+          domain="data.c"
           colorScheme={CategoricalColorScheme.category10}
         />
 

@@ -2,6 +2,7 @@
 	"name": "@markable/parent",
 	"private": true,
 	"scripts": {
+		"precommit": "lint-staged",
 		"clean": "lerna run clean",
 		"build": "run-s build:libs build:docs",
 		"build:libs": "lerna run build --stream",

@@ -24,10 +24,8 @@ export abstract class QuantileScale<
 
 	protected createScale() {
 		return quantize(this.props.name)
-			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
 			.reverse(this.props.reverse)
-			.build()
 	}
 }

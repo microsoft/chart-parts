@@ -63,23 +63,20 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 			>
 				<BandScale
 					name="x"
-					table="data"
 					bandWidth="width"
 					range={Dimension.Width}
-					domain="x"
+					domain="data.x"
 				/>
 				<LinearScale
 					name="y"
-					table="data"
 					range={Dimension.Height}
-					domain="y1"
+					domain="data.y1"
 					nice
 					zero
 				/>
 				<OrdinalScale
 					name="color"
-					table="data"
-					domain="c"
+					domain="data.c"
 					colorScheme={CategoricalColorScheme.category10}
 				/>
 				<Rect

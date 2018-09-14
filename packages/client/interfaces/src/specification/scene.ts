@@ -353,6 +353,10 @@ export interface Channels {
  */
 export type ScaleCreator = (input: ScaleCreationContext) => Scales
 
+export interface ScaleBuilder {
+	build: ScaleCreator
+}
+
 /**
  * Interface for the scale creation argument object, which is used to
  * create scale instances when a chart drawn or resized.
@@ -365,7 +369,7 @@ export interface ScaleCreationContext {
 
 	/**
 	 * The rectangle of the area that marks will be drawn in,
-	 * This is (chartRect - space reserved for axes)
+	 * This is (chartRect minus space reserved for axes)
 	 */
 	viewBounds: {
 		x: [number, number]

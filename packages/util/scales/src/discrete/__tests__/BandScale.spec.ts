@@ -5,10 +5,9 @@ describe('The Band Scale', () => {
 		const scale = new BandScale()
 			.name('test')
 			.bandwidthName('testWidth')
-			.table('data')
-			.domain('x')
+			.domain('data.x')
 			.range([0, 100])
-		const built = scale.build()({
+		const built = scale.build({
 			data: {
 				data: [
 					{ x: 0 },
@@ -27,6 +26,7 @@ describe('The Band Scale', () => {
 				x: [0, 100],
 				y: [0, 100],
 			},
+			view: {} as any,
 			scales: {},
 		})
 
@@ -48,12 +48,11 @@ describe('The Band Scale', () => {
 		const scale = new BandScale()
 			.name('test')
 			.bandwidthName('testWidth')
-			.table('data')
-			.domain('x')
+			.domain('data.x')
 			.padding(0.2)
 			.range([0, 100])
 
-		const built = scale.build()({
+		const built = scale.build({
 			data: {
 				data: [
 					{ x: 0 },
@@ -68,6 +67,7 @@ describe('The Band Scale', () => {
 					{ x: 9 },
 				],
 			},
+			view: {} as any,
 			viewBounds: {
 				x: [0, 100],
 				y: [0, 100],

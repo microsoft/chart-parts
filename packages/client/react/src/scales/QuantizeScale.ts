@@ -35,12 +35,10 @@ export abstract class QuantizeScale<
 
 	protected createScale() {
 		return quantize(this.props.name)
-			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
 			.reverse(this.props.reverse)
 			.nice(this.props.nice)
 			.zero(this.props.zero)
-			.build()
 	}
 }

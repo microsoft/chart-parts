@@ -110,12 +110,11 @@ const ChartScales: React.SFC = () => (
     <BandScale
       name="y"
       bandWidth="yband"
-      table="ageGroups"
       range={(arg: ScaleCreationContext) => [
         arg.view.height - AXIS_THICKNESS,
         0,
       ]}
-      domain="age"
+      domain="ageGroups.age"
       padding={0.1}
       round={true}
     />
@@ -168,14 +167,7 @@ const GenderPerYearSection: React.SFC<GenderPerYearSectionProps> = ({
     height={({ view }) => view.height}
     width={chartSegmentWidth}
   >
-    <LinearScale
-      table="population"
-      domain="people"
-      range={xRange}
-      name="x"
-      nice
-      zero
-    />
+    <LinearScale domain="population.people" range={xRange} name="x" nice zero />
     <Axis
       orient={AxisOrientation.Bottom}
       scale="x"

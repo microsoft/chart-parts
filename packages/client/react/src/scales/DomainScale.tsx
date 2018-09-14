@@ -11,11 +11,6 @@ export interface DomainScaleProps<Domain> {
 	name: string
 
 	/**
-	 * The data set to bind to
-	 */
-	table?: string
-
-	/**
 	 * Sets the domain.
 	 *
 	 * If a string is used, it is used as the name of the

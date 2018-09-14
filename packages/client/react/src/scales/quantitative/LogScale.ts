@@ -17,7 +17,6 @@ export class LogScale extends QuantitativeScale<
 > {
 	protected createScale() {
 		return log(this.props.name)
-			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
 			.zero(this.props.zero)
@@ -26,6 +25,5 @@ export class LogScale extends QuantitativeScale<
 			.reverse(this.props.reverse)
 			.base(this.props.base)
 			.padding(this.props.padding)
-			.build()
 	}
 }

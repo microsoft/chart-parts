@@ -38,18 +38,15 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 				n
 					.scale(
 						linear('y')
-							.table('data')
-							.domain('amount')
+							.domain('data.amount')
 							.range(Dimension.Height)
 							.nice(),
 						time('x')
-							.table('data')
-							.domain('date')
+							.domain('data.date')
 							.range(Dimension.Width)
 							.nice(),
 						band('xband', 'xbandwidth')
-							.table('data')
-							.domain('date')
+							.domain('data.date')
 							.range(Dimension.Width),
 					)
 					.axes(

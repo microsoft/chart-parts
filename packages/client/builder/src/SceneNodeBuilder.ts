@@ -1,5 +1,5 @@
 // tslint:disable no-this-assignment
-import { SceneNode, ScaleCreator } from '@markable/interfaces'
+import { SceneNode, ScaleCreator, ScaleBuilder } from '@markable/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { AxisBuilder } from './AxisBuilder'
 
@@ -19,13 +19,12 @@ export class SceneNodeBuilder {
 	 * @param creator The scale-creator
 	 */
 	public scale(
-		...creators: Array<ScaleCreator | { build: () => ScaleCreator }>
+		...creators: Array<ScaleCreator | ScaleBuilder>
 	): SceneNodeBuilder {
-		creators.forEach(c =>
-			this.scales.push(
-				typeof (c as any).build === 'function' ? (c as any).build() : c,
-			),
-		)
+		creators.forEach(c => {
+			const scaleCreator = typeof c === 'function' ? c : c.build
+			this.scales.push(scaleCreator)
+		})
 		return this
 	}
 

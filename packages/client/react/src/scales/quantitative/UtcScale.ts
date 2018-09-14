@@ -13,7 +13,6 @@ export class UtcScale extends QuantitativeScale<
 	protected createScale() {
 		return utc(this.props.name)
 			.name(this.props.name)
-			.table(this.props.table)
 			.domain(this.props.domain)
 			.range(this.props.range)
 			.zero(this.props.zero)
@@ -21,6 +20,5 @@ export class UtcScale extends QuantitativeScale<
 			.nice(this.props.nice)
 			.reverse(this.props.reverse)
 			.padding(this.props.padding)
-			.build()
 	}
 }
