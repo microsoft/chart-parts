@@ -336,16 +336,15 @@ export interface HandlerMetadata {
 	[key: string]: any
 }
 
-export type ChannelHandler = (
-	nativeEventArgument: any,
-	metadata: HandlerMetadata,
+export type ChannelHandler<T> = (
+	metadata: HandlerMetadata & { event: T },
 ) => void
 
 /**
  * A hash of mark event channels by event name
  */
 export interface Channels {
-	[key: string]: ChannelHandler
+	[key: string]: ChannelHandler<any>
 }
 
 /**

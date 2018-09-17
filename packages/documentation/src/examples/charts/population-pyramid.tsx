@@ -142,7 +142,6 @@ const FPerYear: React.SFC = () => (
   />
 )
 
-// TODO use 0?
 const MPerYear: React.SFC = () => (
   <GenderPerYearSection
     table="males"

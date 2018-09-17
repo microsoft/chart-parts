@@ -25,7 +25,7 @@ export class SceneFrame {
 		public scales: Scales = {},
 		public channels: ChannelNames = {},
 		public channelId: number = 0,
-		public channelHandlers: { [key: string]: ChannelHandler } = {},
+		public channelHandlers: Channels = {},
 		public boundDataItem: any = {},
 		public parentId: string = '',
 	) {}
@@ -193,7 +193,7 @@ export class SceneFrame {
 		)
 	}
 
-	private registerHandler(handler: ChannelHandler) {
+	private registerHandler(handler: ChannelHandler<any>) {
 		const id = `evt${this.channelId++}`
 		this.channelHandlers[id] = handler
 		return id

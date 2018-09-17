@@ -153,8 +153,8 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
         fillOpacity={({ agg, id, alpha }) =>
           id === selectedAreaId ? 0.2 : alpha(agg.sum)
         }
-        onMouseOver={(arg, { id }) => onEnterArea(id)}
-        onClick={(arg, { id }) => onClickArea(id)}
+        onMouseOver={({ id }) => onEnterArea(id)}
+        onClick={({ id }) => onClickArea(id)}
       />
     </Group>
     <Text

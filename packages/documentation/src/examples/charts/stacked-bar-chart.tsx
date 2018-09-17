@@ -92,12 +92,12 @@ export default class StackedBarChart extends React.Component<
 
         {/* Marks */}
         <Rect
-          onMouseEnter={(evt, { index }) => {
+          onMouseEnter={({ index }: any) => {
             if (this.state.hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
             }
           }}
-          onMouseLeave={(evt, { index }) => {
+          onMouseLeave={({ index }: any) => {
             if (this.state.hoverRowIndex === index) {
               this.setState({ hoverRowIndex: undefined })
             }

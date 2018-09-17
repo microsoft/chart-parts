@@ -33,7 +33,7 @@ export class MarkBuilder {
 	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
-	
+
 	constructor(private type: MarkType) {}
 
 	public table(table: string): MarkBuilder {
@@ -71,11 +71,11 @@ export class MarkBuilder {
 		return this
 	}
 
-	public handle(name: string, handler: ChannelHandler): MarkBuilder
+	public handle(name: string, handler: ChannelHandler<any>): MarkBuilder
 	public handle(channels: Channels): MarkBuilder
 	public handle(
 		name: string | Channels,
-		handler?: ChannelHandler,
+		handler?: ChannelHandler<any>,
 	): MarkBuilder {
 		if (typeof name === 'string') {
 			if (!handler) {

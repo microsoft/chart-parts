@@ -61,12 +61,12 @@ export default class BarChart extends React.Component<{}, BarChartState> {
         <Axis orient={AxisOrientation.Left} scale="y" />
         <Rect
           table="data"
-          onMouseEnter={(evt: any, { index }: any) => {
+          onMouseEnter={({ index }: any) => {
             if (hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
             }
           }}
-          onMouseLeave={(evt: any, { index }: any) => {
+          onMouseLeave={({ index }: any) => {
             if (hoverRowIndex === index) {
               this.setState({ hoverRowIndex: undefined })
             }

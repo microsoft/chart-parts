@@ -3,14 +3,14 @@ import elementMap from './elementMap'
 import {
 	VSvgNode,
 	VSvgTransformType,
-	ChannelHandler,
+	Channels,
 	HandlerMetadata,
 } from '@markable/interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key: string,
-	handlers: { [key: string]: ChannelHandler },
+	handlers: Channels,
 ): React.ReactElement<any> | null {
 	const {
 		type,
@@ -53,13 +53,8 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (eventArg: any) => {
-			const handlerMetadata: HandlerMetadata = {
-				...(metadata as HandlerMetadata),
-				key,
-			}
-			handler(eventArg, handlerMetadata as HandlerMetadata)
-		}
+		reactAttrs[reactEventName] = (event: any) =>
+			handler({ ...(metadata as HandlerMetadata), event })
 	})
 
 	const result = React.createElement(
@@ -83,7 +78,7 @@ function createElementFor(
 export class Renderer {
 	public render(
 		vdom: VSvgNode,
-		handlers: { [key: string]: (arg: any) => void },
+		handlers: Channels,
 	): React.ReactElement<any> | null {
 		return createElementFor(vdom, 'root', handlers)
 	}
