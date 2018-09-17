@@ -20,6 +20,7 @@ import {
 	FontWeight,
 	TextDirection,
 	ItemIdGenerator,
+	Metadata,
 } from '@markable/interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
@@ -33,6 +34,7 @@ export class MarkBuilder {
 	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
+	private metadataValue?: MarkEncoding<Metadata>
 
 	constructor(private type: MarkType) {}
 
@@ -58,6 +60,11 @@ export class MarkBuilder {
 
 	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
 		this.itemIdGenerator = generator
+		return this
+	}
+
+	public metadata(value: MarkEncoding<Metadata>) {
+		this.metadataValue = value
 		return this
 	}
 
@@ -370,6 +377,7 @@ export class MarkBuilder {
 			singletonValue: singleton,
 			childNode,
 			itemIdGenerator: idGenerator,
+			metadataValue: metadata,
 		} = this
 
 		if (!type) {
@@ -386,6 +394,7 @@ export class MarkBuilder {
 			facet,
 			singleton,
 			idGenerator,
+			metadata,
 			child: childNode && childNode.build(),
 		}
 	}

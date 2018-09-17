@@ -75,11 +75,19 @@ function createItemFromMark(
 ) {
 	const { type, encodings, name, role, idGenerator } = mark
 	const id = `${frame.parentId}.${getItemId(row, index, data, idGenerator)}`
+	const context = getEncodingContext(id, row, index, frame)
+
+	let metadata: any = {}
+	if (mark.metadata) {
+		// console.log('Mark Metadata', typeof mark.metadata)
+		metadata = mark.metadata(context)
+	}
+
 	return createItem(type, {
-		...transferEncodings(id, row, index, data, encodings, frame),
+		...transferEncodings(encodings, context),
 		name,
 		role,
-		metadata: { index, id },
+		metadata: { index, id, ...metadata },
 		channels: frame.channels,
 	})
 }
@@ -126,31 +134,33 @@ function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
 	}
 }
 
-function transferEncodings(
-	id: string,
-	d: any,
-	index: number,
-	data: any[],
-	encodings: MarkEncodings,
-	frame: SceneFrame,
-) {
+function transferEncodings(encodings: MarkEncodings, context: EncodingContext) {
 	const props: { [key: string]: any } = {}
 	Object.keys(encodings)
 		.filter(t => t !== 'items')
 		.forEach(key => {
 			const encoding = encodings[key]
 			if (encoding) {
-				const encodingContext: EncodingContext = {
-					id,
-					d,
-					index,
-					view: frame.view,
-					...frame.data,
-					...frame.scales,
-				}
-				const value = encoding(encodingContext)
+				const value = encoding(context)
 				props[key] = value
 			}
 		})
 	return props
+}
+
+function getEncodingContext(
+	id: string,
+	d: any,
+	index: number,
+	frame: SceneFrame,
+): EncodingContext {
+	const encodingContext: EncodingContext = {
+		id,
+		d,
+		index,
+		view: frame.view,
+		...frame.data,
+		...frame.scales,
+	}
+	return encodingContext
 }

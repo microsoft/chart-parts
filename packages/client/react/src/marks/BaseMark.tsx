@@ -76,7 +76,7 @@ export abstract class BaseMark<
 	}
 
 	protected createMark(): MarkBuilder {
-		const { table, name, role } = this.props
+		const { table, name, role, metadata } = this.props
 		let result = mark(this.markType)
 			.handle(this.channels)
 			.encode(this.encodings)
@@ -96,6 +96,10 @@ export abstract class BaseMark<
 
 		if (role) {
 			result = result.role(role as string)
+		}
+
+		if (metadata) {
+			result.metadata(metadata as { [key: string]: any })
 		}
 
 		return result

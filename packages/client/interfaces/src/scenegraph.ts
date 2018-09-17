@@ -17,11 +17,17 @@ export enum SGNodeType {
 	Item = 'item',
 }
 
+export interface Metadata {
+	id: string
+	index?: number
+	[key: string]: any
+}
+
 export interface SGNode {
 	readonly nodetype: SGNodeType
 	readonly parent?: SGNode
 	readonly parentType?: SGNodeType
-	readonly metadata: { [key: string]: any }
+	readonly metadata: Metadata
 }
 
 export interface SGMark<Item extends SGItem> extends SGNode {

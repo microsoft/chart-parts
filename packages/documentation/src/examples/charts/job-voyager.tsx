@@ -28,10 +28,11 @@ import {
   filter,
 } from '@markable/transform'
 import { Renderer } from '@markable/react-svg-renderer'
-// import { extent } from 'd3-array'
+const debounce = require('lodash/debounce')
 
 // TODO:
 // - Axis grid
+// - prevent recomputes of scales to improve perf
 
 const renderer = new Renderer()
 const source = require('vega-datasets/data/jobs.json')
@@ -40,19 +41,25 @@ const genderOptions = ['all', 'women', 'men']
 export interface JobVoyagerState {
   gender: string
   selectedAreaId?: string
+  query?: string
 }
 
 export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
-  public state = { gender: 'all', selectedAreaId: undefined }
+  public state = { gender: 'all' }
 
   public render() {
-    const { gender, selectedAreaId } = this.state
-    console.log('Render for gender', gender)
+    const { gender, selectedAreaId, query } = this.state
+    const queryRegExp = query && new RegExp(query)
+
     const ds = dataset()
       .addTable(
         'jobs',
         source,
-        filter((d: any) => d.sex === gender || gender === 'all'),
+        filter(
+          (d: any) =>
+            (gender === 'all' || d.sex === gender) &&
+            (!query || queryRegExp.test(d.job))
+        ),
         stack('perc')
           .groupBy('year')
           .offset(StackOffset.zero)
@@ -102,30 +109,31 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
                 {g}
               </label>,
             ])}
+            <input type="text" value={query} onChange={this.onQueryChange} />
           </div>
         </div>
       </div>
     )
   }
 
-  private changeGenderSelection = (e: React.ChangeEvent<HTMLInputElement>) => {
-    this.setState({ gender: e.target.value })
-  }
+  private onQueryChange = (e: React.ChangeEvent<HTMLInputElement>) =>
+    this.setState({ ...this.state, query: e.target.value })
 
-  private onEnterArea = (id: string) => {
-    this.setState({ selectedAreaId: id })
-  }
+  private changeGenderSelection = (e: React.ChangeEvent<HTMLInputElement>) =>
+    this.setState({ ...this.state, gender: e.target.value })
 
-  private onClickArea = (id: string) => {
-    console.log('Click area', id)
-  }
+  private onEnterArea = (id: string) =>
+    this.setState({ ...this.state, selectedAreaId: id })
+
+  private onClickArea = (job: string) =>
+    this.setState({ ...this.state, query: job })
 }
 
 interface JobVoyagerChartProps {
   data: any
   selectedAreaId?: string
   onEnterArea: (id: string) => any
-  onClickArea: (id: string) => any
+  onClickArea: (job: string) => any
 }
 const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
   data,
@@ -152,11 +160,12 @@ const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
         y={({ d, y }) => y(d.y0)}
         y2={({ d, y }) => y(d.y1)}
         fill={({ d, color }) => color(d.sex)}
-        fillOpacity={({ agg, id, alpha }) =>
+        fillOpacity={({ d, agg, id, alpha }) =>
           id === selectedAreaId ? 0.2 : alpha(agg.sum)
         }
+        metadata={({ d: { job } }) => ({ job })}
         onMouseOver={({ id }) => onEnterArea(id)}
-        onClick={({ id }) => onClickArea(id)}
+        onClick={({ job }) => onClickArea(job)}
       />
     </Group>
     <Text
@@ -206,7 +215,6 @@ const Scales: React.SFC = () => (
       name="y"
       domain="jobs.y1"
       range={Dimension.Height}
-      reverse
       zero
       round
     />

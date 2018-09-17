@@ -57,6 +57,7 @@ export interface CommonMarkProps {
 	href?: MarkEncodingProp<string>
 	tooltip?: MarkEncodingProp<string>
 	zIndex?: MarkEncodingProp<number>
+	metadata?: MarkEncodingProp<{ [key: string]: any }>
 
 	// Events
 	eventHandlers?: { [key: string]: ChannelHandler<any> }

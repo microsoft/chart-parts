@@ -13,6 +13,7 @@ import {
 	FontWeight,
 } from '../common-types'
 import { Axis } from './axes'
+import { Metadata } from '../scenegraph'
 
 export enum MarkEncodingKey {
 	// Common encoding keys
@@ -162,6 +163,11 @@ export interface Mark {
 	 * The child scene of this mark
 	 */
 	child?: SceneNode
+
+	/**
+	 * Any metadata to attach to mark items
+	 */
+	metadata?: MarkEncoding<Metadata>
 }
 
 /**
@@ -319,26 +325,7 @@ export interface MarkEncodings {
 	[key: string]: MarkEncoding<any> | undefined
 }
 
-export interface HandlerMetadata {
-	/**
-	 * The index of the item in it's respective bound dataset
-	 */
-	index: number
-
-	/**
-	 * The generated id of the bound item
-	 */
-	id: string
-
-	/**
-	 * Additional metadata keys attached to the item in the scenegraph
-	 */
-	[key: string]: any
-}
-
-export type ChannelHandler<T> = (
-	metadata: HandlerMetadata & { event: T },
-) => void
+export type ChannelHandler<T> = (eventArg: Metadata & { event: T }) => void
 
 /**
  * A hash of mark event channels by event name
