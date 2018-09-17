@@ -79,7 +79,6 @@ function createItemFromMark(
 
 	let metadata: any = {}
 	if (mark.metadata) {
-		// console.log('Mark Metadata', typeof mark.metadata)
 		metadata = mark.metadata(context)
 	}
 
