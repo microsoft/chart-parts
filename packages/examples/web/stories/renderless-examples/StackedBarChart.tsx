@@ -80,12 +80,12 @@ export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
 					colorScheme={CategoricalColorScheme.category10}
 				/>
 				<Rect
-					onMouseEnter={(evt, { index }) => {
+					onMouseEnter={({ index }) => {
 						if (this.state.hoverRowIndex !== index) {
 							this.setState({ hoverRowIndex: index })
 						}
 					}}
-					onMouseLeave={(evt, { index }) => {
+					onMouseLeave={({ index }) => {
 						if (this.state.hoverRowIndex === index) {
 							this.setState({ hoverRowIndex: undefined })
 						}

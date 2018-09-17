@@ -77,12 +77,12 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 									isHovered(index) ? 'firebrick' : 'transparent',
 							})
 							.handle({
-								onMouseEnter: (evt, { index }) => {
+								onMouseEnter: ({ index }) => {
 									if (this.state.hoverRowIndex !== index) {
 										this.setState({ hoverRowIndex: index })
 									}
 								},
-								onMouseLeave: (evt, { index }) => {
+								onMouseLeave: ({ index }) => {
 									if (this.state.hoverRowIndex === index) {
 										this.setState({ hoverRowIndex: undefined })
 									}
