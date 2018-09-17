@@ -116,7 +116,7 @@ const ChartScales: React.SFC = () => (
       ]}
       domain="ageGroups.age"
       padding={0.1}
-      round={true}
+      round
     />
     <OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
   </>

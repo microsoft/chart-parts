@@ -24,6 +24,7 @@ import {
   CompareOrder,
   aggregate,
   AggregateOperation,
+  Offset as StackOffset,
   filter,
 } from '@markable/transform'
 import { Renderer } from '@markable/react-svg-renderer'
@@ -54,6 +55,7 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
         filter((d: any) => d.sex === gender || gender === 'all'),
         stack('perc')
           .groupBy('year')
+          .offset(StackOffset.zero)
           .sort(
             {
               field: 'job',
@@ -76,6 +78,7 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
           )
       )
 
+    console.log('Render tables', ds.tables)
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <JobVoyagerChart
@@ -198,33 +201,28 @@ const Scales: React.SFC = () => (
       domain="jobs.year"
       range={Dimension.Width}
       zero={false}
-      round={true}
+      round
     />
     <LinearScale
       name="y"
       domain="jobs.y1"
       range={Dimension.Height}
-      reverse={true}
-      zero={true}
-      round={true}
+      reverse
+      zero
+      round
     />
     <OrdinalScale
       name="color"
       domain={['men', 'women']}
       range={['#33f', '#f33']}
     />
-    <LinearScale
-      name="alpha"
-      zero={true}
-      domain="series.sum"
-      range={[0.4, 0.8]}
-    />
+    <LinearScale name="alpha" zero domain="series.sum" range={[0.4, 0.8]} />
     <SqrtScale
       name="font"
       domain="series.argmax.perc"
       range={[0, 22]}
-      zero={true}
-      round={true}
+      zero
+      round
     />
     <QuantizeScale
       name="align"
