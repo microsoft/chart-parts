@@ -78,7 +78,6 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
           )
       )
 
-    console.log('Render tables', ds.tables)
     return (
       <div style={{ display: 'flex', flexDirection: 'column' }}>
         <JobVoyagerChart
