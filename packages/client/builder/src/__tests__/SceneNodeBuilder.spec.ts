@@ -12,8 +12,7 @@ describe('The scene node builder', () => {
 	it('can set scales', () => {
 		const scene = new SceneNodeBuilder().mark(rect()).scale(
 			linear('x')
-				.table('data')
-				.domain('amount')
+				.domain('data.amount')
 				.range(Dimension.Height),
 		)
 		expect(scene.build().scales.length).toBe(1)
@@ -24,8 +23,7 @@ describe('The scene node builder', () => {
 			.mark(rect())
 			.scale(
 				linear('x')
-					.table('data')
-					.domain('amount')
+					.domain('data.amount')
 					.range(Dimension.Height),
 			)
 			.axes(axis('x', AxisOrientation.Left))

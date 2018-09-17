@@ -1,7 +1,6 @@
 import {
 	MarkEncoding,
 	ChannelHandler,
-	HandlerMetadata,
 	Gradient,
 	StrokeCap,
 	StrokeJoin,
@@ -58,73 +57,72 @@ export interface CommonMarkProps {
 	href?: MarkEncodingProp<string>
 	tooltip?: MarkEncodingProp<string>
 	zIndex?: MarkEncodingProp<number>
+	metadata?: MarkEncodingProp<{ [key: string]: any }>
 
 	// Events
-	eventHandlers?: { [key: string]: ChannelHandler }
+	eventHandlers?: { [key: string]: ChannelHandler<any> }
 
 	// Clipboard Events
-	onCopy?: ReactChannelHandler<React.ClipboardEvent<any>>
-	onCut?: ReactChannelHandler<React.ClipboardEvent<any>>
-	onPaste?: ReactChannelHandler<React.ClipboardEvent<any>>
+	onCopy?: ChannelHandler<React.ClipboardEvent<any>>
+	onCut?: ChannelHandler<React.ClipboardEvent<any>>
+	onPaste?: ChannelHandler<React.ClipboardEvent<any>>
 
 	// Keyboard Events
-	onKeyDown?: ReactChannelHandler<React.KeyboardEvent<any>>
-	onKeyPress?: ReactChannelHandler<React.KeyboardEvent<any>>
-	onKeyUp?: ReactChannelHandler<React.KeyboardEvent<any>>
+	onKeyDown?: ChannelHandler<React.KeyboardEvent<any>>
+	onKeyPress?: ChannelHandler<React.KeyboardEvent<any>>
+	onKeyUp?: ChannelHandler<React.KeyboardEvent<any>>
 
 	// Focus events
-	onFocus?: ReactChannelHandler<React.FocusEvent<any>>
-	onBlur?: ReactChannelHandler<React.FocusEvent<any>>
+	onFocus?: ChannelHandler<React.FocusEvent<any>>
+	onBlur?: ChannelHandler<React.FocusEvent<any>>
 
 	// Mouse Events
-	onClick?: ReactChannelHandler<React.MouseEvent<any>>
-	onContextMenu?: ReactChannelHandler<React.MouseEvent<any>>
-	onDoubleClick?: ReactChannelHandler<React.MouseEvent<any>>
-	onDrag?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragEnd?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragEnter?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragExit?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragLeave?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragOver?: ReactChannelHandler<React.MouseEvent<any>>
-	onDragStart?: ReactChannelHandler<React.MouseEvent<any>>
-	onDrop?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseDown?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseEnter?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseLeave?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseMove?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseOut?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseOver?: ReactChannelHandler<React.MouseEvent<any>>
-	onMouseUp?: ReactChannelHandler<React.MouseEvent<any>>
+	onClick?: ChannelHandler<React.MouseEvent<any>>
+	onContextMenu?: ChannelHandler<React.MouseEvent<any>>
+	onDoubleClick?: ChannelHandler<React.MouseEvent<any>>
+	onDrag?: ChannelHandler<React.MouseEvent<any>>
+	onDragEnd?: ChannelHandler<React.MouseEvent<any>>
+	onDragEnter?: ChannelHandler<React.MouseEvent<any>>
+	onDragExit?: ChannelHandler<React.MouseEvent<any>>
+	onDragLeave?: ChannelHandler<React.MouseEvent<any>>
+	onDragOver?: ChannelHandler<React.MouseEvent<any>>
+	onDragStart?: ChannelHandler<React.MouseEvent<any>>
+	onDrop?: ChannelHandler<React.MouseEvent<any>>
+	onMouseDown?: ChannelHandler<React.MouseEvent<any>>
+	onMouseEnter?: ChannelHandler<React.MouseEvent<any>>
+	onMouseLeave?: ChannelHandler<React.MouseEvent<any>>
+	onMouseMove?: ChannelHandler<React.MouseEvent<any>>
+	onMouseOut?: ChannelHandler<React.MouseEvent<any>>
+	onMouseOver?: ChannelHandler<React.MouseEvent<any>>
+	onMouseUp?: ChannelHandler<React.MouseEvent<any>>
 
 	// Pointer Events
-	onPointerDown?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerMove?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerUp?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerCancel?: ReactChannelHandler<React.PointerEvent<any>>
-	onGotPointerCapture?: ReactChannelHandler<React.PointerEvent<any>>
-	onLostPointerCapture?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerEnter?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerLeave?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerOver?: ReactChannelHandler<React.PointerEvent<any>>
-	onPointerOut?: ReactChannelHandler<React.PointerEvent<any>>
+	onPointerDown?: ChannelHandler<React.PointerEvent<any>>
+	onPointerMove?: ChannelHandler<React.PointerEvent<any>>
+	onPointerUp?: ChannelHandler<React.PointerEvent<any>>
+	onPointerCancel?: ChannelHandler<React.PointerEvent<any>>
+	onGotPointerCapture?: ChannelHandler<React.PointerEvent<any>>
+	onLostPointerCapture?: ChannelHandler<React.PointerEvent<any>>
+	onPointerEnter?: ChannelHandler<React.PointerEvent<any>>
+	onPointerLeave?: ChannelHandler<React.PointerEvent<any>>
+	onPointerOver?: ChannelHandler<React.PointerEvent<any>>
+	onPointerOut?: ChannelHandler<React.PointerEvent<any>>
 
 	// Selection events
-	onSelect?: ReactChannelHandler<React.SyntheticEvent<any>>
+	onSelect?: ChannelHandler<React.SyntheticEvent<any>>
 
 	// Touch events
-	onTouchCancel?: ReactChannelHandler<React.TouchEvent<any>>
-	onTouchEnd?: ReactChannelHandler<React.TouchEvent<any>>
-	onTouchMove?: ReactChannelHandler<React.TouchEvent<any>>
-	onTouchStart?: ReactChannelHandler<React.TouchEvent<any>>
+	onTouchCancel?: ChannelHandler<React.TouchEvent<any>>
+	onTouchEnd?: ChannelHandler<React.TouchEvent<any>>
+	onTouchMove?: ChannelHandler<React.TouchEvent<any>>
+	onTouchStart?: ChannelHandler<React.TouchEvent<any>>
 
 	// UI Events
-	onScroll?: ReactChannelHandler<React.UIEvent<any>>
+	onScroll?: ChannelHandler<React.UIEvent<any>>
 
 	// Wheel events
-	onWheel?: ReactChannelHandler<React.WheelEvent<any>>
+	onWheel?: ChannelHandler<React.WheelEvent<any>>
 }
-
-type ReactChannelHandler<T> = (evt: T, metadata: HandlerMetadata) => void
 
 export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
 	const result: { [key: string]: any } = {}

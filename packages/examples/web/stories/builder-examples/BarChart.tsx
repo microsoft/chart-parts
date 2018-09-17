@@ -40,13 +40,11 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				n
 					.scale(
 						linear('y')
-							.table('data')
-							.domain('amount')
+							.domain('data.amount')
 							.range(Dimension.Height)
 							.nice(),
 						band('x', 'xband')
-							.table('data')
-							.domain('category')
+							.domain('data.category')
 							.range(Dimension.Width)
 							.padding(0.05),
 					)
@@ -60,20 +58,20 @@ export class BarChart extends React.Component<{}, BarChartState> {
 						rect()
 							.table('data')
 							.encode({
-								x: ({ d }, { x }) => x(d.category),
-								y: ({ d }, { y }) => y(d.amount),
-								y2: (d, { y }) => y(0),
-								width: (d, { xband }) => xband(),
+								x: ({ d, x }) => x(d.category),
+								y: ({ d, y }) => y(d.amount),
+								y2: ({ y }) => y(0),
+								width: ({ xband }) => xband(),
 								fill: ({ index }) =>
 									isHovered(index) ? 'firebrick' : 'steelblue',
 							})
 							.handle({
-								onMouseEnter: (evt, { index }) => {
+								onMouseEnter: ({ index }) => {
 									if (this.state.hoverRowIndex !== index) {
 										this.setState({ hoverRowIndex: index })
 									}
 								},
-								onMouseLeave: (evt, { index }) => {
+								onMouseLeave: ({ index }) => {
 									if (this.state.hoverRowIndex === index) {
 										this.setState({ hoverRowIndex: undefined })
 									}

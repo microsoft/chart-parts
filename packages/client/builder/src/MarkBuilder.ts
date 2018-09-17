@@ -19,6 +19,8 @@ import {
 	SymbolType,
 	FontWeight,
 	TextDirection,
+	ItemIdGenerator,
+	Metadata,
 } from '@markable/interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
@@ -29,8 +31,10 @@ export class MarkBuilder {
 	private nameValue?: string
 	private singletonValue?: boolean
 	private facetValue?: Facet
+	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
+	private metadataValue?: MarkEncoding<Metadata>
 
 	constructor(private type: MarkType) {}
 
@@ -54,6 +58,16 @@ export class MarkBuilder {
 		return this
 	}
 
+	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
+		this.itemIdGenerator = generator
+		return this
+	}
+
+	public metadata(value: MarkEncoding<Metadata>) {
+		this.metadataValue = value
+		return this
+	}
+
 	public zIndex(zIndex: number): MarkBuilder {
 		if (zIndex !== undefined) {
 			this.encode(MarkEncodingKey.zIndex, () => zIndex)
@@ -64,11 +78,11 @@ export class MarkBuilder {
 		return this
 	}
 
-	public handle(name: string, handler: ChannelHandler): MarkBuilder
+	public handle(name: string, handler: ChannelHandler<any>): MarkBuilder
 	public handle(channels: Channels): MarkBuilder
 	public handle(
 		name: string | Channels,
-		handler?: ChannelHandler,
+		handler?: ChannelHandler<any>,
 	): MarkBuilder {
 		if (typeof name === 'string') {
 			if (!handler) {
@@ -336,7 +350,7 @@ export class MarkBuilder {
 
 	public facet(facet: Facet): MarkBuilder {
 		if (facet !== undefined && this.type !== MarkType.Group) {
-			throw new Error('faceting can only be applied to group type marks')
+			throw new Error('faceting can only be applied to "group" type marks')
 		}
 		this.facetValue = facet
 		return this
@@ -362,6 +376,8 @@ export class MarkBuilder {
 			facetValue: facet,
 			singletonValue: singleton,
 			childNode,
+			itemIdGenerator: idGenerator,
+			metadataValue: metadata,
 		} = this
 
 		if (!type) {
@@ -377,6 +393,8 @@ export class MarkBuilder {
 			name,
 			facet,
 			singleton,
+			idGenerator,
+			metadata,
 			child: childNode && childNode.build(),
 		}
 	}

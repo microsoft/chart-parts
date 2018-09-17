@@ -127,41 +127,40 @@ export class LineChart extends React.Component<{}, BarChartState> {
 			>
 				<LinearScale
 					name="x"
-					table="series"
-					domain="x"
+					domain="series.x"
 					range={Dimension.Width}
 					padding={SCALE_PAD}
 				/>
 				<LinearScale
 					name="y"
-					domain="y"
-					table="series"
+					domain="series.y"
 					range={Dimension.Height}
 					padding={SCALE_PAD}
 				/>
 				<Group
 					table="series"
-					facetKey={d => d.__series_id}
-					facetName="facetedSeries"
+					facet={{
+						groupBy: '__series_id',
+						name: 'facetedSeries',
+					}}
 				>
 					<Line
 						table="facetedSeries"
-						x={({ d }, { x }) => x(d.x)}
-						y={({ d }, { y }) => y(d.y)}
+						x={({ d, x }) => x(d.x)}
+						y={({ d, y }) => y(d.y)}
 						stroke={({ d }) => d.line}
 					/>
 					<Circle
 						table="facetedSeries"
 						fill={({ d }) => d.fill}
 						size={50}
-						x={({ d }, { x }) => x(d.x)}
-						y={({ d }, { y }) => y(d.y)}
+						x={({ d, x }) => x(d.x)}
+						y={({ d, y }) => y(d.y)}
 					/>
 					<Group singleton x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
 						<BandScale
 							name="kpiLoc"
-							table="kpis"
-							domain="label"
+							domain="kpis.label"
 							range={Dimension.Height}
 							bandWidth="kpiHeight"
 							align={0}
@@ -169,8 +168,8 @@ export class LineChart extends React.Component<{}, BarChartState> {
 						<Group
 							name="kpis"
 							table="kpis"
-							y={({ d }, { kpiLoc }) => kpiLoc(d.label)}
-							height={(d, { kpiHeight }) => kpiHeight()}
+							y={({ d, kpiLoc }) => kpiLoc(d.label)}
+							height={({ kpiHeight }) => kpiHeight()}
 						>
 							<Text
 								singleton

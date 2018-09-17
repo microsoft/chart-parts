@@ -5,6 +5,7 @@ import LineChart from './line-chart'
 import AreaChart from './area-chart'
 import StackedAreaChart from './stacked-area-chart'
 import PoulationPyramid from './population-pyramid'
+import JobVoyager from './job-voyager'
 
 export default {
   // Bar Charts
@@ -17,4 +18,5 @@ export default {
   'area-chart': AreaChart,
   'stacked-area-chart': StackedAreaChart,
   'population-pyramid': PoulationPyramid,
+  'job-voyager': JobVoyager,
 }

@@ -44,15 +44,13 @@ export default class AreaChart extends React.Component {
       >
         <LinearScale
           name="x"
-          table="data"
-          domain="u"
+          domain="data.u"
           range={Dimension.Width}
           zero={false}
         />
         <LinearScale
           name="y"
-          table="data"
-          domain="v"
+          domain="data.v"
           range={Dimension.Height}
           nice
           zero
@@ -63,9 +61,9 @@ export default class AreaChart extends React.Component {
 
         <Area
           table="data"
-          x={({ d }, { x }) => x(d.u)}
-          y={({ d }, { y }) => y(d.v)}
-          y2={(d, { y }) => y(0)}
+          x={({ d, x }: any) => x(d.u)}
+          y={({ d, y }: any) => y(d.v)}
+          y2={({ y }: any) => y(0)}
           fill="steelblue"
           interpolate={Interpolation.Monotone}
         />

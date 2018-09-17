@@ -102,8 +102,10 @@ function createTransformPipeline(
 	const entry = df.add(collect)
 	let latest = entry
 
-	transforms.forEach(t => (latest = t.build(df, latest, ds)))
-	latest = df.add(collect, { pulse: latest })
+	transforms.forEach(t => {
+		latest = t.build(df, latest, ds)
+		latest = df.add(collect, { pulse: latest })
+	})
 
 	return {
 		dataflow: df,

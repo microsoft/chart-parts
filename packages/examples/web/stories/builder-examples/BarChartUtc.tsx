@@ -38,18 +38,15 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 				n
 					.scale(
 						linear('y')
-							.table('data')
-							.domain('amount')
+							.domain('data.amount')
 							.range(Dimension.Height)
 							.nice(),
 						time('x')
-							.table('data')
-							.domain('date')
+							.domain('data.date')
 							.range(Dimension.Width)
 							.nice(),
 						band('xband', 'xbandwidth')
-							.table('data')
-							.domain('date')
+							.domain('data.date')
 							.range(Dimension.Width),
 					)
 					.axes(
@@ -62,9 +59,9 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 						area('dataline')
 							.table('data')
 							.encode({
-								x: ({ d }, { xband }) => xband(d.date),
-								y: ({ d }, { y }) => y(d.amount),
-								y2: (d, { y }) => y(0),
+								x: ({ d, xband }) => xband(d.date),
+								y: ({ d, y }) => y(d.amount),
+								y2: ({ y }) => y(0),
 								stroke: () => 'black',
 								strokeWidth: () => 0.5,
 								fill: () => 'green',
@@ -72,20 +69,20 @@ export class BarChartUtc extends React.Component<{}, BarChartState> {
 						rect('highlight')
 							.table('data')
 							.encode({
-								x: ({ d }, { xband }) => xband(d.date),
-								y: ({ d }, { y }) => y(d.amount),
-								y2: (d, { y }) => y(0),
-								width: (d, { xbandwidth }) => xbandwidth(),
+								x: ({ d, xband }) => xband(d.date),
+								y: ({ d, y }) => y(d.amount),
+								y2: ({ y }) => y(0),
+								width: ({ xbandwidth }) => xbandwidth(),
 								fill: ({ index }) =>
 									isHovered(index) ? 'firebrick' : 'transparent',
 							})
 							.handle({
-								onMouseEnter: (evt, { index }) => {
+								onMouseEnter: ({ index }) => {
 									if (this.state.hoverRowIndex !== index) {
 										this.setState({ hoverRowIndex: index })
 									}
 								},
-								onMouseLeave: (evt, { index }) => {
+								onMouseLeave: ({ index }) => {
 									if (this.state.hoverRowIndex === index) {
 										this.setState({ hoverRowIndex: undefined })
 									}

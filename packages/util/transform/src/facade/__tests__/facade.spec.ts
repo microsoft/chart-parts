@@ -1,4 +1,4 @@
-import { dataset, aggregate, compute, AggregateOperation } from '../'
+import { dataset, aggregate, AggregateOperation } from '../'
 
 describe('The data management facade', () => {
 	describe('the dataset() factory function', () => {
@@ -24,9 +24,9 @@ describe('The data management facade', () => {
 				'table',
 				data,
 				aggregate().compute(
-					compute('v').from(AggregateOperation.valid, 'foo'),
-					compute('s').from(AggregateOperation.sum, 'bar'),
-					compute('m').from(AggregateOperation.median, 'bar'),
+					{ field: 'foo', op: AggregateOperation.valid, as: 'v' },
+					{ field: 'bar', op: AggregateOperation.sum, as: 's' },
+					{ field: 'bar', op: AggregateOperation.median, as: 'm' },
 				),
 			)
 

@@ -43,19 +43,16 @@ export class GroupedBarChart extends React.Component<{}> {
 				n
 					.scale(
 						band('y', 'categoryHeight')
-							.table('data')
 							.range(Dimension.Height)
-							.domain('category')
+							.domain('data.category')
 							.padding(0.2),
 						linear('x')
-							.table('data')
-							.domain('value')
+							.domain('data.value')
 							.range(Dimension.Width)
 							.nice()
 							.zero(),
 						ordinal('color')
-							.table('data')
-							.domain('position')
+							.domain('data.position')
 							.colorScheme(CategoricalColorScheme.category20),
 					)
 					.mark(
@@ -63,35 +60,35 @@ export class GroupedBarChart extends React.Component<{}> {
 							.table('data')
 							.facet({
 								name: 'facet',
-								partitionOn: (r: any) => r.category,
+								table: 'data',
+								groupBy: 'category',
 							})
 							.encode({
-								y: ({ d }, { y }) => y(d[0].category),
-								height: (d, { categoryHeight }) => categoryHeight(),
+								y: ({ d, y }) => y(d.category),
+								height: ({ categoryHeight }) => categoryHeight(),
 							})
 							.child(node =>
 								node
 									.scale(
 										band('pos', 'rowHeight')
-											.table('facet')
-											.domain('position')
+											.domain('facet.position')
 											.range(Dimension.Height),
 									)
 									.mark(
 										rect('bars')
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value),
-												y: ({ d }, { pos }) => pos(d.position),
-												x2: (d, { x }) => x(0),
-												fill: ({ d }, { color }) => color(d.position),
-												height: (d, { rowHeight }) => rowHeight(),
+												x: ({ d, x }) => x(d.value),
+												y: ({ d, pos }) => pos(d.position),
+												x2: ({ x }) => x(0),
+												fill: ({ d, color }) => color(d.position),
+												height: ({ rowHeight }) => rowHeight(),
 											}),
 										text()
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value) - 3,
-												y: ({ d }, { pos, rowHeight }) =>
+												x: ({ d, x }) => x(d.value) - 3,
+												y: ({ d, pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
 												align: () => HorizontalAlignment.Right,

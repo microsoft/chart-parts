@@ -1,4 +1,4 @@
-import { ChannelHandler } from './specification'
+import { Channels } from './specification'
 
 /**
  * Interface describing a rendering phase.
@@ -11,8 +11,5 @@ export interface Renderer<SourceForm, TargetForm> {
 	 * @param input The input data of an input form
 	 * @param handlers Event handlers that have been mapped
 	 */
-	render(
-		input: SourceForm,
-		handlers: { [channelName: string]: ChannelHandler },
-	): TargetForm
+	render(input: SourceForm, handlers: Channels): TargetForm
 }

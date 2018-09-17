@@ -45,17 +45,15 @@ export default class BarChart extends React.Component<{}, BarChartState> {
       <Chart width={400} height={200} renderer={renderer} data={{ data }}>
         <LinearScale
           name="y"
-          table="data"
-          domain="amount"
+          domain="data.amount"
           range={Dimension.Height}
           nice
           zero
         />
         <BandScale
-          table="data"
           name="x"
           bandWidth="band"
-          domain="category"
+          domain="data.category"
           padding={0.05}
           range={Dimension.Width}
         />
@@ -63,33 +61,33 @@ export default class BarChart extends React.Component<{}, BarChartState> {
         <Axis orient={AxisOrientation.Left} scale="y" />
         <Rect
           table="data"
-          onMouseEnter={(evt: any, { index }) => {
+          onMouseEnter={({ index }: any) => {
             if (hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
             }
           }}
-          onMouseLeave={(evt: any, { index }) => {
+          onMouseLeave={({ index }: any) => {
             if (hoverRowIndex === index) {
               this.setState({ hoverRowIndex: undefined })
             }
           }}
-          x={({ d }, { x }) => x(d.category)}
-          y={({ d }, { y }) => y(d.amount)}
-          width={(d, { band }) => band()}
-          y2={(d, { y }) => y(0)}
-          fill={({ index }) =>
+          x={({ d, x }: any) => x(d.category)}
+          y={({ d, y }: any) => y(d.amount)}
+          width={({ band }: any) => band()}
+          y2={({ y }: any) => y(0)}
+          fill={({ index }: any) =>
             hoverRowIndex === index ? 'firebrick' : 'steelblue'
           }
         />
         {hoverRowIndex === undefined ? null : (
           <Text
             singleton
-            text={d => d.tables.data[hoverRowIndex].amount}
+            text={d => d.data[hoverRowIndex].amount}
             fill="black"
-            x={({ tables }, { x, band }) =>
-              x(tables.data[hoverRowIndex].category) + band() / 2
+            x={({ data, x, band }: any) =>
+              x(data[hoverRowIndex].category) + band() / 2
             }
-            y={({ tables }, { y }) => y(tables.data[hoverRowIndex].amount) - 3}
+            y={({ data, y }: any) => y(data[hoverRowIndex].amount) - 3}
             baseline={VerticalTextAlignment.Bottom}
             align={HorizontalAlignment.Center}
           />

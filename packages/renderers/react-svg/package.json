@@ -9,14 +9,16 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc"
+		"build": "tsc",
+		"lint": "tslint src/**/*.ts*"
 	},
 	"devDependencies": {
 		"@types/react": "^16.4.10",
 		"@types/react-dom": "^16.0.7",
 		"react": "^16.4.2",
 		"rimraf": "^2.6.2",
-		"typescript": "^3.0.1"
+		"typescript": "^3.0.1",
+		"tslint": "^5.11.0"
 	},
 	"dependencies": {
 		"@markable/interfaces": "^0.0.15",

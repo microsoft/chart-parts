@@ -1,22 +1,31 @@
-import { ScaleCreationContext, Scales } from '@markable/interfaces'
+// tslint:disable no-var-requires
+import {
+	ScaleCreationContext,
+	Scales,
+	ScaleBuilder,
+} from '@markable/interfaces'
+declare var require: any
+const get = require('lodash/get')
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
-export abstract class DomainScale<Domain> {
+export abstract class DomainScale<Domain> implements ScaleBuilder {
 	protected bindDomainValue?: string
 	protected domainValue?: DomainCreator<Domain>
 	protected nameValue?: string
-	protected tableValue?: string
 
+	/**
+	 * Sets the name of the scale
+	 * @param value The name of the scale
+	 */
 	public name(value?: string) {
 		this.nameValue = value
 		return this
 	}
 
-	public table(value?: string) {
-		this.tableValue = value
-		return this
-	}
-
+	/**
+	 * Sets the domain of the scale
+	 * @param arg The domain argument
+	 */
 	public domain(arg?: string | DomainCreator<Domain> | Domain) {
 		if (typeof arg === 'function') {
 			this.domainValue = arg
@@ -31,11 +40,11 @@ export abstract class DomainScale<Domain> {
 		return this
 	}
 
-	public build() {
+	public build = (arg: ScaleCreationContext) => {
 		if (!this.nameValue) {
 			throw new Error('scale name must be defined')
 		}
-		return (args: ScaleCreationContext) => this.createScale(args)
+		return this.createScale(arg)
 	}
 
 	protected abstract createScale(args: ScaleCreationContext): Scales
@@ -51,16 +60,18 @@ export abstract class DomainScale<Domain> {
 	}
 
 	private getDomainFromTableBinding(args: ScaleCreationContext): Domain {
-		if (!this.tableValue) {
-			throw new Error('table must be defined')
+		const table = this.tableBind
+		const field = this.fieldBind
+		if (!table || !field) {
+			throw new Error(
+				'Domain scale domain bind must have a table and field accessor name. The expected format is <table>.<field>',
+			)
 		}
-
-		if (!this.bindDomainValue) {
-			throw new Error('domain must be defined')
+		const data = args.data[table]
+		if (!data) {
+			throw new Error(`DomainScale could not find source table ${table}`)
 		}
-		const bind = this.bindDomainValue
-		const data = args.data[this.tableValue] || []
-		const domainValues = data.map((d: any) => d[bind])
+		const domainValues = data.map((d: any) => get(d, field))
 		const result = this.processDomainValues(domainValues)
 		return result
 	}
@@ -73,5 +84,31 @@ export abstract class DomainScale<Domain> {
 		return typeof bindDomain === 'string'
 			? [bindDomain]
 			: (bindDomain as string[])
+	}
+
+	get tableBind(): string | undefined {
+		const bind = this.bindDomainValue
+		if (!bind) {
+			return undefined
+		}
+		const splitIndex = bind.indexOf('.')
+		if (splitIndex === -1) {
+			return undefined
+		}
+		const tableName = bind.slice(0, splitIndex)
+		return tableName
+	}
+
+	get fieldBind() {
+		const bind = this.bindDomainValue
+		if (!bind) {
+			return undefined
+		}
+		const splitIndex = bind.indexOf('.')
+		if (splitIndex === -1) {
+			return undefined
+		}
+		const filedName = bind.slice(splitIndex + 1)
+		return filedName
 	}
 }

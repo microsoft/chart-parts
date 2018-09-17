@@ -9,12 +9,14 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc"
+		"build": "tsc",
+		"lint": "tslint src/**/*.ts*"
 	},
 	"devDependencies": {
 		"@markable/scenegraph": "^0.0.15",
 		"rimraf": "^2.6.2",
-		"typescript": "^3.0.1"
+		"typescript": "^3.0.1",
+		"tslint": "^5.11.0"
 	},
 	"dependencies": {
 		"@markable/interfaces": "^0.0.15",

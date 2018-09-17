@@ -3,14 +3,14 @@ import {
 	VSvgNode,
 	VSvgTransformType,
 	VSvgTransform,
-	ChannelHandler,
+	Channels,
 	HandlerMetadata,
 } from '@markable/interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key: string,
-	handlers: { [key: string]: ChannelHandler },
+	handlers: Channels,
 ): React.ReactElement<any> {
 	const {
 		type,
@@ -33,8 +33,8 @@ function createElementFor(
 		const eventId = channels[eventName]
 		const reactEventName = eventName
 		const handler = handlers[eventId]
-		reactAttrs[reactEventName] = (eventArg: any) =>
-			handler(eventArg, metadata as HandlerMetadata)
+		reactAttrs[reactEventName] = (event: any) =>
+			handler({ ...(metadata as HandlerMetadata), event })
 	})
 
 	return React.createElement(
@@ -44,7 +44,9 @@ function createElementFor(
 			.filter(c => !!c)
 			.map(
 				(c, index) =>
-					typeof c !== 'object' ? c : createElementFor(c, `${index}`, handlers),
+					typeof c !== 'object'
+						? c
+						: createElementFor(c, `${key}::${index}`, handlers),
 			),
 	)
 }
@@ -64,10 +66,7 @@ function getTransformAttribute(vdomTransforms: Array<VSvgTransform<any>>) {
  * Renders a Virtual DOM out to React-DOM's Virtual DOM
  */
 export class Renderer {
-	public render(
-		vdom: VSvgNode,
-		handlers: { [key: string]: (arg: any) => void },
-	): React.ReactElement<any> {
+	public render(vdom: VSvgNode, handlers: Channels): React.ReactElement<any> {
 		return createElementFor(vdom, 'root', handlers)
 	}
 }

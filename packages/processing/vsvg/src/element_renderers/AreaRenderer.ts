@@ -1,4 +1,9 @@
-import { MarkType, SGMark, SGAreaItem, getItemSpace } from '@markable/interfaces'
+import {
+	MarkType,
+	SGMark,
+	SGAreaItem,
+	getItemSpace,
+} from '@markable/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'
@@ -24,17 +29,11 @@ export class AreaRenderer implements VSvgMarkConverter {
 			type: 'path',
 			attrs: {
 				d: area(areaItems),
+				...commonProps(mark.items[0]),
 			},
 			metadata: areaItems[0].metadata,
 			channels: areaItems[0].channels,
 		}
-		mark.items.forEach(
-			item =>
-				(areaItem.attrs = {
-					...areaItem.attrs,
-					...commonProps(item),
-				}),
-		)
 
 		const nodes = emitMarkGroup(MarkType.Area, mark.role, [areaItem])
 		return { nodes }

@@ -1,4 +1,4 @@
-import { SGNode, SGNodeType } from '@markable/interfaces'
+import { SGNode, SGNodeType, Metadata } from '@markable/interfaces'
 /**
  * A supertype for every node in the scene. Both marks and items extend this
  */
@@ -18,5 +18,5 @@ export abstract class SceneNode implements SGNode {
 	/**
 	 * Metadata about this mark
 	 */
-	public metadata: { [key: string]: any } = {}
+	public metadata: Metadata = {}
 }

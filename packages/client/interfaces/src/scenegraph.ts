@@ -4,7 +4,6 @@ import {
 	Orientation,
 	Interpolation,
 	HorizontalAlignment,
-	VerticalAlignment,
 	SymbolType,
 	VerticalTextAlignment,
 	TextDirection,
@@ -18,11 +17,17 @@ export enum SGNodeType {
 	Item = 'item',
 }
 
+export interface Metadata {
+	id: string
+	index?: number
+	[key: string]: any
+}
+
 export interface SGNode {
 	readonly nodetype: SGNodeType
 	readonly parent?: SGNode
 	readonly parentType?: SGNodeType
-	readonly metadata: { [key: string]: any }
+	readonly metadata: Metadata
 }
 
 export interface SGMark<Item extends SGItem> extends SGNode {
@@ -292,32 +297,6 @@ export interface SGGroupItem extends SGItem {
 }
 
 /**
- * Image marks allow external images, such as icons or photographs, to be included in visualizations.
- * Image files such as PNG or JPG images are loaded from provided URLs.
- */
-export interface SGImageItem extends SGItem {
-	/**
-	 * The URL of the image file.
-	 */
-	url?: string
-
-	/**
-	 * A boolean flag (default true) indicating if the image aspect ratio should be preserved.
-	 */
-	aspect?: boolean
-
-	/**
-	 * The horizontal alignment of the image. One of left, center, or right. The default value is left.
-	 */
-	align?: HorizontalAlignment
-
-	/**
-	 * The vertical alignment of the image. One of top, middle, or bottom. The default value is top.
-	 */
-	baseline?: VerticalAlignment
-}
-
-/**
  * Line marks are stroked paths with constant width, defined by an ordered set of (x, y) coordinates.
  * While line marks default to using straight line segments, different interpolation methods can be
  * used to create smoothed or stepped paths. Line marks are commonly used to depict trajectories or
@@ -487,28 +466,3 @@ export interface SGTextItem extends SGItem {
 	 */
 	theta?: number
 }
-
-/**
- * Trail marks are similar to line marks, but can have variable widths determined by backing data.
- * Unlike area marks, trails do not have a set vertical or horizontal orientation: they can follow
- * arbitrary trajectories. However, unlike lines, trails do not support different interpolation methods
- * and use fill (not stroke) for their color. Trail marks are useful if one wishes to draw lines that
- * change size to reflect the underlying data.
- */
-export interface SGTrailItem extends SGItem {
-	/**
-	 * The width in pixels of the trail at the given data point.
-	 */
-	size?: number
-
-	/**
-	 * A boolean flag indicating if the current data point is defined.
-	 * If false, the corresponding trail segment will be omitted, creating a “break”.
-	 */
-	defined?: boolean
-}
-
-/**
- * TODO
- */
-export type SGShapeItem = SGItem

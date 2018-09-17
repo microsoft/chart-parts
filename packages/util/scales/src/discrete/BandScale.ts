@@ -1,6 +1,11 @@
 import { scaleBand } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
-import { ScaleCreationContext, Dimension, Scales, Scale } from '@markable/interfaces'
+import {
+	ScaleCreationContext,
+	Dimension,
+	Scales,
+	Scale,
+} from '@markable/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {
@@ -110,7 +115,7 @@ export class BandScale extends DomainRangeScale<
 			bandscale.round(this.roundValue)
 		}
 
-		const result: Scales = { [this.nameValue as string]: bandscale }
+		const result: Scales = { [this.nameValue!]: bandscale }
 		if (this.bandwidthValue) {
 			result[this.bandwidthValue as string] = bandscale.bandwidth as Scale<
 				{},

@@ -11,11 +11,9 @@ import {
 	SGSymbolItem,
 	SGArcItem,
 	SGRectItem,
-	SGTrailItem,
 	SGGroupItem,
 } from '@markable/interfaces'
 import { Rectangle } from './Rectangle'
-import { Trail } from './Trail'
 import symbols from './symbols'
 
 const x = (item: SGItem) => item.x || 0
@@ -31,14 +29,12 @@ const ir = (item: SGArcItem) => item.innerRadius || 0
 const or = (item: SGArcItem) => item.outerRadius || 0
 const cr = (item: SGArcItem | SGRectItem | SGGroupItem) =>
 	item.cornerRadius || 0
-const def = (item: SGAreaItem | SGLineItem | SGTrailItem) =>
+const def = (item: SGAreaItem | SGLineItem) =>
 	item.defined == null ? true : item.defined
 const symbolSize = (item: SGSymbolItem) => (item.size == null ? 64 : item.size)
 const symbolType = (item: SGSymbolItem) => symbols(item.shape || 'circle')
-const trailSize = (item: SGTrailItem) => item.size || 1
 
 export const rectShape = new Rectangle(x, y, w, h, cr)
-export const trailShape = new Trail(x, y, trailSize, def)
 
 export const arcShape = d3_arc<SGArcItem>()
 	.startAngle(sa)

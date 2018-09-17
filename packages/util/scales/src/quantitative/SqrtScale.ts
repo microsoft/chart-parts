@@ -11,7 +11,8 @@ export class SqrtScale extends QuantitativeScale<QuantitativeValue, number> {
 		const result = scaleSqrt()
 			.domain(domain)
 			.range(range)
+
 		this.addCommonProperties(result)
-		return { [this.nameValue as string]: result }
+		return { [this.nameValue!]: result }
 	}
 }

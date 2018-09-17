@@ -6,6 +6,8 @@ import {
 	MarkEncodings,
 	ViewSize,
 	SGGroupItem,
+	EncodingContext,
+	ItemIdGenerator,
 } from '@markable/interfaces'
 import { createItem } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
@@ -34,23 +36,22 @@ export function createBoundItem(
 
 	// Update the view and recompute scales
 	const itemSpace = getItemSpace(item)
-	const groupDrawRect = getNextDrawRect(itemSpace, frame.view)
-	const itemFrame = frame
-		.pushView({
-			width: groupDrawRect.right - groupDrawRect.left,
-			height: groupDrawRect.bottom - groupDrawRect.top,
-		})
-		.pushBoundDataItem(row)
+	const drawRect = getNextDrawRect(itemSpace, frame.view)
+	const nextView = {
+		width: drawRect.right - drawRect.left,
+		height: drawRect.bottom - drawRect.top,
+	}
+	const itemFrame = frame.pushView(nextView).pushBoundDataItem(row)
 
 	// Mash in the children and the bounds
 	const items = mark.child ? processNode(mark.child, itemFrame) : []
 	const groupItem: SGGroupItem = {
 		...item,
 		items,
-		x: groupDrawRect.left,
-		y: groupDrawRect.top,
-		x2: groupDrawRect.right,
-		y2: groupDrawRect.bottom,
+		x: drawRect.left,
+		y: drawRect.top,
+		x2: drawRect.right,
+		y2: drawRect.bottom,
 	}
 	return groupItem
 }
@@ -72,14 +73,35 @@ function createItemFromMark(
 	data: any[],
 	frame: SceneFrame,
 ) {
-	const { type, encodings, name, role } = mark
+	const { type, encodings, name, role, idGenerator } = mark
+	const id = `${frame.parentId}.${getItemId(row, index, data, idGenerator)}`
+	const context = getEncodingContext(id, row, index, frame)
+
+	let metadata: any = {}
+	if (mark.metadata) {
+		metadata = mark.metadata(context)
+	}
+
 	return createItem(type, {
-		...transferEncodings(row, index, data, encodings, frame),
+		...transferEncodings(encodings, context),
 		name,
 		role,
-		metadata: { index },
+		metadata: { index, id, ...metadata },
 		channels: frame.channels,
 	})
+}
+
+function getItemId(
+	row: any,
+	index: number,
+	data: any[],
+	idGenerator: ItemIdGenerator | undefined,
+) {
+	if (!idGenerator) {
+		return `${index}`
+	} else {
+		return idGenerator(row, index, data)
+	}
 }
 
 /**
@@ -111,29 +133,33 @@ function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
 	}
 }
 
-function transferEncodings(
-	d: any,
-	index: number,
-	data: any[],
-	encodings: MarkEncodings,
-	frame: SceneFrame,
-) {
+function transferEncodings(encodings: MarkEncodings, context: EncodingContext) {
 	const props: { [key: string]: any } = {}
 	Object.keys(encodings)
 		.filter(t => t !== 'items')
 		.forEach(key => {
 			const encoding = encodings[key]
 			if (encoding) {
-				const dataContext = {
-					d,
-					index,
-					data,
-					tables: frame.data,
-					view: frame.view,
-				}
-				const value = encoding(dataContext, frame.scales)
+				const value = encoding(context)
 				props[key] = value
 			}
 		})
 	return props
+}
+
+function getEncodingContext(
+	id: string,
+	d: any,
+	index: number,
+	frame: SceneFrame,
+): EncodingContext {
+	const encodingContext: EncodingContext = {
+		id,
+		d,
+		index,
+		view: frame.view,
+		...frame.data,
+		...frame.scales,
+	}
+	return encodingContext
 }

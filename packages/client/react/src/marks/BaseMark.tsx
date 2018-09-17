@@ -5,6 +5,7 @@ import {
 	MarkEncodings,
 	MarkEncoding,
 	ChannelHandler,
+	Channels,
 } from '@markable/interfaces'
 import { SceneNodeBuilder, mark, MarkBuilder } from '@markable/builder'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
@@ -33,16 +34,15 @@ export abstract class BaseMark<
 	}
 
 	protected get channels() {
-		const eventHandlers =
-			(this.props.eventHandlers as { [key: string]: ChannelHandler }) || {}
-		const channels: { [key: string]: ChannelHandler } = {
+		const eventHandlers = (this.props.eventHandlers as Channels) || {}
+		const channels: Channels = {
 			...eventHandlers,
 		}
 		Object.keys(this.props).forEach(propKey => {
 			if (propKey.startsWith('on')) {
 				channels[propKey] = ((this.props as any)[
 					propKey
-				] as any) as ChannelHandler
+				] as any) as ChannelHandler<any>
 			}
 		})
 		return channels
@@ -76,7 +76,7 @@ export abstract class BaseMark<
 	}
 
 	protected createMark(): MarkBuilder {
-		const { table, name, role } = this.props
+		const { table, name, role, metadata } = this.props
 		let result = mark(this.markType)
 			.handle(this.channels)
 			.encode(this.encodings)
@@ -96,6 +96,10 @@ export abstract class BaseMark<
 
 		if (role) {
 			result = result.role(role as string)
+		}
+
+		if (metadata) {
+			result.metadata(metadata as { [key: string]: any })
 		}
 
 		return result

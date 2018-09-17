@@ -54,34 +54,31 @@ export default class LineChart extends React.Component {
       >
         <PointScale
           name="x"
-          table="data"
           stepName="xStep"
-          domain="x"
+          domain="data.x"
           range={Dimension.Width}
         />
         <LinearScale
           name="y"
-          table="data"
-          domain="y"
+          domain="data.y"
           range={Dimension.Height}
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="c"
+          domain="data.c"
           colorScheme={CategoricalColorScheme.category10}
         />
         <Axis orient={AxisOrientation.Bottom} scale="x" />
         <Axis orient={AxisOrientation.Left} scale="y" />
 
-        <Group table="data" facetKey="c" facetName="facetedData">
+        <Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
           <Line
             table="facetedData"
-            x={({ d }, { x }) => x(d.x)}
-            y={({ d }, { y }) => y(d.y)}
-            stroke={({ d }, { color }) => color(d.c)}
+            x={({ d, x }) => x(d.x)}
+            y={({ d, y }) => y(d.y)}
+            stroke={({ d, color }) => color(d.c)}
             strokeWidth={2}
           />
         </Group>

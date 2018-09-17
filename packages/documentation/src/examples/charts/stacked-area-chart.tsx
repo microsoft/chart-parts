@@ -56,34 +56,32 @@ export default class StackedAreaChart extends React.Component {
         height={200}
         padding={8}
         renderer={renderer}
-        data={{ data: ds.getTable('data') as any[] }}
+        data={ds.tables}
       >
-        <PointScale name="x" table="data" domain="x" range={Dimension.Width} />
+        <PointScale name="x" domain="data.x" range={Dimension.Width} />
         <LinearScale
           name="y"
-          table="data"
-          domain="y1"
+          domain="data.y1"
           range={Dimension.Height}
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="c"
+          domain="data.c"
           colorScheme={CategoricalColorScheme.category10}
         />
 
         <Axis orient={AxisOrientation.Bottom} scale="x" />
         <Axis orient={AxisOrientation.Left} scale="y" />
 
-        <Group table="data" facetKey="c" facetName="faceted">
+        <Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
           <Area
             table="faceted"
-            x={({ d }, { x }) => x(d.x)}
-            y={({ d }, { y }) => y(d.y0)}
-            y2={({ d }, { y }) => y(d.y1)}
-            fill={({ d }, { color }) => color(d.c)}
+            x={({ d, x }) => x(d.x)}
+            y={({ d, y }) => y(d.y0)}
+            y2={({ d, y }) => y(d.y1)}
+            fill={({ d, color }) => color(d.c)}
             interpolate={Interpolation.Monotone}
           />
         </Group>

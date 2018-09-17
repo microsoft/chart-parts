@@ -13,6 +13,7 @@ import {
 	FontWeight,
 } from '../common-types'
 import { Axis } from './axes'
+import { Metadata } from '../scenegraph'
 
 export enum MarkEncodingKey {
 	// Common encoding keys
@@ -107,6 +108,8 @@ export interface SceneNode {
 	axes: Axis[]
 }
 
+export type ItemIdGenerator = (d: any, index: number, table: any[]) => string
+
 /**
  * Specification for rendering a mark in a scene
  */
@@ -125,6 +128,11 @@ export interface Mark {
 	 * If true, this mark will render as a singleton
 	 */
 	singleton?: boolean
+
+	/**
+	 * Optional generator for item ids. If this is unset, then the index of the item will be used
+	 */
+	idGenerator?: ItemIdGenerator
 
 	/**
 	 * The encodings, which map data values into attribute values
@@ -155,7 +163,22 @@ export interface Mark {
 	 * The child scene of this mark
 	 */
 	child?: SceneNode
+
+	/**
+	 * Any metadata to attach to mark items
+	 */
+	metadata?: MarkEncoding<Metadata>
 }
+
+/**
+ * A single data tuple.
+ */
+export type Datum = any
+
+/**
+ * A table of data
+ */
+export type Table = Datum[]
 
 /**
  * Faceting configuration to apply on incoming data
@@ -167,13 +190,24 @@ export interface Facet {
 	name: string
 
 	/**
-	 * How incoming data will be split up.
-	 *
-	 * If the value is a string, then it indicates the name of a key proprtey that the rows will be partitioned
-	 * on.
-	 * If the value is a function, then the function describes how to get a partition key for a row.
+	 * The name to use for the group mark's bound-data row in the context of
+	 * facet encoding. If the group mark has a bound data row, it will be mapped to
+	 * a facet partition using the facet's group-by mechanism. If the group is not
+	 * bound to a data row, it will be bound to the data facet partitions.
 	 */
-	partitionOn: string | ((row: any) => any)
+	keyRowName?: string
+
+	/**
+	 * The name of the source table to generate facets from. If not defined,
+	 * then the parent table will be used
+	 */
+	table?: string
+
+	/**
+	 * For data-driven facets, an array of field names by which to partition the data.
+	 * This property is required if using data-driven facets.
+	 */
+	groupBy?: string | string[] | ((row: any) => any)
 
 	/**
 	 * Data transformation to apply on data partitions after partitioning
@@ -183,32 +217,32 @@ export interface Facet {
 
 export interface EncodingContext {
 	/**
-	 * The current d to encode, essentially a row in the data array.
+	 * The current datum to encode, e.g. a row in the bound data array.
 	 */
-	d: any
+	d: Datum
 
 	/**
-	 * The index of the d within the data collection
+	 * The index of the datum within the data collection
 	 */
 	index: number
 
 	/**
-	 * The bound dataset
-	 */
-	data: any[]
-
-	/**
-	 * The full dataset
-	 */
-	tables: DataFrame
-
-	/**
-	 * The dimensions of the current working view (e.g. Chart-Dimensions or current Group Dimensions)
+	 * The dimensions of the current working view (e.g. Chart-Dimensions or
+	 * current Group Dimensions)
 	 */
 	view: ViewSize
+
+	/**
+	 * Named data tables, datum instances, and scales..
+	 *
+	 * The data tables are a combination of the source dataset and any faceting
+	 * tables created at this point. Nomed datums are generated from faceting
+	 * when the parent row is named.
+	 */
+	[key: string]: Datum | Table | Scale<any, any>
 }
 
-export type MarkEncoding<T> = (ctx: EncodingContext, scales: Scales) => T
+export type MarkEncoding<T> = (ctx: EncodingContext) => T
 
 export enum Dimension {
 	Height = 'height',
@@ -291,34 +325,23 @@ export interface MarkEncodings {
 	[key: string]: MarkEncoding<any> | undefined
 }
 
-export interface HandlerMetadata {
-	/**
-	 * The index of the item in it's respective bound dataset
-	 */
-	index: number
-
-	/**
-	 * Additional metadata keys attached to the item in the scenegraph
-	 */
-	[key: string]: any
-}
-
-export type ChannelHandler = (
-	nativeEventArgument: any,
-	metadata: HandlerMetadata,
-) => void
+export type ChannelHandler<T> = (eventArg: Metadata & { event: T }) => void
 
 /**
  * A hash of mark event channels by event name
  */
 export interface Channels {
-	[key: string]: ChannelHandler
+	[key: string]: ChannelHandler<any>
 }
 
 /**
  * A factory function that creates a scale instance.
  */
 export type ScaleCreator = (input: ScaleCreationContext) => Scales
+
+export interface ScaleBuilder {
+	build: ScaleCreator
+}
 
 /**
  * Interface for the scale creation argument object, which is used to
@@ -332,7 +355,7 @@ export interface ScaleCreationContext {
 
 	/**
 	 * The rectangle of the area that marks will be drawn in,
-	 * This is (chartRect - space reserved for axes)
+	 * This is (chartRect minus space reserved for axes)
 	 */
 	viewBounds: {
 		x: [number, number]
@@ -377,8 +400,11 @@ export interface ViewSize {
 	height: number
 }
 
+/**
+ * Named tables and rows for various encoding contexts
+ */
 export interface DataFrame {
-	[key: string]: any[]
+	[key: string]: Table | Datum
 }
 
 export interface ChannelNames {

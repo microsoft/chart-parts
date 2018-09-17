@@ -35,7 +35,7 @@ export interface AxisProps {
 	tickCount?: number
 	tickOffset?: number
 	tickRound?: boolean
-	tickSize?: boolean
+	tickSize?: number
 	tickWidth?: boolean
 	bandPosition?: number
 	values?: TickValue[]

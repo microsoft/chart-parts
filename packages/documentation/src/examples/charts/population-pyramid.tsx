@@ -29,7 +29,7 @@ const renderer = new Renderer()
 
 const chartWidth = 600
 const chartHeight = 500
-const textLineWidth = 12
+const textLineWidth = 18
 const AXIS_THICKNESS = 25
 const chartPadding = 10
 const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2
@@ -98,30 +98,35 @@ const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
     renderer={renderer}
     data={data}
   >
-    <BandScale
-      name="y"
-      bandWidth="yband"
-      table="ageGroups"
-      range={(arg: ScaleCreationContext) => [
-        arg.view.height - AXIS_THICKNESS,
-        0,
-      ]}
-      domain="age"
-      padding={0.1}
-      round={true}
-    />
-    <OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
+    <ChartScales />
     <AgeLabels />
     <MPerYear />
     <FPerYear />
   </Chart>
 )
 
+const ChartScales: React.SFC = () => (
+  <>
+    <BandScale
+      name="y"
+      bandWidth="yband"
+      range={(arg: ScaleCreationContext) => [
+        arg.view.height - AXIS_THICKNESS,
+        0,
+      ]}
+      domain="ageGroups.age"
+      padding={0.1}
+      round
+    />
+    <OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
+  </>
+)
+
 const AgeLabels: React.SFC = () => (
   <Text
     table="ageGroups"
-    x={chartSegmentWidth + textLineWidth}
-    y={({ d }, { y, yband }) => y(d.age) + yband() / 2}
+    x={chartSegmentWidth + textLineWidth / 2}
+    y={({ d, y, yband }) => y(d.age) + yband() / 2}
     text={({ d }) => d.age}
     baseline={VerticalTextAlignment.Middle}
     align={HorizontalAlignment.Center}
@@ -130,67 +135,60 @@ const AgeLabels: React.SFC = () => (
 )
 
 const FPerYear: React.SFC = () => (
-  <Group
-    singleton
-    x={0}
-    height={({ view }) => view.height}
-    width={chartSegmentWidth}
-  >
-    <LinearScale
-      table="population"
-      domain="people"
-      range={[chartSegmentWidth, 0]}
-      name="x"
-      nice
-      zero
-    />
-    <Axis
-      orient={AxisOrientation.Bottom}
-      scale="x"
-      labelFormat="~s"
-      thickness={AXIS_THICKNESS}
-    />
-    <Rect
-      table="females"
-      x={({ d }, { x }) => x(d.people)}
-      x2={(d, { x }) => x(0)}
-      y={({ d }, { y }) => y(d.age)}
-      height={(d, { yband }) => yband()}
-      fillOpacity={0.6}
-      fill={({ d }, { c }) => c(d.sex)}
-    />
-  </Group>
+  <GenderPerYearSection
+    xStart={0}
+    table="females"
+    xRange={[chartSegmentWidth, 0]}
+  />
 )
 
 const MPerYear: React.SFC = () => (
+  <GenderPerYearSection
+    table="males"
+    xStart={chartSegmentWidth + textLineWidth}
+    xRange={[0, chartSegmentWidth]}
+  />
+)
+
+interface GenderPerYearSectionProps {
+  table: string
+  xRange: [number, number]
+  xStart: number
+}
+const GenderPerYearSection: React.SFC<GenderPerYearSectionProps> = ({
+  table,
+  xRange,
+  xStart,
+}) => (
   <Group
     singleton
-    x={chartSegmentWidth + textLineWidth}
+    x={xStart}
     height={({ view }) => view.height}
     width={chartSegmentWidth}
   >
-    <LinearScale
-      table="population"
-      domain="people"
-      name="x"
-      range={[textLineWidth, chartSegmentWidth]}
-      nice
-      zero
-    />
+    <LinearScale domain="population.people" range={xRange} name="x" nice zero />
     <Axis
       orient={AxisOrientation.Bottom}
       scale="x"
       labelFormat="~s"
       thickness={AXIS_THICKNESS}
     />
-    <Rect
-      table="males"
-      x={({ d }, { x }) => x(d.people)}
-      x2={(d, { x }) => x(0)}
-      y={({ d }, { y }) => y(d.age)}
-      height={(d, { yband }) => yband()}
-      fillOpacity={0.6}
-      fill={({ d }, { c }) => c(d.sex)}
-    />
+    <GenderPerYearRect table={table} />
   </Group>
+)
+
+interface GenderPerYearRectProps {
+  table: string
+}
+
+const GenderPerYearRect: React.SFC<GenderPerYearRectProps> = ({ table }) => (
+  <Rect
+    table={table}
+    x={({ d, x }) => x(d.people)}
+    x2={({ x }) => x(0)}
+    y={({ d, y }) => y(d.age)}
+    height={({ yband }) => yband()}
+    fillOpacity={0.6}
+    fill={({ d, c }) => c(d.sex)}
+  />
 )

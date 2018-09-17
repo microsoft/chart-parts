@@ -69,23 +69,20 @@ export default class StackedBarChart extends React.Component<
         {/* Scale Definitions */}
         <BandScale
           name="x"
-          table="data"
           bandWidth="width"
           range={Dimension.Width}
-          domain="x"
+          domain="data.x"
         />
         <LinearScale
           name="y"
-          table="data"
           range={Dimension.Height}
-          domain="y1"
+          domain="data.y1"
           nice
           zero
         />
         <OrdinalScale
           name="color"
-          table="data"
-          domain="c"
+          domain="data.c"
           colorScheme={CategoricalColorScheme.category10}
         />
 
@@ -95,22 +92,22 @@ export default class StackedBarChart extends React.Component<
 
         {/* Marks */}
         <Rect
-          onMouseEnter={(evt, { index }) => {
+          onMouseEnter={({ index }: any) => {
             if (this.state.hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
             }
           }}
-          onMouseLeave={(evt, { index }) => {
+          onMouseLeave={({ index }: any) => {
             if (this.state.hoverRowIndex === index) {
               this.setState({ hoverRowIndex: undefined })
             }
           }}
           table="data"
-          x={({ d }, { x }) => x(d.x)}
-          width={(d, { width }) => width() - 1}
-          y={({ d }, { y }) => y(d.y0)}
-          y2={({ d }, { y }) => y(d.y1)}
-          fill={({ d }, { color }) => color(d.c)}
+          x={({ d, x }) => x(d.x)}
+          width={({ width }) => width() - 1}
+          y={({ d, y }) => y(d.y0)}
+          y2={({ d, y }) => y(d.y1)}
+          fill={({ d, color }) => color(d.c)}
           fillOpacity={({ index }) =>
             this.state.hoverRowIndex === index ? 0.5 : 1
           }

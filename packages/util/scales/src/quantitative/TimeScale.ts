@@ -16,6 +16,6 @@ export class TimeScale extends QuantitativeScale<TimeValue, number> {
 			.range(range)
 		this.addCommonProperties(result)
 		setType(result)
-		return { [this.nameValue as string]: result }
+		return { [this.nameValue!]: result }
 	}
 }

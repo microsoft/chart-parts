@@ -48,56 +48,49 @@ export class GroupedBarChart extends React.Component<{}> {
 			>
 				<BandScale
 					name="y"
-					table="data"
 					bandWidth="categoryHeight"
 					range={Dimension.Height}
-					domain="category"
+					domain="data.category"
 					padding={0.2}
 				/>
 				<LinearScale
 					name="x"
-					table="data"
 					range={Dimension.Width}
-					domain="value"
+					domain="data.value"
 					nice
 					zero
 				/>
 				<OrdinalScale
 					name="color"
-					table="data"
-					domain="position"
+					domain="data.position"
 					colorScheme={CategoricalColorScheme.category20}
 				/>
 				<Group
 					name="chartgroup"
 					table="data"
-					facetKey={row => row.category}
-					facetName="facet"
-					y={({ d }, { y }) => y(d[0].category)}
-					height={(d, { categoryHeight }) => categoryHeight()}
+					facet={{ groupBy: 'category', name: 'facet' }}
+					y={({ d, y }) => y(d.category)}
+					height={({ categoryHeight }) => categoryHeight()}
 				>
 					<BandScale
 						name="pos"
 						bandWidth="rowHeight"
 						range={Dimension.Height}
-						table="facet"
-						domain="position"
+						domain="facet.position"
 					/>
 					<Rect
 						name="bars"
 						table="facet"
-						x={({ d }, { x }) => x(d.value)}
-						y={({ d }, { pos }) => pos(d.position)}
-						x2={(d, { x }) => x(0)}
-						fill={({ d }, { color }) => color(d.position)}
-						height={(d, { rowHeight }) => rowHeight()}
+						x={({ d, x }) => x(d.value)}
+						y={({ d, pos }) => pos(d.position)}
+						x2={({ x }) => x(0)}
+						fill={({ d, color }) => color(d.position)}
+						height={({ rowHeight }) => rowHeight()}
 					/>
 					<Text
 						table="facet"
-						x={({ d }, { x }) => x(d.value) - 3}
-						y={({ d }, { pos, rowHeight }) =>
-							pos(d.position) + rowHeight() * 0.5
-						}
+						x={({ d, x }) => x(d.value) - 3}
+						y={({ d, pos, rowHeight }) => pos(d.position) + rowHeight() * 0.5}
 						fill={'white'}
 						align={HorizontalAlignment.Right}
 						baseline={VerticalTextAlignment.Middle}
