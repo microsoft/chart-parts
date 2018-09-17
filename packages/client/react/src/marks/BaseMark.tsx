@@ -6,6 +6,7 @@ import {
 	MarkEncoding,
 	ChannelHandler,
 	Channels,
+	Metadata,
 } from '@markable/interfaces'
 import { SceneNodeBuilder, mark, MarkBuilder } from '@markable/builder'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
@@ -99,7 +100,7 @@ export abstract class BaseMark<
 		}
 
 		if (metadata) {
-			result.metadata(metadata as { [key: string]: any })
+			result.metadata(metadata as MarkEncoding<Metadata>)
 		}
 
 		return result

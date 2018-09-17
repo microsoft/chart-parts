@@ -28,7 +28,6 @@ import {
   filter,
 } from '@markable/transform'
 import { Renderer } from '@markable/react-svg-renderer'
-const debounce = require('lodash/debounce')
 
 // TODO:
 // - Axis grid
@@ -45,7 +44,7 @@ export interface JobVoyagerState {
 }
 
 export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
-  public state = { gender: 'all' }
+  public state: JobVoyagerState = { gender: 'all' }
 
   public render() {
     const { gender, selectedAreaId, query } = this.state
@@ -58,7 +57,7 @@ export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
         filter(
           (d: any) =>
             (gender === 'all' || d.sex === gender) &&
-            (!query || queryRegExp.test(d.job))
+            (!queryRegExp || queryRegExp.test(d.job))
         ),
         stack('perc')
           .groupBy('year')

@@ -8,6 +8,7 @@ import {
 	SGGroupItem,
 	EncodingContext,
 	ItemIdGenerator,
+	Metadata,
 } from '@markable/interfaces'
 import { createItem } from '@markable/scenegraph'
 import { SceneFrame } from '../SceneFrame'
@@ -77,7 +78,7 @@ function createItemFromMark(
 	const id = `${frame.parentId}.${getItemId(row, index, data, idGenerator)}`
 	const context = getEncodingContext(id, row, index, frame)
 
-	let metadata: any = {}
+	let metadata: Metadata = {} as any
 	if (mark.metadata) {
 		metadata = mark.metadata(context)
 	}

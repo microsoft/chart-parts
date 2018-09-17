@@ -18,5 +18,5 @@ export abstract class SceneNode implements SGNode {
 	/**
 	 * Metadata about this mark
 	 */
-	public metadata: Metadata = {}
+	public metadata: Metadata = {} as any
 }

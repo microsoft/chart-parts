@@ -1,4 +1,5 @@
 import { Renderer } from '../render'
+import { Metadata } from '../scenegraph'
 
 /**
  * Interface describing a Virtual Dom representation of a Node
@@ -9,7 +10,7 @@ export interface VDomNode<Attrs, Style> {
 	style?: Style & { [key: string]: any }
 	children?: Array<string | VDomNode<any, any>>
 	channels?: { [key: string]: string }
-	metadata?: { [key: string]: any }
+	metadata?: Metadata
 }
 
 export interface VDomRenderer<TargetForm>

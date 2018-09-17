@@ -4,7 +4,7 @@ import {
 	VSvgNode,
 	VSvgTransformType,
 	Channels,
-	HandlerMetadata,
+	Metadata,
 } from '@markable/interfaces'
 
 function createElementFor(
@@ -54,7 +54,7 @@ function createElementFor(
 		const reactEventName = eventName
 		const handler = handlers[eventId]
 		reactAttrs[reactEventName] = (event: any) =>
-			handler({ ...(metadata as HandlerMetadata), event })
+			handler({ ...(metadata as Metadata), event })
 	})
 
 	const result = React.createElement(
