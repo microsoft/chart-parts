@@ -1,4 +1,4 @@
-import { Scale } from '@markable/interfaces'
+import { Scale } from '@chart-parts/interfaces'
 import { timeFormat } from 'd3-time-format'
 import { format } from 'd3-format'
 import { AxisContext } from '../../interfaces'

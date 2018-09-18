@@ -5,7 +5,7 @@ import {
 	TextDirection,
 	SGTextItem,
 	FontWeight,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {

@@ -4,7 +4,7 @@ import {
 	VerticalTextAlignment,
 	TextDirection,
 	FontWeight,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 

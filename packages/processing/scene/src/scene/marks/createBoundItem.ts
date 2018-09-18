@@ -9,8 +9,8 @@ import {
 	EncodingContext,
 	ItemIdGenerator,
 	Metadata,
-} from '@markable/interfaces'
-import { createItem } from '@markable/scenegraph'
+} from '@chart-parts/interfaces'
+import { createItem } from '@chart-parts/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { processNode } from '../processNode'
 

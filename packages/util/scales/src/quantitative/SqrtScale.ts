@@ -1,6 +1,6 @@
 import { scaleSqrt } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { ScaleCreationContext, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 export class SqrtScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true

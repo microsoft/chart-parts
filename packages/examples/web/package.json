@@ -1,5 +1,5 @@
 {
-	"name": "@markable/examples-web",
+	"name": "@chart-parts/examples-web",
 	"private": true,
 	"version": "0.0.15",
 	"scripts": {
@@ -10,12 +10,12 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"dependencies": {
-		"@markable/orchestrator": "^0.0.15",
-		"@markable/react": "^0.0.15",
-		"@markable/react-svg-renderer": "^0.0.15",
-		"@markable/scales": "^0.0.15",
-		"@markable/testdata": "^0.0.15",
-		"@markable/transform": "^0.0.15",
+		"@chart-parts/orchestrator": "^0.0.15",
+		"react-chart-parts": "^0.0.15",
+		"react-chart-parts-svg-renderer": "^0.0.15",
+		"@chart-parts/scales": "^0.0.15",
+		"@chart-parts/testdata": "^0.0.15",
+		"@chart-parts/transform": "^0.0.15",
 		"@storybook/addon-actions": "^4.0.0-alpha.8",
 		"@storybook/addon-links": "^4.0.0-alpha.8",
 		"@storybook/addons": "^4.0.0-alpha.8",

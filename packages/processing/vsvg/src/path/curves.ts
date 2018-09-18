@@ -20,7 +20,7 @@ import {
 	curveStepAfter,
 	curveStepBefore,
 } from 'd3-shape'
-import { Orientation } from '@markable/interfaces'
+import { Orientation } from '@chart-parts/interfaces'
 
 const lookup: {
 	[key: string]: {

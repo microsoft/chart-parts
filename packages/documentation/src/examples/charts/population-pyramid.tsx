@@ -5,7 +5,7 @@ declare var require: any
 
 // tslint:disable
 import * as React from 'react'
-import { dataset, filter, aggregate } from '@markable/transform'
+import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
   Axis,
   Group,
@@ -15,14 +15,14 @@ import {
   Rect,
   OrdinalScale,
   LinearScale,
-} from '@markable/react'
+} from 'react-chart-parts'
 import {
   VerticalTextAlignment,
   HorizontalAlignment,
   AxisOrientation,
   ScaleCreationContext,
-} from '@markable/interfaces'
-import { Renderer } from '@markable/react-svg-renderer'
+} from '@chart-parts/interfaces'
+import { Renderer } from 'react-chart-parts-svg-renderer'
 
 const population = require('vega-datasets/data/population.json')
 const renderer = new Renderer()

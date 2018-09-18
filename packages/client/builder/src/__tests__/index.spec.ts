@@ -1,4 +1,4 @@
-import { MarkType, AxisOrientation } from '@markable/interfaces'
+import { MarkType, AxisOrientation } from '@chart-parts/interfaces'
 import {
 	scene,
 	arc,

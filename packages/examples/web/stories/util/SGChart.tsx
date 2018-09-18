@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { Orchestrator } from '@markable/orchestrator'
-import { Renderer } from '@markable/react-svg-renderer'
+import { Orchestrator } from '@chart-parts/orchestrator'
+import { Renderer } from 'react-chart-parts-svg-renderer'
 
 const pipeline = new Orchestrator(new Renderer())
 export interface SGChartProps {

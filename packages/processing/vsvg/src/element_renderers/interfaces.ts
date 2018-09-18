@@ -1,4 +1,8 @@
-import { MarkConverter, VSvgNode, VSvgTransformType } from '@markable/interfaces'
+import {
+	MarkConverter,
+	VSvgNode,
+	VSvgTransformType,
+} from '@chart-parts/interfaces'
 
 export interface VSvgMarkOutput {
 	nodes: VSvgNode[]

@@ -4,7 +4,7 @@ import {
 	SGRectItem,
 	getItemSpace,
 	VSvgNode,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import { rectangle } from '../path'
 import { VSvgMarkConverter } from './interfaces'

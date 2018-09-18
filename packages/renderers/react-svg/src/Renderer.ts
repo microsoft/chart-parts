@@ -5,7 +5,7 @@ import {
 	VSvgTransform,
 	Channels,
 	Metadata,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 
 function createElementFor(
 	vdom: VSvgNode,

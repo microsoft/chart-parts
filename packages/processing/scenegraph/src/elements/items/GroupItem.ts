@@ -1,4 +1,4 @@
-import { MarkType, SGMark, SGGroupItem } from '@markable/interfaces'
+import { MarkType, SGMark, SGGroupItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class GroupItem extends Item implements SGGroupItem {

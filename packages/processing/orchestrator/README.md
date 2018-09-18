@@ -1,3 +1,3 @@
 ## Purpose
 
-This library contains orchestration components for Markable. 
+This library contains orchestration components for chart-parts.

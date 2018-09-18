@@ -1,4 +1,4 @@
-import { MarkType, SGMark, SGLineItem } from '@markable/interfaces'
+import { MarkType, SGMark, SGLineItem } from '@chart-parts/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { line } from '../path'
 import { VSvgMarkConverter } from './interfaces'

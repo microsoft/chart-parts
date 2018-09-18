@@ -4,8 +4,8 @@ import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 	AxisOrientation,
-} from '@markable/interfaces'
-import { buildMark } from '@markable/scenegraph'
+} from '@chart-parts/interfaces'
+import { buildMark } from '@chart-parts/scenegraph'
 import {
 	AxisContext,
 	PositionedTickValue,
@@ -62,7 +62,7 @@ function createTickLabel(tick: PositionedTickValue, context: AxisContext) {
 		align,
 	}
 	if (labelAngle !== undefined) {
-		result.theta = labelAngle * Math.PI / 180
+		result.theta = (labelAngle * Math.PI) / 180
 	}
 	return result
 }

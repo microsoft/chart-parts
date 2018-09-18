@@ -5,5 +5,5 @@ export * from './interfaces'
 export * from './scales'
 export * from './marks'
 
-export { Dimension } from '@markable/interfaces'
-export { CategoricalColorScheme } from '@markable/scales'
+export { Dimension } from '@chart-parts/interfaces'
+export { CategoricalColorScheme } from '@chart-parts/scales'

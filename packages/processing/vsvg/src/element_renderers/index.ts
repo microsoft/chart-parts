@@ -1,4 +1,4 @@
-import { MarkType } from '@markable/interfaces'
+import { MarkType } from '@chart-parts/interfaces'
 import { registerRenderer } from './registry'
 
 import { ArcRenderer } from './ArcRenderer'

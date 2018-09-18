@@ -1,4 +1,4 @@
-import { ScaleCreationContext, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { scaleLog } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
 

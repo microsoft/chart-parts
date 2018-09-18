@@ -5,10 +5,10 @@ import {
 	DataFrame,
 	VDomRenderer,
 	ScenegraphConverter,
-} from '@markable/interfaces'
-import { parseScene } from '@markable/scenegraph'
-import { VirtualSvgConverter } from '@markable/vsvg'
-import { createScenegraph } from '@markable/scene'
+} from '@chart-parts/interfaces'
+import { parseScene } from '@chart-parts/scenegraph'
+import { VirtualSvgConverter } from '@chart-parts/vsvg'
+import { createScenegraph } from '@chart-parts/scene'
 
 export class Orchestrator<T> {
 	constructor(

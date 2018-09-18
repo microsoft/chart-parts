@@ -1,5 +1,5 @@
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
-import { Dimension } from '@markable/interfaces'
+import { Dimension } from '@chart-parts/interfaces'
 
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }

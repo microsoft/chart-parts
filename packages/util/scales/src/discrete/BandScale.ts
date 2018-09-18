@@ -5,7 +5,7 @@ import {
 	Dimension,
 	Scales,
 	Scale,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {

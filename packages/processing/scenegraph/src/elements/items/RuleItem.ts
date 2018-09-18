@@ -1,4 +1,4 @@
-import { MarkType, SGRuleItem } from '@markable/interfaces'
+import { MarkType, SGRuleItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class RuleItem extends Item implements SGRuleItem {

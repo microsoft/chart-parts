@@ -4,7 +4,7 @@ import {
 	Gradient,
 	StrokeCap,
 	StrokeJoin,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 
 export type MarkEncodingProp<T> = MarkEncoding<T> | T
 

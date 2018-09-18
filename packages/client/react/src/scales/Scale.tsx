@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { SceneNodeBuilder } from '@markable/builder'
-import { ScaleCreationContext } from '@markable/interfaces'
+import { SceneNodeBuilder } from '@chart-parts/builder'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { SceneNodeBuilderConsumer } from '../Context'
 
 export interface ScaleProps {

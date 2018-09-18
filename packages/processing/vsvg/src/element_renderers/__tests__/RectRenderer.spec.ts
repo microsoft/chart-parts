@@ -1,6 +1,6 @@
 // tslint:disable no-submodule-imports no-implicit-dependencies
-import { Mark } from '@markable/scenegraph/lib/elements/Mark'
-import { RectItem } from '@markable/scenegraph/lib/elements/items/RectItem'
+import { Mark } from '@chart-parts/scenegraph/lib/elements/Mark'
+import { RectItem } from '@chart-parts/scenegraph/lib/elements/items/RectItem'
 import { renderMark } from '../'
 
 describe('The Rect Renderer', () => {

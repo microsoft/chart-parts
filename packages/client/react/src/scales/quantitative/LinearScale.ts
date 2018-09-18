@@ -1,4 +1,4 @@
-import { linear } from '@markable/scales'
+import { linear } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

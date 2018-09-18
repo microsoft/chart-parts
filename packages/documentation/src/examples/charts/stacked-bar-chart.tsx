@@ -9,10 +9,10 @@ import {
   Dimension,
   OrdinalScale,
   CategoricalColorScheme,
-} from '@markable/react'
-import { Renderer } from '@markable/react-svg-renderer'
-import { stack, dataset } from '@markable/transform'
-import { AxisOrientation } from '@markable/interfaces'
+} from 'react-chart-parts'
+import { Renderer } from 'react-chart-parts-svg-renderer'
+import { stack, dataset } from '@chart-parts/transform'
+import { AxisOrientation } from '@chart-parts/interfaces'
 
 const renderer = new Renderer()
 const dataArray = [

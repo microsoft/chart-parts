@@ -1,4 +1,4 @@
-import { sequential } from '@markable/scales'
+import { sequential } from '@chart-parts/scales'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 

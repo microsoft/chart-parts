@@ -5,7 +5,7 @@ import {
 	VSvgNode,
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { renderMark } from './element_renderers'
 import { translate } from './element_renderers/interfaces'
 

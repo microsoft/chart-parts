@@ -1,4 +1,4 @@
-import { ScaleCreationContext } from '@markable/interfaces'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { scaleQuantize, ScaleQuantize } from 'd3-scale'
 import { extent } from 'd3-array'
 import { DomainRangeScale } from './DomainRangeScale'

@@ -1,4 +1,4 @@
-import { Axis, Scale } from '@markable/interfaces'
+import { Axis, Scale } from '@chart-parts/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
 
 /**

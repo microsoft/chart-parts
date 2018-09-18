@@ -1,7 +1,7 @@
 // tslint:disable no-var-requires
 import * as React from 'react'
-import { Renderer, VSvgNode, SceneNode } from '@markable/interfaces'
-import { Orchestrator } from '@markable/orchestrator'
+import { Renderer, VSvgNode, SceneNode } from '@chart-parts/interfaces'
+import { Orchestrator } from '@chart-parts/orchestrator'
 import { ChartSpec } from './ChartSpec'
 declare var require: any
 const shallowequal = require('shallowequal')

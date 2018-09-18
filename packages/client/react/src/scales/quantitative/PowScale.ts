@@ -1,4 +1,4 @@
-import { pow } from '@markable/scales'
+import { pow } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

@@ -1,4 +1,4 @@
-import { MarkType, Interpolation, SGLineItem } from '@markable/interfaces'
+import { MarkType, Interpolation, SGLineItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class LineItem extends Item implements SGLineItem {

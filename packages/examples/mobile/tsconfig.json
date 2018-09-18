@@ -6,7 +6,7 @@
         "outDir": "lib"
     },
     "files": [
-        "node_modules/@markable/react-native-svg-renderer/canvas.d.ts",
+        "node_modules/react-chart-parts-native-svg-renderer/canvas.d.ts",
         "src/index.ts"
     ]
 }

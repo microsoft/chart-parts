@@ -3,7 +3,7 @@ import {
 	Orientation,
 	Interpolation,
 	SGAreaItem,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class AreaItem extends Item implements SGAreaItem {

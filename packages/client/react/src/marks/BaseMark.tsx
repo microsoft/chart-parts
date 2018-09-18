@@ -7,8 +7,8 @@ import {
 	ChannelHandler,
 	Channels,
 	Metadata,
-} from '@markable/interfaces'
-import { SceneNodeBuilder, mark, MarkBuilder } from '@markable/builder'
+} from '@chart-parts/interfaces'
+import { SceneNodeBuilder, mark, MarkBuilder } from '@chart-parts/builder'
 import { CommonMarkProps, captureCommonEncodings } from '../interfaces'
 
 export abstract class BaseMark<

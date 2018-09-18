@@ -1,5 +1,10 @@
-import { Axis, MarkType, AxisOrientation, ViewSize } from '@markable/interfaces'
-import { buildMark } from '@markable/scenegraph'
+import {
+	Axis,
+	MarkType,
+	AxisOrientation,
+	ViewSize,
+} from '@chart-parts/interfaces'
+import { buildMark } from '@chart-parts/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { components } from './components'
 import { SGMarkAny } from '../processNode'

@@ -3,7 +3,7 @@ import * as React from 'react'
 import {
   HorizontalAlignment,
   VerticalTextAlignment,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import {
   Chart,
   LinearScale,
@@ -14,8 +14,8 @@ import {
   Group,
   Rect,
   Text,
-} from '@markable/react'
-import { Renderer } from '@markable/react-svg-renderer'
+} from 'react-chart-parts'
+import { Renderer } from 'react-chart-parts-svg-renderer'
 const renderer = new Renderer()
 
 const data = [

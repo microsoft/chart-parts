@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file
-import { ScaleCreationContext } from '@markable/interfaces'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale, DomainScaleProps } from './DomainScale'
 
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>

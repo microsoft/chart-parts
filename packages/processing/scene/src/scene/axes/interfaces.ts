@@ -1,4 +1,4 @@
-import { SGMark, Axis, Scale, TickValue } from '@markable/interfaces'
+import { SGMark, Axis, Scale, TickValue } from '@chart-parts/interfaces'
 import { SceneFrame } from '../SceneFrame'
 
 /**

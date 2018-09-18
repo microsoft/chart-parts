@@ -1,5 +1,5 @@
-import { Dimension } from '@markable/interfaces'
-import { band } from '@markable/scales'
+import { Dimension } from '@chart-parts/interfaces'
+import { band } from '@chart-parts/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 
 export interface BandScaleProps

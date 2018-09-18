@@ -1,7 +1,7 @@
 import * as React from 'react'
-import { scene, SceneNodeBuilder } from '@markable/builder'
+import { scene, SceneNodeBuilder } from '@chart-parts/builder'
 import { SceneNodeBuilderProvider } from './Context'
-import { PaddingObject, ChartOptions } from '@markable/interfaces'
+import { PaddingObject, ChartOptions } from '@chart-parts/interfaces'
 export interface ChartSpecProps {
 	width: number
 	height: number

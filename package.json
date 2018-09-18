@@ -1,12 +1,12 @@
 {
-	"name": "@markable/parent",
+	"name": "@chart-parts/parent",
 	"private": true,
 	"scripts": {
 		"precommit": "lint-staged",
 		"clean": "lerna run clean",
 		"build": "run-s build:libs build:docs",
 		"build:libs": "lerna run build --stream",
-		"build:docs": "lerna run build:docs --scope @markable/documentation --stream",
+		"build:docs": "lerna run build:docs --scope @chart-parts/documentation --stream",
 		"start:packages": "lerna run start --parallel --stream",
 		"test:packages": "lerna run test --stream",
 		"release:packages": "lerna run release --stream",
@@ -67,14 +67,14 @@
 			"**/react-native-svg/**",
 			"**/react-dom",
 			"**/react-dom/**",
-			"@markable/examples-mobile/**",
-			"@markable/documentation/**",
-			"@markable/react-svg-renderer",
-			"@markable/react-svg-renderer/**",
-			"@markable/react-native-svg-renderer",
-			"@markable/react-native-svg-renderer/**",
-			"**/@markable/react-native-svg-renderer/**",
-			"@markable/examples-web/**"
+			"@chart-parts/examples-mobile/**",
+			"@chart-parts/documentation/**",
+			"react-chart-parts-svg-renderer",
+			"react-chart-parts-svg-renderer/**",
+			"react-chart-parts-native-svg-renderer",
+			"react-chart-parts-native-svg-renderer/**",
+			"**/react-chart-parts-native-svg-renderer/**",
+			"@chart-parts/examples-web/**"
 		]
 	},
 	"jest": {

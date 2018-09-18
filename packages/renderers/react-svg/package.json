@@ -1,5 +1,5 @@
 {
-	"name": "@markable/react-svg-renderer",
+	"name": "react-chart-parts-svg-renderer",
 	"description": "A virtual dom renderer that emits React-DOM Svg",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -21,7 +21,7 @@
 		"tslint": "^5.11.0"
 	},
 	"dependencies": {
-		"@markable/interfaces": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.15",
 		"lodash": "^4.17.10"
 	},
 	"peerDependencies": {

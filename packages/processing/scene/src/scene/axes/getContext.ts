@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation, ViewSize } from '@markable/interfaces'
+import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
 import { SceneFrame } from '../SceneFrame'
 import { AxisSpace } from '../../interfaces'
 import { AxisContext } from './interfaces'

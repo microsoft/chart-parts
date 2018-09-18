@@ -10,12 +10,12 @@ import {
 	Group,
 	Rect,
 	Text,
-} from '@markable/react'
-import { Renderer } from '@markable/react-svg-renderer'
+} from 'react-chart-parts'
+import { Renderer } from 'react-chart-parts-svg-renderer'
 import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 const renderer = new Renderer()
 
 const data = [

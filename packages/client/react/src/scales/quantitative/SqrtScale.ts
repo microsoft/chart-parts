@@ -1,4 +1,4 @@
-import { sqrt } from '@markable/scales'
+import { sqrt } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

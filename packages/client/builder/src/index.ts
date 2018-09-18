@@ -3,7 +3,7 @@ import {
 	AxisOrientation,
 	EncodingContext,
 	ChartOptions,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { AxisBuilder } from './AxisBuilder'

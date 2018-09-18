@@ -1,6 +1,6 @@
-import { scene, area } from '@markable/builder'
+import { scene, area } from '@chart-parts/builder'
 import { createScenegraph } from '../index'
-import { ChartOptions } from '@markable/interfaces'
+import { ChartOptions } from '@chart-parts/interfaces'
 
 describe('The createScenegraph() utility', () => {
 	it('can transform a scene specification into a scenegraph', () => {

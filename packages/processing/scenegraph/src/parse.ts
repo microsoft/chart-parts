@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType } from '@markable/interfaces'
+import { SGMark, SGNodeType } from '@chart-parts/interfaces'
 import { Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
 

@@ -1,5 +1,5 @@
-import { MarkType } from '@markable/interfaces'
-import { buildMark } from '@markable/scenegraph'
+import { MarkType } from '@chart-parts/interfaces'
+import { buildMark } from '@chart-parts/scenegraph'
 import {
 	AxisComponent,
 	AxisContext,

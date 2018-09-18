@@ -1,4 +1,4 @@
-import { MarkType, SGArcItem } from '@markable/interfaces'
+import { MarkType, SGArcItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class ArcItem extends Item implements SGArcItem {

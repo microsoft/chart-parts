@@ -6,7 +6,7 @@ import {
 	VSvgNode,
 	getItemSpace,
 	ItemSpace,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { commonProps, assertTypeIs } from './util'
 import { renderMark } from './index'
 import { rectangle } from '../path'
