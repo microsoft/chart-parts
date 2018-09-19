@@ -1,5 +1,5 @@
 {
-	"name": "react-chart-parts-svg-renderer",
+	"name": "@chart-parts/react-svg-renderer",
 	"description": "A virtual dom renderer that emits React-DOM Svg",
 	"version": "0.0.15",
 	"main": "lib/index.js",

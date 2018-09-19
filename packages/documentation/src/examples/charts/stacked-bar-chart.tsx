@@ -9,8 +9,8 @@ import {
   Dimension,
   OrdinalScale,
   CategoricalColorScheme,
-} from 'react-chart-parts'
-import { Renderer } from 'react-chart-parts-svg-renderer'
+} from '@chart-parts/react'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 import { stack, dataset } from '@chart-parts/transform'
 import { AxisOrientation } from '@chart-parts/interfaces'
 

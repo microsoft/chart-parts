@@ -8,13 +8,13 @@ import {
 	BandScale,
 	Dimension,
 	Text,
-} from 'react-chart-parts'
+} from '@chart-parts/react'
 import {
 	AxisOrientation,
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-import { Renderer } from 'react-chart-parts-svg-renderer'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const renderer = new Renderer()
 

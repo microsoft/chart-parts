@@ -11,7 +11,7 @@ import {
   Text,
   QuantizeScale,
   QuantileScale,
-} from 'react-chart-parts'
+} from '@chart-parts/react'
 import {
   Dimension,
   AxisOrientation,
@@ -27,7 +27,7 @@ import {
   Offset as StackOffset,
   filter,
 } from '@chart-parts/transform'
-import { Renderer } from 'react-chart-parts-svg-renderer'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 // TODO:
 // - Axis grid

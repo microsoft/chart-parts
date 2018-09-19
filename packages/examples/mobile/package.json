@@ -12,8 +12,8 @@
 	},
 	"dependencies": {
 		"@chart-parts/orchestrator": "^0.0.15",
-		"react-chart-parts": "^0.0.15",
-		"react-chart-parts-native-svg-renderer": "^0.0.15",
+		"@chart-parts/react": "^0.0.15",
+		"@chart-parts/react-native-svg-renderer": "^0.0.15",
 		"@chart-parts/testdata": "^0.0.15",
 		"react": "^16.4.2",
 		"react-native": "^0.56.0",

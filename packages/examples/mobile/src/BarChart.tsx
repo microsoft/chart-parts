@@ -7,8 +7,8 @@ import {
 	LinearScale,
 	BandScale,
 	Dimension,
-} from 'react-chart-parts'
-import { Renderer } from 'react-chart-parts-native-svg-renderer'
+} from '@chart-parts/react'
+import { Renderer } from '@chart-parts/react-native-svg-renderer'
 import { AxisOrientation } from '../node_modules/@chart-parts/interfaces'
 
 const data = [

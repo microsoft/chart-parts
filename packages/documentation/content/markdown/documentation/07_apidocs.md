@@ -8,7 +8,7 @@ order: 7
 
 ## Client API Packages
 
-- [react-chart-parts](/apidocs/client/react/index.html)
+- [@chart-parts/react](/apidocs/client/react/index.html)
 - [@chart-parts/interfaces](/apidocs/client/interfaces/index.html)
 - [@chart-parts/builder](/apidocs/client/builder/index.html)
 
@@ -21,8 +21,8 @@ order: 7
 
 ## Renderer Implementations
 
-- [react-chart-parts-svg-renderer](/apidocs/renderers/react-svg/index.html)
-- [react-chart-parts-native-svg-renderer](/apidocs/renderers/react-native-svg/index.html)
+- [@chart-parts/react-svg-renderer](/apidocs/renderers/react-svg/index.html)
+- [@chart-parts/react-native-svg-renderer](/apidocs/renderers/react-native-svg/index.html)
 
 ## Utility Packages
 

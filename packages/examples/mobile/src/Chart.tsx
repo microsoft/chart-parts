@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { FlatList, View } from 'react-native'
 import { Orchestrator } from '@chart-parts/orchestrator'
-import { Renderer } from 'react-chart-parts-native-svg-renderer'
+import { Renderer } from '@chart-parts/react-native-svg-renderer'
 import { testCharts, TestScenegraph } from '@chart-parts/testdata'
 
 const pipeline = new Orchestrator(new Renderer())

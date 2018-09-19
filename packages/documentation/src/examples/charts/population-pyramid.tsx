@@ -15,14 +15,14 @@ import {
   Rect,
   OrdinalScale,
   LinearScale,
-} from 'react-chart-parts'
+} from '@chart-parts/react'
 import {
   VerticalTextAlignment,
   HorizontalAlignment,
   AxisOrientation,
   ScaleCreationContext,
 } from '@chart-parts/interfaces'
-import { Renderer } from 'react-chart-parts-svg-renderer'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const population = require('vega-datasets/data/population.json')
 const renderer = new Renderer()

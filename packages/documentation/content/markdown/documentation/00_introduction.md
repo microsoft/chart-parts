@@ -6,7 +6,7 @@ order: 0
 
 # Introduction
 
-`chart-parts` is a flexible [Grammar-of-Graphics](https://www.springer.com/us/book/9780387245447) rendering pipeline designed for application developers.
+_chart-parts_ is a flexible [Grammar-of-Graphics](https://www.springer.com/us/book/9780387245447) rendering pipeline designed for application developers.
 
 ## Project Vision
 

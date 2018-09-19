@@ -1,5 +1,5 @@
 {
-	"name": "react-chart-parts",
+	"name": "@chart-parts/react",
 	"description": "React components for specifying data visualizations",
 	"version": "0.0.15",
 	"main": "lib/index.js",

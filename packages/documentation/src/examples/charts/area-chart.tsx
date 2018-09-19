@@ -1,8 +1,8 @@
 // tslint:disable
 import * as React from 'react'
-import { Area, Axis, Chart, LinearScale, Dimension } from 'react-chart-parts'
+import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
-import { Renderer } from 'react-chart-parts-svg-renderer'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const renderer = new Renderer()
 
