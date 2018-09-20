@@ -320,6 +320,14 @@ export class MarkBuilder {
 		key: MarkEncodingKey.theta,
 		encoding: MarkEncoding<number>,
 	): MarkBuilder
+	public encode(
+		key: MarkEncodingKey.ariaTitle,
+		encoding: MarkEncoding<string>,
+	): MarkBuilder
+	public encode(
+		key: MarkEncodingKey.ariaDescription,
+		encoding: MarkEncoding<string>,
+	): MarkBuilder
 	public encode(key: MarkEncodingKey, encoding: MarkEncoding<any>): MarkBuilder
 	public encode(encodings: MarkEncodings): MarkBuilder
 

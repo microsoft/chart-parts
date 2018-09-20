@@ -86,6 +86,10 @@ export enum MarkEncodingKey {
 	radius = 'radius',
 	text = 'text',
 	theta = 'theta',
+
+	// Accessibility keys
+	ariaTitle = 'aria-title',
+	ariaDescription = 'aria-description',
 }
 
 /**

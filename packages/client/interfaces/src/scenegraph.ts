@@ -197,6 +197,16 @@ export interface SGItem extends SGNode {
 	readonly zIndex?: number
 
 	/**
+	 * The accessible title to apply to the scenegraph item
+	 */
+	readonly ariaTitle?: string
+
+	/**
+	 * The accessible description to apply to the scenegraph item
+	 */
+	readonly ariaDescription?: string
+
+	/**
 	 * A mapping of client event-names to channel-identifiers
 	 */
 	readonly channels?: { [key: string]: string }

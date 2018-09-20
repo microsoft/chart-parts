@@ -21,6 +21,8 @@ export class LineRenderer implements VSvgMarkConverter {
 			},
 			metadata: mark.items[0].metadata,
 			channels: mark.items[0].channels,
+			title: mark.items[0].ariaTitle,
+			description: mark.items[0].ariaDescription,
 		}
 
 		const nodes = emitMarkGroup(MarkType.Line, mark.role, [lineItem])

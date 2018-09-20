@@ -46,6 +46,8 @@ function renderGroupRectangle(item: SGGroupItem, space: ItemSpace): VSvgNode {
 		attrs,
 		metadata,
 		channels,
+		title: item.ariaTitle,
+		description: item.ariaDescription,
 	}
 	return groupRect
 }

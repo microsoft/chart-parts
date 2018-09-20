@@ -29,6 +29,8 @@ export class RuleRenderer implements VSvgMarkConverter {
 					transforms: [translate(x, y)],
 					channels: item.channels,
 					metadata: item.metadata,
+					title: item.ariaTitle,
+					description: item.ariaDescription,
 				}
 				return result
 			}),
