@@ -5,16 +5,15 @@ import Sidebar from '../components/sidebar'
 import Doc from '../components/doc'
 import convertGraphqlToc from '../util/convertGraphqlToc'
 
-const Documentation = ({ data: { toc, introduction } }: any) => {
+const Documentation = ({ data: { toc, currentPage } }: any) => {
   return (
     <Layout
-      logoTo="/documentation"
-      title={introduction.frontmatter.title}
+      title={currentPage.frontmatter.title}
       sidebar={
         <Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
       }
     >
-      <Doc docPage={introduction} />
+      <Doc docPage={currentPage} />
     </Layout>
   )
 }
@@ -23,7 +22,7 @@ export default Documentation
 
 export const query = graphql`
   {
-    introduction: markdownRemark(
+    currentPage: markdownRemark(
       frontmatter: { path: { eq: "/documentation/introduction" } }
     ) {
       html

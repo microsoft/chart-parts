@@ -13,7 +13,7 @@ export default function Template(arg: any) {
 
   return (
     <Layout
-      logoTo="/documentation"
+      title={currentPage.frontmatter.title}
       sidebar={
         <Sidebar
           items={convertGraphqlToc(toc)}
