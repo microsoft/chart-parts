@@ -1,5 +1,5 @@
 {
-	"name": "@markable/vsvg",
+	"name": "@chart-parts/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -13,14 +13,14 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"devDependencies": {
-		"@markable/scenegraph": "^0.0.15",
+		"@chart-parts/scenegraph": "^0.0.15",
 		"rimraf": "^2.6.2",
 		"typescript": "^3.0.1",
 		"tslint": "^5.11.0"
 	},
 	"dependencies": {
-		"@markable/interfaces": "^0.0.15",
-		"@markable/shapes": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.15",
+		"@chart-parts/shapes": "^0.0.15",
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"d3-path": "^1.0.5",

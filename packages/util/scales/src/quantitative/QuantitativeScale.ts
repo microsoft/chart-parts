@@ -1,4 +1,4 @@
-import { ScaleCreationContext, Dimension } from '@markable/interfaces'
+import { ScaleCreationContext, Dimension } from '@chart-parts/interfaces'
 import { extent } from 'd3-array'
 import { interpolateRound } from 'd3-interpolate'
 import { DomainRangeScale } from '../DomainRangeScale'

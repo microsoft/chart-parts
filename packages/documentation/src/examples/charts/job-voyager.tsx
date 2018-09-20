@@ -11,13 +11,13 @@ import {
   Text,
   QuantizeScale,
   QuantileScale,
-} from '@markable/react'
+} from '@chart-parts/react'
 import {
   Dimension,
   AxisOrientation,
   VerticalTextAlignment,
   HorizontalAlignment,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import {
   dataset,
   stack,
@@ -26,8 +26,8 @@ import {
   AggregateOperation,
   Offset as StackOffset,
   filter,
-} from '@markable/transform'
-import { Renderer } from '@markable/react-svg-renderer'
+} from '@chart-parts/transform'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 // TODO:
 // - Axis grid

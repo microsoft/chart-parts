@@ -1,4 +1,4 @@
-import { ScaleCreationContext } from '@markable/interfaces'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from '../DomainScale'
 
 class TestableDomainScale extends DomainScale<any> {

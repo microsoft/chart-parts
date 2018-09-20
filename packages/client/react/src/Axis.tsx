@@ -1,6 +1,6 @@
 import * as React from 'react'
-import { AxisOrientation, TickValue } from '@markable/interfaces'
-import { SceneNodeBuilder, axis } from '@markable/builder'
+import { AxisOrientation, TickValue } from '@chart-parts/interfaces'
+import { SceneNodeBuilder, axis } from '@chart-parts/builder'
 import { SceneNodeBuilderConsumer } from './Context'
 
 /**

@@ -1,4 +1,4 @@
-import { utc } from '@markable/scales'
+import { utc } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

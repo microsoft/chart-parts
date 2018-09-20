@@ -7,7 +7,7 @@ import {
 	SGSymbolItem,
 	Interpolation,
 	Orientation,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import {
 	rectShape,
 	arcShape,
@@ -15,7 +15,7 @@ import {
 	areahShape,
 	lineShape,
 	symbolShape,
-} from '@markable/shapes'
+} from '@chart-parts/shapes'
 import curves from './curves'
 
 export function arc(item: SGArcItem, context?: Path) {

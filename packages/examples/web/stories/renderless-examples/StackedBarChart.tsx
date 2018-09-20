@@ -8,9 +8,9 @@ import {
 	Dimension,
 	OrdinalScale,
 	CategoricalColorScheme,
-} from '@markable/react'
-import { Renderer } from '@markable/react-svg-renderer'
-import { dataset, stack } from '@markable/transform'
+} from '@chart-parts/react'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+import { dataset, stack } from '@chart-parts/transform'
 
 const renderer = new Renderer()
 const data = [

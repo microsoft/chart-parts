@@ -12,7 +12,7 @@ import {
 	SGArcItem,
 	SGRectItem,
 	SGGroupItem,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { Rectangle } from './Rectangle'
 import symbols from './symbols'
 

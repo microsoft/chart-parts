@@ -1,9 +1,9 @@
 ---
-title: 'Introducing Markable'
+title: 'Introducing chart-parts'
 date: '2018-07-18'
 path: '/blog/introduction '
 ---
 
-# Blog Post Introducing Markable
+# Blog Post Introducing chart-parts
 
 TODO

@@ -3,7 +3,7 @@ import {
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
 	ItemSpace,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions = {}) {}

@@ -1,5 +1,10 @@
 // tslint:disable no-implicit-dependencies
-import { linear, band, ordinal, CategoricalColorScheme } from '@markable/scales'
+import {
+	linear,
+	band,
+	ordinal,
+	CategoricalColorScheme,
+} from '@chart-parts/scales'
 import {
 	Dimension,
 	SceneNode,
@@ -7,7 +12,7 @@ import {
 	HorizontalAlignment,
 	VerticalAlignment,
 	VerticalTextAlignment,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { scene, rect, axis, group, text } from '../index'
 
 describe('Building Charts', () => {

@@ -10,10 +10,10 @@ import {
   OrdinalScale,
   Dimension,
   CategoricalColorScheme,
-} from '@markable/react'
-import { AxisOrientation, Interpolation } from '@markable/interfaces'
-import { Renderer } from '@markable/react-svg-renderer'
-import { stack, dataset } from '@markable/transform'
+} from '@chart-parts/react'
+import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+import { stack, dataset } from '@chart-parts/transform'
 
 const renderer = new Renderer()
 

@@ -1,15 +1,20 @@
 // tslint:disable
 import * as React from 'react'
-import { Renderer } from '@markable/react-svg-renderer'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 import {
 	SceneNode,
 	Dimension,
 	HorizontalAlignment,
 	VerticalTextAlignment,
-} from '@markable/interfaces'
-import { scene, rect, group, text } from '@markable/builder'
-import { band, linear, ordinal, CategoricalColorScheme } from '@markable/scales'
-import { Orchestrator } from '@markable/orchestrator'
+} from '@chart-parts/interfaces'
+import { scene, rect, group, text } from '@chart-parts/builder'
+import {
+	band,
+	linear,
+	ordinal,
+	CategoricalColorScheme,
+} from '@chart-parts/scales'
+import { Orchestrator } from '@chart-parts/orchestrator'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

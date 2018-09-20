@@ -1,4 +1,4 @@
-import { MarkType, SymbolType, SGSymbolItem } from '@markable/interfaces'
+import { MarkType, SymbolType, SGSymbolItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class SymbolItem extends Item implements SGSymbolItem {

@@ -3,7 +3,7 @@ import {
 	SGMark,
 	SGAreaItem,
 	getItemSpace,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { area } from '../path'
 import { VSvgMarkConverter } from './interfaces'

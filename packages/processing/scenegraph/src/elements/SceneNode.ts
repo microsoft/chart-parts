@@ -1,4 +1,4 @@
-import { SGNode, SGNodeType, Metadata } from '@markable/interfaces'
+import { SGNode, SGNodeType, Metadata } from '@chart-parts/interfaces'
 /**
  * A supertype for every node in the scene. Both marks and items extend this
  */

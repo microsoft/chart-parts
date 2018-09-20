@@ -4,11 +4,11 @@ import {
 	SceneNode,
 	MarkType,
 	ItemSpace,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { SceneFrame } from './SceneFrame'
 import { processMark } from './marks/processMark'
 import { buildAxes } from './axes'
-import { buildMark } from '@markable/scenegraph'
+import { buildMark } from '@chart-parts/scenegraph'
 
 export type SGMarkAny = SGMark<SGItem>
 

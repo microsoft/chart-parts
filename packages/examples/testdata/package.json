@@ -1,5 +1,5 @@
 {
-	"name": "@markable/testdata",
+	"name": "@chart-parts/testdata",
 	"description": "Test data for charts",
 	"private": true,
 	"version": "0.0.15",
@@ -18,7 +18,7 @@
 		"tslint": "^5.11.0"
 	},
 	"dependencies": {
-		"@markable/interfaces": "^0.0.15",
-		"@markable/scenegraph": "^0.0.15"
+		"@chart-parts/interfaces": "^0.0.15",
+		"@chart-parts/scenegraph": "^0.0.15"
 	}
 }

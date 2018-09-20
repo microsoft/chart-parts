@@ -1,4 +1,4 @@
-import { SGMark, SGNodeType, MarkType } from '@markable/interfaces'
+import { SGMark, SGNodeType, MarkType } from '@chart-parts/interfaces'
 import { Item } from './items/Item'
 import { SceneNode } from './SceneNode'
 

@@ -1,5 +1,5 @@
 // tslint:disable no-this-assignment
-import { SceneNode, ScaleCreator, ScaleBuilder } from '@markable/interfaces'
+import { SceneNode, ScaleCreator, ScaleBuilder } from '@chart-parts/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import { AxisBuilder } from './AxisBuilder'
 

@@ -1,4 +1,4 @@
-import { SGMark } from '@markable/interfaces'
+import { SGMark } from '@chart-parts/interfaces'
 import { VSvgMarkConverter, VSvgRenderContext } from './interfaces'
 
 const itemRendererRegistry = new Map<string, VSvgMarkConverter>()

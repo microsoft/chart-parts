@@ -1,4 +1,4 @@
-import { AxisOrientation } from '@markable/interfaces'
+import { AxisOrientation } from '@chart-parts/interfaces'
 import { AxisBuilder } from '../AxisBuilder'
 
 describe('The Axis builder', () => {

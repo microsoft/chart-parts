@@ -13,7 +13,7 @@ const log = require('debug')('site:index')
 // tslint:disable-next-line no-var-requires
 const packageJson = require('../../package.json')
 // tslint:disable-next-line no-console
-log('Markable documentation, version', packageJson.version)
+log('chart-parts documentation, version', packageJson.version)
 
 export interface IndexPageState {
   scrollPercent: number
@@ -26,7 +26,7 @@ export default class IndexPage extends React.Component {
   public componentDidMount() {
     // If all content is visible, show the header
     if (this.isAllContentVisible) {
-      this.setState({scrollPercent: 1.0})
+      this.setState({ scrollPercent: 1.0 })
     }
   }
 
@@ -34,14 +34,14 @@ export default class IndexPage extends React.Component {
     const { scrollPercent } = this.state
     return (
       <Container>
-        <Header opacity={Math.max(scrollPercent / 0.6)}/>
+        <Header opacity={Math.max(scrollPercent / 0.6)} />
         <Wrapper>
           <OverflowContainer
             innerRef={this.scrollAreaRef}
             onScroll={this.onScroll}
           >
             <Content>
-              <HeroBanner fadePercent={scrollPercent}/>
+              <HeroBanner fadePercent={scrollPercent} />
               <BelowTheFold />
               <Footer />
             </Content>
@@ -53,7 +53,7 @@ export default class IndexPage extends React.Component {
 
   private onScroll = (e: React.UIEvent<HTMLDivElement>) => {
     const scrollPercent = this.scrollPercent
-    this.setState({scrollPercent})
+    this.setState({ scrollPercent })
   }
 
   /**
@@ -64,7 +64,7 @@ export default class IndexPage extends React.Component {
     const value = current.offsetHeight + current.scrollTop
     const start = current.offsetHeight
     const stop = current.scrollHeight
-    return (value - start) / (stop - start)    
+    return (value - start) / (stop - start)
   }
 
   /**

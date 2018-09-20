@@ -3,7 +3,7 @@ import {
 	ScaleCreationContext,
 	Scales,
 	ScaleBuilder,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 declare var require: any
 const get = require('lodash/get')
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain

@@ -1,5 +1,5 @@
 {
-	"name": "@markable/shapes",
+	"name": "@chart-parts/shapes",
 	"description": "Shape-drawing utilities",
 	"version": "0.0.15",
 	"main": "lib/index.js",
@@ -18,7 +18,7 @@
 		"tslint": "^5.11.0"
 	},
 	"dependencies": {
-		"@markable/interfaces": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.15",
 		"@types/d3-path": "^1.0.7",
 		"@types/d3-shape": "^1.2.3",
 		"d3-path": "^1.0.5",

@@ -8,7 +8,7 @@ import {
 	Channels,
 	ViewSize,
 	Mark,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 
 /**
  * The scene frame is analagous to a stack-frame - it contains contextual

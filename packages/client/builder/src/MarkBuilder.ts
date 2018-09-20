@@ -21,7 +21,7 @@ import {
 	TextDirection,
 	ItemIdGenerator,
 	Metadata,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { SceneNodeBuilder } from './SceneNodeBuilder'
 
 export class MarkBuilder {

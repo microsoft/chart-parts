@@ -2,7 +2,7 @@
 import * as React from 'react'
 import { SingleMarkTester } from './util/single-mark-tester'
 import * as palette from './util/palette'
-import { Orientation } from '@markable/interfaces'
+import { Orientation } from '@chart-parts/interfaces'
 
 const BASE_ITEM = {
   stroke: palette.CRIMSON,

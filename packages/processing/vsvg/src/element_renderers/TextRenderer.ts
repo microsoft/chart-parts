@@ -4,7 +4,7 @@ import {
 	MarkType,
 	VerticalTextAlignment,
 	VSvgNode,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import { VSvgMarkConverter, rotate, translate } from './interfaces'
 

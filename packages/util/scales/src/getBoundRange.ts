@@ -1,4 +1,4 @@
-import { ScaleCreationContext, Dimension } from '@markable/interfaces'
+import { ScaleCreationContext, Dimension } from '@chart-parts/interfaces'
 
 export function getBoundRange(
 	args: ScaleCreationContext,

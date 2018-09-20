@@ -1,6 +1,6 @@
 // tslint:disable no-submodule-imports no-implicit-dependencies
-import { Mark } from '@markable/scenegraph/lib/elements/Mark'
-import { ArcItem } from '@markable/scenegraph/lib/elements/items/ArcItem'
+import { Mark } from '@chart-parts/scenegraph/lib/elements/Mark'
+import { ArcItem } from '@chart-parts/scenegraph/lib/elements/items/ArcItem'
 import { renderMark } from '../'
 
 describe('The Arc Renderer', () => {

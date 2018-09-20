@@ -1,5 +1,5 @@
-import { Dimension } from '@markable/interfaces'
-import { point } from '@markable/scales'
+import { Dimension } from '@chart-parts/interfaces'
+import { point } from '@chart-parts/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
 
 export interface PointScaleProps

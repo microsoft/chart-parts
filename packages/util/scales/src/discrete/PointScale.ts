@@ -5,7 +5,7 @@ import {
 	ScaleCreationContext,
 	Scales,
 	Scale,
-} from '@markable/interfaces'
+} from '@chart-parts/interfaces'
 import { getBoundRange } from '../getBoundRange'
 import { optionalArgument } from '../util'
 

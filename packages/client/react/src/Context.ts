@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { SceneNodeBuilder } from '@markable/builder'
+import { SceneNodeBuilder } from '@chart-parts/builder'
 
 export const {
 	Consumer: SceneNodeBuilderConsumer,

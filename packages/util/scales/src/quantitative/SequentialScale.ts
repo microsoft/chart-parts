@@ -1,6 +1,6 @@
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
-import { ScaleCreationContext, Scales, Scale } from '@markable/interfaces'
+import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {

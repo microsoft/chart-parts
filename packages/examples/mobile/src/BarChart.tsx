@@ -7,9 +7,9 @@ import {
 	LinearScale,
 	BandScale,
 	Dimension,
-} from '@markable/react'
-import { Renderer } from '@markable/react-native-svg-renderer'
-import { AxisOrientation } from '../node_modules/@markable/interfaces'
+} from '@chart-parts/react'
+import { Renderer } from '@chart-parts/react-native-svg-renderer'
+import { AxisOrientation } from '../node_modules/@chart-parts/interfaces'
 
 const data = [
 	{ category: 'A', amount: 28 },

@@ -2,7 +2,7 @@
 
 // tslint:disable no-var-requires
 declare var require: any
-import { parseScene } from '@markable/scenegraph'
+import { parseScene } from '@chart-parts/scenegraph'
 const data = require('../resources/reorderable_matrix.json')
 
 export const scenegraph = parseScene(data)

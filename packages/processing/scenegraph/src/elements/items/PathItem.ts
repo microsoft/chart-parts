@@ -1,4 +1,4 @@
-import { MarkType, SGPathItem } from '@markable/interfaces'
+import { MarkType, SGPathItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 
 export class PathItem extends Item implements SGPathItem {

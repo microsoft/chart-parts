@@ -1,6 +1,6 @@
 // tslint:disable no-submodule-imports no-implicit-dependencies
-import { Mark } from '@markable/scenegraph/lib/elements/Mark'
-import { RuleItem } from '@markable/scenegraph/lib/elements/items/RuleItem'
+import { Mark } from '@chart-parts/scenegraph/lib/elements/Mark'
+import { RuleItem } from '@chart-parts/scenegraph/lib/elements/items/RuleItem'
 import { renderMark } from '../'
 
 describe('The Rule Renderer', () => {

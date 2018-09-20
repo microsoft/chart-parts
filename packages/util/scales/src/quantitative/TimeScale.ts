@@ -1,6 +1,6 @@
 import { scaleTime } from 'd3-scale'
 import { QuantitativeScale, TimeValue } from './QuantitativeScale'
-import { ScaleCreationContext, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 function setType(result: any) {
 	result.__scaletype__ = 'time'

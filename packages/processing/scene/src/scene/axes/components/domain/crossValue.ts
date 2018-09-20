@@ -1,4 +1,4 @@
-import { Axis, AxisOrientation } from '@markable/interfaces'
+import { Axis, AxisOrientation } from '@chart-parts/interfaces'
 
 export function crossValue(axis: Axis, thickness: number): number {
 	const domainWidth = axis.domainWidth as number

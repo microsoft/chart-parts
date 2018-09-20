@@ -2,8 +2,8 @@
 // This metadata is used by Gatsby to populate the 'siteMetadata' information in the GraphQL services
 //
 const siteMetadata = {
-  title: 'Markable',
-  githubUrl: 'https://github.com/Microsoft/markable',
+  title: 'chart-parts',
+  githubUrl: 'https://github.com/Microsoft/chart-parts',
   description:
     'A flexible, React-friendly, Grammar of Graphics for data visualization',
   keywords: [
@@ -16,7 +16,7 @@ const siteMetadata = {
 
 module.exports = {
   siteMetadata,
-  pathPrefix: '/markable',
+  pathPrefix: '/chart-parts',
   plugins: [
     'gatsby-plugin-typescript',
     'gatsby-plugin-react-helmet',

@@ -1,4 +1,4 @@
-import { ordinal, CategoricalColorScheme } from '@markable/scales'
+import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
 import { DomainScale, DomainScaleProps } from '../DomainScale'
 
 export interface OrdinalScaleProps<RangeType>

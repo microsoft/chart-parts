@@ -10,9 +10,9 @@ import {
   OrdinalScale,
   Dimension,
   CategoricalColorScheme,
-} from '@markable/react'
-import { AxisOrientation } from '@markable/interfaces'
-import { Renderer } from '@markable/react-svg-renderer'
+} from '@chart-parts/react'
+import { AxisOrientation } from '@chart-parts/interfaces'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const renderer = new Renderer()
 

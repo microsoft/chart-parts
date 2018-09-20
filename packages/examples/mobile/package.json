@@ -1,5 +1,5 @@
 {
-	"name": "@markable/examples-mobile",
+	"name": "@chart-parts/examples-mobile",
 	"version": "0.0.15",
 	"private": true,
 	"scripts": {
@@ -11,29 +11,29 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"dependencies": {
-		"@markable/orchestrator": "^0.0.15",
-		"@markable/react": "^0.0.15",
-		"@markable/react-native-svg-renderer": "^0.0.15",
-		"@markable/testdata": "^0.0.15",
+		"@chart-parts/orchestrator": "^0.0.15",
+		"@chart-parts/react": "^0.0.15",
+		"@chart-parts/react-native-svg-renderer": "^0.0.15",
+		"@chart-parts/testdata": "^0.0.15",
 		"react": "^16.4.2",
 		"react-native": "^0.56.0",
 		"react-native-svg": "^5.5.1"
 	},
 	"about:devDependencies": {
-		"@markable/*": "These dependencies are here so that the 'rn-cli-config.js' can resolve them",
+		"@chart-parts/*": "These dependencies are here so that the 'rn-cli-config.js' can resolve them",
 		"d3-*": "same",
 		"lodash": "same"
 	},
 	"devDependencies": {
 		"@babel/core": "7.0.0-rc.1",
-		"@markable/builder": "^0.0.15",
-		"@markable/interfaces": "^0.0.15",
-		"@markable/scales": "^0.0.15",
-		"@markable/scene": "^0.0.15",
-		"@markable/scenegraph": "^0.0.15",
-		"@markable/shapes": "^0.0.15",
-		"@markable/transform": "^0.0.15",
-		"@markable/vsvg": "^0.0.15",
+		"@chart-parts/builder": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.15",
+		"@chart-parts/scales": "^0.0.15",
+		"@chart-parts/scene": "^0.0.15",
+		"@chart-parts/scenegraph": "^0.0.15",
+		"@chart-parts/shapes": "^0.0.15",
+		"@chart-parts/transform": "^0.0.15",
+		"@chart-parts/vsvg": "^0.0.15",
 		"@types/react": "^16.4.10",
 		"@types/react-native": "^0.56.11",
 		"babel-preset-react-native": "5.0.2",

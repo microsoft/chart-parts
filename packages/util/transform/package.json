@@ -1,5 +1,5 @@
 {
-	"name": "@markable/transform",
+	"name": "@chart-parts/transform",
 	"description": "Data transformation utilities",
 	"version": "0.0.15",
 	"main": "lib/index.js",

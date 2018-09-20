@@ -1,4 +1,4 @@
-import { MarkType, Interpolation } from '@markable/interfaces'
+import { MarkType, Interpolation } from '@chart-parts/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'
 

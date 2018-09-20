@@ -1,5 +1,5 @@
-import { Mark, Facet, SGItem, SGMark, DataFrame } from '@markable/interfaces'
-import { createMark } from '@markable/scenegraph'
+import { Mark, Facet, SGItem, SGMark, DataFrame } from '@chart-parts/interfaces'
+import { createMark } from '@chart-parts/scenegraph'
 import { SceneFrame } from '../SceneFrame'
 import { createBoundItem } from './createBoundItem'
 

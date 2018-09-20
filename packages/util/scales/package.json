@@ -1,6 +1,6 @@
 {
-	"name": "@markable/scales",
-	"description": "Scaling utilities for Markable",
+	"name": "@chart-parts/scales",
+	"description": "Scaling utilities for chart-parts",
 	"version": "0.0.15",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
@@ -18,7 +18,7 @@
 		"tslint": "^5.11.0"
 	},
 	"dependencies": {
-		"@markable/interfaces": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.15",
 		"@types/d3-array": "^1.2.1",
 		"@types/d3-interpolate": "^1.2.0",
 		"@types/d3-scale": "^2.0.1",

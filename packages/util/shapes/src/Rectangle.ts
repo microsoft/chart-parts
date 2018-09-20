@@ -1,5 +1,5 @@
 import { path, Path } from 'd3-path'
-import { SGRectItem } from '@markable/interfaces'
+import { SGRectItem } from '@chart-parts/interfaces'
 import { Xform } from './util'
 
 export class Rectangle {

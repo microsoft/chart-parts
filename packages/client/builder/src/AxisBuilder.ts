@@ -1,4 +1,9 @@
-import { Axis, AxisOrientation, TickValue, FontWeight } from '@markable/interfaces'
+import {
+	Axis,
+	AxisOrientation,
+	TickValue,
+	FontWeight,
+} from '@chart-parts/interfaces'
 
 const DEFAULT_COLOR = '#777'
 const DEFAULT_TEXT_COLOR = '#000'

@@ -1,5 +1,5 @@
 import { scaleOrdinal } from 'd3-scale'
-import { ScaleCreationContext, Scales } from '@markable/interfaces'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { DomainScale } from '../DomainScale'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
 

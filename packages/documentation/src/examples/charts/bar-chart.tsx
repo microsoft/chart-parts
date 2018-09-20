@@ -8,13 +8,13 @@ import {
   BandScale,
   Dimension,
   Text,
-} from '@markable/react'
+} from '@chart-parts/react'
 import {
   AxisOrientation,
   VerticalTextAlignment,
   HorizontalAlignment,
-} from '@markable/interfaces'
-import { Renderer } from '@markable/react-svg-renderer'
+} from '@chart-parts/interfaces'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const renderer = new Renderer()
 

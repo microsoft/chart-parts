@@ -1,4 +1,9 @@
-import { SceneNode, ItemSpace, AxisOrientation, Axis } from '@markable/interfaces'
+import {
+	SceneNode,
+	ItemSpace,
+	AxisOrientation,
+	Axis,
+} from '@chart-parts/interfaces'
 import { SceneFrame } from '../SceneFrame'
 import { buildAxis } from '../axes/buildAxis'
 import { AxisSpace } from '../../interfaces'

@@ -1,4 +1,4 @@
-import { SGMark, SGItem, Channels } from '@markable/interfaces'
+import { SGMark, SGItem, Channels } from '@chart-parts/interfaces'
 
 /**
  * Interface for the result of scene-generation

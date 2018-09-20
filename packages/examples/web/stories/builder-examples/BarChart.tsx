@@ -1,10 +1,10 @@
 // tslint:disable
 import * as React from 'react'
-import { Renderer } from '@markable/react-svg-renderer'
-import { scene, rect, axis } from '@markable/builder'
-import { Dimension, SceneNode, AxisOrientation } from '@markable/interfaces'
-import { linear, band } from '@markable/scales'
-import { Orchestrator } from '@markable/orchestrator'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+import { scene, rect, axis } from '@chart-parts/builder'
+import { Dimension, SceneNode, AxisOrientation } from '@chart-parts/interfaces'
+import { linear, band } from '@chart-parts/scales'
+import { Orchestrator } from '@chart-parts/orchestrator'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

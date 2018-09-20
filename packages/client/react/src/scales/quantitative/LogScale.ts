@@ -1,4 +1,4 @@
-import { log } from '@markable/scales'
+import { log } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,

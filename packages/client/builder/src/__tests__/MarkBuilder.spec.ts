@@ -1,4 +1,4 @@
-import { MarkType, MarkEncodingKey } from '@markable/interfaces'
+import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
 import { MarkBuilder } from '../MarkBuilder'
 
 describe('The Mark Builder', () => {

@@ -1,4 +1,4 @@
-import { SGMark } from '@markable/interfaces'
+import { SGMark } from '@chart-parts/interfaces'
 
 import * as BarChart from './bar_chart'
 import * as StackedBarChart from './stacked_bar_chart'

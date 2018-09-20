@@ -1,4 +1,4 @@
-import { MarkType, SGItem, SGMark } from '@markable/interfaces'
+import { MarkType, SGItem, SGMark } from '@chart-parts/interfaces'
 import { createItem, createMark } from './factory'
 
 export class MarkBuilder {

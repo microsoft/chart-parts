@@ -1,5 +1,5 @@
 // tslint:disable max-classes-per-file no-var-requires no-submodule-imports
-import { ScaleCreationContext } from '@markable/interfaces'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from './DomainScale'
 import { optionalArgument } from './util'
 

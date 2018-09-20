@@ -1,4 +1,4 @@
-import { SGItem, MarkType } from '@markable/interfaces'
+import { SGItem, MarkType } from '@chart-parts/interfaces'
 import * as Elements from './elements'
 import { createItemType } from './registry'
 import { MarkBuilder } from './MarkBuilder'

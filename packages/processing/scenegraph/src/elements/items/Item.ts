@@ -1,4 +1,9 @@
-import { StrokeCap, StrokeJoin, SGItem, SGNodeType } from '@markable/interfaces'
+import {
+	StrokeCap,
+	StrokeJoin,
+	SGItem,
+	SGNodeType,
+} from '@chart-parts/interfaces'
 import { SceneNode } from '../SceneNode'
 
 export abstract class Item extends SceneNode implements SGItem {

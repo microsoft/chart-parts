@@ -1,5 +1,5 @@
-import { ScaleCreationContext } from '@markable/interfaces'
-import { quantize } from '@markable/scales'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
+import { quantize } from '@chart-parts/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
 

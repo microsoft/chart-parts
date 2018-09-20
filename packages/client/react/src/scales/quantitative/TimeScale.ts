@@ -1,4 +1,4 @@
-import { time } from '@markable/scales'
+import { time } from '@chart-parts/scales'
 import {
 	QuantitativeScale,
 	QuantitativeScaleProps,
