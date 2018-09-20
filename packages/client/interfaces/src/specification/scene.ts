@@ -90,6 +90,7 @@ export enum MarkEncodingKey {
 	// Accessibility keys
 	ariaTitle = 'aria-title',
 	ariaDescription = 'aria-description',
+	tabIndex = 'tab-index',
 }
 
 /**

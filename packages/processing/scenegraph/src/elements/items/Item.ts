@@ -139,6 +139,7 @@ export abstract class Item extends SceneNode implements SGItem {
 
 	public ariaTitle?: string
 	public ariaDescription?: string
+	public tabIndex?: number
 
 	/**
 	 * Event channels are a mapping of event names to their output channel.

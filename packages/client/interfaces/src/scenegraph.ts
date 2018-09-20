@@ -207,6 +207,12 @@ export interface SGItem extends SGNode {
 	readonly ariaDescription?: string
 
 	/**
+	 * The tab-index to use for the given item. If defined, it is a tab stop. This is important to use
+	 * when making charts accessible, as it allows screen-reader users to navigate the chart via keyboard.
+	 */
+	readonly tabIndex?: number
+
+	/**
 	 * A mapping of client event-names to channel-identifiers
 	 */
 	readonly channels?: { [key: string]: string }

@@ -162,6 +162,7 @@ export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
 		'zIndex',
 		'ariaTitle',
 		'ariaDescription',
+		'tabIndex',
 	].map(pv => transferProp(pv))
 	return result
 }

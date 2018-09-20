@@ -72,6 +72,7 @@ export default class BarChart extends React.Component<{}, BarChartState> {
           ariaDescription={({ d }) =>
             `Category ${d.category} value is ${d.amount}`
           }
+          tabIndex={1}
           onMouseEnter={({ index }: any) => {
             if (hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })
