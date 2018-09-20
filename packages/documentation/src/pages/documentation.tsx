@@ -9,6 +9,7 @@ const Documentation = ({ data: { toc, introduction } }: any) => {
   return (
     <Layout
       logoTo="/documentation"
+      title={introduction.frontmatter.title}
       sidebar={
         <Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
       }

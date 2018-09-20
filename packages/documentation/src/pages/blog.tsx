@@ -9,6 +9,7 @@ const Blog = ({ data: { toc, latestPost } }: any) => {
   return (
     <Layout
       logoTo="/documentation"
+      title={latestPost.edges[0].node.frontmatter.title}
       sidebar={
         <Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
       }

@@ -53,6 +53,11 @@ export class VirtualSvgConverter implements ScenegraphConverter<VSvgNode> {
 			attrs: {
 				width: width + x,
 				height: height + y,
+				/**
+				 * This allows screen-readers to pass over the svg
+				 * https://css-tricks.com/accessible-svgs/
+				 */
+				role: 'img',
 			},
 			style: {
 				backgroundColor,
