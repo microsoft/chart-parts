@@ -63,11 +63,11 @@ const StyledLink = styled(Link)`
   font-size: 16px;
 `
 
-const DocsLink = StyledLink.extend`
+const DocsLink = styled(StyledLink)`
   color: #fffffd;
 `
 
-const BlogLink = StyledLink.extend`
+const BlogLink = styled(StyledLink)`
   color: #0b1e17;
 `
 

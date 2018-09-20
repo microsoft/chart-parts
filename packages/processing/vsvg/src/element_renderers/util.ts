@@ -81,7 +81,7 @@ export function commonProps(item: SGItem): any {
 	}
 
 	if (item.tabIndex !== undefined) {
-		result.tabindex = item.tabIndex
+		result.tabIndex = item.tabIndex
 	}
 	return result
 }

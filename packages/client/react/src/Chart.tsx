@@ -69,8 +69,8 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 				width: this.props.width,
 				height: this.props.height,
 				padding: this.props.padding,
-				title: this.props.title,
-				description: this.props.description,
+				ariaTitle: this.props.title,
+				ariaDescription: this.props.description,
 			},
 			this.props.data,
 		)

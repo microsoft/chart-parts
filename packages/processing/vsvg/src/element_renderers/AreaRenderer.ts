@@ -31,8 +31,8 @@ export class AreaRenderer implements VSvgMarkConverter {
 				d: area(areaItems),
 				...commonProps(mark.items[0]),
 			},
-			title: mark.items[0].ariaTitle,
-			description: mark.items[0].ariaDescription,
+			ariaTitle: mark.items[0].ariaTitle,
+			ariaDescription: mark.items[0].ariaDescription,
 			metadata: areaItems[0].metadata,
 			channels: areaItems[0].channels,
 		}

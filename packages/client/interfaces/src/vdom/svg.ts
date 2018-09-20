@@ -197,10 +197,10 @@ export interface VSvgNode extends VDomNode<CommonSvgProps, SvgCommonStyle> {
 	/**
 	 * The screen-reader title to apply
 	 */
-	title?: string
+	ariaTitle?: string
 
 	/**
 	 * The screen-reader description to apply
 	 */
-	description?: string
+	ariaDescription?: string
 }

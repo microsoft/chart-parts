@@ -28,8 +28,8 @@ export class SymbolRenderer implements VSvgMarkConverter {
 					transforms: [translate(x, y)],
 					metadata: item.metadata,
 					channels: item.channels,
-					title: item.ariaTitle,
-					description: item.ariaDescription,
+					ariaTitle: item.ariaTitle,
+					ariaDescription: item.ariaDescription,
 				}
 				return result
 			}),

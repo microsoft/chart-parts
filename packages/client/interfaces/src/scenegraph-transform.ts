@@ -47,12 +47,12 @@ export interface ChartOptions {
 	/**
 	 * A title to apply to the chart, for screen-reader users
 	 */
-	title?: string
+	ariaTitle?: string
 
 	/**
 	 * A description to apply to the chart, for screen-reader users
 	 */
-	description?: string
+	ariaDescription?: string
 }
 
 export interface ScenegraphConverter<IntermediateForm> {

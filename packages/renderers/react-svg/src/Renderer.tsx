@@ -20,8 +20,8 @@ function createElementFor(
 		transforms: vdomTransforms = [],
 		channels = {},
 		metadata = { index: -1, id: 'unknown' },
-		description,
-		title,
+		ariaDescription,
+		ariaTitle,
 	} = vdom
 	const reactAttrs: { [key: string]: any } = {
 		key,
@@ -49,14 +49,22 @@ function createElementFor(
 		)
 
 	const labelledBy: string[] = []
-	if (title) {
+	if (ariaTitle) {
 		const titleId = `${metadata.id}__title`
-		childrenElements.push(<title id={titleId}>{title}</title>)
+		childrenElements.push(
+			<title key="t" id={titleId}>
+				{ariaTitle}
+			</title>,
+		)
 		labelledBy.push(titleId)
 	}
-	if (description) {
+	if (ariaDescription) {
 		const descId = `${metadata.id}__desc`
-		childrenElements.push(<desc id={descId}>{description}</desc>)
+		childrenElements.push(
+			<desc key="d" id={descId}>
+				{ariaDescription}
+			</desc>,
+		)
 		labelledBy.push(descId)
 	}
 	if (labelledBy.length > 0) {

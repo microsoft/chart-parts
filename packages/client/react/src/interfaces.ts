@@ -62,6 +62,7 @@ export interface CommonMarkProps {
 	// Screen-Reader properties
 	ariaTitle?: MarkEncodingProp<string>
 	ariaDescription?: MarkEncodingProp<string>
+	tabIndex?: MarkEncodingProp<number>
 
 	// Events
 	eventHandlers?: { [key: string]: ChannelHandler<any> }

@@ -8,12 +8,12 @@ import {
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions = {}) {}
 
-	public get title() {
-		return this.options.title || 'data visualization using chart-parts'
+	public get ariaTitle() {
+		return this.options.ariaTitle || 'data visualization using chart-parts'
 	}
 
-	public get description() {
-		return this.options.description || ''
+	public get ariaDescription() {
+		return this.options.ariaDescription || ''
 	}
 
 	public get chartSpace(): ItemSpace {
