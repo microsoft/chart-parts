@@ -24,6 +24,8 @@ export class VirtualSvgConverter implements ScenegraphConverter<VSvgNode> {
 			height = DEFAULT_HEIGHT,
 			backgroundColor = DEFAULT_BG_COLOR,
 			origin = DEFAULT_ORIGIN,
+			title,
+			description,
 		} = options
 		const [x = 0, y = 0] = origin
 
@@ -58,6 +60,11 @@ export class VirtualSvgConverter implements ScenegraphConverter<VSvgNode> {
 				 * https://css-tricks.com/accessible-svgs/
 				 */
 				role: 'img',
+			},
+			title,
+			description,
+			metadata: {
+				id: 'root',
 			},
 			style: {
 				backgroundColor,

@@ -19,7 +19,9 @@ function createElementFor(
 		style,
 		transforms: vdomTransforms = [],
 		channels = {},
-		metadata = { index: -1 },
+		metadata = { index: -1, id: 'unknown' },
+		description,
+		title,
 	} = vdom
 	const reactAttrs: { [key: string]: any } = {
 		key,
@@ -37,18 +39,32 @@ function createElementFor(
 			handler({ ...(metadata as Metadata), event })
 	})
 
-	return React.createElement(
-		type,
-		reactAttrs,
-		(children || [])
-			.filter(c => !!c)
-			.map(
-				(c, index) =>
-					typeof c !== 'object'
-						? c
-						: createElementFor(c, `${key}::${index}`, handlers),
-			),
-	)
+	const childrenElements = (children || [])
+		.filter(c => !!c)
+		.map(
+			(c, index) =>
+				typeof c !== 'object'
+					? c
+					: createElementFor(c, `${key}::${index}`, handlers),
+		)
+
+	const labelledBy: string[] = []
+	if (title) {
+		const titleId = `${metadata.id}__title`
+		childrenElements.push(<title id={titleId}>{title}</title>)
+		labelledBy.push(titleId)
+	}
+	if (description) {
+		const descId = `${metadata.id}__desc`
+		childrenElements.push(<desc id={descId}>{description}</desc>)
+		labelledBy.push(descId)
+	}
+	if (labelledBy.length > 0) {
+		reactAttrs['aria-labelledby'] = labelledBy.join(' ')
+	}
+
+	const visualElement = React.createElement(type, reactAttrs, childrenElements)
+	return visualElement
 }
 
 function getTransformAttribute(vdomTransforms: Array<VSvgTransform<any>>) {

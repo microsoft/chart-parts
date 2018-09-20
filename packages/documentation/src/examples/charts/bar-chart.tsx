@@ -42,7 +42,14 @@ export default class BarChart extends React.Component<{}, BarChartState> {
   public render() {
     const { hoverRowIndex } = this.state
     return (
-      <Chart width={400} height={200} renderer={renderer} data={{ data }}>
+      <Chart
+        width={400}
+        height={200}
+        renderer={renderer}
+        data={{ data }}
+        title="Bar Chart"
+        description="An example bar chart"
+      >
         <LinearScale
           name="y"
           domain="data.amount"
