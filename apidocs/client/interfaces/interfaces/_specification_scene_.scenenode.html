@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SceneNode | @markable/interfaces</title>
+	<title>SceneNode | @chart-parts/interfaces</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -879,7 +879,7 @@ img { max-width: 100%; }
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">@markable/interfaces</a></strong>
+					<strong><a href="../index.html">@chart-parts/interfaces</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -922,28 +922,28 @@ img { max-width: 100%; }
 			<a href="_specification_scene_.channels.html" class="tsd-kind-icon">Channels</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-			<a href="_specification_scene_.createscaleargs.html" class="tsd-kind-icon">Create<wbr>Scale<wbr>Args</a>
+			<a href="_specification_scene_.dataframe.html" class="tsd-kind-icon">Data<wbr>Frame</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-			<a href="_specification_scene_.dataframe.html" class="tsd-kind-icon">Data<wbr>Frame</a>
+			<a href="_specification_scene_.encodingcontext.html" class="tsd-kind-icon">Encoding<wbr>Context</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 			<a href="_specification_scene_.facet.html" class="tsd-kind-icon">Facet</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-			<a href="_specification_scene_.handlermetadata.html" class="tsd-kind-icon">Handler<wbr>Metadata</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 			<a href="_specification_scene_.mark.html" class="tsd-kind-icon">Mark</a>
-		</li>
-		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-			<a href="_specification_scene_.markdata.html" class="tsd-kind-icon">Mark<wbr>Data</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 			<a href="_specification_scene_.markencodings.html" class="tsd-kind-icon">Mark<wbr>Encodings</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-external">
 			<a href="_specification_scene_.scale.html" class="tsd-kind-icon">Scale</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+			<a href="_specification_scene_.scalebuilder.html" class="tsd-kind-icon">Scale<wbr>Builder</a>
+		</li>
+		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+			<a href="_specification_scene_.scalecreationcontext.html" class="tsd-kind-icon">Scale<wbr>Creation<wbr>Context</a>
 		</li>
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 			<a href="_specification_scene_.scales.html" class="tsd-kind-icon">Scales</a>
@@ -965,14 +965,23 @@ img { max-width: 100%; }
 		<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 			<a href="_specification_scene_.viewsize.html" class="tsd-kind-icon">View<wbr>Size</a>
 		</li>
-		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-external">
 			<a href="../modules/_specification_scene_.html#channelhandler" class="tsd-kind-icon">Channel<wbr>Handler</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+			<a href="../modules/_specification_scene_.html#datum" class="tsd-kind-icon">Datum</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+			<a href="../modules/_specification_scene_.html#itemidgenerator" class="tsd-kind-icon">Item<wbr>IdGenerator</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-external">
 			<a href="../modules/_specification_scene_.html#markencoding" class="tsd-kind-icon">Mark<wbr>Encoding</a>
 		</li>
 		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
 			<a href="../modules/_specification_scene_.html#scalecreator" class="tsd-kind-icon">Scale<wbr>Creator</a>
+		</li>
+		<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+			<a href="../modules/_specification_scene_.html#table" class="tsd-kind-icon">Table</a>
 		</li>
 	</ul>
 </nav>
@@ -1016,7 +1025,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">axes<span class="tsd-signature-symbol">:</span> <a href="_specification_axes_.axis.html" class="tsd-signature-type">Axis</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/client/interfaces/src/specification/scene.ts#L107">specification/scene.ts:107</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/client/interfaces/src/specification/scene.ts#L113">specification/scene.ts:113</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1031,7 +1040,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">marks<span class="tsd-signature-symbol">:</span> <a href="_specification_scene_.mark.html" class="tsd-signature-type">Mark</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/client/interfaces/src/specification/scene.ts#L102">specification/scene.ts:102</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/client/interfaces/src/specification/scene.ts#L108">specification/scene.ts:108</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">
@@ -1046,7 +1055,7 @@ img { max-width: 100%; }
 				<div class="tsd-signature tsd-kind-icon">scales<span class="tsd-signature-symbol">:</span> <a href="../modules/_specification_scene_.html#scalecreator" class="tsd-signature-type">ScaleCreator</a><span class="tsd-signature-symbol">[]</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/client/interfaces/src/specification/scene.ts#L97">specification/scene.ts:97</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/client/interfaces/src/specification/scene.ts#L103">specification/scene.ts:103</a></li>
 					</ul>
 				</aside>
 				<div class="tsd-comment tsd-typography">

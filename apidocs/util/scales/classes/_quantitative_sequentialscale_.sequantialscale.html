@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>SequantialScale | @markable/scales</title>
+	<title>SequantialScale | @chart-parts/scales</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<style type="text/css">/*! normalize.css v1.1.3 | MIT License | git.io/normalize */
@@ -879,7 +879,7 @@ img { max-width: 100%; }
 		<div class="container">
 			<div class="table-wrap">
 				<div class="table-cell">
-					<strong><a href="../index.html">@markable/scales</a></strong>
+					<strong><a href="../index.html">@chart-parts/scales</a></strong>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -921,11 +921,14 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 					<a href="_quantitative_sequentialscale_.sequantialscale.html#namevalue" class="tsd-kind-icon">name<wbr>Value</a>
 				</li>
-				<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
-					<a href="_quantitative_sequentialscale_.sequantialscale.html#tablevalue" class="tsd-kind-icon">table<wbr>Value</a>
-				</li>
 				<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 					<a href="_quantitative_sequentialscale_.sequantialscale.html#binddomainarray" class="tsd-kind-icon">bind<wbr>Domain<wbr>Array</a>
+				</li>
+				<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a href="_quantitative_sequentialscale_.sequantialscale.html#fieldbind" class="tsd-kind-icon">field<wbr>Bind</a>
+				</li>
+				<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<a href="_quantitative_sequentialscale_.sequantialscale.html#tablebind" class="tsd-kind-icon">table<wbr>Bind</a>
 				</li>
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 					<a href="_quantitative_sequentialscale_.sequantialscale.html#build" class="tsd-kind-icon">build</a>
@@ -951,9 +954,6 @@ img { max-width: 100%; }
 				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 					<a href="_quantitative_sequentialscale_.sequantialscale.html#processdomainvalues" class="tsd-kind-icon">process<wbr>Domain<wbr>Values</a>
 				</li>
-				<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-					<a href="_quantitative_sequentialscale_.sequantialscale.html#table" class="tsd-kind-icon">table</a>
-				</li>
 			</ul>
 		</li>
 	</ul>
@@ -973,6 +973,12 @@ img { max-width: 100%; }
 				</li>
 			</ul>
 		</section>
+		<section class="tsd-panel">
+			<h3>Implements</h3>
+			<ul class="tsd-hierarchy">
+				<li><span class="tsd-signature-type">ScaleBuilder</span></li>
+			</ul>
+		</section>
 		<section class="tsd-panel-group tsd-index-group">
 			<h2>Index</h2>
 			<section class="tsd-panel tsd-index-panel">
@@ -983,13 +989,14 @@ img { max-width: 100%; }
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#binddomainvalue" class="tsd-kind-icon">bind<wbr>Domain<wbr>Value</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#domainvalue" class="tsd-kind-icon">domain<wbr>Value</a></li>
 							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#namevalue" class="tsd-kind-icon">name<wbr>Value</a></li>
-							<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#tablevalue" class="tsd-kind-icon">table<wbr>Value</a></li>
 						</ul>
 					</section>
-					<section class="tsd-index-section tsd-is-inherited tsd-is-private-protected tsd-is-external">
+					<section class="tsd-index-section tsd-is-inherited tsd-is-external">
 						<h3>Accessors</h3>
 						<ul class="tsd-index-list">
 							<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#binddomainarray" class="tsd-kind-icon">bind<wbr>Domain<wbr>Array</a></li>
+							<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#fieldbind" class="tsd-kind-icon">field<wbr>Bind</a></li>
+							<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#tablebind" class="tsd-kind-icon">table<wbr>Bind</a></li>
 						</ul>
 					</section>
 					<section class="tsd-index-section tsd-is-external">
@@ -1003,7 +1010,6 @@ img { max-width: 100%; }
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#interpolator" class="tsd-kind-icon">interpolator</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#name" class="tsd-kind-icon">name</a></li>
 							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#processdomainvalues" class="tsd-kind-icon">process<wbr>Domain<wbr>Values</a></li>
-							<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_quantitative_sequentialscale_.sequantialscale.html#table" class="tsd-kind-icon">table</a></li>
 						</ul>
 					</section>
 				</div>
@@ -1018,7 +1024,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#binddomainvalue">bindDomainValue</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L5">DomainScale.ts:5</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L12">DomainScale.ts:12</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1029,7 +1035,7 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#domainvalue">domainValue</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L6">DomainScale.ts:6</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L13">DomainScale.ts:13</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1040,23 +1046,12 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#namevalue">nameValue</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L7">DomainScale.ts:7</a></li>
-					</ul>
-				</aside>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
-				<a name="tablevalue" class="tsd-anchor"></a>
-				<h3><span class="tsd-flag ts-flagProtected">Protected</span> <span class="tsd-flag ts-flagOptional">Optional</span> table<wbr>Value</h3>
-				<div class="tsd-signature tsd-kind-icon">table<wbr>Value<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></div>
-				<aside class="tsd-sources">
-					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#tablevalue">tableValue</a></p>
-					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L8">DomainScale.ts:8</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L14">DomainScale.ts:14</a></li>
 					</ul>
 				</aside>
 			</section>
 		</section>
-		<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-private-protected tsd-is-external">
+		<section class="tsd-panel-group tsd-member-group tsd-is-inherited tsd-is-external">
 			<h2>Accessors</h2>
 			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 				<a name="binddomainarray" class="tsd-anchor"></a>
@@ -1065,7 +1060,29 @@ img { max-width: 100%; }
 				<aside class="tsd-sources">
 					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#binddomainarray">bindDomainArray</a></p>
 					<ul>
-						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L68">DomainScale.ts:68</a></li>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L84">DomainScale.ts:84</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+				<a name="fieldbind" class="tsd-anchor"></a>
+				<h3>field<wbr>Bind</h3>
+				<div class="tsd-signature tsd-kind-icon">field<wbr>Bind<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#fieldbind">fieldBind</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L107">DomainScale.ts:107</a></li>
+					</ul>
+				</aside>
+			</section>
+			<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+				<a name="tablebind" class="tsd-anchor"></a>
+				<h3>table<wbr>Bind</h3>
+				<div class="tsd-signature tsd-kind-icon">table<wbr>Bind<span class="tsd-signature-symbol">:</span> </div>
+				<aside class="tsd-sources">
+					<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#tablebind">tableBind</a></p>
+					<ul>
+						<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L94">DomainScale.ts:94</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -1076,17 +1093,23 @@ img { max-width: 100%; }
 				<a name="build" class="tsd-anchor"></a>
 				<h3>build</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-					<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					<li class="tsd-signature tsd-kind-icon">build<span class="tsd-signature-symbol">(</span>arg<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScaleCreationContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Scales</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#build">build</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L34">DomainScale.ts:34</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L43">DomainScale.ts:43</a></li>
 							</ul>
 						</aside>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						<h4 class="tsd-parameters-title">Parameters</h4>
+						<ul class="tsd-parameters">
+							<li>
+								<h5>arg: <span class="tsd-signature-type">ScaleCreationContext</span></h5>
+							</li>
+						</ul>
+						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Scales</span></h4>
 					</li>
 				</ul>
 			</section>
@@ -1100,7 +1123,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/quantitative/SequentialScale.ts#L21">quantitative/SequentialScale.ts:21</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/quantitative/SequentialScale.ts#L21">quantitative/SequentialScale.ts:21</a></li>
 							</ul>
 						</aside>
 						<div class="tsd-comment tsd-typography">
@@ -1125,20 +1148,20 @@ img { max-width: 100%; }
 				<a name="createscale" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagProtected">Protected</span> create<wbr>Scale</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-protected tsd-is-external">
-					<li class="tsd-signature tsd-kind-icon">create<wbr>Scale<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CreateScaleArgs</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Scales</span></li>
+					<li class="tsd-signature tsd-kind-icon">create<wbr>Scale<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScaleCreationContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Scales</span></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Overrides <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#createscale">createScale</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/quantitative/SequentialScale.ts#L26">quantitative/SequentialScale.ts:26</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/quantitative/SequentialScale.ts#L26">quantitative/SequentialScale.ts:26</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>args: <span class="tsd-signature-type">CreateScaleArgs</span></h5>
+								<h5>args: <span class="tsd-signature-type">ScaleCreationContext</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Scales</span></h4>
@@ -1156,13 +1179,21 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#domain">domain</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L20">DomainScale.ts:20</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L29">DomainScale.ts:29</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Sets the domain of the scale</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> arg: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_domainscale_.html#domaincreator" class="tsd-signature-type">DomainCreator</a><span class="tsd-signature-symbol">&lt;</span><a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>The domain argument</p>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -1173,20 +1204,20 @@ img { max-width: 100%; }
 				<a name="getdomain" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagProtected">Protected</span> get<wbr>Domain</h3>
 				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
-					<li class="tsd-signature tsd-kind-icon">get<wbr>Domain<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CreateScaleArgs</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a></li>
+					<li class="tsd-signature tsd-kind-icon">get<wbr>Domain<span class="tsd-signature-symbol">(</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ScaleCreationContext</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a></li>
 				</ul>
 				<ul class="tsd-descriptions">
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#getdomain">getDomain</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L47">DomainScale.ts:47</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L56">DomainScale.ts:56</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
-								<h5>args: <span class="tsd-signature-type">CreateScaleArgs</span></h5>
+								<h5>args: <span class="tsd-signature-type">ScaleCreationContext</span></h5>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a></h4>
@@ -1203,7 +1234,7 @@ img { max-width: 100%; }
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/quantitative/SequentialScale.ts#L10">quantitative/SequentialScale.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/quantitative/SequentialScale.ts#L10">quantitative/SequentialScale.ts:10</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1227,13 +1258,21 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#name">name</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L10">DomainScale.ts:10</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L20">DomainScale.ts:20</a></li>
 							</ul>
 						</aside>
+						<div class="tsd-comment tsd-typography">
+							<div class="lead">
+								<p>Sets the name of the scale</p>
+							</div>
+						</div>
 						<h4 class="tsd-parameters-title">Parameters</h4>
 						<ul class="tsd-parameters">
 							<li>
 								<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
+								<div class="tsd-comment tsd-typography">
+									<p>The name of the scale</p>
+								</div>
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
@@ -1251,7 +1290,7 @@ img { max-width: 100%; }
 						<aside class="tsd-sources">
 							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#processdomainvalues">processDomainValues</a></p>
 							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L43">DomainScale.ts:43</a></li>
+								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/b4daa1e/packages/util/scales/src/DomainScale.ts#L52">DomainScale.ts:52</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1261,30 +1300,6 @@ img { max-width: 100%; }
 							</li>
 						</ul>
 						<h4 class="tsd-returns-title">Returns <a href="../modules/_quantitative_quantitativescale_.html#quantitativespan" class="tsd-signature-type">QuantitativeSpan</a></h4>
-					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-				<a name="table" class="tsd-anchor"></a>
-				<h3>table</h3>
-				<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
-					<li class="tsd-signature tsd-kind-icon">table<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">this</span></li>
-				</ul>
-				<ul class="tsd-descriptions">
-					<li class="tsd-description">
-						<aside class="tsd-sources">
-							<p>Inherited from <a href="_domainscale_.domainscale.html">DomainScale</a>.<a href="_domainscale_.domainscale.html#table">table</a></p>
-							<ul>
-								<li>Defined in <a href="https://github.com/Microsoft/markable/blob/43d7db6/packages/util/scales/src/DomainScale.ts#L15">DomainScale.ts:15</a></li>
-							</ul>
-						</aside>
-						<h4 class="tsd-parameters-title">Parameters</h4>
-						<ul class="tsd-parameters">
-							<li>
-								<h5><span class="tsd-flag ts-flagOptional">Optional</span> value: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-							</li>
-						</ul>
-						<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">this</span></h4>
 					</li>
 				</ul>
 			</section>
