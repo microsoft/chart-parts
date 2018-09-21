@@ -13,16 +13,17 @@ export class LineRenderer implements VSvgMarkConverter {
 			return { nodes: [] }
 		}
 
+		const firstItem = mark.items[0]
 		const lineItem = {
 			type: 'path',
 			attrs: {
 				d: line(mark.items),
-				...commonProps(mark.items[0]),
+				...commonProps(firstItem),
 			},
-			metadata: mark.items[0].metadata,
-			channels: mark.items[0].channels,
-			ariaTitle: mark.items[0].ariaTitle,
-			ariaDescription: mark.items[0].ariaDescription,
+			metadata: firstItem.metadata,
+			channels: firstItem.channels,
+			ariaTitle: firstItem.ariaTitle,
+			ariaDescription: firstItem.ariaDescription,
 		}
 
 		const nodes = emitMarkGroup(MarkType.Line, mark.role, [lineItem])

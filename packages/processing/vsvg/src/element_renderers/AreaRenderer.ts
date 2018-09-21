@@ -25,14 +25,15 @@ export class AreaRenderer implements VSvgMarkConverter {
 			ai.height = space.shape.height
 			return ai
 		})
+		const firstItem = mark.items[0]
 		const areaItem = {
 			type: 'path',
 			attrs: {
 				d: area(areaItems),
-				...commonProps(mark.items[0]),
+				...commonProps(firstItem),
 			},
-			ariaTitle: mark.items[0].ariaTitle,
-			ariaDescription: mark.items[0].ariaDescription,
+			ariaTitle: firstItem.ariaTitle,
+			ariaDescription: firstItem.ariaDescription,
 			metadata: areaItems[0].metadata,
 			channels: areaItems[0].channels,
 		}
