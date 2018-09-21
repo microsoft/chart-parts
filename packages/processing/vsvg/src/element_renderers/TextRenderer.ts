@@ -95,6 +95,8 @@ export class TextRenderer implements VSvgMarkConverter {
 					transforms: getTextTransforms(item),
 					metadata: item.metadata,
 					channels: item.channels,
+					ariaTitle: item.ariaTitle,
+					ariaDescription: item.ariaDescription,
 					children,
 				}
 

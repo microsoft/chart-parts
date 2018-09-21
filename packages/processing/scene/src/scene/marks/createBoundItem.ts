@@ -83,13 +83,14 @@ function createItemFromMark(
 		metadata = mark.metadata(context)
 	}
 
-	return createItem(type, {
+	const props = {
 		...transferEncodings(encodings, context),
 		name,
 		role,
 		metadata: { index, id, ...metadata },
 		channels: frame.channels,
-	})
+	}
+	return createItem(type, props)
 }
 
 function getItemId(

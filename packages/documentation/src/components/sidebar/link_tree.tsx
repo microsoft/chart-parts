@@ -74,13 +74,12 @@ export default class LinkTree extends React.Component<
     const linkStyle: React.CSSProperties = {
       marginLeft,
       fontSize,
+      color: '#3173BD',
     }
 
     if (activePath === item.path) {
-      linkStyle.color = theme.text.highlight
-      linkStyle.fontWeight = 500
+      linkStyle.fontWeight = 'bold'
     }
-
     return linkStyle
   }
 

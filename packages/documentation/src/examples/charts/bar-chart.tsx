@@ -42,7 +42,14 @@ export default class BarChart extends React.Component<{}, BarChartState> {
   public render() {
     const { hoverRowIndex } = this.state
     return (
-      <Chart width={400} height={200} renderer={renderer} data={{ data }}>
+      <Chart
+        width={400}
+        height={200}
+        renderer={renderer}
+        data={{ data }}
+        title="Bar Chart"
+        description="An example bar chart"
+      >
         <LinearScale
           name="y"
           domain="data.amount"
@@ -61,6 +68,11 @@ export default class BarChart extends React.Component<{}, BarChartState> {
         <Axis orient={AxisOrientation.Left} scale="y" />
         <Rect
           table="data"
+          ariaTitle={({ d }) => `Category ${d.category}`}
+          ariaDescription={({ d }) =>
+            `Category ${d.category} value is ${d.amount}`
+          }
+          tabIndex={1}
           onMouseEnter={({ index }: any) => {
             if (hoverRowIndex !== index) {
               this.setState({ hoverRowIndex: index })

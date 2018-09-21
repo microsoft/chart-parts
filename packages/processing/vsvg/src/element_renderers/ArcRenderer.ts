@@ -20,6 +20,8 @@ export class ArcRenderer implements VSvgMarkConverter {
 						...commonProps(item),
 						d: arc(item),
 					},
+					ariaTitle: item.ariaTitle,
+					ariaDescription: item.ariaDescription,
 					transforms: [translate(x || 0, y || 0)],
 					channels: item.channels,
 					metadata: item.metadata,

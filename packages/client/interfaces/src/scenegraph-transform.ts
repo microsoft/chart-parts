@@ -43,6 +43,16 @@ export interface ChartOptions {
 	 * Padding to apply to the chartw
 	 */
 	padding?: number | PaddingObject
+
+	/**
+	 * A title to apply to the chart, for screen-reader users
+	 */
+	ariaTitle?: string
+
+	/**
+	 * A description to apply to the chart, for screen-reader users
+	 */
+	ariaDescription?: string
 }
 
 export interface ScenegraphConverter<IntermediateForm> {

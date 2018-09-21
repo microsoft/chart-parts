@@ -1,5 +1,6 @@
 // tslint:disable jsx-no-lambda
 import * as React from 'react'
+import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import Header from '../components/header'
 import HeroBanner from '../components/hero-banner'
@@ -34,6 +35,9 @@ export default class IndexPage extends React.Component {
     const { scrollPercent } = this.state
     return (
       <Container>
+        <Helmet title="chart-parts">
+          <html lang="en" />
+        </Helmet>
         <Header opacity={Math.max(scrollPercent / 0.6)} />
         <Wrapper>
           <OverflowContainer

@@ -59,6 +59,11 @@ export interface CommonMarkProps {
 	zIndex?: MarkEncodingProp<number>
 	metadata?: MarkEncodingProp<{ [key: string]: any }>
 
+	// Screen-Reader properties
+	ariaTitle?: MarkEncodingProp<string>
+	ariaDescription?: MarkEncodingProp<string>
+	tabIndex?: MarkEncodingProp<number>
+
 	// Events
 	eventHandlers?: { [key: string]: ChannelHandler<any> }
 
@@ -156,6 +161,9 @@ export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
 		'href',
 		'tooltip',
 		'zIndex',
+		'ariaTitle',
+		'ariaDescription',
+		'tabIndex',
 	].map(pv => transferProp(pv))
 	return result
 }

@@ -20,6 +20,8 @@ export interface ChartProps {
 	data: { [key: string]: any[] }
 	renderer: Renderer<VSvgNode, any>
 	scene?: SceneNode
+	title?: string
+	description?: string
 }
 
 export interface ChartState {
@@ -67,6 +69,8 @@ export class Chart extends React.Component<ChartProps, ChartState> {
 				width: this.props.width,
 				height: this.props.height,
 				padding: this.props.padding,
+				ariaTitle: this.props.title,
+				ariaDescription: this.props.description,
 			},
 			this.props.data,
 		)

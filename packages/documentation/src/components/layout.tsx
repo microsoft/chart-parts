@@ -17,18 +17,21 @@ interface LayoutQueryResult {
 export interface LayoutProps {
   sidebar?: JSX.Element
   logoTo?: string
+  title?: string
 }
 
 const Layout: React.SFC<LayoutProps> = ({
   sidebar = null,
   logoTo,
   children,
+  title,
 }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
           siteMetadata {
+            title
             keywords
             description
           }
@@ -36,10 +39,14 @@ const Layout: React.SFC<LayoutProps> = ({
       }
     `}
     render={({ site: { siteMetadata } }: LayoutQueryResult) => {
-      const { title } = siteMetadata
       return (
         <>
-          <Helmet title={title} meta={getMeta(siteMetadata)} />
+          <Helmet
+            title={title || siteMetadata.title}
+            meta={getMeta(siteMetadata)}
+          >
+            <html lang="en" />
+          </Helmet>
           <BodyContent>
             <Header />
             <ContentContainer>
@@ -68,6 +75,7 @@ const BodyContent = styled.div`
 
 const ContentContainer = styled.div`
   display: flex;
+  height: 100%;
   flex-direction: row;
   align-items: stretch;
   flex: 1;
@@ -89,6 +97,7 @@ const Content = styled.div`
 const SidebarContainer = styled.div`
   display: flex;
   flex: 1;
+  height: 100%;
   padding: 1rem;
   background: ${theme.backgrounds.sidebar};
 `

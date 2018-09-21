@@ -193,4 +193,14 @@ export interface VSvgTransform<Value> {
 
 export interface VSvgNode extends VDomNode<CommonSvgProps, SvgCommonStyle> {
 	transforms?: Array<VSvgTransform<any>>
+
+	/**
+	 * The screen-reader title to apply
+	 */
+	ariaTitle?: string
+
+	/**
+	 * The screen-reader description to apply
+	 */
+	ariaDescription?: string
 }

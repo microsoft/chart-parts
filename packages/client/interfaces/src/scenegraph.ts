@@ -197,6 +197,22 @@ export interface SGItem extends SGNode {
 	readonly zIndex?: number
 
 	/**
+	 * The accessible title to apply to the scenegraph item
+	 */
+	readonly ariaTitle?: string
+
+	/**
+	 * The accessible description to apply to the scenegraph item
+	 */
+	readonly ariaDescription?: string
+
+	/**
+	 * The tab-index to use for the given item. If defined, it is a tab stop. This is important to use
+	 * when making charts accessible, as it allows screen-reader users to navigate the chart via keyboard.
+	 */
+	readonly tabIndex?: number
+
+	/**
 	 * A mapping of client event-names to channel-identifiers
 	 */
 	readonly channels?: { [key: string]: string }

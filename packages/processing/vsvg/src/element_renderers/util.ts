@@ -80,5 +80,8 @@ export function commonProps(item: SGItem): any {
 		result.strokeDashoffset = item.strokeDashOffset
 	}
 
+	if (item.tabIndex !== undefined) {
+		result.tabIndex = item.tabIndex
+	}
 	return result
 }

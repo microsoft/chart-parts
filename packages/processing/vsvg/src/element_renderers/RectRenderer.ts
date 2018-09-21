@@ -33,6 +33,8 @@ export class RectRenderer implements VSvgMarkConverter {
 					attrs,
 					metadata,
 					channels,
+					ariaTitle: item.ariaTitle,
+					ariaDescription: item.ariaDescription,
 				}
 				return result
 			}),

@@ -28,10 +28,10 @@ const BelowTheFold: React.SFC<BelowTheFoldProps> = ({ style }) => (
       return (
         <BoxRow style={style}>
           <Box style={{ backgroundColor: theme.palette.alt }}>
-            <StyledLink to="/documentation">Read the docs</StyledLink>
+            <DocsLink to="/documentation">Read the docs</DocsLink>
           </Box>
           <Box style={{ backgroundColor: theme.palette.alt2 }}>
-            <StyledLink to="/blog">What's new?</StyledLink>
+            <BlogLink to="/blog">What's new?</BlogLink>
           </Box>
           <Box style={{ backgroundColor: theme.palette.alt3 }}>
             <StyledAnchor target="_blank" href={githubUrl}>
@@ -61,7 +61,14 @@ const StyledLink = styled(Link)`
   font-family: ${theme.text.fontFamily};
   font-weight: bold;
   font-size: 16px;
-  color: ${theme.palette.highlight};
+`
+
+const DocsLink = styled(StyledLink)`
+  color: #fffffd;
+`
+
+const BlogLink = styled(StyledLink)`
+  color: #0b1e17;
 `
 
 const StyledAnchor = styled.a`

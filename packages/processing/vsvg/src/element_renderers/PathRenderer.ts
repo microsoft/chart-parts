@@ -19,6 +19,8 @@ export class PathRenderer implements VSvgMarkConverter {
 					transforms: [translate(x || 0, y || 0)],
 					metadata: item.metadata,
 					channels: item.channels,
+					ariaTitle: item.ariaTitle,
+					ariaDescription: item.ariaDescription,
 				}
 				return result
 			}),

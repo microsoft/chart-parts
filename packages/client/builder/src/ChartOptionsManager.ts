@@ -8,6 +8,14 @@ import {
 export class ChartOptionsManager {
 	constructor(private options: ChartOptions = {}) {}
 
+	public get ariaTitle() {
+		return this.options.ariaTitle || 'data visualization using chart-parts'
+	}
+
+	public get ariaDescription() {
+		return this.options.ariaDescription || ''
+	}
+
 	public get chartSpace(): ItemSpace {
 		const chartWidth = this.options.width || DEFAULT_WIDTH
 		const chartHeight = this.options.height || DEFAULT_HEIGHT
