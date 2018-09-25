@@ -54,9 +54,14 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	}
 
 	protected getDomain(args: ScaleCreationContext): Domain {
-		return this.domainValue
-			? this.domainValue(args)
-			: this.getDomainFromTableBinding(args)
+		if (this.domainValue) {
+			return this.domainValue(args)
+		} else if (!this.tableBind && !this.fieldBind) {
+			// If there's no value and no binding, use a unit-domain
+			return ([0, 1] as any) as Domain
+		} else {
+			return this.getDomainFromTableBinding(args)
+		}
 	}
 
 	private getDomainFromTableBinding(args: ScaleCreationContext): Domain {

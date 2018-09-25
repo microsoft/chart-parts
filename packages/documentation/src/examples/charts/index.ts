@@ -1,4 +1,5 @@
 import BarChart from './bar-chart'
+import BarChartWithMean from './bar-chart-with-mean'
 import GroupedBarChart from './grouped-bar-chart'
 import StackedBarChart from './stacked-bar-chart'
 import LineChart from './line-chart'
@@ -12,6 +13,7 @@ export default {
   'bar-chart': BarChart,
   'grouped-bar-chart': GroupedBarChart,
   'stacked-bar-chart': StackedBarChart,
+  'bar-chart-with-mean': BarChartWithMean,
 
   // Line & Area Charts
   'line-chart': LineChart,
