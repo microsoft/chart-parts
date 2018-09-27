@@ -2,7 +2,7 @@
 	"name": "@chart-parts/testdata",
 	"description": "Test data for charts",
 	"private": true,
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -14,11 +14,11 @@
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.2",
-		"typescript": "^3.0.1",
-		"tslint": "^5.11.0"
+		"tslint": "^5.11.0",
+		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.15",
-		"@chart-parts/scenegraph": "^0.0.15"
+		"@chart-parts/interfaces": "^0.0.16",
+		"@chart-parts/scenegraph": "^0.0.16"
 	}
 }

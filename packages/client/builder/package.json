@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/builder",
 	"description": "Visualization components for specifying scenes",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -13,13 +13,13 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"devDependencies": {
-		"@chart-parts/scales": "^0.0.15",
+		"@chart-parts/scales": "^0.0.16",
 		"rimraf": "^2.6.2",
-		"typescript": "^3.0.1",
-		"tslint": "^5.11.0"
+		"tslint": "^5.11.0",
+		"typescript": "^3.0.1"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.15",
+		"@chart-parts/interfaces": "^0.0.16",
 		"lodash": "^4.17.10"
 	}
 }

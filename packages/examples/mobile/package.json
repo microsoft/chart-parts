@@ -1,6 +1,6 @@
 {
 	"name": "@chart-parts/examples-mobile",
-	"version": "0.0.15",
+	"version": "0.0.16",
 	"private": true,
 	"scripts": {
 		"start_bundler": "node node_modules/react-native/local-cli/cli.js start",
@@ -11,10 +11,10 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"dependencies": {
-		"@chart-parts/orchestrator": "^0.0.15",
-		"@chart-parts/react": "^0.0.15",
-		"@chart-parts/react-native-svg-renderer": "^0.0.15",
-		"@chart-parts/testdata": "^0.0.15",
+		"@chart-parts/orchestrator": "^0.0.16",
+		"@chart-parts/react": "^0.0.16",
+		"@chart-parts/react-native-svg-renderer": "^0.0.16",
+		"@chart-parts/testdata": "^0.0.16",
 		"react": "^16.4.2",
 		"react-native": "^0.56.0",
 		"react-native-svg": "^5.5.1"
@@ -26,14 +26,14 @@
 	},
 	"devDependencies": {
 		"@babel/core": "7.0.0-rc.1",
-		"@chart-parts/builder": "^0.0.15",
-		"@chart-parts/interfaces": "^0.0.15",
-		"@chart-parts/scales": "^0.0.15",
-		"@chart-parts/scene": "^0.0.15",
-		"@chart-parts/scenegraph": "^0.0.15",
-		"@chart-parts/shapes": "^0.0.15",
-		"@chart-parts/transform": "^0.0.15",
-		"@chart-parts/vsvg": "^0.0.15",
+		"@chart-parts/builder": "^0.0.16",
+		"@chart-parts/interfaces": "^0.0.16",
+		"@chart-parts/scales": "^0.0.16",
+		"@chart-parts/scene": "^0.0.16",
+		"@chart-parts/scenegraph": "^0.0.16",
+		"@chart-parts/shapes": "^0.0.16",
+		"@chart-parts/transform": "^0.0.16",
+		"@chart-parts/vsvg": "^0.0.16",
 		"@types/react": "^16.4.10",
 		"@types/react-native": "^0.56.11",
 		"babel-preset-react-native": "5.0.2",
