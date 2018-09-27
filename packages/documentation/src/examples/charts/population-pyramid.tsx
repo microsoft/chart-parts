@@ -161,7 +161,6 @@ const GenderPerYearSection: React.SFC<GenderPerYearSectionProps> = ({
   xStart,
 }) => (
   <Group
-    singleton
     x={xStart}
     height={({ view }) => view.height}
     width={chartSegmentWidth}

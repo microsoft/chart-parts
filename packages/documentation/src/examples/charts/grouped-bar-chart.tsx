@@ -91,7 +91,7 @@ export default class GroupedBarChart extends React.Component<{}> {
             table="facet"
             x={({ d, x }) => x(d.value) - 3}
             y={({ d, pos, rowHeight }) => pos(d.position) + rowHeight() * 0.5}
-            fill={'white'}
+            fill="white"
             align={HorizontalAlignment.Right}
             baseline={VerticalTextAlignment.Middle}
             text={({ d }) => d.value}

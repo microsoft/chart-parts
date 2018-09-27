@@ -29,7 +29,7 @@ export class MarkBuilder {
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
-	private singletonValue?: boolean
+	private singletonValue: boolean = true
 	private facetValue?: Facet
 	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}

@@ -14,7 +14,7 @@ export type MarkEncodingProp<T> = MarkEncoding<T> | T
 export interface CommonMarkProps {
 	// Data-binding
 	/**
-	 * The name of the data-table to bind to. Not necessary if singleton=true
+	 * The name of the data-table to bind to. If not present, the component will render as a singleton
 	 */
 	table?: string
 
@@ -27,11 +27,6 @@ export interface CommonMarkProps {
 	 * A role description of this mark
 	 */
 	role?: string
-
-	/**
-	 * Whether to render this mark as a singleton.
-	 */
-	singleton?: boolean
 
 	// Common Mark Value Encodings
 	x?: MarkEncodingProp<number>

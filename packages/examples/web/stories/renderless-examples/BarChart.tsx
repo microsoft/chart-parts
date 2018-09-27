@@ -84,7 +84,6 @@ export class BarChart extends React.Component<{}, BarChartState> {
 				/>
 				{hoverRowIndex === undefined ? null : (
 					<Text
-						singleton
 						text={({ data }) => data[hoverRowIndex].amount}
 						fill="black"
 						x={({ data, x, band }) =>

@@ -30,7 +30,6 @@ const dataset = { data }
 const AugmentedBarChart = () => (
   <BarChart>
     <Rule
-      singleton
       x={0}
       x2={({ view }) => view.width}
       y={({ y, data }) => y(mean(data, (d: any) => d.amount))}

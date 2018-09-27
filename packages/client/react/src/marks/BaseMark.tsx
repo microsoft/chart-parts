@@ -83,12 +83,7 @@ export abstract class BaseMark<
 			.encode(this.encodings)
 
 		if (table) {
-			result = result.table(table as string)
-		}
-
-		const singleton = this.props.singleton
-		if (singleton) {
-			result = result.singleton(singleton as boolean)
+			result = result.table(table as string).singleton(false)
 		}
 
 		if (name) {
