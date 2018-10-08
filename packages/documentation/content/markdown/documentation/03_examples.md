@@ -8,13 +8,13 @@ order: 3
 
 ### Bar Charts
 
-- [Bar Chart](/chart-parts/documentation/examples/bar_chart)
-- [Stacked Bar Chart](/chart-parts/documentation/examples/bar_chart)
-- [Grouped Bar Chart](/chart-parts/documentation/examples/grouped_bar_chart)
+- [Bar Chart](/documentation/examples/bar_chart)
+- [Stacked Bar Chart](/documentation/examples/bar_chart)
+- [Grouped Bar Chart](/documentation/examples/grouped_bar_chart)
 
 ### Line & Area Charts
 
-- [Line Chart](/chart-parts/documentation/examples/line_chart)
-- [Area Chart](/chart-parts/documentation/examples/area_chart)
-- [Stacked Area Chart](/chart-parts/documentation/examples/stacked_area_chart)
-- [Population Pyramid](/chart-parts/documentation/examples/population_pyramid)
+- [Line Chart](/documentation/examples/line_chart)
+- [Area Chart](/documentation/examples/area_chart)
+- [Stacked Area Chart](/documentation/examples/stacked_area_chart)
+- [Population Pyramid](/documentation/examples/population_pyramid)
