@@ -67,7 +67,7 @@ describe('The Axis builder', () => {
 		expect(built.labelFontSize).toEqual(200)
 		expect(built.labelColor).toEqual('#ff')
 		expect(built.labelPadding).toEqual(20)
-		expect(built.labelFontWeight).toEqual(10)
+		expect(built.labelFontWeight).toEqual('100')
 		expect(built.labelAngle).toEqual(25)
 		expect(built.labelFormat).toEqual('%xx')
 	})
