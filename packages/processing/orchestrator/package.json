@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/orchestrator",
 	"description": "chart-parts rendering orchestration",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -18,9 +18,9 @@
 		"typescript": "^3.1.1"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.16",
-		"@chart-parts/scene": "^0.0.16",
-		"@chart-parts/scenegraph": "^0.0.16",
-		"@chart-parts/vsvg": "^0.0.16"
+		"@chart-parts/interfaces": "^0.0.17",
+		"@chart-parts/scene": "^0.0.17",
+		"@chart-parts/scenegraph": "^0.0.17",
+		"@chart-parts/vsvg": "^0.0.17"
 	}
 }

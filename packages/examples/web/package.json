@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/examples-web",
 	"private": true,
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"scripts": {
 		"//serve": "webpack-dev-server --mode development --open --host 0.0.0.0",
 		"storybook": "start-storybook -p 6006",
@@ -10,12 +10,12 @@
 		"lint": "tslint src/**/*.ts*"
 	},
 	"dependencies": {
-		"@chart-parts/orchestrator": "^0.0.16",
-		"@chart-parts/react": "^0.0.16",
-		"@chart-parts/react-svg-renderer": "^0.0.16",
-		"@chart-parts/scales": "^0.0.16",
-		"@chart-parts/testdata": "^0.0.16",
-		"@chart-parts/transform": "^0.0.16",
+		"@chart-parts/orchestrator": "^0.0.17",
+		"@chart-parts/react": "^0.0.17",
+		"@chart-parts/react-svg-renderer": "^0.0.17",
+		"@chart-parts/scales": "^0.0.17",
+		"@chart-parts/testdata": "^0.0.17",
+		"@chart-parts/transform": "^0.0.17",
 		"@storybook/addon-actions": "^4.0.0-alpha.8",
 		"@storybook/addon-links": "^4.0.0-alpha.8",
 		"@storybook/addons": "^4.0.0-alpha.8",

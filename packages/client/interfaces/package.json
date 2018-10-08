@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/interfaces",
 	"description": "Common interfaces for the visualization system, including marks, mark specifications, scenegraphs, and virtual dom definitions",
-	"version": "0.0.16",
+	"version": "0.0.17",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
