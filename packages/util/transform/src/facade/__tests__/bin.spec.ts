@@ -47,6 +47,7 @@ describe('The Bin transform', () => {
 				.ref(value => (bn = value))
 				.maxBins(5),
 		)
+		expect(bn).toBeDefined()
 
 		const binned = ds.getTable('data').map(d => ({
 			amount: d.amount,

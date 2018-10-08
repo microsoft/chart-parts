@@ -9,22 +9,22 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc",
+		"build": "tsc -b",
 		"lint": "tslint src/**/*.ts*"
 	},
 	"devDependencies": {
 		"@chart-parts/scenegraph": "^0.0.16",
 		"rimraf": "^2.6.2",
 		"tslint": "^5.11.0",
-		"typescript": "^3.0.1"
+		"typescript": "^3.1.1"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.16",
 		"@chart-parts/shapes": "^0.0.16",
 		"@types/d3-path": "^1.0.7",
-		"@types/d3-shape": "^1.2.3",
-		"d3-path": "^1.0.5",
-		"d3-shape": "^1.2.0",
+		"@types/d3-shape": "^1.2.4",
+		"d3-path": "^1.0.7",
+		"d3-shape": "^1.2.2",
 		"lodash": "^4.17.10",
 		"rxjs": "^6.2.2",
 		"shallowequal": "^1.1.0"

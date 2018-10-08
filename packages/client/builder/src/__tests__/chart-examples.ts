@@ -7,10 +7,8 @@ import {
 } from '@chart-parts/scales'
 import {
 	Dimension,
-	SceneNode,
 	AxisOrientation,
 	HorizontalAlignment,
-	VerticalAlignment,
 	VerticalTextAlignment,
 } from '@chart-parts/interfaces'
 import { scene, rect, axis, group, text } from '../index'
@@ -22,13 +20,11 @@ describe('Building Charts', () => {
 				n
 					.scale(
 						linear('y')
-							.table('data')
-							.domain('amount')
+							.domain('data.amount')
 							.range(Dimension.Height)
 							.nice(),
 						band('x', 'xband')
-							.table('data')
-							.domain('category')
+							.domain('data.category')
 							.range(Dimension.Width)
 							.padding(0.05),
 					)
@@ -40,10 +36,10 @@ describe('Building Charts', () => {
 						rect()
 							.table('data')
 							.encode({
-								x: ({ d }, { x }) => x(d.category),
-								y: ({ d }, { y }) => y(d.amount),
-								y2: (d, { y }) => y(0),
-								width: (d, { xband }) => xband(),
+								x: ({ d, x }) => x(d.category),
+								y: ({ d, y }) => y(d.amount),
+								y2: ({ y }) => y(0),
+								width: ({ xband }) => xband(),
 								fill: ({ index }) => 'steelblue',
 							})
 							.handle({
@@ -66,19 +62,16 @@ describe('Building Charts', () => {
 				n
 					.scale(
 						band('y', 'categoryHeight')
-							.table('data')
 							.range(Dimension.Height)
-							.domain('category')
+							.domain('data.category')
 							.padding(0.2),
 						linear('x')
-							.table('data')
-							.domain('value')
+							.domain('data.value')
 							.range(Dimension.Width)
 							.nice()
 							.zero(),
 						ordinal('color')
-							.table('data')
-							.domain('position')
+							.domain('data.position')
 							.colorScheme(CategoricalColorScheme.category20),
 					)
 					.mark(
@@ -86,35 +79,34 @@ describe('Building Charts', () => {
 							.table('data')
 							.facet({
 								name: 'facet',
-								partitionOn: (r: any) => r.category,
+								groupBy: 'category',
 							})
 							.encode({
-								y: ({ d }, { y }) => y(d[0].category),
-								height: (d, { categoryHeight }) => categoryHeight(),
+								y: ({ d, y }) => y(d[0].category),
+								height: ({ categoryHeight }) => categoryHeight(),
 							})
 							.child(node =>
 								node
 									.scale(
 										band('pos', 'rowHeight')
-											.table('facet')
-											.domain('position')
+											.domain('facet.position')
 											.range(Dimension.Height),
 									)
 									.mark(
 										rect('bars')
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value),
-												y: ({ d }, { pos }) => pos(d.position),
-												x2: (d, { x }) => x(0),
-												fill: ({ d }, { color }) => color(d.position),
-												height: (d, { rowHeight }) => rowHeight(),
+												x: ({ d, x }) => x(d.value),
+												y: ({ d, pos }) => pos(d.position),
+												x2: ({ x }) => x(0),
+												fill: ({ d, color }) => color(d.position),
+												height: ({ rowHeight }) => rowHeight(),
 											}),
 										text()
 											.table('facet')
 											.encode({
-												x: ({ d }, { x }) => x(d.value) - 3,
-												y: ({ d }, { pos, rowHeight }) =>
+												x: ({ d, x }) => x(d.value) - 3,
+												y: ({ d, pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
 												fill: () => 'white',
 												align: () => HorizontalAlignment.Right,

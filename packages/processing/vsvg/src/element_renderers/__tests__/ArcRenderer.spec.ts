@@ -19,7 +19,7 @@ describe('The Arc Renderer', () => {
 		arc.stroke = 'blue'
 		mark.items.push(arc)
 
-		const result = renderMark(mark)
+		const result = renderMark(mark, { nextId: () => 'id' })
 		expect(result).toMatchSnapshot()
 	})
 })

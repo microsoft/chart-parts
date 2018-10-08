@@ -7,7 +7,7 @@ export interface FooterProps {
   style?: React.CSSProperties
 }
 const Footer: React.SFC<FooterProps> = style => (
-  <Container style={style}>
+  <Container style={style as any}>
     <FooterColumn>
       <WithLove>with ♥ from Microsoft</WithLove>
     </FooterColumn>

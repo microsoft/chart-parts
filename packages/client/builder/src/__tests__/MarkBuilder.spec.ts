@@ -30,12 +30,14 @@ describe('The Mark Builder', () => {
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
-		const zIndexEncoding = built.encodings.zIndex
-		expect(zIndexEncoding(undefined, undefined)).toEqual(3)
+		const zIndexEncoding = built.encodings.zIndex as any
+		expect(zIndexEncoding(undefined as any, undefined as any)).toEqual(3)
 	})
 
 	it('can unset the z-index', () => {
-		const builder = new MarkBuilder(MarkType.Rect).zIndex(3).zIndex(undefined)
+		const builder = new MarkBuilder(MarkType.Rect)
+			.zIndex(3)
+			.zIndex(undefined as any)
 
 		const built = builder.build()
 		const zIndexEncoding = built.encodings.zIndex
@@ -48,8 +50,8 @@ describe('The Mark Builder', () => {
 			.facet({ name: 'data_part', table: 'data', groupBy: 'x' })
 
 		const built = builder.build()
-		expect(built.facet.name).toEqual('data_part')
-		expect(built.facet.groupBy).toBeDefined()
+		expect((built.facet as any).name).toEqual('data_part')
+		expect((built.facet as any).groupBy).toBeDefined()
 	})
 
 	it('throws if data faceting is defined for a non-group marktype', () => {
@@ -88,7 +90,7 @@ describe('The Mark Builder', () => {
 
 		it('throws if the single-channel handler api is invoked without a handler function', () => {
 			expect(() =>
-				new MarkBuilder(MarkType.Rect).handle('click', undefined),
+				new MarkBuilder(MarkType.Rect).handle('click', undefined as any),
 			).toThrow('handler function must be defined for handler click')
 		})
 	})
@@ -100,8 +102,12 @@ describe('The Mark Builder', () => {
 				.encode(MarkEncodingKey.y, () => 4)
 			const built = builder.build()
 
-			expect(built.encodings.x(undefined, undefined)).toEqual(3)
-			expect(built.encodings.y(undefined, undefined)).toEqual(4)
+			expect(
+				(built.encodings as any).x(undefined as any, undefined as any),
+			).toEqual(3)
+			expect(
+				(built.encodings as any).y(undefined as any, undefined as any),
+			).toEqual(4)
 		})
 
 		it('can handle encodings map', () => {
@@ -111,20 +117,27 @@ describe('The Mark Builder', () => {
 			})
 			const built = builder.build()
 
-			expect(built.encodings.x(undefined, undefined)).toEqual(3)
-			expect(built.encodings.y(undefined, undefined)).toEqual(4)
+			expect(
+				(built.encodings as any).x(undefined as any, undefined as any),
+			).toEqual(3)
+			expect(
+				(built.encodings as any).y(undefined as any, undefined as any),
+			).toEqual(4)
 		})
 
 		it('throws if the single-encoding handler api is invoked without a handler function', () => {
 			expect(() =>
-				new MarkBuilder(MarkType.Rect).encode(MarkEncodingKey.x, undefined),
+				new MarkBuilder(MarkType.Rect).encode(
+					MarkEncodingKey.x,
+					undefined as any,
+				),
 			).toThrow('encoding must be defined for key x')
 		})
 	})
 
 	describe('error conditions', () => {
 		it('throws if the mark types is not set when being built', () => {
-			expect(() => new MarkBuilder(undefined).build()).toThrow(
+			expect(() => new MarkBuilder(undefined as any).build()).toThrow(
 				'mark type must be set',
 			)
 		})
