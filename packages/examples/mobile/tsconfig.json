@@ -1,12 +1,9 @@
 {
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-        "jsx": "react",
-        "lib": ["esnext"],
-        "outDir": "lib"
-    },
-    "files": [
-        "node_modules/@chart-parts/react-native-svg-renderer/canvas.d.ts",
-        "src/index.ts"
-    ]
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"jsx": "react",
+		"lib": ["esnext"],
+		"outDir": "lib"
+	},
+	"files": ["src/index.ts"]
 }

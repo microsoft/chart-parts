@@ -11,9 +11,34 @@ module.exports = {
 		'd3-scale': path.resolve(__dirname, 'node_modules/d3-scale'),
 		'd3-shape': path.resolve(__dirname, 'node_modules/d3-shape'),
 		'd3-time-format': path.resolve(__dirname, 'node_modules/d3-time-format'),
+
+		'@chart-parts/builder': path.resolve(__dirname, '../../client/builder'),
+		'@chart-parts/interfaces': path.resolve(
+			__dirname,
+			'../../client/interfaces',
+		),
+		'@chart-parts/react': path.resolve(__dirname, '../../client/react'),
+		'@chart-parts/testdata': path.resolve(__dirname, '../../examples/testdata'),
+		'@chart-parts/orchestrator': path.resolve(
+			__dirname,
+			'../../processing/orchestrator',
+		),
+		'@chart-parts/scene': path.resolve(__dirname, '../../processing/scene'),
+		'@chart-parts/scenegraph': path.resolve(
+			__dirname,
+			'../../processing/scenegraph',
+		),
+		'@chart-parts/vsvg': path.resolve(__dirname, '../../processing/vsvg'),
+		'@chart-parts/scales': path.resolve(__dirname, '../../util/scales'),
+		'@chart-parts/shapes': path.resolve(__dirname, '../../util/shapes'),
+		'@chart-parts/transform': path.resolve(__dirname, '../../util/transform'),
+		'@chart-parts/react-native-svg-renderer': path.resolve(
+			__dirname,
+			'../../renderers/react-native-svg',
+		),
 	},
 	getProjectRoots: () => [
-		// Include current package as project root
+		//Include current package as project root
 		path.resolve(__dirname),
 		// Include symlinked packages as project roots
 		path.resolve('../../client/builder'),

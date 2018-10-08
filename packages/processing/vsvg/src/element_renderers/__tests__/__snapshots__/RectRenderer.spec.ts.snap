@@ -9,6 +9,8 @@ Object {
       },
       "children": Array [
         Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
           "attrs": Object {
             "d": "M0,0h100v100h-100Z",
             "fill": "red",

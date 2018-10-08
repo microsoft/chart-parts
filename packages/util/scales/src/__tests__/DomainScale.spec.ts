@@ -38,7 +38,7 @@ describe('The Domain Scale', () => {
 		}
 		const scale = new TestableDomainScale()
 			.name('testable')
-			.domain(arg => arg.data.data.map(d => d.x))
+			.domain((arg: any) => arg.data.data.map((d: any) => d.x))
 
 		scale.build(context)
 		expect(scale.generatedDomain).toEqual([10, 1, 100, 50])

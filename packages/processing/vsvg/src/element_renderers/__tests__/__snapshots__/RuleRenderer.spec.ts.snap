@@ -9,6 +9,8 @@ Object {
       },
       "children": Array [
         Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
           "attrs": Object {
             "fill": "none",
             "stroke": "none",
@@ -46,6 +48,8 @@ Object {
       },
       "children": Array [
         Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
           "attrs": Object {
             "fill": "none",
             "stroke": "none",
@@ -83,6 +87,8 @@ Object {
       },
       "children": Array [
         Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
           "attrs": Object {
             "fill": "none",
             "stroke": "none",
@@ -120,6 +126,8 @@ Object {
       },
       "children": Array [
         Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
           "attrs": Object {
             "fill": "none",
             "stroke": "none",

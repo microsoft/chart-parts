@@ -28,7 +28,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 */
 	public domain(arg?: string | DomainCreator<Domain> | Domain) {
 		if (typeof arg === 'function') {
-			this.domainValue = arg
+			this.domainValue = arg as DomainCreator<Domain>
 		} else if (Array.isArray(arg)) {
 			this.domainValue = () => arg as Domain
 		} else if (arg !== undefined && typeof arg === 'string') {

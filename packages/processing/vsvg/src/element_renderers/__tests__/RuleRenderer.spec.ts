@@ -3,6 +3,8 @@ import { Mark } from '@chart-parts/scenegraph/lib/elements/Mark'
 import { RuleItem } from '@chart-parts/scenegraph/lib/elements/items/RuleItem'
 import { renderMark } from '../'
 
+const ctx = { nextId: () => 'id' }
+
 describe('The Rule Renderer', () => {
 	it('can render a rule with an x, y, and x2 value', () => {
 		const mark = new Mark()
@@ -14,7 +16,7 @@ describe('The Rule Renderer', () => {
 		rule.x2 = 100
 		mark.items.push(rule)
 
-		const rendered = renderMark(mark)
+		const rendered = renderMark(mark, ctx)
 		expect(rendered).toMatchSnapshot()
 	})
 
@@ -28,7 +30,7 @@ describe('The Rule Renderer', () => {
 		rule.y2 = 100
 		mark.items.push(rule)
 
-		const rendered = renderMark(mark)
+		const rendered = renderMark(mark, ctx)
 		expect(rendered).toMatchSnapshot()
 	})
 
@@ -42,7 +44,7 @@ describe('The Rule Renderer', () => {
 		rule.x2 = 25
 		mark.items.push(rule)
 
-		const rendered = renderMark(mark)
+		const rendered = renderMark(mark, ctx)
 		expect(rendered).toMatchSnapshot()
 	})
 
@@ -56,7 +58,7 @@ describe('The Rule Renderer', () => {
 		rule.y2 = 25
 		mark.items.push(rule)
 
-		const rendered = renderMark(mark)
+		const rendered = renderMark(mark, ctx)
 		expect(rendered).toMatchSnapshot()
 	})
 })

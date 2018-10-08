@@ -1,0 +1,16 @@
+{
+	"include": "/**/*.js",
+	"exclude": ["/node_modules/*", ".babelrc", ".git"],
+	"dependencies": {
+		"@chart-parts/react": "../../client/react",
+		"@chart-parts/interfaces": "../../client/interfaces",
+		"@chart-parts/builder": "../../client/builder",
+		"@chart-parts/orchestrator": "../../processing/orchestrator",
+		"@chart-parts/scene": "../../processing/scene",
+		"@chart-parts/scenegraph": "../../processing/scenegraph",
+		"@chart-parts/vsvg": "../../processing/vsvg",
+		"@chart-parts/scales": "../../util/scales",
+		"@chart-parts/shapes": "../../util/shapes",
+		"@chart-parts/transform": "../../util/transform"
+	}
+}

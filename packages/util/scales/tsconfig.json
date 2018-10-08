@@ -1,12 +1,13 @@
 {
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-        "lib": ["esnext", "dom"],
-        "declaration": true,
-        "outDir": "lib",
-        "experimentalDecorators": true
-    },
-    "files": [
-        "src/index.ts"
-    ]
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"lib": ["esnext", "dom"],
+		"declaration": true,
+		"outDir": "lib",
+		"experimentalDecorators": true,
+		"composite": true
+	},
+	"files": ["src/index.ts"],
+	"include": ["./src/**/*.ts*"],
+	"references": [{ "path": "../../client/interfaces" }]
 }

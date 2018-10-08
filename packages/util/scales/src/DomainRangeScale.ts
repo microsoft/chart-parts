@@ -19,7 +19,7 @@ export abstract class DomainRangeScale<
 		arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range,
 	) {
 		if (typeof arg === 'function') {
-			this.rangeValue = arg
+			this.rangeValue = arg as ((args: ScaleCreationContext) => Range)
 		} else if (Array.isArray(arg)) {
 			this.rangeValue = () => arg as Range
 		} else if (typeof arg !== undefined) {

@@ -1,6 +1,7 @@
 import { GroupItem } from '../elements'
-import { sceneToJSON, parseScene } from '../parse'
+import { parseScene } from '../parse'
 
+declare var require: any
 // tslint:disable-next-line
 const barley = require('./barley.json')
 

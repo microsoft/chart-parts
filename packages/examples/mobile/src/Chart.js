@@ -1,12 +1,11 @@
-// tslint:disable jsx-no-object-literal-props jsx-no-lambda jsx-no-lambda-props
 import * as React from 'react'
 import { FlatList, View } from 'react-native'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-native-svg-renderer'
-import { testCharts, TestScenegraph } from '@chart-parts/testdata'
+import { testCharts } from '@chart-parts/testdata'
 
 const pipeline = new Orchestrator(new Renderer())
-const renderChart = (chart: TestScenegraph) =>
+const renderChart = chart =>
 	pipeline.renderScenegraph(chart.scenegraph, chart.dimensions)
 
 export default () => (

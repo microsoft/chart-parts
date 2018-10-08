@@ -3,8 +3,10 @@ import { AxisBuilder } from '../AxisBuilder'
 
 describe('The Axis builder', () => {
 	it('throws if built with an invalid scale name or orientation', () => {
-		expect(() => new AxisBuilder(undefined, AxisOrientation.Bottom)).toThrow()
-		expect(() => new AxisBuilder('x', undefined)).toThrow()
+		expect(
+			() => new AxisBuilder(undefined as any, AxisOrientation.Bottom),
+		).toThrow()
+		expect(() => new AxisBuilder('x', undefined as any)).toThrow()
 	})
 
 	it('can be constructed', () => {
@@ -41,7 +43,7 @@ describe('The Axis builder', () => {
 			.labelFontSize(200)
 			.labelColor('#ff')
 			.labelPadding(20)
-			.labelFontWeight(10)
+			.labelFontWeight('100')
 			.labelAngle(25)
 			.labelFormat('%xx')
 
@@ -59,13 +61,13 @@ describe('The Axis builder', () => {
 		expect(built.tickSize).toEqual(10)
 		expect(built.tickWidth).toEqual(100)
 		expect(built.bandPosition).toEqual(0)
-		expect(built.values.length).toEqual(2)
+		expect((built.values as any).length).toEqual(2)
 		expect(built.labels).toBe(false)
 		expect(built.labelFont).toBe('sans derp')
 		expect(built.labelFontSize).toEqual(200)
 		expect(built.labelColor).toEqual('#ff')
 		expect(built.labelPadding).toEqual(20)
-		expect(built.labelFontWeight).toEqual(10)
+		expect(built.labelFontWeight).toEqual('100')
 		expect(built.labelAngle).toEqual(25)
 		expect(built.labelFormat).toEqual('%xx')
 	})

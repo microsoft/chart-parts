@@ -1,13 +1,13 @@
 {
-    "extends": "../../../tsconfig.json",
-    "compilerOptions": {
-        "lib": ["esnext"], 
-        "declaration": true,
-        "strict": false,
-        "outDir": "lib"
-    },
-    "files": [
-        "canvas.d.ts",
-        "src/index.ts"
-    ]
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"lib": ["esnext"],
+		"declaration": true,
+		"strict": false,
+		"outDir": "lib",
+		"composite": true
+	},
+	"files": ["src/index.ts"],
+	"include": ["./src/**/*.ts*"],
+	"references": [{ "path": "../../client/interfaces" }]
 }
