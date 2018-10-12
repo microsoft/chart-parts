@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { MarkType, Facet } from '@chart-parts/interfaces'
 import { SceneNodeBuilder, MarkBuilder } from '@chart-parts/builder'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'

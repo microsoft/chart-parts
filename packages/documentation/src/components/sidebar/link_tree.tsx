@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable no-var-requires no-submodule-imports
 import * as React from 'react'
 import { TreeNode } from './interfaces'

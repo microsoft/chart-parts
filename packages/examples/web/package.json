@@ -7,7 +7,7 @@
 		"storybook": "start-storybook -p 6006",
 		"start": "npm run storybook",
 		"build-storybook": "build-storybook",
-		"lint": "tslint src/**/*.ts*"
+		"lint": "tslint 'stories/**/*.ts' 'stories/**/*.tsx'"
 	},
 	"dependencies": {
 		"@chart-parts/orchestrator": "^0.0.17",

@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable jsx-no-lambda
 import * as React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
@@ -18,22 +23,22 @@ export default class Header extends React.PureComponent<HeaderProps> {
     return (
       <StaticQuery
         query={graphql`
-        query {
-          site {
-            siteMetadata {
-              title
-              githubUrl
+          query {
+            site {
+              siteMetadata {
+                title
+                githubUrl
+              }
             }
           }
-        }
-      `}
+        `}
         render={({
           site: {
             siteMetadata: { title, githubUrl },
           },
         }: any) => (
           <Container>
-            <InnerContainer  style={{opacity}}>
+            <InnerContainer style={{ opacity }}>
               <Title>
                 <TitleLink to={logoTo}>{title}</TitleLink>
               </Title>

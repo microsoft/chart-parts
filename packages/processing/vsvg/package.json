@@ -10,7 +10,7 @@
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
 		"build": "tsc -b",
-		"lint": "tslint src/**/*.ts*"
+		"lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
 	},
 	"devDependencies": {
 		"@chart-parts/scenegraph": "^0.0.17",

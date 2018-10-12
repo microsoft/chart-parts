@@ -1,7 +1,11 @@
 {
 	"extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
 	"rules": {
-		"variable-name": false, 
+		"variable-name": false,
+		"file-header": [
+			true, 
+			"Copyright \\(c\\) Microsoft.*", 
+			"Copyright (c) Microsoft. All rights reserved.\nLicensed under the MIT license. See LICENSE file in the project."],
 		
 		// Turned off because these rules suck
 		"interface-name": false,

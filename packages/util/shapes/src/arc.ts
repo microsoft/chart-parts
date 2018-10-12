@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 export const segmentCache: { [key: string]: any } = {}
 export const bezierCache: { [key: string]: any } = {}
 
@@ -27,7 +32,7 @@ export function segments(
 	ry = Math.abs(ry)
 	const px = cos_th * (ox - x) * 0.5 + sin_th * (oy - y) * 0.5
 	const py = cos_th * (oy - y) * 0.5 - sin_th * (ox - x) * 0.5
-	let pl = px * px / (rx * rx) + py * py / (ry * ry)
+	let pl = (px * px) / (rx * rx) + (py * py) / (ry * ry)
 	if (pl > 1) {
 		pl = Math.sqrt(pl)
 		rx *= pl
@@ -68,8 +73,8 @@ export function segments(
 	const segs = Math.ceil(Math.abs(th_arc / (Math.PI * 0.5 + 0.001)))
 	const result: number[][] = []
 	for (let i = 0; i < segs; ++i) {
-		const th2 = th0 + i * th_arc / segs
-		const th3 = th0 + (i + 1) * th_arc / segs
+		const th2 = th0 + (i * th_arc) / segs
+		const th3 = th0 + ((i + 1) * th_arc) / segs
 		result[i] = [xc, yc, th2, th3, rx, ry, sin_th, cos_th]
 	}
 
@@ -103,7 +108,7 @@ export function bezier(params: any) {
 
 	const th_half = 0.5 * (th1 - th0)
 	const sin_th_h2 = Math.sin(th_half * 0.5)
-	const t = 8 / 3 * sin_th_h2 * sin_th_h2 / Math.sin(th_half)
+	const t = ((8 / 3) * sin_th_h2 * sin_th_h2) / Math.sin(th_half)
 	const x1 = cx + cos_th0 - t * sin_th0
 	const y1 = cy + sin_th0 + t * cos_th0
 	const x3 = cx + cos_th1

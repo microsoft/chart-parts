@@ -10,7 +10,7 @@
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
 		"build": "tsc -b",
-		"lint": "tslint src/**/*.ts*"
+		"lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
 	},
 	"devDependencies": {
 		"@types/react": "^16.4.10",

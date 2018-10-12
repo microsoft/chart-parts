@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
 import { SceneFrame } from '../SceneFrame'
 import { AxisSpace } from '../../interfaces'

@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // Path parsing and rendering code adapted from fabric.js -- Thanks!
 const cmdlen: { [key: string]: number } = {
 	m: 2,

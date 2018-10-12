@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import * as React from 'react'
 import { AxisOrientation, TickValue } from '@chart-parts/interfaces'
 import { SceneNodeBuilder, axis } from '@chart-parts/builder'

@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable no-this-assignment no-submodule-imports no-var-requires
 import { ChartOptions, SceneNode, DataFrame } from '@chart-parts/interfaces'
 import { ChartOptionsManager } from '@chart-parts/builder'

@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { scaleLinear } from 'd3-scale'
 import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'

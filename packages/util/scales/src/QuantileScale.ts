@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { ScaleQuantile, scaleQuantile } from 'd3-scale'
 import { DomainRangeScale } from './DomainRangeScale'

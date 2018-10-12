@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable no-this-assignment
 import { SceneNode, ScaleCreator, ScaleBuilder } from '@chart-parts/interfaces'
 import { MarkBuilder } from './MarkBuilder'

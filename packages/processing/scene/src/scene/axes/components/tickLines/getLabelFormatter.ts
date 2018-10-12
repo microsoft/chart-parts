@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { Scale } from '@chart-parts/interfaces'
 import { timeFormat } from 'd3-time-format'
 import { format } from 'd3-format'
