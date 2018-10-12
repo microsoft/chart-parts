@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import BarChart from './bar-chart'
 import BarChartWithMean from './bar-chart-with-mean'
 import GroupedBarChart from './grouped-bar-chart'

@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { Dimension } from '@chart-parts/interfaces'
 import { band } from '@chart-parts/scales'
 import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'

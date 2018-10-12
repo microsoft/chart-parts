@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable max-classes-per-file no-var-requires no-submodule-imports
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from './DomainScale'

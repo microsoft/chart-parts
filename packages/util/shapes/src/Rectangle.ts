@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { path, Path } from 'd3-path'
 import { SGRectItem } from '@chart-parts/interfaces'
 import { Xform } from './util'

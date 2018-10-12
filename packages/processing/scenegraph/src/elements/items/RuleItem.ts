@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { MarkType, SGRuleItem } from '@chart-parts/interfaces'
 import { Item } from './Item'
 

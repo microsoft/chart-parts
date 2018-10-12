@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import ArcTester from './arc-tester'
 import AreaTesterHorizontal from './area-tester-horizontal'
 import AreaTesterVertical from './area-tester-vertical'

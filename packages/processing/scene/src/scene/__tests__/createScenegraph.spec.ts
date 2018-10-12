@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { scene, area } from '@chart-parts/builder'
 import { createScenegraph } from '../index'
 import { ChartOptions } from '@chart-parts/interfaces'

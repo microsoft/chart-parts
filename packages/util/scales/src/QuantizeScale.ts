@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { scaleQuantize, ScaleQuantize } from 'd3-scale'
 import { extent } from 'd3-array'

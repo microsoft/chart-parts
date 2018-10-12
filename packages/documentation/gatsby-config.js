@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 //
 // This metadata is used by Gatsby to populate the 'siteMetadata' information in the GraphQL services
 //

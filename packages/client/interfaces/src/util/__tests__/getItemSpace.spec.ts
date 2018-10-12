@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 // tslint:disable no-submodule-imports no-implicit-dependencies
 import { RectItem } from '@chart-parts/scenegraph/lib/elements/items/RectItem'
 import { getItemSpace } from '../getItemSpace'

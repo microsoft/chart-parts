@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 import * as React from 'react'
 import { Axis, Chart, Rect, LinearScale, BandScale } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-native-svg-renderer'

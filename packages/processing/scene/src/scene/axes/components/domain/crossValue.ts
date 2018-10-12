@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { Axis, AxisOrientation } from '@chart-parts/interfaces'
 
 export function crossValue(axis: Axis, thickness: number): number {

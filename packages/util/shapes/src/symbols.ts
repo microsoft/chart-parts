@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { Path, path } from 'd3-path'
 import pathParse from './parse'
 import pathRender from './render'

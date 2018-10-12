@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 /**
  * Adapted from https://vega.github.io/vega/examples/population-pyramid/
  */

@@ -72,7 +72,7 @@
     "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t",
     "clean_release": "run-s clean build release",
     "release": "run-s build_static_site publish_gh_pages",
-    "lint": "tslint src/**/*.ts*"
+    "lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
   },
   "devDependencies": {
     "gh-pages": "^1.2.0",

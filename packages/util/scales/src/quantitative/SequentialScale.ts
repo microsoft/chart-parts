@@ -1,3 +1,8 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
 import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
