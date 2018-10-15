@@ -11,7 +11,7 @@ console.log('Render App', Chart, Charts)
 
 const App = () => (
 	<View style={styles.container}>
-		<Chart />
+		<Charts />
 	</View>
 )
 
