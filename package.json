@@ -38,7 +38,7 @@
 		"tslint": "^5.11.0",
 		"tslint-config-prettier": "^1.14.0",
 		"tslint-react": "^3.6.0",
-		"typescript": "^3.1.1"
+		"typescript": "^3.1.3"
 	},
 	"prettier": {
 		"singleQuote": true,
@@ -56,33 +56,15 @@
 	"workspaces": {
 		"packages": [
 			"packages/documentation",
-			"packages/examples/*",
+			"packages/examples/testdata",
+			"packages/examples/web",
 			"packages/renderers/*",
 			"packages/processing/*",
 			"packages/client/*",
 			"packages/util/*"
 		],
 		"nohoist": [
-			"**/@types/*",
-			"**/@types/*/**",
-			"**/@types/react-native",
-			"**/@types/react-native/**",
-			"**/@types/react-dom",
-			"**/@types/react-dom/**",
-			"**/react-native",
-			"**/react-native/**",
-			"**/react-native-svg",
-			"**/react-native-svg/**",
-			"**/react-dom",
-			"**/react-dom/**",
-			"@chart-parts/examples-mobile/**",
-			"@chart-parts/documentation/**",
-			"@chart-parts/react-svg-renderer",
-			"@chart-parts/react-svg-renderer/**",
-			"@chart-parts/react-native-svg-renderer",
-			"@chart-parts/react-native-svg-renderer/**",
-			"**/@chart-parts/react-native-svg-renderer/**",
-			"@chart-parts/examples-web/**"
+			"**"
 		]
 	},
 	"jest": {

@@ -3,8 +3,10 @@
 	"compilerOptions": {
 		"lib": ["esnext"],
 		"declaration": true,
+		"composite": true,
 		"outDir": "lib",
-		"composite": true
+		"rootDir": "./src",
+		"baseUrl": "./src",
 	},
 	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"]

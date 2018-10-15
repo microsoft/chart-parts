@@ -3,7 +3,9 @@
     "compilerOptions": {
         "lib": ["esnext"],        
         "declaration": true,
-        "outDir": "lib"
+        "outDir": "lib",
+		"rootDir": "./src",
+		"baseUrl": "./src"
     },
     "files": [
         "src/index.ts"

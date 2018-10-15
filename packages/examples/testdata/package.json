@@ -1,11 +1,11 @@
 {
 	"name": "@chart-parts/testdata",
 	"description": "Test data for charts",
-	"private": true,
 	"version": "0.0.17",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
+	"license": "MIT",
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
@@ -15,7 +15,7 @@
 	"devDependencies": {
 		"rimraf": "^2.6.2",
 		"tslint": "^5.11.0",
-		"typescript": "^3.1.1"
+		"typescript": "^3.1.3"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.17",
