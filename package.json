@@ -56,7 +56,8 @@
 	"workspaces": {
 		"packages": [
 			"packages/documentation",
-			"packages/examples/*",
+			"packages/examples/testdata",
+			"packages/examples/web",
 			"packages/renderers/*",
 			"packages/processing/*",
 			"packages/client/*",
@@ -75,7 +76,6 @@
 			"**/react-native-svg/**",
 			"**/react-dom",
 			"**/react-dom/**",
-			"@chart-parts/examples-mobile/**",
 			"@chart-parts/documentation/**",
 			"@chart-parts/react-svg-renderer",
 			"@chart-parts/react-svg-renderer/**",
