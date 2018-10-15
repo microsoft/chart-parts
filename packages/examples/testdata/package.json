@@ -1,7 +1,6 @@
 {
 	"name": "@chart-parts/testdata",
 	"description": "Test data for charts",
-	"private": true,
 	"version": "0.0.17",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
