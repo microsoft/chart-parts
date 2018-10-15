@@ -4,7 +4,9 @@
 		"lib": ["esnext", "dom"],
 		"declaration": true,
 		"outDir": "lib",
-		"composite": true
+		"composite": true,
+		"rootDir": "./src",
+		"baseUrl": "./src"
 	},
 	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"],

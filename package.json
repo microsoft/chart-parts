@@ -64,25 +64,7 @@
 			"packages/util/*"
 		],
 		"nohoist": [
-			"**/@types/*",
-			"**/@types/*/**",
-			"**/@types/react-native",
-			"**/@types/react-native/**",
-			"**/@types/react-dom",
-			"**/@types/react-dom/**",
-			"**/react-native",
-			"**/react-native/**",
-			"**/react-native-svg",
-			"**/react-native-svg/**",
-			"**/react-dom",
-			"**/react-dom/**",
-			"@chart-parts/documentation/**",
-			"@chart-parts/react-svg-renderer",
-			"@chart-parts/react-svg-renderer/**",
-			"@chart-parts/react-native-svg-renderer",
-			"@chart-parts/react-native-svg-renderer/**",
-			"**/@chart-parts/react-native-svg-renderer/**",
-			"@chart-parts/examples-web/**"
+			"**"
 		]
 	},
 	"jest": {

@@ -3,7 +3,9 @@
 	"compilerOptions": {
 		"jsx": "react",
 		"lib": ["esnext"],
-		"outDir": "lib"
+		"outDir": "lib",
+		"rootDir": "./src",
+		"baseUrl": "./src"
 	},
 	"files": ["src/index.ts"]
 }
