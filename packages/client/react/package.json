@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/react",
 	"description": "React components for specifying data visualizations",
-	"version": "0.0.17",
+	"version": "0.0.18",
 	"main": "lib/index.js",
 	"module": "lib/index.js",
 	"types": "lib/index.d.ts",
@@ -20,10 +20,10 @@
 		"typescript": "^3.1.3"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.0.17",
-		"@chart-parts/interfaces": "^0.0.17",
-		"@chart-parts/orchestrator": "^0.0.17",
-		"@chart-parts/scales": "^0.0.17",
+		"@chart-parts/builder": "^0.0.18",
+		"@chart-parts/interfaces": "^0.0.18",
+		"@chart-parts/orchestrator": "^0.0.18",
+		"@chart-parts/scales": "^0.0.18",
 		"lodash": "^4.17.10",
 		"shallowequal": "^1.1.0"
 	},
