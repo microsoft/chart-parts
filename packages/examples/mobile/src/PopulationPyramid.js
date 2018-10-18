@@ -115,7 +115,7 @@ const FPerYear = () => (
         table="females"
         xRange={[chartSegmentWidth, 0]}
     />
-)``
+)
 
 const MPerYear = () => (
     <GenderPerYearSection

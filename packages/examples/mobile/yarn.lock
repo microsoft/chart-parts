@@ -645,56 +645,56 @@
     lodash "^4.17.10"
     to-fast-properties "^2.0.0"
 
-"@chart-parts/builder@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/builder/-/builder-0.0.18.tgz#80534b3493327223dea6e6e5dab5a03a58bae791"
-  integrity sha1-gFNLNJMyciPepubl2rWgOli655E=
+"@chart-parts/builder@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/builder/-/builder-0.0.20.tgz#633430686c5ef9371a1f558056574e9461da5e66"
+  integrity sha512-84jtS/DDiFww9zabUkHsGeS5WxG9iMu6piw20FPChl1FuVgF5SyDq+ORpmCWmwEQV7qjdoeqYY2mY+OWwem21w==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
     lodash "^4.17.10"
 
-"@chart-parts/interfaces@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/interfaces/-/interfaces-0.0.18.tgz#d01f4848fb0b2772982ca73bb9df17b8dc8b307c"
-  integrity sha1-0B9ISPsLJ3KYLKc7ud8XuNyLMHw=
+"@chart-parts/interfaces@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/interfaces/-/interfaces-0.0.20.tgz#45b44ce8a15221c0405b476f1732126a7c17bf2d"
+  integrity sha512-z5HkJMQTRwx0Kni8yBuDLL/yHGGmb5QKvCmJj/xr+1CJRsyZcuBt9n8wRESCsXl8N/vR/GFChsssFu+jEyEb7A==
 
-"@chart-parts/orchestrator@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/orchestrator/-/orchestrator-0.0.18.tgz#e7d609a94d301bcb1750f9032fa031a63be56f8c"
-  integrity sha1-59YJqU0wG8sXUPkDL6Axpjvlb4w=
+"@chart-parts/orchestrator@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/orchestrator/-/orchestrator-0.0.20.tgz#ea2eea9e371cb4ed3ab7462af5b4b16685c0e0d0"
+  integrity sha512-ArqBVpC1PJ8HC8u7VXwBKCFN0vCXRTyCZK06hC+w+DyVjjopT6IvuLzc8moZjnTk8QV6K+gapas5PjpqiVlV9w==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
-    "@chart-parts/scene" "^0.0.18"
-    "@chart-parts/scenegraph" "^0.0.18"
-    "@chart-parts/vsvg" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
+    "@chart-parts/scene" "^0.0.20"
+    "@chart-parts/scenegraph" "^0.0.20"
+    "@chart-parts/vsvg" "^0.0.20"
 
-"@chart-parts/react-native-svg-renderer@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/react-native-svg-renderer/-/react-native-svg-renderer-0.0.18.tgz#46b514dc5af0fbc4c55fe1dda8ef9974d49fb24b"
-  integrity sha1-RrUU3Frw+8TFX+HdqO+ZdNSfsks=
+"@chart-parts/react-native-svg-renderer@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/react-native-svg-renderer/-/react-native-svg-renderer-0.0.20.tgz#077168cfc7410b3ccb08a34ffe4aac6195e1d2ab"
+  integrity sha512-Sxi2bNuztwGUpZMpBOEzYMC17jLJEpB3/tLp7zaoPAwKKGweRoUi5VwDRt/+lR5NkFXqhoZXT19aJQd3IWkuhQ==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
     lodash "^4.17.10"
     react-native-svg "^7.0.3"
 
-"@chart-parts/react@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/react/-/react-0.0.18.tgz#e6c3ec53d60aa53946a3ef97e845ec4079a49064"
-  integrity sha1-5sPsU9YKpTlGo++X6EXsQHmkkGQ=
+"@chart-parts/react@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/react/-/react-0.0.20.tgz#c47ec4de2b0627a3ee66cd9aae75ebd520d2a94a"
+  integrity sha512-rwNbbaCalBDUgkjiNpAf1beBA1p8EHjIoNMp/4NfE1W90B8BXq1kNoi3dGVeZLvQ+jEdjXoMwaALcEObmItwpg==
   dependencies:
-    "@chart-parts/builder" "^0.0.18"
-    "@chart-parts/interfaces" "^0.0.18"
-    "@chart-parts/orchestrator" "^0.0.18"
-    "@chart-parts/scales" "^0.0.18"
+    "@chart-parts/builder" "^0.0.20"
+    "@chart-parts/interfaces" "^0.0.20"
+    "@chart-parts/orchestrator" "^0.0.20"
+    "@chart-parts/scales" "^0.0.20"
     lodash "^4.17.10"
     shallowequal "^1.1.0"
 
-"@chart-parts/scales@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/scales/-/scales-0.0.18.tgz#72873c383cb1f856a2b61e2216686ebe7a528766"
-  integrity sha1-coc8ODyx+Faith4iFmhuvnpSh2Y=
+"@chart-parts/scales@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/scales/-/scales-0.0.20.tgz#d551e4c78b9ceda25a70c43c3948720dd9bd1952"
+  integrity sha512-fAm0fRVIOZIq4XNxHkfHdetOnboIrc5v+gB37VUpjKCoC9cXkC3Ur5SLhtl0tx9xcNYeFCRUjDQHBPvOQYQv7Q==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
     "@types/d3-array" "^1.2.1"
     "@types/d3-interpolate" "^1.2.0"
     "@types/d3-scale" "^2.0.1"
@@ -703,63 +703,63 @@
     d3-scale "^2.1.0"
     lodash "^4.17.10"
 
-"@chart-parts/scene@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/scene/-/scene-0.0.18.tgz#5f9666e4aac9b5eba4febe9297a7944c73253f3e"
-  integrity sha1-X5Zm5KrJteuk/r6Sl6eUTHMlPz4=
+"@chart-parts/scene@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/scene/-/scene-0.0.20.tgz#40c5cc333c14514a7ded174bd3f818a072e1b33f"
+  integrity sha512-8YRPnoMNSMWgHyvlQQZL1vo4PiBXDjFWM2CuI7NxXYtFJyw+KA36C6Rn6RYZvS2AtwhlzSlrISD7huT0GYqN6A==
   dependencies:
-    "@chart-parts/builder" "^0.0.18"
-    "@chart-parts/interfaces" "^0.0.18"
-    "@chart-parts/scenegraph" "^0.0.18"
+    "@chart-parts/builder" "^0.0.20"
+    "@chart-parts/interfaces" "^0.0.20"
+    "@chart-parts/scenegraph" "^0.0.20"
     "@types/d3-format" "^1.3.0"
     "@types/d3-time-format" "^2.1.0"
     d3-format "^1.3.2"
     d3-time-format "^2.1.1"
     lodash "^4.17.10"
 
-"@chart-parts/scenegraph@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/scenegraph/-/scenegraph-0.0.18.tgz#6348978ab370e3c54ca15963e23ea4ec518d4326"
-  integrity sha1-Y0iXirNw48VMoVlj4j6k7FGNQyY=
+"@chart-parts/scenegraph@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/scenegraph/-/scenegraph-0.0.20.tgz#b4ec623c31175d3b552001f7c25a0bf37d653a50"
+  integrity sha512-PpV+d56v0W7hQJIJrBTjnuAS0v1ZUqdaik4Xo0JzR0YmZPqepgKWVv7saYGPp9FnNLFKDiOsAclTRRtqLF7nGA==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
 
-"@chart-parts/shapes@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/shapes/-/shapes-0.0.18.tgz#fabd6b67beec4c2f12fba3bd1768b995668c2391"
-  integrity sha1-+r1rZ77sTC8S+6O9F2i5lWaMI5E=
+"@chart-parts/shapes@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/shapes/-/shapes-0.0.20.tgz#c1ef3fdf157158fa6db1eeb8cffc1f02b27d891e"
+  integrity sha512-1bCdvHmtpq9AMuydZx8Q+9g4w0ZwVwhxV+Xu1cCBPobX/wIiOP0MPk35JcZ5hoxnr0i720SccwUGcWsPqdlucg==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
     "@types/d3-path" "^1.0.7"
     "@types/d3-shape" "^1.2.4"
     d3-path "^1.0.7"
     d3-shape "^1.2.2"
 
-"@chart-parts/testdata@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/testdata/-/testdata-0.0.18.tgz#8752c4f06e778233b06fa671e970a8bdd4728e1a"
-  integrity sha1-h1LE8G53gjOwb6Zx6XCovdRyjho=
+"@chart-parts/testdata@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/testdata/-/testdata-0.0.20.tgz#4000cbb192770d4f9f43e7e1b768c091fe950ec1"
+  integrity sha512-i2ysHYyo6iOkE3DScpG897YjBU4LOA+XMaSXN+k+TcR0WCUTCfdbAME4MuopDoHHl/w0xxe9wP3d1OU0x5aejA==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
-    "@chart-parts/scenegraph" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
+    "@chart-parts/scenegraph" "^0.0.20"
 
-"@chart-parts/transform@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/transform/-/transform-0.0.18.tgz#732e8e8fe0ed037e5f0b37dafa389dec71f11220"
-  integrity sha1-cy6Oj+DtA35fCzfa+jid7HHxEiA=
+"@chart-parts/transform@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/transform/-/transform-0.0.20.tgz#a4558f58b472e69fdfacd60daa299f5ce15df93d"
+  integrity sha512-4rb02FqYloPYNHrMO//7x7RtarV3SvDeyM14JekWlUTLrQJp1HmKDa9plo6DYQoBuqMDalBrllx3ZomUPxGG1g==
   dependencies:
     vega-dataflow "^4.0.4"
     vega-encode "^3.1.4"
     vega-transforms "^2.2.0"
     vega-util "^1.7.0"
 
-"@chart-parts/vsvg@^0.0.18":
-  version "0.0.18"
-  resolved "https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/@chart-parts/vsvg/-/vsvg-0.0.18.tgz#d3047e62ca50d30b30d2ceaec127f2dde3c547e5"
-  integrity sha1-0wR+YspQ0wsw0s6uwSfy3ePFR+U=
+"@chart-parts/vsvg@^0.0.20":
+  version "0.0.20"
+  resolved "https://registry.yarnpkg.com/@chart-parts/vsvg/-/vsvg-0.0.20.tgz#828f347cb4c5c351bf2a9d8578654c7fad461210"
+  integrity sha512-iJSu4WLD5yEPxUN+FNmLKeUy8qPIOmXSfJ8mnbYQ5nTwjA2ql59/IZKu2O1fSxSHi4KD+R64Df/3kAvJ+dTXTA==
   dependencies:
-    "@chart-parts/interfaces" "^0.0.18"
-    "@chart-parts/shapes" "^0.0.18"
+    "@chart-parts/interfaces" "^0.0.20"
+    "@chart-parts/shapes" "^0.0.20"
     "@types/d3-path" "^1.0.7"
     "@types/d3-shape" "^1.2.4"
     d3-path "^1.0.7"
