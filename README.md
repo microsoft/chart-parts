@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Microsoft/chart-parts.svg?branch=master)](https://travis-ci.org/Microsoft/chart-parts)
+
 # chart-parts
 
 A flexible, React-friendly, Grammar of Graphics for data visualization
