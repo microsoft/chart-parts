@@ -1,4 +1,5 @@
 import React from 'react'
+import { View, Slider, Text as RNText } from 'react-native'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
     Axis,
@@ -40,29 +41,24 @@ export default class PopulationPyramid extends React.Component {
             .addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
 
         return (
-            <PyramidChart data={ds.tables} />
+            <View>
+                <PyramidChart data={ds.tables} />
+                <Slider
+                    minimumValue={1850}
+                    maximumValue={2000}
+                    step={10}
+                    value={year}
+                    onValueChange={this.handleYearChange}
+                />
+                <RNText>{year}</RNText>
+            </View>
         )
     }
 
-    handleYearChanged = arg => {
-        const year = parseInt(arg.target.value, 10)
-        this.setState({ year })
+    handleYearChange = arg => {
+        this.setState({ year: arg })
     }
 }
-
-// const YearPicker = ({ year, onChange }) => (
-//     <div style={{ margin: 10, display: 'flex', alignItems: 'center' }}>
-//         <input
-//             type="range"
-//             min="1850"
-//             max="2000"
-//             step="10"
-//             value={year}
-//             onChange={onChange}
-//         />
-//         <p>{year}</p>
-//     </div>
-// )
 
 const PyramidChart = ({ data }) => (
     <Chart
