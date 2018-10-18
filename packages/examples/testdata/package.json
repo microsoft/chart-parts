@@ -20,5 +20,8 @@
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.19",
 		"@chart-parts/scenegraph": "^0.0.19"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

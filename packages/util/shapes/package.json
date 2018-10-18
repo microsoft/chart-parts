@@ -23,5 +23,8 @@
 		"@types/d3-shape": "^1.2.4",
 		"d3-path": "^1.0.7",
 		"d3-shape": "^1.2.2"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

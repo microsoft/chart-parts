@@ -22,5 +22,8 @@
 		"vega-encode": "^3.1.4",
 		"vega-transforms": "^2.2.0",
 		"vega-util": "^1.7.0"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

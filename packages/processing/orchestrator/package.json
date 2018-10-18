@@ -22,5 +22,8 @@
 		"@chart-parts/scene": "^0.0.19",
 		"@chart-parts/scenegraph": "^0.0.19",
 		"@chart-parts/vsvg": "^0.0.19"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

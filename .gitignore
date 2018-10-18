@@ -5,3 +5,4 @@ docs_generated/
 coverage/
 *.log
 .DS_Store
+*.tgz

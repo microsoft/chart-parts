@@ -21,5 +21,8 @@
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.19",
 		"lodash": "^4.17.10"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

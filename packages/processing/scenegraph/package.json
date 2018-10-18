@@ -19,5 +19,8 @@
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.19"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }

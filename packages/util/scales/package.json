@@ -26,5 +26,8 @@
 		"d3-interpolate": "^1.3.2",
 		"d3-scale": "^2.1.0",
 		"lodash": "^4.17.10"
+	},
+	"publishConfig": {
+		"access": "public"
 	}
 }
