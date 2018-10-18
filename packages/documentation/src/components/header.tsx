@@ -36,21 +36,23 @@ export default class Header extends React.PureComponent<HeaderProps> {
           site: {
             siteMetadata: { title, githubUrl },
           },
-        }: any) => (
-          <Container>
-            <InnerContainer style={{ opacity }}>
-              <Title>
-                <TitleLink to={logoTo}>{title}</TitleLink>
-              </Title>
-              <Links>
-                <OuterLink to="/">Home</OuterLink>
-                <OuterLink to="/documentation">Docs</OuterLink>
-                <OuterLink to="/blog">Blog</OuterLink>
-                <OuterLink to={githubUrl}>Github</OuterLink>
-              </Links>
-            </InnerContainer>
-          </Container>
-        )}
+        }: any) => {
+          return (
+            <Container>
+              <InnerContainer style={{ opacity }}>
+                <Title>
+                  <TitleLink to={logoTo}>{title}</TitleLink>
+                </Title>
+                <Links>
+                  <OuterLink to="/">Home</OuterLink>
+                  <OuterLink to="/documentation">Docs</OuterLink>
+                  <OuterLink to="/blog">Blog</OuterLink>
+                  <OuterLinkA href={githubUrl}>Github</OuterLinkA>
+                </Links>
+              </InnerContainer>
+            </Container>
+          )
+        }}
       />
     )
   }
@@ -92,6 +94,14 @@ const TitleLink = styled(Link)`
 `
 
 const OuterLink = styled(Link)`
+  color: white;
+  margin-left: 8px;
+  margin-right: 8px;
+  font-family: ${theme.text.fontFamily};
+  font-weight: 100;
+`
+
+const OuterLinkA = styled.a`
   color: white;
   margin-left: 8px;
   margin-right: 8px;
