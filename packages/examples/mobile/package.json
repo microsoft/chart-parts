@@ -22,7 +22,8 @@
 		"lodash": "^4.17.10",
 		"react": "16.6.0-alpha.8af6728",
 		"react-native": "^0.57.1",
-		"react-native-svg": "^7.0.3"
+		"react-native-svg": "^7.0.3",
+		"vega-datasets": "^1.19.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.1.0",
