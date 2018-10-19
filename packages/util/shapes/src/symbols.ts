@@ -24,7 +24,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			context.moveTo(r, 0)
 			context.arc(0, 0, r, 0, tau)
 			return context
@@ -35,7 +35,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			const s = r / 2.5
 			context.moveTo(-r, -s)
 			context.lineTo(-r, s)
@@ -58,7 +58,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			context.moveTo(-r, 0)
 			context.lineTo(0, -r)
 			context.lineTo(r, 0)
@@ -72,7 +72,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const w = size
+			const w = Math.sqrt(size)
 			const x = -w / 2
 			context.rect(x, x, w, w)
 			return context
@@ -83,7 +83,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			const h = halfSqrt3 * r
 			context.moveTo(0, -h)
 			context.lineTo(-r, h)
@@ -97,7 +97,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			const h = halfSqrt3 * r
 			context.moveTo(0, h)
 			context.lineTo(-r, -h)
@@ -111,7 +111,7 @@ const builtins: SymbolMap = {
 			if (!context) {
 				context = path()
 			}
-			const r = size / 2
+			const r = Math.sqrt(size) / 2
 			const h = halfSqrt3 * r
 			context.moveTo(h, 0)
 			context.lineTo(-h, -r)
