@@ -19,7 +19,8 @@ import {
 	areavShape,
 	areahShape,
 	lineShape,
-	symbolShape,
+	symbolWithArea,
+	symbolWithWidth,
 } from '@chart-parts/shapes'
 import curves from './curves'
 
@@ -55,5 +56,9 @@ export function rectangle(
 }
 
 export function symbol(item: SGSymbolItem, context?: Path) {
-	return symbolShape.context(context as any)(item)
+	if (item.width !== null) {
+		return symbolWithWidth.context(context as any)(item)
+	} else {
+		return symbolWithArea.context(context as any)(item)
+	}
 }
