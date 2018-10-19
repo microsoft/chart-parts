@@ -1,5 +1,5 @@
 ---
-title: 'Rect'
+title: 'Rect Mark'
 path: '/documentation/concepts/marks/rect'
 order: 6
 ---

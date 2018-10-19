@@ -56,7 +56,7 @@ export function rectangle(
 }
 
 export function symbol(item: SGSymbolItem, context?: Path) {
-	if (item.width !== null) {
+	if (item.width != null) {
 		return symbolWithWidth.context(context as any)(item)
 	} else {
 		return symbolWithArea.context(context as any)(item)

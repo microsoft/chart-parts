@@ -1,5 +1,5 @@
 ---
-title: 'Group'
+title: 'Group Mark'
 path: '/documentation/concepts/marks/group'
 order: 2
 ---

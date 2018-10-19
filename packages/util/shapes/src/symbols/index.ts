@@ -31,7 +31,9 @@ export interface SymbolMap {
 	[key: string]: SymbolRenderers
 }
 
-const getRadius = (area: number) => Math.sqrt(area) / 2
+const getRadius = (area: number) => {
+	return Math.sqrt(area) / 2
+}
 
 const builtins: SymbolMap = {
 	circle: {

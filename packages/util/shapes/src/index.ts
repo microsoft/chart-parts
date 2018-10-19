@@ -52,6 +52,7 @@ const symbolWidth = (item: SGSymbolItem) =>
 
 const rendererByArea = (item: SGSymbolItem) =>
 	symbols(item.shape || 'circle').byArea
+
 const rendererByWidth = (item: SGSymbolItem) =>
 	symbols(item.shape || 'circle').byWidth
 
