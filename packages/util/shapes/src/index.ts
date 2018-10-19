@@ -19,7 +19,7 @@ import {
 	SGGroupItem,
 } from '@chart-parts/interfaces'
 import { Rectangle } from './Rectangle'
-import symbols from './symbols'
+import { symbols } from './symbols'
 
 const x = (item: SGItem) => item.x || 0
 const x2 = (item: SGItem) => item.x2 || 0
@@ -36,8 +36,25 @@ const cr = (item: SGArcItem | SGRectItem | SGGroupItem) =>
 	item.cornerRadius || 0
 const def = (item: SGAreaItem | SGLineItem) =>
 	item.defined == null ? true : item.defined
+
+/**
+ * Extracts the symbol "size" from a scenegraph item - this is expressed as an area
+ * @param item The scenegraph item to inspect
+ */
 const symbolSize = (item: SGSymbolItem) => (item.size == null ? 64 : item.size)
-const symbolType = (item: SGSymbolItem) => symbols(item.shape || 'circle')
+
+/**
+ * Extracts the symbol "width" from a scenegraph item.
+ * @param item The scenegraph item to inspect
+ */
+const symbolWidth = (item: SGSymbolItem) =>
+	item.width == null ? 8 : item.width
+
+const rendererByArea = (item: SGSymbolItem) =>
+	symbols(item.shape || 'circle').byArea
+
+const rendererByWidth = (item: SGSymbolItem) =>
+	symbols(item.shape || 'circle').byWidth
 
 export const rectShape = new Rectangle(x, y, w, h, cr)
 
@@ -66,6 +83,10 @@ export const lineShape = d3_line<SGLineItem>()
 	.y(y)
 	.defined(def)
 
-export const symbolShape = d3_symbol<SGSymbolItem>()
-	.type(symbolType)
+export const symbolWithArea = d3_symbol<SGSymbolItem>()
+	.type(rendererByArea)
 	.size(symbolSize)
+
+export const symbolWithWidth = d3_symbol<SGSymbolItem>()
+	.type(rendererByWidth)
+	.size(symbolWidth)

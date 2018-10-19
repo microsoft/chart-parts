@@ -1,5 +1,5 @@
 ---
-title: 'Rule'
+title: 'Rule Mark'
 path: '/documentation/concepts/marks/rule'
 order: 7
 ---

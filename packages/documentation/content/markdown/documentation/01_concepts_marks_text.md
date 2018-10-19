@@ -1,5 +1,5 @@
 ---
-title: 'Text'
+title: 'Text Mark'
 path: '/documentation/concepts/marks/text'
 order: 9
 ---

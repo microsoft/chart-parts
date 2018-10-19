@@ -12,6 +12,8 @@ import PathTester from './path-tester'
 import RectTester from './rect-tester'
 import RuleTester from './rule-tester'
 import TextTester from './text-tester'
+import SymbolTesterArea from './symbol-tester-area'
+import SymbolTesterWidth from './symbol-tester-width'
 
 export default {
   'arc-tester': ArcTester,
@@ -23,4 +25,6 @@ export default {
   'rect-tester': RectTester,
   'rule-tester': RuleTester,
   'text-tester': TextTester,
+  'symbol-tester-area': SymbolTesterArea,
+  'symbol-tester-width': SymbolTesterWidth,
 }
