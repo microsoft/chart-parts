@@ -2116,7 +2116,7 @@
     "@types/prop-types" "*"
     "@types/react" "*"
 
-"@types/react@*", "@types/react@16.4.10", "@types/react@^16.4.10":
+"@types/react@*", "@types/react@^16.4.10":
   version "16.4.10"
   resolved "https://registry.yarnpkg.com/@types/react/-/react-16.4.10.tgz#fb577091034b25a81f829923e7d38258f43e3165"
   integrity sha512-lnJeNJL5KJefTpemubc1HULbH+O1laDeUOJXlP2G12faTKmyPo3wRzbuBoKCli9mCW4hRUKM14PbadGx5rILgg==
@@ -3123,6 +3123,16 @@ babel-loader@8.0.0-beta.4:
   version "8.0.0-beta.4"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.0-beta.4.tgz#c3fab00696c385c70c04dbe486391f0eb996f345"
   integrity sha512-fQMCj8jRpF/2CPuVnpFrOb8+8pRuquKqoC+tspy5RWBmL37/2qc104sLLLqpwWltrFzpYb30utPpKc3H6P3ETQ==
+  dependencies:
+    find-cache-dir "^1.0.0"
+    loader-utils "^1.0.2"
+    mkdirp "^0.5.1"
+    util.promisify "^1.0.0"
+
+babel-loader@^8.0.4:
+  version "8.0.4"
+  resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.4.tgz#7bbf20cbe4560629e2e41534147692d3fecbdce6"
+  integrity sha512-fhBhNkUToJcW9nV46v8w87AJOwAJDz84c1CL57n3Stj73FANM/b9TbCUK4YhdOwEyZ+OxhYpdeZDNzSI29Firw==
   dependencies:
     find-cache-dir "^1.0.0"
     loader-utils "^1.0.2"

@@ -20,6 +20,7 @@
 		"@storybook/addon-links": "^4.0.0-alpha.8",
 		"@storybook/addons": "^4.0.0-alpha.8",
 		"@storybook/react": "^4.0.0-alpha.8",
+		"babel-loader": "^8.0.4",
 		"d3-array": "^1.2.1",
 		"d3-scale": "^2.0.0",
 		"react": "^16.4.2",
