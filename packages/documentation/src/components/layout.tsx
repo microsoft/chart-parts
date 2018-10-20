@@ -11,7 +11,7 @@ import styled from 'styled-components'
 import { SiteMetadata } from '../types'
 import Header from './header'
 import theme from '../util/theme'
-import './layout.css'
+import GlobalStyle from './styles'
 
 interface LayoutQueryResult {
   site: {
@@ -31,38 +31,43 @@ const Layout: React.SFC<LayoutProps> = ({
   children,
   title,
 }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-            keywords
-            description
+  <>
+    <GlobalStyle />
+    <StaticQuery
+      query={graphql`
+        query SiteTitleQuery {
+          site {
+            siteMetadata {
+              title
+              keywords
+              description
+            }
           }
         }
-      }
-    `}
-    render={({ site: { siteMetadata } }: LayoutQueryResult) => {
-      return (
-        <>
-          <Helmet
-            title={title || siteMetadata.title}
-            meta={getMeta(siteMetadata)}
-          >
-            <html lang="en" />
-          </Helmet>
-          <BodyContent>
-            <Header />
-            <ContentContainer>
-              {sidebar ? <SidebarContainer>{sidebar}</SidebarContainer> : null}
-              <Content>{children}</Content>
-            </ContentContainer>
-          </BodyContent>
-        </>
-      )
-    }}
-  />
+      `}
+      render={({ site: { siteMetadata } }: LayoutQueryResult) => {
+        return (
+          <>
+            <Helmet
+              title={title || siteMetadata.title}
+              meta={getMeta(siteMetadata)}
+            >
+              <html lang="en" />
+            </Helmet>
+            <BodyContent>
+              <Header />
+              <ContentContainer>
+                {sidebar ? (
+                  <SidebarContainer>{sidebar}</SidebarContainer>
+                ) : null}
+                <Content>{children}</Content>
+              </ContentContainer>
+            </BodyContent>
+          </>
+        )
+      }}
+    />
+  </>
 )
 
 function getMeta({ description, keywords }: SiteMetadata) {

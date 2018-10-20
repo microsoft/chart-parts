@@ -1,3 +1,11 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+
+import { createGlobalStyle } from 'styled-components'
+
+export default createGlobalStyle`
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -10,10 +18,14 @@ body {
   width: 100%;
 }
 
-html,
+html {
+  height: 100%;
+}
+
 body {
   height: 100%;
 }
+
 #___gatsby {
   flex: 1;
   display: flex;
@@ -632,3 +644,4 @@ pre tt:after {
     font-size: 100%;
   }
 }
+`

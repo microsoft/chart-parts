@@ -11,7 +11,7 @@ import Header from '../components/header'
 import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
 import Footer from '../components/footer'
-import './site.css'
+import GlobalStyles from './styles'
 
 // tslint:disable-next-line
 const log = require('debug')('site:index')
@@ -40,13 +40,14 @@ export default class IndexPage extends React.Component {
     const { scrollPercent } = this.state
     return (
       <Container>
+        <GlobalStyles />
         <Helmet title="chart-parts">
           <html lang="en" />
         </Helmet>
         <Header opacity={Math.max(scrollPercent / 0.6)} />
         <Wrapper>
           <OverflowContainer
-            innerRef={this.scrollAreaRef}
+            ref={this.scrollAreaRef as any}
             onScroll={this.onScroll}
           >
             <Content>
