@@ -31,43 +31,39 @@ const Layout: React.SFC<LayoutProps> = ({
   children,
   title,
 }) => (
-  <>
-    <GlobalStyle />
-    <StaticQuery
-      query={graphql`
-        query SiteTitleQuery {
-          site {
-            siteMetadata {
-              title
-              keywords
-              description
-            }
+  <StaticQuery
+    query={graphql`
+      query SiteTitleQuery {
+        site {
+          siteMetadata {
+            title
+            keywords
+            description
           }
         }
-      `}
-      render={({ site: { siteMetadata } }: LayoutQueryResult) => {
-        return (
-          <>
-            <Helmet
-              title={title || siteMetadata.title}
-              meta={getMeta(siteMetadata)}
-            >
-              <html lang="en" />
-            </Helmet>
-            <BodyContent>
-              <Header />
-              <ContentContainer>
-                {sidebar ? (
-                  <SidebarContainer>{sidebar}</SidebarContainer>
-                ) : null}
-                <Content>{children}</Content>
-              </ContentContainer>
-            </BodyContent>
-          </>
-        )
-      }}
-    />
-  </>
+      }
+    `}
+    render={({ site: { siteMetadata } }: LayoutQueryResult) => {
+      return (
+        <>
+          <Helmet
+            title={title || siteMetadata.title}
+            meta={getMeta(siteMetadata)}
+          >
+            <html lang="en" />
+          </Helmet>
+          <BodyContent>
+            <GlobalStyle />
+            <Header />
+            <ContentContainer>
+              {sidebar ? <SidebarContainer>{sidebar}</SidebarContainer> : null}
+              <Content>{children}</Content>
+            </ContentContainer>
+          </BodyContent>
+        </>
+      )
+    }}
+  />
 )
 
 function getMeta({ description, keywords }: SiteMetadata) {
