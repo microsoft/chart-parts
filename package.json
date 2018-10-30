@@ -25,10 +25,10 @@
 	"devDependencies": {
 		"@commitlint/cli": "^7.2.0",
 		"@commitlint/config-conventional": "^7.1.2",
-		"@types/jest": "^23.3.1",
+		"@types/jest": "^23.3.9",
 		"husky": "^1.1.1",
 		"jest": "^23.6.0",
-		"jest-html": "^1.4.0",
+		"jest-html": "^1.5.0",
 		"lerna": "^3.4.1",
 		"lint-staged": "^7.3.0",
 		"npm-run-all": "^4.1.3",
