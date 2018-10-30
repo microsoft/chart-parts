@@ -88,7 +88,7 @@ export abstract class BaseMark<
 			.encode(this.encodings)
 
 		if (table) {
-			result = result.table(table as string).singleton(false)
+			result = result.table(table as string)
 		}
 
 		if (name) {
