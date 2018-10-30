@@ -3,13 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-var-requires
+// tslint:disable
 import * as React from 'react'
 import { Renderer, VSvgNode, SceneNode } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { ChartSpec } from './ChartSpec'
-declare var require: any
-const shallowequal = require('shallowequal')
+// const { useState, useEffect, memo } = React as any
 
 export interface ChartPadding {
 	top?: number
@@ -36,49 +35,55 @@ export interface ChartState {
 	rendered: React.ReactNode
 }
 
-export class Chart extends React.Component<ChartProps, ChartState> {
-	private pipeline: Orchestrator<React.ReactNode>
+export const Chart: React.SFC<ChartProps> = ({
+	renderer,
+	data,
+	scene,
+	width,
+	height,
+	padding,
+	title,
+	description,
+	...props
+}) => {
+	const [rendered, setRendered] = (React as any)
+		.useState(null)(React as any)
+		.useEffect(() => {
+			if (scene) {
+				receiveSpec(scene)
+			}
+		})
 
-	constructor(props: ChartProps) {
-		super(props)
-		this.pipeline = new Orchestrator(props.renderer)
-		this.state = { rendered: null }
-	}
+	const pipeline = new Orchestrator(renderer)
 
-	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
-		return !shallowequal(this.props, props) || !shallowequal(this.state, state)
-	}
-
-	public componentDidMount() {
-		if (this.props.scene) {
-			this.receiveSpec(this.props.scene)
-		}
-	}
-
-	public render() {
-		const { renderer, data, ...props } = this.props
-		return (
-			<>
-				<ChartSpec {...props} onSpecReady={this.receiveSpec}>
-					{this.props.children}
-				</ChartSpec>
-				{this.state.rendered}
-			</>
-		)
-	}
-
-	private receiveSpec = (spec: SceneNode) => {
-		const rendered = this.pipeline.renderScene(
-			spec,
+	/**
+	 * Handle scene specification updates, and sets the "rendered chart" state in response
+	 */
+	function receiveSpec(sceneSpec: SceneNode) {
+		const renderedScene = pipeline.renderScene(
+			sceneSpec,
 			{
-				width: this.props.width,
-				height: this.props.height,
-				padding: this.props.padding,
-				ariaTitle: this.props.title,
-				ariaDescription: this.props.description,
+				width,
+				height,
+				padding,
+				ariaTitle: title,
+				ariaDescription: description,
 			},
-			this.props.data,
+			data,
 		)
-		this.setState({ rendered })
+		setRendered(renderedScene)
 	}
+
+	return (
+		<>
+			<ChartSpec
+				{...props}
+				onSpecReady={receiveSpec}
+				width={width}
+				height={height}
+				padding={padding}
+			/>
+			{rendered}
+		</>
+	)
 }
