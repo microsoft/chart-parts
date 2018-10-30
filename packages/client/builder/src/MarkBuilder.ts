@@ -45,7 +45,7 @@ export class MarkBuilder {
 
 	public table(table: string): MarkBuilder {
 		this.tableValue = table
-		return this
+		return this.singleton(false)
 	}
 
 	public singleton(value: boolean): MarkBuilder {
