@@ -2058,7 +2058,7 @@
   resolved "https://registry.yarnpkg.com/@types/configstore/-/configstore-2.1.1.tgz#cd1e8553633ad3185c3f2f239ecff5d2643e92b6"
   integrity sha1-zR6FU2M60xhcPy8jns/10mQ+krY=
 
-"@types/d3-array@^1.2.1":
+"@types/d3-array@^1.2.1", "@types/d3-array@^1.2.4":
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/@types/d3-array/-/d3-array-1.2.4.tgz#7088445c8717ba1fba416a1df7bbd11cc72a3763"
   integrity sha512-3r1fOAAb+SGfcOGXty/LGvoP0ovMec4UtGNUyHOSzYyvSGpmt+eNMxLowol/3HryusevznSfcHZebEShXMwsZA==
@@ -5603,6 +5603,11 @@ d3-array@^1.2.0, d3-array@^1.2.1, d3-array@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.4.tgz#635ce4d5eea759f6f605863dbcfc30edc737f71f"
   integrity sha512-KHW6M86R+FUPYGb3R5XiYjXPq7VzwxZ22buHhAEVG5ztoEcZZMLov530mmccaqA1GghZArjQV46fuc8kUqhhHw==
+
+d3-array@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-2.0.3.tgz#9c0531eda701e416f28a030e3d4e6179ba74f19f"
+  integrity sha512-C7g4aCOoJa+/K5hPVqZLG8wjYHsTUROTk7Z1Ep9F4P5l+WVrvV0+6nAZ1wKTRLMhFWpGbozxUpyjIPZYAaLi+g==
 
 d3-collection@1:
   version "1.0.7"
