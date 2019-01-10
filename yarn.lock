@@ -2106,6 +2106,13 @@
   dependencies:
     "@types/d3-path" "*"
 
+"@types/d3-shape@^1.2.7":
+  version "1.2.7"
+  resolved "https://registry.yarnpkg.com/@types/d3-shape/-/d3-shape-1.2.7.tgz#c029081205f60caa9c98ef1d52c621e36a8d7160"
+  integrity sha512-b2jpGcddOseeNxchaR1SNLqA5xZAbgKix3cXiFeuGeYIEAEUu91UbtelCxOHIUTbNURFnjcbkf4plRbejNzVaQ==
+  dependencies:
+    "@types/d3-path" "*"
+
 "@types/d3-time-format@^2.1.0":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@types/d3-time-format/-/d3-time-format-2.1.0.tgz#011e0fb7937be34a9a8f580ae1e2f2f1336a8a22"
