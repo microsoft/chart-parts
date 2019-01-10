@@ -13,7 +13,7 @@
 		"lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
 	},
 	"devDependencies": {
-		"@types/react": "^16.4.10",
+		"@types/react": "16.7.18",
 		"react": "^16.7.0",
 		"rimraf": "^2.6.3",
 		"tslint": "^5.12.0",
