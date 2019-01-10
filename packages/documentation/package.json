@@ -27,7 +27,7 @@
     "gatsby-plugin-typography": "^2.2.1",
     "gatsby-remark-copy-linked-files": "^2.0.6",
     "gatsby-remark-embed-snippet": "^3.0.2",
-    "gatsby-remark-images": "^2.0.5",
+    "gatsby-remark-images": "^3.0.1",
     "gatsby-remark-prismjs": "^3.0.3",
     "gatsby-source-filesystem": "^2.0.6",
     "gatsby-transformer-remark": "^2.1.11",
@@ -42,7 +42,7 @@
     "rehype-react": "^3.0.3",
     "styled-components": "^4.0.3",
     "typography": "^0.16.17",
-    "typography-theme-github": "^0.15.10",
+    "typography-theme-github": "^0.16.18",
     "vega-datasets": "^1.19.0"
   },
   "license": "MIT",
@@ -80,7 +80,7 @@
     "npm-run-all": "^4.1.5",
     "rimraf": "^2.6.3",
     "tslint": "^5.12.0",
-    "typedoc": "^0.13.0",
+    "typedoc": "^0.14.0",
     "typescript": "^3.2.2"
   },
   "repository": {

@@ -22,7 +22,7 @@
 		"lodash": "^4.17.10",
 		"react": "^16.7.0",
 		"react-native": "^0.57.1",
-		"react-native-svg": "^7.0.3",
+		"react-native-svg": "^8.0.10",
 		"vega-datasets": "^1.19.0"
 	},
 	"devDependencies": {

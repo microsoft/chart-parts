@@ -22,7 +22,7 @@
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
 		"lodash": "^4.17.10",
-		"react-native-svg": "^7.0.3"
+		"react-native-svg": "^8.0.10"
 	},
 	"peerDependencies": {
 		"react": ">= 16",
