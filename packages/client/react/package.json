@@ -12,8 +12,8 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@types/react": "16.7.18",
-		"react": "^16.7.0",
+		"@types/react": "^16.8.20",
+		"react": "^16.8.6",
 		"rimraf": "^2.6.3",
 		"typescript": "^3.5.2"
 	},
