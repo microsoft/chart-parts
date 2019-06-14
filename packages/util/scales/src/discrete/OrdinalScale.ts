@@ -31,7 +31,10 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange()
-		const scale = scaleOrdinal(this.rangeValue)
+		const scale = (this.rangeValue
+			? scaleOrdinal(this.rangeValue)
+			: scaleOrdinal()
+		)
 			.domain(domain)
 			.range(range)
 		return { [this.nameValue!]: scale }
@@ -43,7 +46,7 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 		} else if (this.rangeValue) {
 			return this.rangeValue
 		} else {
-			throw new Error('Either colorScheme or domain must be set')
+			throw new Error('either colorScheme or domain must be set')
 		}
 	}
 }

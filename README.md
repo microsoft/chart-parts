@@ -5,8 +5,8 @@
 A flexible, React-friendly, Grammar of Graphics for data visualization
 
 ## Video Introduction
-[The Missing Abstraction of Charting - Chris Trevino - React Conf 2018](https://www.youtube.com/watch?v=qqffsEHKMcM)
 
+[The Missing Abstraction of Charting - Chris Trevino - React Conf 2018](https://www.youtube.com/watch?v=qqffsEHKMcM)
 
 # Contributing
 

@@ -10,7 +10,7 @@
 		"test:packages": "lerna run test --stream",
 		"release:packages": "lerna run release --stream",
 		"lint": "eslint . --ext .js,.ts,.jsx,.tsx",
-		"unit_test": "jest --coverage",
+		"unit_test": "jest --coverage --ci",
 		"test": "run-s lint build unit_test test:packages",
 		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
 		"release": "run-s clean build lerna:publish release:packages",
