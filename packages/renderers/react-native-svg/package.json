@@ -18,7 +18,7 @@
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.21",
+		"@chart-parts/interfaces": "^0.0.20",
 		"lodash": "^4.17.10",
 		"react-native-svg": "^9.5.1"
 	},

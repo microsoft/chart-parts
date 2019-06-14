@@ -16,8 +16,8 @@
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.21",
-		"@chart-parts/scenegraph": "^0.0.21"
+		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/scenegraph": "^0.0.20"
 	},
 	"publishConfig": {
 		"access": "public"

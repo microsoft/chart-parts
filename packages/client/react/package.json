@@ -18,10 +18,10 @@
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.0.21",
-		"@chart-parts/interfaces": "^0.0.21",
-		"@chart-parts/orchestrator": "^0.0.21",
-		"@chart-parts/scales": "^0.0.21",
+		"@chart-parts/builder": "^0.0.20",
+		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/orchestrator": "^0.0.20",
+		"@chart-parts/scales": "^0.0.20",
 		"lodash": "^4.17.10",
 		"shallowequal": "^1.1.0"
 	},

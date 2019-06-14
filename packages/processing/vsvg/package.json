@@ -12,13 +12,13 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@chart-parts/scenegraph": "^0.0.21",
+		"@chart-parts/scenegraph": "^0.0.20",
 		"rimraf": "^2.6.3",
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.21",
-		"@chart-parts/shapes": "^0.0.21",
+		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/shapes": "^0.0.20",
 		"@types/d3-path": "^1.0.8",
 		"@types/d3-shape": "^1.2.7",
 		"d3-path": "^1.0.7",
