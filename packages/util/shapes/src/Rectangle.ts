@@ -8,7 +8,7 @@ import { SGRectItem } from '@chart-parts/interfaces'
 import { Xform } from './util'
 
 export class Rectangle {
-	constructor(
+	public constructor(
 		public x: Xform<SGRectItem, number> = d => d.x || 0,
 		public y: Xform<SGRectItem, number> = d => d.y || 0,
 		public width: Xform<SGRectItem, number> = d => d.width || 0,
@@ -25,7 +25,6 @@ export class Rectangle {
 	 *
 	 */
 	public build(d: SGRectItem, x0?: number, y0?: number, context?: Path): Path {
-		// tslint:disable-next-line no-this-assignment
 		const { x, y, width, height, cornerRadius } = this
 		const x1 = x0 != null ? x0 : +x(d)
 		const y1 = y0 != null ? y0 : +y(d)

@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-var-requires no-submodule-imports
 import * as React from 'react'
 import { TreeNode } from './interfaces'
 import { Link as RawLink } from 'gatsby'
@@ -32,7 +31,7 @@ export default class LinkTree extends React.Component<
   LinkTreeProps,
   LinkTreeState
 > {
-  constructor(props: LinkTreeProps) {
+  public constructor(props: LinkTreeProps) {
     super(props)
     this.state = { expanded: !!props.expanded, hasBeenManuallyToggled: false }
   }

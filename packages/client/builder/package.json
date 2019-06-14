@@ -9,14 +9,12 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b",
-		"lint": "tslint 'src/**/*.ts'"
+		"build": "tsc -b"
 	},
 	"devDependencies": {
 		"@chart-parts/scales": "^0.0.20",
 		"rimraf": "^2.6.3",
-		"tslint": "^5.12.0",
-		"typescript": "^3.2.2"
+		"typescript": "^3.5.2"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",

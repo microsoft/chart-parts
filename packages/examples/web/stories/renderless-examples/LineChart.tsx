@@ -1,4 +1,4 @@
-// tslint:disable
+/* eslint-disable @typescript-eslint/camelcase */
 import * as React from 'react'
 import { VerticalTextAlignment } from '@chart-parts/interfaces'
 import {
@@ -112,7 +112,7 @@ const TEXT_GROUP_HEIGHT = 110
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
 export class LineChart extends React.Component<{}, BarChartState> {
-	constructor(props: {}) {
+	public constructor(props: {}) {
 		super(props)
 		this.state = { hoverRowIndex: undefined }
 	}

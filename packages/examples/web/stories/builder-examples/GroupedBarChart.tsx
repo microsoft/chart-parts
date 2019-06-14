@@ -1,4 +1,3 @@
-// tslint:disable
 import * as React from 'react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import {
@@ -40,7 +39,7 @@ const data = [
 export class GroupedBarChart extends React.Component<{}> {
 	private chart: SceneNode
 
-	constructor(props: {}) {
+	public constructor(props: {}) {
 		super(props)
 
 		this.chart = scene(

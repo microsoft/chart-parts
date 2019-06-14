@@ -5,8 +5,6 @@
 
 import { Compare, CompareOrder, FieldAccessor } from './interfaces'
 declare var require: any
-
-// tslint:disable-next-line
 const get = require('lodash/get')
 
 export function getField(data: any, field: FieldAccessor): any {

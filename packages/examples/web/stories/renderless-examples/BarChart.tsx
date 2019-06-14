@@ -1,4 +1,3 @@
-// tslint:disable
 import * as React from 'react'
 import {
 	Axis,
@@ -37,7 +36,7 @@ export interface BarChartState {
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
 export class BarChart extends React.Component<{}, BarChartState> {
-	constructor(props: {}) {
+	public constructor(props: {}) {
 		super(props)
 		this.state = { hoverRowIndex: undefined }
 	}

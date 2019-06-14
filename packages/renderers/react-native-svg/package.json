@@ -9,20 +9,18 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b",
-		"lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
+		"build": "tsc -b"
 	},
 	"devDependencies": {
 		"@types/react-native": "^0.57.0",
-		"react": "^16.7.0",
+		"react": "^16.8.6",
 		"rimraf": "^2.6.3",
-		"tslint": "^5.12.0",
-		"typescript": "^3.2.2"
+		"typescript": "^3.5.2"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
 		"lodash": "^4.17.10",
-		"react-native-svg": "^8.0.10"
+		"react-native-svg": "^9.5.1"
 	},
 	"peerDependencies": {
 		"react": ">= 16",

@@ -7,7 +7,6 @@ import { GroupItem } from '../elements'
 import { parseScene } from '../parse'
 
 declare var require: any
-// tslint:disable-next-line
 const barley = require('./barley.json')
 
 describe('The Scenegraph Parser', () => {

@@ -31,6 +31,7 @@ async function createPages({ actions, graphql }) {
   const result = await retrieveMarkdownPages()
 
   if (result.errors) {
+    // eslint-disable-next-line no-console
     console.error('graphql error', result.errors)
     throw new Error('Error invoking graphql for pages')
   }

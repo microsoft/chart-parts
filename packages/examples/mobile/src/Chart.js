@@ -12,7 +12,7 @@ const pipeline = new Orchestrator(new Renderer())
 const renderChart = chart =>
 	pipeline.renderScenegraph(chart.scenegraph, chart.dimensions)
 
-export default () => (
+const Chart = () => (
 	<FlatList
 		style={{ flex: 1 }}
 		data={testCharts}
@@ -22,3 +22,5 @@ export default () => (
 		)}
 	/>
 )
+Chart.displayName = 'Chart'
+export default Chart

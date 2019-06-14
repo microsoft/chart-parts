@@ -4,10 +4,10 @@
  */
 
 import {
-	arc as d3_arc,
-	symbol as d3_symbol,
-	area as d3_area,
-	line as d3_line,
+	arc as d3Arc,
+	symbol as d3Symbol,
+	area as d3Area,
+	line as d3Lines,
 } from 'd3-shape'
 import {
 	SGItem,
@@ -58,7 +58,7 @@ const rendererByWidth = (item: SGSymbolItem) =>
 
 export const rectShape = new Rectangle(x, y, w, h, cr)
 
-export const arcShape = d3_arc<SGArcItem>()
+export const arcShape = d3Arc<SGArcItem>()
 	.startAngle(sa)
 	.endAngle(ea)
 	.padAngle(pa)
@@ -66,27 +66,27 @@ export const arcShape = d3_arc<SGArcItem>()
 	.outerRadius(or)
 	.cornerRadius(cr)
 
-export const areahShape = d3_area<SGAreaItem>()
+export const areahShape = d3Area<SGAreaItem>()
 	.x1(x)
 	.x0(x2)
 	.y(y)
 	.defined(def)
 
-export const areavShape = d3_area<SGAreaItem>()
+export const areavShape = d3Area<SGAreaItem>()
 	.y1(y)
 	.y0(y2)
 	.x(x)
 	.defined(def)
 
-export const lineShape = d3_line<SGLineItem>()
+export const lineShape = d3Lines<SGLineItem>()
 	.x(x)
 	.y(y)
 	.defined(def)
 
-export const symbolWithArea = d3_symbol<SGSymbolItem>()
+export const symbolWithArea = d3Symbol<SGSymbolItem>()
 	.type(rendererByArea)
 	.size(symbolSize)
 
-export const symbolWithWidth = d3_symbol<SGSymbolItem>()
+export const symbolWithWidth = d3Symbol<SGSymbolItem>()
 	.type(rendererByWidth)
 	.size(symbolWidth)

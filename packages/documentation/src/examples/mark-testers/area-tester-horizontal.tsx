@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable jsx-no-lambda
 import * as React from 'react'
 import { Orientation } from '@chart-parts/interfaces'
 import { SingleMarkTester } from './util/single-mark-tester'

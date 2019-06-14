@@ -9,20 +9,18 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b",
-		"lint": "tslint 'src/**/*.ts' 'src/**/*.tsx'"
+		"build": "tsc -b"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.3",
-		"tslint": "^5.12.0",
-		"typescript": "^3.2.2",
+		"typescript": "^3.5.2",
 		"lodash": "^4.17.11"
 	},
 	"dependencies": {
-		"vega-dataflow": "^4.0.4",
-		"vega-encode": "^3.1.4",
-		"vega-transforms": "^2.2.0",
-		"vega-util": "^1.7.0"
+		"vega-dataflow": "^5.2.1",
+		"vega-encode": "^4.3.0",
+		"vega-transforms": "^4.1.0",
+		"vega-util": "^1.10.0"
 	},
 	"publishConfig": {
 		"access": "public"

@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-var-requires
 import * as React from 'react'
 import { Renderer, VSvgNode, SceneNode } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
@@ -39,7 +38,7 @@ export interface ChartState {
 export class Chart extends React.Component<ChartProps, ChartState> {
 	private pipeline: Orchestrator<React.ReactNode>
 
-	constructor(props: ChartProps) {
+	public constructor(props: ChartProps) {
 		super(props)
 		this.pipeline = new Orchestrator(props.renderer)
 		this.state = { rendered: null }

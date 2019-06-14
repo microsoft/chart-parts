@@ -20,7 +20,7 @@ import {
  * information for a section of a scene, including dimensions, scales, data, and event handlers
  */
 export class SceneFrame {
-	constructor(
+	public constructor(
 		public node: SceneNode,
 		public mark: Mark | undefined,
 		public data: DataFrame,

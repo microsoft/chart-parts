@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable jsx-no-lambda
 import * as React from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'

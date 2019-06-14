@@ -5,6 +5,8 @@
 		// to turn on tree-shaking
 		"module": "commonjs",
 		"moduleResolution": "node",
+		"forceConsistentCasingInFileNames": true,
+		"incremental": true,
 		"jsx": "react",
 		"strict": true,
 		"noUnusedLocals": true,

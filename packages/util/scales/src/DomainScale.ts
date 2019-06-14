@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable no-var-requires
 import {
 	ScaleCreationContext,
 	Scales,
@@ -96,7 +94,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 			: (bindDomain as string[])
 	}
 
-	get tableBind(): string | undefined {
+	private get tableBind(): string | undefined {
 		const bind = this.bindDomainValue
 		if (!bind) {
 			return undefined
@@ -109,7 +107,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 		return tableName
 	}
 
-	get fieldBind() {
+	private get fieldBind() {
 		const bind = this.bindDomainValue
 		if (!bind) {
 			return undefined

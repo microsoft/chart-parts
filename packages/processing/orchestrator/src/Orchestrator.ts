@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-console
+/* eslint-disable no-console */
 import {
 	ChartOptions,
 	SceneNode,
@@ -16,7 +16,7 @@ import { VirtualSvgConverter } from '@chart-parts/vsvg'
 import { createScenegraph } from '@chart-parts/scene'
 
 export class Orchestrator<T> {
-	constructor(
+	public constructor(
 		private renderer: VDomRenderer<T>,
 		private prerenderer: ScenegraphConverter<any> = new VirtualSvgConverter(),
 	) {}
