@@ -12,12 +12,12 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@chart-parts/scales": "^0.0.20",
+		"@chart-parts/scales": "^0.0.21",
 		"rimraf": "^2.6.3",
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/interfaces": "^0.0.21",
 		"lodash": "^4.17.10"
 	},
 	"publishConfig": {

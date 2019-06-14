@@ -16,7 +16,7 @@
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20"
+		"@chart-parts/interfaces": "^0.0.21"
 	},
 	"publishConfig": {
 		"access": "public"

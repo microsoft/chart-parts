@@ -16,9 +16,9 @@
 		"typescript": "^3.5.2"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.0.20",
-		"@chart-parts/interfaces": "^0.0.20",
-		"@chart-parts/scenegraph": "^0.0.20",
+		"@chart-parts/builder": "^0.0.21",
+		"@chart-parts/interfaces": "^0.0.21",
+		"@chart-parts/scenegraph": "^0.0.21",
 		"@types/d3-format": "^1.3.1",
 		"@types/d3-time-format": "^2.1.0",
 		"d3-format": "^1.3.2",
