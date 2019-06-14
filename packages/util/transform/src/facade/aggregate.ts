@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable no-var-requires
 import { FieldAccessor } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
@@ -199,8 +197,8 @@ export class AggregateBuilderImpl implements AggregateBuilder {
 	public build(df: any, from: any) {
 		const spec: any = {
 			groupby: this.groupByFields.map(c => vegaField(c)),
-			fields: this.computeFields.map(
-				c => (c.field ? vegaField(c.field) : null),
+			fields: this.computeFields.map(c =>
+				c.field ? vegaField(c.field) : null,
 			),
 			ops: this.computeFields.map(c => c.op || null),
 			as: this.computeFields.map(c => c.as || null),

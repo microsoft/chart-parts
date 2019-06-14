@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-var-requires
 import { DatasetTransform } from './interfaces'
 declare var require: any
 const { Dataflow, changeset } = require('vega-dataflow')

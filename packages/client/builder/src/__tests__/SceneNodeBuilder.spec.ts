@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable no-implicit-dependencies
 import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { linear } from '@chart-parts/scales'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'

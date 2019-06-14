@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable no-submodule-imports
 import {
 	MarkType,
 	SGMark,
@@ -22,7 +20,7 @@ import {
 	translate,
 } from './interfaces'
 
-function flatMap<T, K>(items: T[], lambda: ((input: T) => K[])): K[] {
+function flatMap<T, K>(items: T[], lambda: (input: T) => K[]): K[] {
 	const mappedItems = items.map(lambda)
 	return Array.prototype.concat.apply([], mappedItems)
 }

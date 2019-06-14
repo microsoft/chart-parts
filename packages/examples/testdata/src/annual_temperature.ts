@@ -4,7 +4,6 @@
  */
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
-// tslint:disable no-var-requires
 declare var require: any
 import { parseScene } from '@chart-parts/scenegraph'
 const data = require('../resources/annual_temperature.json')

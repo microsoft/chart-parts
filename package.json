@@ -41,9 +41,6 @@
 		"eslint-config-prettier": "^4.3.0",
 		"eslint-plugin-react": "^7.13.0",
 		"eslint-plugin-react-hooks": "^1.6.0",
-		"tslint": "^5.17.0",
-		"tslint-config-prettier": "^1.18.0",
-		"tslint-react": "^4.0.0",
 		"typescript": "^3.5.2"
 	},
 	"prettier": {

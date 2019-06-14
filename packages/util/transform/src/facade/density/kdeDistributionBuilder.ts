@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable no-var-requires
 import { FieldAccessor } from '../../interfaces'
 import { DistributionBuilder } from './interfaces'
 import { DatasetManager } from '../dataset'

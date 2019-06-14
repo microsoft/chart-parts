@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable jsx-no-lambda
 import * as React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
@@ -13,12 +11,8 @@ import BelowTheFold from '../components/below-the-fold'
 import Footer from '../components/footer'
 import GlobalStyles from './styles'
 
-// tslint:disable-next-line
 const log = require('debug')('site:index')
-
-// tslint:disable-next-line no-var-requires
 const packageJson = require('../../package.json')
-// tslint:disable-next-line no-console
 log('chart-parts documentation, version', packageJson.version)
 
 export interface IndexPageState {

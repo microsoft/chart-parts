@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-var-requires
 import * as React from 'react'
 import { Renderer, VSvgNode, SceneNode } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'

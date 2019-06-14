@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable max-classes-per-file no-var-requires no-submodule-imports
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from './DomainScale'
 import { optionalArgument } from './util'
@@ -11,11 +9,9 @@ import { optionalArgument } from './util'
 declare var require: any
 const reverse = require('lodash/reverse')
 
-export abstract class DomainRangeScale<
-	Domain,
-	Range,
-	RangeBind
-> extends DomainScale<Domain> {
+export class DomainRangeScale<Domain, Range, RangeBind> extends DomainScale<
+	Domain
+> {
 	protected bindRangeValue?: RangeBind
 	protected rangeValue?: (args: ScaleCreationContext) => Range
 	protected reverseValue?: boolean

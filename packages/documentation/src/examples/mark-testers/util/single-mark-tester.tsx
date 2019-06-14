@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable jsx-no-lambda jsx-no-lambda-props react-component-classes-should-implement-scu
 import * as React from 'react'
 import styled from 'styled-components'
 import { SGChart } from './chart'

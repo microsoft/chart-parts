@@ -8,7 +8,6 @@
  */
 declare var require: any
 
-// tslint:disable
 import * as React from 'react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {

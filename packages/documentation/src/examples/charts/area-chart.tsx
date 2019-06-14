@@ -1,4 +1,3 @@
-// tslint:disable
 import * as React from 'react'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'

@@ -1,4 +1,3 @@
-// tslint:disable
 import * as React from 'react'
 import {
 	Axis,

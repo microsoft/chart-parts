@@ -1,4 +1,3 @@
-// tslint:disable
 import * as React from 'react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { scene, rect, area, axis } from '@chart-parts/builder'

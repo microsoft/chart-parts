@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-// tslint:disable max-classes-per-file
 import { MarkType, SymbolType } from '@chart-parts/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
 import { BaseMark } from './BaseMark'

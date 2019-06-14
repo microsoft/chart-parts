@@ -9,12 +9,10 @@
 	"scripts": {
 		"clean": "rimraf lib",
 		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b",
-		"lint": "tslint 'src/**/*.ts'"
+		"build": "tsc -b"
 	},
 	"devDependencies": {
 		"rimraf": "^2.6.3",
-		"tslint": "^5.12.0",
 		"typescript": "^3.5.2"
 	},
 	"publishConfig": {

@@ -10,7 +10,6 @@ import Sidebar from '../components/sidebar'
 import convertGraphqlToc from '../util/convertGraphqlToc'
 import Doc from '../components/doc'
 
-// tslint:disable-next-line
 require('prismjs/themes/prism-tomorrow.css')
 
 export default function Template(arg: any) {
