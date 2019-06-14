@@ -7,6 +7,7 @@
  * 4) Evaluate scene to console
  * 5) Paste this function in
  */
+/* eslint-disable */
 JSON.stringify(scene, (key, value) => {
 	if (
 		key === 'mark' ||

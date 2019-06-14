@@ -30,7 +30,7 @@ export interface BarChartState {
 export class BarChart extends React.Component<{}, BarChartState> {
 	private chart: SceneNode
 
-	constructor(props: {}) {
+	public constructor(props: {}) {
 		super(props)
 		this.state = { hoverRowIndex: undefined }
 		const isHovered = (index: number) => this.state.hoverRowIndex === index

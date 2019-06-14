@@ -9,7 +9,7 @@
 		"start:packages": "lerna run start --parallel --stream",
 		"test:packages": "lerna run test --stream",
 		"release:packages": "lerna run release --stream",
-		"lint": "lerna run lint --parallel --stream",
+		"lint": "eslint . --ext .js,.ts,.jsx,.tsx",
 		"unit_test": "jest --coverage",
 		"test": "run-s lint build unit_test test:packages",
 		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
@@ -35,6 +35,12 @@
 		"prettier": "^1.18.2",
 		"rxjs": "^6.5.2",
 		"ts-jest": "^24.0.2",
+		"@typescript-eslint/eslint-plugin": "^1.10.2",
+		"@typescript-eslint/parser": "^1.10.2",
+		"eslint": "^5.16.0",
+		"eslint-config-prettier": "^4.3.0",
+		"eslint-plugin-react": "^7.13.0",
+		"eslint-plugin-react-hooks": "^1.6.0",
 		"tslint": "^5.17.0",
 		"tslint-config-prettier": "^1.18.0",
 		"tslint-react": "^4.0.0",
@@ -48,7 +54,7 @@
 	},
 	"lint-staged": {
 		"**/*.{ts,tsx}": [
-			"tslint --fix",
+			"eslint --fix",
 			"prettier --write",
 			"git add"
 		]

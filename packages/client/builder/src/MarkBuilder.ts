@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-// tslint:disable no-this-assignment unified-signatures
+/* eslint-disable no-dupe-class-members */
 import {
 	Mark,
 	Channels,
@@ -41,7 +41,7 @@ export class MarkBuilder {
 	private encodingsValue: MarkEncodings = {}
 	private metadataValue?: MarkEncoding<Metadata>
 
-	constructor(private type: MarkType) {}
+	public constructor(private type: MarkType) {}
 
 	public table(table: string): MarkBuilder {
 		this.tableValue = table

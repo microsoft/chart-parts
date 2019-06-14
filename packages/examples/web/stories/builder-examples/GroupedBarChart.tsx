@@ -40,7 +40,7 @@ const data = [
 export class GroupedBarChart extends React.Component<{}> {
 	private chart: SceneNode
 
-	constructor(props: {}) {
+	public constructor(props: {}) {
 		super(props)
 
 		this.chart = scene(

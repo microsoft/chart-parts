@@ -32,7 +32,7 @@ export default class LinkTree extends React.Component<
   LinkTreeProps,
   LinkTreeState
 > {
-  constructor(props: LinkTreeProps) {
+  public constructor(props: LinkTreeProps) {
     super(props)
     this.state = { expanded: !!props.expanded, hasBeenManuallyToggled: false }
   }

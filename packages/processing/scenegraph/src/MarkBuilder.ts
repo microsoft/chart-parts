@@ -14,7 +14,7 @@ export class MarkBuilder {
 	private nameValue?: string
 	private zIndexValue?: number
 
-	constructor(public markType: MarkType) {}
+	public constructor(public markType: MarkType) {}
 
 	public items(...values: any[]): MarkBuilder {
 		this.itemsValue.push(

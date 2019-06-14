@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-export const segmentCache: { [key: string]: any } = {}
-export const bezierCache: { [key: string]: any } = {}
+/* eslint-disable @typescript-eslint/camelcase */
+export const segmentCache: Record<string, any> = {}
+export const bezierCache: Record<string, any> = {}
 
 const join = [].join
 

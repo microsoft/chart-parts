@@ -62,7 +62,7 @@ export class SingleMarkTester extends React.Component<
   SingleMarkTesterProps,
   SingleMarkTesterState
 > {
-  constructor(props: SingleMarkTesterProps) {
+  public constructor(props: SingleMarkTesterProps) {
     super(props)
     this.state = { scenegraph: props.initialScenegraph }
   }

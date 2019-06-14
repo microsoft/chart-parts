@@ -53,7 +53,11 @@ export class AxisBuilder {
 	private labelFormatValue?: string
 
 	// #endregion
-	constructor(private scaleName: string, private orientValue: AxisOrientation) {
+
+	public constructor(
+		private scaleName: string,
+		private orientValue: AxisOrientation,
+	) {
 		if (!this.scaleName) {
 			throw new Error('scale name must be defined')
 		}

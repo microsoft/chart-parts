@@ -39,7 +39,7 @@ export interface ChartState {
 export class Chart extends React.Component<ChartProps, ChartState> {
 	private pipeline: Orchestrator<React.ReactNode>
 
-	constructor(props: ChartProps) {
+	public constructor(props: ChartProps) {
 		super(props)
 		this.pipeline = new Orchestrator(props.renderer)
 		this.state = { rendered: null }

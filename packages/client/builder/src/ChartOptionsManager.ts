@@ -11,7 +11,7 @@ import {
 } from '@chart-parts/interfaces'
 
 export class ChartOptionsManager {
-	constructor(private options: ChartOptions = {}) {}
+	public constructor(private options: ChartOptions = {}) {}
 
 	public get ariaTitle() {
 		return this.options.ariaTitle || 'data visualization using chart-parts'

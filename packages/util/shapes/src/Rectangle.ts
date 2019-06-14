@@ -8,7 +8,7 @@ import { SGRectItem } from '@chart-parts/interfaces'
 import { Xform } from './util'
 
 export class Rectangle {
-	constructor(
+	public constructor(
 		public x: Xform<SGRectItem, number> = d => d.x || 0,
 		public y: Xform<SGRectItem, number> = d => d.y || 0,
 		public width: Xform<SGRectItem, number> = d => d.width || 0,
