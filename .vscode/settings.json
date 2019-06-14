@@ -1,14 +1,14 @@
 {
 	"[typescript]": {
-        "editor.formatOnSave": true
-    },
-    "[typescriptreact]": {
-        "editor.formatOnSave": true
-    },
-    "[javascript]": {
-        "editor.formatOnSave": true
-    },
-    "[javascriptreact]": {
-        "editor.formatOnSave": true
-    }
+		"editor.formatOnSave": false
+	},
+	"[typescriptreact]": {
+		"editor.formatOnSave": false
+	},
+	"[javascript]": {
+		"editor.formatOnSave": true
+	},
+	"[javascriptreact]": {
+		"editor.formatOnSave": true
+	}
 }

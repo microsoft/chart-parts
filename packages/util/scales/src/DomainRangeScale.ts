@@ -9,9 +9,11 @@ import { optionalArgument } from './util'
 declare var require: any
 const reverse = require('lodash/reverse')
 
-export class DomainRangeScale<Domain, Range, RangeBind> extends DomainScale<
-	Domain
-> {
+export abstract class DomainRangeScale<
+	Domain,
+	Range,
+	RangeBind
+> extends DomainScale<Domain> {
 	protected bindRangeValue?: RangeBind
 	protected rangeValue?: (args: ScaleCreationContext) => Range
 	protected reverseValue?: boolean
