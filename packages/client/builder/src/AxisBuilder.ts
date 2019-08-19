@@ -131,7 +131,7 @@ export class AxisBuilder {
 
 	// #endregion
 
-	// #region Labels Configuratino
+	// #region Labels Configuration
 	public labels(value: boolean): AxisBuilder {
 		this.labelsValue = value
 		return this
