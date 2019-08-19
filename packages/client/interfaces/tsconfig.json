@@ -2,7 +2,6 @@
 	"extends": "../../../tsconfig.json",
 	"compilerOptions": {
 		"lib": ["esnext"],
-		"declaration": true,
 		"composite": true,
 		"outDir": "lib",
 		"rootDir": "./src",

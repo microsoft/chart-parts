@@ -1,8 +1,9 @@
 {
 	"compilerOptions": {
 		"target": "esnext",
-		"module": "commonjs",
+		"module": "esnext",
 		"moduleResolution": "node",
+		"declaration": true,
 		"forceConsistentCasingInFileNames": true,
 		"incremental": true,
 		"jsx": "react",

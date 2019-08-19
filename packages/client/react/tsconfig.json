@@ -2,7 +2,6 @@
 	"extends": "../../../tsconfig.json",
 	"compilerOptions": {
 		"lib": ["esnext", "dom"],
-		"declaration": true,
 		"outDir": "lib",
 		"experimentalDecorators": true,
 		"composite": true,
