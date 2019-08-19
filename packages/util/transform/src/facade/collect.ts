@@ -6,7 +6,7 @@ import { DatasetTransform } from './interfaces'
 import { Compare } from '../interfaces'
 import { createSorter } from '../util'
 
-declare var require: any
+declare const require: any
 const { collect: vegaCollect } = require('vega-transforms')
 
 export interface CollectBuilder extends DatasetTransform {

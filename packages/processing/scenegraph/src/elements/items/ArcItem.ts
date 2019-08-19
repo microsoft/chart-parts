@@ -15,5 +15,5 @@ export class ArcItem extends Item implements SGArcItem {
 	public padAngle?: number
 	public innerRadius?: number
 	public outerRadius?: number
-	public cornerRadius?: number = 0
+	public cornerRadius? = 0
 }

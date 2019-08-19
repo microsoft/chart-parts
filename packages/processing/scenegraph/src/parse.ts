@@ -122,10 +122,10 @@ function initializeMark(rawMark: any): SGMark<any> {
 		item.parentType = parentType
 		return item
 	})
-	if (rawMark.hasOwnProperty('clip')) {
+	if (Object.prototype.hasOwnProperty.call(rawMark, 'clip')) {
 		result.clip = rawMark.clip
 	}
-	if (rawMark.hasOwnProperty('interactive')) {
+	if (Object.prototype.hasOwnProperty.call(rawMark, 'interactive')) {
 		result.interactive = rawMark.interactive
 	}
 	return result

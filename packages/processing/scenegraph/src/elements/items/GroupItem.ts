@@ -11,6 +11,6 @@ export class GroupItem extends Item implements SGGroupItem {
 	public readonly itemtype = GroupItem.ITEM_TYPE
 
 	public clip?: boolean
-	public cornerRadius?: number = 0
+	public cornerRadius? = 0
 	public items: Array<SGMark<any>> = []
 }

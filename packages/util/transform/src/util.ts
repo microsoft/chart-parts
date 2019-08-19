@@ -4,7 +4,7 @@
  */
 
 import { Compare, CompareOrder, FieldAccessor } from './interfaces'
-declare var require: any
+declare const require: any
 const get = require('lodash/get')
 
 export function getField(data: any, field: FieldAccessor): any {

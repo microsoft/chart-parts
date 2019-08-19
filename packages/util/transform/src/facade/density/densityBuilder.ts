@@ -9,7 +9,7 @@ import {
 } from './interfaces'
 import { DatasetManager } from '../dataset'
 
-declare var require: any
+declare const require: any
 const { density: vegaDensity } = require('vega-transforms')
 
 export class DensityBuilderImpl implements DensityBuilder {

@@ -5,7 +5,7 @@
 import { FieldAccessor, TextCaseTransform } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
-declare var require: any
+declare const require: any
 const { countpattern: vegaCountPattern } = require('vega-transforms')
 const { field: vegaField } = require('vega-util')
 

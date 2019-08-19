@@ -7,7 +7,7 @@ import {
 	Scales,
 	ScaleBuilder,
 } from '@chart-parts/interfaces'
-declare var require: any
+declare const require: any
 const get = require('lodash/get')
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 

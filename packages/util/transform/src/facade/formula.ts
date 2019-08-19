@@ -5,7 +5,7 @@
 import { Predicate, Transformer } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
-declare var require: any
+declare const require: any
 const { formula: vegaFormula } = require('vega-transforms')
 
 /**

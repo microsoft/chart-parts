@@ -6,7 +6,7 @@ import { FieldAccessor } from '../../interfaces'
 import { DistributionBuilder } from './interfaces'
 import { DatasetManager } from '../dataset'
 
-declare var require: any
+declare const require: any
 const { field: vegaField } = require('vega-util')
 
 /**

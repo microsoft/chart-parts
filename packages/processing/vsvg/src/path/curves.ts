@@ -109,7 +109,8 @@ export default function curves(
 	orientation?: Orientation | undefined,
 	tension?: number | undefined,
 ): CurveFactory {
-	const entry = lookup.hasOwnProperty(type) && lookup[type]
+	const entry =
+		Object.prototype.hasOwnProperty.call(lookup, type) && lookup[type]
 	// let curve: CurveFactory | CurveBundleFactory
 
 	if (entry) {

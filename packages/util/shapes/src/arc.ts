@@ -20,7 +20,7 @@ export function segments(
 	ox: number,
 	oy: number,
 ) {
-	const key = join.call(arguments)
+	const key = join.call([x, y, rx, ry, large, sweep, rotateX, ox, oy])
 	if (segmentCache[key]) {
 		return segmentCache[key]
 	}

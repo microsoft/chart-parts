@@ -3,5 +3,5 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-declare var typography: any
+declare const typography: any
 export default typography
