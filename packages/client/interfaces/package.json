@@ -1,21 +1,21 @@
 {
-  "name": "@chart-parts/interfaces",
-  "description": "Common interfaces for the visualization system, including marks, mark specifications, scenegraphs, and virtual dom definitions",
-  "version": "0.0.20",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "license": "MIT",
-  "scripts": {
-    "clean": "rimraf lib .tsbuildinfo",
-    "start": "tsc -w --preserveWatchOutput",
-    "build": "tsc -b"
-  },
-  "devDependencies": {
-    "rimraf": "^3.0.0",
-    "typescript": "^3.5.3"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@chart-parts/interfaces",
+	"description": "Common interfaces for the visualization system, including marks, mark specifications, scenegraphs, and virtual dom definitions",
+	"version": "0.0.20",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w --preserveWatchOutput",
+		"build": "tsc -b"
+	},
+	"devDependencies": {
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

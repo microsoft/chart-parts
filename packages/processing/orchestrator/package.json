@@ -1,27 +1,27 @@
 {
-  "name": "@chart-parts/orchestrator",
-  "description": "chart-parts rendering orchestration",
-  "version": "0.0.20",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "license": "MIT",
-  "scripts": {
-    "clean": "rimraf lib .tsbuildinfo",
-    "start": "tsc -w --preserveWatchOutput",
-    "build": "tsc -b"
-  },
-  "devDependencies": {
-    "rimraf": "^3.0.0",
-    "typescript": "^3.5.3"
-  },
-  "dependencies": {
-    "@chart-parts/interfaces": "^0.0.20",
-    "@chart-parts/scene": "^0.0.20",
-    "@chart-parts/scenegraph": "^0.0.20",
-    "@chart-parts/vsvg": "^0.0.20"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@chart-parts/orchestrator",
+	"description": "chart-parts rendering orchestration",
+	"version": "0.0.20",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w --preserveWatchOutput",
+		"build": "tsc -b"
+	},
+	"devDependencies": {
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
+	},
+	"dependencies": {
+		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/scene": "^0.0.20",
+		"@chart-parts/scenegraph": "^0.0.20",
+		"@chart-parts/vsvg": "^0.0.20"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

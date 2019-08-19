@@ -1,14 +1,14 @@
 {
-    "extends": "../../tsconfig.json",
-    "include": ["./src/**/*"],
-    "compilerOptions": {
-      "lib": ["dom", "esnext"],
-      "esModuleInterop": true,
-      "experimentalDecorators": true,
-      "emitDecoratorMetadata": true,
-      "noEmit": true,
-      "declaration": false,
-      "skipLibCheck": true,
-		  "tsBuildInfoFile": ".tsbuildinfo",
-    }
+  "extends": "../../tsconfig.json",
+  "include": ["./src/**/*"],
+  "compilerOptions": {
+    "lib": ["dom", "esnext"],
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "noEmit": true,
+    "declaration": false,
+    "skipLibCheck": true,
+    "tsBuildInfoFile": "./lib/.tsbuildinfo"
   }
+}

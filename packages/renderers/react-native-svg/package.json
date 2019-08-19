@@ -1,32 +1,32 @@
 {
-  "name": "@chart-parts/react-native-svg-renderer",
-  "description": "A virtual dom renderer that emits react-native-svg elements",
-  "version": "0.0.20",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "license": "MIT",
-  "scripts": {
-    "clean": "rimraf lib .tsbuildinfo",
-    "start": "tsc -w --preserveWatchOutput",
-    "build": "tsc -b"
-  },
-  "devDependencies": {
-    "@types/react-native": "^0.60.6",
-    "react": "^16.9.0",
-    "rimraf": "^3.0.0",
-    "typescript": "^3.5.3"
-  },
-  "dependencies": {
-    "@chart-parts/interfaces": "^0.0.20",
-    "lodash": "^4.17.15",
-    "react-native-svg": "^9.5.1"
-  },
-  "peerDependencies": {
-    "react": ">= 16",
-    "react-native": ">= ^0.56.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@chart-parts/react-native-svg-renderer",
+	"description": "A virtual dom renderer that emits react-native-svg elements",
+	"version": "0.0.20",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w --preserveWatchOutput",
+		"build": "tsc -b"
+	},
+	"devDependencies": {
+		"@types/react-native": "^0.60.6",
+		"react": "^16.9.0",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
+	},
+	"dependencies": {
+		"@chart-parts/interfaces": "^0.0.20",
+		"lodash": "^4.17.15",
+		"react-native-svg": "^9.5.1"
+	},
+	"peerDependencies": {
+		"react": ">= 16",
+		"react-native": ">= ^0.56.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }

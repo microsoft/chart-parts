@@ -6,5 +6,4 @@ coverage/
 *.log
 .DS_Store
 *.tgz
-tsconfig.tsbuildinfo
 .tsbuildinfo

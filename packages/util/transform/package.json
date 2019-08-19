@@ -1,28 +1,28 @@
 {
-  "name": "@chart-parts/transform",
-  "description": "Data transformation utilities",
-  "version": "0.0.20",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "license": "MIT",
-  "scripts": {
-    "clean": "rimraf lib .tsbuildinfo",
-    "start": "tsc -w --preserveWatchOutput",
-    "build": "tsc -b"
-  },
-  "devDependencies": {
-    "rimraf": "^3.0.0",
-    "typescript": "^3.5.3",
-    "lodash": "^4.17.15"
-  },
-  "dependencies": {
-    "vega-dataflow": "^5.2.1",
-    "vega-encode": "^4.3.0",
-    "vega-transforms": "^4.1.0",
-    "vega-util": "^1.10.0"
-  },
-  "publishConfig": {
-    "access": "public"
-  }
+	"name": "@chart-parts/transform",
+	"description": "Data transformation utilities",
+	"version": "0.0.20",
+	"main": "lib/index.js",
+	"module": "lib/index.js",
+	"types": "lib/index.d.ts",
+	"license": "MIT",
+	"scripts": {
+		"clean": "rimraf lib",
+		"start": "tsc -w --preserveWatchOutput",
+		"build": "tsc -b"
+	},
+	"devDependencies": {
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3",
+		"lodash": "^4.17.15"
+	},
+	"dependencies": {
+		"vega-dataflow": "^5.2.1",
+		"vega-encode": "^4.3.0",
+		"vega-transforms": "^4.1.0",
+		"vega-util": "^1.10.0"
+	},
+	"publishConfig": {
+		"access": "public"
+	}
 }
