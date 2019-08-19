@@ -23,8 +23,8 @@
 		"babel-loader": "^8.0.6",
 		"d3-array": "^2.2.0",
 		"d3-scale": "^3.0.1",
-		"react": "^16.8.6",
-		"react-dom": "^16.8.6",
+		"react": "^16.9.0",
+		"react-dom": "^16.9.0",
 		"rxjs": "^6.5.2",
 		"styled-components": "^4.3.2"
 	},

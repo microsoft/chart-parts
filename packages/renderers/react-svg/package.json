@@ -14,8 +14,8 @@
 	"devDependencies": {
 		"@types/react": "^16.8.24",
 		"@types/react-dom": "^16.8.5",
-		"react": "^16.8.6",
-		"rimraf": "^2.6.3",
+		"react": "^16.9.0",
+		"rimraf": "^3.0.0",
 		"typescript": "^3.5.3"
 	},
 	"dependencies": {

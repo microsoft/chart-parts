@@ -16,6 +16,9 @@
 		"release": "run-s clean build lerna:publish release:packages",
 		"start": "run-s build start:packages"
 	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
 	"husky": {
 		"hooks": {
 			"pre-commit": "lint-staged",
@@ -27,7 +30,7 @@
 		"@commitlint/config-conventional": "^8.1.0",
 		"@types/jest": "^24.0.14",
 		"husky": "^3.0.2",
-		"jest": "^24.8.0",
+		"jest": "^24.9.0",
 		"jest-html": "^1.5.0",
 		"lerna": "^3.16.4",
 		"lint-staged": "^9.2.1",

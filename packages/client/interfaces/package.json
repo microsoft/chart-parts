@@ -12,7 +12,7 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"rimraf": "^2.6.3",
+		"rimraf": "^3.0.0",
 		"typescript": "^3.5.3"
 	},
 	"publishConfig": {
