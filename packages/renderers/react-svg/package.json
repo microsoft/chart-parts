@@ -12,15 +12,15 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@types/react": "^16.8.20",
-		"@types/react-dom": "^16.8.4",
+		"@types/react": "^16.8.24",
+		"@types/react-dom": "^16.8.5",
 		"react": "^16.8.6",
 		"rimraf": "^2.6.3",
-		"typescript": "^3.5.2"
+		"typescript": "^3.5.3"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
-		"lodash": "^4.17.10"
+		"lodash": "^4.17.15"
 	},
 	"peerDependencies": {
 		"react": ">= 16"

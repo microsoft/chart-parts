@@ -12,17 +12,17 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@types/react": "^16.8.20",
+		"@types/react": "^16.8.24",
 		"react": "^16.8.6",
 		"rimraf": "^2.6.3",
-		"typescript": "^3.5.2"
+		"typescript": "^3.5.3"
 	},
 	"dependencies": {
 		"@chart-parts/builder": "^0.0.20",
 		"@chart-parts/interfaces": "^0.0.20",
 		"@chart-parts/orchestrator": "^0.0.20",
 		"@chart-parts/scales": "^0.0.20",
-		"lodash": "^4.17.10",
+		"lodash": "^4.17.15",
 		"shallowequal": "^1.1.0"
 	},
 	"peerDependencies": {

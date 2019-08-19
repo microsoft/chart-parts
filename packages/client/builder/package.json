@@ -14,11 +14,11 @@
 	"devDependencies": {
 		"@chart-parts/scales": "^0.0.20",
 		"rimraf": "^2.6.3",
-		"typescript": "^3.5.2"
+		"typescript": "^3.5.3"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
-		"lodash": "^4.17.10"
+		"lodash": "^4.17.15"
 	},
 	"publishConfig": {
 		"access": "public"
