@@ -12,7 +12,7 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@types/react-native": "^0.57.0",
+		"@types/react-native": "^0.60.6",
 		"react": "^16.9.0",
 		"rimraf": "^3.0.0",
 		"typescript": "^3.5.3"

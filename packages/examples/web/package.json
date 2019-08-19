@@ -31,8 +31,8 @@
 	"devDependencies": {
 		"@types/d3-array": "^2.0.0",
 		"@types/d3-scale": "^2.1.1",
-		"@types/react": "^16.8.24",
-		"@types/react-dom": "^16.8.5",
+		"@types/react": "^16.9.2",
+		"@types/react-dom": "^16.9.0",
 		"@types/storybook__addon-actions": "^3.4.3",
 		"@types/storybook__addon-links": "^3.3.5",
 		"@types/storybook__react": "^4.0.2",
@@ -42,8 +42,8 @@
 		"react-docgen-typescript-webpack-plugin": "^1.1.0",
 		"ts-loader": "^6.0.4",
 		"typescript": "^3.5.3",
-		"webpack": "^4.39.1",
-		"webpack-cli": "^3.3.6",
+		"webpack": "^4.39.2",
+		"webpack-cli": "^3.3.7",
 		"webpack-dev-server": "^3.7.2"
 	}
 }
