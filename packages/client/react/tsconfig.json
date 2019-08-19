@@ -2,19 +2,13 @@
 	"extends": "../../../tsconfig.json",
 	"compilerOptions": {
 		"lib": ["esnext", "dom"],
-		"declaration": true,
 		"outDir": "lib",
 		"experimentalDecorators": true,
 		"composite": true,
 		"rootDir": "./src",
 		"baseUrl": "./src",
+		"tsBuildInfoFile": "./lib/.tsbuildinfo"
 	},
-	"references": [
-		{ "path": "../interfaces" },
-		{ "path": "../builder" },
-		{ "path": "../../util/scales" },
-		{ "path": "../../processing/orchestrator" }
-	],
 	"include": ["./src/**/*.ts*"],
 	"files": ["src/index.ts"]
 }

@@ -2,16 +2,12 @@
 	"extends": "../../../tsconfig.json",
 	"compilerOptions": {
 		"lib": ["esnext", "dom"],
-		"declaration": true,
 		"outDir": "lib",
 		"composite": true,
 		"rootDir": "./src",
-		"baseUrl": "./src"
+		"baseUrl": "./src",
+		"tsBuildInfoFile": "./lib/.tsbuildinfo"
 	},
 	"files": ["src/index.ts"],
-	"include": ["./src/**/*.ts*"],
-	"references": [
-		{ "path": "../../client/interfaces" },
-		{ "path": "../../util/shapes" }
-	]
+	"include": ["./src/**/*.ts*"]
 }

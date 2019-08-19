@@ -64,7 +64,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The fill color.
 	 */
-	public fill?: string = 'none'
+	public fill? = 'none'
 
 	/**
 	 * The fill opacity from 0 (transparent) to 1 (opaque).
@@ -74,7 +74,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	/**
 	 * The stroke color.
 	 */
-	public stroke?: string = 'none'
+	public stroke? = 'none'
 
 	/**
 	 * The stroke opacity from 0 (transparent) to 1 (opaque).
@@ -140,7 +140,7 @@ export abstract class Item extends SceneNode implements SGItem {
 	 * The most common use of zindex is to ensure that a mark is drawn over its siblings when selected, such as
 	 * by mouse hover.
 	 */
-	public zIndex?: number = 0
+	public zIndex? = 0
 
 	public ariaTitle?: string
 	public ariaDescription?: string

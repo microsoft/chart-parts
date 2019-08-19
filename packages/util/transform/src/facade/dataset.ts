@@ -4,7 +4,7 @@
  */
 
 import { DatasetTransform } from './interfaces'
-declare var require: any
+declare const require: any
 const { Dataflow, changeset } = require('vega-dataflow')
 const { collect } = require('vega-transforms')
 

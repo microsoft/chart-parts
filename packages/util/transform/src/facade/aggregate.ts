@@ -5,7 +5,7 @@
 import { FieldAccessor } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
-declare var require: any
+declare const require: any
 const {
 	aggregate: vegaAggregate,
 	collect: vegaCollect,
@@ -165,8 +165,8 @@ export interface AggregateBuilder extends DatasetTransform {
 export class AggregateBuilderImpl implements AggregateBuilder {
 	private groupByFields: FieldAccessor[] = []
 	private computeFields: AggregateComputeField[] = []
-	private crossValue: boolean = false
-	private dropValue: boolean = true
+	private crossValue = false
+	private dropValue = true
 	private keyValue: FieldAccessor | undefined
 
 	public groupBy(...fields: FieldAccessor[]): AggregateBuilder {

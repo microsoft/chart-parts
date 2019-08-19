@@ -12,9 +12,9 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"rimraf": "^2.6.3",
-		"typescript": "^3.5.2",
-		"lodash": "^4.17.11"
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3",
+		"lodash": "^4.17.15"
 	},
 	"dependencies": {
 		"vega-dataflow": "^5.2.1",

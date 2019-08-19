@@ -18,19 +18,19 @@ export class TextItem extends Item implements SGTextItem {
 	public readonly itemtype = TextItem.ITEM_TYPE
 
 	public align?: HorizontalAlignment = HorizontalAlignment.Left
-	public angle?: number = 0
+	public angle? = 0
 	public baseline?: VerticalTextAlignment = VerticalTextAlignment.Alphabetic
 	public dir?: TextDirection = TextDirection.LTR
 	public dx?: number
 	public dy?: number
-	public ellipsis?: string = '...'
+	public ellipsis? = '...'
 	public font?: string
 	public fontSize?: number
 	public fontWeight?: FontWeight
 	public fontVariant?: string | number
 	public fontStyle?: string
-	public limit?: number = 0
-	public radius?: number = 0
+	public limit? = 0
+	public radius? = 0
 	public text?: string
 	public theta?: number
 }

@@ -2,11 +2,11 @@
 	"extends": "../../../tsconfig.json",
 	"compilerOptions": {
 		"lib": ["esnext"],
-		"declaration": true,
 		"composite": true,
 		"outDir": "lib",
 		"rootDir": "./src",
 		"baseUrl": "./src",
+		"tsBuildInfoFile": "./lib/.tsbuildinfo"
 	},
 	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"]

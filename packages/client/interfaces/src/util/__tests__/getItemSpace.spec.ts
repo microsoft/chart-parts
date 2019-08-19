@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-declare var require: any
+declare const require: any
 const {
 	RectItem,
 } = require('@chart-parts/scenegraph/lib/elements/items/RectItem')

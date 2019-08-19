@@ -6,7 +6,7 @@ import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from './DomainScale'
 import { optionalArgument } from './util'
 
-declare var require: any
+declare const require: any
 const reverse = require('lodash/reverse')
 
 export abstract class DomainRangeScale<

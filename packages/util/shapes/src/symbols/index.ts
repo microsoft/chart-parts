@@ -104,13 +104,13 @@ const builtins: SymbolMap = {
 }
 
 export function symbols(symbolName: string) {
-	return builtins.hasOwnProperty(symbolName)
+	return Object.prototype.hasOwnProperty.call(builtins, symbolName)
 		? builtins[symbolName]
 		: customSymbol(symbolName)
 }
 
 export function symbolsByWidth(symbolName: string) {
-	return builtins.hasOwnProperty(symbolName)
+	return Object.prototype.hasOwnProperty.call(builtins, symbolName)
 		? builtins[symbolName]
 		: customSymbol(symbolName)
 }
@@ -118,7 +118,7 @@ export function symbolsByWidth(symbolName: string) {
 const custom: SymbolMap = {}
 
 export function customSymbol(symbolPath: string) {
-	if (!custom.hasOwnProperty(symbolPath)) {
+	if (!Object.prototype.hasOwnProperty.call(custom, symbolPath)) {
 		const parsed = pathParse(symbolPath)
 
 		function drawCustom(context: Path, size: number) {

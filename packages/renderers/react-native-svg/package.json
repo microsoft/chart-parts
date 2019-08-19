@@ -12,14 +12,14 @@
 		"build": "tsc -b"
 	},
 	"devDependencies": {
-		"@types/react-native": "^0.57.0",
-		"react": "^16.8.6",
-		"rimraf": "^2.6.3",
-		"typescript": "^3.5.2"
+		"@types/react-native": "^0.60.6",
+		"react": "^16.9.0",
+		"rimraf": "^3.0.0",
+		"typescript": "^3.5.3"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
-		"lodash": "^4.17.10",
+		"lodash": "^4.17.15",
 		"react-native-svg": "^9.5.1"
 	},
 	"peerDependencies": {

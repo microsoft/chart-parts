@@ -24,24 +24,24 @@ export class AxisBuilder {
 	private thicknessValue: number = DEFAULT_THICKNESS
 
 	// #region Domain Configuration Fields
-	private domainValue: boolean = true
+	private domainValue = true
 	private domainColorValue: string = DEFAULT_COLOR
 	private domainWidthValue: number = DEFAULT_STROKE
 	// #endregion
 
 	// #region Tick Configuration Fields
-	private ticksValue: boolean = true
+	private ticksValue = true
 	private tickColorValue: string = DEFAULT_COLOR
 	private tickCountValue?: number
-	private tickOffsetValue: number = 0
-	private tickRoundValue: boolean = false
+	private tickOffsetValue = 0
+	private tickRoundValue = false
 	private tickSizeValue: number = DEFAULT_TICK_SIZE
 	private tickWidthValue: number = DEFAULT_STROKE
 	private tickValues?: TickValue[]
 	// #endregion
 
 	// #region Label Configuration Fields
-	private labelsValue: boolean = true
+	private labelsValue = true
 	private labelFontValue: string = DEFAULT_FONT
 	private labelFontSizeValue: number = DEFAULT_FONT_SIZE
 	private labelColorValue: string = DEFAULT_TEXT_COLOR
@@ -131,7 +131,7 @@ export class AxisBuilder {
 
 	// #endregion
 
-	// #region Labels Configuratino
+	// #region Labels Configuration
 	public labels(value: boolean): AxisBuilder {
 		this.labelsValue = value
 		return this
