@@ -60,13 +60,12 @@
 	},
 	"workspaces": {
 		"packages": [
-			"packages/documentation",
-			"packages/examples/testdata",
-			"packages/examples/web",
 			"packages/renderers/*",
 			"packages/processing/*",
 			"packages/client/*",
-			"packages/util/*"
+			"packages/util/*",
+			"packages/docs/*",
+			"!packages/docs/examples-mobile"
 		],
 		"nohoist": [
 			"**"
@@ -83,8 +82,7 @@
 			"**/src/*.{ts,tsx}",
 			"**/src/**/*.{ts,tsx}",
 			"!**/src/**/*.d.ts",
-			"!packages/examples/testdata/**",
-			"!packages/documentation/**",
+			"!packages/docs/**",
 			"!**/__tests__/**"
 		],
 		"testPathIgnorePatterns": [
