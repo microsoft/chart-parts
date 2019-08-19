@@ -6,14 +6,10 @@
 		"outDir": "lib",
 		"composite": true,
 		"rootDir": "./src",
-		"baseUrl": "./src"
+		"baseUrl": "./src",
+		"tsBuildInfoFile": ".tsbuildinfo",
 	},
 	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"],
-	"references": [
-		{ "path": "../../client/interfaces" },
-		{ "path": "../scene" },
-		{ "path": "../scenegraph" },
-		{ "path": "../vsvg" }
-	]
+	
 }

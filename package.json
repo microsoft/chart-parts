@@ -3,8 +3,7 @@
 	"private": true,
 	"scripts": {
 		"clean": "lerna run clean",
-		"build": "run-s build:libs build:docs",
-		"build:libs": "lerna run build --stream",
+		"build": "lerna run build --stream",
 		"build:docs": "lerna run build:docs --scope @chart-parts/documentation --stream",
 		"start:packages": "lerna run start --parallel --stream",
 		"test:packages": "lerna run test --stream",

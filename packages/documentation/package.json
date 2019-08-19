@@ -48,9 +48,7 @@
   "license": "MIT",
   "scripts": {
     "clean": "rimraf .cache public apidocs",
-    "build": "run-s build:*",
-    "build:typecheck": "tsc --noEmit",
-    "build:docs": "run-s clean:docs gen:docs",
+    "build_package_docs": "run-s clean:docs gen:docs",
     "start": "gatsby develop",
     "type-check": "tsc --noEmit",
     "clean:docs": "rimraf static/apidocs",
@@ -72,7 +70,7 @@
     "build_static_site": "gatsby build --prefix-paths",
     "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t",
     "clean_release": "run-s clean build release",
-    "release": "run-s build_static_site publish_gh_pages"
+    "release": "run-s clean build_package_docs build_static_site publish_gh_pages"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",

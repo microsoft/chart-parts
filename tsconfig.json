@@ -1,8 +1,6 @@
 {
 	"compilerOptions": {
-		"target": "es2015",
-		// Using es2015 here screws up testing. We'll have to revisit this
-		// to turn on tree-shaking
+		"target": "esnext",
 		"module": "commonjs",
 		"moduleResolution": "node",
 		"forceConsistentCasingInFileNames": true,

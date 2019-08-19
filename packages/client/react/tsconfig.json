@@ -8,13 +8,8 @@
 		"composite": true,
 		"rootDir": "./src",
 		"baseUrl": "./src",
+		"tsBuildInfoFile": ".tsbuildinfo",
 	},
-	"references": [
-		{ "path": "../interfaces" },
-		{ "path": "../builder" },
-		{ "path": "../../util/scales" },
-		{ "path": "../../processing/orchestrator" }
-	],
 	"include": ["./src/**/*.ts*"],
 	"files": ["src/index.ts"]
 }
