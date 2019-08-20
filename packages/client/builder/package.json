@@ -7,9 +7,9 @@
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
-		"clean": "rimraf lib",
-		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b"
+		"clean": "../../../scripts/clean_package.sh",
+		"build": "../../../scripts/build_package.sh",
+		"start": "tsc -w --preserveWatchOutput"
 	},
 	"devDependencies": {
 		"@chart-parts/scales": "^0.0.20",

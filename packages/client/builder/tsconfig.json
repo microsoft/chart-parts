@@ -3,11 +3,9 @@
 	"compilerOptions": {
 		"lib": ["esnext", "dom"],
 		"outDir": "lib",
-		"composite": true,
 		"rootDir": "./src",
 		"baseUrl": "./src",
 		"tsBuildInfoFile": "./lib/.tsbuildinfo"
 	},
-	"files": ["src/index.ts"],
-	"include": ["./src/**/*.ts*"]
+	"files": ["src/index.ts"]
 }

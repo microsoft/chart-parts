@@ -13,7 +13,7 @@
 		"test": "run-s lint build unit_test test:packages",
 		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
 		"release": "run-s clean build lerna:publish release:packages",
-		"start": "run-s build start:packages"
+		"start": "run-s start:packages"
 	},
 	"engines": {
 		"node": ">=10.0.0"
@@ -25,6 +25,11 @@
 		}
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.5.0",
+		"@babel/core": "^7.5.4",
+		"@babel/plugin-proposal-class-properties": "^7.5.0",
+		"@babel/plugin-proposal-object-rest-spread": "^7.5.4",
+		"@babel/preset-env": "^7.5.4",
 		"@commitlint/cli": "^8.1.0",
 		"@commitlint/config-conventional": "^8.1.0",
 		"@types/jest": "^24.0.14",
@@ -57,8 +62,9 @@
 			"packages/processing/*",
 			"packages/client/*",
 			"packages/util/*",
-			"packages/docs/*",
-			"!packages/docs/examplesmobile"
+			"packages/docs/docsite",
+			"packages/docs/examplesweb",
+			"packages/docs/testdata"
 		],
 		"nohoist": [
 			"**"
