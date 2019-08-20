@@ -58,7 +58,7 @@
 			"packages/client/*",
 			"packages/util/*",
 			"packages/docs/*",
-			"!packages/docs/examples-mobile"
+			"!packages/docs/examplesmobile"
 		],
 		"nohoist": [
 			"**"
