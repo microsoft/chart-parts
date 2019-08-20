@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable  @typescript-eslint/ban-ts-ignore */
 // @ts-ignore
 import { Mark } from '@chart-parts/scenegraph/dist/cjs/elements/Mark'
 // @ts-ignore
