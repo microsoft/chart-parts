@@ -2,8 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Mark } from '@chart-parts/scenegraph/lib/elements/Mark'
-import { ArcItem } from '@chart-parts/scenegraph/lib/elements/items/ArcItem'
+// @ts-ignore
+import { Mark } from '@chart-parts/scenegraph/dist/cjs/elements/Mark'
+// @ts-ignore
+import { ArcItem } from '@chart-parts/scenegraph/dist/cjs/elements/items/ArcItem'
 import { renderMark } from '../'
 
 describe('The Arc Renderer', () => {
