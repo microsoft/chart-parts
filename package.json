@@ -13,7 +13,7 @@
 		"test": "run-s lint build unit_test test:packages",
 		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
 		"release": "run-s clean build lerna:publish release:packages",
-		"start": "run-s build start:packages"
+		"start": "run-s start:packages"
 	},
 	"engines": {
 		"node": ">=10.0.0"
@@ -25,9 +25,20 @@
 		}
 	},
 	"devDependencies": {
+		"@babel/cli": "^7.5.0",
+		"@babel/core": "^7.5.4",
+		"@babel/plugin-proposal-class-properties": "^7.5.0",
+		"@babel/plugin-proposal-object-rest-spread": "^7.5.4",
+		"@babel/preset-env": "^7.5.4",
 		"@commitlint/cli": "^8.1.0",
 		"@commitlint/config-conventional": "^8.1.0",
 		"@types/jest": "^24.0.14",
+		"@typescript-eslint/eslint-plugin": "^2.0.0",
+		"@typescript-eslint/parser": "^2.0.0",
+		"eslint": "^6.1.0",
+		"eslint-config-prettier": "^6.0.0",
+		"eslint-plugin-react": "^7.14.3",
+		"eslint-plugin-react-hooks": "^1.6.1",
 		"husky": "^3.0.4",
 		"jest": "^24.9.0",
 		"jest-html": "^1.5.0",
@@ -35,14 +46,9 @@
 		"npm-run-all": "^4.1.5",
 		"prettier": "^1.18.2",
 		"pretty-quick": "^1.11.1",
+		"rimraf": "^3.0.0",
 		"rxjs": "^6.5.2",
 		"ts-jest": "^24.0.2",
-		"@typescript-eslint/eslint-plugin": "^2.0.0",
-		"@typescript-eslint/parser": "^2.0.0",
-		"eslint": "^6.1.0",
-		"eslint-config-prettier": "^6.0.0",
-		"eslint-plugin-react": "^7.14.3",
-		"eslint-plugin-react-hooks": "^1.6.1",
 		"typescript": "^3.5.3"
 	},
 	"prettier": {
@@ -57,8 +63,9 @@
 			"packages/processing/*",
 			"packages/client/*",
 			"packages/util/*",
-			"packages/docs/*",
-			"!packages/docs/examplesmobile"
+			"packages/docs/docsite",
+			"packages/docs/examplesweb",
+			"packages/docs/testdata"
 		],
 		"nohoist": [
 			"**"

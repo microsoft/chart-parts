@@ -53,7 +53,6 @@
     "type-check": "tsc --noEmit",
     "clean:docs": "rimraf static/apidocs",
     "gen:docs": "run-p gen:doc:*",
-    "test": "run-s build_static_site",
     "gen:doc": "typedoc --theme minimal --out static/apidocs/$LIB --tsconfig ../$LIB/tsconfig.typedoc.json --ignoreCompilerErrors --excludePrivate --hideGenerator",
     "gen:doc:builder": "LIB=client/builder yarn gen:doc",
     "gen:doc:interfaces": "LIB=client/interfaces yarn gen:doc",

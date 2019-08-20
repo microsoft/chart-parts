@@ -2,20 +2,18 @@
 	"name": "@chart-parts/react",
 	"description": "React components for specifying data visualizations",
 	"version": "0.0.20",
-	"main": "lib/index.js",
-	"module": "lib/index.js",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
-		"clean": "rimraf lib",
-		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b"
+		"clean": "../../../scripts/clean_package.sh",
+		"build": "../../../scripts/build_package.sh",
+		"start": "tsc -w --preserveWatchOutput"
 	},
 	"devDependencies": {
 		"@types/react": "^16.9.2",
-		"react": "^16.9.0",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
+		"react": "^16.9.0"
 	},
 	"dependencies": {
 		"@chart-parts/builder": "^0.0.20",

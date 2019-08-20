@@ -5,7 +5,7 @@
 declare const require: any
 const {
 	RectItem,
-} = require('@chart-parts/scenegraph/lib/elements/items/RectItem')
+} = require('@chart-parts/scenegraph/dist/cjs/elements/items/RectItem')
 import { getItemSpace } from '../getItemSpace'
 
 xdescribe('Rendering Utilities', () => {

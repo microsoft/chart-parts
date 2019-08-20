@@ -2,19 +2,17 @@
 	"name": "@chart-parts/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"version": "0.0.20",
-	"main": "lib/index.js",
-	"module": "lib/index.js",
+	"main": "dist/cjs/index.js",
+	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
 	"license": "MIT",
 	"scripts": {
-		"clean": "rimraf lib",
-		"start": "tsc -w --preserveWatchOutput",
-		"build": "tsc -b"
+		"clean": "../../../scripts/clean_package.sh",
+		"build": "../../../scripts/build_package.sh",
+		"start": "../../../scripts/watch_package.sh"
 	},
 	"devDependencies": {
-		"@chart-parts/scenegraph": "^0.0.20",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
+		"@chart-parts/scenegraph": "^0.0.20"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
