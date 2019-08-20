@@ -12,9 +12,7 @@
 		"start": "tsc -w --preserveWatchOutput"
 	},
 	"devDependencies": {
-		"@chart-parts/scales": "^0.0.20",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
+		"@chart-parts/scales": "^0.0.20"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",

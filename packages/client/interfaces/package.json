@@ -9,11 +9,7 @@
 	"scripts": {
 		"clean": "../../../scripts/clean_package.sh",
 		"build": "../../../scripts/build_package.sh",
-		"start": "tsc -w --preserveWatchOutput"
-	},
-	"devDependencies": {
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
+		"start": "../../../scripts/watch_package.sh"
 	},
 	"publishConfig": {
 		"access": "public"

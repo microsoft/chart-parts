@@ -12,8 +12,6 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"devDependencies": {
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3",
 		"lodash": "^4.17.15"
 	},
 	"dependencies": {

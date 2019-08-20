@@ -11,10 +11,6 @@
 		"build": "../../../scripts/build_package.sh",
 		"start": "../../../scripts/watch_package.sh"
 	},
-	"devDependencies": {
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
-	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
 		"@types/d3-path": "^1.0.8",

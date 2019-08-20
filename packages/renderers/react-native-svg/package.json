@@ -13,9 +13,7 @@
 	},
 	"devDependencies": {
 		"@types/react-native": "^0.60.6",
-		"react": "^16.9.0",
-		"rimraf": "^3.0.0",
-		"typescript": "^3.5.3"
+		"react": "^16.9.0"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
