@@ -15,10 +15,10 @@
 		"lodash": "^4.17.15"
 	},
 	"dependencies": {
-		"vega-dataflow": "^5.2.1",
-		"vega-encode": "^4.3.0",
-		"vega-transforms": "^4.1.0",
-		"vega-util": "^1.10.0"
+		"vega-dataflow": "^5.4.0",
+		"vega-encode": "^4.3.2",
+		"vega-transforms": "^4.2.1",
+		"vega-util": "^1.11.1"
 	},
 	"publishConfig": {
 		"access": "public"
