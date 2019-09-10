@@ -11,7 +11,7 @@ import {
 	FontWeight,
 } from '@chart-parts/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import { createMarkComponent } from './BaseMark'
 
 export interface TextProps extends CommonMarkProps {
 	align?: MarkEncodingProp<HorizontalAlignment>
@@ -32,45 +32,41 @@ export interface TextProps extends CommonMarkProps {
 	theta?: MarkEncodingProp<number>
 }
 
-export class Text extends BaseMark<TextProps> {
-	public markType = MarkType.Text
-
-	protected encodeCustomProperties() {
-		const {
-			align,
-			angle,
-			baseline,
-			dir,
-			dx,
-			dy,
-			ellipsis,
-			font,
-			fontSize,
-			fontWeight,
-			fontVariant,
-			fontStyle,
-			limit,
-			radius,
-			text,
-			theta,
-		} = this.props
-		return {
-			align,
-			angle,
-			baseline,
-			dir,
-			dx,
-			dy,
-			ellipsis,
-			font,
-			fontSize,
-			fontWeight,
-			fontVariant,
-			fontStyle,
-			limit,
-			radius,
-			text,
-			theta,
-		}
-	}
-}
+export const Text = createMarkComponent<TextProps>(
+	MarkType.Text,
+	({
+		align,
+		angle,
+		baseline,
+		dir,
+		dx,
+		dy,
+		ellipsis,
+		font,
+		fontSize,
+		fontWeight,
+		fontVariant,
+		fontStyle,
+		limit,
+		radius,
+		text,
+		theta,
+	}) => ({
+		align,
+		angle,
+		baseline,
+		dir,
+		dx,
+		dy,
+		ellipsis,
+		font,
+		fontSize,
+		fontWeight,
+		fontVariant,
+		fontStyle,
+		limit,
+		radius,
+		text,
+		theta,
+	}),
+)

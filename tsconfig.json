@@ -5,6 +5,7 @@
 		"moduleResolution": "node",
 		"declaration": true,
 		"forceConsistentCasingInFileNames": true,
+		"allowSyntheticDefaultImports": true,
 		"incremental": true,
 		"jsx": "react",
 		"strict": true,

@@ -5,7 +5,7 @@
 
 import { MarkType } from '@chart-parts/interfaces'
 import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import { createMarkComponent } from './BaseMark'
 
 export interface ArcProps extends CommonMarkProps {
 	startAngle?: MarkEncodingProp<number>
@@ -16,25 +16,21 @@ export interface ArcProps extends CommonMarkProps {
 	cornerRadius?: MarkEncodingProp<number>
 }
 
-export class Arc extends BaseMark<ArcProps> {
-	public markType = MarkType.Arc
-
-	protected encodeCustomProperties() {
-		const {
-			startAngle,
-			endAngle,
-			padAngle,
-			innerRadius,
-			outerRadius,
-			cornerRadius,
-		} = this.props
-		return {
-			startAngle,
-			endAngle,
-			padAngle,
-			innerRadius,
-			outerRadius,
-			cornerRadius,
-		}
-	}
-}
+export const Arc = createMarkComponent<ArcProps>(
+	MarkType.Arc,
+	({
+		startAngle,
+		endAngle,
+		padAngle,
+		innerRadius,
+		outerRadius,
+		cornerRadius,
+	}) => ({
+		startAngle,
+		endAngle,
+		padAngle,
+		innerRadius,
+		outerRadius,
+		cornerRadius,
+	}),
+)
