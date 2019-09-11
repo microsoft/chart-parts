@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo } from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../util/theme'
@@ -13,12 +13,10 @@ export interface HeaderProps {
 	opacity?: number
 }
 
-export default class Header extends React.PureComponent<HeaderProps> {
-	public static HEIGHT = 60
+const HEIGHT = 60
 
-	public render() {
-		const { logoTo = '/', opacity = 1.0 } = this.props
-
+export const Header: React.FC<HeaderProps> = memo(
+	({ logoTo = '/', opacity = 1.0 }) => {
 		return (
 			<StaticQuery
 				query={graphql`
@@ -55,11 +53,11 @@ export default class Header extends React.PureComponent<HeaderProps> {
 			/>
 		)
 	}
-}
+)
 
 const Container = styled.div`
 	background: ${theme.backgrounds.header};
-	height: ${Header.HEIGHT}px;
+	height: ${HEIGHT}px;
 	display: flex;
 `
 
