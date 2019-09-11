@@ -1,5 +1,5 @@
 {
-  "name": "@chart-parts/documentation",
+  "name": "@chart-parts/docsite",
   "description": "Docs website for chart-parts",
   "version": "0.0.20",
   "private": true,
@@ -18,7 +18,7 @@
     "@types/react-helmet": "^5.0.7",
     "@types/styled-components": "^4.0.3",
     "babel-plugin-styled-components": "^1.8.0",
-    "d3-scale": "^3.0.1",
+    "d3-scale": "^3.1.0",
     "debug": "^4.1.0",
     "gatsby": "^2.15.14",
     "gatsby-plugin-react-helmet": "^3.1.7",
@@ -49,7 +49,7 @@
   "scripts": {
     "clean": "rimraf .cache public apidocs",
     "build_package_docs": "run-s clean:docs gen:docs",
-    "start": "gatsby develop",
+    "start": "gatsby develop -H 0.0.0.0",
     "type-check": "tsc --noEmit",
     "clean:docs": "rimraf static/apidocs",
     "gen:docs": "run-p gen:doc:*",
