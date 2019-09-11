@@ -2,7 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import React, {
+	memo,
+	useState,
+	useRef,
+	useMemo,
+	useCallback,
+	useEffect,
+} from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
 import { Header } from '../components/header'
@@ -19,66 +26,54 @@ export interface IndexPageState {
 	scrollPercent: number
 }
 
-export default class IndexPage extends React.Component {
-	public state: IndexPageState = { scrollPercent: 0.0 }
-	private scrollAreaRef: React.RefObject<HTMLDivElement> = React.createRef()
+const IndexPage: React.FC = memo(() => {
+	const [scrollPercent, setScrollPercent] = useState(0.0)
+	const headerOpacity = useMemo(() => Math.max(scrollPercent / 0.6), [
+		scrollPercent,
+	])
+	const scrollAreaRef = useRef<HTMLDivElement>(null)
+	const onScroll = useCallback(
+		(e: React.UIEvent<HTMLDivElement>) => {
+			if (scrollAreaRef.current) {
+				const current = scrollAreaRef.current as HTMLDivElement
+				const value = current.offsetHeight + current.scrollTop
+				const start = current.offsetHeight
+				const stop = current.scrollHeight
+				const newScrollPercent = (value - start) / (stop - start)
+				setScrollPercent(newScrollPercent)
+			}
+		},
+		[setScrollPercent, scrollAreaRef]
+	)
 
-	public componentDidMount() {
-		// If all content is visible, show the header
-		if (this.isAllContentVisible) {
-			this.setState({ scrollPercent: 1.0 })
+	useEffect(() => {
+		const areaDiv = scrollAreaRef.current
+		if (areaDiv && areaDiv.scrollHeight === areaDiv.offsetHeight) {
+			setScrollPercent(1)
 		}
-	}
+	}, [scrollAreaRef])
 
-	public render() {
-		const { scrollPercent } = this.state
-		return (
-			<Container>
-				<GlobalStyles />
-				<Helmet title="chart-parts">
-					<html lang="en" />
-				</Helmet>
-				<Header opacity={Math.max(scrollPercent / 0.6)} />
-				<Wrapper>
-					<OverflowContainer
-						ref={this.scrollAreaRef as any}
-						onScroll={this.onScroll}
-					>
-						<Content>
-							<HeroBanner fadePercent={scrollPercent} />
-							<BelowTheFold />
-							<Footer />
-						</Content>
-					</OverflowContainer>
-				</Wrapper>
-			</Container>
-		)
-	}
+	return (
+		<Container>
+			<GlobalStyles />
+			<Helmet title="chart-parts">
+				<html lang="en" />
+			</Helmet>
+			<Header opacity={headerOpacity} />
+			<Wrapper>
+				<OverflowContainer ref={scrollAreaRef} onScroll={onScroll}>
+					<Content>
+						<HeroBanner fadePercent={scrollPercent} />
+						<BelowTheFold />
+						<Footer />
+					</Content>
+				</OverflowContainer>
+			</Wrapper>
+		</Container>
+	)
+})
 
-	private onScroll = (e: React.UIEvent<HTMLDivElement>) => {
-		const scrollPercent = this.scrollPercent
-		this.setState({ scrollPercent })
-	}
-
-	/**
-	 * Gets the percentage the user has scrolled across the scrollable area
-	 */
-	private get scrollPercent() {
-		const current = this.scrollAreaRef.current as HTMLDivElement
-		const value = current.offsetHeight + current.scrollTop
-		const start = current.offsetHeight
-		const stop = current.scrollHeight
-		return (value - start) / (stop - start)
-	}
-
-	/**
-	 * Determines if all content is visible prior to any scrolling interaction.
-	 */
-	private get isAllContentVisible() {
-		const current = this.scrollAreaRef.current as HTMLDivElement
-		return current.scrollHeight === current.offsetHeight
-	}
-}
+export default IndexPage
 
 const Wrapper = styled.div`
 	display: flex;
