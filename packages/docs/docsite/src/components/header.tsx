@@ -54,6 +54,7 @@ export const Header: React.FC<HeaderProps> = memo(
 		)
 	}
 )
+Header.displayName = 'Header'
 
 const Container = styled.div`
 	background: ${theme.backgrounds.header};

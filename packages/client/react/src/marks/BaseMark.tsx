@@ -110,5 +110,6 @@ export function createMarkComponent<T extends CommonMarkProps>(
 			</SceneNodeBuilderContext.Provider>
 		)
 	})
+	result.displayName = markType
 	return result
 }

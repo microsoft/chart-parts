@@ -19,14 +19,16 @@ export const LogScale = createQuantitativeScale<
 	LogScaleProps,
 	QuantitativeValue,
 	number
->(({ name, domain, range, zero, clamp, nice, reverse, base, padding }) => {
-	return log(name)
-		.domain(domain)
-		.range(range)
-		.zero(zero)
-		.clamp(clamp)
-		.nice(nice)
-		.reverse(reverse)
-		.base(base)
-		.padding(padding)
-})
+>(
+	'LogScale',
+	({ name, domain, range, zero, clamp, nice, reverse, base, padding }) =>
+		log(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.base(base)
+			.padding(padding),
+)

@@ -27,12 +27,12 @@ export type QuantizeScaleComponentType<D = any, R = any> = React.FC<
 >
 
 export const QuantizeScale: QuantizeScaleComponentType = createDomainRangeScale(
-	({ name, domain, range, reverse, nice, zero }) => {
-		return quantize(name)
+	'QuantizeScale',
+	({ name, domain, range, reverse, nice, zero }) =>
+		quantize(name)
 			.domain(domain)
 			.range(range)
 			.reverse(reverse)
 			.nice(nice)
-			.zero(zero)
-	},
+			.zero(zero),
 )

@@ -14,8 +14,8 @@ export const UtcScale = createQuantitativeScale<
 	QuantitativeScaleProps<TimeValue, number>,
 	TimeValue,
 	number
->(({ name, domain, range, zero, clamp, nice, reverse, padding }) => {
-	return utc(name)
+>('UtcScale', ({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
+	utc(name)
 		.name(name)
 		.domain(domain)
 		.range(range)
@@ -23,5 +23,5 @@ export const UtcScale = createQuantitativeScale<
 		.clamp(clamp)
 		.nice(nice)
 		.reverse(reverse)
-		.padding(padding)
-})
+		.padding(padding),
+)

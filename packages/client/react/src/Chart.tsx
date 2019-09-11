@@ -73,3 +73,5 @@ export const Chart: React.FC<ChartProps> = memo(
 		)
 	},
 )
+
+Chart.displayName = 'Chart'

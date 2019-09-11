@@ -14,13 +14,15 @@ export const LinearScale = createQuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
 	number
->(({ name, range, domain, zero, clamp, nice, reverse, padding }) => {
-	return linear(name)
-		.domain(domain)
-		.range(range)
-		.zero(zero)
-		.clamp(clamp)
-		.nice(nice)
-		.reverse(reverse)
-		.padding(padding)
-})
+>(
+	'LinearScale',
+	({ name, range, domain, zero, clamp, nice, reverse, padding }) =>
+		linear(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.padding(padding),
+)

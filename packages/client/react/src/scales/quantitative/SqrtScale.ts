@@ -14,13 +14,13 @@ export const SqrtScale = createQuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
 	number
->(({ name, domain, range, zero, clamp, nice, reverse, padding }) => {
-	return sqrt(name)
+>('SqrtScale', ({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
+	sqrt(name)
 		.domain(domain)
 		.range(range)
 		.zero(zero)
 		.clamp(clamp)
 		.nice(nice)
 		.reverse(reverse)
-		.padding(padding)
-})
+		.padding(padding),
+)

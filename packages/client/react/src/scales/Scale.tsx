@@ -21,3 +21,5 @@ export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
 	}, [api, create])
 	return null
 })
+
+Scale.displayName = 'Scale'

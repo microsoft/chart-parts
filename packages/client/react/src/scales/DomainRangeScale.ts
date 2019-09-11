@@ -28,6 +28,6 @@ export function createDomainRangeScale<
 	Domain,
 	Range,
 	RangeBind
->(createScale: (props: Props) => any) {
-	return createDomainScale<Props, Domain>(createScale)
+>(displayName: string, createScale: (props: Props) => any) {
+	return createDomainScale<Props, Domain>(displayName, createScale)
 }

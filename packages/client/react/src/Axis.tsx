@@ -76,3 +76,5 @@ export const Axis: React.FC<AxisProps> = memo(
 		return <>{children}</>
 	},
 )
+
+Axis.displayName = 'Axis'

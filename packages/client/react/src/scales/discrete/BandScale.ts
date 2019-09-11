@@ -49,6 +49,7 @@ export const BandScale: React.FC<BandScaleProps> = createDomainRangeScale<
 	[number, number],
 	Dimension
 >(
+	'BandScale',
 	({
 		bandWidth,
 		name,

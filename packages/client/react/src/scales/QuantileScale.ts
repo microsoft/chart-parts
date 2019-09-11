@@ -21,6 +21,7 @@ export type QuantileScaleComponentType<
 > = React.FC<QuantileScaleProps<D, R>>
 
 export const QuantileScale: QuantileScaleComponentType = createDomainRangeScale(
+	'QuantileScale',
 	({ name, domain, range, reverse }) =>
 		quantize(name)
 			.domain(domain)

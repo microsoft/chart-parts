@@ -51,3 +51,5 @@ export const ChartSpec: React.FC<ChartSpecProps> = memo(
 		)
 	},
 )
+
+ChartSpec.displayName = 'ChartSpec'

@@ -19,14 +19,16 @@ export const PowScale = createQuantitativeScale<
 	PowScaleProps,
 	QuantitativeValue,
 	number
->(({ name, domain, range, zero, clamp, nice, reverse, exponent, padding }) => {
-	return pow(name)
-		.domain(domain)
-		.range(range)
-		.zero(zero)
-		.clamp(clamp)
-		.nice(nice)
-		.reverse(reverse)
-		.exponent(exponent)
-		.padding(padding)
-})
+>(
+	'PowScale',
+	({ name, domain, range, zero, clamp, nice, reverse, exponent, padding }) =>
+		pow(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.exponent(exponent)
+			.padding(padding),
+)

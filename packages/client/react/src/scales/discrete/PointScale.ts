@@ -29,6 +29,7 @@ export interface PointScaleProps
 }
 
 export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
+	'PointScale',
 	({
 		stepName: stepNameProp,
 		name,

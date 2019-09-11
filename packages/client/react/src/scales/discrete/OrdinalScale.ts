@@ -24,10 +24,10 @@ export type OrdinalScaleComponentType<RangeType = any> = React.FC<
 >
 
 export const OrdinalScale: OrdinalScaleComponentType = createDomainScale(
-	({ name, domain, range, colorScheme }) => {
-		return ordinal(name)
+	'OrdinalScale',
+	({ name, domain, range, colorScheme }) =>
+		ordinal(name)
 			.domain(domain)
 			.range(range)
-			.colorScheme(colorScheme)
-	},
+			.colorScheme(colorScheme),
 )
