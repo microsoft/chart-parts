@@ -43,9 +43,14 @@ export class MarkBuilder {
 
 	public constructor(private type: MarkType) {}
 
-	public table(table: string): MarkBuilder {
-		this.tableValue = table
-		return this.singleton(false)
+	public table(table: string | undefined): MarkBuilder {
+		if (typeof table != null) {
+			this.tableValue = table
+			return this.singleton(false)
+		} else {
+			this.tableValue = undefined
+			return this.singleton(true)
+		}
 	}
 
 	public singleton(value: boolean): MarkBuilder {
@@ -53,12 +58,12 @@ export class MarkBuilder {
 		return this
 	}
 
-	public role(role: string): MarkBuilder {
+	public role(role: string | undefined): MarkBuilder {
 		this.roleValue = role
 		return this
 	}
 
-	public name(name: string): MarkBuilder {
+	public name(name: string | undefined): MarkBuilder {
 		this.nameValue = name
 		return this
 	}
@@ -383,7 +388,7 @@ export class MarkBuilder {
 		}
 	}
 
-	public facet(facet: Facet): MarkBuilder {
+	public facet(facet: Facet | undefined): MarkBuilder {
 		if (facet !== undefined && this.type !== MarkType.Group) {
 			throw new Error('faceting can only be applied to "group" type marks')
 		}

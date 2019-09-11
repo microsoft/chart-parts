@@ -6,6 +6,6 @@
 import React from 'react'
 import { SceneNodeBuilder } from '@chart-parts/builder'
 
-export const SceneNodeBuilderContext = React.createContext<SceneNodeBuilder>(
-	new SceneNodeBuilder(),
-)
+export const SceneNodeBuilderContext = React.createContext<
+	SceneNodeBuilder | undefined
+>(undefined)

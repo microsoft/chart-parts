@@ -2,21 +2,32 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { MarkType, SymbolType } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
+import {
+	MarkType,
+	SymbolType,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../interfaces'
 import { createMarkComponent } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
+import { useEffect } from 'react'
 
 export interface SymbolOfTypeProps extends CommonMarkProps {
-	size?: MarkEncodingProp<number>
+	size?: MarkEncoding<number>
 }
 
 function createSymbolMark(shape: SymbolType) {
 	return createMarkComponent<SymbolOfTypeProps>(
 		MarkType.Symbol,
-		({ size }) => ({
-			size,
-			shape,
-		}),
+		(mark: MarkBuilder, props) => {
+			useEffect(() => {
+				mark.encode(MarkEncodingKey.size, props.size)
+			}, [mark, props.size])
+			useEffect(() => {
+				mark.encode(MarkEncodingKey.shape, shape)
+			}, [mark])
+		},
 	)
 }
 
