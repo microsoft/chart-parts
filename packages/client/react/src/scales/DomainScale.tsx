@@ -35,6 +35,9 @@ export function createDomainScale<
 		useEffect(() => {
 			if (api && scale) {
 				api.scale(scale)
+				return () => {
+					api.removeScale(scale)
+				}
 			}
 		}, [api, scale])
 		return null

@@ -16,7 +16,11 @@ export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
 	const api = useContext(SceneNodeBuilderContext)
 	useEffect(() => {
 		if (api) {
-			api.scale(args => create(args))
+			const newScale = (args: any) => create(args)
+			api.scale(newScale)
+			return () => {
+				api.removeScale(newScale)
+			}
 		}
 	}, [api, create])
 	return null

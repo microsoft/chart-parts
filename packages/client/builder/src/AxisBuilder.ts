@@ -67,64 +67,64 @@ export class AxisBuilder {
 	}
 
 	// #region Domain Configuration
-	public domain(value: boolean): AxisBuilder {
-		this.domainValue = value
+	public domain(value: boolean | undefined): AxisBuilder {
+		this.domainValue = value == null ? true : value
 		return this
 	}
 
-	public domainWidth(value: number): AxisBuilder {
-		this.domainWidthValue = value
+	public domainWidth(value: number | undefined): AxisBuilder {
+		this.domainWidthValue = value == null ? DEFAULT_STROKE : value
 		return this
 	}
 
-	public domainColor(value: string): AxisBuilder {
-		this.domainColorValue = value
+	public domainColor(value: string | undefined): AxisBuilder {
+		this.domainColorValue = value == null ? DEFAULT_COLOR : value
 		return this
 	}
 	// #endregion
 
 	// #region Tick Configuration
-	public ticks(value: boolean): AxisBuilder {
-		this.ticksValue = value
+	public ticks(value: boolean | undefined): AxisBuilder {
+		this.ticksValue = value == null ? true : value
 		return this
 	}
 
-	public tickColor(value: string): AxisBuilder {
-		this.tickColorValue = value
+	public tickColor(value: string | undefined): AxisBuilder {
+		this.tickColorValue = value == null ? DEFAULT_COLOR : value
 		return this
 	}
 
-	public tickCount(value: number): AxisBuilder {
+	public tickCount(value: number | undefined): AxisBuilder {
 		this.tickCountValue = value
 		return this
 	}
 
-	public tickOffset(value: number): AxisBuilder {
-		this.tickOffsetValue = value
+	public tickOffset(value: number | undefined): AxisBuilder {
+		this.tickOffsetValue = value == null ? 0 : value
 		return this
 	}
 
-	public tickRound(value: boolean): AxisBuilder {
-		this.tickRoundValue = value
+	public tickRound(value: boolean | undefined): AxisBuilder {
+		this.tickRoundValue = value == null ? false : value
 		return this
 	}
 
-	public tickSize(value: number): AxisBuilder {
-		this.tickSizeValue = value
+	public tickSize(value: number | undefined): AxisBuilder {
+		this.tickSizeValue = value == null ? DEFAULT_TICK_SIZE : value
 		return this
 	}
 
-	public tickWidth(value: number): AxisBuilder {
-		this.tickWidthValue = value
+	public tickWidth(value: number | undefined): AxisBuilder {
+		this.tickWidthValue = value == null ? DEFAULT_STROKE : value
 		return this
 	}
 
-	public bandPosition(value: number): AxisBuilder {
+	public bandPosition(value: number | undefined): AxisBuilder {
 		this.bandPositionValue = value
 		return this
 	}
 
-	public values(values: TickValue[]): AxisBuilder {
+	public values(values: TickValue[] | undefined): AxisBuilder {
 		this.tickValues = values
 		return this
 	}
@@ -132,48 +132,48 @@ export class AxisBuilder {
 	// #endregion
 
 	// #region Labels Configuration
-	public labels(value: boolean): AxisBuilder {
-		this.labelsValue = value
+	public labels(value: boolean | undefined): AxisBuilder {
+		this.labelsValue = value == null ? true : value
 		return this
 	}
 
-	public labelFont(value: string): AxisBuilder {
-		this.labelFontValue = value
+	public labelFont(value: string | undefined): AxisBuilder {
+		this.labelFontValue = value == null ? DEFAULT_FONT : value
 		return this
 	}
 
-	public labelFontSize(value: number): AxisBuilder {
-		this.labelFontSizeValue = value
+	public labelFontSize(value: number | undefined): AxisBuilder {
+		this.labelFontSizeValue = value == null ? DEFAULT_FONT_SIZE : value
 		return this
 	}
 
-	public labelColor(value: string): AxisBuilder {
-		this.labelColorValue = value
+	public labelColor(value: string | undefined): AxisBuilder {
+		this.labelColorValue = value == null ? DEFAULT_TEXT_COLOR : value
 		return this
 	}
 
-	public labelPadding(value: number): AxisBuilder {
-		this.labelPaddingValue = value
+	public labelPadding(value: number | undefined): AxisBuilder {
+		this.labelPaddingValue = value == null ? DEFAULT_LABEL_PADDING : value
 		return this
 	}
 
-	public labelFontWeight(value: FontWeight): AxisBuilder {
+	public labelFontWeight(value: FontWeight | undefined): AxisBuilder {
 		this.labelFontWeightValue = value
 		return this
 	}
 
-	public labelAngle(value: number): AxisBuilder {
+	public labelAngle(value: number | undefined): AxisBuilder {
 		this.labelAngleValue = value
 		return this
 	}
 
-	public labelFormat(value: string): AxisBuilder {
+	public labelFormat(value: string | undefined): AxisBuilder {
 		this.labelFormatValue = value
 		return this
 	}
 
-	public thickness(value: number): AxisBuilder {
-		this.thicknessValue = value
+	public thickness(value: number | undefined): AxisBuilder {
+		this.thicknessValue = value == null ? DEFAULT_THICKNESS : value
 		return this
 	}
 

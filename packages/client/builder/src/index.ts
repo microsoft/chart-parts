@@ -16,6 +16,7 @@ import { ChartOptionsManager } from './ChartOptionsManager'
 
 export * from './MarkBuilder'
 export * from './SceneNodeBuilder'
+export * from './AxisBuilder'
 export * from './ChartOptionsManager'
 
 /**
