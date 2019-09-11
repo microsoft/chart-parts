@@ -6,7 +6,7 @@
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
-const data = require('../resources/distortion_comparison_map.json')
+const data = require('../../resources/distortion_comparison_map.json')
 
 export const scenegraph = parseScene(data)
 export const title = 'Distortion Comparison Map'
