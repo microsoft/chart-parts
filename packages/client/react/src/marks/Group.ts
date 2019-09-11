@@ -35,11 +35,10 @@ function createMark(
 	const { facet } = props
 	return facet ? mark.facet(facet) : mark
 }
+
 export const Group = createMarkComponent<GroupProps>(
 	MarkType.Group,
 	({ clip, cornerRadius }) => ({ clip, cornerRadius }),
 	createMark,
-	undefined,
-	undefined,
 	addMark,
 )

@@ -91,14 +91,13 @@ export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	encodeCustomProperties: (props: T) => any = () => ({}),
 	generateMark = createMarkInstance,
-	generateChannels = getChannels,
-	generateEncodings = getEncodings,
 	addMark = addMarkToScene,
 ): React.FC<T> {
 	const result: React.FC<T> = ({ children, ...props }) => {
 		const api = useContext(SceneNodeBuilderContext)
-		const channels = generateChannels(props)
-		const encodings = generateEncodings(props as T, encodeCustomProperties)
+
+		const channels = getChannels(props)
+		const encodings = getEncodings(props as T, encodeCustomProperties)
 		const mark = generateMark(markType, props, channels, encodings)
 		const node = api && addMark(api, mark)
 		return (
