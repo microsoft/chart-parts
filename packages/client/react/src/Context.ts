@@ -9,8 +9,3 @@ import { SceneNodeBuilder } from '@chart-parts/builder'
 export const SceneNodeBuilderContext = React.createContext<SceneNodeBuilder>(
 	new SceneNodeBuilder(),
 )
-
-export const {
-	Consumer: SceneNodeBuilderConsumer,
-	Provider: SceneNodeBuilderProvider,
-} = SceneNodeBuilderContext

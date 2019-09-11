@@ -6,7 +6,7 @@
 import * as React from 'react'
 import { SceneNodeBuilder } from '@chart-parts/builder'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
-import { SceneNodeBuilderConsumer } from '../Context'
+import { SceneNodeBuilderContext } from '../Context'
 
 export interface ScaleProps {
 	name: string
@@ -19,13 +19,13 @@ export class Scale extends React.PureComponent<ScaleProps> {
 
 	public render() {
 		return (
-			<SceneNodeBuilderConsumer>
+			<SceneNodeBuilderContext.Consumer>
 				{api => {
 					this.apiInstance = api
 					this.addScale()
 					return null
 				}}
-			</SceneNodeBuilderConsumer>
+			</SceneNodeBuilderContext.Consumer>
 		)
 	}
 

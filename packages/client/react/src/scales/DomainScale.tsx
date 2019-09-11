@@ -5,7 +5,7 @@
 import * as React from 'react'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { SceneNodeBuilder } from '@chart-parts/builder'
-import { SceneNodeBuilderConsumer } from '../Context'
+import { SceneNodeBuilderContext } from '../Context'
 
 export interface DomainScaleProps<Domain> {
 	/**
@@ -34,13 +34,13 @@ export abstract class DomainScale<
 
 	public render() {
 		return (
-			<SceneNodeBuilderConsumer>
+			<SceneNodeBuilderContext.Consumer>
 				{(api: SceneNodeBuilder) => {
 					this.apiInstance = api
 					this.addScale()
 					return null
 				}}
-			</SceneNodeBuilderConsumer>
+			</SceneNodeBuilderContext.Consumer>
 		)
 	}
 

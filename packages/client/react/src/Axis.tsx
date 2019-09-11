@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React, { useContext, memo, useEffect } from 'react'
 import { AxisOrientation, TickValue } from '@chart-parts/interfaces'
-import { SceneNodeBuilder, axis } from '@chart-parts/builder'
-import { SceneNodeBuilderConsumer } from './Context'
+import { axis } from '@chart-parts/builder'
+import { SceneNodeBuilderContext } from './Context'
 
 /**
  * Axis Component Props
@@ -58,33 +58,21 @@ export interface AxisProps {
 	// #endregion
 }
 
-export class Axis extends React.PureComponent<AxisProps> {
-	public render() {
-		return (
-			<SceneNodeBuilderConsumer>
-				{api => {
-					this.receiveApi(api)
-					return this.props.children
-				}}
-			</SceneNodeBuilderConsumer>
-		)
-	}
-
-	private receiveApi(api: SceneNodeBuilder) {
-		const { scale, orient } = this.props
-		const newAxis = axis(scale, orient)
-
-		// For any other properties that are set to defined values, pipe them into the axis builder
-		Object.keys(this.props).forEach(propName => {
-			const propValue = (this.props as any)[propName]
-			if (
-				propName !== 'scale' &&
-				propName !== 'orient' &&
-				propValue !== undefined
-			) {
-				;(newAxis as any)[propName](propValue)
+export const Axis: React.FC<AxisProps> = memo(
+	({ children, scale, orient, ...props }) => {
+		const api = useContext(SceneNodeBuilderContext)
+		useEffect(() => {
+			if (api) {
+				const newAxis = axis(scale, orient)
+				Object.keys(props).forEach(propName => {
+					const propValue = (props as any)[propName]
+					if (propValue !== undefined) {
+						;(newAxis as any)[propName](propValue)
+					}
+				})
+				api.axes(newAxis)
 			}
-		})
-		api.axes(newAxis)
-	}
-}
+		}, [scale, orient, props, api])
+		return <>{children}</>
+	},
+)

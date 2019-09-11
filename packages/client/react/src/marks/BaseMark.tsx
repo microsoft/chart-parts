@@ -4,7 +4,7 @@
  */
 
 import React, { memo, useContext, useMemo } from 'react'
-import { SceneNodeBuilderProvider, SceneNodeBuilderContext } from '../Context'
+import { SceneNodeBuilderContext } from '../Context'
 import {
 	MarkType,
 	MarkEncodings,
@@ -105,9 +105,9 @@ export function createMarkComponent<T extends CommonMarkProps>(
 		)
 		const node = useMemo(() => api && addMark(api, mark), [api])
 		return (
-			<SceneNodeBuilderProvider value={node}>
+			<SceneNodeBuilderContext.Provider value={node}>
 				{children}
-			</SceneNodeBuilderProvider>
+			</SceneNodeBuilderContext.Provider>
 		)
 	})
 	return result

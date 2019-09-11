@@ -5,7 +5,7 @@
 
 import * as React from 'react'
 import { scene, SceneNodeBuilder } from '@chart-parts/builder'
-import { SceneNodeBuilderProvider } from './Context'
+import { SceneNodeBuilderContext } from './Context'
 import { PaddingObject, ChartOptions } from '@chart-parts/interfaces'
 export interface ChartSpecProps {
 	width: number
@@ -24,9 +24,11 @@ export class ChartSpec extends React.PureComponent<ChartSpecProps> {
 			this.chartOptions,
 		)
 		return (
-			<SceneNodeBuilderProvider value={sceneNodeBuilder as SceneNodeBuilder}>
+			<SceneNodeBuilderContext.Provider
+				value={sceneNodeBuilder as SceneNodeBuilder}
+			>
 				{this.props.children}
-			</SceneNodeBuilderProvider>
+			</SceneNodeBuilderContext.Provider>
 		)
 	}
 
