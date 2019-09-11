@@ -83,19 +83,12 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
 function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
-	const { singleton, table, facet } = mark
+	const { table, facet } = mark
+	const singleton = !table && !facet
 
 	// If the table is unset, render as a singleton of the existing bound data-item
 	if (singleton) {
 		return [frame.boundDataItem]
-	}
-
-	if (!table && !facet) {
-		throw new Error(
-			`unfaceted mark must either have singleton set to true or have no data defined, name=${
-				mark.name
-			} type=${mark.type}`,
-		)
 	}
 
 	const markSourceTable = frame.data[table as string]

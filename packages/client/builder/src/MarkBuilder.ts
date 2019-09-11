@@ -34,7 +34,6 @@ export class MarkBuilder {
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
-	private singletonValue = true
 	private facetValue?: Facet
 	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
@@ -46,16 +45,11 @@ export class MarkBuilder {
 	public table(table: string | undefined): MarkBuilder {
 		if (typeof table != null) {
 			this.tableValue = table
-			return this.singleton(false)
+			return this
 		} else {
 			this.tableValue = undefined
-			return this.singleton(true)
+			return this
 		}
-	}
-
-	public singleton(value: boolean): MarkBuilder {
-		this.singletonValue = value
-		return this
 	}
 
 	public role(role: string | undefined): MarkBuilder {
@@ -414,7 +408,6 @@ export class MarkBuilder {
 			roleValue: role,
 			nameValue: name,
 			facetValue: facet,
-			singletonValue: singleton,
 			childNode,
 			itemIdGenerator: idGenerator,
 			metadataValue: metadata,
@@ -432,7 +425,6 @@ export class MarkBuilder {
 			role,
 			name,
 			facet,
-			singleton,
 			idGenerator,
 			metadata,
 			child: childNode && childNode.build(),
