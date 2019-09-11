@@ -68,8 +68,12 @@ export class MarkBuilder {
 		return this
 	}
 
-	public metadata(value: MarkEncoding<Metadata>) {
-		this.metadataValue = value
+	public metadata(value: MarkEncoding<Metadata> | undefined) {
+		if (value != null) {
+			this.metadataValue = value
+		} else {
+			this.metadataValue = undefined
+		}
 		return this
 	}
 

@@ -252,7 +252,7 @@ export interface EncodingContext {
 	[key: string]: Datum | Table | Scale<any, any>
 }
 
-export type MarkEncoding<T> = (ctx: EncodingContext) => T
+export type MarkEncoding<T> = T | ((ctx: EncodingContext) => T)
 
 export enum Dimension {
 	Height = 'height',
