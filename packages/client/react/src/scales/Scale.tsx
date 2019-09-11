@@ -3,9 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
-import { SceneNodeBuilder } from '@chart-parts/builder'
-import { ScaleCreationContext } from '@chart-parts/interfaces'
+import React, { memo, useContext, useEffect } from 'react'
 import { SceneNodeBuilderContext } from '../Context'
 
 export interface ScaleProps {
@@ -14,30 +12,12 @@ export interface ScaleProps {
 	create: (args: any) => any
 }
 
-export class Scale extends React.PureComponent<ScaleProps> {
-	protected apiInstance: SceneNodeBuilder | undefined
-
-	public render() {
-		return (
-			<SceneNodeBuilderContext.Consumer>
-				{api => {
-					this.apiInstance = api
-					this.addScale()
-					return null
-				}}
-			</SceneNodeBuilderContext.Consumer>
-		)
-	}
-
-	protected get api(): SceneNodeBuilder {
-		if (!this.apiInstance) {
-			throw new Error('api must be defined')
+export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
+	const api = useContext(SceneNodeBuilderContext)
+	useEffect(() => {
+		if (api) {
+			api.scale(args => create(args))
 		}
-
-		return this.apiInstance as SceneNodeBuilder
-	}
-
-	protected addScale() {
-		this.api.scale((args: ScaleCreationContext) => this.props.create(args))
-	}
-}
+	}, [api, create])
+	return null
+})

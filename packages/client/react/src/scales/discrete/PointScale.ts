@@ -5,7 +5,10 @@
 
 import { Dimension } from '@chart-parts/interfaces'
 import { point } from '@chart-parts/scales'
-import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
+import {
+	createDomainRangeScale,
+	DomainRangeScaleProps,
+} from '../DomainRangeScale'
 
 export interface PointScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -25,20 +28,23 @@ export interface PointScaleProps
 	padding?: number
 }
 
-export class PointScale extends DomainRangeScale<
-	PointScaleProps,
-	string[],
-	[number, number],
-	Dimension
-> {
-	protected createScale() {
-		const stepName = this.props.stepName || this.props.name + 'Step'
-		return point(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
+export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
+	({
+		stepName: stepNameProp,
+		name,
+		domain,
+		range,
+		align,
+		padding,
+		reverse,
+	}) => {
+		const stepName = stepNameProp || name + 'Step'
+		return point(name)
+			.domain(domain)
+			.range(range)
 			.stepName(stepName)
-			.align(this.props.align)
-			.padding(this.props.padding)
-			.reverse(this.props.reverse)
-	}
-}
+			.align(align)
+			.padding(padding)
+			.reverse(reverse)
+	},
+)

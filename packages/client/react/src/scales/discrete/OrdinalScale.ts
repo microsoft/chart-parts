@@ -4,7 +4,7 @@
  */
 
 import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
-import { DomainScale, DomainScaleProps } from '../DomainScale'
+import { createDomainScale, DomainScaleProps } from '../DomainScale'
 
 export interface OrdinalScaleProps<RangeType>
 	extends DomainScaleProps<string[]> {
@@ -19,14 +19,15 @@ export interface OrdinalScaleProps<RangeType>
 	colorScheme?: CategoricalColorScheme
 }
 
-export class OrdinalScale<RangeType> extends DomainScale<
-	OrdinalScaleProps<RangeType>,
-	string[]
-> {
-	protected createScale() {
-		return ordinal(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.colorScheme(this.props.colorScheme)
-	}
-}
+export type OrdinalScaleComponentType<RangeType = any> = React.FC<
+	OrdinalScaleProps<RangeType>
+>
+
+export const OrdinalScale: OrdinalScaleComponentType = createDomainScale(
+	({ name, domain, range, colorScheme }) => {
+		return ordinal(name)
+			.domain(domain)
+			.range(range)
+			.colorScheme(colorScheme)
+	},
+)

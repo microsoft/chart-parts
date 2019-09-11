@@ -3,34 +3,27 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { quantize } from '@chart-parts/scales'
-import { DomainRangeScale, DomainRangeScaleProps } from './DomainRangeScale'
+import {
+	createDomainRangeScale,
+	DomainRangeScaleProps,
+} from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
 
-export interface QuantileScaleProps<DomainValue, RangeValue>
-	extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], {}> {}
-
-export abstract class QuantileScale<
+export interface QuantileScaleProps<
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
-> extends DomainRangeScale<
-	QuantileScaleProps<DomainValue, RangeValue>,
-	[DomainValue, DomainValue],
-	RangeValue[],
-	{}
-> {
-	protected handleRangeBind(
-		args: ScaleCreationContext,
-		rangeBind: {},
-	): [RangeValue, RangeValue] {
-		throw new Error('Range bind not supported in Quantize scale')
-	}
+> extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], {}> {}
 
-	protected createScale() {
-		return quantize(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.reverse(this.props.reverse)
-	}
-}
+export type QuantileScaleComponentType<
+	D extends QuantitativeValue = any,
+	R extends QuantitativeValue = any
+> = React.FC<QuantileScaleProps<D, R>>
+
+export const QuantileScale: QuantileScaleComponentType = createDomainRangeScale(
+	({ name, domain, range, reverse }) =>
+		quantize(name)
+			.domain(domain)
+			.range(range)
+			.reverse(reverse),
+)

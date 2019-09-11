@@ -3,10 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo, useMemo, useEffect, useState } from 'react'
 import { scene, SceneNodeBuilder } from '@chart-parts/builder'
 import { SceneNodeBuilderContext } from './Context'
 import { PaddingObject, ChartOptions } from '@chart-parts/interfaces'
+
 export interface ChartSpecProps {
 	width: number
 	height: number
@@ -14,47 +15,39 @@ export interface ChartSpecProps {
 	onSpecReady: (spec: any) => void
 }
 
-export class ChartSpec extends React.PureComponent<ChartSpecProps> {
-	private sceneBuilder: SceneNodeBuilder | undefined
+export const ChartSpec: React.FC<ChartSpecProps> = memo(
+	({ width, height, padding, onSpecReady, children }) => {
+		const [sceneNodeBuilder, setSceneNodeBuilder] = useState<
+			SceneNodeBuilder | undefined
+		>(undefined)
+		const chartOptions = useMemo(() => {
+			const opts: ChartOptions = { width, height }
+			if (padding) {
+				opts.padding = padding
+			}
+			return opts
+		}, [width, height, padding])
 
-	public render() {
-		let sceneNodeBuilder: SceneNodeBuilder | undefined
-		this.sceneBuilder = scene(
-			node => (sceneNodeBuilder = node),
-			this.chartOptions,
-		)
+		const sceneBuilder = useMemo(() => {
+			return scene(node => {
+				setSceneNodeBuilder(node)
+				return node
+			}, chartOptions)
+		}, [chartOptions])
+
+		useEffect(() => {
+			if (sceneBuilder) {
+				const spec = sceneBuilder.build()
+				onSpecReady(spec)
+			}
+		})
+
 		return (
 			<SceneNodeBuilderContext.Provider
 				value={sceneNodeBuilder as SceneNodeBuilder}
 			>
-				{this.props.children}
+				{children}
 			</SceneNodeBuilderContext.Provider>
 		)
-	}
-
-	public componentDidMount() {
-		this.updateSpec()
-	}
-
-	public componentDidUpdate() {
-		return this.updateSpec()
-	}
-
-	private get chartOptions(): ChartOptions {
-		const opts: ChartOptions = {
-			width: this.props.width,
-			height: this.props.height,
-		}
-		if (this.props.padding) {
-			opts.padding = this.props.padding
-		}
-		return opts
-	}
-
-	private updateSpec() {
-		if (this.sceneBuilder) {
-			const spec = this.sceneBuilder.build()
-			this.props.onSpecReady(spec)
-		}
-	}
-}
+	},
+)

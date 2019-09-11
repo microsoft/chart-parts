@@ -3,7 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
+import {
+	DomainRangeScaleProps,
+	createDomainRangeScale,
+} from '../DomainRangeScale'
 import { Dimension } from '@chart-parts/interfaces'
 
 export type TimeValue = QuantitativeValue | Date
@@ -12,10 +15,10 @@ export type QuantitativeSpan = [QuantitativeValue, QuantitativeValue]
 
 export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	extends DomainRangeScaleProps<
-			[DomainValue, DomainValue],
-			[RangeValue, RangeValue],
-			Dimension
-		> {
+		[DomainValue, DomainValue],
+		[RangeValue, RangeValue],
+		Dimension
+	> {
 	/**
 	 * A boolean indicating if output values should be clamped to the range (default false).
 	 * If clamping is disabled and the scale is passed a value outside the domain, the scale
@@ -46,13 +49,15 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	round?: boolean
 }
 
-export abstract class QuantitativeScale<
+export function createQuantitativeScale<
 	Props extends QuantitativeScaleProps<DomainValue, RangeValue>,
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
-> extends DomainRangeScale<
-	Props,
-	[DomainValue, DomainValue],
-	[RangeValue, RangeValue],
-	Dimension
-> {}
+>(createScale: (props: Props) => any) {
+	return createDomainRangeScale<
+		Props,
+		[DomainValue, DomainValue],
+		[RangeValue, RangeValue],
+		Dimension
+	>(createScale)
+}

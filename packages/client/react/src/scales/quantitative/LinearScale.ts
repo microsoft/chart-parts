@@ -5,24 +5,22 @@
 
 import { linear } from '@chart-parts/scales'
 import {
-	QuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
+	createQuantitativeScale,
 } from './QuantitativeScale'
 
-export class LinearScale extends QuantitativeScale<
+export const LinearScale = createQuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
 	number
-> {
-	protected createScale() {
-		return linear(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
-			.reverse(this.props.reverse)
-			.padding(this.props.padding)
-	}
-}
+>(({ name, range, domain, zero, clamp, nice, reverse, padding }) => {
+	return linear(name)
+		.domain(domain)
+		.range(range)
+		.zero(zero)
+		.clamp(clamp)
+		.nice(nice)
+		.reverse(reverse)
+		.padding(padding)
+})
