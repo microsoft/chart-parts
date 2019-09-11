@@ -5,7 +5,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 import styled from 'styled-components'
-import Header from '../components/header'
+import { Header } from '../components/header'
 import HeroBanner from '../components/hero-banner'
 import BelowTheFold from '../components/below-the-fold'
 import Footer from '../components/footer'
