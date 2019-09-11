@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import { Renderer } from '@chart-parts/react-svg-renderer'
@@ -31,42 +31,34 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export default class AreaChart extends React.Component {
-	public render() {
-		return (
-			<Chart
-				width={500}
-				height={200}
-				padding={8}
-				renderer={renderer}
-				data={{ data }}
-			>
-				<LinearScale
-					name="x"
-					domain="data.u"
-					range={Dimension.Width}
-					zero={false}
-				/>
-				<LinearScale
-					name="y"
-					domain="data.v"
-					range={Dimension.Height}
-					nice
-					zero
-				/>
+const AreaChart: React.FC = memo(() => (
+	<Chart
+		width={500}
+		height={200}
+		padding={8}
+		renderer={renderer}
+		data={{ data }}
+	>
+		<LinearScale
+			name="x"
+			domain="data.u"
+			range={Dimension.Width}
+			zero={false}
+		/>
+		<LinearScale name="y" domain="data.v" range={Dimension.Height} nice zero />
 
-				<Axis orient={AxisOrientation.Bottom} scale="x" tickCount={20} />
-				<Axis orient={AxisOrientation.Left} scale="y" />
+		<Axis orient={AxisOrientation.Bottom} scale="x" tickCount={20} />
+		<Axis orient={AxisOrientation.Left} scale="y" />
 
-				<Area
-					table="data"
-					x={({ d, x }: any) => x(d.u)}
-					y={({ d, y }: any) => y(d.v)}
-					y2={({ y }: any) => y(0)}
-					fill="steelblue"
-					interpolate={Interpolation.Monotone}
-				/>
-			</Chart>
-		)
-	}
-}
+		<Area
+			table="data"
+			x={({ d, x }: any) => x(d.u)}
+			y={({ d, y }: any) => y(d.v)}
+			y2={({ y }: any) => y(0)}
+			fill="steelblue"
+			interpolate={Interpolation.Monotone}
+		/>
+	</Chart>
+))
+AreaChart.displayName = 'AreaChart'
+export default AreaChart

@@ -7,7 +7,7 @@ import React from 'react'
 import { SingleMarkTester } from './util/single-mark-tester'
 import * as palette from './util/palette'
 
-const RuleTester: React.SFC = () => (
+const RuleTester: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'rule',

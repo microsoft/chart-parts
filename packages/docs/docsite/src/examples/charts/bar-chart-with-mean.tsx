@@ -39,7 +39,7 @@ const AugmentedBarChart = () => (
 
 export default AugmentedBarChart
 
-const BarChart: React.SFC = ({ children }) => (
+const BarChart: React.FC = ({ children }) => (
 	<Chart width={400} height={200} renderer={renderer} data={dataset}>
 		<Scales />
 		<Axes />

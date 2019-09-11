@@ -23,7 +23,7 @@ export interface ToggleProps {
 	onChange?: (value: boolean) => void
 }
 
-export const Toggle: React.SFC<ToggleProps> = ({
+export const Toggle: React.FC<ToggleProps> = ({
 	name,
 	value,
 	onChange = (v: any) => null,

@@ -77,7 +77,7 @@ interface YearPickerProps {
 	year: number
 	onChange: (arg: React.ChangeEvent<HTMLInputElement>) => void
 }
-const YearPicker: React.SFC<YearPickerProps> = ({ year, onChange }) => (
+const YearPicker: React.FC<YearPickerProps> = ({ year, onChange }) => (
 	<div style={{ margin: 10, display: 'flex', alignItems: 'center' }}>
 		<input
 			type="range"
@@ -94,7 +94,7 @@ const YearPicker: React.SFC<YearPickerProps> = ({ year, onChange }) => (
 interface PyramidChartProps {
 	data: { [key: string]: any[] }
 }
-const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
+const PyramidChart: React.FC<PyramidChartProps> = ({ data }) => (
 	<Chart
 		width={chartWidth}
 		height={chartHeight}
@@ -109,7 +109,7 @@ const PyramidChart: React.SFC<PyramidChartProps> = ({ data }) => (
 	</Chart>
 )
 
-const ChartScales: React.SFC = () => (
+const ChartScales: React.FC = () => (
 	<>
 		<BandScale
 			name="y"
@@ -126,7 +126,7 @@ const ChartScales: React.SFC = () => (
 	</>
 )
 
-const AgeLabels: React.SFC = () => (
+const AgeLabels: React.FC = () => (
 	<Text
 		table="ageGroups"
 		x={chartSegmentWidth + textLineWidth / 2}
@@ -138,7 +138,7 @@ const AgeLabels: React.SFC = () => (
 	/>
 )
 
-const FPerYear: React.SFC = () => (
+const FPerYear: React.FC = () => (
 	<GenderPerYearSection
 		xStart={0}
 		table="females"
@@ -146,7 +146,7 @@ const FPerYear: React.SFC = () => (
 	/>
 )
 
-const MPerYear: React.SFC = () => (
+const MPerYear: React.FC = () => (
 	<GenderPerYearSection
 		table="males"
 		xStart={chartSegmentWidth + textLineWidth}
@@ -159,7 +159,7 @@ interface GenderPerYearSectionProps {
 	xRange: [number, number]
 	xStart: number
 }
-const GenderPerYearSection: React.SFC<GenderPerYearSectionProps> = ({
+const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = ({
 	table,
 	xRange,
 	xStart,
@@ -184,7 +184,7 @@ interface GenderPerYearRectProps {
 	table: string
 }
 
-const GenderPerYearRect: React.SFC<GenderPerYearRectProps> = ({ table }) => (
+const GenderPerYearRect: React.FC<GenderPerYearRectProps> = ({ table }) => (
 	<Rect
 		table={table}
 		x={({ d, x }) => x(d.people)}

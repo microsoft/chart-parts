@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	fill: palette.GREY,
 }
 
-const GroupTester: React.SFC = () => (
+const GroupTester: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'group',

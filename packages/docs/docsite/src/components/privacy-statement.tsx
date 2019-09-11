@@ -7,7 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 import theme from '../util/theme'
 
-const PrivacyStatement: React.SFC = () => (
+const PrivacyStatement: React.FC = () => (
 	<PrivacyText>
 		This site does not collect any personal information or use cookies.&nbsp;
 		<PrivacyLink

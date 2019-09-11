@@ -15,7 +15,7 @@ export interface PostProps {
 	}
 }
 
-const Post: React.SFC<PostProps> = ({ post }) => {
+const Post: React.FC<PostProps> = ({ post }) => {
 	return (
 		<div className="blog-post-container">
 			<div className="blog-post">

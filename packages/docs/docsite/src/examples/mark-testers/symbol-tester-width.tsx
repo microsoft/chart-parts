@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	fill: palette.GREY,
 }
 
-const SymbolTesterWidth: React.SFC = () => (
+const SymbolTesterWidth: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'symbol',

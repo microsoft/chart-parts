@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	fill: palette.GREY,
 }
 
-const RectTester: React.SFC = () => (
+const RectTester: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'rect',

@@ -17,7 +17,7 @@ interface HeroBannerProps {
 	style?: React.CSSProperties
 	fadePercent: number
 }
-const HeroBanner: React.SFC<HeroBannerProps> = ({ style, fadePercent }) => (
+const HeroBanner: React.FC<HeroBannerProps> = ({ style, fadePercent }) => (
 	<StaticQuery
 		query={graphql`
 			query {

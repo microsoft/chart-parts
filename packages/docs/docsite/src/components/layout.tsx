@@ -24,7 +24,7 @@ export interface LayoutProps {
 	title?: string
 }
 
-const Layout: React.SFC<LayoutProps> = ({
+const Layout: React.FC<LayoutProps> = ({
 	sidebar = null,
 	logoTo,
 	children,

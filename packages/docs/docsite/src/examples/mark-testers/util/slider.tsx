@@ -26,7 +26,7 @@ export interface SliderProps {
 	onChange?: (value: number | string) => void
 }
 
-export const Slider: React.SFC<SliderProps> = ({
+export const Slider: React.FC<SliderProps> = ({
 	name,
 	min = 0,
 	max = 200,

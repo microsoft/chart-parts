@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	fill: palette.GREY,
 }
 
-const ArcTester: React.SFC = () => (
+const ArcTester: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'arc',

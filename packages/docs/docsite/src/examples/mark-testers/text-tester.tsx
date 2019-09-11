@@ -5,7 +5,7 @@
 import React from 'react'
 import { SingleMarkTester } from './util/single-mark-tester'
 
-const TextTester: React.SFC = () => (
+const TextTester: React.FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'group',

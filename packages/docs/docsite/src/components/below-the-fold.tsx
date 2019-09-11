@@ -12,7 +12,7 @@ interface BelowTheFoldProps {
 	style?: React.CSSProperties
 }
 
-const BelowTheFold: React.SFC<BelowTheFoldProps> = ({ style }) => (
+const BelowTheFold: React.FC<BelowTheFoldProps> = ({ style }) => (
 	<StaticQuery
 		query={graphql`
 			query {

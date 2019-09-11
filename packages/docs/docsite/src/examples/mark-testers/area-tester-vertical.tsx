@@ -23,7 +23,7 @@ const chartHeight = 250
 const chartWidth = 420
 const interval = chartWidth / 5
 
-const AreaTesterVertical: React.SFC = () => (
+const AreaTesterVertical: React.FC = () => (
 	<SingleMarkTester
 		chartWidth={chartWidth}
 		chartHeight={chartHeight}

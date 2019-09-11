@@ -16,7 +16,7 @@ export interface SidebarProps {
 	activePath: string
 }
 
-const Sidebar: React.SFC<SidebarProps> = ({ items, activePath }) => {
+const Sidebar: React.FC<SidebarProps> = ({ items, activePath }) => {
 	const tree: TreeNode[] = createTree(items)
 	return (
 		<Container>

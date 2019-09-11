@@ -5,6 +5,6 @@
 
 import React from 'react'
 
-const PathTester: React.SFC = () => <div>TODO</div>
+const PathTester: React.FC = () => <div>TODO</div>
 
 export default PathTester

@@ -14,7 +14,7 @@ export interface SGChartProps {
 	height?: number
 	origin?: [number, number]
 }
-export const SGChart: React.SFC<SGChartProps> = ({
+export const SGChart: React.FC<SGChartProps> = ({
 	data,
 	width = 200,
 	height = 200,

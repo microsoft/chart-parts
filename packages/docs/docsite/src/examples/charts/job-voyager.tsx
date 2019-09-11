@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useState, useCallback, useMemo } from 'react'
 import {
 	Area,
 	Group,
@@ -42,90 +42,97 @@ export interface JobVoyagerState {
 	query?: string
 }
 
-export default class JobVoyager extends React.Component<{}, JobVoyagerState> {
-	public state: JobVoyagerState = { gender: 'all' }
+const JobVoyager: React.FC = memo(() => {
+	const [gender, setGender] = useState('all')
+	const [selectedAreaId, setSelectedAreaId] = useState<string | undefined>()
+	const [query, setQuery] = useState<string | undefined>()
+	const queryRegExp = useMemo(() => query && new RegExp(query), [query])
 
-	public render() {
-		const { gender, selectedAreaId, query } = this.state
-		const queryRegExp = query && new RegExp(query)
+	const onQueryChange = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
+		[setQuery]
+	)
+	const changeGenderSelection = useCallback(
+		(e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value),
+		[setGender]
+	)
+	const onEnterArea = useCallback((id: string) => setSelectedAreaId(id), [
+		setSelectedAreaId,
+	])
+	const onClickArea = useCallback((job: string) => setQuery(job), [setQuery])
 
-		const ds = dataset()
-			.addTable(
-				'jobs',
-				source,
-				filter(
-					(d: any) =>
-						(gender === 'all' || d.sex === gender) &&
-						(!queryRegExp || queryRegExp.test(d.job))
+	const ds = useMemo(
+		() =>
+			dataset()
+				.addTable(
+					'jobs',
+					source,
+					filter(
+						(d: any) =>
+							(gender === 'all' || d.sex === gender) &&
+							(!queryRegExp || queryRegExp.test(d.job))
+					),
+					stack('perc')
+						.groupBy('year')
+						.offset(StackOffset.zero)
+						.sort(
+							{
+								field: 'job',
+								order: CompareOrder.descending,
+							},
+							{
+								field: 'sex',
+								order: CompareOrder.descending,
+							}
+						)
+				)
+				.addDerivedTable(
+					'series',
+					'jobs',
+					aggregate()
+						.groupBy('job', 'sex')
+						.compute(
+							{ op: AggregateOperation.sum, field: 'perc', as: 'sum' },
+							{ op: AggregateOperation.argmax, field: 'perc', as: 'argmax' }
+						)
 				),
-				stack('perc')
-					.groupBy('year')
-					.offset(StackOffset.zero)
-					.sort(
-						{
-							field: 'job',
-							order: CompareOrder.descending,
-						},
-						{
-							field: 'sex',
-							order: CompareOrder.descending,
-						}
-					)
-			)
-			.addDerivedTable(
-				'series',
-				'jobs',
-				aggregate()
-					.groupBy('job', 'sex')
-					.compute(
-						{ op: AggregateOperation.sum, field: 'perc', as: 'sum' },
-						{ op: AggregateOperation.argmax, field: 'perc', as: 'argmax' }
-					)
-			)
+		[gender, queryRegExp]
+	)
 
-		return (
-			<div style={{ display: 'flex', flexDirection: 'column' }}>
-				<JobVoyagerChart
-					data={ds.tables}
-					selectedAreaId={selectedAreaId}
-					onEnterArea={this.onEnterArea}
-					onClickArea={this.onClickArea}
-				/>
+	return (
+		<div style={{ display: 'flex', flexDirection: 'column' }}>
+			<JobVoyagerChart
+				data={ds.tables}
+				selectedAreaId={selectedAreaId}
+				onEnterArea={onEnterArea}
+				onClickArea={onClickArea}
+			/>
+			<div>
 				<div>
-					<div>
-						{genderOptions.map(g => [
-							<input
-								id={`gender-option-${g}`}
-								key={`input:${g}`}
-								type="radio"
-								style={{ margin: 4 }}
-								checked={gender === g}
-								value={g}
-								onChange={this.changeGenderSelection}
-							/>,
-							<label key={`label:${g}`} style={{ margin: 4 }}>
-								{g}
-							</label>,
-						])}
-						<input type="text" value={query} onChange={this.onQueryChange} />
-					</div>
+					{genderOptions.map(g => [
+						<input
+							id={`gender-option-${g}`}
+							key={`input:${g}`}
+							type="radio"
+							style={{ margin: 4 }}
+							checked={gender === g}
+							value={g}
+							onChange={changeGenderSelection}
+						/>,
+						<label key={`label:${g}`} style={{ margin: 4 }}>
+							{g}
+						</label>,
+					])}
+					<input type="text" value={query} onChange={onQueryChange} />
 				</div>
 			</div>
-		)
-	}
+		</div>
+	)
+})
+JobVoyager.displayName = 'JobVoyager'
+export default JobVoyager
 
-	private onQueryChange = (e: React.ChangeEvent<HTMLInputElement>) =>
-		this.setState({ ...this.state, query: e.target.value })
-
-	private changeGenderSelection = (e: React.ChangeEvent<HTMLInputElement>) =>
-		this.setState({ ...this.state, gender: e.target.value })
-
-	private onEnterArea = (id: string) =>
-		this.setState({ ...this.state, selectedAreaId: id })
-
-	private onClickArea = (job: string) =>
-		this.setState({ ...this.state, query: job })
-}
+export class JobVoyagera extends React.Component<{}, JobVoyagerState> {}
 
 interface JobVoyagerChartProps {
 	data: any
@@ -133,55 +140,58 @@ interface JobVoyagerChartProps {
 	onEnterArea: (id: string) => any
 	onClickArea: (job: string) => any
 }
-const JobVoyagerChart: React.SFC<JobVoyagerChartProps> = ({
-	data,
-	selectedAreaId,
-	onEnterArea,
-	onClickArea,
-}) => (
-	<Chart width={850} height={550} padding={10} renderer={renderer} data={data}>
-		<Scales />
-		<Axes />
-
-		<Group
-			table="series"
-			facet={{
-				groupBy: ['job', 'sex'],
-				keyRowName: 'agg',
-				table: 'jobs',
-				name: 'facet',
-			}}
+const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
+	({ data, selectedAreaId, onEnterArea, onClickArea }) => (
+		<Chart
+			width={850}
+			height={550}
+			padding={10}
+			renderer={renderer}
+			data={data}
 		>
-			<Area
-				table="facet"
-				x={({ d, x }) => x(d.year)}
-				y={({ d, y }) => y(d.y0)}
-				y2={({ d, y }) => y(d.y1)}
-				fill={({ d, color }) => color(d.sex)}
-				fillOpacity={({ d, agg, id, alpha }) =>
-					id === selectedAreaId ? 0.2 : alpha(agg.sum)
-				}
-				metadata={({ d: { job } }) => ({ job })}
-				onMouseOver={({ id }) => onEnterArea(id)}
-				onClick={({ job }) => onClickArea(job)}
+			<Scales />
+			<Axes />
+
+			<Group
+				table="series"
+				facet={{
+					groupBy: ['job', 'sex'],
+					keyRowName: 'agg',
+					table: 'jobs',
+					name: 'facet',
+				}}
+			>
+				<Area
+					table="facet"
+					x={({ d, x }) => x(d.year)}
+					y={({ d, y }) => y(d.y0)}
+					y2={({ d, y }) => y(d.y1)}
+					fill={({ d, color }) => color(d.sex)}
+					fillOpacity={({ d, agg, id, alpha }) =>
+						id === selectedAreaId ? 0.2 : alpha(agg.sum)
+					}
+					metadata={({ d: { job } }) => ({ job })}
+					onMouseOver={({ id }) => onEnterArea(id)}
+					onClick={({ job }) => onClickArea(job)}
+				/>
+			</Group>
+			<Text
+				table="series"
+				x={({ d, x }) => x(d.argmax.year)}
+				dx={({ d, offset }) => offset(d.argmax.year)}
+				y={({ d, y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
+				fill="#000"
+				fillOpacity={({ d, opacity }) => opacity(d.argmax.perc)}
+				fontSize={({ d, font }) => font(d.argmax.perc)}
+				text={({ d }) => d.job}
+				align={({ d, align }) => align(d.argmax.year)}
+				baseline={VerticalTextAlignment.Middle}
 			/>
-		</Group>
-		<Text
-			table="series"
-			x={({ d, x }) => x(d.argmax.year)}
-			dx={({ d, offset }) => offset(d.argmax.year)}
-			y={({ d, y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
-			fill="#000"
-			fillOpacity={({ d, opacity }) => opacity(d.argmax.perc)}
-			fontSize={({ d, font }) => font(d.argmax.perc)}
-			text={({ d }) => d.job}
-			align={({ d, align }) => align(d.argmax.year)}
-			baseline={VerticalTextAlignment.Middle}
-		/>
-	</Chart>
+		</Chart>
+	)
 )
 
-const Axes: React.SFC = () => (
+const Axes: React.FC = memo(() => (
 	<>
 		<Axis
 			orient={AxisOrientation.Bottom}
@@ -198,9 +208,9 @@ const Axes: React.SFC = () => (
 			tickSize={12}
 		/>
 	</>
-)
+))
 
-const Scales: React.SFC = () => (
+const Scales: React.FC = memo(() => (
 	<>
 		<LinearScale
 			name="x"
@@ -250,4 +260,4 @@ const Scales: React.SFC = () => (
 			range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
 		/>
 	</>
-)
+))

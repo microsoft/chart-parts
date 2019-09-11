@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	strokeWidth: 1,
 }
 
-const LineTester: React.SFC = () => (
+const LineTester: React.FC = () => (
 	<SingleMarkTester
 		chartWidth={420}
 		chartOrigin={[10, 0]}

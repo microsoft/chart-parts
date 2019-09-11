@@ -23,7 +23,7 @@ export interface DropdownProps {
 	options: string[]
 	onChange: (v: string) => void
 }
-export const Dropdown: React.SFC<DropdownProps> = ({
+export const Dropdown: React.FC<DropdownProps> = ({
 	name,
 	value,
 	options,
