@@ -40,9 +40,7 @@ describe('The Mark Builder', () => {
 	})
 
 	it('can unset the z-index', () => {
-		const builder = new MarkBuilder(MarkType.Rect)
-			.zIndex(3)
-			.zIndex(undefined as any)
+		const builder = new MarkBuilder(MarkType.Rect).zIndex(3).zIndex(undefined)
 
 		const built = builder.build()
 		const zIndexEncoding = built.encodings.zIndex
@@ -93,10 +91,16 @@ describe('The Mark Builder', () => {
 			expect(built.channels.mouseenter).toBeDefined()
 		})
 
-		it('throws if the single-channel handler api is invoked without a handler function', () => {
-			expect(() =>
-				new MarkBuilder(MarkType.Rect).handle('click', undefined as any),
-			).toThrow('handler function must be defined for handler click')
+		it('un-sets a channel handler if set with undefined', () => {
+			const mark = new MarkBuilder(MarkType.Rect)
+
+			mark.handle('click', () => null)
+			let built = mark.build()
+			expect(built.channels['click']).toBeDefined()
+
+			mark.handle('click', undefined)
+			built = mark.build()
+			expect(built.channels['click']).not.toBeDefined()
 		})
 	})
 
@@ -107,12 +111,16 @@ describe('The Mark Builder', () => {
 				.encode(MarkEncodingKey.y, () => 4)
 			const built = builder.build()
 
-			expect(
-				(built.encodings as any).x(undefined as any, undefined as any),
-			).toEqual(3)
-			expect(
-				(built.encodings as any).y(undefined as any, undefined as any),
-			).toEqual(4)
+			expect((built.encodings as any).x(undefined, undefined)).toEqual(3)
+			expect((built.encodings as any).y(undefined, undefined)).toEqual(4)
+		})
+
+		it('can unset encodings by name', () => {
+			const builder = new MarkBuilder(MarkType.Rect)
+				.encode(MarkEncodingKey.x, () => 3)
+				.encode(MarkEncodingKey.x, undefined)
+			const built = builder.build()
+			expect((built.encodings as any).x).toBeUndefined()
 		})
 
 		it('can handle encodings map', () => {
@@ -122,21 +130,8 @@ describe('The Mark Builder', () => {
 			})
 			const built = builder.build()
 
-			expect(
-				(built.encodings as any).x(undefined as any, undefined as any),
-			).toEqual(3)
-			expect(
-				(built.encodings as any).y(undefined as any, undefined as any),
-			).toEqual(4)
-		})
-
-		it('throws if the single-encoding handler api is invoked without a handler function', () => {
-			expect(() =>
-				new MarkBuilder(MarkType.Rect).encode(
-					MarkEncodingKey.x,
-					undefined as any,
-				),
-			).toThrow('encoding must be defined for key x')
+			expect((built.encodings as any).x(undefined, undefined)).toEqual(3)
+			expect((built.encodings as any).y(undefined, undefined)).toEqual(4)
 		})
 	})
 

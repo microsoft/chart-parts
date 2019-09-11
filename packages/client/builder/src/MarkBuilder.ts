@@ -73,7 +73,7 @@ export class MarkBuilder {
 		return this
 	}
 
-	public zIndex(zIndex: number): MarkBuilder {
+	public zIndex(zIndex: number | undefined): MarkBuilder {
 		if (zIndex !== undefined) {
 			this.encode(MarkEncodingKey.zIndex, () => zIndex)
 		} else {
@@ -83,259 +83,268 @@ export class MarkBuilder {
 		return this
 	}
 
-	public handle(name: string, handler: ChannelHandler<any>): MarkBuilder
+	public handle(
+		name: string,
+		handler: ChannelHandler<any> | undefined,
+	): MarkBuilder
 	public handle(channels: Channels): MarkBuilder
 	public handle(
 		name: string | Channels,
 		handler?: ChannelHandler<any>,
 	): MarkBuilder {
 		if (typeof name === 'string') {
-			if (!handler) {
-				throw new Error(`handler function must be defined for handler ${name}`)
-			}
-			this.channelsValue[name] = handler
+			this.applyHandler(name, handler)
 		} else {
-			const channels = name as Channels
-			Object.entries(channels).forEach(
-				([nameVal, handlerVal]) => (this.channelsValue[nameVal] = handlerVal),
+			Object.entries(name as Channels).forEach(([nameVal, handlerVal]) =>
+				this.applyHandler(nameVal, handlerVal),
 			)
 		}
 
 		return this
 	}
 
+	private applyHandler(key: string, handler: ChannelHandler<any> | undefined) {
+		if (handler != null) {
+			this.channelsValue[key] = handler
+		} else {
+			delete this.channelsValue[key]
+		}
+	}
+
 	// #region Mark Encoding
 	public encode(
 		key: MarkEncodingKey.x,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.x2,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.xc,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.width,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.y,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.y2,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.yc,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.height,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.opacity,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fill,
-		encoding: MarkEncoding<string | Gradient>,
+		encoding: undefined | MarkEncoding<string | Gradient>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fillOpacity,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.stroke,
-		encoding: MarkEncoding<string | Gradient>,
+		encoding: undefined | MarkEncoding<string | Gradient>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeOpacity,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeWidth,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeCap,
-		encoding: MarkEncoding<StrokeCap>,
+		encoding: undefined | MarkEncoding<StrokeCap>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeDash,
-		encoding: MarkEncoding<[number, number]>,
+		encoding: undefined | MarkEncoding<[number, number]>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeDashOffset,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeJoin,
-		encoding: MarkEncoding<StrokeJoin>,
+		encoding: undefined | MarkEncoding<StrokeJoin>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.strokeMiterLimit,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.cursor,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.href,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.tooltip,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.zIndex,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.startAngle,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.endAngle,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.padAngle,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.innerRadius,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.outerRadius,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.cornerRadius,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.orient,
-		encoding: MarkEncoding<Orientation>,
+		encoding: undefined | MarkEncoding<Orientation>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.interpolate,
-		encoding: MarkEncoding<Interpolation>,
+		encoding: undefined | MarkEncoding<Interpolation>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.tension,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.defined,
-		encoding: MarkEncoding<boolean>,
+		encoding: undefined | MarkEncoding<boolean>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.clip,
-		encoding: MarkEncoding<boolean>,
+		encoding: undefined | MarkEncoding<boolean>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.url,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.aspect,
-		encoding: MarkEncoding<boolean>,
+		encoding: undefined | MarkEncoding<boolean>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.align,
-		encoding: MarkEncoding<HorizontalAlignment>,
+		encoding: undefined | MarkEncoding<HorizontalAlignment>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.baseline,
-		encoding: MarkEncoding<VerticalAlignment | VerticalTextAlignment>,
+		encoding:
+			| undefined
+			| MarkEncoding<VerticalAlignment | VerticalTextAlignment>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.path,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.size,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.shape,
-		encoding: MarkEncoding<SymbolType | string>,
+		encoding: undefined | MarkEncoding<SymbolType | string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.angle,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.dir,
-		encoding: MarkEncoding<TextDirection>,
+		encoding: undefined | MarkEncoding<TextDirection>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.dx,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.dy,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.ellipsis,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.font,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fontSize,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fontWeight,
-		encoding: MarkEncoding<FontWeight>,
+		encoding: undefined | MarkEncoding<FontWeight>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fontVariant,
-		encoding: MarkEncoding<string | number>,
+		encoding: undefined | MarkEncoding<string | number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.fontStyle,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.limit,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.radius,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.text,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.theta,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.ariaTitle,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.ariaDescription,
-		encoding: MarkEncoding<string>,
+		encoding: undefined | MarkEncoding<string>,
 	): MarkBuilder
 	public encode(
 		key: MarkEncodingKey.tabIndex,
-		encoding: MarkEncoding<number>,
+		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
 	public encode(key: MarkEncodingKey, encoding: MarkEncoding<any>): MarkBuilder
 	public encode(encodings: MarkEncodings): MarkBuilder
@@ -349,20 +358,25 @@ export class MarkBuilder {
 	): MarkBuilder {
 		if (typeof first === 'string') {
 			// Handle encode(key, encoding) invocations
-			const key: string = first
-			if (!encoding) {
-				throw new Error(`encoding must be defined for key ${key}`)
-			}
-			this.encodingsValue[key] = encoding
+			this.applyEncoding(first as string, encoding)
 		} else {
 			// Handle encode(map) invocations
-			const encodings = first as MarkEncodings
-			Object.entries(encodings).forEach(
-				([name, entryEncoding]) => (this.encodingsValue[name] = entryEncoding),
+			Object.entries(first as MarkEncodings).forEach(
+				([name, entryEncoding]) => {
+					this.applyEncoding(name, entryEncoding)
+				},
 			)
 			return this
 		}
 		return this
+	}
+
+	private applyEncoding<T>(key: string, encoding: undefined | MarkEncoding<T>) {
+		if (encoding != null) {
+			this.encodingsValue[key] = encoding
+		} else {
+			delete this.encodingsValue[key]
+		}
 	}
 
 	public facet(facet: Facet): MarkBuilder {
