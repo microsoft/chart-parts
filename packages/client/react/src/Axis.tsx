@@ -4,7 +4,7 @@
  */
 
 import React, { useContext, memo, useEffect, useMemo } from 'react'
-import { AxisOrientation, TickValue } from '@chart-parts/interfaces'
+import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
 import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
 import { SceneNodeBuilderContext } from './Context'
 
@@ -41,7 +41,7 @@ export interface AxisProps {
 	tickOffset?: number
 	tickRound?: boolean
 	tickSize?: number
-	tickWidth?: boolean
+	tickWidth?: number
 	bandPosition?: number
 	values?: TickValue[]
 	// #endregion
@@ -52,7 +52,7 @@ export interface AxisProps {
 	labelFontSize?: number
 	labelColor?: string
 	labelPadding?: number
-	labelFontWeight?: number
+	labelFontWeight?: FontWeight
 	labelAngle?: number
 	labelFormat?: string
 	// #endregion
@@ -63,7 +63,7 @@ export const Axis: React.FC<AxisProps> = memo(
 		const api = useContext(SceneNodeBuilderContext)
 		const axis = useMemo(() => newAxis(scale, orient), [scale, orient])
 
-		useAxisProps(axis, props)
+		useAxisProps(axis, props as AxisProps)
 
 		useEffect(() => {
 			if (api) {
