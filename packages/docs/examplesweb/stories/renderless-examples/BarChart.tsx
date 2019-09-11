@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import {
 	Axis,
 	Chart,
@@ -32,14 +32,31 @@ export interface BarChartState {
 	hoverRowIndex: number | undefined
 }
 
+const dataset = { data }
+
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChart: React.FC = () => {
-	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
-
+export const BarChart: React.FC = memo(() => {
+	const [hoverIndex, setHoverIndex] = useState<number | undefined>()
+	const onEnterRect = useCallback(
+		({ index }) => {
+			if (hoverIndex !== index) {
+				setHoverIndex(index)
+			}
+		},
+		[hoverIndex, setHoverIndex],
+	)
+	const onLeaveRect = useCallback(
+		({ index }) => {
+			if (hoverIndex === index) {
+				setHoverIndex(undefined)
+			}
+		},
+		[hoverIndex, setHoverIndex],
+	)
 	return (
-		<Chart width={400} height={200} renderer={renderer} data={{ data }}>
+		<Chart width={400} height={200} renderer={renderer} data={dataset}>
 			<LinearScale
 				name="y"
 				domain="data.amount"
@@ -58,36 +75,39 @@ export const BarChart: React.FC = () => {
 			<Axis orient={AxisOrientation.Left} scale="y" />
 			<Rect
 				table="data"
-				onMouseEnter={({ index }) => {
-					if (hoverRowIndex !== index) {
-						setHoverRowIndex(index)
-					}
-				}}
-				onMouseLeave={({ index }) => {
-					if (hoverRowIndex === index) {
-						setHoverRowIndex(undefined)
-					}
-				}}
-				x={({ d, x }) => x(d.category)}
-				y={({ d, y }) => y(d.amount)}
-				width={({ band }) => band()}
-				y2={({ y }) => y(0)}
-				fill={({ index }) =>
-					hoverRowIndex === index ? 'firebrick' : 'steelblue'
-				}
+				onMouseEnter={onEnterRect}
+				onMouseLeave={onLeaveRect}
+				x={useCallback(({ d, x }) => x(d.category), [])}
+				y={useCallback(({ d, y }) => y(d.amount), [])}
+				width={useCallback(({ band }) => band(), [])}
+				y2={useCallback(({ y }) => y(0), [])}
+				fill={useCallback(
+					({ index }) => (hoverIndex === index ? 'firebrick' : 'steelblue'),
+					[hoverIndex],
+				)}
 			/>
-			{hoverRowIndex === undefined ? null : (
-				<Text
-					text={({ data }) => data[hoverRowIndex].amount}
-					fill="black"
-					x={({ data, x, band }) =>
-						x(data[hoverRowIndex].category) + band() / 2
-					}
-					y={({ data, y }) => y(data[hoverRowIndex].amount) - 3}
-					baseline={VerticalTextAlignment.Bottom}
-					align={HorizontalAlignment.Center}
-				/>
+			{hoverIndex === undefined ? null : (
+				<HoverTextHighlight index={hoverIndex} />
 			)}
 		</Chart>
 	)
+})
+
+interface HoverTextHighlightProps {
+	index: number
 }
+const HoverTextHighlight: React.FC<HoverTextHighlightProps> = memo(
+	({ index }) => (
+		<Text
+			text={useCallback(({ data }) => data[index].amount, [index])}
+			fill="black"
+			x={useCallback(
+				({ data, x, band }) => x(data[index].category) + band() / 2,
+				[index],
+			)}
+			y={useCallback(({ data, y }) => y(data[index].amount) - 3, [index])}
+			baseline={VerticalTextAlignment.Bottom}
+			align={HorizontalAlignment.Center}
+		/>
+	),
+)
