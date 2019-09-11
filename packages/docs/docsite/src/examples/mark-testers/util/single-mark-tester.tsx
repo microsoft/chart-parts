@@ -68,15 +68,14 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = ({
 	updateScenegraph: propsUpdateScenegraph,
 }) => {
 	const [scenegraph, setScenegraph] = useState(initialScenegraph)
-	const getParam = useCallback((name: string) => {
-		return propsGetParam
-			? propsGetParam(name, scenegraph)
-			: scenegraph.items[0][name]
-	}, [])
-
-	const setParam = useCallback((update: any) => {
-		setScenegraph(updateScenegraph(update))
-	}, [])
+	const getParam = useCallback(
+		(name: string) => {
+			return propsGetParam
+				? propsGetParam(name, scenegraph)
+				: scenegraph.items[0][name]
+		},
+		[scenegraph]
+	)
 
 	const updateScenegraph = useCallback(
 		(update: any) => {
@@ -97,6 +96,13 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = ({
 		[scenegraph]
 	)
 
+	const setParam = useCallback(
+		(update: any) => {
+			setScenegraph(updateScenegraph(update))
+		},
+		[updateScenegraph]
+	)
+
 	const sliderElements = useMemo(
 		() =>
 			sliders.map(({ name, min, max, step }) => (
@@ -112,7 +118,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = ({
 					}
 				/>
 			)),
-		[sliders, getParam, setParam]
+		[getParam, setParam]
 	)
 	const dropdownElements = useMemo(
 		() =>
