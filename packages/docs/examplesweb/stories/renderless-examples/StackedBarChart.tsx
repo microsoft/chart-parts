@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import {
 	Chart,
 	Rect,
@@ -49,57 +49,62 @@ export interface StackedBarChartState {
 /**
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
  */
-export class StackedBarChart extends React.Component<{}, StackedBarChartState> {
-	public state: StackedBarChartState = {}
-
-	public render() {
-		return (
-			<Chart
-				width={500}
-				height={200}
-				data={{ data: ds.getTable('data') as any[] }}
-				renderer={renderer}
-			>
-				<BandScale
-					name="x"
-					bandWidth="width"
-					range={Dimension.Width}
-					domain="data.x"
-				/>
-				<LinearScale
-					name="y"
-					range={Dimension.Height}
-					domain="data.y1"
-					nice
-					zero
-				/>
-				<OrdinalScale
-					name="color"
-					domain="data.c"
-					colorScheme={CategoricalColorScheme.category10}
-				/>
-				<Rect
-					onMouseEnter={({ index }) => {
-						if (this.state.hoverRowIndex !== index) {
-							this.setState({ hoverRowIndex: index })
+export const StackedBarChart: React.FC = memo(() => {
+	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
+	return (
+		<Chart
+			width={500}
+			height={200}
+			data={{ data: ds.getTable('data') as any[] }}
+			renderer={renderer}
+		>
+			<BandScale
+				name="x"
+				bandWidth="width"
+				range={Dimension.Width}
+				domain="data.x"
+			/>
+			<LinearScale
+				name="y"
+				range={Dimension.Height}
+				domain="data.y1"
+				nice
+				zero
+			/>
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
+			<Rect
+				onMouseEnter={useCallback(
+					({ index }) => {
+						if (hoverRowIndex !== index) {
+							setHoverRowIndex(index)
 						}
-					}}
-					onMouseLeave={({ index }) => {
-						if (this.state.hoverRowIndex === index) {
-							this.setState({ hoverRowIndex: undefined })
+					},
+					[hoverRowIndex, setHoverRowIndex],
+				)}
+				onMouseLeave={useCallback(
+					({ index }) => {
+						if (hoverRowIndex === index) {
+							setHoverRowIndex(undefined)
 						}
-					}}
-					table="data"
-					x={({ d, x }) => x(d.x)}
-					width={({ width }) => width() - 1}
-					y={({ d, y }) => y(d.y0)}
-					y2={({ d, y }) => y(d.y1)}
-					fill={({ d, color }) => color(d.c)}
-					fillOpacity={({ index }) =>
-						this.state.hoverRowIndex === index ? 0.5 : 1
-					}
-				/>
-			</Chart>
-		)
-	}
-}
+					},
+					[setHoverRowIndex],
+				)}
+				table="data"
+				x={({ d, x }) => x(d.x)}
+				width={({ width }) => width() - 1}
+				y={({ d, y }) => y(d.y0)}
+				y2={({ d, y }) => y(d.y1)}
+				fill={useCallback(({ d, color }) => color(d.c), [])}
+				fillOpacity={useCallback(
+					({ index }) => (hoverRowIndex === index ? 0.5 : 1),
+					[hoverRowIndex],
+				)}
+			/>
+		</Chart>
+	)
+})
+StackedBarChart.displayName = 'StackedBarChart'

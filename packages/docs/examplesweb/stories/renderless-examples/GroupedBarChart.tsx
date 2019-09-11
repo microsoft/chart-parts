@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {
 	Chart,
 	LinearScale,
@@ -35,68 +35,66 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/grouped-bar-chart/q
  */
-export class GroupedBarChart extends React.Component<{}> {
-	public render() {
-		return (
-			<Chart
-				width={300}
-				height={240}
-				padding={5}
-				data={{ data }}
-				renderer={renderer}
+export const GroupedBarChart: React.FC = memo(() => {
+	return (
+		<Chart
+			width={300}
+			height={240}
+			padding={5}
+			data={{ data }}
+			renderer={renderer}
+		>
+			<BandScale
+				name="y"
+				bandWidth="categoryHeight"
+				range={Dimension.Height}
+				domain="data.category"
+				padding={0.2}
+			/>
+			<LinearScale
+				name="x"
+				range={Dimension.Width}
+				domain="data.value"
+				nice
+				zero
+			/>
+			<OrdinalScale
+				name="color"
+				domain="data.position"
+				colorScheme={CategoricalColorScheme.category20}
+			/>
+			<Group
+				name="chartgroup"
+				table="data"
+				facet={{ groupBy: 'category', name: 'facet' }}
+				y={({ d, y }) => y(d.category)}
+				height={({ categoryHeight }) => categoryHeight()}
 			>
 				<BandScale
-					name="y"
-					bandWidth="categoryHeight"
+					name="pos"
+					bandWidth="rowHeight"
 					range={Dimension.Height}
-					domain="data.category"
-					padding={0.2}
+					domain="facet.position"
 				/>
-				<LinearScale
-					name="x"
-					range={Dimension.Width}
-					domain="data.value"
-					nice
-					zero
+				<Rect
+					name="bars"
+					table="facet"
+					x={({ d, x }) => x(d.value)}
+					y={({ d, pos }) => pos(d.position)}
+					x2={({ x }) => x(0)}
+					fill={({ d, color }) => color(d.position)}
+					height={({ rowHeight }) => rowHeight()}
 				/>
-				<OrdinalScale
-					name="color"
-					domain="data.position"
-					colorScheme={CategoricalColorScheme.category20}
+				<Text
+					table="facet"
+					x={({ d, x }) => x(d.value) - 3}
+					y={({ d, pos, rowHeight }) => pos(d.position) + rowHeight() * 0.5}
+					fill={'white'}
+					align={HorizontalAlignment.Right}
+					baseline={VerticalTextAlignment.Middle}
+					text={({ d }) => d.value}
 				/>
-				<Group
-					name="chartgroup"
-					table="data"
-					facet={{ groupBy: 'category', name: 'facet' }}
-					y={({ d, y }) => y(d.category)}
-					height={({ categoryHeight }) => categoryHeight()}
-				>
-					<BandScale
-						name="pos"
-						bandWidth="rowHeight"
-						range={Dimension.Height}
-						domain="facet.position"
-					/>
-					<Rect
-						name="bars"
-						table="facet"
-						x={({ d, x }) => x(d.value)}
-						y={({ d, pos }) => pos(d.position)}
-						x2={({ x }) => x(0)}
-						fill={({ d, color }) => color(d.position)}
-						height={({ rowHeight }) => rowHeight()}
-					/>
-					<Text
-						table="facet"
-						x={({ d, x }) => x(d.value) - 3}
-						y={({ d, pos, rowHeight }) => pos(d.position) + rowHeight() * 0.5}
-						fill={'white'}
-						align={HorizontalAlignment.Right}
-						baseline={VerticalTextAlignment.Middle}
-						text={({ d }) => d.value}
-					/>
-				</Group>
-			</Chart>
-		)
-	}
-}
+			</Group>
+		</Chart>
+	)
+})

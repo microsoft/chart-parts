@@ -8,7 +8,7 @@
  */
 declare const require: any
 
-import React from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
 	Axis,
@@ -41,37 +41,36 @@ const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2
 export interface PopulationPyramidState {
 	year: number
 }
-export default class PopulationPyramid extends React.Component<
-	{},
-	PopulationPyramidState
-> {
-	public state: PopulationPyramidState = { year: 2000 }
-	public render() {
-		const { year } = this.state
-		const ds = dataset()
-			.addTable('population', population)
-			.addDerivedTable(
-				'popYear',
-				'population',
-				filter((d: any) => d.year === year)
-			)
-			.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
-			.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
-			.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
 
-		return (
-			<div>
-				<PyramidChart data={ds.tables} />
-				<YearPicker year={year} onChange={this.handleYearChanged} />
-			</div>
+const PopulationPyramid: React.FC = memo(() => {
+	const [year, setYear] = useState(2000)
+	const handleYearChanged = useCallback(
+		(arg: React.ChangeEvent<any>) => {
+			const year = parseInt(arg.target.value, 10)
+			setYear(year)
+		},
+		[setYear]
+	)
+
+	const ds = dataset()
+		.addTable('population', population)
+		.addDerivedTable(
+			'popYear',
+			'population',
+			filter((d: any) => d.year === year)
 		)
-	}
+		.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
+		.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
+		.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
 
-	private handleYearChanged = (arg: React.ChangeEvent<any>) => {
-		const year = parseInt(arg.target.value, 10)
-		this.setState({ year })
-	}
-}
+	return (
+		<div>
+			<PyramidChart data={ds.tables} />
+			<YearPicker year={year} onChange={handleYearChanged} />
+		</div>
+	)
+})
+export default PopulationPyramid
 
 interface YearPickerProps {
 	year: number

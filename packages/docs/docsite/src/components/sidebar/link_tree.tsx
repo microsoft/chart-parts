@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
 import { TreeNode } from './interfaces'
 import { Link as RawLink } from 'gatsby'
 import styled from 'styled-components'
@@ -22,113 +22,114 @@ export interface LinkTreeProps {
 
 const ToggleSize = 15
 
-export interface LinkTreeState {
-	expanded: boolean
-	hasBeenManuallyToggled: boolean
-}
+const LinkTree: React.FC<LinkTreeProps> = memo(
+	({ expanded: expandedProp, node, activePath, depth }) => {
+		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
 
-export default class LinkTree extends React.Component<
-	LinkTreeProps,
-	LinkTreeState
-> {
-	public constructor(props: LinkTreeProps) {
-		super(props)
-		this.state = { expanded: !!props.expanded, hasBeenManuallyToggled: false }
-	}
+		useEffect(() => {
+			if (activePath.startsWith(node.item.path)) {
+				setExpanded(true)
+			}
+		}, [])
 
-	public componentDidMount() {
-		const { activePath, node } = this.props
-		if (activePath.startsWith(node.item.path)) {
-			this.setState({ expanded: true })
-		}
-	}
+		const linkStyle = useMemo(() => {
+			if (!node.item) {
+				return {}
+			}
+			const marginLeft = 15 + depth * 15
+			const fontSize = 16 - depth * 2
+			const linkStyle: React.CSSProperties = {
+				marginLeft,
+				fontSize,
+				color: '#3173BD',
+			}
 
-	public render(): JSX.Element | null {
-		const { node } = this.props
-		const { item, children } = node
-		if (!item) {
+			if (activePath === node.item.path) {
+				linkStyle.fontWeight = 'bold'
+			}
+			return linkStyle
+		}, [depth, activePath, node.item])
+
+		const handleExpandCollapseClick = useCallback(() => {
+			setExpanded(!expanded)
+		}, [expanded])
+
+		if (!node.item) {
 			return null
 		}
-
-		const childKeys = Object.keys(children)
-		const linkStyle = this.getLinkStyle()
-
+		const childKeys = Object.keys(node.children)
 		return (
 			<Container>
 				<CurrentLevel>
-					{this.renderIcon(childKeys)}
-					<Link to={item.path} {...{ style: linkStyle }}>
-						{item.title || node.pathKey}
+					<LinkTreeIcon
+						childKeys={childKeys}
+						expanded={expanded}
+						onExpandCollapseClick={handleExpandCollapseClick}
+					/>
+					<Link to={node.item.path} {...{ style: linkStyle }}>
+						{node.item.title || node.pathKey}
 					</Link>
 				</CurrentLevel>
-				{this.renderChildren(childKeys)}
+				<LinkTreeChildren
+					childKeys={childKeys}
+					expanded={expanded}
+					node={node}
+					depth={depth}
+					activePath={activePath}
+				/>
 			</Container>
 		)
 	}
+)
+LinkTree.displayName = 'LinkTree'
+export default LinkTree
 
-	private getLinkStyle(): React.CSSProperties {
-		const {
-			activePath,
-			depth,
-			node: { item },
-		} = this.props
-
-		const marginLeft = 15 + depth * 15
-		const fontSize = 16 - depth * 2
-		const linkStyle: React.CSSProperties = {
-			marginLeft,
-			fontSize,
-			color: '#3173BD',
-		}
-
-		if (activePath === item.path) {
-			linkStyle.fontWeight = 'bold'
-		}
-		return linkStyle
-	}
-
-	private renderIcon(childKeys: string[]) {
+interface LinkTreeIconProps {
+	childKeys: string[]
+	expanded: boolean
+	onExpandCollapseClick: () => void
+}
+const LinkTreeIcon: React.FC<LinkTreeIconProps> = memo(
+	({ childKeys, expanded, onExpandCollapseClick }) => {
 		if (childKeys.length === 0) {
 			return <IconSpacer />
-		} else if (this.state.expanded) {
-			return (
-				<ExpandedIcon onClick={this.onExpandCollapseClick} size={ToggleSize} />
-			)
+		} else if (expanded) {
+			return <ExpandedIcon onClick={onExpandCollapseClick} size={ToggleSize} />
 		} else {
-			return (
-				<CollapsedIcon onClick={this.onExpandCollapseClick} size={ToggleSize} />
-			)
+			return <CollapsedIcon onClick={onExpandCollapseClick} size={ToggleSize} />
 		}
 	}
+)
+LinkTreeIcon.displayName = 'LinkTreeIcon'
 
-	private renderChildren(childKeys: string[]) {
-		const { node, depth, activePath } = this.props
-		const { expanded } = this.state
-		if (!expanded) {
-			return null
-		}
-
+export interface LinkTreeChildrenProps {
+	childKeys: string[]
+	node: TreeNode
+	depth: number
+	activePath: string
+	expanded: boolean
+}
+const LinkTreeChildren: React.FC<LinkTreeChildrenProps> = memo(
+	({ childKeys, node, depth, activePath, expanded }) => {
 		// Get the nodes for the children and sort them
 		const childNodes = childKeys.map(ck => node.children[ck])
 		childNodes.sort((a, b) => (a.item.order || 0) - (b.item.order || 0))
 
-		return childNodes.map(c => (
-			<LinkTree
-				key={c.pathKey}
-				node={c}
-				depth={depth + 1}
-				activePath={activePath}
-			/>
-		))
+		return !expanded ? null : (
+			<>
+				{childNodes.map(c => (
+					<LinkTree
+						key={c.pathKey}
+						node={c}
+						depth={depth + 1}
+						activePath={activePath}
+					/>
+				))}
+			</>
+		)
 	}
-
-	private onExpandCollapseClick = () => {
-		this.setState({
-			expanded: !this.state.expanded,
-			hasBeenManuallyToggled: true,
-		})
-	}
-}
+)
+LinkTreeChildren.displayName = 'LinkTreeChildren'
 
 const Container = styled.div``
 

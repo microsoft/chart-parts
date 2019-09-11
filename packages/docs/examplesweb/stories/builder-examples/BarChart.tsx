@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useMemo, useState, useCallback, memo } from 'react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { scene, rect, axis } from '@chart-parts/builder'
-import { Dimension, SceneNode, AxisOrientation } from '@chart-parts/interfaces'
+import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { linear, band } from '@chart-parts/scales'
 import { Orchestrator } from '@chart-parts/orchestrator'
 
@@ -26,66 +26,65 @@ export interface BarChartState {
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export class BarChart extends React.Component<{}, BarChartState> {
-	private chart: SceneNode
+export const BarChart: React.FC = memo(() => {
+	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
+	const isHovered = useCallback((index: number) => hoverRowIndex === index, [
+		hoverRowIndex,
+	])
 
-	public constructor(props: {}) {
-		super(props)
-		this.state = { hoverRowIndex: undefined }
-		const isHovered = (index: number) => this.state.hoverRowIndex === index
+	const chart = useMemo(
+		() =>
+			scene(
+				n =>
+					n
+						.scale(
+							linear('y')
+								.domain('data.amount')
+								.range(Dimension.Height)
+								.nice(),
+							band('x', 'xband')
+								.domain('data.category')
+								.range(Dimension.Width)
+								.padding(0.05),
+						)
+						.axes(
+							axis('x', AxisOrientation.Bottom),
+							axis('y', AxisOrientation.Left),
+							axis('x', AxisOrientation.Top),
+							axis('y', AxisOrientation.Right),
+						)
+						.mark(
+							rect()
+								.table('data')
+								.encode({
+									x: ({ d, x }) => x(d.category),
+									y: ({ d, y }) => y(d.amount),
+									y2: ({ y }) => y(0),
+									width: ({ xband }) => xband(),
+									fill: ({ index }) =>
+										isHovered(index) ? 'firebrick' : 'steelblue',
+								})
+								.handle({
+									onMouseEnter: ({ index }) => {
+										if (hoverRowIndex !== index) {
+											setHoverRowIndex(index)
+										}
+									},
+									onMouseLeave: ({ index }) => {
+										if (hoverRowIndex === index) {
+											setHoverRowIndex(undefined)
+										}
+									},
+								}),
+						),
+				{ width: 400, height: 200 },
+			).build(),
+		[setHoverRowIndex, hoverRowIndex],
+	)
 
-		this.chart = scene(
-			n =>
-				n
-					.scale(
-						linear('y')
-							.domain('data.amount')
-							.range(Dimension.Height)
-							.nice(),
-						band('x', 'xband')
-							.domain('data.category')
-							.range(Dimension.Width)
-							.padding(0.05),
-					)
-					.axes(
-						axis('x', AxisOrientation.Bottom),
-						axis('y', AxisOrientation.Left),
-						axis('x', AxisOrientation.Top),
-						axis('y', AxisOrientation.Right),
-					)
-					.mark(
-						rect()
-							.table('data')
-							.encode({
-								x: ({ d, x }) => x(d.category),
-								y: ({ d, y }) => y(d.amount),
-								y2: ({ y }) => y(0),
-								width: ({ xband }) => xband(),
-								fill: ({ index }) =>
-									isHovered(index) ? 'firebrick' : 'steelblue',
-							})
-							.handle({
-								onMouseEnter: ({ index }) => {
-									if (this.state.hoverRowIndex !== index) {
-										this.setState({ hoverRowIndex: index })
-									}
-								},
-								onMouseLeave: ({ index }) => {
-									if (this.state.hoverRowIndex === index) {
-										this.setState({ hoverRowIndex: undefined })
-									}
-								},
-							}),
-					),
-			{ width: 400, height: 200 },
-		).build()
-	}
-
-	public render() {
-		return pipeline.renderScene(
-			this.chart,
-			{ width: 400, height: 200, padding: 30 },
-			{ data },
-		)
-	}
-}
+	return pipeline.renderScene(
+		chart,
+		{ width: 400, height: 200, padding: 30 },
+		{ data },
+	)
+})

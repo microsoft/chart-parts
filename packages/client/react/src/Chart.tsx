@@ -61,7 +61,7 @@ export const Chart: React.FC<ChartProps> = memo(
 			if (props.scene) {
 				receiveSpec(props.scene)
 			}
-		}, [props.scene, receiveSpec])
+		}, [])
 
 		return (
 			<>

@@ -132,8 +132,6 @@ const JobVoyager: React.FC = memo(() => {
 JobVoyager.displayName = 'JobVoyager'
 export default JobVoyager
 
-export class JobVoyagera extends React.Component<{}, JobVoyagerState> {}
-
 interface JobVoyagerChartProps {
 	data: any
 	selectedAreaId?: string

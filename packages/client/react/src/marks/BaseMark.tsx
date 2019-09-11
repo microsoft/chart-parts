@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useContext, useMemo } from 'react'
+import React, { useContext } from 'react'
 import { SceneNodeBuilderContext } from '../Context'
 import {
 	MarkType,
@@ -95,21 +95,18 @@ export function createMarkComponent<T extends CommonMarkProps>(
 	generateEncodings = getEncodings,
 	addMark = addMarkToScene,
 ): React.FC<T> {
-	const result: React.FC<T> = memo(({ children, ...props }) => {
+	const result: React.FC<T> = ({ children, ...props }) => {
 		const api = useContext(SceneNodeBuilderContext)
 		const channels = generateChannels(props)
 		const encodings = generateEncodings(props as T, encodeCustomProperties)
-		const mark = useMemo(
-			() => generateMark(markType, props, channels, encodings),
-			[generateMark, markType, props, channels, encodings, api],
-		)
-		const node = useMemo(() => api && addMark(api, mark), [api])
+		const mark = generateMark(markType, props, channels, encodings)
+		const node = api && addMark(api, mark)
 		return (
 			<SceneNodeBuilderContext.Provider value={node}>
 				{children}
 			</SceneNodeBuilderContext.Provider>
 		)
-	})
+	}
 	result.displayName = markType
 	return result
 }

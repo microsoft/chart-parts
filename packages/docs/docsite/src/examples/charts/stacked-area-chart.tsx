@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {
 	Area,
 	Axis,
@@ -47,44 +47,43 @@ const ds = dataset().addTable(
 		.sort({ field: 'c' })
 )
 
-export default class StackedAreaChart extends React.Component {
-	public render() {
-		return (
-			<Chart
-				width={500}
-				height={200}
-				padding={8}
-				renderer={renderer}
-				data={ds.tables}
-			>
-				<PointScale name="x" domain="data.x" range={Dimension.Width} />
-				<LinearScale
-					name="y"
-					domain="data.y1"
-					range={Dimension.Height}
-					nice
-					zero
-				/>
-				<OrdinalScale
-					name="color"
-					domain="data.c"
-					colorScheme={CategoricalColorScheme.category10}
-				/>
+const StackedAreaChart: React.FC = memo(() => {
+	return (
+		<Chart
+			width={500}
+			height={200}
+			padding={8}
+			renderer={renderer}
+			data={ds.tables}
+		>
+			<PointScale name="x" domain="data.x" range={Dimension.Width} />
+			<LinearScale
+				name="y"
+				domain="data.y1"
+				range={Dimension.Height}
+				nice
+				zero
+			/>
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
 
-				<Axis orient={AxisOrientation.Bottom} scale="x" />
-				<Axis orient={AxisOrientation.Left} scale="y" />
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
 
-				<Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
-					<Area
-						table="faceted"
-						x={({ d, x }) => x(d.x)}
-						y={({ d, y }) => y(d.y0)}
-						y2={({ d, y }) => y(d.y1)}
-						fill={({ d, color }) => color(d.c)}
-						interpolate={Interpolation.Monotone}
-					/>
-				</Group>
-			</Chart>
-		)
-	}
-}
+			<Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
+				<Area
+					table="faceted"
+					x={({ d, x }) => x(d.x)}
+					y={({ d, y }) => y(d.y0)}
+					y2={({ d, y }) => y(d.y1)}
+					fill={({ d, color }) => color(d.c)}
+					interpolate={Interpolation.Monotone}
+				/>
+			</Group>
+		</Chart>
+	)
+})
+export default StackedAreaChart

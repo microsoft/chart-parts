@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo, useState } from 'react'
 import {
 	Chart,
 	Rect,
@@ -51,67 +51,60 @@ export interface StackedBarChartState {
 /**
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
  */
-export default class StackedBarChart extends React.Component<
-	{},
-	StackedBarChartState
-> {
-	public state: StackedBarChartState = {}
+const StackedBarChart: React.FC = memo(() => {
+	const [hoverIndex, setHoverIndex] = useState<number | undefined>()
+	return (
+		<Chart
+			width={500}
+			height={200}
+			data={{ data: ds.getTable('data') as any[] }}
+			renderer={renderer}
+		>
+			{/* Scale Definitions */}
+			<BandScale
+				name="x"
+				bandWidth="width"
+				range={Dimension.Width}
+				domain="data.x"
+			/>
+			<LinearScale
+				name="y"
+				range={Dimension.Height}
+				domain="data.y1"
+				nice
+				zero
+			/>
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
 
-	public render() {
-		return (
-			<Chart
-				width={500}
-				height={200}
-				data={{ data: ds.getTable('data') as any[] }}
-				renderer={renderer}
-			>
-				{/* Scale Definitions */}
-				<BandScale
-					name="x"
-					bandWidth="width"
-					range={Dimension.Width}
-					domain="data.x"
-				/>
-				<LinearScale
-					name="y"
-					range={Dimension.Height}
-					domain="data.y1"
-					nice
-					zero
-				/>
-				<OrdinalScale
-					name="color"
-					domain="data.c"
-					colorScheme={CategoricalColorScheme.category10}
-				/>
+			{/* Axes */}
+			<Axis orient={AxisOrientation.Bottom} scale="x" thickness={20} />
+			<Axis orient={AxisOrientation.Left} scale="y" thickness={30} />
 
-				{/* Axes */}
-				<Axis orient={AxisOrientation.Bottom} scale="x" thickness={20} />
-				<Axis orient={AxisOrientation.Left} scale="y" thickness={30} />
-
-				{/* Marks */}
-				<Rect
-					onMouseEnter={({ index }: any) => {
-						if (this.state.hoverRowIndex !== index) {
-							this.setState({ hoverRowIndex: index })
-						}
-					}}
-					onMouseLeave={({ index }: any) => {
-						if (this.state.hoverRowIndex === index) {
-							this.setState({ hoverRowIndex: undefined })
-						}
-					}}
-					table="data"
-					x={({ d, x }) => x(d.x)}
-					width={({ width }) => width() - 1}
-					y={({ d, y }) => y(d.y0)}
-					y2={({ d, y }) => y(d.y1)}
-					fill={({ d, color }) => color(d.c)}
-					fillOpacity={({ index }) =>
-						this.state.hoverRowIndex === index ? 0.5 : 1
+			{/* Marks */}
+			<Rect
+				onMouseEnter={({ index }: any) => {
+					if (hoverIndex !== index) {
+						setHoverIndex(index)
 					}
-				/>
-			</Chart>
-		)
-	}
-}
+				}}
+				onMouseLeave={({ index }: any) => {
+					if (hoverIndex === index) {
+						setHoverIndex(undefined)
+					}
+				}}
+				table="data"
+				x={({ d, x }) => x(d.x)}
+				width={({ width }) => width() - 1}
+				y={({ d, y }) => y(d.y0)}
+				y2={({ d, y }) => y(d.y1)}
+				fill={({ d, color }) => color(d.c)}
+				fillOpacity={({ index }) => (hoverIndex === index ? 0.5 : 1)}
+			/>
+		</Chart>
+	)
+})
+export default StackedBarChart
