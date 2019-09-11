@@ -31,13 +31,32 @@ export class SceneNodeBuilder {
 		return this
 	}
 
+	public removeScale(scale: ScaleCreator | ScaleBuilder): SceneNodeBuilder {
+		if (typeof scale === 'function') {
+			this.scales = this.scales.filter(s => s !== scale)
+		} else {
+			this.scales = this.scales.filter(s => s !== scale.build)
+		}
+		return this
+	}
+
 	public mark(...builders: MarkBuilder[]): SceneNodeBuilder {
 		this.markBuilders.push(...builders)
 		return this
 	}
 
+	public removeMark(builder: MarkBuilder): SceneNodeBuilder {
+		this.markBuilders = this.markBuilders.filter(t => t !== builder)
+		return this
+	}
+
 	public axes(...builders: AxisBuilder[]): SceneNodeBuilder {
 		this.axisBuilders.push(...builders)
+		return this
+	}
+
+	public removeAxis(builder: AxisBuilder): SceneNodeBuilder {
+		this.axisBuilders = this.axisBuilders.filter(a => a !== builder)
 		return this
 	}
 
