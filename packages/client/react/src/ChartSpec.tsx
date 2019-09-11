@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React from 'react'
 import { scene, SceneNodeBuilder } from '@chart-parts/builder'
 import { SceneNodeBuilderContext } from './Context'
 import { PaddingObject, ChartOptions } from '@chart-parts/interfaces'

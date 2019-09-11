@@ -3,12 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React, { memo, useState, useEffect, useCallback, useMemo } from 'react'
 import { Renderer, VSvgNode, SceneNode } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { ChartSpec } from './ChartSpec'
-declare const require: any
-const shallowequal = require('shallowequal')
 
 export interface ChartPadding {
 	top?: number
@@ -22,6 +20,7 @@ export interface ChartProps {
 	height: number
 	padding?: number | ChartPadding
 	data: { [key: string]: any[] }
+	// TODO: Replace with Context
 	renderer: Renderer<VSvgNode, any>
 	scene?: SceneNode
 	title?: string
@@ -35,49 +34,42 @@ export interface ChartState {
 	rendered: React.ReactNode
 }
 
-export class Chart extends React.Component<ChartProps, ChartState> {
-	private pipeline: Orchestrator<React.ReactNode>
+export const Chart: React.FC<ChartProps> = memo(
+	({ renderer, data, children, ...props }) => {
+		const [rendered, setRendered] = useState(null)
+		const pipeline = useMemo(() => new Orchestrator(renderer), [renderer])
 
-	public constructor(props: ChartProps) {
-		super(props)
-		this.pipeline = new Orchestrator(props.renderer)
-		this.state = { rendered: null }
-	}
+		const receiveSpec = useCallback(
+			(spec: SceneNode) => {
+				const newRendered = pipeline.renderScene(
+					spec,
+					{
+						width: props.width,
+						height: props.height,
+						padding: props.padding,
+						ariaTitle: props.title,
+						ariaDescription: props.description,
+					},
+					data,
+				)
+				setRendered(newRendered)
+			},
+			[setRendered],
+		)
 
-	public shouldComponentUpdate(props: ChartProps, state: ChartState) {
-		return !shallowequal(this.props, props) || !shallowequal(this.state, state)
-	}
+		useEffect(() => {
+			if (props.scene) {
+				receiveSpec(props.scene)
+			}
+		}, [props.scene, receiveSpec])
 
-	public componentDidMount() {
-		if (this.props.scene) {
-			this.receiveSpec(this.props.scene)
-		}
-	}
-
-	public render() {
-		const { renderer, data, ...props } = this.props
 		return (
 			<>
-				<ChartSpec {...props} onSpecReady={this.receiveSpec}>
-					{this.props.children}
+				<ChartSpec {...props} onSpecReady={receiveSpec}>
+					{children}
 				</ChartSpec>
-				{this.state.rendered}
+				{rendered}
 			</>
 		)
-	}
-
-	private receiveSpec = (spec: SceneNode) => {
-		const rendered = this.pipeline.renderScene(
-			spec,
-			{
-				width: this.props.width,
-				height: this.props.height,
-				padding: this.props.padding,
-				ariaTitle: this.props.title,
-				ariaDescription: this.props.description,
-			},
-			this.props.data,
-		)
-		this.setState({ rendered })
-	}
-}
+	},
+)

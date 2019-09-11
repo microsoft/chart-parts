@@ -8,7 +8,7 @@
  */
 declare const require: any
 
-import * as React from 'react'
+import React from 'react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
 	Axis,

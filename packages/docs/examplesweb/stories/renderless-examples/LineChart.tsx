@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import * as React from 'react'
+import React from 'react'
 import { VerticalTextAlignment } from '@chart-parts/interfaces'
 import {
 	Chart,

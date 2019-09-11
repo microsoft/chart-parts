@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { scene, rect, axis } from '@chart-parts/builder'
 import { Dimension, SceneNode, AxisOrientation } from '@chart-parts/interfaces'
