@@ -85,7 +85,10 @@ function createItemFromMark(
 
 	let metadata: Metadata = {} as any
 	if (mark.metadata) {
-		metadata = mark.metadata(context)
+		metadata =
+			typeof mark.metadata === 'function'
+				? mark.metadata(context)
+				: mark.metadata
 	}
 
 	const props = {
@@ -147,7 +150,8 @@ function transferEncodings(encodings: MarkEncodings, context: EncodingContext) {
 		.forEach(key => {
 			const encoding = encodings[key]
 			if (encoding) {
-				const value = encoding(context)
+				const value =
+					typeof encoding === 'function' ? encoding(context) : encoding
 				props[key] = value
 			}
 		})
