@@ -13,6 +13,7 @@ import {
 	GroupedBarChart,
 	JobVoyager,
 	LineChart,
+	PopulationPyramid,
 	StackedAreaChart,
 	StackedBarChart,
 } from '@chart-parts/examples'
@@ -55,6 +56,11 @@ storiesOf('Renderless React Examples', module)
 	.add('Line Chart', () => (
 		<ChartingProvider value={renderer}>
 			<LineChart />
+		</ChartingProvider>
+	))
+	.add('Population Pyramid', () => (
+		<ChartingProvider value={renderer}>
+			<PopulationPyramid />
 		</ChartingProvider>
 	))
 	.add('Stacked Area Chart ', () => (

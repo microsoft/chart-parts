@@ -39,7 +39,7 @@ export interface PopulationPyramidState {
 	year: number
 }
 
-const PopulationPyramid: React.FC = memo(() => {
+export const PopulationPyramid: React.FC = memo(() => {
 	const [year, setYear] = useState(2000)
 	const handleYearChanged = useCallback(
 		(arg: React.ChangeEvent<any>) => {
@@ -68,7 +68,6 @@ const PopulationPyramid: React.FC = memo(() => {
 	)
 })
 PopulationPyramid.displayName = 'PopulationPyramid'
-export default PopulationPyramid
 
 interface YearPickerProps {
 	year: number
