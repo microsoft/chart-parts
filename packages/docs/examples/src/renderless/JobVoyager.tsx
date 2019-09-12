@@ -27,12 +27,12 @@ import {
 	Offset as StackOffset,
 	filter,
 } from '@chart-parts/transform'
+// @ts-ignore
+import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
 // - Axis grid
 // - prevent recomputes of scales to improve perf
-
-const source = require('vega-datasets/data/jobs.json')
 const genderOptions = ['all', 'women', 'men']
 
 export const JobVoyager: React.FC = memo(() => {
