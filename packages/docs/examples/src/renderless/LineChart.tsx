@@ -11,9 +11,6 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const series = [
 	{
@@ -109,7 +106,7 @@ const TEXT_GROUP_HEIGHT = 110
  */
 export const LineChart: React.FC = memo(() => {
 	return (
-		<Chart height={200} width={200} data={{ kpis, series }} renderer={renderer}>
+		<Chart height={200} width={200} data={{ kpis, series }}>
 			<LinearScale
 				name="x"
 				domain="series.x"

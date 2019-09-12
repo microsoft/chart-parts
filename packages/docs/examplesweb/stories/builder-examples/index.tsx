@@ -5,13 +5,29 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
+import { ChartingProvider } from '@chart-parts/react'
 import {
 	BarChartBuilder,
 	GroupedBarChartBuilder,
 	BarChartUtcBuilder,
 } from '@chart-parts/examples'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+
+const renderer = new Renderer()
 
 storiesOf('Builder-Model Examples', module)
-	.add('Bar Chart', () => <BarChartBuilder />)
-	.add('Grouped Bar Chart', () => <GroupedBarChartBuilder />)
-	.add('Bar Chart UTC Scale', () => <BarChartUtcBuilder />)
+	.add('Bar Chart', () => (
+		<ChartingProvider value={renderer}>
+			<BarChartBuilder />
+		</ChartingProvider>
+	))
+	.add('Grouped Bar Chart', () => (
+		<ChartingProvider value={renderer}>
+			<GroupedBarChartBuilder />
+		</ChartingProvider>
+	))
+	.add('Bar Chart UTC Scale', () => (
+		<ChartingProvider value={renderer}>
+			<BarChartUtcBuilder />
+		</ChartingProvider>
+	))

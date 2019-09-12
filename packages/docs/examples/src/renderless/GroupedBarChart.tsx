@@ -10,12 +10,10 @@ import {
 	Rect,
 	Text,
 } from '@chart-parts/react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-const renderer = new Renderer()
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },
@@ -38,13 +36,7 @@ const dataset = { data }
  */
 export const GroupedBarChart: React.FC = memo(() => {
 	return (
-		<Chart
-			width={300}
-			height={240}
-			padding={5}
-			data={dataset}
-			renderer={renderer}
-		>
+		<Chart width={300} height={240} padding={5} data={dataset}>
 			<BandScale
 				name="y"
 				bandWidth="categoryHeight"

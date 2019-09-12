@@ -13,9 +13,6 @@ import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -52,7 +49,7 @@ export const BarChart: React.FC = memo(() => {
 		[hoverIndex, setHoverIndex],
 	)
 	return (
-		<Chart width={400} height={200} renderer={renderer} data={dataset}>
+		<Chart width={400} height={200} data={dataset}>
 			<LinearScale
 				name="y"
 				domain="data.amount"
