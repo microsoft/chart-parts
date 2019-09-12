@@ -12,7 +12,7 @@ import {
 } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { SceneBuilder, scene } from '@chart-parts/builder'
-import { SceneBuilderContext } from 'Context'
+import { SceneBuilderContext } from './Context'
 
 export interface ChartPadding {
 	top?: number
