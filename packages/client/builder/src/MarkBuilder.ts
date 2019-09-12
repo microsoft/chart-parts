@@ -40,7 +40,7 @@ export class MarkBuilder {
 	private encodingsValue: MarkEncodings = {}
 	private metadataValue?: MarkEncoding<Metadata>
 
-	public constructor(private type: MarkType) {}
+	public constructor(public readonly type: MarkType) {}
 
 	public table(table: string | undefined): MarkBuilder {
 		if (typeof table != null) {
