@@ -31,7 +31,11 @@ export function createDomainScale<
 >(displayName: string, createScale: (props: Props) => any): React.FC<Props> {
 	const result = memo(props => {
 		const api = useContext(SceneNodeBuilderContext)
-		const scale = useMemo(() => api && createScale(props as Props), [api])
+		const scale = useMemo(() => api && createScale(props as Props), [
+			api,
+			createScale,
+			props,
+		])
 		useEffect(() => {
 			if (api && scale) {
 				api.scale(scale)
