@@ -45,11 +45,7 @@ export class MarkBuilder {
 	public constructor(public readonly type: MarkType) {}
 
 	public table(table: string | undefined): MarkBuilder {
-		if (typeof table != null) {
-			this.tableValue = table
-		} else {
-			this.tableValue = undefined
-		}
+		this.tableValue = table
 		this.onChange.next()
 		return this
 	}

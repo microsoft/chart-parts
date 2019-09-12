@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
 import React, { useContext, useState, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
 import { MarkType } from '@chart-parts/interfaces'
@@ -24,7 +23,6 @@ export function addMarkToScene(
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,
-	pushdown: boolean = false,
 ): React.FC<T> {
 	const result: React.FC<T> = props => {
 		const { children, table, name, role } = props
@@ -34,7 +32,7 @@ export function createMarkComponent<T extends CommonMarkProps>(
 		useMarkEncodings(mark, props)
 		useMarkChannels(mark, props)
 		customHook(mark, props as T)
-		const node = useMarkInScene(api, mark, pushdown)
+		const node = useMarkInScene(api, mark, markType === MarkType.Group)
 		return (
 			<SceneBuilderContext.Provider value={node}>
 				{children}

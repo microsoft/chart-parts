@@ -86,4 +86,5 @@ const StackedAreaChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
+StackedAreaChart.displayName = 'StackedAreaChart'
 export default StackedAreaChart

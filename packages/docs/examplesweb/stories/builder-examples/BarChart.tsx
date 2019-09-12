@@ -88,3 +88,5 @@ export const BarChart: React.FC = memo(() => {
 		{ data },
 	)
 })
+
+BarChart.displayName = 'BarChart'

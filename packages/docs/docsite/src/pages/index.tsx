@@ -72,7 +72,7 @@ const IndexPage: React.FC = memo(() => {
 		</Container>
 	)
 })
-
+IndexPage.displayName = 'IndexPage'
 export default IndexPage
 
 const Wrapper = styled.div`

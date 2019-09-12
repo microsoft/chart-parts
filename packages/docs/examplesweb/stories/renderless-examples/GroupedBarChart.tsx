@@ -99,3 +99,4 @@ export const GroupedBarChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
+GroupedBarChart.displayName = 'GroupedBarChart'

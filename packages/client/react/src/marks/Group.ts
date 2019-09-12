@@ -32,5 +32,4 @@ export const Group = createMarkComponent<GroupProps>(
 			mark.encode(MarkEncodingKey.cornerRadius, props.cornerRadius)
 		}, [mark, props.cornerRadius])
 	},
-	true,
 )

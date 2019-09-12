@@ -179,3 +179,4 @@ export const LineChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
+LineChart.displayName = 'LineChart'

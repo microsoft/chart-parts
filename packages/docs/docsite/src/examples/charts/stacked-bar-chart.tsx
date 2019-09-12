@@ -107,4 +107,5 @@ const StackedBarChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
+StackedBarChart.displayName = 'StackedBarChart'
 export default StackedBarChart

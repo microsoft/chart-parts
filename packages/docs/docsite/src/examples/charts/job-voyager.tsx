@@ -16,6 +16,7 @@ import {
 	AxisOrientation,
 	VerticalTextAlignment,
 	HorizontalAlignment,
+	Metadata,
 } from '@chart-parts/interfaces'
 import {
 	dataset,
@@ -168,7 +169,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 					fillOpacity={({ d, agg, id, alpha }) =>
 						id === selectedAreaId ? 0.2 : alpha(agg.sum)
 					}
-					metadata={({ d: { job } }) => ({ job })}
+					metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
 					onMouseOver={({ id }) => onEnterArea(id)}
 					onClick={({ job }) => onClickArea(job)}
 				/>
@@ -188,6 +189,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 		</Chart>
 	)
 )
+JobVoyagerChart.displayName = 'JobVoyagerChart'
 
 const Axes: React.FC = memo(() => (
 	<>
@@ -207,6 +209,7 @@ const Axes: React.FC = memo(() => (
 		/>
 	</>
 ))
+Axes.displayName = 'Axes'
 
 const Scales: React.FC = memo(() => (
 	<>
@@ -259,3 +262,4 @@ const Scales: React.FC = memo(() => (
 		/>
 	</>
 ))
+Scales.displayName = 'Scales'

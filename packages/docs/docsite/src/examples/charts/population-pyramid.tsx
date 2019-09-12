@@ -70,6 +70,7 @@ const PopulationPyramid: React.FC = memo(() => {
 		</div>
 	)
 })
+PopulationPyramid.displayName = 'PopulationPyramid'
 export default PopulationPyramid
 
 interface YearPickerProps {
@@ -89,6 +90,7 @@ const YearPicker: React.FC<YearPickerProps> = ({ year, onChange }) => (
 		<p>{year}</p>
 	</div>
 )
+YearPicker.displayName = 'YearPicker'
 
 interface PyramidChartProps {
 	data: { [key: string]: any[] }
@@ -107,6 +109,7 @@ const PyramidChart: React.FC<PyramidChartProps> = ({ data }) => (
 		<FPerYear />
 	</Chart>
 )
+PyramidChart.displayName = 'PyramidChart'
 
 const ChartScales: React.FC = () => (
 	<>
@@ -124,8 +127,9 @@ const ChartScales: React.FC = () => (
 		<OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
 	</>
 )
+ChartScales.displayName = 'ChartScales'
 
-const AgeLabels: React.FC = () => (
+const AgeLabels: React.FC = memo(() => (
 	<Text
 		table="ageGroups"
 		x={chartSegmentWidth + textLineWidth / 2}
@@ -135,62 +139,73 @@ const AgeLabels: React.FC = () => (
 		align={HorizontalAlignment.Center}
 		fill="#000"
 	/>
-)
+))
+AgeLabels.displayName = 'AgeLabels'
 
-const FPerYear: React.FC = () => (
+const FPerYear: React.FC = memo(() => (
 	<GenderPerYearSection
 		xStart={0}
 		table="females"
 		xRange={[chartSegmentWidth, 0]}
 	/>
-)
+))
+FPerYear.displayName = 'FPerYear'
 
-const MPerYear: React.FC = () => (
+const MPerYear: React.FC = memo(() => (
 	<GenderPerYearSection
 		table="males"
 		xStart={chartSegmentWidth + textLineWidth}
 		xRange={[0, chartSegmentWidth]}
 	/>
-)
+))
+MPerYear.displayName = 'MPerYear'
 
 interface GenderPerYearSectionProps {
 	table: string
 	xRange: [number, number]
 	xStart: number
 }
-const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = ({
-	table,
-	xRange,
-	xStart,
-}) => (
-	<Group
-		x={xStart}
-		height={({ view }) => view.height}
-		width={chartSegmentWidth}
-	>
-		<LinearScale domain="population.people" range={xRange} name="x" nice zero />
-		<Axis
-			orient={AxisOrientation.Bottom}
-			scale="x"
-			labelFormat="~s"
-			thickness={AXIS_THICKNESS}
-		/>
-		<GenderPerYearRect table={table} />
-	</Group>
+const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = memo(
+	({ table, xRange, xStart }) => (
+		<Group
+			x={xStart}
+			height={({ view }) => view.height}
+			width={chartSegmentWidth}
+		>
+			<LinearScale
+				domain="population.people"
+				range={xRange}
+				name="x"
+				nice
+				zero
+			/>
+			<Axis
+				orient={AxisOrientation.Bottom}
+				scale="x"
+				labelFormat="~s"
+				thickness={AXIS_THICKNESS}
+			/>
+			<GenderPerYearRect table={table} />
+		</Group>
+	)
 )
+GenderPerYearSection.displayName = 'GenderPerYearSection'
 
 interface GenderPerYearRectProps {
 	table: string
 }
 
-const GenderPerYearRect: React.FC<GenderPerYearRectProps> = ({ table }) => (
-	<Rect
-		table={table}
-		x={({ d, x }) => x(d.people)}
-		x2={({ x }) => x(0)}
-		y={({ d, y }) => y(d.age)}
-		height={({ yband }) => yband()}
-		fillOpacity={0.6}
-		fill={({ d, c }) => c(d.sex)}
-	/>
+const GenderPerYearRect: React.FC<GenderPerYearRectProps> = memo(
+	({ table }) => (
+		<Rect
+			table={table}
+			x={({ d, x }) => x(d.people)}
+			x2={({ x }) => x(0)}
+			y={({ d, y }) => y(d.age)}
+			height={({ yband }) => yband()}
+			fillOpacity={0.6}
+			fill={({ d, c }) => c(d.sex)}
+		/>
+	)
 )
+GenderPerYearRect.displayName = 'GenderPerYearRect'
