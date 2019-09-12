@@ -91,23 +91,27 @@ function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 		return [frame.boundDataItem]
 	}
 
-	const markSourceTable = frame.data[table as string]
+	if (!table) {
+		throw new Error('table must be set when facet is set')
+	}
+
+	const sourceTable = frame.data[table as string]
 	if (facet) {
 		const facetSourceTable = facet.table || table
 		if (!facetSourceTable) {
 			throw new Error('mark does not have table or faceting table defined')
 		}
-		const facetSource = frame.data[facetSourceTable]
-		if (facet.groupBy) {
-			return createFacetedData(facet, facetSource, markSourceTable)
-		} else {
+		if (!facet.groupBy) {
 			throw new Error('faceting must groupBy defined')
 		}
+		const facetSource = frame.data[facetSourceTable]
+		const result = createFacetedData(facet, facetSource, sourceTable)
+		return result
 	} else {
-		if (!markSourceTable) {
+		if (!sourceTable) {
 			throw new Error(`could not find table ${table}`)
 		}
-		return markSourceTable
+		return sourceTable
 	}
 }
 
