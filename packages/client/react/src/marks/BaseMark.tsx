@@ -4,20 +4,20 @@
  */
 
 import React, { useContext, useState, useEffect, useMemo } from 'react'
-import { SceneNodeBuilderContext } from '../Context'
+import { SceneBuilderContext } from '../Context'
 import { MarkType } from '@chart-parts/interfaces'
 import {
 	mark as newMark,
 	MarkBuilder,
-	SceneNodeBuilder,
+	SceneBuilder,
 } from '@chart-parts/builder'
 import { CommonMarkProps } from '../interfaces'
 import { MarkEncodingKey } from '@chart-parts/interfaces/src'
 
 export function addMarkToScene(
-	api: SceneNodeBuilder,
+	api: SceneBuilder,
 	mark: MarkBuilder,
-): SceneNodeBuilder {
+): SceneBuilder {
 	return api.mark(mark)
 }
 
@@ -28,7 +28,7 @@ export function createMarkComponent<T extends CommonMarkProps>(
 ): React.FC<T> {
 	const result: React.FC<T> = props => {
 		const { children, table, name, role } = props
-		const api = useContext(SceneNodeBuilderContext)
+		const api = useContext(SceneBuilderContext)
 		const mark = useMemo(() => newMark(markType), [markType])
 		useCommonMarkProperties(mark, table, role, name)
 		useMarkEncodings(mark, props)
@@ -36,9 +36,9 @@ export function createMarkComponent<T extends CommonMarkProps>(
 		customHook(mark, props as T)
 		const node = useMarkInScene(api, mark, pushdown)
 		return (
-			<SceneNodeBuilderContext.Provider value={node}>
+			<SceneBuilderContext.Provider value={node}>
 				{children}
-			</SceneNodeBuilderContext.Provider>
+			</SceneBuilderContext.Provider>
 		)
 	}
 	result.displayName = markType
@@ -46,11 +46,11 @@ export function createMarkComponent<T extends CommonMarkProps>(
 }
 
 function useMarkInScene(
-	api: SceneNodeBuilder | undefined,
+	api: SceneBuilder | undefined,
 	mark: MarkBuilder,
 	pushdown: boolean,
 ) {
-	const [node, setNode] = useState<SceneNodeBuilder | undefined>()
+	const [node, setNode] = useState<SceneBuilder | undefined>()
 	useEffect(() => {
 		if (api && mark) {
 			if (pushdown) {

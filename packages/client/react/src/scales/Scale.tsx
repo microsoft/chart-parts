@@ -4,7 +4,7 @@
  */
 
 import React, { memo, useContext, useEffect } from 'react'
-import { SceneNodeBuilderContext } from '../Context'
+import { SceneBuilderContext } from '../Context'
 
 export interface ScaleProps {
 	name: string
@@ -13,7 +13,7 @@ export interface ScaleProps {
 }
 
 export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
-	const api = useContext(SceneNodeBuilderContext)
+	const api = useContext(SceneBuilderContext)
 	useEffect(() => {
 		if (api) {
 			const newScale = (args: any) => create(args)

@@ -6,7 +6,7 @@
 import React, { useContext, memo, useEffect, useMemo } from 'react'
 import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
 import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
-import { SceneNodeBuilderContext } from './Context'
+import { SceneBuilderContext } from './Context'
 
 /**
  * Axis Component Props
@@ -60,7 +60,7 @@ export interface AxisProps {
 
 export const Axis: React.FC<AxisProps> = memo(
 	({ children, scale, orient, ...props }) => {
-		const api = useContext(SceneNodeBuilderContext)
+		const api = useContext(SceneBuilderContext)
 		const axis = useMemo(() => newAxis(scale, orient), [scale, orient])
 
 		useAxisProps(axis, props as AxisProps)

@@ -9,6 +9,7 @@ import {
 	TickValue,
 	FontWeight,
 } from '@chart-parts/interfaces'
+import { Subject } from 'rxjs'
 
 export const DEFAULT_AXIS_COLOR = '#777'
 export const DEFAULT_AXIS_TEXT_COLOR = '#000'
@@ -26,6 +27,7 @@ export const DEFAULT_AXIS_TICK_ROUND_VALUE = false
 export const DEFAULT_AXIS_LABELS_VALUE = true
 
 export class AxisBuilder {
+	public readonly onChange = new Subject()
 	private thicknessValue: number = DEFAULT_AXIS_THICKNESS
 
 	// #region Domain Configuration Fields
@@ -74,16 +76,19 @@ export class AxisBuilder {
 	// #region Domain Configuration
 	public domain(value: boolean | undefined): AxisBuilder {
 		this.domainValue = value == null ? DEFAULT_AXIS_DOMAIN_VALUE : value
+		this.onChange.next()
 		return this
 	}
 
 	public domainWidth(value: number | undefined): AxisBuilder {
 		this.domainWidthValue = value == null ? DEFAULT_AXIS_STROKE : value
+		this.onChange.next()
 		return this
 	}
 
 	public domainColor(value: string | undefined): AxisBuilder {
 		this.domainColorValue = value == null ? DEFAULT_AXIS_COLOR : value
+		this.onChange.next()
 		return this
 	}
 	// #endregion
@@ -91,47 +96,56 @@ export class AxisBuilder {
 	// #region Tick Configuration
 	public ticks(value: boolean | undefined): AxisBuilder {
 		this.ticksValue = value == null ? DEFAULT_AXIS_TICKS_VALUE : value
+		this.onChange.next()
 		return this
 	}
 
 	public tickColor(value: string | undefined): AxisBuilder {
 		this.tickColorValue = value == null ? DEFAULT_AXIS_COLOR : value
+		this.onChange.next()
 		return this
 	}
 
 	public tickCount(value: number | undefined): AxisBuilder {
 		this.tickCountValue = value
+		this.onChange.next()
 		return this
 	}
 
 	public tickOffset(value: number | undefined): AxisBuilder {
 		this.tickOffsetValue =
 			value == null ? DEFAULT_AXIS_TICK_OFFSET_VALUE : value
+		this.onChange.next()
 		return this
 	}
 
 	public tickRound(value: boolean | undefined): AxisBuilder {
 		this.tickRoundValue = value == null ? DEFAULT_AXIS_TICK_ROUND_VALUE : value
+		this.onChange.next()
 		return this
 	}
 
 	public tickSize(value: number | undefined): AxisBuilder {
 		this.tickSizeValue = value == null ? DEFAULT_AXIS_TICK_SIZE : value
+		this.onChange.next()
 		return this
 	}
 
 	public tickWidth(value: number | undefined): AxisBuilder {
 		this.tickWidthValue = value == null ? DEFAULT_AXIS_STROKE : value
+		this.onChange.next()
 		return this
 	}
 
 	public bandPosition(value: number | undefined): AxisBuilder {
 		this.bandPositionValue = value == null ? DEFAULT_AXIS_BAND_POSITION : value
+		this.onChange.next()
 		return this
 	}
 
 	public values(values: TickValue[] | undefined): AxisBuilder {
 		this.tickValues = values
+		this.onChange.next()
 		return this
 	}
 
@@ -140,46 +154,55 @@ export class AxisBuilder {
 	// #region Labels Configuration
 	public labels(value: boolean | undefined): AxisBuilder {
 		this.labelsValue = value == null ? DEFAULT_AXIS_LABELS_VALUE : value
+		this.onChange.next()
 		return this
 	}
 
 	public labelFont(value: string | undefined): AxisBuilder {
 		this.labelFontValue = value == null ? DEFAULT_AXIS_FONT : value
+		this.onChange.next()
 		return this
 	}
 
 	public labelFontSize(value: number | undefined): AxisBuilder {
 		this.labelFontSizeValue = value == null ? DEFAULT_AXIS_FONT_SIZE : value
+		this.onChange.next()
 		return this
 	}
 
 	public labelColor(value: string | undefined): AxisBuilder {
 		this.labelColorValue = value == null ? DEFAULT_AXIS_TEXT_COLOR : value
+		this.onChange.next()
 		return this
 	}
 
 	public labelPadding(value: number | undefined): AxisBuilder {
 		this.labelPaddingValue = value == null ? DEFAULT_AXIS_LABEL_PADDING : value
+		this.onChange.next()
 		return this
 	}
 
 	public labelFontWeight(value: FontWeight | undefined): AxisBuilder {
 		this.labelFontWeightValue = value
+		this.onChange.next()
 		return this
 	}
 
 	public labelAngle(value: number | undefined): AxisBuilder {
 		this.labelAngleValue = value
+		this.onChange.next()
 		return this
 	}
 
 	public labelFormat(value: string | undefined): AxisBuilder {
 		this.labelFormatValue = value
+		this.onChange.next()
 		return this
 	}
 
 	public thickness(value: number | undefined): AxisBuilder {
 		this.thicknessValue = value == null ? DEFAULT_AXIS_THICKNESS : value
+		this.onChange.next()
 		return this
 	}
 

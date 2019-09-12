@@ -23,8 +23,6 @@ export default class BarChart extends React.Component {
 	state = {hoverRowIndex: undefined};
 
 	render() {
-		console.log('Render BarCHart');
-
 		// Externalized Event Handlers
 		const onPress = ({index}) => {
 			if (this.state.hoverRowIndex !== index) {

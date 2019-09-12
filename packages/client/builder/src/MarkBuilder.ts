@@ -27,10 +27,12 @@ import {
 	ItemIdGenerator,
 	Metadata,
 } from '@chart-parts/interfaces'
-import { SceneNodeBuilder } from './SceneNodeBuilder'
+import { SceneBuilder } from './SceneBuilder'
+import { Subject } from 'rxjs'
 
 export class MarkBuilder {
-	private childNode?: SceneNodeBuilder
+	public readonly onChange = new Subject()
+	private childNode?: SceneBuilder
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
@@ -45,34 +47,34 @@ export class MarkBuilder {
 	public table(table: string | undefined): MarkBuilder {
 		if (typeof table != null) {
 			this.tableValue = table
-			return this
 		} else {
 			this.tableValue = undefined
-			return this
 		}
+		this.onChange.next()
+		return this
 	}
 
 	public role(role: string | undefined): MarkBuilder {
 		this.roleValue = role
+		this.onChange.next()
 		return this
 	}
 
 	public name(name: string | undefined): MarkBuilder {
 		this.nameValue = name
+		this.onChange.next()
 		return this
 	}
 
 	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
 		this.itemIdGenerator = generator
+		this.onChange.next()
 		return this
 	}
 
 	public metadata(value: MarkEncoding<Metadata> | undefined) {
-		if (value != null) {
-			this.metadataValue = value
-		} else {
-			this.metadataValue = undefined
-		}
+		this.metadataValue = value
+		this.onChange.next()
 		return this
 	}
 
@@ -83,6 +85,7 @@ export class MarkBuilder {
 			delete this.encodingsValue.zIndex
 		}
 
+		this.onChange.next()
 		return this
 	}
 
@@ -103,15 +106,8 @@ export class MarkBuilder {
 			)
 		}
 
+		this.onChange.next()
 		return this
-	}
-
-	private applyHandler(key: string, handler: ChannelHandler<any> | undefined) {
-		if (handler != null) {
-			this.channelsValue[key] = handler
-		} else {
-			delete this.channelsValue[key]
-		}
 	}
 
 	// #region Mark Encoding
@@ -369,17 +365,9 @@ export class MarkBuilder {
 					this.applyEncoding(name, entryEncoding)
 				},
 			)
-			return this
 		}
+		this.onChange.next()
 		return this
-	}
-
-	private applyEncoding<T>(key: string, encoding: undefined | MarkEncoding<T>) {
-		if (encoding != null) {
-			this.encodingsValue[key] = encoding
-		} else {
-			delete this.encodingsValue[key]
-		}
 	}
 
 	public facet(facet: Facet | undefined): MarkBuilder {
@@ -387,15 +375,17 @@ export class MarkBuilder {
 			throw new Error('faceting can only be applied to "group" type marks')
 		}
 		this.facetValue = facet
+		this.onChange.next()
 		return this
 	}
 
 	/**
 	 * Pushes a new scene node onto the graph
 	 */
-	public child(callback: (b: SceneNodeBuilder) => void): MarkBuilder {
-		this.childNode = new SceneNodeBuilder()
+	public child(callback: (b: SceneBuilder) => void): MarkBuilder {
+		this.childNode = new SceneBuilder()
 		callback(this.childNode)
+		this.onChange.next()
 		return this
 	}
 
@@ -428,6 +418,22 @@ export class MarkBuilder {
 			idGenerator,
 			metadata,
 			child: childNode && childNode.build(),
+		}
+	}
+
+	private applyHandler(key: string, handler: ChannelHandler<any> | undefined) {
+		if (handler != null) {
+			this.channelsValue[key] = handler
+		} else {
+			delete this.channelsValue[key]
+		}
+	}
+
+	private applyEncoding<T>(key: string, encoding: undefined | MarkEncoding<T>) {
+		if (encoding != null) {
+			this.encodingsValue[key] = encoding
+		} else {
+			delete this.encodingsValue[key]
 		}
 	}
 }

@@ -4,7 +4,7 @@
  */
 import React, { memo, useContext, useEffect, useMemo } from 'react'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
-import { SceneNodeBuilderContext } from '../Context'
+import { SceneBuilderContext } from '../Context'
 
 export interface DomainScaleProps<Domain> {
 	/**
@@ -30,7 +30,7 @@ export function createDomainScale<
 	Domain
 >(displayName: string, createScale: (props: Props) => any): React.FC<Props> {
 	const result = memo(props => {
-		const api = useContext(SceneNodeBuilderContext)
+		const api = useContext(SceneBuilderContext)
 		const scale = useMemo(() => api && createScale(props as Props), [
 			api,
 			createScale,
