@@ -101,10 +101,6 @@ const kpis = [
 	{ label: 'max sse', value: '1.00', fill: 'rgba(220,150,250,0.6)' },
 ]
 
-export interface BarChartState {
-	hoverRowIndex: number | undefined
-}
-
 const SCALE_PAD = 5
 const TEXT_GROUP_HEIGHT = 110
 

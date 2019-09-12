@@ -5,11 +5,13 @@
 
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { BarChart } from './BarChart'
-import { GroupedBarChart } from './GroupedBarChart'
-import { BarChartUtc } from './BarChartUtc'
+import {
+	BarChartBuilder,
+	GroupedBarChartBuilder,
+	BarChartUtcBuilder,
+} from '@chart-parts/examples'
 
 storiesOf('Builder-Model Examples', module)
-	.add('Bar Chart', () => <BarChart />)
-	.add('Grouped Bar Chart', () => <GroupedBarChart />)
-	.add('Bar Chart UTC Scale', () => <BarChartUtc />)
+	.add('Bar Chart', () => <BarChartBuilder />)
+	.add('Grouped Bar Chart', () => <GroupedBarChartBuilder />)
+	.add('Bar Chart UTC Scale', () => <BarChartUtcBuilder />)

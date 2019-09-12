@@ -63,6 +63,7 @@
 			"packages/processing/*",
 			"packages/client/*",
 			"packages/util/*",
+			"packages/docs/examples",
 			"packages/docs/docsite",
 			"packages/docs/examplesweb",
 			"packages/docs/testdata"

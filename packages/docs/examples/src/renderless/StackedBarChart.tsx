@@ -42,9 +42,6 @@ const ds = dataset().addTable(
 		.groupBy('x')
 		.sort({ field: 'c' }),
 )
-export interface StackedBarChartState {
-	hoverRowIndex?: number
-}
 
 /**
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/

@@ -28,10 +28,6 @@ const data = [
 	{ category: 'H', amount: 87 },
 ]
 
-export interface BarChartState {
-	hoverRowIndex: number | undefined
-}
-
 const dataset = { data }
 
 /**

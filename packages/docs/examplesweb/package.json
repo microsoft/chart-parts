@@ -16,6 +16,7 @@
 		"@chart-parts/scales": "^0.0.20",
 		"@chart-parts/testdata": "^0.0.20",
 		"@chart-parts/transform": "^0.0.20",
+		"@chart-parts/examples": "^0.0.20",
 		"@storybook/addon-actions": "^5.1.7",
 		"@storybook/addon-links": "^5.1.7",
 		"@storybook/addons": "^5.1.7",
