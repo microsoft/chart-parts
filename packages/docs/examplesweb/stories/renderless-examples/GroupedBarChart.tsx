@@ -31,6 +31,7 @@ const data = [
 	{ category: 'C', position: 2, value: 0.2 },
 	{ category: 'C', position: 3, value: 0.7 },
 ]
+const dataset = { data }
 
 /**
  * Adapted from https://vega.github.io/vega/examples/grouped-bar-chart/q
@@ -41,7 +42,7 @@ export const GroupedBarChart: React.FC = memo(() => {
 			width={300}
 			height={240}
 			padding={5}
-			data={{ data }}
+			data={dataset}
 			renderer={renderer}
 		>
 			<BandScale
