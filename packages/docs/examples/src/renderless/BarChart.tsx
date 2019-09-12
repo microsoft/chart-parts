@@ -56,14 +56,28 @@ export const BarChart: React.FC = memo(() => {
 		({ index }) => (hoverIndex === index ? 'firebrick' : 'steelblue'),
 		[hoverIndex],
 	)
+	const encodeTitle = useCallback(({ d }) => `Category ${d.category}`, [])
+	const encodeDescription = useCallback(
+		({ d }) => `Category ${d.category} value is ${d.amount}`,
+		[],
+	)
 	return (
-		<Chart width={400} height={200} data={dataset}>
+		<Chart
+			width={400}
+			height={200}
+			data={dataset}
+			title="Bar Chart"
+			description="An example bar chart"
+		>
 			<Scales />
 			<Axes />
 			<Rect
 				table="data"
 				onMouseEnter={onEnterRect}
 				onMouseLeave={onLeaveRect}
+				ariaTitle={encodeTitle}
+				ariaDescription={encodeDescription}
+				tabIndex={1}
 				x={encodeX}
 				y={encodeY}
 				width={encodeWidth}

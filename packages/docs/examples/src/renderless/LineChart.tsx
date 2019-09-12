@@ -1,173 +1,75 @@
-/* eslint-disable @typescript-eslint/camelcase */
 import React, { memo } from 'react'
-import { VerticalTextAlignment } from '@chart-parts/interfaces'
 import {
+	Axis,
 	Chart,
-	Group,
-	Circle,
 	Line,
 	LinearScale,
-	BandScale,
+	PointScale,
+	Group,
+	OrdinalScale,
 	Dimension,
-	Text,
+	CategoricalColorScheme,
 } from '@chart-parts/react'
+import { AxisOrientation } from '@chart-parts/interfaces'
 
-const series = [
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 0,
-		y: 0.0302001953125,
-	},
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 1,
-		y: 0.002349853515625,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 2,
-		y: 0.0008544921875,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 3,
-		y: 0.000030517578125,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 4,
-		y: 0,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 5,
-		y: 0,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 6,
-		y: 0,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 7,
-		y: 0,
-	},
-
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 8,
-		y: 0,
-	},
-	{
-		__series_id: 0,
-		fill: 'rgba(150,200,255,0.4)',
-		line: 'rgba(150,200,255,0.8)',
-		x: 9,
-		y: 0,
-	},
+const data = [
+	{ x: 0, y: 28, c: 0 },
+	{ x: 0, y: 20, c: 1 },
+	{ x: 1, y: 43, c: 0 },
+	{ x: 1, y: 35, c: 1 },
+	{ x: 2, y: 81, c: 0 },
+	{ x: 2, y: 10, c: 1 },
+	{ x: 3, y: 19, c: 0 },
+	{ x: 3, y: 15, c: 1 },
+	{ x: 4, y: 52, c: 0 },
+	{ x: 4, y: 48, c: 1 },
+	{ x: 5, y: 24, c: 0 },
+	{ x: 5, y: 28, c: 1 },
+	{ x: 6, y: 87, c: 0 },
+	{ x: 6, y: 66, c: 1 },
+	{ x: 7, y: 17, c: 0 },
+	{ x: 7, y: 27, c: 1 },
+	{ x: 8, y: 68, c: 0 },
+	{ x: 8, y: 16, c: 1 },
+	{ x: 9, y: 49, c: 0 },
+	{ x: 9, y: 25, c: 1 },
 ]
-
-const kpis = [
-	{ label: 'docs', value: 609, fill: 'rgba(220,150,250,0.6)' },
-	{ label: 'spread', value: '0.25', fill: 'rgba(220,150,250,0.6)' },
-	{ label: 'max sse', value: '1.00', fill: 'rgba(220,150,250,0.6)' },
-]
-
-const SCALE_PAD = 5
-const TEXT_GROUP_HEIGHT = 110
 
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
 export const LineChart: React.FC = memo(() => {
 	return (
-		<Chart height={200} width={200} data={{ kpis, series }}>
-			<LinearScale
+		<Chart width={500} height={200} padding={5} data={{ data }}>
+			<PointScale
 				name="x"
-				domain="series.x"
+				stepName="xStep"
+				domain="data.x"
 				range={Dimension.Width}
-				padding={SCALE_PAD}
 			/>
 			<LinearScale
 				name="y"
-				domain="series.y"
+				domain="data.y"
 				range={Dimension.Height}
-				padding={SCALE_PAD}
+				nice
+				zero
 			/>
-			<Group
-				table="series"
-				facet={{
-					groupBy: '__series_id',
-					name: 'facetedSeries',
-				}}
-			>
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
+
+			<Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
 				<Line
-					table="facetedSeries"
+					table="facetedData"
 					x={({ d, x }) => x(d.x)}
 					y={({ d, y }) => y(d.y)}
-					stroke={({ d }) => d.line}
+					stroke={({ d, color }) => color(d.c)}
+					strokeWidth={2}
 				/>
-				<Circle
-					table="facetedSeries"
-					fill={({ d }) => d.fill}
-					size={50}
-					x={({ d, x }) => x(d.x)}
-					y={({ d, y }) => y(d.y)}
-				/>
-				<Group x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
-					<BandScale
-						name="kpiLoc"
-						domain="kpis.label"
-						range={Dimension.Height}
-						bandWidth="kpiHeight"
-						align={0}
-					/>
-					<Group
-						name="kpis"
-						table="kpis"
-						y={({ d, kpiLoc }) => kpiLoc(d.label)}
-						height={({ kpiHeight }) => kpiHeight()}
-					>
-						<Text
-							baseline={VerticalTextAlignment.Top}
-							text={({ d }) => d.value}
-							fill={'black'}
-							fontSize={15}
-						/>
-						<Text
-							baseline={VerticalTextAlignment.Top}
-							y={15}
-							text={({ d }) => d.label}
-							fill={({ d }) => d.fill}
-							fontSize={10}
-						/>
-					</Group>
-				</Group>
 			</Group>
 		</Chart>
 	)

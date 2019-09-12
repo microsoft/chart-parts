@@ -46,7 +46,7 @@ const PopulationPyramid: React.FC = memo(() => {
 			const year = parseInt(arg.target.value, 10)
 			setYear(year)
 		},
-		[setYear]
+		[setYear],
 	)
 
 	const ds = dataset()
@@ -54,7 +54,7 @@ const PopulationPyramid: React.FC = memo(() => {
 		.addDerivedTable(
 			'popYear',
 			'population',
-			filter((d: any) => d.year === year)
+			filter((d: any) => d.year === year),
 		)
 		.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
 		.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
@@ -183,7 +183,7 @@ const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = memo(
 			/>
 			<GenderPerYearRect table={table} />
 		</Group>
-	)
+	),
 )
 GenderPerYearSection.displayName = 'GenderPerYearSection'
 
@@ -202,6 +202,6 @@ const GenderPerYearRect: React.FC<GenderPerYearRectProps> = memo(
 			fillOpacity={0.6}
 			fill={({ d, c }) => c(d.sex)}
 		/>
-	)
+	),
 )
 GenderPerYearRect.displayName = 'GenderPerYearRect'

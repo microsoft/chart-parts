@@ -15,7 +15,8 @@
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
 		"@chart-parts/builder": "^0.0.20",
-		"@chart-parts/react": "^0.0.20"
+		"@chart-parts/react": "^0.0.20",
+		"vega-datasets": "^1.25.0"
 	},
 	"devDependencies": {
 		"react": "^16.9.0"

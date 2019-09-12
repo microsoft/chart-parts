@@ -35,13 +35,7 @@ import {
 const source = require('vega-datasets/data/jobs.json')
 const genderOptions = ['all', 'women', 'men']
 
-export interface JobVoyagerState {
-	gender: string
-	selectedAreaId?: string
-	query?: string
-}
-
-const JobVoyager: React.FC = memo(() => {
+export const JobVoyager: React.FC = memo(() => {
 	const [gender, setGender] = useState('all')
 	const [selectedAreaId, setSelectedAreaId] = useState<string | undefined>()
 	const [query, setQuery] = useState<string | undefined>()
@@ -49,11 +43,11 @@ const JobVoyager: React.FC = memo(() => {
 
 	const onQueryChange = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
-		[setQuery]
+		[setQuery],
 	)
 	const changeGenderSelection = useCallback(
 		(e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value),
-		[setGender]
+		[setGender],
 	)
 	const onEnterArea = useCallback((id: string) => setSelectedAreaId(id), [
 		setSelectedAreaId,
@@ -69,7 +63,7 @@ const JobVoyager: React.FC = memo(() => {
 					filter(
 						(d: any) =>
 							(gender === 'all' || d.sex === gender) &&
-							(!queryRegExp || queryRegExp.test(d.job))
+							(!queryRegExp || queryRegExp.test(d.job)),
 					),
 					stack('perc')
 						.groupBy('year')
@@ -82,8 +76,8 @@ const JobVoyager: React.FC = memo(() => {
 							{
 								field: 'sex',
 								order: CompareOrder.descending,
-							}
-						)
+							},
+						),
 				)
 				.addDerivedTable(
 					'series',
@@ -92,10 +86,10 @@ const JobVoyager: React.FC = memo(() => {
 						.groupBy('job', 'sex')
 						.compute(
 							{ op: AggregateOperation.sum, field: 'perc', as: 'sum' },
-							{ op: AggregateOperation.argmax, field: 'perc', as: 'argmax' }
-						)
+							{ op: AggregateOperation.argmax, field: 'perc', as: 'argmax' },
+						),
 				),
-		[gender, queryRegExp]
+		[gender, queryRegExp],
 	)
 
 	return (
@@ -129,7 +123,6 @@ const JobVoyager: React.FC = memo(() => {
 	)
 })
 JobVoyager.displayName = 'JobVoyager'
-export default JobVoyager
 
 interface JobVoyagerChartProps {
 	data: any
@@ -179,7 +172,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 				baseline={VerticalTextAlignment.Middle}
 			/>
 		</Chart>
-	)
+	),
 )
 JobVoyagerChart.displayName = 'JobVoyagerChart'
 

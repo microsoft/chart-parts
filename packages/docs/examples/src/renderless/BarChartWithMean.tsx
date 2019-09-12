@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 import {
 	Axis,
 	Chart,
@@ -7,6 +7,7 @@ import {
 	BandScale,
 	Dimension,
 	Rule,
+	Scale,
 } from '@chart-parts/react'
 import { AxisOrientation } from '@chart-parts/interfaces'
 import { mean } from 'd3-array'
@@ -23,7 +24,7 @@ const data = [
 ]
 const dataset = { data }
 
-const AugmentedBarChart = () => (
+export const BarChartWithMean: React.FC = memo(() => (
 	<BarChart>
 		<Rule
 			x={0}
@@ -32,11 +33,10 @@ const AugmentedBarChart = () => (
 			stroke="firebrick"
 		/>
 	</BarChart>
-)
+))
+BarChartWithMean.displayName = 'BarChartWithMean'
 
-export default AugmentedBarChart
-
-const BarChart: React.FC = ({ children }) => (
+const BarChart: React.FC = memo(({ children }) => (
 	<Chart width={400} height={200} data={dataset}>
 		<Scales />
 		<Axes />
@@ -50,9 +50,10 @@ const BarChart: React.FC = ({ children }) => (
 		/>
 		{children}
 	</Chart>
-)
+))
+BarChart.displayName = 'BarChart'
 
-const Scales = () => (
+const Scales: React.FC = memo(() => (
 	<>
 		<LinearScale
 			name="y"
@@ -69,11 +70,13 @@ const Scales = () => (
 			range={Dimension.Width}
 		/>
 	</>
-)
+))
+Scale.displayName = 'Scales'
 
-const Axes = () => (
+const Axes: React.FC = memo(() => (
 	<>
 		<Axis orient={AxisOrientation.Bottom} scale="x" />
 		<Axis orient={AxisOrientation.Left} scale="y" />
 	</>
-)
+))
+Axes.displayName = 'Axes'

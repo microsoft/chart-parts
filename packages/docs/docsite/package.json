@@ -12,6 +12,7 @@
     "@chart-parts/scales": "^0.0.20",
     "@chart-parts/testdata": "^0.0.20",
     "@chart-parts/transform": "^0.0.20",
+    "@chart-parts/examples": "^0.0.20",
     "@types/d3-scale": "^2.1.1",
     "@types/debug": "^4.1.4",
     "@types/react-codemirror": "^1.0.2",
@@ -42,8 +43,7 @@
     "rehype-react": "^4.0.1",
     "styled-components": "^4.3.2",
     "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19",
-    "vega-datasets": "^1.25.0"
+    "typography-theme-github": "^0.16.19"
   },
   "license": "MIT",
   "scripts": {
