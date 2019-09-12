@@ -27,7 +27,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
 	name,
 	value,
 	options,
-	onChange = (v: any) => null,
+	onChange = () => null,
 }) => {
 	const handleChange = (evt: any) => onChange(evt.target.value)
 	const optionDom = options.map(o => (

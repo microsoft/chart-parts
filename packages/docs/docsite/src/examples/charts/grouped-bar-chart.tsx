@@ -14,8 +14,6 @@ import {
 	Rect,
 	Text,
 } from '@chart-parts/react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-const renderer = new Renderer()
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },
@@ -37,13 +35,7 @@ const data = [
  */
 const GroupedBarChart: React.FC = () => {
 	return (
-		<Chart
-			width={300}
-			height={240}
-			padding={5}
-			data={{ data }}
-			renderer={renderer}
-		>
+		<Chart width={300} height={240} padding={5} data={{ data }}>
 			<BandScale
 				name="y"
 				bandWidth="categoryHeight"

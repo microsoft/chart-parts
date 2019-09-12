@@ -11,6 +11,10 @@ import { SiteMetadata } from '../types'
 import { Header } from './header'
 import theme from '../util/theme'
 import GlobalStyle from './styles'
+import { ChartingProvider } from '@chart-parts/react'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+
+const renderer = new Renderer()
 
 interface LayoutQueryResult {
 	site: {
@@ -20,16 +24,10 @@ interface LayoutQueryResult {
 
 export interface LayoutProps {
 	sidebar?: JSX.Element
-	logoTo?: string
 	title?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({
-	sidebar = null,
-	logoTo,
-	children,
-	title,
-}) => (
+const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 	<StaticQuery
 		query={graphql`
 			query SiteTitleQuery {
@@ -55,8 +53,12 @@ const Layout: React.FC<LayoutProps> = ({
 						<GlobalStyle />
 						<Header />
 						<ContentContainer>
-							{sidebar ? <SidebarContainer>{sidebar}</SidebarContainer> : null}
-							<Content>{children}</Content>
+							<ChartingProvider value={renderer}>
+								{sidebar ? (
+									<SidebarContainer>{sidebar}</SidebarContainer>
+								) : null}
+								<Content>{children}</Content>
+							</ChartingProvider>
 						</ContentContainer>
 					</BodyContent>
 				</>

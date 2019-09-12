@@ -17,7 +17,7 @@ export class QuantizeScale<
 	protected niceValue?: number | boolean
 	protected zeroValue?: boolean
 
-	public handleRangeBind(args: ScaleCreationContext, rangeBind: {}): any[] {
+	public handleRangeBind(): any[] {
 		throw new Error('cannot use range binding on Quantize scale')
 	}
 

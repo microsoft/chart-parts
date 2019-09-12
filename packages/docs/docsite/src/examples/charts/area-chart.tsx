@@ -1,9 +1,6 @@
 import React, { memo } from 'react'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const data = [
 	{ u: 1, v: 28 },
@@ -32,13 +29,7 @@ const data = [
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
 const AreaChart: React.FC = memo(() => (
-	<Chart
-		width={500}
-		height={200}
-		padding={8}
-		renderer={renderer}
-		data={{ data }}
-	>
+	<Chart width={500} height={200} padding={8} data={{ data }}>
 		<LinearScale
 			name="x"
 			domain="data.u"

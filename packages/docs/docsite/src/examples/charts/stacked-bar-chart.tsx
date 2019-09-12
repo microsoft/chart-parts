@@ -9,11 +9,9 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 import { stack, dataset } from '@chart-parts/transform'
 import { AxisOrientation } from '@chart-parts/interfaces'
 
-const renderer = new Renderer()
 const dataArray = [
 	{ x: 0, y: 28, c: 0 },
 	{ x: 0, y: 55, c: 1 },
@@ -58,7 +56,6 @@ const StackedBarChart: React.FC = memo(() => {
 			width={500}
 			height={200}
 			data={{ data: ds.getTable('data') as any[] }}
-			renderer={renderer}
 		>
 			{/* Scale Definitions */}
 			<BandScale

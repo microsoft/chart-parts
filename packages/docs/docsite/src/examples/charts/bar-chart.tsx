@@ -13,9 +13,6 @@ import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -41,7 +38,6 @@ const BarChart: React.FC = memo(() => {
 		<Chart
 			width={400}
 			height={200}
-			renderer={renderer}
 			data={{ data }}
 			title="Bar Chart"
 			description="An example bar chart"

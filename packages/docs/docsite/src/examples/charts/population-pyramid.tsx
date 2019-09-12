@@ -26,11 +26,8 @@ import {
 	AxisOrientation,
 	ScaleCreationContext,
 } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 
 const population = require('vega-datasets/data/population.json')
-const renderer = new Renderer()
-
 const chartWidth = 600
 const chartHeight = 500
 const textLineWidth = 18
@@ -100,7 +97,6 @@ const PyramidChart: React.FC<PyramidChartProps> = ({ data }) => (
 		width={chartWidth}
 		height={chartHeight}
 		padding={chartPadding}
-		renderer={renderer}
 		data={data}
 	>
 		<ChartScales />

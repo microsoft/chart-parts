@@ -26,7 +26,7 @@ export interface ToggleProps {
 export const Toggle: React.FC<ToggleProps> = ({
 	name,
 	value,
-	onChange = (v: any) => null,
+	onChange = () => null,
 }) => {
 	const handleChange = (evt: any) => onChange(evt.target.checked)
 	return (

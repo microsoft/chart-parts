@@ -9,10 +9,7 @@ import {
 	Rule,
 } from '@chart-parts/react'
 import { AxisOrientation } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 import { mean } from 'd3-array'
-
-const renderer = new Renderer()
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -40,7 +37,7 @@ const AugmentedBarChart = () => (
 export default AugmentedBarChart
 
 const BarChart: React.FC = ({ children }) => (
-	<Chart width={400} height={200} renderer={renderer} data={dataset}>
+	<Chart width={400} height={200} data={dataset}>
 		<Scales />
 		<Axes />
 		<Rect

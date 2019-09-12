@@ -42,9 +42,8 @@ export default function(pathstr: string): Command[] {
 		const parsed: any[] = [cmd]
 
 		chunks.forEach(chunk => {
-			const param = +chunks
-			if (param === param) {
-				// not NaN
+			const param = +chunk
+			if (!Number.isNaN(param)) {
 				parsed.push(param)
 			}
 		})

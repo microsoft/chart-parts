@@ -27,13 +27,11 @@ import {
 	Offset as StackOffset,
 	filter,
 } from '@chart-parts/transform'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 
 // TODO:
 // - Axis grid
 // - prevent recomputes of scales to improve perf
 
-const renderer = new Renderer()
 const source = require('vega-datasets/data/jobs.json')
 const genderOptions = ['all', 'women', 'men']
 
@@ -141,13 +139,7 @@ interface JobVoyagerChartProps {
 }
 const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 	({ data, selectedAreaId, onEnterArea, onClickArea }) => (
-		<Chart
-			width={850}
-			height={550}
-			padding={10}
-			renderer={renderer}
-			data={data}
-		>
+		<Chart width={850} height={550} padding={10} data={data}>
 			<Scales />
 			<Axes />
 
@@ -166,7 +158,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 					y={({ d, y }) => y(d.y0)}
 					y2={({ d, y }) => y(d.y1)}
 					fill={({ d, color }) => color(d.sex)}
-					fillOpacity={({ d, agg, id, alpha }) =>
+					fillOpacity={({ agg, id, alpha }) =>
 						id === selectedAreaId ? 0.2 : alpha(agg.sum)
 					}
 					metadata={({ d: { job } }) => (({ job } as any) as Metadata)}

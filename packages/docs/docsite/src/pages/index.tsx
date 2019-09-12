@@ -32,19 +32,16 @@ const IndexPage: React.FC = memo(() => {
 		scrollPercent,
 	])
 	const scrollAreaRef = useRef<HTMLDivElement>(null)
-	const onScroll = useCallback(
-		(e: React.UIEvent<HTMLDivElement>) => {
-			if (scrollAreaRef.current) {
-				const current = scrollAreaRef.current as HTMLDivElement
-				const value = current.offsetHeight + current.scrollTop
-				const start = current.offsetHeight
-				const stop = current.scrollHeight
-				const newScrollPercent = (value - start) / (stop - start)
-				setScrollPercent(newScrollPercent)
-			}
-		},
-		[setScrollPercent, scrollAreaRef]
-	)
+	const onScroll = useCallback(() => {
+		if (scrollAreaRef.current) {
+			const current = scrollAreaRef.current as HTMLDivElement
+			const value = current.offsetHeight + current.scrollTop
+			const start = current.offsetHeight
+			const stop = current.scrollHeight
+			const newScrollPercent = (value - start) / (stop - start)
+			setScrollPercent(newScrollPercent)
+		}
+	}, [setScrollPercent, scrollAreaRef])
 
 	useEffect(() => {
 		const areaDiv = scrollAreaRef.current

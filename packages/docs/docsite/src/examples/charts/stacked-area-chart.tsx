@@ -11,10 +11,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 import { stack, dataset } from '@chart-parts/transform'
-
-const renderer = new Renderer()
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -49,13 +46,7 @@ const ds = dataset().addTable(
 
 const StackedAreaChart: React.FC = memo(() => {
 	return (
-		<Chart
-			width={500}
-			height={200}
-			padding={8}
-			renderer={renderer}
-			data={ds.tables}
-		>
+		<Chart width={500} height={200} padding={8} data={ds.tables}>
 			<PointScale name="x" domain="data.x" range={Dimension.Width} />
 			<LinearScale
 				name="y"

@@ -32,7 +32,7 @@ export const Slider: React.FC<SliderProps> = ({
 	max = 200,
 	value = 0,
 	step = 1,
-	onChange = (v: any) => null,
+	onChange = () => null,
 }) => {
 	const handleChange = (evt: any) => onChange(evt.target.value)
 	return (

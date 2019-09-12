@@ -43,7 +43,7 @@ describe('Building Charts', () => {
 								y: ({ d, y }) => y(d.amount),
 								y2: ({ y }) => y(0),
 								width: ({ xband }) => xband(),
-								fill: ({ index }) => 'steelblue',
+								fill: 'steelblue',
 							})
 							.handle({
 								onMouseEnter: () => {
@@ -111,9 +111,9 @@ describe('Building Charts', () => {
 												x: ({ d, x }) => x(d.value) - 3,
 												y: ({ d, pos, rowHeight }) =>
 													pos(d.position) + rowHeight() * 0.5,
-												fill: () => 'white',
-												align: () => HorizontalAlignment.Right,
-												baseline: () => VerticalTextAlignment.Middle,
+												fill: 'white',
+												align: HorizontalAlignment.Right,
+												baseline: VerticalTextAlignment.Middle,
 												text: ({ d }) => d.value,
 											}),
 									),

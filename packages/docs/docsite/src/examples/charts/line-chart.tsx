@@ -11,9 +11,6 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { AxisOrientation } from '@chart-parts/interfaces'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -43,13 +40,7 @@ const data = [
  */
 const LineChart: React.FC = () => {
 	return (
-		<Chart
-			width={500}
-			height={200}
-			padding={5}
-			renderer={renderer}
-			data={{ data }}
-		>
+		<Chart width={500} height={200} padding={5} data={{ data }}>
 			<PointScale
 				name="x"
 				stepName="xStep"

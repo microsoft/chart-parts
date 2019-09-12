@@ -20,8 +20,9 @@ const DEFAULT_FONT_FAMILY = 'sans-serif'
 function calculateTextOrigin({
 	x,
 	y,
-	baseline,
-	fontSize,
+	// TODO: use these?
+	// baseline,
+	// fontSize,
 	radius = 0,
 	theta = 0,
 }: SGTextItem): [number, number] {
