@@ -92,6 +92,7 @@ export const BarChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
+BarChart.displayName = 'BarChart'
 
 interface HoverTextHighlightProps {
 	index: number
@@ -111,3 +112,4 @@ const HoverTextHighlight: React.FC<HoverTextHighlightProps> = memo(
 		/>
 	),
 )
+HoverTextHighlight.displayName = 'HoverTextHighlight'

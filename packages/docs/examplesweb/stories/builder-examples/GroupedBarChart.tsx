@@ -104,3 +104,4 @@ export const GroupedBarChart: React.FC = memo(() => {
 	)
 	return pipeline.renderScene(chart, { width: 400, height: 200 }, { data })
 })
+GroupedBarChart.displayName = 'GroupedBarChart'
