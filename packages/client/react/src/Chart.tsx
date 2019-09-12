@@ -3,16 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useState, useEffect, useMemo } from 'react'
-import {
-	Renderer,
-	VSvgNode,
-	SceneNode,
-	ChartOptions,
-} from '@chart-parts/interfaces'
+import React, { memo, useContext, useState, useEffect, useMemo } from 'react'
+import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { SceneBuilder, scene } from '@chart-parts/builder'
-import { SceneBuilderContext } from './Context'
+import { SceneBuilderContext, ChartRendererContext } from './Context'
 
 export interface ChartPadding {
 	top?: number
@@ -26,8 +21,6 @@ export interface ChartProps {
 	height: number
 	padding?: number | ChartPadding
 	data: { [key: string]: any[] }
-	// TODO: Replace with Context
-	renderer: Renderer<VSvgNode, any>
 	scene?: SceneNode
 	title?: string
 	description?: string
@@ -41,16 +34,7 @@ export interface ChartState {
 }
 
 export const Chart: React.FC<ChartProps> = memo(
-	({
-		renderer,
-		data,
-		children,
-		width,
-		height,
-		padding,
-		title,
-		description,
-	}) => {
+	({ data, children, width, height, padding, title, description }) => {
 		const chartOptions = useChartOptions(
 			width,
 			height,
@@ -59,7 +43,7 @@ export const Chart: React.FC<ChartProps> = memo(
 			description,
 		)
 		const [sceneBuilder, sceneNode] = useScene(chartOptions)
-		const rendered = useRenderLoop(sceneNode, renderer, chartOptions, data)
+		const rendered = useRenderLoop(sceneNode, chartOptions, data)
 
 		return (
 			<>
@@ -127,16 +111,19 @@ function useScene(
 
 function useRenderLoop(
 	sceneNode: SceneNode | undefined,
-	renderer: Renderer<VSvgNode, any>,
 	options: ChartOptions,
 	data: { [key: string]: any[] },
 ): any {
+	const renderer = useContext(ChartRendererContext)
 	const [rendered, setRendered] = useState<any>(null)
-	const pipeline = useMemo(() => new Orchestrator(renderer), [renderer])
+	const pipeline = useMemo(() => renderer && new Orchestrator(renderer), [
+		renderer,
+	])
 	useEffect(() => {
-		if (sceneNode) {
-			setRendered(pipeline.renderScene(sceneNode, options, data))
+		if (sceneNode && pipeline) {
+			const renderOutput = pipeline.renderScene(sceneNode, options, data)
+			setRendered(renderOutput)
 		}
-	}, [sceneNode])
+	}, [pipeline, sceneNode])
 	return rendered
 }

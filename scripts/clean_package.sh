@@ -1,2 +1,2 @@
 #!/bin/sh
-rimraf lib dist
+rimraf lib dist tsconfig.tsbuildinfo
