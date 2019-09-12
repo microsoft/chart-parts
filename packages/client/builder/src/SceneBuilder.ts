@@ -31,6 +31,7 @@ export class SceneBuilder {
 			const scaleCreator = typeof c === 'function' ? c : c.build
 			this.scales.push(scaleCreator)
 		})
+		this.onChange.next()
 		return this
 	}
 
@@ -40,6 +41,7 @@ export class SceneBuilder {
 		} else {
 			this.scales = this.scales.filter(s => s !== scale.build)
 		}
+		this.onChange.next()
 		return this
 	}
 
@@ -50,6 +52,7 @@ export class SceneBuilder {
 				subscription: b.onChange.subscribe(() => this.onChange.next()),
 			})),
 		)
+		this.onChange.next()
 		return this
 	}
 
@@ -60,6 +63,7 @@ export class SceneBuilder {
 			}
 			return t.mark !== builder
 		})
+		this.onChange.next()
 		return this
 	}
 
@@ -70,6 +74,7 @@ export class SceneBuilder {
 				subscription: b.onChange.subscribe(() => this.onChange.next()),
 			})),
 		)
+		this.onChange.next()
 		return this
 	}
 
@@ -80,6 +85,7 @@ export class SceneBuilder {
 			}
 			return a.axis !== builder
 		})
+		this.onChange.next()
 		return this
 	}
 

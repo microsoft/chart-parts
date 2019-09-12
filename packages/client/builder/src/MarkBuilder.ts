@@ -28,11 +28,12 @@ import {
 	Metadata,
 } from '@chart-parts/interfaces'
 import { SceneBuilder } from './SceneBuilder'
-import { Subject } from 'rxjs'
+import { Subject, Subscription } from 'rxjs'
 
 export class MarkBuilder {
 	public readonly onChange = new Subject()
 	private childNode?: SceneBuilder
+	private childNodeSubscription?: Subscription
 	private tableValue?: string
 	private roleValue?: string
 	private nameValue?: string
@@ -362,6 +363,7 @@ export class MarkBuilder {
 				},
 			)
 		}
+
 		this.onChange.next()
 		return this
 	}
@@ -379,8 +381,19 @@ export class MarkBuilder {
 	 * Pushes a new scene node onto the graph
 	 */
 	public child(callback: (b: SceneBuilder) => void): MarkBuilder {
+		if (this.childNode) {
+			console.warn(`MarkBuilder may only have one child at a time`)
+		}
+		// in case this was set, clear out any existing subscriptinos
+		if (this.childNodeSubscription) {
+			this.childNodeSubscription.unsubscribe()
+		}
+
 		this.childNode = new SceneBuilder()
 		callback(this.childNode)
+		this.childNodeSubscription = this.childNode.onChange.subscribe(() =>
+			this.onChange.next(),
+		)
 		this.onChange.next()
 		return this
 	}

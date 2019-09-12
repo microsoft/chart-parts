@@ -43,8 +43,7 @@ export const Chart: React.FC<ChartProps> = memo(
 			description,
 		)
 		const [sceneBuilder, sceneNode] = useScene(chartOptions)
-		const rendered = useRenderLoop(sceneNode, chartOptions, data)
-
+		const rendered = useSceneRendering(sceneNode, chartOptions, data)
 		return (
 			<>
 				<SceneBuilderContext.Provider value={sceneBuilder}>
@@ -83,6 +82,25 @@ function useChartOptions(
 function useScene(
 	chartOptions: ChartOptions,
 ): [SceneBuilder | undefined, SceneNode | undefined] {
+	const [frameNode, sceneBuilder] = useChartScenes(chartOptions)
+	const [builtScene, setBuiltScene] = useState<SceneNode | undefined>()
+	useEffect(() => {
+		if (frameNode) {
+			setBuiltScene(frameNode.build())
+			const subscription = frameNode.onChange.subscribe(() => {
+				const newScene = frameNode.build()
+				setBuiltScene(newScene)
+			})
+			return () => subscription.unsubscribe()
+		}
+	}, [frameNode])
+
+	return [sceneBuilder, builtScene]
+}
+
+function useChartScenes(
+	chartOptions: ChartOptions,
+): [SceneBuilder, SceneBuilder] {
 	const [sceneBuilder, setSceneBuilder] = useState<SceneBuilder | undefined>(
 		undefined,
 	)
@@ -95,30 +113,16 @@ function useScene(
 		[chartOptions],
 	)
 
-	const [builtScene, setBuiltScene] = useState<SceneNode | undefined>()
-	useEffect(() => {
-		if (frameNode) {
-			setBuiltScene(frameNode.build())
-			const subscription = frameNode.onChange.subscribe(() => {
-				setBuiltScene(frameNode.build())
-			})
-			return () => subscription.unsubscribe()
-		}
-	}, [frameNode])
-
-	return [sceneBuilder, builtScene]
+	return [frameNode, sceneBuilder!]
 }
 
-function useRenderLoop(
+function useSceneRendering(
 	sceneNode: SceneNode | undefined,
 	options: ChartOptions,
 	data: { [key: string]: any[] },
 ): any {
-	const renderer = useContext(ChartRendererContext)
 	const [rendered, setRendered] = useState<any>(null)
-	const pipeline = useMemo(() => renderer && new Orchestrator(renderer), [
-		renderer,
-	])
+	const pipeline = useOrchestrator()
 	useEffect(() => {
 		if (sceneNode && pipeline) {
 			const renderOutput = pipeline.renderScene(sceneNode, options, data)
@@ -126,4 +130,9 @@ function useRenderLoop(
 		}
 	}, [pipeline, sceneNode])
 	return rendered
+}
+
+function useOrchestrator() {
+	const renderer = useContext(ChartRendererContext)
+	return useMemo(() => renderer && new Orchestrator(renderer), [renderer])
 }

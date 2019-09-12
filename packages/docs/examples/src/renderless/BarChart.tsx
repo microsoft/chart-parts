@@ -48,36 +48,27 @@ export const BarChart: React.FC = memo(() => {
 		},
 		[hoverIndex, setHoverIndex],
 	)
+	const encodeX = useCallback(({ d, x }) => x(d.category), [])
+	const encodeY = useCallback(({ d, y }) => y(d.amount), [])
+	const encodeWidth = useCallback(({ band }) => band(), [])
+	const encodeY2 = useCallback(({ y }) => y(0), [])
+	const encodeFill = useCallback(
+		({ index }) => (hoverIndex === index ? 'firebrick' : 'steelblue'),
+		[hoverIndex],
+	)
 	return (
 		<Chart width={400} height={200} data={dataset}>
-			<LinearScale
-				name="y"
-				domain="data.amount"
-				range={Dimension.Height}
-				nice
-				zero
-			/>
-			<BandScale
-				name="x"
-				bandWidth="band"
-				domain="data.category"
-				padding={0.05}
-				range={Dimension.Width}
-			/>
-			<Axis orient={AxisOrientation.Bottom} scale="x" />
-			<Axis orient={AxisOrientation.Left} scale="y" />
+			<Scales />
+			<Axes />
 			<Rect
 				table="data"
 				onMouseEnter={onEnterRect}
 				onMouseLeave={onLeaveRect}
-				x={useCallback(({ d, x }) => x(d.category), [])}
-				y={useCallback(({ d, y }) => y(d.amount), [])}
-				width={useCallback(({ band }) => band(), [])}
-				y2={useCallback(({ y }) => y(0), [])}
-				fill={useCallback(
-					({ index }) => (hoverIndex === index ? 'firebrick' : 'steelblue'),
-					[hoverIndex],
-				)}
+				x={encodeX}
+				y={encodeY}
+				width={encodeWidth}
+				y2={encodeY2}
+				fill={encodeFill}
 			/>
 			{hoverIndex === undefined ? null : (
 				<HoverTextHighlight index={hoverIndex} />
@@ -86,6 +77,34 @@ export const BarChart: React.FC = memo(() => {
 	)
 })
 BarChart.displayName = 'BarChart'
+
+const Scales: React.FC = memo(() => (
+	<>
+		<LinearScale
+			name="y"
+			domain="data.amount"
+			range={Dimension.Height}
+			nice
+			zero
+		/>
+		<BandScale
+			name="x"
+			bandWidth="band"
+			domain="data.category"
+			padding={0.05}
+			range={Dimension.Width}
+		/>
+	</>
+))
+Scales.displayName = 'Scales'
+
+const Axes: React.FC = memo(() => (
+	<>
+		<Axis orient={AxisOrientation.Bottom} scale="x" />
+		<Axis orient={AxisOrientation.Left} scale="y" />
+	</>
+))
+Axes.displayName = 'Axes'
 
 interface HoverTextHighlightProps {
 	index: number
