@@ -71,7 +71,7 @@ const Scales: React.FC = memo(() => (
 		/>
 	</>
 ))
-Scale.displayName = 'Scales'
+Scales.displayName = 'Scales'
 
 const Axes: React.FC = memo(() => (
 	<>
