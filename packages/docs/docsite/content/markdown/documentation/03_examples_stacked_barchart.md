@@ -5,5 +5,3 @@ order: 0
 ---
 
 <stacked-bar-chart></stacked-bar-chart>
-
-`embed:charts/stacked-bar-chart.tsx`

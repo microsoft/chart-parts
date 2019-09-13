@@ -5,5 +5,3 @@ order: 6
 ---
 
 <population-pyramid></population-pyramid>
-
-`embed:charts/population-pyramid.tsx`

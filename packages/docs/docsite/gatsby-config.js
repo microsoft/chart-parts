@@ -6,67 +6,48 @@
 // This metadata is used by Gatsby to populate the 'siteMetadata' information in the GraphQL services
 //
 const siteMetadata = {
-  title: 'chart-parts',
-  githubUrl: 'https://github.com/Microsoft/chart-parts',
-  description:
-    'A flexible, React-friendly, Grammar of Graphics for data visualization',
-  keywords: [
-    'visualization',
-    'dataviz',
-    'grammar of graphics',
-    'mark-based visualization',
-  ],
+	title: 'chart-parts',
+	githubUrl: 'https://github.com/Microsoft/chart-parts',
+	description:
+		'A flexible, React-friendly, Grammar of Graphics for data visualization',
+	keywords: [
+		'visualization',
+		'dataviz',
+		'grammar of graphics',
+		'mark-based visualization',
+	],
 }
 
 module.exports = {
-  siteMetadata,
-  pathPrefix: '/chart-parts',
-  plugins: [
-    'gatsby-plugin-typescript',
-    'gatsby-plugin-react-helmet',
-    'gatsby-plugin-styled-components',
+	siteMetadata,
+	pathPrefix: '/chart-parts',
+	plugins: [
+		'gatsby-plugin-typescript',
+		'gatsby-plugin-react-helmet',
+		'gatsby-plugin-styled-components',
 
-    // Handle Markdown Content
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: ['gatsby-remark-prismjs'],
-      },
-    },
+		// Handle Markdown Content
+		{
+			resolve: 'gatsby-transformer-remark',
+			options: {
+				plugins: ['gatsby-remark-prismjs'],
+			},
+		},
 
-    // Load up typography style settings
-    {
-      resolve: 'gatsby-plugin-typography',
-      options: {
-        pathToConfigModule: 'src/configs/typography.js',
-      },
-    },
+		// Load up typography style settings
+		{
+			resolve: 'gatsby-plugin-typography',
+			options: {
+				pathToConfigModule: 'src/configs/typography.js',
+			},
+		},
 
-    // Read markdown from the filesystem and load it into the services
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/content/markdown`,
-      },
-    },
-
-    // Syntaxhighlight markdown
-    {
-      resolve: 'gatsby-transformer-remark',
-      options: {
-        plugins: [
-          'gatsby-remark-copy-linked-files',
-          {
-            resolve: 'gatsby-remark-embed-snippet',
-            options: {
-              // Example code links are relative to this dir.
-              // eg examples/path/to/file.js
-              directory: `${__dirname}/src/examples/`,
-            },
-          },
-          'gatsby-remark-prismjs',
-        ],
-      },
-    },
-  ],
+		// Read markdown from the filesystem and load it into the services
+		{
+			resolve: 'gatsby-source-filesystem',
+			options: {
+				path: `${__dirname}/content/markdown`,
+			},
+		},
+	],
 }

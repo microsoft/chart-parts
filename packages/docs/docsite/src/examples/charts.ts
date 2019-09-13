@@ -9,7 +9,7 @@ import {
 	GroupedBarChart,
 	JobVoyager,
 	LineChart,
-	PoulationPyramid,
+	PopulationPyramid,
 	StackedBarChart,
 	StackedAreaChart,
 } from '@chart-parts/examples'
@@ -25,6 +25,6 @@ export default {
 	'line-chart': LineChart,
 	'area-chart': AreaChart,
 	'stacked-area-chart': StackedAreaChart,
-	'population-pyramid': PoulationPyramid,
+	'population-pyramid': PopulationPyramid,
 	'job-voyager': JobVoyager,
 }
