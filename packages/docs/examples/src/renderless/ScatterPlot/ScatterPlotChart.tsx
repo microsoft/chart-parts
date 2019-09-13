@@ -46,6 +46,7 @@ export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
 		)
 	},
 )
+ScatterPlotChart.displayName = 'ScatterPlotChart'
 
 function useDataset(xField: string, yField: string) {
 	return useMemo(() => {
