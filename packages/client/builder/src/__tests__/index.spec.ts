@@ -72,12 +72,8 @@ describe('The builder module', () => {
 		).build()
 
 		const outerGroup = builtScene.marks[0]
-		expect(
-			(outerGroup.encodings as any).width({ view } as any, undefined),
-		).toEqual(100)
-		expect(
-			(outerGroup.encodings as any).height({ view } as any, undefined),
-		).toEqual(200)
+		expect((outerGroup.encodings as any).width).toEqual(100)
+		expect((outerGroup.encodings as any).height).toEqual(200)
 	})
 
 	it('sets default dimensions on the outer rect', () => {
@@ -88,12 +84,8 @@ describe('The builder module', () => {
 		).build()
 
 		const outerGroup = builtScene.marks[0]
-		expect(
-			(outerGroup.encodings as any).width({ view } as any, undefined),
-		).toEqual(250)
-		expect(
-			(outerGroup.encodings as any).height({ view } as any, undefined),
-		).toEqual(250)
+		expect((outerGroup.encodings as any).width).toEqual(250)
+		expect((outerGroup.encodings as any).height).toEqual(250)
 	})
 
 	it('can create mark builders for each mark type', () => {
