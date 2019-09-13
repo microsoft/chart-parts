@@ -24,7 +24,7 @@
 		"lodash": "^4.17.15"
 	},
 	"peerDependencies": {
-		"react": ">= 16"
+		"react": ">= 16.9"
 	},
 	"publishConfig": {
 		"access": "public"

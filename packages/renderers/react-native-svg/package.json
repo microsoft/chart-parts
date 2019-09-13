@@ -21,7 +21,7 @@
 		"react-native-svg": "^9.9.3"
 	},
 	"peerDependencies": {
-		"react": ">= 16",
+		"react": ">= 16.9",
 		"react-native": ">= ^0.56.0"
 	},
 	"publishConfig": {
