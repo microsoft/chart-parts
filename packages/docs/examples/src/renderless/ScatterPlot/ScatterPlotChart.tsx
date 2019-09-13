@@ -1,7 +1,12 @@
 import React, { memo, useMemo, useCallback } from 'react'
 import { dataset as newDataset, filter } from '@chart-parts/transform'
-import { Chart, LinearScale, Axis, Circle } from '@chart-parts/react'
-import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
+import { Chart, LinearScale, Axis, Circle, Text } from '@chart-parts/react'
+import {
+	Dimension,
+	AxisOrientation,
+	VerticalTextAlignment,
+	HorizontalAlignment,
+} from '@chart-parts/interfaces'
 // @ts-ignore
 import movies from 'vega-datasets/data/movies.json'
 
@@ -10,12 +15,18 @@ export interface ScatterPlotChartProps {
 	yField: string
 }
 
+const NULL_SIZE = 8
+const NULL_GAP = NULL_SIZE + 10
+
 /**
  * Based off of https://vega.github.io/vega/examples/scatter-plot-null-values/
  */
 export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
 	({ xField, yField }) => {
 		const dataset = useDataset(xField, yField)
+
+		const encodeX = useCallback(({ d, x }) => x(d[xField]), [xField])
+		const encodeY = useCallback(({ d, y }) => y(d[yField]), [yField])
 
 		return (
 			<Chart width={450} height={450} padding={5} data={dataset}>
@@ -39,8 +50,35 @@ export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
 					fill="steelblue"
 					fillOpacity={0.5}
 					zIndex={0}
-					x={useCallback(({ d, x }) => x(d[xField]), [xField])}
-					y={useCallback(({ d, y }) => y(d[yField]), [yField])}
+					x={encodeX}
+					y={encodeY}
+				/>
+				<Circle
+					size={50}
+					table="nullY"
+					fill="#aaa"
+					fillOpacity={0.2}
+					zIndex={0}
+					x={encodeX}
+					y={ctx => ctx.view.height - NULL_SIZE / 2}
+				/>
+				<Circle
+					size={50}
+					table="nullX"
+					fill="#aaa"
+					fillOpacity={0.2}
+					zIndex={0}
+					x={NULL_SIZE / 2}
+					y={encodeY}
+				/>
+				<Text
+					x={NULL_SIZE - 4}
+					y={ctx => ctx.view.height - 13}
+					text={({ nullXY }) => `${nullXY.length} null`}
+					align={HorizontalAlignment.Left}
+					baseline={VerticalTextAlignment.Top}
+					fill="#999"
+					fontSize={9}
 				/>
 			</Chart>
 		)
@@ -56,6 +94,21 @@ function useDataset(xField: string, yField: string) {
 				'valid',
 				'movies',
 				filter((d: any) => d[xField] != null && d[yField] != null),
+			)
+			.addDerivedTable(
+				'nullXY',
+				'movies',
+				filter((d: any) => d[xField] === null && d[yField] === null),
+			)
+			.addDerivedTable(
+				'nullX',
+				'movies',
+				filter((d: any) => d[xField] === null && d[yField] != null),
+			)
+			.addDerivedTable(
+				'nullY',
+				'movies',
+				filter((d: any) => d[xField] != null && d[yField] === null),
 			).tables
 	}, [xField, yField])
 }
