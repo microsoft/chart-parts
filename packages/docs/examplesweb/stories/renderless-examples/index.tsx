@@ -14,62 +14,22 @@ import {
 	JobVoyager,
 	LineChart,
 	PopulationPyramid,
+	ScatterPlot,
 	StackedAreaChart,
 	StackedBarChart,
 } from '@chart-parts/examples'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-import { ChartingProvider } from '@chart-parts/react'
-
-const renderer = new Renderer()
+import { withRenderer } from '../util/withRendererProvider'
 
 storiesOf('Renderless React Examples', module)
-	.add('Area Chart', () => (
-		<ChartingProvider value={renderer}>
-			<AreaChart />
-		</ChartingProvider>
-	))
-	.add('Bar Chart', () => (
-		<ChartingProvider value={renderer}>
-			<BarChart />
-		</ChartingProvider>
-	))
-	.add('Bar Chart with Mean', () => (
-		<ChartingProvider value={renderer}>
-			<BarChartWithMean />
-		</ChartingProvider>
-	))
-	.add('Elbow Plot', () => (
-		<ChartingProvider value={renderer}>
-			<ElbowPlot />
-		</ChartingProvider>
-	))
-	.add('Grouped Bar Chart', () => (
-		<ChartingProvider value={renderer}>
-			<GroupedBarChart />
-		</ChartingProvider>
-	))
-	.add('Job Voyager', () => (
-		<ChartingProvider value={renderer}>
-			<JobVoyager />
-		</ChartingProvider>
-	))
-	.add('Line Chart', () => (
-		<ChartingProvider value={renderer}>
-			<LineChart />
-		</ChartingProvider>
-	))
-	.add('Population Pyramid', () => (
-		<ChartingProvider value={renderer}>
-			<PopulationPyramid />
-		</ChartingProvider>
-	))
-	.add('Stacked Area Chart ', () => (
-		<ChartingProvider value={renderer}>
-			<StackedAreaChart />
-		</ChartingProvider>
-	))
-	.add('Stacked Bar Chart', () => (
-		<ChartingProvider value={renderer}>
-			<StackedBarChart />
-		</ChartingProvider>
-	))
+	.addDecorator(withRenderer)
+	.add('Area Chart', () => <AreaChart />)
+	.add('Bar Chart', () => <BarChart />)
+	.add('Bar Chart with Mean', () => <BarChartWithMean />)
+	.add('Elbow Plot', () => <ElbowPlot />)
+	.add('Grouped Bar Chart', () => <GroupedBarChart />)
+	.add('Job Voyager', () => <JobVoyager />)
+	.add('Line Chart', () => <LineChart />)
+	.add('Population Pyramid', () => <PopulationPyramid />)
+	.add('Scatter Plot', () => <ScatterPlot />)
+	.add('Stacked Area Chart ', () => <StackedAreaChart />)
+	.add('Stacked Bar Chart', () => <StackedBarChart />)
