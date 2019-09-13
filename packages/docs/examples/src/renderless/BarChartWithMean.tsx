@@ -7,7 +7,6 @@ import {
 	BandScale,
 	Dimension,
 	Rule,
-	Scale,
 } from '@chart-parts/react'
 import { AxisOrientation } from '@chart-parts/interfaces'
 import { mean } from 'd3-array'
