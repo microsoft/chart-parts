@@ -130,14 +130,10 @@ export interface Mark {
 	type: MarkType
 
 	/**
-	 * The name of the data-table to bind this mark to. Not required if singleton = true
+	 * The name of the data-table to bind this mark to. If mark or facet is not defined, the mark
+	 * will render as a single instance.
 	 */
 	table?: string
-
-	/**
-	 * If true, this mark will render as a singleton
-	 */
-	singleton?: boolean
 
 	/**
 	 * Optional generator for item ids. If this is unset, then the index of the item will be used
@@ -252,7 +248,7 @@ export interface EncodingContext {
 	[key: string]: Datum | Table | Scale<any, any>
 }
 
-export type MarkEncoding<T> = (ctx: EncodingContext) => T
+export type MarkEncoding<T> = T | ((ctx: EncodingContext) => T)
 
 export enum Dimension {
 	Height = 'height',

@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/camelcase */
-import * as React from 'react'
+import React, { memo } from 'react'
 import { VerticalTextAlignment } from '@chart-parts/interfaces'
 import {
 	Chart,
@@ -11,9 +11,6 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
-
-const renderer = new Renderer()
 
 const series = [
 	{
@@ -101,93 +98,76 @@ const kpis = [
 	{ label: 'max sse', value: '1.00', fill: 'rgba(220,150,250,0.6)' },
 ]
 
-export interface BarChartState {
-	hoverRowIndex: number | undefined
-}
-
 const SCALE_PAD = 5
 const TEXT_GROUP_HEIGHT = 110
 
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export class LineChart extends React.Component<{}, BarChartState> {
-	public constructor(props: {}) {
-		super(props)
-		this.state = { hoverRowIndex: undefined }
-	}
-
-	public render() {
-		return (
-			<Chart
-				height={200}
-				width={200}
-				data={{ kpis, series }}
-				renderer={renderer}
-			>
-				<LinearScale
-					name="x"
-					domain="series.x"
-					range={Dimension.Width}
-					padding={SCALE_PAD}
-				/>
-				<LinearScale
-					name="y"
-					domain="series.y"
+export const ElbowPlot: React.FC = memo(() => (
+	<Chart height={200} width={200} data={{ kpis, series }}>
+		<LinearScale
+			name="x"
+			domain="series.x"
+			range={Dimension.Width}
+			padding={SCALE_PAD}
+		/>
+		<LinearScale
+			name="y"
+			domain="series.y"
+			range={Dimension.Height}
+			padding={SCALE_PAD}
+		/>
+		<Group
+			table="series"
+			facet={{
+				groupBy: '__series_id',
+				name: 'facetedSeries',
+			}}
+		>
+			<Line
+				table="facetedSeries"
+				x={({ d, x }) => x(d.x)}
+				y={({ d, y }) => y(d.y)}
+				stroke={({ d }) => d.line}
+			/>
+			<Circle
+				table="facetedSeries"
+				fill={({ d }) => d.fill}
+				size={50}
+				x={({ d, x }) => x(d.x)}
+				y={({ d, y }) => y(d.y)}
+			/>
+			<Group x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
+				<BandScale
+					name="kpiLoc"
+					domain="kpis.label"
 					range={Dimension.Height}
-					padding={SCALE_PAD}
+					bandWidth="kpiHeight"
+					align={0}
 				/>
 				<Group
-					table="series"
-					facet={{
-						groupBy: '__series_id',
-						name: 'facetedSeries',
-					}}
+					name="kpis"
+					table="kpis"
+					y={({ d, kpiLoc }) => kpiLoc(d.label)}
+					height={({ kpiHeight }) => kpiHeight()}
 				>
-					<Line
-						table="facetedSeries"
-						x={({ d, x }) => x(d.x)}
-						y={({ d, y }) => y(d.y)}
-						stroke={({ d }) => d.line}
+					<Text
+						baseline={VerticalTextAlignment.Top}
+						text={({ d }) => d.value}
+						fill={'black'}
+						fontSize={15}
 					/>
-					<Circle
-						table="facetedSeries"
+					<Text
+						baseline={VerticalTextAlignment.Top}
+						y={15}
+						text={({ d }) => d.label}
 						fill={({ d }) => d.fill}
-						size={50}
-						x={({ d, x }) => x(d.x)}
-						y={({ d, y }) => y(d.y)}
+						fontSize={10}
 					/>
-					<Group x={140} y={60} width={50} height={TEXT_GROUP_HEIGHT}>
-						<BandScale
-							name="kpiLoc"
-							domain="kpis.label"
-							range={Dimension.Height}
-							bandWidth="kpiHeight"
-							align={0}
-						/>
-						<Group
-							name="kpis"
-							table="kpis"
-							y={({ d, kpiLoc }) => kpiLoc(d.label)}
-							height={({ kpiHeight }) => kpiHeight()}
-						>
-							<Text
-								baseline={VerticalTextAlignment.Top}
-								text={({ d }) => d.value}
-								fill={'black'}
-								fontSize={15}
-							/>
-							<Text
-								baseline={VerticalTextAlignment.Top}
-								y={15}
-								text={({ d }) => d.label}
-								fill={({ d }) => d.fill}
-								fontSize={10}
-							/>
-						</Group>
-					</Group>
 				</Group>
-			</Chart>
-		)
-	}
-}
+			</Group>
+		</Group>
+	</Chart>
+))
+ElbowPlot.displayName = 'ElbowPlot'

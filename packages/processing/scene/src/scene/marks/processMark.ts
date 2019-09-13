@@ -83,38 +83,35 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  * @param dataFrame The current data-frame, which provides data-sets at this scope
  */
 function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
-	const { singleton, table, facet } = mark
+	const { table, facet } = mark
+	const singleton = !table && !facet
 
 	// If the table is unset, render as a singleton of the existing bound data-item
 	if (singleton) {
 		return [frame.boundDataItem]
 	}
 
-	if (!table && !facet) {
-		throw new Error(
-			`unfaceted mark must either have singleton set to true or have no data defined, name=${
-				mark.name
-			} type=${mark.type}`,
-		)
+	if (!table) {
+		throw new Error('table must be set when facet is set')
 	}
 
-	const markSourceTable = frame.data[table as string]
+	const sourceTable = frame.data[table as string]
 	if (facet) {
 		const facetSourceTable = facet.table || table
 		if (!facetSourceTable) {
 			throw new Error('mark does not have table or faceting table defined')
 		}
-		const facetSource = frame.data[facetSourceTable]
-		if (facet.groupBy) {
-			return createFacetedData(facet, facetSource, markSourceTable)
-		} else {
+		if (!facet.groupBy) {
 			throw new Error('faceting must groupBy defined')
 		}
+		const facetSource = frame.data[facetSourceTable]
+		const result = createFacetedData(facet, facetSource, sourceTable)
+		return result
 	} else {
-		if (!markSourceTable) {
+		if (!sourceTable) {
 			throw new Error(`could not find table ${table}`)
 		}
-		return markSourceTable
+		return sourceTable
 	}
 }
 

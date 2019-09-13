@@ -3,19 +3,25 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import {
+	MarkType,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
+import { useEffect } from 'react'
 
 export interface PathProps extends CommonMarkProps {
-	path?: MarkEncodingProp<string>
+	path?: MarkEncoding<string>
 }
 
-export class Path extends BaseMark<PathProps> {
-	public markType = MarkType.Path
-
-	protected encodeCustomProperties() {
-		const { path } = this.props
-		return { path }
-	}
-}
+export const Path = createMarkComponent<PathProps>(
+	MarkType.Path,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.path, props.path)
+		}, [mark, props.path])
+	},
+)

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { ScaleCreationContext } from '@chart-parts/interfaces'
-import { DomainScale, DomainScaleProps } from './DomainScale'
+import { createDomainScale, DomainScaleProps } from './DomainScale'
 
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	extends DomainScaleProps<Domain> {
@@ -23,9 +23,11 @@ export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	reverse?: boolean
 }
 
-export abstract class DomainRangeScale<
+export function createDomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
 	Domain,
 	Range,
 	RangeBind
-> extends DomainScale<Props, Domain> {}
+>(displayName: string, createScale: (props: Props) => any) {
+	return createDomainScale<Props, Domain>(displayName, createScale)
+}

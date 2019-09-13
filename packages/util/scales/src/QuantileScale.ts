@@ -12,7 +12,7 @@ export class QuantileScale<
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
 > extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], {}> {
-	public handleRangeBind(args: ScaleCreationContext, rangeBind: {}): any[] {
+	public handleRangeBind(): any[] {
 		throw new Error('cannot use range binding on Quantize scale')
 	}
 

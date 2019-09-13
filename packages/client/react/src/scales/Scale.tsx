@@ -3,10 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
-import { SceneNodeBuilder } from '@chart-parts/builder'
-import { ScaleCreationContext } from '@chart-parts/interfaces'
-import { SceneNodeBuilderConsumer } from '../Context'
+import React, { memo, useContext, useEffect } from 'react'
+import { SceneBuilderContext } from '../Context'
 
 export interface ScaleProps {
 	name: string
@@ -14,30 +12,18 @@ export interface ScaleProps {
 	create: (args: any) => any
 }
 
-export class Scale extends React.PureComponent<ScaleProps> {
-	protected apiInstance: SceneNodeBuilder | undefined
-
-	public render() {
-		return (
-			<SceneNodeBuilderConsumer>
-				{api => {
-					this.apiInstance = api
-					this.addScale()
-					return null
-				}}
-			</SceneNodeBuilderConsumer>
-		)
-	}
-
-	protected get api(): SceneNodeBuilder {
-		if (!this.apiInstance) {
-			throw new Error('api must be defined')
+export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
+	const api = useContext(SceneBuilderContext)
+	useEffect(() => {
+		if (api) {
+			const newScale = (args: any) => create(args)
+			api.scale(newScale)
+			return () => {
+				api.removeScale(newScale)
+			}
 		}
+	}, [api, create])
+	return null
+})
 
-		return this.apiInstance as SceneNodeBuilder
-	}
-
-	protected addScale() {
-		this.api.scale((args: ScaleCreationContext) => this.props.create(args))
-	}
-}
+Scale.displayName = 'Scale'

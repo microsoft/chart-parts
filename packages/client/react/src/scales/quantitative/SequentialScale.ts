@@ -4,23 +4,21 @@
  */
 
 import { sequential } from '@chart-parts/scales'
-import { DomainScale, DomainScaleProps } from '../DomainScale'
+import { createDomainScale, DomainScaleProps } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
-export interface ScaleSequentialProps
+export interface SequantialScaleProps
 	extends DomainScaleProps<QuantitativeSpan> {
 	interpolator: (t: QuantitativeValue) => any
 	clamp?: boolean
 }
 
-export class SequantialScale extends DomainScale<
-	ScaleSequentialProps,
+export const SequentialScale = createDomainScale<
+	SequantialScaleProps,
 	QuantitativeSpan
-> {
-	protected createScale() {
-		return sequential(this.props.name)
-			.domain(this.props.domain)
-			.clamp(this.props.clamp)
-			.interpolator(this.props.interpolator)
-	}
-}
+>('SequentialScale', ({ name, domain, clamp, interpolator }) =>
+	sequential(name)
+		.domain(domain)
+		.clamp(clamp)
+		.interpolator(interpolator),
+)

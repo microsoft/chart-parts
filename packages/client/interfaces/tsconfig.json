@@ -5,8 +5,7 @@
 		"composite": true,
 		"outDir": "lib",
 		"rootDir": "./src",
-		"baseUrl": "./src",
-		"tsBuildInfoFile": "./lib/.tsbuildinfo"
+		"baseUrl": "./src"
 	},
 	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"]

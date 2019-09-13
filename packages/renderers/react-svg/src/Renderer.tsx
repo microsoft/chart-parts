@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React from 'react'
 import {
 	VSvgNode,
 	VSvgTransformType,
@@ -46,11 +46,10 @@ function createElementFor(
 
 	const childrenElements = (children || [])
 		.filter(c => !!c)
-		.map(
-			(c, index) =>
-				typeof c !== 'object'
-					? c
-					: createElementFor(c, `${key}::${index}`, handlers),
+		.map((c, index) =>
+			typeof c !== 'object'
+				? c
+				: createElementFor(c, `${key}::${index}`, handlers),
 		)
 
 	const labelledBy: string[] = []

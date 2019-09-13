@@ -3,38 +3,45 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import {
+	MarkType,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
+import { useEffect } from 'react'
 
 export interface ArcProps extends CommonMarkProps {
-	startAngle?: MarkEncodingProp<number>
-	endAngle?: MarkEncodingProp<number>
-	padAngle?: MarkEncodingProp<number>
-	innerRadius?: MarkEncodingProp<number>
-	outerRadius?: MarkEncodingProp<number>
-	cornerRadius?: MarkEncodingProp<number>
+	startAngle?: MarkEncoding<number>
+	endAngle?: MarkEncoding<number>
+	padAngle?: MarkEncoding<number>
+	innerRadius?: MarkEncoding<number>
+	outerRadius?: MarkEncoding<number>
+	cornerRadius?: MarkEncoding<number>
 }
 
-export class Arc extends BaseMark<ArcProps> {
-	public markType = MarkType.Arc
-
-	protected encodeCustomProperties() {
-		const {
-			startAngle,
-			endAngle,
-			padAngle,
-			innerRadius,
-			outerRadius,
-			cornerRadius,
-		} = this.props
-		return {
-			startAngle,
-			endAngle,
-			padAngle,
-			innerRadius,
-			outerRadius,
-			cornerRadius,
-		}
-	}
-}
+export const Arc = createMarkComponent<ArcProps>(
+	MarkType.Arc,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.startAngle, props.startAngle)
+		}, [mark, props.startAngle])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.endAngle, props.endAngle)
+		}, [mark, props.endAngle])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.padAngle, props.padAngle)
+		}, [mark, props.padAngle])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.innerRadius, props.innerRadius)
+		}, [mark, props.innerRadius])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.outerRadius, props.outerRadius)
+		}, [mark, props.outerRadius])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.cornerRadius, props.cornerRadius)
+		}, [mark, props.cornerRadius])
+	},
+)

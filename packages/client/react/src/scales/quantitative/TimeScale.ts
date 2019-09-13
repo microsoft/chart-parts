@@ -5,7 +5,7 @@
 
 import { time } from '@chart-parts/scales'
 import {
-	QuantitativeScale,
+	createQuantitativeScale,
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
@@ -13,19 +13,17 @@ import {
 export interface TimeScaleProps
 	extends QuantitativeScaleProps<TimeValue, number> {}
 
-export class TimeScale extends QuantitativeScale<
+export const TimeScale = createQuantitativeScale<
 	TimeScaleProps,
 	TimeValue,
 	number
-> {
-	protected createScale() {
-		return time(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
-			.reverse(this.props.reverse)
-			.padding(this.props.padding)
-	}
-}
+>('TimeScale', ({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
+	time(name)
+		.domain(domain)
+		.range(range)
+		.zero(zero)
+		.clamp(clamp)
+		.nice(nice)
+		.reverse(reverse)
+		.padding(padding),
+)

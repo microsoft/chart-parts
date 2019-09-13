@@ -2,70 +2,40 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { MarkType, SymbolType } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import {
+	MarkType,
+	SymbolType,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
+import { useEffect } from 'react'
 
 export interface SymbolOfTypeProps extends CommonMarkProps {
-	size?: MarkEncodingProp<number>
+	size?: MarkEncoding<number>
 }
 
-abstract class SymbolOfType extends BaseMark<SymbolOfTypeProps> {
-	public markType = MarkType.Symbol
-
-	protected abstract getShape(): SymbolType
-
-	protected encodeCustomProperties() {
-		const { size } = this.props
-		const shape = this.getShape()
-		return { size, shape }
-	}
+function createSymbolMark(shape: SymbolType) {
+	return createMarkComponent<SymbolOfTypeProps>(
+		MarkType.Symbol,
+		(mark: MarkBuilder, props) => {
+			useEffect(() => {
+				mark.encode(MarkEncodingKey.size, props.size)
+			}, [mark, props.size])
+			useEffect(() => {
+				mark.encode(MarkEncodingKey.shape, shape)
+			}, [mark])
+		},
+	)
 }
 
-export class Circle extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.Circle
-	}
-}
-
-export class Cross extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.Cross
-	}
-}
-
-export class Diamond extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.Diamond
-	}
-}
-
-export class Square extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.Square
-	}
-}
-
-export class TriangleDown extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.TriangleDown
-	}
-}
-
-export class TriangleUp extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.TriangleUp
-	}
-}
-
-export class TriangleLeft extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.TriangleLeft
-	}
-}
-
-export class TriangleRight extends SymbolOfType {
-	protected getShape() {
-		return SymbolType.Circle
-	}
-}
+export const Circle = createSymbolMark(SymbolType.Circle)
+export const Cross = createSymbolMark(SymbolType.Cross)
+export const Diamond = createSymbolMark(SymbolType.Diamond)
+export const Square = createSymbolMark(SymbolType.Square)
+export const TriangleDown = createSymbolMark(SymbolType.TriangleDown)
+export const TriangleUp = createSymbolMark(SymbolType.TriangleUp)
+export const TriangleLeft = createSymbolMark(SymbolType.TriangleLeft)
+export const TriangleRight = createSymbolMark(SymbolType.TriangleRight)

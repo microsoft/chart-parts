@@ -2,10 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import * as React from 'react'
+import React, { memo, useContext, useEffect, useMemo } from 'react'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
-import { SceneNodeBuilder } from '@chart-parts/builder'
-import { SceneNodeBuilderConsumer } from '../Context'
+import { SceneBuilderContext } from '../Context'
 
 export interface DomainScaleProps<Domain> {
 	/**
@@ -26,34 +25,27 @@ export interface DomainScaleProps<Domain> {
 	domain?: string | ((args: ScaleCreationContext) => Domain) | Domain
 }
 
-export abstract class DomainScale<
+export function createDomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain
-> extends React.PureComponent<Props> {
-	protected apiInstance: SceneNodeBuilder | undefined
-
-	public render() {
-		return (
-			<SceneNodeBuilderConsumer>
-				{(api: SceneNodeBuilder) => {
-					this.apiInstance = api
-					this.addScale()
-					return null
-				}}
-			</SceneNodeBuilderConsumer>
-		)
-	}
-
-	protected get api(): SceneNodeBuilder {
-		if (!this.apiInstance) {
-			throw new Error('api must be defined')
-		}
-		return this.apiInstance as SceneNodeBuilder
-	}
-
-	protected addScale() {
-		this.api.scale(this.createScale())
-	}
-
-	protected abstract createScale(): any
+>(displayName: string, createScale: (props: Props) => any): React.FC<Props> {
+	const result = memo(props => {
+		const api = useContext(SceneBuilderContext)
+		const scale = useMemo(() => api && createScale(props as Props), [
+			api,
+			createScale,
+			props,
+		])
+		useEffect(() => {
+			if (api && scale) {
+				api.scale(scale)
+				return () => {
+					api.removeScale(scale)
+				}
+			}
+		}, [api, scale])
+		return null
+	})
+	result.displayName = displayName
+	return result
 }

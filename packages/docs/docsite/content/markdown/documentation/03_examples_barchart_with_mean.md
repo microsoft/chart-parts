@@ -5,5 +5,3 @@ order: 8
 ---
 
 <bar-chart-with-mean></bar-chart-with-mean>
-
-`embed:charts/bar-chart-with-mean.tsx`

@@ -5,7 +5,10 @@
 
 import { Dimension } from '@chart-parts/interfaces'
 import { band } from '@chart-parts/scales'
-import { DomainRangeScale, DomainRangeScaleProps } from '../DomainRangeScale'
+import {
+	createDomainRangeScale,
+	DomainRangeScaleProps,
+} from '../DomainRangeScale'
 
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
@@ -40,22 +43,34 @@ export interface BandScaleProps
 	round?: boolean
 }
 
-export class BandScale extends DomainRangeScale<
+export const BandScale: React.FC<BandScaleProps> = createDomainRangeScale<
 	BandScaleProps,
 	string[],
 	[number, number],
 	Dimension
-> {
-	protected createScale() {
-		const bandWidthName = this.props.bandWidth || this.props.name + 'Width'
-		return band(this.props.name, bandWidthName)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.align(this.props.align)
-			.padding(this.props.padding)
-			.paddingOuter(this.props.paddingOuter)
-			.paddingInner(this.props.paddingInner)
-			.round(this.props.round)
-			.reverse(this.props.reverse)
-	}
-}
+>(
+	'BandScale',
+	({
+		bandWidth,
+		name,
+		domain,
+		range,
+		align,
+		padding,
+		paddingOuter,
+		paddingInner,
+		round,
+		reverse,
+	}) => {
+		const bandWidthName = bandWidth || name + 'Width'
+		return band(name, bandWidthName)
+			.domain(domain)
+			.range(range)
+			.align(align)
+			.padding(padding)
+			.paddingOuter(paddingOuter)
+			.paddingInner(paddingInner)
+			.round(round)
+			.reverse(reverse)
+	},
+)

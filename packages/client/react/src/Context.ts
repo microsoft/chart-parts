@@ -3,10 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
-import { SceneNodeBuilder } from '@chart-parts/builder'
+import React from 'react'
+import { SceneBuilder } from '@chart-parts/builder'
+import { Renderer, VSvgNode } from '@chart-parts/interfaces'
 
-export const {
-	Consumer: SceneNodeBuilderConsumer,
-	Provider: SceneNodeBuilderProvider,
-} = React.createContext<SceneNodeBuilder>(new SceneNodeBuilder())
+export const SceneBuilderContext = React.createContext<
+	SceneBuilder | undefined
+>(undefined)
+
+export const ChartRendererContext = React.createContext<
+	Renderer<VSvgNode, any> | undefined
+>(undefined)

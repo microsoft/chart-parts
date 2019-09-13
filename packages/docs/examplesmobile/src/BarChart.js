@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import * as React from 'react';
+import React from 'react';
 import {Axis, Chart, Rect, LinearScale, BandScale} from '@chart-parts/react';
 import {Renderer} from '@chart-parts/react-native-svg-renderer';
 
@@ -23,8 +23,6 @@ export default class BarChart extends React.Component {
 	state = {hoverRowIndex: undefined};
 
 	render() {
-		console.log('Render BarCHart');
-
 		// Externalized Event Handlers
 		const onPress = ({index}) => {
 			if (this.state.hoverRowIndex !== index) {

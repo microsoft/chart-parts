@@ -12,16 +12,16 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"devDependencies": {
-		"@types/react-native": "^0.60.6",
+		"@types/react-native": "^0.60.13",
 		"react": "^16.9.0"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
 		"lodash": "^4.17.15",
-		"react-native-svg": "^9.5.1"
+		"react-native-svg": "^9.9.3"
 	},
 	"peerDependencies": {
-		"react": ">= 16",
+		"react": ">= 16.9",
 		"react-native": ">= ^0.56.0"
 	},
 	"publishConfig": {

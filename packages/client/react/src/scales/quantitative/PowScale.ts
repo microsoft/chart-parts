@@ -5,7 +5,7 @@
 
 import { pow } from '@chart-parts/scales'
 import {
-	QuantitativeScale,
+	createQuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
@@ -15,20 +15,20 @@ export interface PowScaleProps
 	exponent?: number
 }
 
-export class PowScale extends QuantitativeScale<
+export const PowScale = createQuantitativeScale<
 	PowScaleProps,
 	QuantitativeValue,
 	number
-> {
-	protected createScale() {
-		return pow(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
-			.reverse(this.props.reverse)
-			.exponent(this.props.exponent)
-			.padding(this.props.padding)
-	}
-}
+>(
+	'PowScale',
+	({ name, domain, range, zero, clamp, nice, reverse, exponent, padding }) =>
+		pow(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.exponent(exponent)
+			.padding(padding),
+)

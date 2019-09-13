@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import * as React from 'react';
+import React from 'react';
 import {FlatList, View} from 'react-native';
 import {Orchestrator} from '@chart-parts/orchestrator';
 import {Renderer} from '@chart-parts/react-native-svg-renderer';

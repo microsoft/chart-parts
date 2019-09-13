@@ -21,7 +21,7 @@ import {
 	shape,
 	trail,
 } from '../index'
-import { SceneNodeBuilder } from '../SceneNodeBuilder'
+import { SceneBuilder } from '../SceneBuilder'
 const view = { width: 100, height: 200 }
 
 describe('The builder module', () => {
@@ -47,7 +47,7 @@ describe('The builder module', () => {
 
 	it('can build a basic scene specification', () => {
 		const sc = scene(
-			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
+			(snb: SceneBuilder) => snb.mark(rect().name('test_rect')),
 			view,
 		)
 		const builtScene = sc.build()
@@ -67,33 +67,25 @@ describe('The builder module', () => {
 
 	it('encodes the outer rect appropriately', () => {
 		const builtScene = scene(
-			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
+			(snb: SceneBuilder) => snb.mark(rect().name('test_rect')),
 			view,
 		).build()
 
 		const outerGroup = builtScene.marks[0]
-		expect(
-			(outerGroup.encodings as any).width({ view } as any, undefined),
-		).toEqual(100)
-		expect(
-			(outerGroup.encodings as any).height({ view } as any, undefined),
-		).toEqual(200)
+		expect((outerGroup.encodings as any).width).toEqual(100)
+		expect((outerGroup.encodings as any).height).toEqual(200)
 	})
 
 	it('sets default dimensions on the outer rect', () => {
 		// default view bounds
 		const builtScene = scene(
-			(snb: SceneNodeBuilder) => snb.mark(rect().name('`test_rect')),
+			(snb: SceneBuilder) => snb.mark(rect().name('`test_rect')),
 			{ width: 250, height: 250 },
 		).build()
 
 		const outerGroup = builtScene.marks[0]
-		expect(
-			(outerGroup.encodings as any).width({ view } as any, undefined),
-		).toEqual(250)
-		expect(
-			(outerGroup.encodings as any).height({ view } as any, undefined),
-		).toEqual(250)
+		expect((outerGroup.encodings as any).width).toEqual(250)
+		expect((outerGroup.encodings as any).height).toEqual(250)
 	})
 
 	it('can create mark builders for each mark type', () => {

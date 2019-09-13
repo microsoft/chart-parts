@@ -6,7 +6,7 @@
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
-const data = require('../resources/budget_forecasts.json')
+const data = require('../../resources/budget_forecasts.json')
 
 export const scenegraph = parseScene(data)
 export const title = 'Budget Forecasts'

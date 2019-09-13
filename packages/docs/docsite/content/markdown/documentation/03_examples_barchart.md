@@ -5,5 +5,3 @@ order: 0
 ---
 
 <bar-chart></bar-chart>
-
-`embed:charts/bar-chart.tsx`

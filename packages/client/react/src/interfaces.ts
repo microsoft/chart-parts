@@ -9,64 +9,43 @@ import {
 	Gradient,
 	StrokeCap,
 	StrokeJoin,
+	Metadata,
 } from '@chart-parts/interfaces'
 
-export type MarkEncodingProp<T> = MarkEncoding<T> | T
-
-/**
- * Common mark-component properties
- */
-export interface CommonMarkProps {
-	// Data-binding
-	/**
-	 * The name of the data-table to bind to. If not present, the component will render as a singleton
-	 */
-	table?: string
-
-	/**
-	 * A helpful name for the mark
-	 */
-	name?: string
-
-	/**
-	 * A role description of this mark
-	 */
-	role?: string
-
+export interface CommonMarkEncodings {
 	// Common Mark Value Encodings
-	x?: MarkEncodingProp<number>
-	x2?: MarkEncodingProp<number>
-	xc?: MarkEncodingProp<number>
-	width?: MarkEncodingProp<number>
-	y?: MarkEncodingProp<number>
-	y2?: MarkEncodingProp<number>
-	yc?: MarkEncodingProp<number>
-	height?: MarkEncodingProp<number>
-	opacity?: MarkEncodingProp<number>
-	fill?: MarkEncodingProp<string | Gradient>
-	fillOpacity?: MarkEncodingProp<number>
-	stroke?: MarkEncodingProp<string | Gradient>
-	strokeOpacity?: MarkEncodingProp<number>
-	strokeWidth?: MarkEncodingProp<number>
-	strokeCap?: MarkEncodingProp<StrokeCap>
-	strokeDash?: MarkEncodingProp<[number, number]>
-	strokeDashOffset?: MarkEncodingProp<number>
-	strokeJoin?: MarkEncodingProp<StrokeJoin>
-	strokeMiterLimit?: MarkEncodingProp<number>
-	cursor?: MarkEncodingProp<string>
-	href?: MarkEncodingProp<string>
-	tooltip?: MarkEncodingProp<string>
-	zIndex?: MarkEncodingProp<number>
-	metadata?: MarkEncodingProp<{ [key: string]: any }>
+	x?: MarkEncoding<number>
+	x2?: MarkEncoding<number>
+	xc?: MarkEncoding<number>
+	width?: MarkEncoding<number>
+	y?: MarkEncoding<number>
+	y2?: MarkEncoding<number>
+	yc?: MarkEncoding<number>
+	height?: MarkEncoding<number>
+	opacity?: MarkEncoding<number>
+	fill?: MarkEncoding<string | Gradient>
+	fillOpacity?: MarkEncoding<number>
+	stroke?: MarkEncoding<string | Gradient>
+	strokeOpacity?: MarkEncoding<number>
+	strokeWidth?: MarkEncoding<number>
+	strokeCap?: MarkEncoding<StrokeCap>
+	strokeDash?: MarkEncoding<[number, number]>
+	strokeDashOffset?: MarkEncoding<number>
+	strokeJoin?: MarkEncoding<StrokeJoin>
+	strokeMiterLimit?: MarkEncoding<number>
+	cursor?: MarkEncoding<string>
+	href?: MarkEncoding<string>
+	tooltip?: MarkEncoding<string>
+	zIndex?: MarkEncoding<number>
+	metadata?: MarkEncoding<Metadata>
 
 	// Screen-Reader properties
-	ariaTitle?: MarkEncodingProp<string>
-	ariaDescription?: MarkEncodingProp<string>
-	tabIndex?: MarkEncodingProp<number>
+	ariaTitle?: MarkEncoding<string>
+	ariaDescription?: MarkEncoding<string>
+	tabIndex?: MarkEncoding<number>
+}
 
-	// Events
-	eventHandlers?: { [key: string]: ChannelHandler<any> }
-
+export interface CommonMarkChannels {
 	// Clipboard Events
 	onCopy?: ChannelHandler<React.ClipboardEvent<any>>
 	onCut?: ChannelHandler<React.ClipboardEvent<any>>
@@ -127,6 +106,32 @@ export interface CommonMarkProps {
 
 	// Wheel events
 	onWheel?: ChannelHandler<React.WheelEvent<any>>
+}
+
+/**
+ * Common mark-component properties
+ */
+export interface CommonMarkProps
+	extends CommonMarkEncodings,
+		CommonMarkChannels {
+	// Data-binding
+	/**
+	 * The name of the data-table to bind to. If not present, the component will render as a singleton
+	 */
+	table?: string
+
+	/**
+	 * A helpful name for the mark
+	 */
+	name?: string
+
+	/**
+	 * A role description of this mark
+	 */
+	role?: string
+
+	// Events
+	eventHandlers?: { [key: string]: ChannelHandler<any> }
 }
 
 export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {

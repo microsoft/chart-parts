@@ -4,8 +4,7 @@
 		"lib": ["esnext"],
 		"outDir": "lib",
 		"rootDir": "./src",
-		"baseUrl": "./src",
-		"tsBuildInfoFile": "./lib/.tsbuildinfo"
+		"baseUrl": "./src"
 	},
 	"files": ["src/index.ts"]
 }

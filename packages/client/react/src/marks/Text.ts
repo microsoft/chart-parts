@@ -9,68 +9,80 @@ import {
 	VerticalTextAlignment,
 	TextDirection,
 	FontWeight,
+	MarkEncoding,
+	MarkEncodingKey,
 } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { useEffect } from 'react'
 
 export interface TextProps extends CommonMarkProps {
-	align?: MarkEncodingProp<HorizontalAlignment>
-	angle?: MarkEncodingProp<number>
-	baseline?: MarkEncodingProp<VerticalTextAlignment>
-	dir?: MarkEncodingProp<TextDirection>
-	dx?: MarkEncodingProp<number>
-	dy?: MarkEncodingProp<number>
-	ellipsis?: MarkEncodingProp<string>
-	font?: MarkEncodingProp<string>
-	fontSize?: MarkEncodingProp<number>
-	fontWeight?: MarkEncodingProp<FontWeight>
-	fontVariant?: MarkEncodingProp<string | number>
-	fontStyle?: MarkEncodingProp<number>
-	limit?: MarkEncodingProp<number>
-	radius?: MarkEncodingProp<number>
-	text?: MarkEncodingProp<string>
-	theta?: MarkEncodingProp<number>
+	align?: MarkEncoding<HorizontalAlignment>
+	angle?: MarkEncoding<number>
+	baseline?: MarkEncoding<VerticalTextAlignment>
+	dir?: MarkEncoding<TextDirection>
+	dx?: MarkEncoding<number>
+	dy?: MarkEncoding<number>
+	ellipsis?: MarkEncoding<string>
+	font?: MarkEncoding<string>
+	fontSize?: MarkEncoding<number>
+	fontWeight?: MarkEncoding<FontWeight>
+	fontVariant?: MarkEncoding<string | number>
+	fontStyle?: MarkEncoding<number>
+	limit?: MarkEncoding<number>
+	radius?: MarkEncoding<number>
+	text?: MarkEncoding<string>
+	theta?: MarkEncoding<number>
 }
 
-export class Text extends BaseMark<TextProps> {
-	public markType = MarkType.Text
-
-	protected encodeCustomProperties() {
-		const {
-			align,
-			angle,
-			baseline,
-			dir,
-			dx,
-			dy,
-			ellipsis,
-			font,
-			fontSize,
-			fontWeight,
-			fontVariant,
-			fontStyle,
-			limit,
-			radius,
-			text,
-			theta,
-		} = this.props
-		return {
-			align,
-			angle,
-			baseline,
-			dir,
-			dx,
-			dy,
-			ellipsis,
-			font,
-			fontSize,
-			fontWeight,
-			fontVariant,
-			fontStyle,
-			limit,
-			radius,
-			text,
-			theta,
-		}
-	}
-}
+export const Text = createMarkComponent<TextProps>(
+	MarkType.Text,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.align, props.align)
+		}, [mark, props.align])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.angle, props.angle)
+		}, [mark, props.angle])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.baseline, props.baseline)
+		}, [mark, props.baseline])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.dir, props.dir)
+		}, [mark, props.dir])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.dx, props.dx)
+		}, [mark, props.dx])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.dy, props.dy)
+		}, [mark, props.dy])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.ellipsis, props.ellipsis)
+		}, [mark, props.ellipsis])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.font, props.font)
+		}, [mark, props.font])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.fontWeight, props.fontWeight)
+		}, [mark, props.fontWeight])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.fontVariant, props.fontVariant)
+		}, [mark, props.fontVariant])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.fontStyle, props.fontStyle)
+		}, [mark, props.fontStyle])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.limit, props.limit)
+		}, [mark, props.limit])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.radius, props.radius)
+		}, [mark, props.radius])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.text, props.text)
+		}, [mark, props.text])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.theta, props.theta)
+		}, [mark, props.theta])
+	},
+)

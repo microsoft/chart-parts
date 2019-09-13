@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React from 'react'
 import elementMap from './elementMap'
 import {
 	VSvgNode,
@@ -66,11 +66,10 @@ function createElementFor(
 		reactSvgType,
 		reactAttrs,
 		(children || [])
-			.map(
-				(c, index) =>
-					typeof c !== 'object'
-						? c
-						: createElementFor(c, `${key}::${index}`, handlers),
+			.map((c, index) =>
+				typeof c !== 'object'
+					? c
+					: createElementFor(c, `${key}::${index}`, handlers),
 			)
 			.filter(t => !!t),
 	)

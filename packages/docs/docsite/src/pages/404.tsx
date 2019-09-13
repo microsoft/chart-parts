@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React from 'react'
 import Layout from '../components/layout'
 
-const NotFoundPage: React.SFC = () => (
-  <Layout title="Page not found">
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-  </Layout>
+const NotFoundPage: React.FC = () => (
+	<Layout title="Page not found">
+		<h1>NOT FOUND</h1>
+		<p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+	</Layout>
 )
 
 export default NotFoundPage

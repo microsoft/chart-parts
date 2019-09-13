@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
-import { AxisOrientation, TickValue } from '@chart-parts/interfaces'
-import { SceneNodeBuilder, axis } from '@chart-parts/builder'
-import { SceneNodeBuilderConsumer } from './Context'
+import React, { useContext, memo, useEffect, useMemo } from 'react'
+import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
+import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
+import { SceneBuilderContext } from './Context'
 
 /**
  * Axis Component Props
@@ -41,7 +41,7 @@ export interface AxisProps {
 	tickOffset?: number
 	tickRound?: boolean
 	tickSize?: number
-	tickWidth?: boolean
+	tickWidth?: number
 	bandPosition?: number
 	values?: TickValue[]
 	// #endregion
@@ -52,39 +52,95 @@ export interface AxisProps {
 	labelFontSize?: number
 	labelColor?: string
 	labelPadding?: number
-	labelFontWeight?: number
+	labelFontWeight?: FontWeight
 	labelAngle?: number
 	labelFormat?: string
 	// #endregion
 }
 
-export class Axis extends React.PureComponent<AxisProps> {
-	public render() {
-		return (
-			<SceneNodeBuilderConsumer>
-				{api => {
-					this.receiveApi(api)
-					return this.props.children
-				}}
-			</SceneNodeBuilderConsumer>
-		)
-	}
+export const Axis: React.FC<AxisProps> = memo(
+	({ children, scale, orient, ...props }) => {
+		const api = useContext(SceneBuilderContext)
+		const axis = useMemo(() => newAxis(scale, orient), [scale, orient])
 
-	private receiveApi(api: SceneNodeBuilder) {
-		const { scale, orient } = this.props
-		const newAxis = axis(scale, orient)
+		useAxisProps(axis, props as AxisProps)
 
-		// For any other properties that are set to defined values, pipe them into the axis builder
-		Object.keys(this.props).forEach(propName => {
-			const propValue = (this.props as any)[propName]
-			if (
-				propName !== 'scale' &&
-				propName !== 'orient' &&
-				propValue !== undefined
-			) {
-				;(newAxis as any)[propName](propValue)
+		useEffect(() => {
+			if (api) {
+				api.axes(axis)
+				return () => {
+					api.removeAxis(axis)
+				}
 			}
-		})
-		api.axes(newAxis)
-	}
+		}, [axis, api])
+		return <>{children}</>
+	},
+)
+
+function useAxisProps(axis: AxisBuilder, props: AxisProps) {
+	useEffect(() => {
+		axis.thickness(props.thickness)
+	}, [props.thickness])
+	useEffect(() => {
+		axis.domain(props.domain)
+	}, [props.domain])
+	useEffect(() => {
+		axis.domainWidth(props.domainWidth)
+	}, [props.domainWidth])
+	useEffect(() => {
+		axis.domainColor(props.domainColor)
+	}, [props.domainColor])
+	useEffect(() => {
+		axis.ticks(props.ticks)
+	}, [props.ticks])
+	useEffect(() => {
+		axis.tickColor(props.tickColor)
+	}, [props.tickColor])
+	useEffect(() => {
+		axis.tickCount(props.tickCount)
+	}, [props.tickCount])
+	useEffect(() => {
+		axis.tickOffset(props.tickOffset)
+	}, [props.tickOffset])
+	useEffect(() => {
+		axis.tickRound(props.tickRound)
+	}, [props.tickRound])
+	useEffect(() => {
+		axis.tickSize(props.tickSize)
+	}, [props.tickSize])
+	useEffect(() => {
+		axis.tickWidth(props.tickWidth)
+	}, [props.tickWidth])
+	useEffect(() => {
+		axis.bandPosition(props.bandPosition)
+	}, [props.bandPosition])
+	useEffect(() => {
+		axis.values(props.values)
+	}, [props.values])
+	useEffect(() => {
+		axis.labels(props.labels)
+	}, [props.labels])
+	useEffect(() => {
+		axis.labelFont(props.labelFont)
+	}, [props.labelFont])
+	useEffect(() => {
+		axis.labelFontSize(props.labelFontSize)
+	}, [props.labelFontSize])
+	useEffect(() => {
+		axis.labelColor(props.labelColor)
+	}, [props.labelColor])
+	useEffect(() => {
+		axis.labelPadding(props.labelPadding)
+	}, [props.labelPadding])
+	useEffect(() => {
+		axis.labelFontWeight(props.labelFontWeight)
+	}, [props.labelFontWeight])
+	useEffect(() => {
+		axis.labelAngle(props.labelAngle)
+	}, [props.labelAngle])
+	useEffect(() => {
+		axis.labelFormat(props.labelFormat)
+	}, [props.labelFormat])
 }
+
+Axis.displayName = 'Axis'

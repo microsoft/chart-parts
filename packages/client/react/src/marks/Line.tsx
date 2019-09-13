@@ -3,21 +3,34 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType, Interpolation } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import {
+	MarkType,
+	Interpolation,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { useEffect } from 'react'
+import { MarkBuilder } from '@chart-parts/builder'
 
 export interface LineProps extends CommonMarkProps {
-	interpolate?: MarkEncodingProp<Interpolation>
-	tension?: MarkEncodingProp<number>
-	defined?: MarkEncodingProp<boolean>
+	interpolate?: MarkEncoding<Interpolation>
+	tension?: MarkEncoding<number>
+	defined?: MarkEncoding<boolean>
 }
 
-export class Line extends BaseMark<LineProps> {
-	public markType = MarkType.Line
-
-	protected encodeCustomProperties() {
-		const { interpolate, tension, defined } = this.props
-		return { interpolate, tension, defined }
-	}
-}
+export const Line = createMarkComponent<LineProps>(
+	MarkType.Line,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.interpolate, props.interpolate)
+		}, [mark, props.interpolate])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.tension, props.tension)
+		}, [mark, props.tension])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.defined, props.defined)
+		}, [mark, props.defined])
+	},
+)

@@ -3,162 +3,163 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import * as React from 'react'
+import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
 import { TreeNode } from './interfaces'
 import { Link as RawLink } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../../util/theme'
 import {
-  FaAngleDown as ExpandedIconRaw,
-  FaAngleRight as CollapsedIconRaw,
+	FaAngleDown as ExpandedIconRaw,
+	FaAngleRight as CollapsedIconRaw,
 } from 'react-icons/fa'
 
 export interface LinkTreeProps {
-  node: TreeNode
-  depth: number
-  expanded?: boolean
-  activePath: string
+	node: TreeNode
+	depth: number
+	expanded?: boolean
+	activePath: string
 }
 
 const ToggleSize = 15
 
-export interface LinkTreeState {
-  expanded: boolean
-  hasBeenManuallyToggled: boolean
+const LinkTree: React.FC<LinkTreeProps> = memo(
+	({ expanded: expandedProp, node, activePath, depth }) => {
+		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
+
+		useEffect(() => {
+			if (activePath.startsWith(node.item.path)) {
+				setExpanded(true)
+			}
+		}, [])
+
+		const linkStyle = useMemo(() => {
+			if (!node.item) {
+				return {}
+			}
+			const marginLeft = 15 + depth * 15
+			const fontSize = 16 - depth * 2
+			const linkStyle: React.CSSProperties = {
+				marginLeft,
+				fontSize,
+				color: '#3173BD',
+			}
+
+			if (activePath === node.item.path) {
+				linkStyle.fontWeight = 'bold'
+			}
+			return linkStyle
+		}, [depth, activePath, node.item])
+
+		const handleExpandCollapseClick = useCallback(() => {
+			setExpanded(!expanded)
+		}, [expanded])
+
+		if (!node.item) {
+			return null
+		}
+		const childKeys = Object.keys(node.children)
+		return (
+			<Container>
+				<CurrentLevel>
+					<LinkTreeIcon
+						childKeys={childKeys}
+						expanded={expanded}
+						onExpandCollapseClick={handleExpandCollapseClick}
+					/>
+					<Link to={node.item.path} {...{ style: linkStyle }}>
+						{node.item.title || node.pathKey}
+					</Link>
+				</CurrentLevel>
+				<LinkTreeChildren
+					childKeys={childKeys}
+					expanded={expanded}
+					node={node}
+					depth={depth}
+					activePath={activePath}
+				/>
+			</Container>
+		)
+	}
+)
+LinkTree.displayName = 'LinkTree'
+export default LinkTree
+
+interface LinkTreeIconProps {
+	childKeys: string[]
+	expanded: boolean
+	onExpandCollapseClick: () => void
 }
+const LinkTreeIcon: React.FC<LinkTreeIconProps> = memo(
+	({ childKeys, expanded, onExpandCollapseClick }) => {
+		if (childKeys.length === 0) {
+			return <IconSpacer />
+		} else if (expanded) {
+			return <ExpandedIcon onClick={onExpandCollapseClick} size={ToggleSize} />
+		} else {
+			return <CollapsedIcon onClick={onExpandCollapseClick} size={ToggleSize} />
+		}
+	}
+)
+LinkTreeIcon.displayName = 'LinkTreeIcon'
 
-export default class LinkTree extends React.Component<
-  LinkTreeProps,
-  LinkTreeState
-> {
-  public constructor(props: LinkTreeProps) {
-    super(props)
-    this.state = { expanded: !!props.expanded, hasBeenManuallyToggled: false }
-  }
-
-  public componentDidMount() {
-    const { activePath, node } = this.props
-    if (activePath.startsWith(node.item.path)) {
-      this.setState({ expanded: true })
-    }
-  }
-
-  public render(): JSX.Element | null {
-    const { node } = this.props
-    const { item, children } = node
-    if (!item) {
-      return null
-    }
-
-    const childKeys = Object.keys(children)
-    const linkStyle = this.getLinkStyle()
-
-    return (
-      <Container>
-        <CurrentLevel>
-          {this.renderIcon(childKeys)}
-          <Link to={item.path} {...{ style: linkStyle }}>
-            {item.title || node.pathKey}
-          </Link>
-        </CurrentLevel>
-        {this.renderChildren(childKeys)}
-      </Container>
-    )
-  }
-
-  private getLinkStyle(): React.CSSProperties {
-    const {
-      activePath,
-      depth,
-      node: { item },
-    } = this.props
-
-    const marginLeft = 15 + depth * 15
-    const fontSize = 16 - depth * 2
-    const linkStyle: React.CSSProperties = {
-      marginLeft,
-      fontSize,
-      color: '#3173BD',
-    }
-
-    if (activePath === item.path) {
-      linkStyle.fontWeight = 'bold'
-    }
-    return linkStyle
-  }
-
-  private renderIcon(childKeys: string[]) {
-    if (childKeys.length === 0) {
-      return <IconSpacer />
-    } else if (this.state.expanded) {
-      return (
-        <ExpandedIcon onClick={this.onExpandCollapseClick} size={ToggleSize} />
-      )
-    } else {
-      return (
-        <CollapsedIcon onClick={this.onExpandCollapseClick} size={ToggleSize} />
-      )
-    }
-  }
-
-  private renderChildren(childKeys: string[]) {
-    const { node, depth, activePath } = this.props
-    const { expanded } = this.state
-    if (!expanded) {
-      return null
-    }
-
-    // Get the nodes for the children and sort them
-    const childNodes = childKeys.map(ck => node.children[ck])
-    childNodes.sort((a, b) => (a.item.order || 0) - (b.item.order || 0))
-
-    return childNodes.map(c => (
-      <LinkTree
-        key={c.pathKey}
-        node={c}
-        depth={depth + 1}
-        activePath={activePath}
-      />
-    ))
-  }
-
-  private onExpandCollapseClick = () => {
-    this.setState({
-      expanded: !this.state.expanded,
-      hasBeenManuallyToggled: true,
-    })
-  }
+export interface LinkTreeChildrenProps {
+	childKeys: string[]
+	node: TreeNode
+	depth: number
+	activePath: string
+	expanded: boolean
 }
+const LinkTreeChildren: React.FC<LinkTreeChildrenProps> = memo(
+	({ childKeys, node, depth, activePath, expanded }) => {
+		// Get the nodes for the children and sort them
+		const childNodes = childKeys.map(ck => node.children[ck])
+		childNodes.sort((a, b) => (a.item.order || 0) - (b.item.order || 0))
+
+		return !expanded ? null : (
+			<>
+				{childNodes.map(c => (
+					<LinkTree
+						key={c.pathKey}
+						node={c}
+						depth={depth + 1}
+						activePath={activePath}
+					/>
+				))}
+			</>
+		)
+	}
+)
+LinkTreeChildren.displayName = 'LinkTreeChildren'
 
 const Container = styled.div``
 
 const IconSpacer = styled.span`
-  width: 15px;
+	width: 15px;
 `
 
 const CurrentLevel = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 `
 
 const ExpandedIcon = styled(ExpandedIconRaw)`
-  color: #999;
-  cursor: pointer;
-  width: 15px;
+	color: #999;
+	cursor: pointer;
+	width: 15px;
 `
 
 const CollapsedIcon = styled(CollapsedIconRaw)`
-  color: #999;
-  cursor: pointer;
-  width: 15px;
+	color: #999;
+	cursor: pointer;
+	width: 15px;
 `
 
 const Link = styled(RawLink)`
-  font-family: ${theme.text.fontFamily};
-  line-height: ${theme.text.lineHeight * 1.5};
-  font-weight: 100;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
+	font-family: ${theme.text.fontFamily};
+	line-height: ${theme.text.lineHeight * 1.5};
+	font-weight: 100;
+	font-size: 16px;
+	display: flex;
+	flex-direction: column;
 `

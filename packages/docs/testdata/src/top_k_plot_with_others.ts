@@ -6,7 +6,7 @@
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
-const data = require('../resources/top_k_plot_with_others.json')
+const data = require('../../resources/top_k_plot_with_others.json')
 
 export const scenegraph = parseScene(data)
 export const title = 'Top-K Plot With Others'

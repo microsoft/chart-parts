@@ -5,5 +5,3 @@ order: 7
 ---
 
 <job-voyager></job-voyager>
-
-`embed:charts/job-voyager.tsx`

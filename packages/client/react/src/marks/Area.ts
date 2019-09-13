@@ -4,26 +4,33 @@
  */
 
 import { MarkType, Orientation, Interpolation } from '@chart-parts/interfaces'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { useEffect } from 'react'
+import { MarkBuilder } from '@chart-parts/builder'
+import { MarkEncodingKey, MarkEncoding } from '@chart-parts/interfaces/src'
 
 export interface AreaProps extends CommonMarkProps {
-	orient?: MarkEncodingProp<Orientation>
-	interpolate?: MarkEncodingProp<Interpolation>
-	tension?: MarkEncodingProp<number>
-	defined?: MarkEncodingProp<boolean>
+	orient?: MarkEncoding<Orientation>
+	interpolate?: MarkEncoding<Interpolation>
+	tension?: MarkEncoding<number>
+	defined?: MarkEncoding<boolean>
 }
 
-export class Area extends BaseMark<AreaProps> {
-	public markType = MarkType.Area
-
-	protected encodeCustomProperties() {
-		const { orient, interpolate, tension, defined } = this.props
-		return {
-			orient,
-			interpolate,
-			tension,
-			defined,
-		}
-	}
-}
+export const Area = createMarkComponent<AreaProps>(
+	MarkType.Area,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.orient, props.orient)
+		}, [mark, props.orient])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.interpolate, props.interpolate)
+		}, [mark, props.interpolate])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.tension, props.tension)
+		}, [mark, props.tension])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.defined, props.defined)
+		}, [mark, props.defined])
+	},
+)

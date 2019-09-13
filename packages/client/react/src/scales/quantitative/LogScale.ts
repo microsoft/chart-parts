@@ -5,7 +5,7 @@
 
 import { log } from '@chart-parts/scales'
 import {
-	QuantitativeScale,
+	createQuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
@@ -15,20 +15,20 @@ export interface LogScaleProps
 	base?: number
 }
 
-export class LogScale extends QuantitativeScale<
+export const LogScale = createQuantitativeScale<
 	LogScaleProps,
 	QuantitativeValue,
 	number
-> {
-	protected createScale() {
-		return log(this.props.name)
-			.domain(this.props.domain)
-			.range(this.props.range)
-			.zero(this.props.zero)
-			.clamp(this.props.clamp)
-			.nice(this.props.nice)
-			.reverse(this.props.reverse)
-			.base(this.props.base)
-			.padding(this.props.padding)
-	}
-}
+>(
+	'LogScale',
+	({ name, domain, range, zero, clamp, nice, reverse, base, padding }) =>
+		log(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.base(base)
+			.padding(padding),
+)

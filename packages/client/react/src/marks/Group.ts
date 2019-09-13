@@ -3,42 +3,33 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType, Facet } from '@chart-parts/interfaces'
-import { SceneNodeBuilder, MarkBuilder } from '@chart-parts/builder'
-import { CommonMarkProps, MarkEncodingProp } from '../interfaces'
-import { BaseMark } from './BaseMark'
+import {
+	MarkType,
+	Facet,
+	MarkEncoding,
+	MarkEncodingKey,
+} from '@chart-parts/interfaces'
+import { MarkBuilder } from '@chart-parts/builder'
+import { CommonMarkProps } from '../interfaces'
+import { createMarkComponent } from './BaseMark'
+import { useEffect } from 'react'
 
 export interface GroupProps extends CommonMarkProps {
-	clip?: MarkEncodingProp<boolean>
-	cornerRadius?: MarkEncodingProp<number>
+	clip?: MarkEncoding<boolean>
+	cornerRadius?: MarkEncoding<number>
 	facet?: Facet
 }
-
-export class Group extends BaseMark<GroupProps> {
-	public markType = MarkType.Group
-
-	protected encodeCustomProperties() {
-		const { clip, cornerRadius } = this.props
-		return {
-			clip,
-			cornerRadius,
-		}
-	}
-
-	protected addMark(): SceneNodeBuilder {
-		let node: SceneNodeBuilder | undefined
-		this.api.mark(this.createMark().child(n => (node = n)))
-		return node as any
-	}
-
-	protected createMark(): MarkBuilder {
-		const nodeBuilder = super.createMark()
-		const { facet } = this.props
-
-		if (facet) {
-			nodeBuilder.facet(facet)
-		}
-
-		return nodeBuilder
-	}
-}
+export const Group = createMarkComponent<GroupProps>(
+	MarkType.Group,
+	(mark: MarkBuilder, props) => {
+		useEffect(() => {
+			mark.facet(props.facet)
+		}, [mark, props.facet])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.clip, props.clip)
+		}, [mark, props.clip])
+		useEffect(() => {
+			mark.encode(MarkEncodingKey.cornerRadius, props.cornerRadius)
+		}, [mark, props.cornerRadius])
+	},
+)

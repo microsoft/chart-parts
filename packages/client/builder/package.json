@@ -16,7 +16,8 @@
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.0.20",
-		"lodash": "^4.17.15"
+		"lodash": "^4.17.15",
+		"rxjs": "^6.5.3"
 	},
 	"publishConfig": {
 		"access": "public"
