@@ -30,4 +30,5 @@ export const OrdinalScale: OrdinalScaleComponentType = createDomainScale(
 			.domain(domain)
 			.range(range)
 			.colorScheme(colorScheme),
+	['name', 'domain', 'range', 'colorScheme'],
 )

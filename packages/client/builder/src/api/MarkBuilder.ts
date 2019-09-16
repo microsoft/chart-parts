@@ -43,25 +43,25 @@ export class MarkBuilder {
 
 	public table(table: string | undefined): MarkBuilder {
 		this.spec.table = table
-		this.onChange.next()
+		this.onChange.next('mark table changed')
 		return this
 	}
 
 	public role(role: string | undefined): MarkBuilder {
 		this.spec.role = role
-		this.onChange.next()
+		this.onChange.next('mark role changed')
 		return this
 	}
 
 	public name(name: string | undefined): MarkBuilder {
 		this.spec.name = name
-		this.onChange.next()
+		this.onChange.next('mark name changed')
 		return this
 	}
 
 	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
 		this.spec.idGenerator = generator
-		this.onChange.next()
+		this.onChange.next('mark idGenerator changed')
 		return this
 	}
 
@@ -82,7 +82,7 @@ export class MarkBuilder {
 			)
 		}
 
-		this.onChange.next()
+		this.onChange.next('mark handlers changed')
 		return this
 	}
 
@@ -347,7 +347,7 @@ export class MarkBuilder {
 			)
 		}
 
-		this.onChange.next()
+		this.onChange.next('mark encoders changed')
 		return this
 	}
 
@@ -356,7 +356,7 @@ export class MarkBuilder {
 			throw new Error('faceting can only be applied to "group" type marks')
 		}
 		this.spec.facet = facet
-		this.onChange.next()
+		this.onChange.next('mark facet changed')
 		return this
 	}
 
@@ -375,10 +375,10 @@ export class MarkBuilder {
 		this._child = new SceneNodeBuilder()
 		this.spec.child = this._child.spec
 		callback(this._child)
-		this._childSubscription = this._child.onChange.subscribe(() =>
-			this.onChange.next(),
+		this._childSubscription = this._child.onChange.subscribe(cause =>
+			this.onChange.next(cause),
 		)
-		this.onChange.next()
+		this.onChange.next('mark child changed')
 		return this
 	}
 

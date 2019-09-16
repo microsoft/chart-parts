@@ -14,14 +14,17 @@ export const UtcScale = createQuantitativeScale<
 	QuantitativeScaleProps<TimeValue, number>,
 	TimeValue,
 	number
->('UtcScale', ({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
-	utc(name)
-		.name(name)
-		.domain(domain)
-		.range(range)
-		.zero(zero)
-		.clamp(clamp)
-		.nice(nice)
-		.reverse(reverse)
-		.padding(padding),
+>(
+	'UtcScale',
+	({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
+		utc(name)
+			.name(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.padding(padding),
+	['name', 'domain', 'range', 'zero', 'clamp', 'nice', 'reverse', 'padding'],
 )

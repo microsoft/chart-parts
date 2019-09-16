@@ -48,4 +48,5 @@ export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
 			.padding(padding)
 			.reverse(reverse)
 	},
+	['stepName', 'name', 'domain', 'range', 'align', 'padding', 'reverse'],
 )

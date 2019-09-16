@@ -14,7 +14,7 @@ interface SubscribableHandle<T> {
 }
 
 export class SceneNodeBuilder {
-	public readonly onChange = new Subject()
+	public readonly onChange = new Subject<any>()
 	public readonly spec = new SceneNodeSpec()
 	private markBuilders: Array<SubscribableHandle<MarkBuilder>> = []
 	private axisBuilders: Array<SubscribableHandle<AxisBuilder>> = []
@@ -38,7 +38,7 @@ export class SceneNodeBuilder {
 			this.spec.addScale(scaleCreator)
 			this.scales.push(scaleCreator)
 		})
-		this.onChange.next()
+		this.onChange.next('node add scales')
 		return this
 	}
 
@@ -50,7 +50,7 @@ export class SceneNodeBuilder {
 			this.spec.removeScale(scale.build)
 			this.scales = this.scales.filter(s => s !== scale.build)
 		}
-		this.onChange.next()
+		this.onChange.next('node remove scale')
 		return this
 	}
 
@@ -59,10 +59,10 @@ export class SceneNodeBuilder {
 			this.spec.addMark(b.spec)
 			this.markBuilders.push({
 				item: b,
-				subscription: b.onChange.subscribe(() => this.onChange.next()),
+				subscription: b.onChange.subscribe(c => this.onChange.next(c)),
 			})
 		})
-		this.onChange.next()
+		this.onChange.next('node add marks')
 		return this
 	}
 
@@ -74,7 +74,7 @@ export class SceneNodeBuilder {
 			}
 			return t.item !== builder
 		})
-		this.onChange.next()
+		this.onChange.next('node remove mark')
 		return this
 	}
 
@@ -83,10 +83,10 @@ export class SceneNodeBuilder {
 			this.spec.addAxis(b.spec)
 			this.axisBuilders.push({
 				item: b,
-				subscription: b.onChange.subscribe(() => this.onChange.next()),
+				subscription: b.onChange.subscribe(c => this.onChange.next(c)),
 			})
 		})
-		this.onChange.next()
+		this.onChange.next('node remove axes')
 		return this
 	}
 
@@ -98,7 +98,7 @@ export class SceneNodeBuilder {
 			}
 			return t.item !== builder
 		})
-		this.onChange.next()
+		this.onChange.next('node remove axis')
 		return this
 	}
 

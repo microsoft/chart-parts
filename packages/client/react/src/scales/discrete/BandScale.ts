@@ -73,4 +73,16 @@ export const BandScale: React.FC<BandScaleProps> = createDomainRangeScale<
 			.round(round)
 			.reverse(reverse)
 	},
+	[
+		'bandWidth',
+		'name',
+		'domain',
+		'range',
+		'align',
+		'padding',
+		'paddingOuter',
+		'paddingInner',
+		'round',
+		'reverse',
+	],
 )

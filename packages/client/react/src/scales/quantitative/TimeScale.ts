@@ -17,13 +17,16 @@ export const TimeScale = createQuantitativeScale<
 	TimeScaleProps,
 	TimeValue,
 	number
->('TimeScale', ({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
-	time(name)
-		.domain(domain)
-		.range(range)
-		.zero(zero)
-		.clamp(clamp)
-		.nice(nice)
-		.reverse(reverse)
-		.padding(padding),
+>(
+	'TimeScale',
+	({ name, domain, range, zero, clamp, nice, reverse, padding }) =>
+		time(name)
+			.domain(domain)
+			.range(range)
+			.zero(zero)
+			.clamp(clamp)
+			.nice(nice)
+			.reverse(reverse)
+			.padding(padding),
+	['name', 'domain', 'range', 'zero', 'clamp', 'nice', 'reverse', 'padding'],
 )

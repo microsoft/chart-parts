@@ -27,4 +27,5 @@ export const QuantileScale: QuantileScaleComponentType = createDomainRangeScale(
 			.domain(domain)
 			.range(range)
 			.reverse(reverse),
+	['name', 'domain', 'range', 'reverse'],
 )

@@ -16,9 +16,12 @@ export interface SequantialScaleProps
 export const SequentialScale = createDomainScale<
 	SequantialScaleProps,
 	QuantitativeSpan
->('SequentialScale', ({ name, domain, clamp, interpolator }) =>
-	sequential(name)
-		.domain(domain)
-		.clamp(clamp)
-		.interpolator(interpolator),
+>(
+	'SequentialScale',
+	({ name, domain, clamp, interpolator }) =>
+		sequential(name)
+			.domain(domain)
+			.clamp(clamp)
+			.interpolator(interpolator),
+	['name', 'domain', 'clamp', 'interpolator'],
 )
