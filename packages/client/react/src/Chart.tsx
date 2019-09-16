@@ -14,6 +14,8 @@ import React, {
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { SceneNodeBuilder, scene } from '@chart-parts/builder'
+import { observeOn } from 'rxjs/operators'
+import { animationFrameScheduler } from 'rxjs'
 import { SceneBuilderContext, ChartRendererContext } from './Context'
 
 export interface ChartPadding {
@@ -96,10 +98,12 @@ function useScene(chartOptions: ChartOptions, data: Record<string, any>): any {
 	}, [chartOptions, data])
 	useEffect(() => {
 		if (frameNode && pipeline) {
-			const subscription = frameNode.onChange.subscribe(cause => {
-				console.log('chart spec change', cause, frameNode.spec)
-				executeRender()
-			})
+			const subscription = frameNode.onChange
+				.pipe(observeOn(animationFrameScheduler))
+				.subscribe(cause => {
+					console.log('chart spec change', cause, frameNode.spec)
+					executeRender()
+				})
 			executeRender()
 			return () => subscription.unsubscribe()
 		}

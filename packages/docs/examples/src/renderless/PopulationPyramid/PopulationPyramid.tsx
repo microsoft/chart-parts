@@ -129,7 +129,11 @@ const ChartScales: React.FC = () => (
 			padding={0.1}
 			round
 		/>
-		<OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
+		<OrdinalScale
+			name="c"
+			domain={useMemo(() => ['1', '2'], [])}
+			range={useMemo(() => ['#1f77b4', '#e377c2'], [])}
+		/>
 	</>
 )
 ChartScales.displayName = 'ChartScales'
