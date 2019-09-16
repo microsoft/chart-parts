@@ -16,7 +16,7 @@ export interface ScatterPlotChartProps {
 }
 
 const NULL_SIZE = 8
-const NULL_GAP = NULL_SIZE + 10
+// const NULL_GAP = NULL_SIZE + 10
 
 /**
  * Based off of https://vega.github.io/vega/examples/scatter-plot-null-values/
