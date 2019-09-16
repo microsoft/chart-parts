@@ -20,7 +20,7 @@ import {
 	text,
 	shape,
 	trail,
-} from '../index'
+} from '../../index'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
 const view = { width: 100, height: 200 }
 

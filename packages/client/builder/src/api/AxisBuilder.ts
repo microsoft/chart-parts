@@ -17,8 +17,15 @@ export class AxisBuilder {
 	public readonly spec: AxisSpec
 	// #endregion
 
-	public constructor(scale: string, orent: AxisOrientation) {
-		this.spec = new AxisSpec(scale, orent)
+	public constructor(scale: string, orient: AxisOrientation) {
+		if (!scale) {
+			throw new Error('scale must be defined')
+		}
+
+		if (!orient) {
+			throw new Error('orient must be defined')
+		}
+		this.spec = new AxisSpec(scale, orient)
 	}
 
 	public domain(value: boolean | undefined): AxisBuilder {

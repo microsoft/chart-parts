@@ -163,7 +163,7 @@ export class AxisSpec implements Axis {
 	}
 
 	public set values(values: TickValue[] | undefined) {
-		this.values = values
+		this._values = values
 	}
 
 	public get bandPosition(): number | undefined {

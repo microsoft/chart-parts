@@ -44,8 +44,10 @@ export class SceneNodeBuilder {
 
 	public removeScale(scale: ScaleCreator | ScaleBuilder): SceneNodeBuilder {
 		if (typeof scale === 'function') {
+			this.spec.removeScale(scale)
 			this.scales = this.scales.filter(s => s !== scale)
 		} else {
+			this.spec.removeScale(scale.build)
 			this.scales = this.scales.filter(s => s !== scale.build)
 		}
 		this.onChange.next()
@@ -60,12 +62,6 @@ export class SceneNodeBuilder {
 				subscription: b.onChange.subscribe(() => this.onChange.next()),
 			})
 		})
-		this.markBuilders.push(
-			...builders.map(b => ({
-				item: b,
-				subscription: b.onChange.subscribe(() => this.onChange.next()),
-			})),
-		)
 		this.onChange.next()
 		return this
 	}
