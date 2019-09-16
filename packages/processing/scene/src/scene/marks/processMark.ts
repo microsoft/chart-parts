@@ -84,10 +84,10 @@ function createItemPerDataRow(frame: SceneFrame, data: any[]) {
  */
 function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 	const { table, facet } = mark
-	const singleton = !table && !facet
 
 	// If the table is unset, render as a singleton of the existing bound data-item
-	if (singleton) {
+	const isSingleton = !table && !facet
+	if (isSingleton) {
 		return [frame.boundDataItem]
 	}
 
@@ -95,7 +95,7 @@ function getBoundData(mark: Mark, frame: SceneFrame): BoundData {
 		throw new Error('table must be set when facet is set')
 	}
 
-	const sourceTable = frame.data[table as string]
+	const sourceTable = frame.data[table]
 	if (facet) {
 		const facetSourceTable = facet.table || table
 		if (!facetSourceTable) {

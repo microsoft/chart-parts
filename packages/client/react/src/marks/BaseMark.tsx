@@ -13,26 +13,19 @@ import {
 import { CommonMarkProps } from '../interfaces'
 import { MarkEncodingKey } from '@chart-parts/interfaces/src'
 
-export function addMarkToScene(
-	api: SceneBuilder,
-	mark: MarkBuilder,
-): SceneBuilder {
-	return api.mark(mark)
-}
-
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,
 ): React.FC<T> {
 	const result: React.FC<T> = props => {
 		const { children, table, name, role } = props
-		const api = useContext(SceneBuilderContext)
+		const scene = useContext(SceneBuilderContext)
 		const mark = useMemo(() => newMark(markType), [markType])
 		useCommonMarkProperties(mark, table, role, name)
 		useMarkEncodings(mark, props)
 		useMarkChannels(mark, props)
 		customHook(mark, props as T)
-		const node = useMarkInScene(api, mark, markType === MarkType.Group)
+		const node = useMarkInScene(scene, mark, markType === MarkType.Group)
 		return (
 			<SceneBuilderContext.Provider value={node}>
 				{children}
@@ -44,24 +37,26 @@ export function createMarkComponent<T extends CommonMarkProps>(
 }
 
 function useMarkInScene(
-	api: SceneBuilder | undefined,
+	scene: SceneBuilder | undefined,
 	mark: MarkBuilder,
 	pushdown: boolean,
 ) {
-	const [node, setNode] = useState<SceneBuilder | undefined>()
+	const [currentScene, setCurrentScene] = useState<SceneBuilder | undefined>()
 	useEffect(() => {
-		if (api && mark) {
+		if (scene && mark) {
 			if (pushdown) {
-				api.mark(mark.child(n => setNode(n)))
+				// push down a new scene
+				scene.mark(mark.child(n => setCurrentScene(n)))
 			} else {
-				setNode(api.mark(mark))
+				// keep the same scene
+				setCurrentScene(scene.mark(mark))
 			}
 			return () => {
-				api.removeMark(mark)
+				scene.removeMark(mark)
 			}
 		}
-	}, [api, mark])
-	return node
+	}, [scene, mark])
+	return currentScene
 }
 
 function useCommonMarkProperties(
