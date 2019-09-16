@@ -4,7 +4,7 @@
  */
 import { ChartOptions, SceneNode, DataFrame } from '@chart-parts/interfaces'
 import { ChartOptionsManager } from '../api/ChartOptionsManager'
-import { SceneFrame } from './SceneFrame'
+import { SceneFrame } from './context/SceneFrame'
 import { GeneratedScene } from './interfaces'
 import { processNode } from './processNode'
 

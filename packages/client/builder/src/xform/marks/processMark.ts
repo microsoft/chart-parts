@@ -5,7 +5,7 @@
 
 import { Mark, Facet, SGItem, SGMark, DataFrame } from '@chart-parts/interfaces'
 import { createMark } from '@chart-parts/scenegraph'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
 export interface FacetedData {

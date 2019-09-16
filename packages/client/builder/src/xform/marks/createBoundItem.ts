@@ -17,7 +17,7 @@ import {
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { createItem } from '@chart-parts/scenegraph'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { processNode } from '../processNode'
 
 /**

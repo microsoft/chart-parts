@@ -4,7 +4,7 @@
  */
 
 import { SGMark, Axis, Scale, TickValue } from '@chart-parts/interfaces'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 
 /**
  * A context object for generating axis components

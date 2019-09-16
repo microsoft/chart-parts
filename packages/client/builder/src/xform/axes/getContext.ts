@@ -4,7 +4,7 @@
  */
 
 import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { AxisSpace } from '../interfaces'
 import { AxisContext } from './interfaces'
 

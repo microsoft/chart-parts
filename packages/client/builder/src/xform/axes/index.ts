@@ -9,15 +9,11 @@ import {
 	AxisOrientation,
 	Axis,
 } from '@chart-parts/interfaces'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { buildAxis } from './buildAxis'
 import { AxisSpace } from '../interfaces'
 import { SGMarkAny } from '../processNode'
-
-/**
- * TODO: Store these defaults in a unified place
- */
-const DEFAULT_AXIS_THICKNESS = 25
+import { DEFAULT_AXIS_THICKNESS } from '../../spec/defaults'
 
 /**
  * Builds axes into a screen frame
@@ -96,7 +92,7 @@ function getAxisSpace(frame: SceneFrame) {
 	}
 
 	frame.node.axes.forEach(a => {
-		const thickness = axisThickness(a)
+		const thickness = axisWidth(a)
 		const fontSize = a.labelFontSize as number
 		const fontPad = fontSize / 2
 		switch (a.orient) {
@@ -106,7 +102,7 @@ function getAxisSpace(frame: SceneFrame) {
 			case AxisOrientation.Right:
 				space.right.hard = Math.max(space.right.hard, thickness)
 				space.top.soft = Math.max(space.top.soft, fontPad)
-				space.bottom.soft = Math.max(space.top.soft, fontPad)
+				space.bottom.soft = Math.max(space.bottom.soft, fontPad)
 				break
 			case AxisOrientation.Bottom:
 				space.bottom.hard = Math.max(space.bottom.hard, thickness)
@@ -114,7 +110,7 @@ function getAxisSpace(frame: SceneFrame) {
 			case AxisOrientation.Left:
 				space.left.hard = Math.max(space.left.hard, thickness)
 				space.top.soft = Math.max(space.top.soft, fontPad)
-				space.bottom.soft = Math.max(space.top.soft, fontPad)
+				space.bottom.soft = Math.max(space.bottom.soft, fontPad)
 				break
 		}
 	})
@@ -126,6 +122,7 @@ function getAxisSpace(frame: SceneFrame) {
 	}
 }
 
-function axisThickness(axis: Axis) {
-	return axis.thickness || DEFAULT_AXIS_THICKNESS
+function axisWidth(axis: Axis) {
+	const thickness = axis.thickness || DEFAULT_AXIS_THICKNESS
+	return thickness
 }

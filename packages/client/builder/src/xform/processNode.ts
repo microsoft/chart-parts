@@ -10,7 +10,7 @@ import {
 	MarkType,
 	ItemSpace,
 } from '@chart-parts/interfaces'
-import { SceneFrame } from './SceneFrame'
+import { SceneFrame } from './context/SceneFrame'
 import { processMark } from './marks/processMark'
 import { buildAxes } from './axes'
 import { buildMark } from '@chart-parts/scenegraph'
