@@ -6,9 +6,10 @@ import {
 	MarkType,
 	AxisOrientation,
 	ChartOptions,
+	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { MarkBuilder } from './MarkBuilder'
-import { SceneBuilder } from './SceneBuilder'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { AxisBuilder } from './AxisBuilder'
 import { ChartOptionsManager } from './ChartOptionsManager'
 
@@ -16,19 +17,19 @@ import { ChartOptionsManager } from './ChartOptionsManager'
  * A factory function for creating a new scene
  */
 export function scene(
-	cb: (child: SceneBuilder) => SceneBuilder,
+	cb: (child: SceneNodeBuilder) => SceneNodeBuilder,
 	opts: ChartOptions,
-): SceneBuilder {
+): SceneNodeBuilder {
 	const optsManager = new ChartOptionsManager(opts)
-	return new SceneBuilder().mark(
+	return new SceneNodeBuilder().mark(
 		group('root')
 			.role('frame')
-			.zIndex(0)
 			.encode({
-				x: optsManager.paddingLeft,
-				y: optsManager.paddingTop,
-				width: optsManager.chartSpace.shape.width,
-				height: optsManager.chartSpace.shape.height,
+				[MarkEncodingKey.zIndex]: 0,
+				[MarkEncodingKey.x]: optsManager.paddingLeft,
+				[MarkEncodingKey.y]: optsManager.paddingTop,
+				[MarkEncodingKey.width]: optsManager.chartSpace.shape.width,
+				[MarkEncodingKey.height]: optsManager.chartSpace.shape.height,
 			})
 			.child(cb),
 	)

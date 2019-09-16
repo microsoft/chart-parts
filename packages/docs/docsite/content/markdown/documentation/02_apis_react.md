@@ -9,7 +9,7 @@ order: 2
 **Package**: [_@chart-parts/react_](/apidocs/client/react/index.html)
 
 The React API contains a set of React Component classes for describing charting scene specifications.
-These components use the Renderless Component pattern to interact with the SceneBuilder API.
+These components use the Renderless Component pattern to interact with the SceneNodeBuilder API.
 
 ## Components
 

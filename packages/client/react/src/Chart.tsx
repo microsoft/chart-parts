@@ -6,7 +6,7 @@
 import React, { memo, useContext, useState, useEffect, useMemo } from 'react'
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
-import { SceneBuilder, scene } from '@chart-parts/builder'
+import { SceneNodeBuilder, scene } from '@chart-parts/builder'
 import { SceneBuilderContext, ChartRendererContext } from './Context'
 
 export interface ChartPadding {
@@ -42,11 +42,11 @@ export const Chart: React.FC<ChartProps> = memo(
 			title,
 			description,
 		)
-		const [sceneBuilder, sceneNode] = useScene(chartOptions)
+		const [SceneNodeBuilder, sceneNode] = useScene(chartOptions)
 		const rendered = useSceneRendering(sceneNode, chartOptions, data)
 		return (
 			<>
-				<SceneBuilderContext.Provider value={sceneBuilder}>
+				<SceneBuilderContext.Provider value={SceneNodeBuilder}>
 					{children}
 				</SceneBuilderContext.Provider>
 				{rendered}
@@ -81,8 +81,8 @@ function useChartOptions(
 
 function useScene(
 	chartOptions: ChartOptions,
-): [SceneBuilder | undefined, SceneNode | undefined] {
-	const [frameNode, sceneBuilder] = useChartScenes(chartOptions)
+): [SceneNodeBuilder | undefined, SceneNode | undefined] {
+	const [frameNode, SceneNodeBuilder] = useChartScenes(chartOptions)
 	const [builtScene, setBuiltScene] = useState<SceneNode | undefined>()
 	useEffect(() => {
 		if (frameNode) {
@@ -95,15 +95,15 @@ function useScene(
 		}
 	}, [frameNode])
 
-	return [sceneBuilder, builtScene]
+	return [SceneNodeBuilder, builtScene]
 }
 
 function useChartScenes(
 	chartOptions: ChartOptions,
-): [SceneBuilder, SceneBuilder] {
-	const [sceneBuilder, setSceneBuilder] = useState<SceneBuilder | undefined>(
-		undefined,
-	)
+): [SceneNodeBuilder, SceneNodeBuilder] {
+	const [SceneNodeBuilder, setSceneBuilder] = useState<
+		SceneNodeBuilder | undefined
+	>(undefined)
 	const frameNode = useMemo(
 		() =>
 			scene(node => {
@@ -113,7 +113,7 @@ function useChartScenes(
 		[chartOptions],
 	)
 
-	return [frameNode, sceneBuilder!]
+	return [frameNode, SceneNodeBuilder!]
 }
 
 function useSceneRendering(

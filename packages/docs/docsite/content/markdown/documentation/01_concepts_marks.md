@@ -33,10 +33,10 @@ In our system, when we bind these parameters to our data, this is called an _enc
 />
 ```
 
-#### SceneBuilder API
+#### SceneNodeBuilder API
 
 ```js
-// SceneBuilder API
+// SceneNodeBuilder API
 rect()
   .table('my-data')
   .encode({

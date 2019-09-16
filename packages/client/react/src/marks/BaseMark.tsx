@@ -8,7 +8,7 @@ import { MarkType } from '@chart-parts/interfaces'
 import {
 	mark as newMark,
 	MarkBuilder,
-	SceneBuilder,
+	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { CommonMarkProps } from '../interfaces'
 import { MarkEncodingKey } from '@chart-parts/interfaces/src'
@@ -37,11 +37,13 @@ export function createMarkComponent<T extends CommonMarkProps>(
 }
 
 function useMarkInScene(
-	scene: SceneBuilder | undefined,
+	scene: SceneNodeBuilder | undefined,
 	mark: MarkBuilder,
 	pushdown: boolean,
 ) {
-	const [currentScene, setCurrentScene] = useState<SceneBuilder | undefined>()
+	const [currentScene, setCurrentScene] = useState<
+		SceneNodeBuilder | undefined
+	>()
 	useEffect(() => {
 		if (scene && mark) {
 			if (pushdown) {

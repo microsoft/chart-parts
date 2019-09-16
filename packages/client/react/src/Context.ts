@@ -4,11 +4,11 @@
  */
 
 import React from 'react'
-import { SceneBuilder } from '@chart-parts/builder'
+import { SceneNodeBuilder } from '@chart-parts/builder'
 import { Renderer, VSvgNode } from '@chart-parts/interfaces'
 
 export const SceneBuilderContext = React.createContext<
-	SceneBuilder | undefined
+	SceneNodeBuilder | undefined
 >(undefined)
 
 export const ChartRendererContext = React.createContext<

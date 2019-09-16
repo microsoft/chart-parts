@@ -27,54 +27,40 @@ import {
 	ItemIdGenerator,
 	Metadata,
 } from '@chart-parts/interfaces'
-import { SceneBuilder } from './SceneBuilder'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { Subject, Subscription } from 'rxjs'
+import { MarkSpec } from '../spec/MarkSpec'
 
 export class MarkBuilder {
 	public readonly onChange = new Subject()
-	private childNode?: SceneBuilder
-	private childNodeSubscription?: Subscription
-	private tableValue?: string
-	private roleValue?: string
-	private nameValue?: string
-	private facetValue?: Facet
-	private channelsValue: Channels = {}
-	private encodingsValue: MarkEncodings = {}
-	private itemIdGenerator?: ItemIdGenerator
+	public readonly spec: MarkSpec
+	private _child?: SceneNodeBuilder
+	private _childSubscription?: Subscription
 
-	public constructor(public readonly type: MarkType) {}
+	public constructor(public readonly type: MarkType) {
+		this.spec = new MarkSpec(type)
+	}
 
 	public table(table: string | undefined): MarkBuilder {
-		this.tableValue = table
+		this.spec.table = table
 		this.onChange.next()
 		return this
 	}
 
 	public role(role: string | undefined): MarkBuilder {
-		this.roleValue = role
+		this.spec.role = role
 		this.onChange.next()
 		return this
 	}
 
 	public name(name: string | undefined): MarkBuilder {
-		this.nameValue = name
+		this.spec.name = name
 		this.onChange.next()
 		return this
 	}
 
 	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
-		this.itemIdGenerator = generator
-		this.onChange.next()
-		return this
-	}
-
-	public zIndex(zIndex: number | undefined): MarkBuilder {
-		if (zIndex !== undefined) {
-			this.encode(MarkEncodingKey.zIndex, () => zIndex)
-		} else {
-			delete this.encodingsValue.zIndex
-		}
-
+		this.spec.idGenerator = generator
 		this.onChange.next()
 		return this
 	}
@@ -89,10 +75,10 @@ export class MarkBuilder {
 		handler?: ChannelHandler<any>,
 	): MarkBuilder {
 		if (typeof name === 'string') {
-			this.applyHandler(name, handler)
+			this.spec.applyHandler(name, handler)
 		} else {
 			Object.entries(name as Channels).forEach(([nameVal, handlerVal]) =>
-				this.applyHandler(nameVal, handlerVal),
+				this.spec.applyHandler(nameVal, handlerVal),
 			)
 		}
 
@@ -351,12 +337,12 @@ export class MarkBuilder {
 	): MarkBuilder {
 		if (typeof first === 'string') {
 			// Handle encode(key, encoding) invocations
-			this.applyEncoding(first as string, encoding)
+			this.spec.applyEncoding(first as string, encoding)
 		} else {
 			// Handle encode(map) invocations
 			Object.entries(first as MarkEncodings).forEach(
 				([name, entryEncoding]) => {
-					this.applyEncoding(name, entryEncoding)
+					this.spec.applyEncoding(name, entryEncoding)
 				},
 			)
 		}
@@ -369,7 +355,7 @@ export class MarkBuilder {
 		if (facet !== undefined && this.type !== MarkType.Group) {
 			throw new Error('faceting can only be applied to "group" type marks')
 		}
-		this.facetValue = facet
+		this.spec.facet = facet
 		this.onChange.next()
 		return this
 	}
@@ -377,18 +363,19 @@ export class MarkBuilder {
 	/**
 	 * Pushes a new scene node onto the graph
 	 */
-	public child(callback: (b: SceneBuilder) => void): MarkBuilder {
-		if (this.childNode) {
+	public child(callback: (b: SceneNodeBuilder) => void): MarkBuilder {
+		if (this.spec.child) {
 			console.warn(`MarkBuilder may only have one child at a time`)
 		}
 		// in case this was set, clear out any existing subscriptinos
-		if (this.childNodeSubscription) {
-			this.childNodeSubscription.unsubscribe()
+		if (this._childSubscription) {
+			this._childSubscription.unsubscribe()
 		}
 
-		this.childNode = new SceneBuilder()
-		callback(this.childNode)
-		this.childNodeSubscription = this.childNode.onChange.subscribe(() =>
+		this._child = new SceneNodeBuilder()
+		this.spec.child = this._child.spec
+		callback(this._child)
+		this._childSubscription = this._child.onChange.subscribe(() =>
 			this.onChange.next(),
 		)
 		this.onChange.next()
@@ -396,48 +383,9 @@ export class MarkBuilder {
 	}
 
 	public build(): Mark {
-		const {
-			type,
-			tableValue: table,
-			channelsValue: channels,
-			encodingsValue: encodings,
-			roleValue: role,
-			nameValue: name,
-			facetValue: facet,
-			childNode,
-			itemIdGenerator: idGenerator,
-		} = this
-
-		if (!type) {
+		if (!this.spec.type) {
 			throw new Error('mark type must be set')
 		}
-
-		return {
-			table,
-			type,
-			channels,
-			encodings,
-			role,
-			name,
-			facet,
-			idGenerator,
-			child: childNode && childNode.build(),
-		}
-	}
-
-	private applyHandler(key: string, handler: ChannelHandler<any> | undefined) {
-		if (handler != null) {
-			this.channelsValue[key] = handler
-		} else {
-			delete this.channelsValue[key]
-		}
-	}
-
-	private applyEncoding<T>(key: string, encoding: undefined | MarkEncoding<T>) {
-		if (encoding != null) {
-			this.encodingsValue[key] = encoding
-		} else {
-			delete this.encodingsValue[key]
-		}
+		return this.spec
 	}
 }

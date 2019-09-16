@@ -8,6 +8,6 @@ order: 2
 
 This section describes the client APIs used to describe charting specifications and assemble charting pipelines.
 
-* [SceneBuilder API](/documentation/apis/builder)
-* [React API](/documentation/apis/react)
-* [Pipeline API](/documentation/apis/builder)
+- [SceneNodeBuilder API](/documentation/apis/builder)
+- [React API](/documentation/apis/react)
+- [Pipeline API](/documentation/apis/builder)
