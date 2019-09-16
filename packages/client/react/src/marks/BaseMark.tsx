@@ -155,7 +155,7 @@ function useMarkEncodings(mark: MarkBuilder, props: CommonMarkProps) {
 		mark.encode(MarkEncodingKey.zIndex, props.zIndex)
 	}, [mark, props.zIndex])
 	useEffect(() => {
-		mark.metadata(props.metadata)
+		mark.encode(MarkEncodingKey.metadata, props.metadata)
 	}, [mark, props.metadata])
 	useEffect(() => {
 		mark.encode(MarkEncodingKey.ariaTitle, props.ariaTitle)

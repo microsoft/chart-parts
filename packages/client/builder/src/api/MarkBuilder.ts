@@ -38,10 +38,9 @@ export class MarkBuilder {
 	private roleValue?: string
 	private nameValue?: string
 	private facetValue?: Facet
-	private itemIdGenerator?: ItemIdGenerator
 	private channelsValue: Channels = {}
 	private encodingsValue: MarkEncodings = {}
-	private metadataValue?: MarkEncoding<Metadata>
+	private itemIdGenerator?: ItemIdGenerator
 
 	public constructor(public readonly type: MarkType) {}
 
@@ -65,12 +64,6 @@ export class MarkBuilder {
 
 	public idGenerator(generator: ItemIdGenerator): MarkBuilder {
 		this.itemIdGenerator = generator
-		this.onChange.next()
-		return this
-	}
-
-	public metadata(value: MarkEncoding<Metadata> | undefined) {
-		this.metadataValue = value
 		this.onChange.next()
 		return this
 	}
@@ -342,6 +335,10 @@ export class MarkBuilder {
 		key: MarkEncodingKey.tabIndex,
 		encoding: undefined | MarkEncoding<number>,
 	): MarkBuilder
+	public encode(
+		key: MarkEncodingKey.metadata,
+		encoding: undefined | MarkEncoding<Metadata>,
+	): MarkBuilder
 	public encode(key: MarkEncodingKey, encoding: MarkEncoding<any>): MarkBuilder
 	public encode(encodings: MarkEncodings): MarkBuilder
 
@@ -409,7 +406,6 @@ export class MarkBuilder {
 			facetValue: facet,
 			childNode,
 			itemIdGenerator: idGenerator,
-			metadataValue: metadata,
 		} = this
 
 		if (!type) {
@@ -425,7 +421,6 @@ export class MarkBuilder {
 			name,
 			facet,
 			idGenerator,
-			metadata,
 			child: childNode && childNode.build(),
 		}
 	}
