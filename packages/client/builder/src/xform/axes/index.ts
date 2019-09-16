@@ -10,8 +10,8 @@ import {
 	Axis,
 } from '@chart-parts/interfaces'
 import { SceneFrame } from '../SceneFrame'
-import { buildAxis } from '../axes/buildAxis'
-import { AxisSpace } from '../../interfaces'
+import { buildAxis } from './buildAxis'
+import { AxisSpace } from '../interfaces'
 import { SGMarkAny } from '../processNode'
 
 /**

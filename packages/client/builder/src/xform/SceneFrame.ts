@@ -189,13 +189,11 @@ export class SceneFrame {
 	private registerChannels(channels: Channels): ChannelNames {
 		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
 		// map the handler function in our scene result
-		return Object.entries(channels).reduce(
-			(prev, [eventName, handler]) => {
-				prev[eventName] = this.registerHandler(handler)
-				return prev
-			},
-			({} as any) as ChannelNames,
-		)
+		const result = {} as ChannelNames
+		Object.keys(channels).forEach(eventName => {
+			result[eventName] = this.registerHandler(channels[eventName])
+		})
+		return result
 	}
 
 	private registerHandler(handler: ChannelHandler<any>) {
