@@ -3,10 +3,19 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useContext, useState, useEffect, useMemo } from 'react'
+import React, {
+	memo,
+	useContext,
+	useState,
+	useEffect,
+	useMemo,
+	useCallback,
+} from 'react'
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
-import { SceneBuilder, scene } from '@chart-parts/builder'
+import { SceneNodeBuilder, scene } from '@chart-parts/builder'
+import { observeOn } from 'rxjs/operators'
+import { animationFrameScheduler } from 'rxjs'
 import { SceneBuilderContext, ChartRendererContext } from './Context'
 
 export interface ChartPadding {
@@ -42,11 +51,10 @@ export const Chart: React.FC<ChartProps> = memo(
 			title,
 			description,
 		)
-		const [sceneBuilder, sceneNode] = useScene(chartOptions)
-		const rendered = useSceneRendering(sceneNode, chartOptions, data)
+		const [rendered, builder] = useScene(chartOptions, data)
 		return (
 			<>
-				<SceneBuilderContext.Provider value={sceneBuilder}>
+				<SceneBuilderContext.Provider value={builder}>
 					{children}
 				</SceneBuilderContext.Provider>
 				{rendered}
@@ -79,57 +87,46 @@ function useChartOptions(
 	}, [width, height, padding])
 }
 
-function useScene(
-	chartOptions: ChartOptions,
-): [SceneBuilder | undefined, SceneNode | undefined] {
-	const [frameNode, sceneBuilder] = useChartScenes(chartOptions)
-	const [builtScene, setBuiltScene] = useState<SceneNode | undefined>()
+function useScene(chartOptions: ChartOptions, data: Record<string, any>): any {
+	const pipeline = useOrchestrator()
+	const [frameNode, builder] = useChartScenes(chartOptions)
+	const [rendered, setRendered] = useState<any>(null)
+	const executeRender = useCallback(() => {
+		const renderOutput =
+			pipeline && pipeline.renderScene(frameNode.spec, chartOptions, data)
+		setRendered(renderOutput)
+	}, [chartOptions, data])
 	useEffect(() => {
-		if (frameNode) {
-			setBuiltScene(frameNode.build())
-			const subscription = frameNode.onChange.subscribe(() => {
-				const newScene = frameNode.build()
-				setBuiltScene(newScene)
-			})
+		if (frameNode && pipeline) {
+			const subscription = frameNode.onChange
+				.pipe(observeOn(animationFrameScheduler))
+				// Note: you can log out the first argument here to view the
+				// cause of the change.
+				.subscribe(() => executeRender())
+			executeRender()
 			return () => subscription.unsubscribe()
 		}
-	}, [frameNode])
+	}, [executeRender, frameNode, pipeline, setRendered])
 
-	return [sceneBuilder, builtScene]
+	return [rendered, builder]
 }
 
 function useChartScenes(
 	chartOptions: ChartOptions,
-): [SceneBuilder, SceneBuilder] {
-	const [sceneBuilder, setSceneBuilder] = useState<SceneBuilder | undefined>(
+): [SceneNodeBuilder, SceneNodeBuilder | undefined] {
+	const [builder, setBuilder] = useState<SceneNodeBuilder | undefined>(
 		undefined,
 	)
 	const frameNode = useMemo(
 		() =>
 			scene(node => {
-				setSceneBuilder(node)
+				setBuilder(node)
 				return node
 			}, chartOptions),
 		[chartOptions],
 	)
 
-	return [frameNode, sceneBuilder!]
-}
-
-function useSceneRendering(
-	sceneNode: SceneNode | undefined,
-	options: ChartOptions,
-	data: { [key: string]: any[] },
-): any {
-	const [rendered, setRendered] = useState<any>(null)
-	const pipeline = useOrchestrator()
-	useEffect(() => {
-		if (sceneNode && pipeline) {
-			const renderOutput = pipeline.renderScene(sceneNode, options, data)
-			setRendered(renderOutput)
-		}
-	}, [pipeline, sceneNode])
-	return rendered
+	return [frameNode, builder]
 }
 
 function useOrchestrator() {

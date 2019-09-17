@@ -96,6 +96,9 @@ export enum MarkEncodingKey {
 	ariaTitle = 'aria-title',
 	ariaDescription = 'aria-description',
 	tabIndex = 'tab-index',
+
+	// Metadata
+	metadata = 'metadata',
 }
 
 /**
@@ -169,11 +172,6 @@ export interface Mark {
 	 * The child scene of this mark
 	 */
 	child?: SceneNode
-
-	/**
-	 * Any metadata to attach to mark items
-	 */
-	metadata?: MarkEncoding<Metadata>
 }
 
 /**
@@ -326,6 +324,8 @@ export interface MarkEncodings {
 	[MarkEncodingKey.radius]?: MarkEncoding<number>
 	[MarkEncodingKey.text]?: MarkEncoding<string>
 	[MarkEncodingKey.theta]?: MarkEncoding<number>
+
+	[MarkEncodingKey.metadata]?: MarkEncoding<Metadata>
 
 	// catch all, and to allow indexing
 	[key: string]: MarkEncoding<any> | undefined

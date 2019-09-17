@@ -20,8 +20,8 @@ import {
 	text,
 	shape,
 	trail,
-} from '../index'
-import { SceneBuilder } from '../SceneBuilder'
+} from '../../index'
+import { SceneNodeBuilder } from '../SceneNodeBuilder'
 const view = { width: 100, height: 200 }
 
 describe('The builder module', () => {
@@ -47,7 +47,7 @@ describe('The builder module', () => {
 
 	it('can build a basic scene specification', () => {
 		const sc = scene(
-			(snb: SceneBuilder) => snb.mark(rect().name('test_rect')),
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
 			view,
 		)
 		const builtScene = sc.build()
@@ -67,7 +67,7 @@ describe('The builder module', () => {
 
 	it('encodes the outer rect appropriately', () => {
 		const builtScene = scene(
-			(snb: SceneBuilder) => snb.mark(rect().name('test_rect')),
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('test_rect')),
 			view,
 		).build()
 
@@ -79,7 +79,7 @@ describe('The builder module', () => {
 	it('sets default dimensions on the outer rect', () => {
 		// default view bounds
 		const builtScene = scene(
-			(snb: SceneBuilder) => snb.mark(rect().name('`test_rect')),
+			(snb: SceneNodeBuilder) => snb.mark(rect().name('`test_rect')),
 			{ width: 250, height: 250 },
 		).build()
 

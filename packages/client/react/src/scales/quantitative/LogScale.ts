@@ -31,4 +31,15 @@ export const LogScale = createQuantitativeScale<
 			.reverse(reverse)
 			.base(base)
 			.padding(padding),
+	[
+		'name',
+		'domain',
+		'range',
+		'zero',
+		'clamp',
+		'nice',
+		'reverse',
+		'base',
+		'padding',
+	],
 )

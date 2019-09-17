@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { ChartOptions, SceneNode, DataFrame } from '@chart-parts/interfaces'
-import { ChartOptionsManager } from '@chart-parts/builder'
-import { SceneFrame } from './SceneFrame'
-import { GeneratedScene } from '../interfaces'
+import { ChartOptionsManager } from '../api/ChartOptionsManager'
+import { SceneFrame } from './context/SceneFrame'
+import { GeneratedScene } from './interfaces'
 import { processNode } from './processNode'
 
 /**

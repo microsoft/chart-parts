@@ -14,9 +14,10 @@ import {
 	EncodingContext,
 	ItemIdGenerator,
 	Metadata,
+	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { createItem } from '@chart-parts/scenegraph'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { processNode } from '../processNode'
 
 /**
@@ -84,11 +85,12 @@ function createItemFromMark(
 	const context = getEncodingContext(id, row, index, frame)
 
 	let metadata: Metadata = {} as any
-	if (mark.metadata) {
+	const metadataEncoding = mark.encodings[MarkEncodingKey.metadata]
+	if (metadataEncoding) {
 		metadata =
-			typeof mark.metadata === 'function'
-				? mark.metadata(context)
-				: mark.metadata
+			typeof metadataEncoding === 'function'
+				? metadataEncoding(context)
+				: metadataEncoding
 	}
 
 	const props = {

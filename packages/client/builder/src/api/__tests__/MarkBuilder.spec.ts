@@ -31,16 +31,17 @@ describe('The Mark Builder', () => {
 
 	it('can have a z-index set', () => {
 		const builder = new MarkBuilder(MarkType.Rect)
-		const updatedBuilder = builder.zIndex(3)
+		const updatedBuilder = builder.encode(MarkEncodingKey.zIndex, 3)
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
-		const zIndexEncoding = built.encodings.zIndex as any
-		expect(zIndexEncoding(undefined as any, undefined as any)).toEqual(3)
+		expect(built.encodings.zIndex).toEqual(3)
 	})
 
 	it('can unset the z-index', () => {
-		const builder = new MarkBuilder(MarkType.Rect).zIndex(3).zIndex(undefined)
+		const builder = new MarkBuilder(MarkType.Rect)
+			.encode(MarkEncodingKey.zIndex, 3)
+			.encode(MarkEncodingKey.zIndex, undefined)
 
 		const built = builder.build()
 		const zIndexEncoding = built.encodings.zIndex

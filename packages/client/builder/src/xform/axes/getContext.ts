@@ -4,8 +4,8 @@
  */
 
 import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
-import { SceneFrame } from '../SceneFrame'
-import { AxisSpace } from '../../interfaces'
+import { SceneFrame } from '../context/SceneFrame'
+import { AxisSpace } from '../interfaces'
 import { AxisContext } from './interfaces'
 
 export function getContext(
@@ -25,7 +25,7 @@ export function getContext(
 	const scale = axisFrame.scales[scaleName]
 	const range: [number, number] = ((scale.range && scale.range()) as [
 		number,
-		number
+		number,
 	]) || [0, 0]
 
 	const horizontal =

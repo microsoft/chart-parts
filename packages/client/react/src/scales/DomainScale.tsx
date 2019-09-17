@@ -28,13 +28,17 @@ export interface DomainScaleProps<Domain> {
 export function createDomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain
->(displayName: string, createScale: (props: Props) => any): React.FC<Props> {
-	const result = memo(props => {
+>(
+	displayName: string,
+	createScale: (props: Props) => any,
+	propsToCheck: string[] = [],
+): React.FC<Props> {
+	const result: React.FC<Props> = memo(props => {
 		const api = useContext(SceneBuilderContext)
 		const scale = useMemo(() => api && createScale(props as Props), [
 			api,
 			createScale,
-			props,
+			...propsToCheck.map(p => (props as any)[p]),
 		])
 		useEffect(() => {
 			if (api && scale) {

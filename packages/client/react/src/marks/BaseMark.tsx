@@ -8,17 +8,10 @@ import { MarkType } from '@chart-parts/interfaces'
 import {
 	mark as newMark,
 	MarkBuilder,
-	SceneBuilder,
+	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { CommonMarkProps } from '../interfaces'
 import { MarkEncodingKey } from '@chart-parts/interfaces/src'
-
-export function addMarkToScene(
-	api: SceneBuilder,
-	mark: MarkBuilder,
-): SceneBuilder {
-	return api.mark(mark)
-}
 
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
@@ -26,13 +19,13 @@ export function createMarkComponent<T extends CommonMarkProps>(
 ): React.FC<T> {
 	const result: React.FC<T> = props => {
 		const { children, table, name, role } = props
-		const api = useContext(SceneBuilderContext)
+		const scene = useContext(SceneBuilderContext)
 		const mark = useMemo(() => newMark(markType), [markType])
 		useCommonMarkProperties(mark, table, role, name)
 		useMarkEncodings(mark, props)
 		useMarkChannels(mark, props)
 		customHook(mark, props as T)
-		const node = useMarkInScene(api, mark, markType === MarkType.Group)
+		const node = useMarkInScene(scene, mark, markType === MarkType.Group)
 		return (
 			<SceneBuilderContext.Provider value={node}>
 				{children}
@@ -44,24 +37,28 @@ export function createMarkComponent<T extends CommonMarkProps>(
 }
 
 function useMarkInScene(
-	api: SceneBuilder | undefined,
+	scene: SceneNodeBuilder | undefined,
 	mark: MarkBuilder,
 	pushdown: boolean,
 ) {
-	const [node, setNode] = useState<SceneBuilder | undefined>()
+	const [currentScene, setCurrentScene] = useState<
+		SceneNodeBuilder | undefined
+	>()
 	useEffect(() => {
-		if (api && mark) {
+		if (scene && mark) {
 			if (pushdown) {
-				api.mark(mark.child(n => setNode(n)))
+				// push down a new scene
+				scene.mark(mark.child(n => setCurrentScene(n)))
 			} else {
-				setNode(api.mark(mark))
+				// keep the same scene
+				setCurrentScene(scene.mark(mark))
 			}
 			return () => {
-				api.removeMark(mark)
+				scene.removeMark(mark)
 			}
 		}
-	}, [api, mark])
-	return node
+	}, [scene, mark])
+	return currentScene
 }
 
 function useCommonMarkProperties(
@@ -160,7 +157,7 @@ function useMarkEncodings(mark: MarkBuilder, props: CommonMarkProps) {
 		mark.encode(MarkEncodingKey.zIndex, props.zIndex)
 	}, [mark, props.zIndex])
 	useEffect(() => {
-		mark.metadata(props.metadata)
+		mark.encode(MarkEncodingKey.metadata, props.metadata)
 	}, [mark, props.metadata])
 	useEffect(() => {
 		mark.encode(MarkEncodingKey.ariaTitle, props.ariaTitle)

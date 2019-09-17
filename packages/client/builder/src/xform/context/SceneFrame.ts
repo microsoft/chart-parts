@@ -167,39 +167,31 @@ export class SceneFrame {
 		viewTL: [number, number],
 		viewBR: [number, number],
 	) {
-		const data = this.data
-		let scales = { ...this.scales }
+		const scales = { ...this.scales }
+		const ctx: ScaleCreationContext = {
+			view: this.view,
+			data: this.data,
+			viewBounds: { x: [viewTL[1], viewBR[1]], y: [viewBR[0], viewTL[0]] },
+			scales,
+		}
 
-		const xBounds: [number, number] = [viewTL[1], viewBR[1]]
-		const yBounds: [number, number] = [viewBR[0], viewTL[0]]
-
-		node.scales.forEach(creator => {
-			const args: ScaleCreationContext = {
-				view: this.view,
-				viewBounds: { x: xBounds, y: yBounds },
-				data,
-				scales,
-			}
-			const newScales = creator(args)
-			scales = { ...scales, ...newScales }
-		})
+		// assign new scales into the scales obj
+		node.scales.forEach(s => Object.assign(scales, s(ctx)))
 		return scales
 	}
 
 	private registerChannels(channels: Channels): ChannelNames {
 		// For each channel the client specifies, encode the name-mapping in the Scenegraph and
 		// map the handler function in our scene result
-		return Object.entries(channels).reduce(
-			(prev, [eventName, handler]) => {
-				prev[eventName] = this.registerHandler(handler)
-				return prev
-			},
-			({} as any) as ChannelNames,
-		)
+		const result = {} as ChannelNames
+		Object.keys(channels).forEach(eventName => {
+			result[eventName] = this.registerHandler(eventName, channels[eventName])
+		})
+		return result
 	}
 
-	private registerHandler(handler: ChannelHandler<any>) {
-		const id = `evt${this.channelId++}`
+	private registerHandler(eventName: string, handler: ChannelHandler<any>) {
+		const id = `evt_${this.channelId++}`
 		this.channelHandlers[id] = handler
 		return id
 	}

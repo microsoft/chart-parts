@@ -53,11 +53,15 @@ export function createQuantitativeScale<
 	Props extends QuantitativeScaleProps<DomainValue, RangeValue>,
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
->(displayName: string, createScale: (props: Props) => any) {
+>(
+	displayName: string,
+	createScale: (props: Props) => any,
+	propsToCheck: string[] = [],
+) {
 	return createDomainRangeScale<
 		Props,
 		[DomainValue, DomainValue],
 		[RangeValue, RangeValue],
 		Dimension
-	>(displayName, createScale)
+	>(displayName, createScale, propsToCheck)
 }

@@ -10,10 +10,10 @@ import {
 	ViewSize,
 } from '@chart-parts/interfaces'
 import { buildMark } from '@chart-parts/scenegraph'
-import { SceneFrame } from '../SceneFrame'
+import { SceneFrame } from '../context/SceneFrame'
 import { components } from './components'
 import { SGMarkAny } from '../processNode'
-import { AxisSpace } from '../../interfaces'
+import { AxisSpace } from '../interfaces'
 import { getContext } from './getContext'
 import { AxisContext } from './interfaces'
 

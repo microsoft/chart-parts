@@ -8,7 +8,7 @@
  */
 declare const require: any
 
-import React, { memo, useState, useCallback } from 'react'
+import React, { memo, useState, useCallback, useMemo } from 'react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
 	Axis,
@@ -39,6 +39,10 @@ export interface PopulationPyramidState {
 	year: number
 }
 
+const styles: Record<string, React.CSSProperties> = {
+	yearPickerContainer: { margin: 10, display: 'flex', alignItems: 'center' },
+}
+
 export const PopulationPyramid: React.FC = memo(() => {
 	const [year, setYear] = useState(2000)
 	const handleYearChanged = useCallback(
@@ -49,20 +53,25 @@ export const PopulationPyramid: React.FC = memo(() => {
 		[setYear],
 	)
 
-	const ds = dataset()
-		.addTable('population', population)
-		.addDerivedTable(
-			'popYear',
-			'population',
-			filter((d: any) => d.year === year),
-		)
-		.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
-		.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
-		.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
+	const tables = useMemo(
+		() =>
+			dataset()
+				.addTable('population', population)
+				.addDerivedTable(
+					'popYear',
+					'population',
+					filter((d: any) => d.year === year),
+				)
+				.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
+				.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
+				.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
+				.tables,
+		[year],
+	)
 
 	return (
 		<div>
-			<PyramidChart data={ds.tables} />
+			<PyramidChart data={tables} />
 			<YearPicker year={year} onChange={handleYearChanged} />
 		</div>
 	)
@@ -74,7 +83,7 @@ interface YearPickerProps {
 	onChange: (arg: React.ChangeEvent<HTMLInputElement>) => void
 }
 const YearPicker: React.FC<YearPickerProps> = ({ year, onChange }) => (
-	<div style={{ margin: 10, display: 'flex', alignItems: 'center' }}>
+	<div style={styles.yearPickerContainer}>
 		<input
 			type="range"
 			min="1850"
@@ -111,15 +120,20 @@ const ChartScales: React.FC = () => (
 		<BandScale
 			name="y"
 			bandWidth="yband"
-			range={(arg: ScaleCreationContext) => [
-				arg.view.height - AXIS_THICKNESS,
-				0,
-			]}
+			range={useCallback(
+				(arg: ScaleCreationContext) =>
+					[arg.view.height - AXIS_THICKNESS, 0] as [number, number],
+				[],
+			)}
 			domain="ageGroups.age"
 			padding={0.1}
 			round
 		/>
-		<OrdinalScale name="c" domain={['1', '2']} range={['#1f77b4', '#e377c2']} />
+		<OrdinalScale
+			name="c"
+			domain={useMemo(() => ['1', '2'], [])}
+			range={useMemo(() => ['#1f77b4', '#e377c2'], [])}
+		/>
 	</>
 )
 ChartScales.displayName = 'ChartScales'
@@ -128,8 +142,8 @@ const AgeLabels: React.FC = memo(() => (
 	<Text
 		table="ageGroups"
 		x={chartSegmentWidth + textLineWidth / 2}
-		y={({ d, y, yband }) => y(d.age) + yband() / 2}
-		text={({ d }) => d.age}
+		y={useCallback(({ d, y, yband }) => y(d.age) + yband() / 2, [])}
+		text={useCallback(({ d }) => d.age, [])}
 		baseline={VerticalTextAlignment.Middle}
 		align={HorizontalAlignment.Center}
 		fill="#000"
@@ -164,7 +178,7 @@ const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = memo(
 	({ table, xRange, xStart }) => (
 		<Group
 			x={xStart}
-			height={({ view }) => view.height}
+			height={useCallback(({ view }) => view.height, [])}
 			width={chartSegmentWidth}
 		>
 			<LinearScale
@@ -194,12 +208,12 @@ const GenderPerYearRect: React.FC<GenderPerYearRectProps> = memo(
 	({ table }) => (
 		<Rect
 			table={table}
-			x={({ d, x }) => x(d.people)}
-			x2={({ x }) => x(0)}
-			y={({ d, y }) => y(d.age)}
-			height={({ yband }) => yband()}
+			x={useCallback(({ d, x }) => x(d.people), [])}
+			x2={useCallback(({ x }) => x(0), [])}
+			y={useCallback(({ d, y }) => y(d.age), [])}
+			height={useCallback(({ yband }) => yband(), [])}
 			fillOpacity={0.6}
-			fill={({ d, c }) => c(d.sex)}
+			fill={useCallback(({ d, c }) => c(d.sex), [])}
 		/>
 	),
 )

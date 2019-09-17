@@ -21,8 +21,8 @@ export function getTickValues(context: AxisContext): PositionedTickValue[] {
 	return scale.ticks
 		? getTicksFromScaleTicks(context)
 		: scale.domain
-			? getTicksFromScaleDomain(context, scale)
-			: []
+		? getTicksFromScaleDomain(context, scale)
+		: []
 }
 
 function getDomainScaleValue(t: any, scale: Scale<any, any>, axis: Axis) {

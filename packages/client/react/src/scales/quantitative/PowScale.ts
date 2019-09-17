@@ -31,4 +31,15 @@ export const PowScale = createQuantitativeScale<
 			.reverse(reverse)
 			.exponent(exponent)
 			.padding(padding),
+	[
+		'name',
+		'domain',
+		'range',
+		'zero',
+		'clamp',
+		'nice',
+		'reverse',
+		'exponent',
+		'padding',
+	],
 )

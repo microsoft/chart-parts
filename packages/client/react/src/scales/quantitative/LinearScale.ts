@@ -25,4 +25,5 @@ export const LinearScale = createQuantitativeScale<
 			.nice(nice)
 			.reverse(reverse)
 			.padding(padding),
+	['name', 'range', 'domain', 'zero', 'clamp', 'nice', 'reverse', 'padding'],
 )

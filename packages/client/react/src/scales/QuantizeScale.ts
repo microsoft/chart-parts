@@ -35,4 +35,5 @@ export const QuantizeScale: QuantizeScaleComponentType = createDomainRangeScale(
 			.reverse(reverse)
 			.nice(nice)
 			.zero(zero),
+	['name', 'domain', 'range', 'reverse', 'nice', 'zero'],
 )
