@@ -58,6 +58,10 @@ function onCreateWebpackConfig({ actions }) {
 			alias: {
 				react: path.resolve(__dirname, 'node_modules/react'),
 				'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
+				'regenerator-runtime': path.resolve(
+					__dirname,
+					'node_modules/regenerator-runtime'
+				),
 			},
 		},
 	})

@@ -8,7 +8,7 @@ import { CommonMarkProps } from '../interfaces'
 import { createMarkComponent } from './BaseMark'
 import { useEffect } from 'react'
 import { MarkBuilder } from '@chart-parts/builder'
-import { MarkEncodingKey, MarkEncoding } from '@chart-parts/interfaces/src'
+import { MarkEncodingKey, MarkEncoding } from '@chart-parts/interfaces'
 
 export interface AreaProps extends CommonMarkProps {
 	orient?: MarkEncoding<Orientation>

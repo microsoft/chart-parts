@@ -11,7 +11,7 @@ import {
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { CommonMarkProps } from '../interfaces'
-import { MarkEncodingKey } from '@chart-parts/interfaces/src'
+import { MarkEncodingKey } from '@chart-parts/interfaces'
 
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
