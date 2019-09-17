@@ -9,6 +9,18 @@ const chartPartsReactVersion = require('../../client/react/package.json')
 	.version
 const chartPartsSvgRendererVersion = require('../../renderers/react-svg/package.json')
 	.version
+const {
+	dependencies: {
+		react: reactVersion,
+		'react-dom': reactDomVersion,
+		'@types/react': typesReactVersion,
+		'@types/react-dom': typesReactDomVersion,
+	},
+	devDependencies: { typescript: typescriptVersion },
+} = require('./package.json')
+const {
+	devDependencies: { '@types/jest': typesJestVersion },
+} = require('../../../package.json')
 
 const APP_FILE_CONTENT = `
 	import React from 'react'
@@ -83,16 +95,15 @@ const makePackageJson = (index, isTS) => {
 			eject: 'react-scripts eject',
 		},
 		dependencies: {
-			react: '16.9.0',
-			'react-dom': '16.9.0',
-			'react-scripts': '2.1.8',
+			react: reactVersion,
+			'react-dom': reactDomVersion,
+			'react-scripts': '3.1.1',
 			'@chart-parts/react': chartPartsReactVersion,
 			'@chart-parts/react-svg-renderer': chartPartsSvgRendererVersion,
-			typescript: '^3.6.3',
-			'@types/react': '^16.9.2',
-			'@types/react-dom': '^16.9.0',
-			'@types/jest': '^24.0.14',
-			'@types/node': '^11.12.0',
+			typescript: typescriptVersion,
+			'@types/react': typesReactVersion,
+			'@types/react-dom': typesReactDomVersion,
+			'@types/jest': typesJestVersion,
 		},
 		browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
 	}
