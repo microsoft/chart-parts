@@ -11,8 +11,8 @@
 		"lint": "eslint . --ext .js,.ts,.jsx,.tsx",
 		"unit_test": "jest --coverage --ci",
 		"test": "run-s lint build unit_test test:packages",
-		"lerna:publish": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
-		"release": "run-s clean build lerna:publish release:packages",
+		"publish_libs": "lerna --registry https://msrp-essex.pkgs.visualstudio.com/_packaging/essex-npm/npm/registry/ publish",
+		"release": "run-s clean test publish_libs release:packages",
 		"start": "run-s start:packages"
 	},
 	"engines": {
