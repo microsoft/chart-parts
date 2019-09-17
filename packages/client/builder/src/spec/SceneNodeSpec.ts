@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 import { SceneNode, ScaleCreator } from '@chart-parts/interfaces'
 import { MarkSpec } from './MarkSpec'
 import { AxisSpec } from './AxisSpec'

@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 export const DEFAULT_AXIS_COLOR = '#777'
 export const DEFAULT_AXIS_TEXT_COLOR = '#000'
 export const DEFAULT_AXIS_STROKE = 1

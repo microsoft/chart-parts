@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 import parse from '../parse'
 
 describe('the parse utility', () => {
