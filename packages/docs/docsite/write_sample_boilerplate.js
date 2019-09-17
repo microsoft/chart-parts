@@ -23,7 +23,7 @@ const {
 } = require('../../../package.json')
 
 const APP_FILE_CONTENT = `
-	import React from 'react'
+	import React, { memo } from 'react'
 	import ReactDOM from 'react-dom'
 	import Example from './example'
 	import { ChartingProvider } from '@chart-parts/react'
