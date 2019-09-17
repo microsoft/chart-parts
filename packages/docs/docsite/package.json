@@ -67,10 +67,14 @@
     "gen:doc:transform": "LIB=util/transform yarn gen:doc",
     "gen:doc:react-native-svg": "LIB=renderers/react-native-svg yarn gen:doc",
     "gen:doc:react-svg": "LIB=renderers/react-svg yarn gen:doc",
+    "copy_examples": "cp -r ../examples/src/renderless static/examples",
+    "format_examples": "prettier 'static/examples/**/*' --use-tabs=false --write",
+    "write_example_boilerplate": "node write_sample_boilerplate.js",
+    "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_static_site": "gatsby build --prefix-paths",
     "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t",
     "clean_release": "run-s clean build release",
-    "release": "run-s clean build_package_docs build_static_site publish_gh_pages"
+    "release": "run-s clean process_examples build_package_docs build_static_site publish_gh_pages"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
