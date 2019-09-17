@@ -5,14 +5,13 @@
 import React from 'react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { ChartingProvider } from '@chart-parts/react'
-import { StoryDecorator } from '@storybook/react'
 
 const svgRenderer = new Renderer()
 
-export const withSvgRenderer: StoryDecorator = story => (
+export const withSvgRenderer = (story: any) => (
 	<ChartingProvider value={svgRenderer}>{story()}</ChartingProvider>
 )
 
-export const withStrictMode: StoryDecorator = story => (
+export const withStrictMode = (story: any) => (
 	<React.StrictMode>{story()}</React.StrictMode>
 )

@@ -4,3 +4,4 @@
  */
 
 export * from './SGChart'
+export * from './decorators'
