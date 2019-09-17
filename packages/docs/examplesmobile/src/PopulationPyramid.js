@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 import React from 'react';
 import {View, Slider, Text as RNText} from 'react-native';
 import {dataset, filter, aggregate} from '@chart-parts/transform';

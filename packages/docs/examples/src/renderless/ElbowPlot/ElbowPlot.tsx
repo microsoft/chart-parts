@@ -1,3 +1,7 @@
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
 /* eslint-disable @typescript-eslint/camelcase */
 import React, { memo } from 'react'
 import { VerticalTextAlignment } from '@chart-parts/interfaces'
