@@ -17,10 +17,10 @@
 		"@chart-parts/testdata": "^0.0.20",
 		"@chart-parts/transform": "^0.0.20",
 		"@chart-parts/examples": "^0.0.20",
-		"@storybook/addon-actions": "^5.1.7",
-		"@storybook/addon-links": "^5.1.7",
-		"@storybook/addons": "^5.1.7",
-		"@storybook/react": "^5.1.7",
+		"@storybook/addon-actions": "^5.2.1",
+		"@storybook/addon-links": "^5.2.1",
+		"@storybook/addons": "^5.2.1",
+		"@storybook/react": "^5.2.1",
 		"babel-loader": "^8.0.6",
 		"d3-array": "^2.3.1",
 		"d3-scale": "^3.1.0",
@@ -42,8 +42,8 @@
 		"react-docgen-typescript-webpack-plugin": "^1.1.0",
 		"ts-loader": "^6.1.0",
 		"typescript": "^3.6.3",
-		"webpack": "^4.40.0",
-		"webpack-cli": "^3.3.8",
-		"webpack-dev-server": "^3.8.0"
+		"webpack": "^4.40.2",
+		"webpack-cli": "^3.3.9",
+		"webpack-dev-server": "^3.8.1"
 	}
 }
