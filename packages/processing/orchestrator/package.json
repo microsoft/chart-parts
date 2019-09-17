@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/orchestrator",
 	"description": "chart-parts rendering orchestration",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -12,10 +12,10 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.1.0",
-		"@chart-parts/interfaces": "^0.1.0",
-		"@chart-parts/scenegraph": "^0.1.0",
-		"@chart-parts/vsvg": "^0.1.0"
+		"@chart-parts/builder": "^0.1.1",
+		"@chart-parts/interfaces": "^0.1.1",
+		"@chart-parts/scenegraph": "^0.1.1",
+		"@chart-parts/vsvg": "^0.1.1"
 	},
 	"publishConfig": {
 		"access": "public"

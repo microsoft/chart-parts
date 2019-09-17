@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/testdata",
 	"description": "Test data for charts",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "lib/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -12,8 +12,8 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.1.0",
-		"@chart-parts/scenegraph": "^0.1.0"
+		"@chart-parts/interfaces": "^0.1.1",
+		"@chart-parts/scenegraph": "^0.1.1"
 	},
 	"publishConfig": {
 		"access": "public"

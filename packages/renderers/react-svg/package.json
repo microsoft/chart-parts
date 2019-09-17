@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/react-svg-renderer",
 	"description": "A virtual dom renderer that emits React-DOM Svg",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -20,7 +20,7 @@
 		"@types/react": "^16.9.2"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.1.0",
+		"@chart-parts/interfaces": "^0.1.1",
 		"lodash": "^4.17.15"
 	},
 	"peerDependencies": {
