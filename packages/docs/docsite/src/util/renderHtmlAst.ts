@@ -10,15 +10,16 @@ const log = require('debug')('site:renderHtmlAst')
 
 const rehypeReact = require('rehype-react')
 const renderAst = new rehypeReact({
-  createElement,
-  components,
+	createElement,
+	components,
 }).Compiler
 
 export default function renderHtmlAst(node: any) {
-  try {
-    processImages(node)
-    return renderAst(node)
-  } catch (err) {
-    log('error rendering doc page', err)
-  }
+	try {
+		processImages(node)
+		const result = renderAst(node)
+		return result
+	} catch (err) {
+		log('error rendering doc page', err)
+	}
 }
