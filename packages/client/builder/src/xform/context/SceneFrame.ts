@@ -167,7 +167,7 @@ export class SceneFrame {
 		viewTL: [number, number],
 		viewBR: [number, number],
 	) {
-		let scales = { ...this.scales }
+		const scales = { ...this.scales }
 		const ctx: ScaleCreationContext = {
 			view: this.view,
 			data: this.data,
