@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 		`}
 		render={({ site: { siteMetadata } }: LayoutQueryResult) => {
 			return (
-				<>
+				<React.StrictMode>
 					<Helmet
 						title={title || siteMetadata.title}
 						meta={getMeta(siteMetadata)}
@@ -63,7 +63,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 							</ChartingProvider>
 						</ContentContainer>
 					</BodyContent>
-				</>
+				</React.StrictMode>
 			)
 		}}
 	/>

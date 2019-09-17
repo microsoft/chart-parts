@@ -8,7 +8,7 @@ const path = require('path')
 /**
  * Dynamically creates pages in the static website
  */
-async function createPages({ actions, graphql }) {
+function createPages({ actions, graphql }) {
 	const retrieveMarkdownPages = () =>
 		graphql(`
 			{
@@ -30,23 +30,24 @@ async function createPages({ actions, graphql }) {
 	const blogTemplate = path.resolve(`src/templates/blogTemplate.tsx`)
 	const docTemplate = path.resolve(`src/templates/docTemplate.tsx`)
 	console.log('retreiving markdown pages...')
-	const result = await retrieveMarkdownPages()
-	console.log('finished retreiving markdown pages')
+	return retrieveMarkdownPages().then(result => {
+		console.log('finished retreiving markdown pages')
 
-	if (result.errors) {
-		console.log('graphql error', result.errors)
-		throw new Error('Error invoking graphql for pages')
-	}
+		if (result.errors) {
+			console.log('graphql error', result.errors)
+			throw new Error('Error invoking graphql for pages')
+		}
 
-	result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-		const {
-			frontmatter: { path: pagePath },
-		} = node
-		const category = pagePath.split('/').filter(t => !!t)[0]
-		actions.createPage({
-			path: pagePath,
-			component: category === 'blog' ? blogTemplate : docTemplate,
-			context: {}, // additional data can be passed via context
+		result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+			const {
+				frontmatter: { path: pagePath },
+			} = node
+			const category = pagePath.split('/').filter(t => !!t)[0]
+			actions.createPage({
+				path: pagePath,
+				component: category === 'blog' ? blogTemplate : docTemplate,
+				context: {}, // additional data can be passed via context
+			})
 		})
 	})
 }
