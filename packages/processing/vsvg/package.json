@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
-	"version": "0.0.20",
+	"version": "0.1.0",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -12,11 +12,11 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"devDependencies": {
-		"@chart-parts/scenegraph": "^0.0.20"
+		"@chart-parts/scenegraph": "^0.1.0"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20",
-		"@chart-parts/shapes": "^0.0.20",
+		"@chart-parts/interfaces": "^0.1.0",
+		"@chart-parts/shapes": "^0.1.0",
 		"@types/d3-path": "^1.0.8",
 		"@types/d3-shape": "^1.2.7",
 		"d3-path": "^1.0.8",

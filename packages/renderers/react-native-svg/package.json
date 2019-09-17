@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/react-native-svg-renderer",
 	"description": "A virtual dom renderer that emits react-native-svg elements",
-	"version": "0.0.20",
+	"version": "0.1.0",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -16,7 +16,7 @@
 		"react": "^16.9.0"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/interfaces": "^0.1.0",
 		"lodash": "^4.17.15",
 		"react-native-svg": "^9.9.4"
 	},

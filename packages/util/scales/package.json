@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/scales",
 	"description": "Scaling utilities for chart-parts",
-	"version": "0.0.20",
+	"version": "0.1.0",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -12,7 +12,7 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20",
+		"@chart-parts/interfaces": "^0.1.0",
 		"@types/d3-array": "^2.0.0",
 		"@types/d3-interpolate": "^1.2.0",
 		"@types/d3-scale": "^2.1.1",

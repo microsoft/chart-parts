@@ -2,7 +2,7 @@
 	"name": "@chart-parts/examples",
 	"private": true,
 	"description": "Example Chart Implementations",
-	"version": "0.0.20",
+	"version": "0.1.0",
 	"main": "lib/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
@@ -13,9 +13,9 @@
 		"start": "../../../scripts/watch_package.sh"
 	},
 	"dependencies": {
-		"@chart-parts/interfaces": "^0.0.20",
-		"@chart-parts/builder": "^0.0.20",
-		"@chart-parts/react": "^0.0.20",
+		"@chart-parts/builder": "^0.1.0",
+		"@chart-parts/interfaces": "^0.1.0",
+		"@chart-parts/react": "^0.1.0",
 		"vega-datasets": "^1.25.0"
 	},
 	"devDependencies": {
