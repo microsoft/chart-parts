@@ -57,7 +57,9 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 								{sidebar ? (
 									<SidebarContainer>{sidebar}</SidebarContainer>
 								) : null}
+								<Gutter />
 								<Content>{children}</Content>
+								<Gutter />
 							</ChartingProvider>
 						</ContentContainer>
 					</BodyContent>
@@ -73,6 +75,10 @@ function getMeta({ description, keywords }: SiteMetadata) {
 		{ name: 'keywords', content: keywords.join(', ') },
 	]
 }
+
+const Gutter = styled.div`
+	flex: 1;
+`
 
 const BodyContent = styled.div`
 	display: flex;
