@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/examples-web",
 	"private": true,
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"scripts": {
 		"//serve": "webpack-dev-server --mode development --open --host 0.0.0.0",
 		"storybook": "start-storybook -p 6006",
@@ -10,9 +10,9 @@
 	},
 	"dependencies": {
 		"@babel/core": "^7.6.0",
-		"@chart-parts/examples": "^0.1.1",
+		"@chart-parts/examples": "^0.1.2",
 		"@chart-parts/orchestrator": "^0.1.1",
-		"@chart-parts/react": "^0.1.1",
+		"@chart-parts/react": "^0.1.2",
 		"@chart-parts/react-svg-renderer": "^0.1.1",
 		"@chart-parts/scales": "^0.1.1",
 		"@chart-parts/testdata": "^0.1.1",

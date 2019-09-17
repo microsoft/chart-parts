@@ -1,7 +1,7 @@
 {
 	"name": "@chart-parts/react",
 	"description": "React components for specifying data visualizations",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"main": "dist/cjs/index.js",
 	"module": "dist/esm/index.js",
 	"types": "lib/index.d.ts",
