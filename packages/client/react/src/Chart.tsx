@@ -100,10 +100,9 @@ function useScene(chartOptions: ChartOptions, data: Record<string, any>): any {
 		if (frameNode && pipeline) {
 			const subscription = frameNode.onChange
 				.pipe(observeOn(animationFrameScheduler))
-				.subscribe(cause => {
-					console.log('chart spec change', cause, frameNode.spec)
-					executeRender()
-				})
+				// Note: you can log out the first argument here to view the
+				// cause of the change.
+				.subscribe(() => executeRender())
 			executeRender()
 			return () => subscription.unsubscribe()
 		}
