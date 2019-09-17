@@ -7,8 +7,12 @@ import { Renderer } from '@chart-parts/react-svg-renderer'
 import { ChartingProvider } from '@chart-parts/react'
 import { StoryDecorator } from '@storybook/react'
 
-const renderer = new Renderer()
+const svgRenderer = new Renderer()
 
-export const withRenderer: StoryDecorator = story => (
-	<ChartingProvider value={renderer}>{story()}</ChartingProvider>
+export const withSvgRenderer: StoryDecorator = story => (
+	<ChartingProvider value={svgRenderer}>{story()}</ChartingProvider>
+)
+
+export const withStrictMode: StoryDecorator = story => (
+	<React.StrictMode>{story()}</React.StrictMode>
 )

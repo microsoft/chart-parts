@@ -18,10 +18,11 @@ import {
 	StackedAreaChart,
 	StackedBarChart,
 } from '@chart-parts/examples'
-import { withRenderer } from '../util/withRendererProvider'
+import { withSvgRenderer, withStrictMode } from '../util/decorators'
 
 storiesOf('Renderless React Examples', module)
-	.addDecorator(withRenderer)
+	.addDecorator(withStrictMode)
+	.addDecorator(withSvgRenderer)
 	.add('Area Chart', () => <AreaChart />)
 	.add('Bar Chart', () => <BarChart />)
 	.add('Bar Chart with Mean', () => <BarChartWithMean />)
