@@ -15,6 +15,8 @@
     "@chart-parts/examples": "^0.0.20",
     "@types/d3-scale": "^2.1.1",
     "@types/debug": "^4.1.4",
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
     "@types/react-codemirror": "^1.0.2",
     "@types/react-helmet": "^5.0.10",
     "@types/styled-components": "^4.1.19",
@@ -47,8 +49,8 @@
   "license": "MIT",
   "scripts": {
     "clean_gatsby": "gatsby clean",
-    "clean_apidocs": "rimraf apidocs",
-    "clean": "run-p clean_apidocs clean_gatsby",
+    "clean_generated": "rimraf apidocs static/examples",
+    "clean": "run-p clean_generated clean_gatsby",
     "build_package_docs": "run-s clean:docs gen:docs",
     "start": "gatsby develop -H 0.0.0.0",
     "type-check": "tsc --noEmit",
@@ -67,10 +69,14 @@
     "gen:doc:transform": "LIB=util/transform yarn gen:doc",
     "gen:doc:react-native-svg": "LIB=renderers/react-native-svg yarn gen:doc",
     "gen:doc:react-svg": "LIB=renderers/react-svg yarn gen:doc",
+    "copy_examples": "cp -r ../examples/src/renderless static/examples",
+    "format_examples": "prettier 'static/examples/**/*' --use-tabs=false --write",
+    "write_example_boilerplate": "node write_sample_boilerplate.js",
+    "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_static_site": "gatsby build --prefix-paths",
     "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t",
     "clean_release": "run-s clean build release",
-    "release": "run-s clean build_package_docs build_static_site publish_gh_pages"
+    "release": "run-s clean process_examples build_package_docs build_static_site publish_gh_pages"
   },
   "devDependencies": {
     "gh-pages": "^2.0.1",
