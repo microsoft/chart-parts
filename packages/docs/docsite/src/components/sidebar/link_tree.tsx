@@ -27,7 +27,7 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 	({ expanded: expandedProp, node, activePath, depth, flat }) => {
 		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
 		useEffect(() => {
-			if (activePath.startsWith(node.item.path)) {
+			if (activePath.indexOf(node.item.path) >= 0) {
 				setExpanded(true)
 			}
 		}, [])
