@@ -1,5 +1,5 @@
 ---
-title: 'The Missing Abstraction'
+title: The Missing Abstraction
 path: /documentation/introduction/missing_abstraction
 order: 0
 ---

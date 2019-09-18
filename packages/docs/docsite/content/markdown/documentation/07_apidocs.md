@@ -1,5 +1,5 @@
 ---
-title: 'API Documentation'
+title: API Documentation
 path: /documentation/apidocs
 order: 7
 ---

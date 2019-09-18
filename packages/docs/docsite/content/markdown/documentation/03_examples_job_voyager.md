@@ -1,5 +1,5 @@
 ---
-title: 'Job Voyager'
+title: Job Voyager
 path: /documentation/examples/job_voyager
 order: 7
 ---

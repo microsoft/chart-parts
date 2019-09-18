@@ -1,5 +1,5 @@
 ---
-title: 'React'
+title: React
 path: /documentation/apis/react
 order: 2
 ---

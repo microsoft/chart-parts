@@ -1,5 +1,5 @@
 ---
-title: 'Axes'
+title: Axes
 path: /documentation/concepts/axes
 order: 2
 ---

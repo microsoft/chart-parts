@@ -1,5 +1,5 @@
 ---
-title: 'Scales'
+title: Scales
 path: /documentation/concepts/scales
 order: 0
 ---

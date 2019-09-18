@@ -1,5 +1,5 @@
 ---
-title: 'Bar Chart'
+title: Bar Chart
 path: /documentation/examples/bar_chart
 order: 0
 ---

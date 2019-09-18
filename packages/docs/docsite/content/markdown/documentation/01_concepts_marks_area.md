@@ -1,5 +1,5 @@
 ---
-title: 'Area Mark'
+title: Area Mark
 path: /documentation/concepts/marks/area
 order: 1
 ---

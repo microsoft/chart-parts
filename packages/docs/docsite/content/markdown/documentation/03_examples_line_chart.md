@@ -1,5 +1,5 @@
 ---
-title: 'Line Chart'
+title: Line Chart
 path: /documentation/examples/line_chart
 order: 3
 ---

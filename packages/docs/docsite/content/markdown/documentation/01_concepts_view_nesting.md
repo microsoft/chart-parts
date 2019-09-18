@@ -1,5 +1,5 @@
 ---
-title: 'View Nesting'
+title: View Nesting
 path: /documentation/concepts/view_nesting
 order: 3
 ---

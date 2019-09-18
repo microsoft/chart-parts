@@ -1,5 +1,5 @@
 ---
-title: 'Grouped Bar Chart'
+title: Grouped Bar Chart
 path: /documentation/examples/grouped_bar_chart
 order: 1
 ---

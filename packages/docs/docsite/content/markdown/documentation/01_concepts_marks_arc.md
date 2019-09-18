@@ -1,5 +1,5 @@
 ---
-title: 'Arc Mark'
+title: Arc Mark
 path: /documentation/concepts/marks/arc
 order: 0
 ---

@@ -1,5 +1,5 @@
 ---
-title: 'Symbol Mark'
+title: Symbol Mark
 path: /documentation/concepts/marks/symbol
 order: 10
 ---

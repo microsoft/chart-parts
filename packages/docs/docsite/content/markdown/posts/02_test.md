@@ -1,5 +1,5 @@
 ---
-title: 'Charto Parto'
+title: Charto Parto
 date: '2019-09-18'
 path: /blog/test
 ---

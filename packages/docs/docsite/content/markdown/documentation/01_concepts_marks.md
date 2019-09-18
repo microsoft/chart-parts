@@ -1,5 +1,5 @@
 ---
-title: 'Marks'
+title: Marks
 path: /documentation/concepts/marks
 order: 1
 ---

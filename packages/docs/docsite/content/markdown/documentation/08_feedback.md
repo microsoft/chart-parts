@@ -1,5 +1,5 @@
 ---
-title: 'Feedback'
+title: Feedback
 path: /documentation/feedback
 order: 8
 ---

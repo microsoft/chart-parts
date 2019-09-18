@@ -1,5 +1,5 @@
 ---
-title: 'Concepts'
+title: Concepts
 path: /documentation/concepts
 order: 1
 ---

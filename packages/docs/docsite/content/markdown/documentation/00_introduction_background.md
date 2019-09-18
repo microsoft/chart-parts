@@ -1,5 +1,5 @@
 ---
-title: 'History & Related Work'
+title: History & Related Work
 path: /documentation/introduction/background
 order: 1
 ---

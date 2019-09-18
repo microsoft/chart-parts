@@ -1,5 +1,5 @@
 ---
-title: 'Examples'
+title: Examples
 path: /documentation/examples
 order: 3
 ---

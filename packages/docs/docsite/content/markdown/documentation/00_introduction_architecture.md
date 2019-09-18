@@ -1,5 +1,5 @@
 ---
-title: 'Architecture'
+title: Architecture
 path: /documentation/introduction/architecture
 order: 2
 ---

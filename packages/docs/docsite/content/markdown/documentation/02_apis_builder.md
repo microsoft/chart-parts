@@ -1,5 +1,5 @@
 ---
-title: 'SceneNodeBuilder'
+title: SceneNodeBuilder
 path: /documentation/apis/builder
 order: 1
 ---

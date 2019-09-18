@@ -1,5 +1,5 @@
 ---
-title: 'Client APIs'
+title: Client APIs
 path: /documentation/apis
 order: 2
 ---
