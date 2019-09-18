@@ -24,7 +24,17 @@ export interface LinkTreeProps {
 const ToggleSize = 15
 
 const LinkTree: React.FC<LinkTreeProps> = memo(
-	({ expanded: expandedProp, node, activePath, depth, flat }) => {
+	({
+		expanded: expandedProp,
+		node,
+		activePath: activePathRaw,
+		depth,
+		flat,
+	}) => {
+		const activePath = useMemo(
+			() => activePathRaw.replace('/chart-parts', ''),
+			[activePathRaw]
+		)
 		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
 		useEffect(() => {
 			if (activePath.indexOf(node.item.path) >= 0) {
