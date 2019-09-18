@@ -5,8 +5,10 @@
 
 import markTesters from './mark-testers'
 import { ExampleTabs } from './example-tabs'
+import { Authorship } from './authorship'
 
 export default {
 	'view-source': ExampleTabs,
+	'author-details': Authorship,
 	...markTesters,
 }

@@ -1,6 +1,6 @@
 ---
 title: 'Population Pyramid'
-path: '/documentation/examples/population_pyramid'
+path: /documentation/examples/population_pyramid
 order: 6
 ---
 

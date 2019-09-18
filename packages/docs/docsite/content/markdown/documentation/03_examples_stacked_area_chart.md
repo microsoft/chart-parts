@@ -1,6 +1,6 @@
 ---
 title: 'Stacked Area Chart'
-path: '/documentation/examples/stacked_area_chart'
+path: /documentation/examples/stacked_area_chart
 order: 5
 ---
 

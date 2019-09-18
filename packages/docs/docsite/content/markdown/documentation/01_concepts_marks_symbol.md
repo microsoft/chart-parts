@@ -1,15 +1,17 @@
 ---
 title: 'Symbol Mark'
-path: '/documentation/concepts/marks/symbol'
+path: /documentation/concepts/marks/symbol
 order: 10
 ---
 
 ## Symbol
 
 ### Using Size
-_Size describes the area of the symbol_
+
+Size describes the area of the symbol
 
 <symbol-tester-area></symbol-tester-area>
 
 ### Using Width
+
 <symbol-tester-width></symbol-tester-width>

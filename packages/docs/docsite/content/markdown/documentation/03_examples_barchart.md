@@ -1,6 +1,6 @@
 ---
 title: 'Bar Chart'
-path: '/documentation/examples/bar_chart'
+path: /documentation/examples/bar_chart
 order: 0
 ---
 

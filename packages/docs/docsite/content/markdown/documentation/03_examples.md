@@ -1,6 +1,6 @@
 ---
 title: 'Examples'
-path: '/documentation/examples'
+path: /documentation/examples
 order: 3
 ---
 

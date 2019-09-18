@@ -1,6 +1,6 @@
 ---
 title: 'Group Mark'
-path: '/documentation/concepts/marks/group'
+path: /documentation/concepts/marks/group
 order: 2
 ---
 

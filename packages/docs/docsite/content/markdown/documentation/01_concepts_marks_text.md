@@ -1,6 +1,6 @@
 ---
 title: 'Text Mark'
-path: '/documentation/concepts/marks/text'
+path: /documentation/concepts/marks/text
 order: 9
 ---
 

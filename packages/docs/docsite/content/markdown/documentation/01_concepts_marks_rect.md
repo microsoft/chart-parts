@@ -1,6 +1,6 @@
 ---
 title: 'Rect Mark'
-path: '/documentation/concepts/marks/rect'
+path: /documentation/concepts/marks/rect
 order: 6
 ---
 
