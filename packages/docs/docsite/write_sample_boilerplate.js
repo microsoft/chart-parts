@@ -8,7 +8,7 @@ const path = require('path')
 const chartPartsSvgRendererVersion = require('../../renderers/react-svg/package.json')
 	.version
 const {
-	dependencies: { reactDomVersion },
+	dependencies: { 'react-dom': reactDomVersion },
 	devDependencies: { typescript: typescriptVersion },
 } = require('./package.json')
 const {
@@ -78,7 +78,7 @@ const HTML_FILE_CONTENT = `
 </html>
 `
 
-const makePackageJson = (index, isTS) => {
+const makePackageJson = index => {
 	const result = {
 		name: `chart-parts-example-${index}`,
 		main: `src/index.tsx`,
