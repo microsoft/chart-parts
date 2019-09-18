@@ -1,4 +1,8 @@
-import React, { memo, useState, useMemo } from 'react'
+/*!
+ * Copyright (c) Microsoft. All rights reserved.
+ * Licensed under the MIT license. See LICENSE file in the project.
+ */
+import React, { memo, useMemo } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import styled from 'styled-components'
 import 'react-tabs/style/react-tabs.css'
@@ -50,6 +54,7 @@ export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
 		)
 	}
 )
+ExampleTabs.displayName = 'ExampleTabs'
 
 const Container = styled.div`
 	height: 100%;

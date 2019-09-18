@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import charts from './charts'
 import markTesters from './mark-testers'
 import { ExampleTabs } from './example-tabs'
 
