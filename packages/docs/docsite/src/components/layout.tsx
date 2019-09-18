@@ -74,10 +74,6 @@ function getMeta({ description, keywords }: SiteMetadata) {
 	]
 }
 
-const Gutter = styled.div`
-	flex: 1;
-`
-
 const BodyContent = styled.div`
 	display: flex;
 	flex: 1;

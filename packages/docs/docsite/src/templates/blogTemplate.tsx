@@ -3,21 +3,26 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
 import Post from '../components/post'
 import convertGraphqlToc from '../util/convertGraphqlToc'
 
-export default function Template(arg: any) {
-	const { post, toc } = arg.data
-	return (
+export interface BlogStructureProps {
+	toc: any
+	pathname: string
+	post: any
+}
+export const BlogStructure: React.FC<BlogStructureProps> = memo(
+	({ toc, pathname, post }) => (
 		<Layout
+			title={post.title}
 			sidebar={
 				<Sidebar
 					items={convertGraphqlToc(toc)}
-					activePath={arg.location.pathname}
+					activePath={pathname}
 					flat={true}
 				/>
 			}
@@ -25,6 +30,14 @@ export default function Template(arg: any) {
 			<Post post={post} />
 		</Layout>
 	)
+)
+BlogStructure.displayName = 'BlogStructure'
+
+export default function Template({
+	data: { post, toc },
+	location: { pathname },
+}: any) {
+	return <BlogStructure post={post} toc={toc} pathname={pathname} />
 }
 
 export const pageQuery = graphql`

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
@@ -12,23 +12,34 @@ import Doc from '../components/doc'
 
 require('prismjs/themes/prism-tomorrow.css')
 
-export default function Template(arg: any) {
-	const { currentPage, toc } = arg.data
-
-	return (
+export interface DocStructureProps {
+	toc: any
+	pathname: string
+	page: any
+}
+export const DocStructure: React.FC<DocStructureProps> = memo(
+	({ toc, pathname, page }) => (
 		<Layout
-			title={currentPage.frontmatter.title}
+			title={page.frontmatter.title}
 			sidebar={
 				<Sidebar
 					items={convertGraphqlToc(toc)}
-					activePath={arg.location.pathname}
+					activePath={pathname}
 					flat={false}
 				/>
 			}
 		>
-			<Doc docPage={currentPage} />
+			<Doc docPage={page} />
 		</Layout>
 	)
+)
+DocStructure.displayName = 'DocStructure'
+
+export default function Template({
+	data: { toc, currentPage },
+	location: { pathname },
+}: any) {
+	return <DocStructure toc={toc} page={currentPage} pathname={pathname} />
 }
 
 export const pageQuery = graphql`

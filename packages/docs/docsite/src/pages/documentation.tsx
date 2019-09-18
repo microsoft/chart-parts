@@ -3,31 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/layout'
-import Sidebar from '../components/sidebar'
-import Doc from '../components/doc'
-import convertGraphqlToc from '../util/convertGraphqlToc'
+import DocTemplate from '../templates/docTemplate'
 
-const Documentation = ({ data: { toc, currentPage } }: any) => {
-	return (
-		<Layout
-			title={currentPage.frontmatter.title}
-			sidebar={
-				<Sidebar
-					items={convertGraphqlToc(toc)}
-					activePath="/documentation"
-					flat={false}
-				/>
-			}
-		>
-			<Doc docPage={currentPage} />
-		</Layout>
-	)
-}
-
-export default Documentation
+// Gatsby page handler for http://<domain>/documentation
+export default DocTemplate
 
 export const query = graphql`
 	{
