@@ -15,7 +15,11 @@ const Documentation = ({ data: { toc, currentPage } }: any) => {
 		<Layout
 			title={currentPage.frontmatter.title}
 			sidebar={
-				<Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
+				<Sidebar
+					items={convertGraphqlToc(toc)}
+					activePath="/documentation"
+					flat={false}
+				/>
 			}
 		>
 			<Doc docPage={currentPage} />

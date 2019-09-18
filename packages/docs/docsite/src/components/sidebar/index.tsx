@@ -14,9 +14,10 @@ export { SidebarItem } from './interfaces'
 export interface SidebarProps {
 	items: SidebarItem[]
 	activePath: string
+	flat?: boolean
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ items, activePath }) => {
+const Sidebar: React.FC<SidebarProps> = ({ items, activePath, flat }) => {
 	const tree: TreeNode[] = createTree(items)
 	return (
 		<Container>
@@ -26,6 +27,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items, activePath }) => {
 						<LinkTree
 							key={subtree.pathKey}
 							node={subtree}
+							flat={flat}
 							depth={0}
 							activePath={activePath}
 						/>

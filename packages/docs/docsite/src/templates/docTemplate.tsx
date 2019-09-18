@@ -22,6 +22,7 @@ export default function Template(arg: any) {
 				<Sidebar
 					items={convertGraphqlToc(toc)}
 					activePath={arg.location.pathname}
+					flat={false}
 				/>
 			}
 		>

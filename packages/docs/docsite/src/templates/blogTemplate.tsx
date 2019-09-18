@@ -12,13 +12,13 @@ import convertGraphqlToc from '../util/convertGraphqlToc'
 
 export default function Template(arg: any) {
 	const { post, toc } = arg.data
-	console.log('POST', post, toc)
 	return (
 		<Layout
 			sidebar={
 				<Sidebar
 					items={convertGraphqlToc(toc)}
 					activePath={arg.location.pathname}
+					flat={true}
 				/>
 			}
 		>

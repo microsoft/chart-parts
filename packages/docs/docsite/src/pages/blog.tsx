@@ -15,7 +15,11 @@ const Blog = ({ data: { toc, latestPost } }: any) => {
 		<Layout
 			title={latestPost.edges[0].node.frontmatter.title}
 			sidebar={
-				<Sidebar items={convertGraphqlToc(toc)} activePath="/documentation" />
+				<Sidebar
+					items={convertGraphqlToc(toc)}
+					activePath="/documentation"
+					flat={true}
+				/>
 			}
 		>
 			<Post post={latestPost.edges[0].node} />

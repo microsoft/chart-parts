@@ -18,14 +18,15 @@ export interface LinkTreeProps {
 	depth: number
 	expanded?: boolean
 	activePath: string
+	flat?: boolean
 }
 
 const ToggleSize = 15
 
 const LinkTree: React.FC<LinkTreeProps> = memo(
-	({ expanded: expandedProp, node, activePath, depth }) => {
+	({ expanded: expandedProp, node, activePath, depth, flat }) => {
 		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
-
+		console.log('FLAT?', flat)
 		useEffect(() => {
 			if (activePath.startsWith(node.item.path)) {
 				setExpanded(true)
@@ -36,8 +37,8 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 			if (!node.item) {
 				return {}
 			}
-			const marginLeft = 15 + depth * 15
-			const fontSize = 16 - depth * 2
+			const marginLeft = flat ? 0 : 15 + depth * 15
+			const fontSize = 14 - depth * 2
 			const linkStyle: React.CSSProperties = {
 				marginLeft,
 				fontSize,
@@ -45,7 +46,8 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 			}
 
 			if (activePath === node.item.path) {
-				linkStyle.fontWeight = 'bold'
+				linkStyle.fontStyle = 'italic'
+				linkStyle.fontWeight = '400' as any
 			}
 			return linkStyle
 		}, [depth, activePath, node.item])
@@ -61,11 +63,13 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 		return (
 			<Container>
 				<CurrentLevel>
-					<LinkTreeIcon
-						childKeys={childKeys}
-						expanded={expanded}
-						onExpandCollapseClick={handleExpandCollapseClick}
-					/>
+					{flat ? null : (
+						<LinkTreeIcon
+							childKeys={childKeys}
+							expanded={expanded}
+							onExpandCollapseClick={handleExpandCollapseClick}
+						/>
+					)}
 					<Link to={node.item.path} {...{ style: linkStyle }}>
 						{node.item.title || node.pathKey}
 					</Link>
