@@ -4,4 +4,4 @@ path: '/documentation/examples/bar_chart'
 order: 0
 ---
 
-<bar-chart></bar-chart>
+<view-source name="BarChart" component="BarChart"></view-source>

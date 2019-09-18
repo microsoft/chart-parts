@@ -4,4 +4,4 @@ path: '/documentation/examples/job_voyager'
 order: 7
 ---
 
-<job-voyager></job-voyager>
+<view-source name="JobVoyager" component="JobVoyager"></view-source>

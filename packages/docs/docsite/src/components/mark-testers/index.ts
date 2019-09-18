@@ -16,15 +16,15 @@ import SymbolTesterArea from './symbol-tester-area'
 import SymbolTesterWidth from './symbol-tester-width'
 
 export default {
-  'arc-tester': ArcTester,
-  'area-tester-horizontal': AreaTesterHorizontal,
-  'area-tester-vertical': AreaTesterVertical,
-  'group-tester': GroupTester,
-  'line-tester': LineTester,
-  'path-tester': PathTester,
-  'rect-tester': RectTester,
-  'rule-tester': RuleTester,
-  'text-tester': TextTester,
-  'symbol-tester-area': SymbolTesterArea,
-  'symbol-tester-width': SymbolTesterWidth,
+	'arc-tester': ArcTester,
+	'area-tester-horizontal': AreaTesterHorizontal,
+	'area-tester-vertical': AreaTesterVertical,
+	'group-tester': GroupTester,
+	'line-tester': LineTester,
+	'path-tester': PathTester,
+	'rect-tester': RectTester,
+	'rule-tester': RuleTester,
+	'text-tester': TextTester,
+	'symbol-tester-area': SymbolTesterArea,
+	'symbol-tester-width': SymbolTesterWidth,
 }

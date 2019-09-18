@@ -4,4 +4,4 @@ path: '/documentation/examples/bar_chart_with_mean'
 order: 8
 ---
 
-<bar-chart-with-mean></bar-chart-with-mean>
+<view-source name="BarChartWithMean" component="BarChartWithMean"></view-source>

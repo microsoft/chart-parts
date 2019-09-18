@@ -4,7 +4,7 @@
  */
 
 import { createElement } from 'react'
-import components from '../examples'
+import components from '../components/md'
 import processImages from './processImagesInMarkdownAst'
 const log = require('debug')('site:renderHtmlAst')
 

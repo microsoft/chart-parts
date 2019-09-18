@@ -16,15 +16,15 @@ import {
 
 export default {
 	// Bar Charts
-	'bar-chart': BarChart,
-	'grouped-bar-chart': GroupedBarChart,
-	'stacked-bar-chart': StackedBarChart,
-	'bar-chart-with-mean': BarChartWithMean,
+	BarChart,
+	GroupedBarChart,
+	StackedBarChart,
+	BarChartWithMean,
 
 	// Line & Area Charts
-	'line-chart': LineChart,
-	'area-chart': AreaChart,
-	'stacked-area-chart': StackedAreaChart,
-	'population-pyramid': PopulationPyramid,
-	'job-voyager': JobVoyager,
+	LineChart,
+	AreaChart,
+	StackedAreaChart,
+	PopulationPyramid,
+	JobVoyager,
 }
