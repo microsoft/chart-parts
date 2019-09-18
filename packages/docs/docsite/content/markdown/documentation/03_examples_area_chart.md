@@ -4,4 +4,4 @@ path: '/documentation/examples/area_chart'
 order: 4
 ---
 
-<area-chart></area-chart>
+<view-source name="AreaChart" component="AreaChart"></view-source>

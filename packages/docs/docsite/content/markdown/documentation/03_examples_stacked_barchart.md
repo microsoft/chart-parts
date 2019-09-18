@@ -4,4 +4,4 @@ path: '/documentation/examples/stacked_bar_chart'
 order: 0
 ---
 
-<stacked-bar-chart></stacked-bar-chart>
+<view-source name="StackedBarChart" component="StackedBarChart"></view-source>

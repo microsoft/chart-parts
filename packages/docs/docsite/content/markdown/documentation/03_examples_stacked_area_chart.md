@@ -4,4 +4,4 @@ path: '/documentation/examples/stacked_area_chart'
 order: 5
 ---
 
-<stacked-area-chart></stacked-area-chart>
+<view-source name="StackedAreaChart" component="StackedAreaChart"></view-source>

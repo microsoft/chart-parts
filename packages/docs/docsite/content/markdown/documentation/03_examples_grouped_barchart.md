@@ -4,4 +4,4 @@ path: '/documentation/examples/grouped_bar_chart'
 order: 1
 ---
 
-<grouped-bar-chart></grouped-bar-chart>
+<view-source name="GroupedBarChart" component="GroupedBarChart"></view-source>

@@ -4,4 +4,4 @@ path: '/documentation/examples/line_chart'
 order: 3
 ---
 
-<line-chart></line-chart>
+<view-source name="LineChart" component="LineChart"></view-source>

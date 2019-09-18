@@ -5,8 +5,9 @@
 
 import charts from './charts'
 import markTesters from './mark-testers'
+import { ExampleTabs } from './example-tabs'
 
 export default {
-  ...charts,
-  ...markTesters,
+	'view-source': ExampleTabs,
+	...markTesters,
 }
