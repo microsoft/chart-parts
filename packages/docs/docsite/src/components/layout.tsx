@@ -57,9 +57,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 								{sidebar ? (
 									<SidebarContainer>{sidebar}</SidebarContainer>
 								) : null}
-								<Gutter />
 								<Content>{children}</Content>
-								<Gutter />
 							</ChartingProvider>
 						</ContentContainer>
 					</BodyContent>

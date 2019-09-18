@@ -5,6 +5,7 @@
 
 import React from 'react'
 import renderAst from '../util/renderHtmlAst'
+import styled from 'styled-components'
 export interface PostProps {
 	post: {
 		html: string
@@ -17,13 +18,29 @@ export interface PostProps {
 
 const Post: React.FC<PostProps> = ({ post }) => {
 	return (
-		<div className="blog-post-container">
-			<div className="blog-post">
-				<h2>{post.frontmatter.date}</h2>
-				<div className="blog-post-content">{renderAst(post.htmlAst)}</div>
-			</div>
-		</div>
+		<Container>
+			<Gutter />
+			<Content>
+				<h6>{post.frontmatter.date}</h6>
+				{renderAst(post.htmlAst)}
+			</Content>
+			<Gutter />
+		</Container>
 	)
 }
+
+const Container = styled.div`
+	display: flex;
+`
+
+const Gutter = styled.div`
+	flex: 1;
+`
+
+const Content = styled.div`
+	flex: 5;
+	display: flex;
+	flex-direction: column;
+`
 
 export default Post
