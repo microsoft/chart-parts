@@ -5,22 +5,19 @@
 /* eslint-disable */
 const fs = require('fs')
 const path = require('path')
-const chartPartsReactVersion = require('../../client/react/package.json')
-	.version
 const chartPartsSvgRendererVersion = require('../../renderers/react-svg/package.json')
 	.version
 const {
-	dependencies: {
-		react: reactVersion,
-		'react-dom': reactDomVersion,
-		'@types/react': typesReactVersion,
-		'@types/react-dom': typesReactDomVersion,
-	},
+	dependencies: { reactDomVersion },
 	devDependencies: { typescript: typescriptVersion },
 } = require('./package.json')
 const {
 	devDependencies: { '@types/jest': typesJestVersion },
 } = require('../../../package.json')
+const {
+	dependencies: examplesDeps,
+	devDependencies: examplesDevDeps,
+} = require('../examples/package.json')
 
 const APP_FILE_CONTENT = `
 	import React, { memo } from 'react'
@@ -95,14 +92,12 @@ const makePackageJson = (index, isTS) => {
 			eject: 'react-scripts eject',
 		},
 		dependencies: {
-			react: reactVersion,
+			...examplesDevDeps,
+			...examplesDeps,
 			'react-dom': reactDomVersion,
 			'react-scripts': '3.1.1',
-			'@chart-parts/react': chartPartsReactVersion,
 			'@chart-parts/react-svg-renderer': chartPartsSvgRendererVersion,
 			typescript: typescriptVersion,
-			'@types/react': typesReactVersion,
-			'@types/react-dom': typesReactDomVersion,
 			'@types/jest': typesJestVersion,
 		},
 		browserslist: ['>0.2%', 'not dead', 'not ie <= 11', 'not op_mini all'],
