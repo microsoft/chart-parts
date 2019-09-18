@@ -26,7 +26,6 @@ const ToggleSize = 15
 const LinkTree: React.FC<LinkTreeProps> = memo(
 	({ expanded: expandedProp, node, activePath, depth, flat }) => {
 		const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
-		console.log('FLAT?', flat)
 		useEffect(() => {
 			if (activePath.startsWith(node.item.path)) {
 				setExpanded(true)

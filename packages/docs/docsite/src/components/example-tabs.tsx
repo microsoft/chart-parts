@@ -30,7 +30,6 @@ export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
 			component,
 		])
 		const url = useMemo(() => exampleUrl(name), [name])
-		console.log('URL', url)
 
 		return (
 			<Tabs>
