@@ -1,22 +1,44 @@
 {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "type": "chrome",
-            "request": "attach",
-            "name": "Attach to Chrome",
-            "port": 9222,
-            "webRoot": "${workspaceFolder}"
-        },
-        {
-            "type": "chrome",
-            "request": "launch",
-            "name": "Launch Chrome against localhost",
-            "url": "http://localhost:6006",
-            "webRoot": "${workspaceFolder}"
-        }
-    ]
+	// Use IntelliSense to learn about possible attributes.
+	// Hover to view descriptions of existing attributes.
+	// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "chrome",
+			"request": "attach",
+			"name": "Attach to Chrome",
+			"port": 9222,
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"type": "chrome",
+			"request": "launch",
+			"name": "Launch Chrome against localhost",
+			"url": "http://localhost:6006",
+			"webRoot": "${workspaceFolder}"
+		},
+		{
+			"name": "Gatsby develop",
+			"type": "node",
+			"request": "launch",
+			"protocol": "inspector",
+			"program": "${workspaceRoot}/packages/docs/docsite/node_modules/gatsby/dist/bin/gatsby",
+			"args": ["develop"],
+			"stopOnEntry": false,
+			"runtimeArgs": ["--nolazy"],
+			"sourceMaps": false
+		},
+		{
+			"name": "Gatsby build",
+			"type": "node",
+			"request": "launch",
+			"protocol": "inspector",
+			"program": "${workspaceRoot}/packages/docs/docsite/node_modules/gatsby/dist/bin/gatsby",
+			"args": ["build"],
+			"stopOnEntry": false,
+			"runtimeArgs": ["--nolazy"],
+			"sourceMaps": false
+		}
+	]
 }

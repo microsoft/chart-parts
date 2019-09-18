@@ -1,6 +1,6 @@
 ---
-title: 'Line Mark'
-path: '/documentation/concepts/marks/line'
+title: Line Mark
+path: /documentation/concepts/marks/line
 order: 4
 ---
 

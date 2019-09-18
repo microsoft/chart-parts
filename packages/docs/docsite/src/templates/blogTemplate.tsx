@@ -12,10 +12,9 @@ import convertGraphqlToc from '../util/convertGraphqlToc'
 
 export default function Template(arg: any) {
 	const { post, toc } = arg.data
-
+	console.log('POST', post, toc)
 	return (
 		<Layout
-			logoTo="/blog"
 			sidebar={
 				<Sidebar
 					items={convertGraphqlToc(toc)}
@@ -32,6 +31,7 @@ export const pageQuery = graphql`
 	query($path: String!) {
 		post: markdownRemark(frontmatter: { path: { eq: $path } }) {
 			html
+			htmlAst
 			frontmatter {
 				date(formatString: "MMMM DD, YYYY")
 				path

@@ -1,6 +1,6 @@
 ---
-title: 'Area Chart'
-path: '/documentation/examples/area_chart'
+title: Area Chart
+path: /documentation/examples/area_chart
 order: 4
 ---
 

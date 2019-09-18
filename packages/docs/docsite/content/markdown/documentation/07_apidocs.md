@@ -1,30 +1,29 @@
 ---
-title: 'API Documentation'
-path: '/documentation/apidocs'
+title: API Documentation
+path: /documentation/apidocs
 order: 7
 ---
 
-# API Documentation
+## API Documentation
 
-## Client API Packages
+### Client API Packages
 
 - [@chart-parts/react](/apidocs/client/react/index.html)
 - [@chart-parts/interfaces](/apidocs/client/interfaces/index.html)
 - [@chart-parts/builder](/apidocs/client/builder/index.html)
 
-## Processing Pipeline Packages
+### Processing Pipeline Packages
 
 - [@chart-parts/orchestrator](/apidocs/processing/orchestrator/index.html)
-- [@chart-parts/scene](/apidocs/processing/scene/index.html)
 - [@chart-parts/scenegraph](/apidocs/processing/scenegraph/index.html)
 - [@chart-parts/vsvg](/apidocs/processing/vsvg/index.html)
 
-## Renderer Implementations
+### Renderer Implementations
 
 - [@chart-parts/react-svg-renderer](/apidocs/renderers/react-svg/index.html)
 - [@chart-parts/react-native-svg-renderer](/apidocs/renderers/react-native-svg/index.html)
 
-## Utility Packages
+### Utility Packages
 
 - [@chart-parts/scales](/apidocs/util/scales/index.html)
 - [@chart-parts/shapes](/apidocs/util/shapes/index.html)

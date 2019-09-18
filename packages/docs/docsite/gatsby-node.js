@@ -8,7 +8,7 @@ const path = require('path')
 /**
  * Dynamically creates pages in the static website
  */
-function createPages({ actions, graphql }) {
+exports.createPages = function createPages({ actions, graphql }) {
 	const retrieveMarkdownPages = () =>
 		graphql(`
 			{
@@ -52,7 +52,7 @@ function createPages({ actions, graphql }) {
 	})
 }
 
-function onCreateWebpackConfig({ actions }) {
+exports.onCreateWebpackConfig = function onCreateWebpackConfig({ actions }) {
 	actions.setWebpackConfig({
 		resolve: {
 			alias: {
@@ -66,6 +66,3 @@ function onCreateWebpackConfig({ actions }) {
 		},
 	})
 }
-
-exports.createPages = createPages
-exports.onCreateWebpackConfig = onCreateWebpackConfig

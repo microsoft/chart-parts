@@ -1,11 +1,11 @@
 ---
-title: 'Feedback'
-path: '/documentation/feedback'
+title: Feedback
+path: /documentation/feedback
 order: 8
 ---
 
 ## Feedback
 
-### Questions or Comments?
+### Questions or Comments
 
 twitter.com/darthtrevino

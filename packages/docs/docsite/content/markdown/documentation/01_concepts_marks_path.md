@@ -1,6 +1,6 @@
 ---
-title: 'Path Mark'
-path: '/documentation/concepts/marks/path'
+title: Path Mark
+path: /documentation/concepts/marks/path
 order: 5
 ---
 

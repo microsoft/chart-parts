@@ -1,6 +1,6 @@
 ---
-title: 'Job Voyager'
-path: '/documentation/examples/job_voyager'
+title: Job Voyager
+path: /documentation/examples/job_voyager
 order: 7
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: 'Line Chart'
-path: '/documentation/examples/line_chart'
+title: Line Chart
+path: /documentation/examples/line_chart
 order: 3
 ---
 
