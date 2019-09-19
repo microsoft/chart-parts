@@ -2424,20 +2424,20 @@ img {
 			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 				<a name="docstructure" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> Doc<wbr>Structure</h3>
-				<div class="tsd-signature tsd-kind-icon">Doc<wbr>Structure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_templates_doctemplate_.docstructureprops.html" class="tsd-signature-type">DocStructureProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ toc, pathname, page }) &#x3D;&gt; (&lt;Layouttitle&#x3D;{page.frontmatter.title}sidebar&#x3D;{&lt;Sidebaritems&#x3D;{convertGraphqlToc(toc)}activePath&#x3D;{pathname}flat&#x3D;{false}/&gt;}&gt;&lt;Doc docPage&#x3D;{page} /&gt;&lt;/Layout&gt;))</span></div>
+				<div class="tsd-signature tsd-kind-icon">Doc<wbr>Structure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_templates_doctemplate_.docstructureprops.html" class="tsd-signature-type">DocStructureProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ toc, pathname, page }) &#x3D;&gt; {return (&lt;Layouttitle&#x3D;{page.frontmatter.title}sidebar&#x3D;{&lt;Sidebaritems&#x3D;{convertGraphqlToc(toc)}activePath&#x3D;{pathname}flat&#x3D;{false}/&gt;}&gt;&lt;Doc docPage&#x3D;{page} /&gt;&lt;/Layout&gt;)})</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/980b91a8/packages/docs/docsite/src/templates/docTemplate.tsx#L20">templates/docTemplate.tsx:20</a></li>
+						<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7d9c9c47/packages/docs/docsite/src/templates/docTemplate.tsx#L20">templates/docTemplate.tsx:20</a></li>
 					</ul>
 				</aside>
 			</section>
 			<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module">
 				<a name="pagequery" class="tsd-anchor"></a>
 				<h3><span class="tsd-flag ts-flagConst">Const</span> page<wbr>Query</h3>
-				<div class="tsd-signature tsd-kind-icon">page<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> =&nbsp;graphql&#x60;query($path: String!) {currentPage: markdownRemark(frontmatter: { path: { eq: $path } }) {htmlhtmlAstfrontmatter {date(formatString: &quot;MMMM DD, YYYY&quot;)pathtitle}}toc: allMarkdownRemark(filter: { frontmatter: { path: { regex: &quot;/^/documentation/.*/&quot; } } }) {edges {node {frontmatter {titlepathorder}}}}}&#x60;</span></div>
+				<div class="tsd-signature tsd-kind-icon">page<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> =&nbsp;graphql&#x60;query($path: String!) {currentPage: markdownRemark(frontmatter: { path: { eq: $path } }) {htmlhtmlAsttableOfContents(maxDepth: 2, pathToSlugField: &quot;frontmatter.path&quot;)frontmatter {date(formatString: &quot;MMMM DD, YYYY&quot;)pathtitle}}toc: allMarkdownRemark(filter: { frontmatter: { path: { regex: &quot;/^/documentation/.*/&quot; } } }) {edges {node {frontmatter {titlepathorder}}}}}&#x60;</span></div>
 				<aside class="tsd-sources">
 					<ul>
-						<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/980b91a8/packages/docs/docsite/src/templates/docTemplate.tsx#L45">templates/docTemplate.tsx:45</a></li>
+						<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7d9c9c47/packages/docs/docsite/src/templates/docTemplate.tsx#L47">templates/docTemplate.tsx:47</a></li>
 					</ul>
 				</aside>
 			</section>
@@ -2454,7 +2454,7 @@ img {
 					<li class="tsd-description">
 						<aside class="tsd-sources">
 							<ul>
-								<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/980b91a8/packages/docs/docsite/src/templates/docTemplate.tsx#L38">templates/docTemplate.tsx:38</a></li>
+								<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7d9c9c47/packages/docs/docsite/src/templates/docTemplate.tsx#L40">templates/docTemplate.tsx:40</a></li>
 							</ul>
 						</aside>
 						<h4 class="tsd-parameters-title">Parameters</h4>
