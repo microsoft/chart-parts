@@ -18,6 +18,10 @@ import { observeOn } from 'rxjs/operators'
 import { animationFrameScheduler } from 'rxjs'
 import { SceneBuilderContext, ChartRendererContext } from './Context'
 
+/**
+ * A specification for the padding to apply to the chart
+ * @category Chart
+ */
 export interface ChartPadding {
 	top?: number
 	bottom?: number
@@ -25,6 +29,10 @@ export interface ChartPadding {
 	right?: number
 }
 
+/**
+ * Chart component props
+ * @category Chart
+ */
 export interface ChartProps {
 	width: number
 	height: number
@@ -35,13 +43,10 @@ export interface ChartProps {
 	description?: string
 }
 
-export interface ChartState {
-	/**
-	 * The result of the rendering process
-	 */
-	rendered: React.ReactNode
-}
-
+/**
+ * The Chart Component, the root of all charts
+ * @category Chart
+ */
 export const Chart: React.FC<ChartProps> = memo(
 	({ data, children, width, height, padding, title, description }) => {
 		const chartOptions = useChartOptions(

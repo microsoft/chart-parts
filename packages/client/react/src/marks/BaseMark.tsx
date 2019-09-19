@@ -10,9 +10,15 @@ import {
 	MarkBuilder,
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { MarkEncodingKey } from '@chart-parts/interfaces'
 
+/**
+ * A factory function for creating mark components
+ * @param markType The mark type to create
+ * @param customHook An optional custom hook to use when themark is created
+ * @ignore
+ */
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,

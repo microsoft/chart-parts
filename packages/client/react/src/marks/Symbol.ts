@@ -9,16 +9,24 @@ import {
 	MarkEncodingKey,
 	MarkEncoding,
 } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { useEffect } from 'react'
 import { MarkBuilder } from '@chart-parts/builder'
 
+/**
+ * Symbol Mark Component Props
+ * @category Mark
+ */
 export interface SymbolProps extends CommonMarkProps {
 	size?: MarkEncoding<number>
 	shape?: MarkEncoding<SymbolType | string>
 }
 
+/**
+ * Symbol Mark Component
+ * @category Mark
+ */
 export const Symbol = createMarkComponent<SymbolProps>(
 	MarkType.Symbol,
 	(mark: MarkBuilder, props) => {

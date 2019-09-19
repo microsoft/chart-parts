@@ -8,11 +8,15 @@ import {
 	MarkEncoding,
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { MarkBuilder } from '@chart-parts/builder'
 import { useEffect } from 'react'
 
+/**
+ * Arc Mark Props
+ * @category Mark
+ */
 export interface ArcProps extends CommonMarkProps {
 	startAngle?: MarkEncoding<number>
 	endAngle?: MarkEncoding<number>
@@ -22,6 +26,10 @@ export interface ArcProps extends CommonMarkProps {
 	cornerRadius?: MarkEncoding<number>
 }
 
+/**
+ * Arc Mark Component
+ * @category Mark
+ */
 export const Arc = createMarkComponent<ArcProps>(
 	MarkType.Arc,
 	(mark: MarkBuilder, props) => {

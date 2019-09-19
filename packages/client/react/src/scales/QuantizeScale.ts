@@ -8,6 +8,10 @@ import {
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
 
+/**
+ * Quantize Scale Component Props
+ * @category Scale
+ */
 export interface QuantizeScaleProps<DomainValue, RangeValue>
 	extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], {}> {
 	/**
@@ -22,10 +26,19 @@ export interface QuantizeScaleProps<DomainValue, RangeValue>
 	zero?: boolean
 }
 
+/**
+ * Quantize Scale Component Type
+ * @category Scale
+ */
 export type QuantizeScaleComponentType<D = any, R = any> = React.FC<
 	QuantizeScaleProps<D, R>
 >
 
+/**
+ * Quantize Scale Component
+ * @category Scale
+ * @remarks Based on [d3.scaleQuantize](https://github.com/d3/d3-scale#scaleQuantize)
+ */
 export const QuantizeScale: QuantizeScaleComponentType = createDomainRangeScale(
 	'QuantizeScale',
 	({ name, domain, range, reverse, nice, zero }) =>

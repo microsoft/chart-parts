@@ -10,6 +10,10 @@ import {
 	DomainRangeScaleProps,
 } from '../DomainRangeScale'
 
+/**
+ * BandScale Component Props
+ * @category Scale
+ */
 export interface BandScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
 	/**
@@ -43,6 +47,11 @@ export interface BandScaleProps
 	round?: boolean
 }
 
+/**
+ * BandScale React component
+ * @category Scale
+ * @remarks Based on the [d3 bandScale](https://github.com/d3/d3-scale#band-scales)
+ */
 export const BandScale: React.FC<BandScaleProps> = createDomainRangeScale<
 	BandScaleProps,
 	string[],

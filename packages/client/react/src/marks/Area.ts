@@ -4,12 +4,16 @@
  */
 
 import { MarkType, Orientation, Interpolation } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { useEffect } from 'react'
 import { MarkBuilder } from '@chart-parts/builder'
 import { MarkEncodingKey, MarkEncoding } from '@chart-parts/interfaces'
 
+/**
+ * Area Mark Component Props
+ * @category Mark
+ */
 export interface AreaProps extends CommonMarkProps {
 	orient?: MarkEncoding<Orientation>
 	interpolate?: MarkEncoding<Interpolation>
@@ -17,6 +21,10 @@ export interface AreaProps extends CommonMarkProps {
 	defined?: MarkEncoding<boolean>
 }
 
+/**
+ * Area Mark Component
+ * @category Mark
+ */
 export const Area = createMarkComponent<AreaProps>(
 	MarkType.Area,
 	(mark: MarkBuilder, props) => {

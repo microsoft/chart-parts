@@ -10,11 +10,20 @@ import {
 	QuantitativeValue,
 } from './QuantitativeScale'
 
+/**
+ * Log Scale properties
+ * @category Scale
+ */
 export interface LogScaleProps
 	extends QuantitativeScaleProps<QuantitativeValue, number> {
 	base?: number
 }
 
+/**
+ * LogScale Component
+ * @remark Based on [d3.scaleLog](https://github.com/d3/d3-scale#scaleLog)
+ * @category Scale
+ */
 export const LogScale = createQuantitativeScale<
 	LogScaleProps,
 	QuantitativeValue,

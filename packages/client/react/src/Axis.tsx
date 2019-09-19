@@ -10,6 +10,7 @@ import { SceneBuilderContext } from './Context'
 
 /**
  * Axis Component Props
+ * @category Utility
  */
 export interface AxisProps {
 	/**
@@ -58,6 +59,12 @@ export interface AxisProps {
 	// #endregion
 }
 
+/**
+ * The Axis component is used to define axes on a chart. Axes are always
+ * bound to a scale using the *scale* prop and are anchored to an edge of the
+ * available view space using the *orient* prop.
+ * @category Utility
+ */
 export const Axis: React.FC<AxisProps> = memo(
 	({ children, scale, orient, ...props }) => {
 		const api = useContext(SceneBuilderContext)
@@ -77,6 +84,11 @@ export const Axis: React.FC<AxisProps> = memo(
 	},
 )
 
+/**
+ * Synchronize React props with the Axis Builder object.
+ * @param axis The Axis builder instance
+ * @param props The Axis react props
+ */
 function useAxisProps(axis: AxisBuilder, props: AxisProps) {
 	useEffect(() => {
 		axis.thickness(props.thickness)

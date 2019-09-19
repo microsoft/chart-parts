@@ -58,7 +58,7 @@
     "type-check": "tsc --noEmit",
     "clean:docs": "rimraf static/apidocs",
     "gen:docs": "run-p gen:doc:*",
-    "gen:doc": "typedoc --theme minimal --out static/apidocs/$LIB --tsconfig ../../$LIB/tsconfig.typedoc.json --ignoreCompilerErrors --excludePrivate --hideGenerator",
+    "gen:doc": "typedoc --theme default --out static/apidocs/$LIB --tsconfig ../../$LIB/tsconfig.typedoc.json  --ignoreCompilerErrors --excludePrivate --excludeNotExported --hideGenerator --mode file",
     "gen:doc:builder": "LIB=client/builder yarn gen:doc",
     "gen:doc:interfaces": "LIB=client/interfaces yarn gen:doc",
     "gen:doc:react": "LIB=client/react yarn gen:doc",

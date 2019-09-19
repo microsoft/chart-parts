@@ -10,6 +10,10 @@ import {
 	createQuantitativeScale,
 } from './QuantitativeScale'
 
+/**
+ * Linear Scale Component
+ * @category Scale
+ */
 export const LinearScale = createQuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,
