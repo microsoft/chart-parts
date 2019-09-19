@@ -60,7 +60,7 @@ const IndexPage: React.FC = memo(() => {
 			<Wrapper>
 				<OverflowContainer ref={scrollAreaRef} onScroll={onScroll}>
 					<Content>
-						<HeroBanner fadePercent={scrollPercent} />
+						<HeroBanner scrollPercent={scrollPercent} />
 						<BelowTheFold />
 						<Footer />
 					</Content>

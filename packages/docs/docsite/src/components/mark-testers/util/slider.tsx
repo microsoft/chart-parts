@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -12,9 +12,6 @@ const Container = styled.div`
 `
 const NameColumn = styled.div`
 	width: ${nameColumnWidth}px;
-`
-const InputColumn = styled.input`
-	flex: 2;
 `
 
 export interface SliderProps {
@@ -25,29 +22,39 @@ export interface SliderProps {
 	step?: number
 	onChange?: (value: number | string) => void
 }
-
-export const Slider: React.FC<SliderProps> = ({
-	name,
-	min = 0,
-	max = 200,
-	value = 0,
-	step = 1,
-	onChange = () => null,
-}) => {
-	const handleChange = (evt: any) => onChange(evt.target.value)
-	return (
-		<Container>
-			<NameColumn>{name}</NameColumn>
-			<InputColumn
-				type="range"
-				name={name}
-				value={value}
-				min={min}
-				max={max}
-				step={step}
-				onChange={handleChange}
-			/>
-			<div>{value}</div>
-		</Container>
-	)
-}
+const DO_NOTHING = () => null
+export const Slider: React.FC<SliderProps> = memo(
+	({
+		name,
+		min = 0,
+		max = 200,
+		value: defaultValue = 0,
+		step = 1,
+		onChange = DO_NOTHING,
+	}) => {
+		const [value, setValue] = useState(defaultValue)
+		const handleChange = useCallback(
+			evt => {
+				setValue(evt.target.value)
+				onChange(evt.target.value)
+			},
+			[onChange]
+		)
+		return (
+			<Container>
+				<NameColumn>{name}</NameColumn>
+				<input
+					type="range"
+					name={name}
+					value={value}
+					min={min}
+					max={max}
+					step={step}
+					onChange={handleChange}
+				/>
+				<div>{value}</div>
+			</Container>
+		)
+	}
+)
+Slider.displayName = 'Slider'

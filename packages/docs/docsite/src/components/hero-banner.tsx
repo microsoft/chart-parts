@@ -2,51 +2,67 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
-import React from 'react'
+import React, { memo } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, withPrefix } from 'gatsby'
 import theme from '../util/theme'
 import { scaleLinear } from 'd3-scale'
-
+import { ArrowStrip } from './arrow-strip'
 const fadeScale = scaleLinear()
 	.domain([0, 1])
 	.range([1.0, 0.4])
 
 interface HeroBannerProps {
 	style?: React.CSSProperties
-	fadePercent: number
+	scrollPercent: number
 }
-const HeroBanner: React.FC<HeroBannerProps> = ({ style, fadePercent }) => (
-	<StaticQuery
-		query={graphql`
-			query {
-				site {
-					siteMetadata {
-						title
-						description
+const HeroBanner: React.FC<HeroBannerProps> = memo(
+	({ style, scrollPercent }) => (
+		<StaticQuery
+			query={graphql`
+				query {
+					site {
+						siteMetadata {
+							title
+							description
+						}
 					}
 				}
-			}
-		`}
-		render={({
-			site: {
-				siteMetadata: { title, description },
-			},
-		}) => (
-			<ImageContainer style={style}>
-				<InnerContainer fadePercent={fadePercent}>
-					<Title>{title}</Title>
-					<Description>{description}</Description>
-				</InnerContainer>
-			</ImageContainer>
-		)}
-	/>
+			`}
+			render={({
+				site: {
+					siteMetadata: { title, description },
+				},
+			}) => (
+				<ImageContainer style={style}>
+					<InnerContainer fadePercent={scrollPercent}>
+						<HeroTextContainer>
+							<Title>{title}</Title>
+							<Description>{description}</Description>
+						</HeroTextContainer>
+						<StyledArrowStrip fadePercent={scrollPercent} />
+					</InnerContainer>
+				</ImageContainer>
+			)}
+		/>
+	)
 )
+HeroBanner.displayName = 'HeroBanner'
 
 interface InnerContainerProps {
 	fadePercent: number
 }
+
+const StyledArrowStrip = styled(ArrowStrip)`
+	margin-top: 80px;
+`
+const HeroTextContainer = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+`
+
 const InnerContainer = styled.div`
 	flex: 1;
 	display: flex;

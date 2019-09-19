@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useState, useCallback, useMemo } from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { SGChart } from './chart'
 import { Slider } from './slider'
@@ -56,110 +56,102 @@ const ControlsContainer = styled.div`
 	flex-direction: column;
 `
 
-export const SingleMarkTester: React.FC<SingleMarkTesterProps> = ({
-	sliders = [],
-	dropdowns = [],
-	toggles = [],
-	chartWidth,
-	chartHeight,
-	chartOrigin,
-	initialScenegraph,
-	getParam: propsGetParam,
-	updateScenegraph: propsUpdateScenegraph,
-}) => {
-	const [scenegraph, setScenegraph] = useState(initialScenegraph)
-	const getParam = useCallback(
-		(name: string) => {
-			return propsGetParam
-				? propsGetParam(name, scenegraph)
-				: scenegraph.items[0][name]
-		},
-		[scenegraph]
-	)
+export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
+	({
+		sliders = [],
+		dropdowns = [],
+		toggles = [],
+		chartWidth,
+		chartHeight,
+		chartOrigin,
+		initialScenegraph,
+		getParam: propsGetParam,
+		updateScenegraph: propsUpdateScenegraph,
+	}) => {
+		const [scenegraph, setScenegraph] = useState(initialScenegraph)
+		const getParam = useCallback(
+			(name: string) => {
+				return propsGetParam
+					? propsGetParam(name, scenegraph)
+					: scenegraph.items[0][name]
+			},
+			[scenegraph, propsGetParam]
+		)
 
-	const updateScenegraph = useCallback(
-		(update: any) => {
-			if (propsUpdateScenegraph) {
-				return propsUpdateScenegraph(update, scenegraph)
-			} else {
-				return {
-					...scenegraph,
-					items: [
-						{
-							...scenegraph.items[0],
-							...update,
-						},
-					],
-				}
-			}
-		},
-		[scenegraph]
-	)
-
-	const setParam = useCallback(
-		(update: any) => {
-			setScenegraph(updateScenegraph(update))
-		},
-		[updateScenegraph]
-	)
-
-	const sliderElements = useMemo(
-		() =>
-			sliders.map(({ name, min, max, step }) => (
-				<Slider
-					key={name}
-					name={name}
-					min={min}
-					max={max}
-					step={step}
-					value={getParam(name)}
-					onChange={v =>
-						setParam({ [name]: typeof v === 'string' ? parseFloat(v) : v })
+		const updateScenegraph = useCallback(
+			(update: any) => {
+				if (propsUpdateScenegraph) {
+					const result = propsUpdateScenegraph(update, scenegraph)
+					return result
+				} else {
+					return {
+						...scenegraph,
+						items: scenegraph.items.map((i: any) => ({ ...i, ...update })),
 					}
-				/>
-			)),
-		[getParam, setParam]
-	)
-	const dropdownElements = useMemo(
-		() =>
-			dropdowns.map(({ name, options }) => (
-				<Dropdown
-					key={name}
-					name={name}
-					options={options}
-					value={getParam(name)}
-					onChange={v => setParam({ [name]: v }) as any}
-				/>
-			)),
-		[getParam, setParam]
-	)
-	const toggleElements = useMemo(
-		() =>
-			toggles.map(({ name }) => (
-				<Toggle
-					key={name}
-					name={name}
-					value={getParam(name)}
-					onChange={v => setParam({ [name]: v })}
-				/>
-			)),
-		[getParam, setParam]
-	)
-	return (
-		<Container>
-			<ChartContainer>
-				<SGChart
-					data={scenegraph}
-					width={chartWidth}
-					height={chartHeight}
-					origin={chartOrigin}
-				/>
-			</ChartContainer>
-			<ControlsContainer>
-				{toggleElements}
-				{sliderElements}
-				{dropdownElements}
-			</ControlsContainer>
-		</Container>
-	)
-}
+				}
+			},
+			[scenegraph]
+		)
+
+		const setParam = useCallback(
+			(update: any) => {
+				const newsg = updateScenegraph(update)
+				setScenegraph(newsg)
+			},
+			[updateScenegraph]
+		)
+
+		const sliderElements = sliders.map(({ name, min, max, step }) => (
+			<Slider
+				key={name}
+				name={name}
+				min={min}
+				max={max}
+				step={step}
+				value={getParam(name)}
+				onChange={v => {
+					setParam({ [name]: typeof v === 'string' ? parseFloat(v) : v })
+				}}
+			/>
+		))
+
+		const dropdownElements = dropdowns.map(({ name, options }) => (
+			<Dropdown
+				key={name}
+				name={name}
+				options={options}
+				value={getParam(name)}
+				onChange={v => setParam({ [name]: v }) as any}
+			/>
+		))
+
+		const toggleElements = toggles.map(({ name }) => (
+			<Toggle
+				key={name}
+				name={name}
+				value={getParam(name)}
+				onChange={v => setParam({ [name]: v })}
+			/>
+		))
+
+		return (
+			<Container>
+				<ChartContainer>
+					<SGChart
+						data={scenegraph}
+						width={chartWidth}
+						height={chartHeight}
+						origin={chartOrigin}
+					/>
+				</ChartContainer>
+				<ControlsContainer>
+					{toggleElements}
+					{sliderElements}
+					{dropdownElements}
+				</ControlsContainer>
+			</Container>
+		)
+	}
+)
+
+SingleMarkTester.displayName = 'SingleMarkTester'

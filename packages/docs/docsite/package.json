@@ -28,6 +28,7 @@
     "gatsby-plugin-styled-components": "^3.1.5",
     "gatsby-plugin-typescript": "^2.1.8",
     "gatsby-plugin-typography": "^2.3.7",
+    "gatsby-remark-autolink-headers": "^2.1.10",
     "gatsby-remark-copy-linked-files": "^2.1.19",
     "gatsby-remark-images": "^3.1.22",
     "gatsby-remark-prismjs": "^3.3.13",
@@ -44,7 +45,8 @@
     "rehype-react": "^4.0.1",
     "styled-components": "^4.3.2",
     "typography": "^0.16.19",
-    "typography-theme-github": "^0.16.19"
+    "typography-theme-github": "^0.16.19",
+    "use-debounce": "^3.0.1"
   },
   "license": "MIT",
   "scripts": {

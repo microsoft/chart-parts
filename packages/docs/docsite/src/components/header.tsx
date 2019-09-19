@@ -41,10 +41,10 @@ export const Header: React.FC<HeaderProps> = memo(
 									<TitleLink to={logoTo}>{title}</TitleLink>
 								</Title>
 								<Links>
-									<OuterLink to="/">Home</OuterLink>
-									<OuterLink to="/documentation">Docs</OuterLink>
-									<OuterLink to="/blog">Blog</OuterLink>
-									<OuterLinkA href={githubUrl}>Github</OuterLinkA>
+									<InnerLink to="/">Home</InnerLink>
+									<InnerLink to="/documentation">Documentation</InnerLink>
+									<InnerLink to="/blog">Blog</InnerLink>
+									<OuterLink href={githubUrl}>Github</OuterLink>
 								</Links>
 							</InnerContainer>
 						</Container>
@@ -91,18 +91,20 @@ const TitleLink = styled(Link)`
 	font-weight: 100;
 `
 
-const OuterLink = styled(Link)`
+const InnerLink = styled(Link)`
 	color: white;
 	margin-left: 8px;
 	margin-right: 8px;
 	font-family: ${theme.text.fontFamily};
-	font-weight: 100;
+	font-weight: ${theme.header.linkFontSize};
+	font-weight: ${theme.header.linkFontWeight};
 `
 
-const OuterLinkA = styled.a`
+const OuterLink = styled.a`
 	color: white;
 	margin-left: 8px;
 	margin-right: 8px;
 	font-family: ${theme.text.fontFamily};
-	font-weight: 100;
+	font-weight: ${theme.header.linkFontSize};
+	font-weight: ${theme.header.linkFontWeight};
 `
