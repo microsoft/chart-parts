@@ -5,6 +5,9 @@
 
 import { Axis, AxisOrientation } from '@chart-parts/interfaces'
 
+/**
+ * @ignore
+ */
 export function crossValue(axis: Axis, thickness: number): number {
 	const domainWidth = axis.domainWidth as number
 	const { orient } = axis

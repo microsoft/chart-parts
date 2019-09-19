@@ -17,6 +17,9 @@ import {
 	AxisComponent,
 } from '../../interfaces'
 
+/**
+ * @ignore
+ */
 export class TickLabels implements AxisComponent {
 	public createContext(context: Partial<AxisContext>) {
 		return context

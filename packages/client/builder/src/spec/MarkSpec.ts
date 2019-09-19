@@ -14,6 +14,10 @@ import {
 } from '@chart-parts/interfaces'
 import { SceneNodeSpec } from './SceneNodeSpec'
 
+/**
+ * Mark Specification Object
+ * @category Specification
+ */
 export class MarkSpec implements Mark {
 	private _table: string | undefined
 	private _channels: Channels = {}

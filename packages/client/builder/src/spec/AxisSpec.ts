@@ -25,6 +25,10 @@ import {
 	DEFAULT_AXIS_BAND_POSITION,
 } from './defaults'
 
+/**
+ * Axis Specification Object
+ * @category Specification
+ */
 export class AxisSpec implements Axis {
 	private _thickness: number = DEFAULT_AXIS_THICKNESS
 

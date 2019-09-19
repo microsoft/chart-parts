@@ -23,6 +23,7 @@ import { processNode } from '../processNode'
 /**
  * Creates a scenegraph item bound to a data row
  *
+ * @ignore
  * @param frame The current scene frame
  * @param row The data row
  * @param index The data row index

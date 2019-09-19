@@ -11,7 +11,7 @@ import {
 } from '@chart-parts/interfaces'
 import { SceneFrame } from '../context/SceneFrame'
 import { buildAxis } from './buildAxis'
-import { AxisSpace } from '../interfaces'
+import { AxisSpace } from './interfaces'
 import { SGMarkAny } from '../processNode'
 import { DEFAULT_AXIS_THICKNESS } from '../../spec/defaults'
 
@@ -19,6 +19,7 @@ import { DEFAULT_AXIS_THICKNESS } from '../../spec/defaults'
  * Builds axes into a screen frame
  * @param node The current scene node
  * @param frame Thec curren scene frame
+ * @ignore
  */
 export function buildAxes(
 	node: SceneNode,

@@ -12,6 +12,9 @@ function isTimeScale(scale: Scale<any, any>) {
 	return scale.__scaletype__ === 'utc' || scale.__scaletype__ === 'time'
 }
 
+/**
+ * @ignore
+ */
 export function getLabelFormatter(
 	context: AxisContext,
 ): (input: any) => string {

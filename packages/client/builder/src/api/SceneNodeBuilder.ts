@@ -13,6 +13,10 @@ interface SubscribableHandle<T> {
 	subscription: Subscription
 }
 
+/**
+ * The build component for scene nodes
+ * @category Builder
+ */
 export class SceneNodeBuilder {
 	public readonly onChange = new Subject<any>()
 	public readonly spec = new SceneNodeSpec()

@@ -6,6 +6,10 @@ import { SceneNode, ScaleCreator } from '@chart-parts/interfaces'
 import { MarkSpec } from './MarkSpec'
 import { AxisSpec } from './AxisSpec'
 
+/**
+ * Scene Specification Object
+ * @category Specification
+ */
 export class SceneNodeSpec implements SceneNode {
 	private _scales: ScaleCreator[] = []
 	private _marks: MarkSpec[] = []

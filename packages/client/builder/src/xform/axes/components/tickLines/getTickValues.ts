@@ -8,6 +8,7 @@ import { AxisContext, PositionedTickValue } from '../../interfaces'
 
 /**
  * Gets logical tick values and their associated labels
+ * @ignore
  * @param context The axis context
  */
 export function getTickValues(context: AxisContext): PositionedTickValue[] {

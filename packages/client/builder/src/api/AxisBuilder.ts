@@ -12,6 +12,10 @@ import {
 import { Subject } from 'rxjs'
 import { AxisSpec } from '../spec/AxisSpec'
 
+/**
+ * A builder class for defining Axes
+ * @category Builder
+ */
 export class AxisBuilder {
 	public readonly onChange = new Subject<any>()
 	public readonly spec: AxisSpec
