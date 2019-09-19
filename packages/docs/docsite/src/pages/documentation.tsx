@@ -16,6 +16,7 @@ export const query = graphql`
 		) {
 			html
 			htmlAst
+			tableOfContents(maxDepth: 2, pathToSlugField: "frontmatter.path")
 			frontmatter {
 				date(formatString: "MMMM DD, YYYY")
 				path

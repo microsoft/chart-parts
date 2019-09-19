@@ -23,71 +23,74 @@ const BASE_ITEM = {
 const chartHeight = 250
 const interval = chartHeight / 4
 
+const INITIAL_SG = {
+	marktype: 'area',
+	items: [
+		{
+			y: interval * 0,
+			x: 98.18,
+			...BASE_ITEM,
+		},
+		{
+			y: interval,
+			x: 20,
+			...BASE_ITEM,
+		},
+		{
+			y: interval * 2,
+			x: 47.27,
+			...BASE_ITEM,
+		},
+		{
+			y: interval * 3,
+			x: 76.36,
+			...BASE_ITEM,
+		},
+		{
+			y: interval * 4,
+			x: 25.4545,
+			...BASE_ITEM,
+		},
+	],
+}
+
+const ORIGIN: [number, number] = [10, 0]
+const SLIDERS = [
+	{ name: 'x2', min: 0, max: 400 },
+	{ name: 'tension', min: 0, max: 1, step: 0.05 },
+	{ name: 'strokeWidth', max: 10 },
+	{ name: 'strokeOpacity', max: 1, min: 0, step: 0.05 },
+	{ name: 'fillOpacity', max: 1, min: 0, step: 0.05 },
+]
+
+const DROPDOWNS = [
+	{
+		name: 'interpolate',
+		options: [
+			'basis',
+			'cardinal',
+			'catmull-rom',
+			'linear',
+			'monotone',
+			'natural',
+			'step',
+			'step-after',
+			'step-before',
+		],
+	},
+]
+
+const TOGGLES = [{ name: 'defined' }]
+
 const AreaTesterHorizontal: React.FC = () => (
 	<SingleMarkTester
 		chartWidth={420}
 		chartHeight={chartHeight}
-		chartOrigin={[10, 0]}
-		initialScenegraph={{
-			marktype: 'area',
-			items: [
-				{
-					y: interval * 0,
-					x: 98.18,
-					...BASE_ITEM,
-				},
-				{
-					y: interval,
-					x: 20,
-					...BASE_ITEM,
-				},
-				{
-					y: interval * 2,
-					x: 47.27,
-					...BASE_ITEM,
-				},
-				{
-					y: interval * 3,
-					x: 76.36,
-					...BASE_ITEM,
-				},
-				{
-					y: interval * 4,
-					x: 25.4545,
-					...BASE_ITEM,
-				},
-			],
-		}}
-		sliders={[
-			{ name: 'x2', min: 0, max: 400 },
-			{ name: 'tension', min: 0, max: 1, step: 0.1 },
-			{ name: 'strokeWidth', max: 10 },
-			{ name: 'strokeOpacity', max: 1, min: 0, step: 0.1 },
-			{ name: 'fillOpacity', max: 1, min: 0, step: 0.1 },
-		]}
-		dropdowns={[
-			{
-				name: 'interpolate',
-				options: [
-					'basis',
-					'cardinal',
-					'catmull-rom',
-					'linear',
-					'monotone',
-					'natural',
-					'step',
-					'step-after',
-					'step-before',
-				],
-			},
-		]}
-		toggles={[{ name: 'defined' }]}
-		updateScenegraph={(update, scenegraph) => {
-			scenegraph.items.forEach((item: any) => {
-				Object.keys(update).forEach(key => (item[key] = update[key]))
-			})
-			return scenegraph
-		}}
+		chartOrigin={ORIGIN}
+		initialScenegraph={INITIAL_SG}
+		sliders={SLIDERS}
+		dropdowns={DROPDOWNS}
+		toggles={TOGGLES}
 	/>
 )
 

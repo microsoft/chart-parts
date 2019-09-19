@@ -18,20 +18,22 @@ export interface DocStructureProps {
 	page: any
 }
 export const DocStructure: React.FC<DocStructureProps> = memo(
-	({ toc, pathname, page }) => (
-		<Layout
-			title={page.frontmatter.title}
-			sidebar={
-				<Sidebar
-					items={convertGraphqlToc(toc)}
-					activePath={pathname}
-					flat={false}
-				/>
-			}
-		>
-			<Doc docPage={page} />
-		</Layout>
-	)
+	({ toc, pathname, page }) => {
+		return (
+			<Layout
+				title={page.frontmatter.title}
+				sidebar={
+					<Sidebar
+						items={convertGraphqlToc(toc)}
+						activePath={pathname}
+						flat={false}
+					/>
+				}
+			>
+				<Doc docPage={page} />
+			</Layout>
+		)
+	}
 )
 DocStructure.displayName = 'DocStructure'
 
@@ -47,6 +49,7 @@ export const pageQuery = graphql`
 		currentPage: markdownRemark(frontmatter: { path: { eq: $path } }) {
 			html
 			htmlAst
+			tableOfContents(maxDepth: 2, pathToSlugField: "frontmatter.path")
 			frontmatter {
 				date(formatString: "MMMM DD, YYYY")
 				path

@@ -46,6 +46,13 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 					<Helmet
 						title={title || siteMetadata.title}
 						meta={getMeta(siteMetadata)}
+						link={[
+							{
+								href:
+									'https://fonts.googleapis.com/css?family=Merriweather:300,400&display=swap',
+								rel: 'stylesheet',
+							},
+						]}
 					>
 						<html lang="en" />
 					</Helmet>

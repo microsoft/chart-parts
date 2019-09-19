@@ -12,6 +12,7 @@ import {
 	PopulationPyramid,
 	StackedBarChart,
 	StackedAreaChart,
+	ScatterPlot,
 } from '@chart-parts/examples'
 
 export default {
@@ -25,6 +26,11 @@ export default {
 	LineChart,
 	AreaChart,
 	StackedAreaChart,
+
+	// Scatterplot
+	ScatterPlot,
+
+	// Exotic Types
 	PopulationPyramid,
 	JobVoyager,
 }

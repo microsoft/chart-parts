@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -23,26 +23,33 @@ export interface DropdownProps {
 	options: string[]
 	onChange: (v: string) => void
 }
-export const Dropdown: React.FC<DropdownProps> = ({
-	name,
-	value,
-	options,
-	onChange = () => null,
-}) => {
-	const handleChange = (evt: any) => onChange(evt.target.value)
-	const optionDom = options.map(o => (
-		<option key={o} value={o}>
-			{o}
-		</option>
-	))
-	return (
-		<Container>
-			<NameColumn>{name}</NameColumn>
-			<InputColumn>
-				<select name={name} onChange={handleChange} value={value}>
-					{optionDom}
-				</select>
-			</InputColumn>
-		</Container>
-	)
-}
+const DO_NOTHING = () => null
+export const Dropdown: React.FC<DropdownProps> = memo(
+	({ name, value, options, onChange = DO_NOTHING }) => {
+		const optionDom = useMemo(
+			() =>
+				options.map(o => (
+					<option key={o} value={o}>
+						{o}
+					</option>
+				)),
+			[options]
+		)
+		return (
+			<Container>
+				<NameColumn>{name}</NameColumn>
+				<InputColumn>
+					<select
+						name={name}
+						onChange={useCallback(evt => onChange(evt.target.value), [
+							onChange,
+						])}
+						value={value}
+					>
+						{optionDom}
+					</select>
+				</InputColumn>
+			</Container>
+		)
+	}
+)
