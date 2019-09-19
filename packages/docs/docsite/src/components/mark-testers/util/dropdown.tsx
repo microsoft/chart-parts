@@ -53,3 +53,4 @@ export const Dropdown: React.FC<DropdownProps> = memo(
 		)
 	}
 )
+Dropdown.displayName = 'Dropdown'

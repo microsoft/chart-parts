@@ -57,3 +57,4 @@ export const Slider: React.FC<SliderProps> = memo(
 		)
 	}
 )
+Slider.displayName = 'Slider'

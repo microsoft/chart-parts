@@ -63,18 +63,14 @@ raw graphics primitives.
 - **Marks** are a key concept in chart-parts, and any system implementing a
   _grammar-of-graphics_. Marks are the visual building blocks of charts, such as
   rectangles, dots, and arcs.
-
-* **Scales** are mathematical funcitons that allow us to translate values from
+- **Scales** are mathematical funcitons that allow us to translate values from
   a source domain into a target domain. These allow us to translate data into
   visually encoded values such as color or height.
-
-* **Axes** are a common feature of charts that allow us to understand the
-  encoding of a spatial dimension in the charth such as heigh or width.
-
-* **Legends** are chart components that provide translation for data encodings
+- **Axes** are a common feature of charts that allow us to understand the
+  encoding of a spatial dimension in the chart such as heigh or width.
+- **Legends** are chart components that provide translation for data encodings
   that are non-spatial, such as color values.
-
-* **Data Transformations** provide aggregation operations or visual processing
+- **Data Transformations** provide aggregation operations or visual processing
   to manipulate source data into a chartable form.
 
 ## Existing Systems

@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
 import React, { memo, useMemo } from 'react'
 import { TextContainer, Gutter, TextContent } from './common'
 import renderAst from '../util/renderHtmlAst'
@@ -15,25 +14,24 @@ export interface DocProps {
 	}
 }
 
-const Doc: React.FC<DocProps> = memo(({ docPage }) => {
-	return (
-		<TextContainer>
-			<Gutter />
-			<TextContent>
-				<PageToc toc={docPage.tableOfContents} />
-				{renderAst(docPage.htmlAst)}
-			</TextContent>
-			<Gutter />
-		</TextContainer>
-	)
-})
+const Doc: React.FC<DocProps> = memo(({ docPage }) => (
+	<TextContainer>
+		<Gutter />
+		<TextContent>
+			<PageToc toc={docPage.tableOfContents} />
+			{renderAst(docPage.htmlAst)}
+		</TextContent>
+		<Gutter />
+	</TextContainer>
+))
+Doc.displayName = 'Doc'
 
 export default Doc
 
-interface DocTocProps {
+interface PageTocProps {
 	toc: string
 }
-const PageToc: React.FC<DocTocProps> = memo(({ toc }) => {
+const PageToc: React.FC<PageTocProps> = memo(({ toc }) => {
 	const tocMarkup = useMemo(() => ({ __html: toc }), [toc])
 	if (toc.indexOf('li') === -1) {
 		return null
@@ -45,6 +43,7 @@ const PageToc: React.FC<DocTocProps> = memo(({ toc }) => {
 		</TocContainer>
 	)
 })
+PageToc.displayName = 'PageToc'
 
 const TocContainer = styled.div`
 	width: 100%;

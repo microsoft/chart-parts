@@ -37,3 +37,4 @@ export const Toggle: React.FC<ToggleProps> = memo(
 		</Container>
 	)
 )
+Toggle.displayName = 'Toggle'
