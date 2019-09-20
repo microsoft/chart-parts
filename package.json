@@ -14,7 +14,8 @@
 		"unit_test": "jest --coverage --ci",
 		"test": "run-s lint build unit_test test:packages",
 		"publish_libs": "lerna publish",
-		"release": "run-s clean test publish_libs release:packages",
+		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"release": "run-s clean test publish_libs changelog release:packages",
 		"start": "run-s start:packages"
 	},
 	"engines": {
@@ -37,6 +38,7 @@
 		"@types/jest": "^24.0.14",
 		"@typescript-eslint/eslint-plugin": "^2.3.0",
 		"@typescript-eslint/parser": "^2.3.0",
+		"conventional-changelog-cli": "^2.0.23",
 		"eslint": "^6.4.0",
 		"eslint-config-prettier": "^6.3.0",
 		"eslint-plugin-header": "^3.0.0",
