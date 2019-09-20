@@ -1,31 +1,31 @@
 {
-	"name": "@chart-parts/react-native-svg-renderer",
-	"description": "A virtual dom renderer that emits react-native-svg elements",
-	"version": "0.1.1",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "lib/index.d.ts",
-	"license": "MIT",
-	"scripts": {
-		"clean": "../../../scripts/clean_package.sh",
-		"build": "../../../scripts/build_package.sh",
-		"start": "../../../scripts/watch_package.sh"
-	},
-	"devDependencies": {
-		"@types/react-native": "^0.60.15",
-		"react": "^16.9.0"
-	},
-	"dependencies": {
-		"@chart-parts/interfaces": "^0.1.1",
-		"lodash": "^4.17.15",
-		"react-native-svg": "^9.9.4"
-	},
-	"peerDependencies": {
-		"react": ">= 16.9",
-		"react-native": ">= ^0.56.0"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
+  "name": "@chart-parts/react-native-svg-renderer",
+  "description": "A virtual dom renderer that emits react-native-svg elements",
+  "version": "0.1.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "../../../scripts/clean_package.sh",
+    "build": "../../../scripts/build_package.sh",
+    "start": "../../../scripts/watch_package.sh"
+  },
+  "devDependencies": {
+    "@types/react-native": "^0.60.15",
+    "react": "^16.9.0"
+  },
+  "dependencies": {
+    "@chart-parts/interfaces": "^0.1.1",
+    "lodash": "^4.17.15",
+    "react-native-svg": "^9.9.4"
+  },
+  "peerDependencies": {
+    "react": ">= 16.9",
+    "react-native": ">= ^0.56.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
 }

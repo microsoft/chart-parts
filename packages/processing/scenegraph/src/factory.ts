@@ -17,9 +17,7 @@ export function createMark(markType: MarkType, items: SGItem[]) {
 	items.forEach((item, index) => {
 		if (item.itemtype !== markType) {
 			throw new Error(
-				`Mark type must match the type of it's child items. Mark ${markType}, child ${
-					item.itemtype
-				}@${index}`,
+				`Mark type must match the type of it's child items. Mark ${markType}, child ${item.itemtype}@${index}`,
 			)
 		}
 	})

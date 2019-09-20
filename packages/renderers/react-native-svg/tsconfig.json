@@ -1,13 +1,13 @@
 {
-	"extends": "../../../tsconfig.json",
-	"compilerOptions": {
-		"lib": ["esnext"],
-		"strict": false,
-		"outDir": "lib",
-		"composite": true,
-		"rootDir": "./src",
-		"baseUrl": "./src"
-	},
-	"files": ["src/index.ts"],
-	"include": ["./src/**/*.ts*"]
+  "extends": "../../../tsconfig.json",
+  "compilerOptions": {
+    "lib": ["esnext"],
+    "strict": false,
+    "outDir": "lib",
+    "composite": true,
+    "rootDir": "./src",
+    "baseUrl": "./src"
+  },
+  "files": ["src/index.ts"],
+  "include": ["./src/**/*.ts*"]
 }

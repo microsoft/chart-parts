@@ -12,6 +12,6 @@ export function optionalArgument<T>(
 	return argLength === 0
 		? defaultWithoutArg
 		: value === undefined
-			? defaultWithArg
-			: value
+		? defaultWithArg
+		: value
 }

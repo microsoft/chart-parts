@@ -1,31 +1,31 @@
 {
-	"name": "@chart-parts/builder",
-	"description": "Visualization components for specifying scenes",
-	"version": "0.1.1",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "lib/index.d.ts",
-	"license": "MIT",
-	"scripts": {
-		"clean": "../../../scripts/clean_package.sh",
-		"build": "../../../scripts/build_package.sh",
-		"start": "tsc -w --preserveWatchOutput"
-	},
-	"devDependencies": {
-		"@chart-parts/scales": "^0.1.1"
-	},
-	"dependencies": {
-		"@chart-parts/interfaces": "^0.1.1",
-		"@chart-parts/scenegraph": "^0.1.1",
-		"@types/d3-format": "^1.3.1",
-		"@types/d3-time-format": "^2.1.0",
-		"d3-format": "^1.4.1",
-		"d3-time-format": "^2.1.1",
-		"lodash": "^4.17.15",
-		"rxjs": "^6.5.3"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
+  "name": "@chart-parts/builder",
+  "description": "Visualization components for specifying scenes",
+  "version": "0.1.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "../../../scripts/clean_package.sh",
+    "build": "../../../scripts/build_package.sh",
+    "start": "tsc -w --preserveWatchOutput"
+  },
+  "devDependencies": {
+    "@chart-parts/scales": "^0.1.1"
+  },
+  "dependencies": {
+    "@chart-parts/interfaces": "^0.1.1",
+    "@chart-parts/scenegraph": "^0.1.1",
+    "@types/d3-format": "^1.3.1",
+    "@types/d3-time-format": "^2.1.0",
+    "d3-format": "^1.4.1",
+    "d3-time-format": "^2.1.1",
+    "lodash": "^4.17.15",
+    "rxjs": "^6.5.3"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
 }

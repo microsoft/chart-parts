@@ -1,24 +1,24 @@
 {
-	"name": "@chart-parts/orchestrator",
-	"description": "chart-parts rendering orchestration",
-	"version": "0.1.1",
-	"main": "dist/cjs/index.js",
-	"module": "dist/esm/index.js",
-	"types": "lib/index.d.ts",
-	"license": "MIT",
-	"scripts": {
-		"clean": "../../../scripts/clean_package.sh",
-		"build": "../../../scripts/build_package.sh",
-		"start": "../../../scripts/watch_package.sh"
-	},
-	"dependencies": {
-		"@chart-parts/builder": "^0.1.1",
-		"@chart-parts/interfaces": "^0.1.1",
-		"@chart-parts/scenegraph": "^0.1.1",
-		"@chart-parts/vsvg": "^0.1.1"
-	},
-	"publishConfig": {
-		"access": "public"
-	},
-	"gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
+  "name": "@chart-parts/orchestrator",
+  "description": "chart-parts rendering orchestration",
+  "version": "0.1.1",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "../../../scripts/clean_package.sh",
+    "build": "../../../scripts/build_package.sh",
+    "start": "../../../scripts/watch_package.sh"
+  },
+  "dependencies": {
+    "@chart-parts/builder": "^0.1.1",
+    "@chart-parts/interfaces": "^0.1.1",
+    "@chart-parts/scenegraph": "^0.1.1",
+    "@chart-parts/vsvg": "^0.1.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "745ce2d7118a3b17d0c6ce32555582fdc22d88ff"
 }

@@ -51,7 +51,7 @@
   "license": "MIT",
   "scripts": {
     "clean_gatsby": "gatsby clean",
-    "clean_generated": "rimraf apidocs static/examples",
+    "clean_generated": "rimraf static/apidocs static/examples",
     "clean": "run-p clean_generated clean_gatsby",
     "build_docs": "run-s clean:docs gen:docs",
     "start": "gatsby develop -H 0.0.0.0",

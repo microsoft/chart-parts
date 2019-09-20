@@ -1,33 +1,33 @@
 {
-	"name": "@chart-parts/examples",
-	"private": true,
-	"description": "Example Chart Implementations",
-	"version": "0.1.2",
-	"main": "lib/index.js",
-	"module": "dist/esm/index.js",
-	"types": "lib/index.d.ts",
-	"license": "MIT",
-	"scripts": {
-		"clean": "../../../scripts/clean_package.sh",
-		"build": "../../../scripts/build_package.sh",
-		"start": "../../../scripts/watch_package.sh"
-	},
-	"dependencies": {
-		"@types/react": "^16.9.2",
-		"@types/react-dom": "^16.9.0",
-		"@chart-parts/builder": "^0.1.1",
-		"@chart-parts/interfaces": "^0.1.1",
-		"@chart-parts/react": "^0.1.2",
-		"@chart-parts/transform": "^0.1.1",
-		"vega-datasets": "^1.25.0"
-	},
-	"devDependencies": {
-		"react": "^16.9.0"
-	},
-	"peerDependencies": {
-		"react": ">= 16.9"
-	},
-	"publishConfig": {
-		"access": "public"
-	}
+  "name": "@chart-parts/examples",
+  "private": true,
+  "description": "Example Chart Implementations",
+  "version": "0.1.2",
+  "main": "lib/index.js",
+  "module": "dist/esm/index.js",
+  "types": "lib/index.d.ts",
+  "license": "MIT",
+  "scripts": {
+    "clean": "../../../scripts/clean_package.sh",
+    "build": "../../../scripts/build_package.sh",
+    "start": "../../../scripts/watch_package.sh"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.2",
+    "@types/react-dom": "^16.9.0",
+    "@chart-parts/builder": "^0.1.1",
+    "@chart-parts/interfaces": "^0.1.1",
+    "@chart-parts/react": "^0.1.2",
+    "@chart-parts/transform": "^0.1.1",
+    "vega-datasets": "^1.25.0"
+  },
+  "devDependencies": {
+    "react": "^16.9.0"
+  },
+  "peerDependencies": {
+    "react": ">= 16.9"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
