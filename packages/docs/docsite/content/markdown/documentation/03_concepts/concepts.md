@@ -1,15 +1,15 @@
 ---
 title: Concepts
 path: /documentation/concepts
-order: 2
+order: 3
 ---
 
 ## Key Concepts
 
 In this section we will describe, at overview-level, the key concepts that are
 used to create charts using chart-parts. These concepts will likely be familiar
-to people with a background in data-visulization, especially if they have used
-mark-based visulization systems before.
+to people with a background in data visualization, especially if they have used
+mark-based visualization systems before.
 
 ## Scales
 
@@ -23,8 +23,8 @@ with how they operate.
 
 Here are some resources regarding d3 scales that may he helpful:
 
-- [d3-scale Github repository](https://github.com/d3/d3-scale)
-- [d3-scale-chromatic Github repository](https://github.com/d3/d3-scale-chromatic)
+- [d3-scale GitHub repository](https://github.com/d3/d3-scale)
+- [d3-scale-chromatic GitHub repository](https://github.com/d3/d3-scale-chromatic)
 - [_Introducing d3-scale_ by Mike Bostock](https://medium.com/@mbostock/introducing-d3-scale-61980c51545f)
 
 ### Scale Types
@@ -63,7 +63,7 @@ and any _grammar-of-graphics_.
 ### Mark Parameterization
 
 Marks often have multiple parameters to describe how they appear. For example,
-to describe a rectangle, one needs at a minumum: (height, width, (x,y)
+to describe a rectangle, one needs at a minimum: (height, width, (x,y)
 position, and color).
 
 <img alt="Mark Encoding Example" src="/images/mark_encoding.png" height="275">
@@ -207,6 +207,6 @@ group()
   a function that returns a groupBy key* for each row of the incoming data
   set. The partition key is used to separate the data rows into different partitions.
 - **transform**: A function that accepts a partition of data and performs final
-  transformation before providing it to chlidren. Clients may use this to
+  transformation before providing it to children. Clients may use this to
   define aggregation, layout-transformations, or any other augmentation that is
   necessary for child marks to render. Default is an identity function.

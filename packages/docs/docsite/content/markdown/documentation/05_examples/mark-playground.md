@@ -5,7 +5,7 @@ order: 0
 ---
 
 This page contains a playground of mark types and a sample of their
-paramaterization options. This can be useful when trying to understand
+parameterization options. This can be useful when trying to understand
 the visual impacts of encoding mark instances.
 
 ## Arc

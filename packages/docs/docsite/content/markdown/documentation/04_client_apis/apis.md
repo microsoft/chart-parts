@@ -1,7 +1,7 @@
 ---
 title: API
 path: /documentation/apis
-order: 3
+order: 4
 ---
 
 ## Client API Packages

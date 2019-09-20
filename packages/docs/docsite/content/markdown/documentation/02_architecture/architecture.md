@@ -1,7 +1,7 @@
 ---
 title: Architecture
 path: /documentation/architecture
-order: 1
+order: 2
 ---
 
 ## Architecture
@@ -17,7 +17,7 @@ representation into executable software.
 The charting process is very similar. In charting, our notion of an AST comes
 from a Scenegraph specification based on Vega.
 [Vega's scenegraph](https://github.com/vega/vega-scenegraph) is a plain
-Javascript object that is the result of binding a charting specification to
+JavaScript object that is the result of binding a charting specification to
 user data. The scenegraph is then handled by rendering components to emit
 charts for users. The scenegraph specification is a useful abstraction that
 allows any number of _frontend_ or _backend_ compilers to be attached to the

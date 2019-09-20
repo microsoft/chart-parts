@@ -1,7 +1,7 @@
 ---
 title: Live Examples
 path: /documentation/examples
-order: 4
+order: 5
 ---
 
 This section of the documentation contains sample charts created using
