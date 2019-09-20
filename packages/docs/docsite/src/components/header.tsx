@@ -7,6 +7,7 @@ import React, { memo } from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../util/theme'
+const { version: libraryVersion } = require('../../../../../lerna.json')
 
 export interface HeaderProps {
 	logoTo?: string
@@ -39,6 +40,7 @@ export const Header: React.FC<HeaderProps> = memo(
 							<InnerContainer style={{ opacity }}>
 								<Title>
 									<TitleLink to={logoTo}>{title}</TitleLink>
+									<VersionIdentifier>v{libraryVersion}</VersionIdentifier>
 								</Title>
 								<Links>
 									<InnerLink to="/">Home</InnerLink>
@@ -89,6 +91,15 @@ const TitleLink = styled(Link)`
 	text-decoration: none;
 	font-family: ${theme.text.fontFamily};
 	font-weight: 100;
+`
+
+const VersionIdentifier = styled.span`
+	color: white;
+	text-decoration: none;
+	font-family: ${theme.text.fontFamily};
+	font-weight: 100;
+	margin-left: 8px;
+	font-size: 12px;
 `
 
 const InnerLink = styled(Link)`
