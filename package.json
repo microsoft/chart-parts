@@ -1,110 +1,126 @@
 {
-	"name": "@chart-parts/parent",
-	"private": true,
-	"scripts": {
-		"clean": "lerna run clean",
-		"build": "lerna run build --stream",
-		"build:docs": "lerna run build:docs --scope @chart-parts/documentation --stream",
-		"start:packages": "lerna run start --parallel --stream",
-		"test:packages": "lerna run test --stream",
-		"release:packages": "lerna run release --stream",
-		"lint:js": "eslint . --ext .js,.ts,.jsx,.tsx",
-		"lint:md": "markdownlint 'packages/docs/docsite/content/markdown/**/*.md'",
-		"lint": "run-s lint:*",
-		"unit_test": "jest --coverage --ci",
-		"test": "run-s lint build unit_test test:packages",
-		"publish_libs": "lerna publish",
-		"changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
-		"release": "run-s clean test publish_libs changelog release:packages",
-		"start": "run-s start:packages"
-	},
-	"engines": {
-		"node": ">=10.0.0"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "pretty-quick --staged",
-			"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-		}
-	},
-	"devDependencies": {
-		"@babel/cli": "^7.6.0",
-		"@babel/core": "^7.6.0",
-		"@babel/plugin-proposal-class-properties": "^7.5.5",
-		"@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-		"@babel/preset-env": "^7.6.0",
-		"@commitlint/cli": "^8.2.0",
-		"@commitlint/config-conventional": "^8.2.0",
-		"@types/jest": "^24.0.14",
-		"@typescript-eslint/eslint-plugin": "^2.3.0",
-		"@typescript-eslint/parser": "^2.3.0",
-		"conventional-changelog-cli": "^2.0.23",
-		"eslint": "^6.4.0",
-		"eslint-config-prettier": "^6.3.0",
-		"eslint-plugin-header": "^3.0.0",
-		"eslint-plugin-react": "^7.14.3",
-		"eslint-plugin-react-hooks": "^2.0.1",
-		"husky": "^3.0.5",
-		"jest": "^24.9.0",
-		"jest-html": "^1.5.0",
-		"lerna": "^3.16.4",
-		"markdownlint-cli": "^0.18.0",
-		"npm-run-all": "^4.1.5",
-		"prettier": "^1.18.2",
-		"pretty-quick": "^1.11.1",
-		"rimraf": "^3.0.0",
-		"ts-jest": "^24.1.0",
-		"typescript": "^3.6.3"
-	},
-	"prettier": {
-		"singleQuote": true,
-		"trailingComma": "all",
-		"semi": false,
-		"useTabs": true
-	},
-	"workspaces": {
-		"packages": [
-			"packages/renderers/*",
-			"packages/processing/*",
-			"packages/client/*",
-			"packages/util/*",
-			"packages/docs/examples",
-			"packages/docs/docsite",
-			"packages/docs/examplesweb",
-			"packages/docs/testdata"
-		],
-		"nohoist": [
-			"**"
-		]
-	},
-	"jest": {
-		"transform": {
-			"^.+\\.tsx?$": "ts-jest"
-		},
-		"testMatch": [
-			"**/__tests__/**/*.spec.ts(x|)"
-		],
-		"collectCoverageFrom": [
-			"**/src/*.{ts,tsx}",
-			"**/src/**/*.{ts,tsx}",
-			"!**/src/**/*.d.ts",
-			"!packages/docs/**",
-			"!**/__tests__/**"
-		],
-		"testPathIgnorePatterns": [
-			"/node_modules/",
-			"/lib/"
-		],
-		"moduleFileExtensions": [
-			"ts",
-			"tsx",
-			"js",
-			"jsx",
-			"json",
-			"node"
-		],
-		"snapshotSerializers": [
-			"jest-html"
-		]
-	}
+  "name": "@chart-parts/parent",
+  "private": true,
+  "scripts": {
+    "clean": "lerna run clean",
+    "build": "lerna run build --stream",
+    "build:docs": "lerna run build:docs --scope @chart-parts/documentation --stream",
+    "start:packages": "lerna run start --parallel --stream",
+    "test:packages": "lerna run test --stream",
+    "release:packages": "lerna run release --stream",
+    "lint:js": "eslint . --ext .js,.ts,.jsx,.tsx",
+    "lint:md": "markdownlint 'packages/docs/docsite/content/markdown/**/*.md'",
+    "lint": "run-s lint:*",
+    "unit_test": "jest --coverage --ci",
+    "test": "run-s lint build unit_test test:packages",
+    "publish_libs": "lerna publish",
+    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
+    "release": "run-s clean test publish_libs changelog release:packages",
+    "start": "run-s start:packages"
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/jest": "^24.0.14",
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
+    "@typescript-eslint/parser": "^2.3.0",
+    "conventional-changelog-cli": "^2.0.23",
+    "eslint": "^6.4.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-header": "^3.0.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "husky": "^3.0.5",
+    "jest": "^24.9.0",
+    "jest-html": "^1.5.0",
+    "lerna": "^3.16.4",
+    "markdownlint-cli": "^0.18.0",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.18.2",
+    "pretty-quick": "^1.11.1",
+    "rimraf": "^3.0.0",
+    "ts-jest": "^24.1.0",
+    "typescript": "^3.6.3"
+  },
+  "prettier": {
+    "semi": false,
+    "singleQuote": true,
+    "trailingComma": "all",
+    "useTabs": true,
+    "overrides": [
+      {
+        "files": "*.md",
+        "options": {
+          "useTabs": false,
+          "tabWidth": 2
+        }
+      },
+      {
+        "files": "*.json",
+        "options": {
+          "useTabs": false,
+          "tabWidth": 2
+        }
+      }
+    ]
+  },
+  "workspaces": {
+    "packages": [
+      "packages/renderers/*",
+      "packages/processing/*",
+      "packages/client/*",
+      "packages/util/*",
+      "packages/docs/examples",
+      "packages/docs/docsite",
+      "packages/docs/examplesweb",
+      "packages/docs/testdata"
+    ],
+    "nohoist": [
+      "**"
+    ]
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testMatch": [
+      "**/__tests__/**/*.spec.ts(x|)"
+    ],
+    "collectCoverageFrom": [
+      "**/src/*.{ts,tsx}",
+      "**/src/**/*.{ts,tsx}",
+      "!**/src/**/*.d.ts",
+      "!packages/docs/**",
+      "!**/__tests__/**"
+    ],
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/lib/"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "snapshotSerializers": [
+      "jest-html"
+    ]
+  }
 }
