@@ -6,6 +6,13 @@
 import { SGMark, Axis, Scale, TickValue } from '@chart-parts/interfaces'
 import { SceneFrame } from '../context/SceneFrame'
 
+export interface AxisSpace {
+	top: number
+	right: number
+	bottom: number
+	left: number
+}
+
 /**
  * A context object for generating axis components
  */

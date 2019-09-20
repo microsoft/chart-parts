@@ -10,6 +10,11 @@ import {
 	TimeValue,
 } from './QuantitativeScale'
 
+/**
+ * Utc Scale Component
+ * @category Scale
+ * @remark Based on [d3.scaleUtc](https://github.com/d3/d3-scale#scaleUtc)
+ */
 export const UtcScale = createQuantitativeScale<
 	QuantitativeScaleProps<TimeValue, number>,
 	TimeValue,

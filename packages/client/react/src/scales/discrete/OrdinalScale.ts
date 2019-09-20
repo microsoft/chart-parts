@@ -6,6 +6,10 @@
 import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
 import { createDomainScale, DomainScaleProps } from '../DomainScale'
 
+/**
+ * OrdinalScale Component Props
+ * @category Scale
+ */
 export interface OrdinalScaleProps<RangeType>
 	extends DomainScaleProps<string[]> {
 	/**
@@ -19,10 +23,19 @@ export interface OrdinalScaleProps<RangeType>
 	colorScheme?: CategoricalColorScheme
 }
 
+/**
+ * Generic Ordinal Scale Typing
+ * @category Scale
+ */
 export type OrdinalScaleComponentType<RangeType = any> = React.FC<
 	OrdinalScaleProps<RangeType>
 >
 
+/**
+ * Ordinal Scale Component
+ * @category Scale
+ * @remarks Based on [d3 Ordinal Scale](https://github.com/d3/d3-scale#scaleOrdinal)
+ */
 export const OrdinalScale: OrdinalScaleComponentType = createDomainScale(
 	'OrdinalScale',
 	({ name, domain, range, colorScheme }) =>

@@ -8,15 +8,23 @@ import {
 	MarkEncoding,
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { MarkBuilder } from '@chart-parts/builder'
 import { useEffect } from 'react'
 
+/**
+ * Path Mark Component Props
+ * @category Mark
+ */
 export interface PathProps extends CommonMarkProps {
 	path?: MarkEncoding<string>
 }
 
+/**
+ * Path Mark Component
+ * @category Mark
+ */
 export const Path = createMarkComponent<PathProps>(
 	MarkType.Path,
 	(mark: MarkBuilder, props) => {

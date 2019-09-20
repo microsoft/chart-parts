@@ -7,12 +7,21 @@ import { sequential } from '@chart-parts/scales'
 import { createDomainScale, DomainScaleProps } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
 
+/**
+ * Sequential Scale Component Props
+ * @category Scale
+ */
 export interface SequantialScaleProps
 	extends DomainScaleProps<QuantitativeSpan> {
 	interpolator: (t: QuantitativeValue) => any
 	clamp?: boolean
 }
 
+/**
+ * Sequential Scale Component
+ * @category Scale
+ * @remark Based on [d3.scaleSequential](https://github.com/d3/d3-scale#sequential-scales)
+ */
 export const SequentialScale = createDomainScale<
 	SequantialScaleProps,
 	QuantitativeSpan

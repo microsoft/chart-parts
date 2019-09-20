@@ -10,11 +10,20 @@ import {
 	QuantitativeValue,
 } from './QuantitativeScale'
 
+/**
+ * PowScale Component Props
+ * @category Scale
+ */
 export interface PowScaleProps
 	extends QuantitativeScaleProps<QuantitativeValue, number> {
 	exponent?: number
 }
 
+/**
+ * PowScale Component
+ * @category Scale
+ * @remarks Based on [d3.scalePow](https://github.com/d3/d3-scale#scalePow)
+ */
 export const PowScale = createQuantitativeScale<
 	PowScaleProps,
 	QuantitativeValue,

@@ -10,6 +10,10 @@ import {
 	ItemSpace,
 } from '@chart-parts/interfaces'
 
+/**
+ * A class for managing chart options
+ * @category Builder
+ */
 export class ChartOptionsManager {
 	public constructor(private options: ChartOptions = {}) {}
 

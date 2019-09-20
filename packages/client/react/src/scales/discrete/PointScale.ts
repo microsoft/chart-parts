@@ -10,6 +10,10 @@ import {
 	DomainRangeScaleProps,
 } from '../DomainRangeScale'
 
+/**
+ * PointScale Component props
+ * @category Scale
+ */
 export interface PointScaleProps
 	extends DomainRangeScaleProps<string[], [number, number], Dimension> {
 	/**
@@ -28,6 +32,11 @@ export interface PointScaleProps
 	padding?: number
 }
 
+/**
+ * PointScale Component
+ * @category Scale
+ * @remarks Based on [d3.scalePoint](https://github.com/d3/d3-scale#scalePoint)
+ */
 export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
 	'PointScale',
 	({

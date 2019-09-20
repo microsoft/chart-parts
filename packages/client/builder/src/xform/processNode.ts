@@ -19,6 +19,7 @@ export type SGMarkAny = SGMark<SGItem>
 
 /**
  * Processes a scene specification node into the SceneGraph model
+ * @ignore
  * @param node The scene node to process
  * @param scaleFrame The scales available for the given scene node
  */

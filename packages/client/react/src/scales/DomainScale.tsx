@@ -6,6 +6,10 @@ import React, { memo, useContext, useEffect, useMemo } from 'react'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { SceneBuilderContext } from '../Context'
 
+/**
+ * Props for a scale with a domain
+ * @category Scale
+ */
 export interface DomainScaleProps<Domain> {
 	/**
 	 * The name of the scale
@@ -25,6 +29,13 @@ export interface DomainScaleProps<Domain> {
 	domain?: string | ((args: ScaleCreationContext) => Domain) | Domain
 }
 
+/**
+ * Creates a new DomainScale
+ * @ignore
+ * @param displayName The name of the scale
+ * @param createScale The scale creation function
+ * @param propsToCheck Props to check for scale recreation
+ */
 export function createDomainScale<
 	Props extends DomainScaleProps<Domain>,
 	Domain

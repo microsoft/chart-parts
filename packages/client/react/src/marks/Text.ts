@@ -13,10 +13,14 @@ import {
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { MarkBuilder } from '@chart-parts/builder'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { useEffect } from 'react'
 
+/**
+ * Text Mark Component Props
+ * @category Mark
+ */
 export interface TextProps extends CommonMarkProps {
 	align?: MarkEncoding<HorizontalAlignment>
 	angle?: MarkEncoding<number>
@@ -36,6 +40,10 @@ export interface TextProps extends CommonMarkProps {
 	theta?: MarkEncoding<number>
 }
 
+/**
+ * Text Mark Component
+ * @category Mark
+ */
 export const Text = createMarkComponent<TextProps>(
 	MarkType.Text,
 	(mark: MarkBuilder, props) => {

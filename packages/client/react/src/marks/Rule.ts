@@ -4,9 +4,17 @@
  */
 
 import { MarkType } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 
+/**
+ * Rule Mark Component Props
+ * @category Mark
+ */
 export type RuleProps = CommonMarkProps
 
+/**
+ * Rule Mark Component
+ * @category Mark
+ */
 export const Rule = createMarkComponent<RuleProps>(MarkType.Rule)

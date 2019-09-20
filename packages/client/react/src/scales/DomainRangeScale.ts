@@ -5,6 +5,10 @@
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { createDomainScale, DomainScaleProps } from './DomainScale'
 
+/**
+ * Common props for scales with both a domain and range
+ * @category Scale
+ */
 export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	extends DomainScaleProps<Domain> {
 	/**
@@ -23,6 +27,13 @@ export interface DomainRangeScaleProps<Domain, Range, RangeBind>
 	reverse?: boolean
 }
 
+/**
+ * Creates a new domain-range scale
+ * @ignore
+ * @param displayName The name of the scale to create
+ * @param createScale The scale creation function
+ * @param propsToCheck The props to check for scale recreation
+ */
 export function createDomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
 	Domain,

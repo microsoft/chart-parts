@@ -10,6 +10,7 @@ import { TickLabels } from './tickLabels'
 
 /**
  * The axis component class instances
+ * @ignore
  */
 export const components: AxisComponent[] = [
 	new Domain(),

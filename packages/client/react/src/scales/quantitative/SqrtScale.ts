@@ -10,6 +10,11 @@ import {
 	QuantitativeValue,
 } from './QuantitativeScale'
 
+/**
+ * Sqrt Scale Component
+ * @category Scale
+ * @remark Based on [d3.scaleSqrt](https://github.com/d3/d3-scale#scaleSqrt)
+ */
 export const SqrtScale = createQuantitativeScale<
 	QuantitativeScaleProps<QuantitativeValue, number>,
 	QuantitativeValue,

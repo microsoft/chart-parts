@@ -12,6 +12,10 @@ import {
 	Metadata,
 } from '@chart-parts/interfaces'
 
+/**
+ * Commonly available encoding parameters for Mark components
+ * @category Mark
+ */
 export interface CommonMarkEncodings {
 	// Common Mark Value Encodings
 	x?: MarkEncoding<number>
@@ -45,6 +49,10 @@ export interface CommonMarkEncodings {
 	tabIndex?: MarkEncoding<number>
 }
 
+/**
+ * Commonly Available Event Handlers for Mark Components
+ * @category Mark
+ */
 export interface CommonMarkChannels {
 	// Clipboard Events
 	onCopy?: ChannelHandler<React.ClipboardEvent<any>>
@@ -110,6 +118,7 @@ export interface CommonMarkChannels {
 
 /**
  * Common mark-component properties
+ * @category Mark
  */
 export interface CommonMarkProps
 	extends CommonMarkEncodings,
@@ -132,43 +141,4 @@ export interface CommonMarkProps
 
 	// Events
 	eventHandlers?: { [key: string]: ChannelHandler<any> }
-}
-
-export function captureCommonEncodings<T extends CommonMarkProps>(props: T) {
-	const result: { [key: string]: any } = {}
-	const transferProp = (name: string) => {
-		const propVal = (props as any)[name]
-		if (propVal !== undefined) {
-			result[name] = propVal
-		}
-	}
-	;[
-		'x',
-		'x2',
-		'xc',
-		'width',
-		'y',
-		'y2',
-		'yc',
-		'height',
-		'opacity',
-		'fill',
-		'fillOpacity',
-		'stroke',
-		'strokeOpacity',
-		'strokeWidth',
-		'strokeCap',
-		'strokeDash',
-		'strokeDashOffset',
-		'strokeJoin',
-		'strokeMiterLimit',
-		'cursor',
-		'href',
-		'tooltip',
-		'zIndex',
-		'ariaTitle',
-		'ariaDescription',
-		'tabIndex',
-	].map(pv => transferProp(pv))
-	return result
 }

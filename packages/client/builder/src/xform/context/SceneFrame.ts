@@ -18,6 +18,7 @@ import {
 /**
  * The scene frame is analagous to a stack-frame - it contains contextual
  * information for a section of a scene, including dimensions, scales, data, and event handlers
+ * @ignore
  */
 export class SceneFrame {
 	public constructor(

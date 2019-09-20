@@ -1,0 +1,34 @@
+{
+  "tags": {
+    "allowUnknownTags": true
+  },
+  "plugins": [
+    "plugins/markdown",
+    "/Users/christrevino/Workspace/oss/chart-parts/packages/docs/docsite/node_modules/tsdoc/template/plugins/TSDoc.js"
+  ],
+  "opts": {
+    "template": "/Users/christrevino/Workspace/oss/chart-parts/packages/docs/docsite/node_modules/tsdoc/template",
+    "recurse": "true"
+  },
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "source": {
+    "includePattern": "(\\.d)?\\.ts$"
+  },
+  "markdown": {
+    "parser": "gfm",
+    "hardwrap": true
+  },
+  "tsdoc": {
+    "source": "/Users/christrevino/Workspace/oss/chart-parts/packages/docs/docsite/src/",
+    "destination": "/Users/christrevino/Workspace/oss/chart-parts/packages/docs/docsite/docs",
+    "tutorials": "",
+    "systemName": "docsite",
+    "footer": "",
+    "copyright": "docsite Copyright © 2019 christrevino.",
+    "outputSourceFiles": true,
+    "commentsOnly": true
+  }
+}

@@ -9,10 +9,28 @@ import {
 } from '../DomainRangeScale'
 import { Dimension } from '@chart-parts/interfaces'
 
+/**
+ * A time-based scale value
+ * @category Scale
+ */
 export type TimeValue = QuantitativeValue | Date
+
+/**
+ * A quantitative value
+ * @category Scale
+ */
 export type QuantitativeValue = number | { valueOf(): number }
+
+/**
+ * A span of quantitative values
+ * @category Scale
+ */
 export type QuantitativeSpan = [QuantitativeValue, QuantitativeValue]
 
+/**
+ * Quantitative Scale Component Props
+ * @category Scale
+ */
 export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	extends DomainRangeScaleProps<
 		[DomainValue, DomainValue],
@@ -49,6 +67,13 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	round?: boolean
 }
 
+/**
+ * Quantitative scale foctory
+ * @ignore
+ * @param displayName The display name of the scale
+ * @param createScale The scale creation function
+ * @param propsToCheck Props to inspect for scale recreations
+ */
 export function createQuantitativeScale<
 	Props extends QuantitativeScaleProps<DomainValue, RangeValue>,
 	DomainValue extends QuantitativeValue,

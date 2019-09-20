@@ -13,6 +13,9 @@ import {
 import { getTickValues } from './getTickValues'
 import { getLabelFormatter } from './getLabelFormatter'
 
+/**
+ * @ignore
+ */
 export class TickLines implements AxisComponent {
 	public createContext(context: AxisContext) {
 		const tickCrossStart = getTickCrossStart(context as AxisContext)

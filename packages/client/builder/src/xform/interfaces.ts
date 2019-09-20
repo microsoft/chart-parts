@@ -7,8 +7,10 @@ import { SGMark, SGItem, Channels } from '@chart-parts/interfaces'
 
 /**
  * Interface for the result of scene-generation
+ * @category Transformation
  */
-export interface GeneratedScene {
+
+export interface GeneratedScenegraph {
 	/**
 	 * The root mark of the resultant scene
 	 */
@@ -18,11 +20,4 @@ export interface GeneratedScene {
 	 * The event channels of this scene, a key of channel name to event handlers
 	 */
 	channelHandlers: Channels
-}
-
-export interface AxisSpace {
-	top: number
-	right: number
-	bottom: number
-	left: number
 }

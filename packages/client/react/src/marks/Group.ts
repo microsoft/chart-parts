@@ -10,15 +10,24 @@ import {
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { MarkBuilder } from '@chart-parts/builder'
-import { CommonMarkProps } from '../interfaces'
+import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
 import { useEffect } from 'react'
 
+/**
+ * Group Mark Component Props
+ * @category Mark
+ */
 export interface GroupProps extends CommonMarkProps {
 	clip?: MarkEncoding<boolean>
 	cornerRadius?: MarkEncoding<number>
 	facet?: Facet
 }
+
+/**
+ * Group Mark Component
+ * @category Mark
+ */
 export const Group = createMarkComponent<GroupProps>(
 	MarkType.Group,
 	(mark: MarkBuilder, props) => {

@@ -31,6 +31,10 @@ import { SceneNodeBuilder } from './SceneNodeBuilder'
 import { Subject, Subscription } from 'rxjs'
 import { MarkSpec } from '../spec/MarkSpec'
 
+/**
+ * A builder component for mark specifications
+ * @category Builder
+ */
 export class MarkBuilder {
 	public readonly onChange = new Subject()
 	public readonly spec: MarkSpec

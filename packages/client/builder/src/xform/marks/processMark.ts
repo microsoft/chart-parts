@@ -8,12 +8,18 @@ import { createMark } from '@chart-parts/scenegraph'
 import { SceneFrame } from '../context/SceneFrame'
 import { createBoundItem } from './createBoundItem'
 
+/**
+ * @ignore
+ */
 export interface FacetedData {
 	name: string
 	keyRowName?: string
 	facets: DataFacet[]
 }
 
+/**
+ * @ignore
+ */
 export interface DataFacet {
 	parent?: any
 	key: string
@@ -22,6 +28,9 @@ export interface DataFacet {
 
 type BoundData = any[] | FacetedData
 
+/**
+ * @ignore
+ */
 export function processMark(mark: Mark, frame: SceneFrame): SGMark<SGItem> {
 	const markFrame = frame.pushMark(mark)
 	const boundData = getBoundData(mark, markFrame)

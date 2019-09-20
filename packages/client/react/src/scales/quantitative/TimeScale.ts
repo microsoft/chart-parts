@@ -10,9 +10,18 @@ import {
 	TimeValue,
 } from './QuantitativeScale'
 
+/**
+ * TimeScale Component Props
+ * @category Scale
+ */
 export interface TimeScaleProps
 	extends QuantitativeScaleProps<TimeValue, number> {}
 
+/**
+ * TimeScale Component
+ * @category Scale
+ * @remark Based on [d3.scaleTime](https://github.com/d3/d3-scale#scaleTime)
+ */
 export const TimeScale = createQuantitativeScale<
 	TimeScaleProps,
 	TimeValue,

@@ -5,9 +5,12 @@
 
 import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
 import { SceneFrame } from '../context/SceneFrame'
-import { AxisSpace } from '../interfaces'
+import { AxisSpace } from './interfaces'
 import { AxisContext } from './interfaces'
 
+/**
+ * @ignore
+ */
 export function getContext(
 	axis: Axis,
 	frame: SceneFrame,

@@ -8,6 +8,9 @@ import { buildMark } from '@chart-parts/scenegraph'
 import { AxisContext, AxisComponent } from '../../interfaces'
 import { crossValue } from './crossValue'
 
+/**
+ * @ignore
+ */
 export class Domain implements AxisComponent {
 	public createContext(context: Partial<AxisContext>) {
 		const range = context.range as [number, number]
