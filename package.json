@@ -14,7 +14,7 @@
 		"unit_test": "jest --coverage --ci",
 		"test": "run-s lint build unit_test test:packages",
 		"publish_libs": "lerna publish",
-		"changelog": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
 		"release": "run-s clean test publish_libs changelog release:packages",
 		"start": "run-s start:packages"
 	},
