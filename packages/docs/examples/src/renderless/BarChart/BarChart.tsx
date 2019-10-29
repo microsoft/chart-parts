@@ -54,6 +54,7 @@ export const BarChart: React.FC = memo(() => {
 	)
 	const encodeX = useCallback(({ d, x }) => x(d.category), [])
 	const encodeY = useCallback(({ d, y }) => y(d.amount), [])
+	const encodeY2 = useCallback(({ y }) => y(0), [])
 	const encodeWidth = useCallback(({ band }) => band(), [])
 	const encodeFill = useCallback(
 		({ index }) => (hoverIndex === index ? 'firebrick' : 'steelblue'),
@@ -84,7 +85,7 @@ export const BarChart: React.FC = memo(() => {
 				x={encodeX}
 				y={encodeY}
 				width={encodeWidth}
-				y2={0}
+				y2={encodeY2}
 				fill={encodeFill}
 			/>
 			{hoverIndex === undefined ? null : (
