@@ -21,13 +21,13 @@ const PrivacyStatement: React.FC = () => (
 
 const PrivacyText = styled.div`
 	color: ${theme.palette.whitish};
-	font-family: sans-serif;
+	font-family: ${theme.text.fontFamily};
 	font-size: 12px;
 `
 
 const PrivacyLink = styled.a`
 	color: ${theme.palette.highlight};
-	font-family: sans-serif;
+	font-family: ${theme.text.fontFamily};
 	font-size: 12px;
 `
 

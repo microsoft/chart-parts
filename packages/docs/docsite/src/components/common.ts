@@ -16,7 +16,8 @@ export const TextContent = styled.div`
 	flex: 5;
 	display: flex;
 	flex-direction: column;
-	font-family: 'Merriweather', serif;
+	font-family: "Josefin Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+
 	font-weight: lighter;
 	line-height: 1.8;
 `

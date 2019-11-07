@@ -8,7 +8,7 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { SiteMetadata } from '../types'
-import { Header } from './header'
+import { Header, HEIGHT } from './header/header'
 import theme from '../util/theme'
 import GlobalStyle from './styles'
 import { ChartingProvider } from '@chart-parts/react'
@@ -58,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 					</Helmet>
 					<BodyContent>
 						<GlobalStyle />
-						<Header />
+						<Header showLinks={true} />
 						<ContentContainer>
 							<ChartingProvider value={renderer}>
 								{sidebar ? (
@@ -94,7 +94,7 @@ const ContentContainer = styled.div`
 	align-items: stretch;
 	flex: 1;
 	padding: 0;
-	margin: 0;
+	margin-top: ${HEIGHT}px;
 `
 
 const Content = styled.div`

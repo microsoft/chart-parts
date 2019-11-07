@@ -6,18 +6,20 @@
 import React, { memo } from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
-import theme from '../util/theme'
-const { version: libraryVersion } = require('../../../../../lerna.json')
+import theme from '../../util/theme'
+const { version: libraryVersion } = require('../../../../../../lerna.json')
+import Logo from './logo'
 
 export interface HeaderProps {
 	logoTo?: string
 	opacity?: number
+	showLinks?: boolean
 }
 
-const HEIGHT = 60
+export const HEIGHT = 60
 
 export const Header: React.FC<HeaderProps> = memo(
-	({ logoTo = '/', opacity = 1.0 }) => {
+	({ logoTo = '/', opacity = 1.0, showLinks = true }) => {
 		return (
 			<StaticQuery
 				query={graphql`
@@ -32,22 +34,29 @@ export const Header: React.FC<HeaderProps> = memo(
 				`}
 				render={({
 					site: {
-						siteMetadata: { title, githubUrl },
+						siteMetadata: { githubUrl },
 					},
 				}: any) => {
+					const links = showLinks ? (
+						<>
+							<Links>
+								<InnerLink to="/">Home</InnerLink>
+								<InnerLink to="/documentation">Documentation</InnerLink>
+								<InnerLink to="/blog">Blog</InnerLink>
+								<OuterLink href={githubUrl}>Github</OuterLink>
+							</Links>
+						</>
+					) : (
+						<> </>
+					)
 					return (
-						<Container>
-							<InnerContainer style={{ opacity }}>
-								<Title>
-									<TitleLink to={logoTo}>{title}</TitleLink>
+						<Container style={{ opacity }} className="header">
+							<InnerContainer>
+								<div style={{ display: 'flex', width: 400 }}>
+									<Logo height={HEIGHT} />
 									<VersionIdentifier>v{libraryVersion}</VersionIdentifier>
-								</Title>
-								<Links>
-									<InnerLink to="/">Home</InnerLink>
-									<InnerLink to="/documentation">Documentation</InnerLink>
-									<InnerLink to="/blog">Blog</InnerLink>
-									<OuterLink href={githubUrl}>Github</OuterLink>
-								</Links>
+								</div>
+								{links}
 							</InnerContainer>
 						</Container>
 					)
@@ -62,17 +71,30 @@ const Container = styled.div`
 	background: ${theme.backgrounds.header};
 	height: ${HEIGHT}px;
 	display: flex;
+	position: absolute;
+	top: 0px;
+	width: -webkit-fill-available;
 `
 
 const InnerContainer = styled.div`
 	flex: 1;
 	margin: 0 auto;
-	max-width: 960;
 	padding: 1.45rem 1.0875rem;
 	display: flex;
 	justify-content: space-between;
 	align-self: stretch;
 	align-items: center;
+`
+const VersionIdentifier = styled.div`
+	color: white;
+	text-decoration: none;
+	font-family: ${theme.text.fontFamily};
+	font-weight: 100;
+	margin-left: 4px;
+	font-size: 14px;
+	display: inline-block;
+	margin-top: ${HEIGHT / 2}px;
+	color: ${theme.palette.highlight};
 `
 
 const Links = styled.div`
@@ -81,29 +103,8 @@ const Links = styled.div`
 	align-items: center;
 `
 
-const Title = styled.h1`
-	margin: 0;
-	border: none;
-`
-
-const TitleLink = styled(Link)`
-	color: white;
-	text-decoration: none;
-	font-family: ${theme.text.fontFamily};
-	font-weight: 100;
-`
-
-const VersionIdentifier = styled.span`
-	color: white;
-	text-decoration: none;
-	font-family: ${theme.text.fontFamily};
-	font-weight: 100;
-	margin-left: 8px;
-	font-size: 12px;
-`
-
 const InnerLink = styled(Link)`
-	color: white;
+	color: ${theme.palette.whitish};
 	margin-left: 8px;
 	margin-right: 8px;
 	font-family: ${theme.text.fontFamily};
@@ -112,7 +113,7 @@ const InnerLink = styled(Link)`
 `
 
 const OuterLink = styled.a`
-	color: white;
+	color: ${theme.palette.whitish};
 	margin-left: 8px;
 	margin-right: 8px;
 	font-family: ${theme.text.fontFamily};
