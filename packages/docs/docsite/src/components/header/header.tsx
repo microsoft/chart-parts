@@ -52,10 +52,10 @@ export const Header: React.FC<HeaderProps> = memo(
 					return (
 						<Container style={{ opacity }} className="header">
 							<InnerContainer>
-								<div style={{ display: 'flex', width: 400 }}>
+								<LogoContainer>
 									<Logo height={HEIGHT} />
 									<VersionIdentifier>v{libraryVersion}</VersionIdentifier>
-								</div>
+								</LogoContainer>
 								{links}
 							</InnerContainer>
 						</Container>
@@ -74,6 +74,10 @@ const Container = styled.div`
 	position: absolute;
 	top: 0px;
 	width: -webkit-fill-available;
+`
+const LogoContainer = styled.div`
+	display: flex;
+	width: 400px;
 `
 
 const InnerContainer = styled.div`
