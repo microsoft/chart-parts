@@ -982,4 +982,5 @@ const Logo: React.FC<LogoProps> = memo(({ height, width }) => {
 	)
 })
 
+Logo.displayName = 'LogoBg'
 export default Logo

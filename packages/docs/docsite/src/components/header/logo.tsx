@@ -204,4 +204,6 @@ const Logo: React.FC<LogoProps> = memo(({ height }) => {
 	)
 })
 
+Logo.displayName = 'Logo'
+
 export default Logo

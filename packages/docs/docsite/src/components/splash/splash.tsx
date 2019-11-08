@@ -159,4 +159,5 @@ const StyledAnchor = styled.h1`
 		'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 	border-bottom: 0px;
 `
+IndexPage.displayName = 'Splash'
 export default IndexPage
