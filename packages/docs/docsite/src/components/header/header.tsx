@@ -73,7 +73,7 @@ const Container = styled.div`
 	display: flex;
 	position: absolute;
 	top: 0px;
-	width: -webkit-fill-available;
+	width: 100%;
 `
 const LogoContainer = styled.div`
 	display: flex;

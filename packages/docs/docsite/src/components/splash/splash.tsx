@@ -11,14 +11,13 @@ import React, {
 	useMemo,
 	useCallback,
 } from 'react'
-import anime from 'animejs'
 import { randomBetween } from '../../util/util'
 import styled from 'styled-components'
 import Footer, { FOOTER_HEIGHT } from '../footer'
 import * as HeaderComp from '../header/header'
 import { useWindowDimensions } from '../../util/hooks/useWindowDimensions'
 import LogoBG from './logobg'
-import { TimelineMax, Elastic } from 'gsap'
+import { TimelineMax, Elastic, TweenLite, Sine } from 'gsap'
 
 const HeaderComponent = HeaderComp.Header
 const headerHeight = HeaderComp.HEIGHT
@@ -60,7 +59,7 @@ const IndexPage = () => {
 				for (let i = 0; i < chars.length; i++) {
 					tl.from(
 						chars[i],
-						0.8,
+						1.0,
 						{
 							z: randomBetween(-1500, 4500),
 							x:
@@ -72,7 +71,7 @@ const IndexPage = () => {
 							rotation: randomBetween(-360, 60),
 							rotationX: randomBetween(-200, 200),
 							rotationY: randomBetween(-60, 60),
-							ease: Elastic,
+							ease: Elastic.easeOut.config(1, 0.4),
 							delay: 0.1,
 						},
 						'PieceTogether+=' + Math.random() * 0.3
@@ -99,7 +98,7 @@ const IndexPage = () => {
 								rotationX: randomBetween(-160, 160),
 								rotationY: randomBetween(-160, 160),
 								opacity: 0,
-								ease: Elastic,
+								ease: Elastic.easeOut.config(1, 0.4),
 							},
 							'PieceTogether+=' + Math.random() * 0.3
 						)
@@ -111,7 +110,7 @@ const IndexPage = () => {
 					0.3,
 					{
 						opacity: 0,
-						easing: Elastic,
+						easing: Elastic.easeIn,
 						delay: 0.2,
 					},
 					'Scale' + 0
@@ -204,11 +203,9 @@ const IndexPage = () => {
 	const mouseEnter = useCallback(
 		(event: React.MouseEvent<any>, ref: any) => {
 			if (ref && ref.current && setAnimationOut) {
-				anime({
-					targets: ref.current,
-					easing: 'easeOutExpo',
-					opacity: [0.8, 1],
-					duration: 500,
+				TweenLite.to(ref.current, 0.5, {
+					ease: Sine.easeOut,
+					opacity: 1.0,
 				})
 			}
 		},
@@ -219,11 +216,9 @@ const IndexPage = () => {
 	const mouseLeave = useCallback(
 		(event: React.MouseEvent<any>, ref: any) => {
 			if (ref && ref.current && setAnimationOut) {
-				anime({
-					targets: ref.current,
-					easing: 'easeOutExpo',
-					opacity: [1, 0.8],
-					duration: 500,
+				TweenLite.to(ref.current, 0.5, {
+					ease: Sine.easeOut,
+					opacity: 0.8,
 				})
 			}
 		},
