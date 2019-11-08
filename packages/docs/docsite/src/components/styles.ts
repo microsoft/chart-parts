@@ -7,7 +7,8 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
 html {
-  font-family: sans-serif;
+  font-family: "Josefin Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+  "Helvetica Neue", Arial, sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
@@ -16,15 +17,10 @@ body {
   display: flex;
   height: 100%;
   width: 100%;
+  font-family: "Josefin Sans", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+  "Helvetica Neue", Arial, sans-serif;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  height: 100%;
-}
 
 #___gatsby {
   flex: 1;
@@ -616,7 +612,7 @@ tt,
 code {
   background-color: hsla(0, 0%, 0%, 0.04);
   border-radius: 3px;
-  font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
+  font-family: "Roboto Mono", monospace, Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
   padding: 0;
   padding-top: 0.2em;
@@ -644,4 +640,6 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+
 `

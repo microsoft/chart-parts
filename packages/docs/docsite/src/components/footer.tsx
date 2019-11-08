@@ -11,20 +11,23 @@ import PrivacyStatement from './privacy-statement'
 export interface FooterProps {
 	style?: React.CSSProperties
 }
+
+export const FOOTER_HEIGHT = 50
 const Footer: React.FC<FooterProps> = style => (
 	<Container style={style as any}>
 		<FooterColumn>
 			<WithLove>with ♥ from Microsoft</WithLove>
 		</FooterColumn>
 		<FooterColumn>
-			<PrivacyStatement />
+			<WithLove>
+				<PrivacyStatement />
+			</WithLove>
 		</FooterColumn>
 	</Container>
 )
 
 const Container = styled.div`
 	display: flex;
-	background-color: ${theme.palette.grey};
 `
 
 const FooterColumn = styled.div`
@@ -33,13 +36,14 @@ const FooterColumn = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 50px;
+	height: ${FOOTER_HEIGHT}px;
 `
 
 const WithLove = styled.div`
 	color: ${theme.palette.whitish};
-	font-family: sans-serif;
+	font-family: ${theme.text.fontFamily};
 	font-size: 12px;
+	margin-top: ${FOOTER_HEIGHT / 2}px;
 `
 
 export default Footer

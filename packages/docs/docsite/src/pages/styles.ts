@@ -4,12 +4,14 @@
  */
 
 import { createGlobalStyle } from 'styled-components'
+import theme from '../util/theme'
 
 export default createGlobalStyle`
     body {
         display: flex;
         height: 100%;
         width: 100%;
+        background: ${theme.backgrounds.background}
     }
     
     html {
