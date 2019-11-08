@@ -3,21 +3,17 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, {
-	useEffect,
-	useState,
-	useRef,
-	RefObject,
-	useMemo,
-	useCallback,
-} from 'react'
-import { randomBetween } from '../../util/util'
+import React, { useRef, RefObject, useMemo, memo } from 'react'
 import styled from 'styled-components'
 import Footer, { FOOTER_HEIGHT } from '../footer'
 import * as HeaderComp from '../header/header'
 import { useWindowDimensions } from '../../util/hooks/useWindowDimensions'
 import LogoBG from './logobg'
-import { TimelineMax, Elastic, TweenLite, Sine } from 'gsap'
+import {
+	useSplashPageMountAnimation,
+	usePaneMousehandlers,
+} from './splash.hooks'
+import theme from '../../util/theme'
 
 const HeaderComponent = HeaderComp.Header
 const headerHeight = HeaderComp.HEIGHT
@@ -25,213 +21,40 @@ const headerHeight = HeaderComp.HEIGHT
 // use different layout for click divs based on screen size
 const minScreenSize = '768px'
 
-const IndexPage = () => {
-	const [animatingOut, setAnimationOut] = useState<boolean>(false)
+const IndexPage: React.FC = memo(() => {
 	const titleRef = useRef<RefObject<any> | null | undefined>(null)
 	const docRef = useRef<RefObject<any> | null | undefined>(null)
 	const blogRef = useRef<RefObject<any> | null | undefined>(null)
 	const sourceRef = useRef<RefObject<any> | null | undefined>(null)
 
 	const { height, width } = useWindowDimensions()
-
-	useEffect(() => {
-		startAnimation()
-	}, [])
-
-	const startAnimation = () => {
-		if (animatingOut || typeof window === 'undefined') {
-			return
-		}
-
-		const animate = () => {
-			if (titleRef && titleRef.current) {
-				const title = titleRef.current as any
-				const bg = document.getElementsByClassName('background')!
-				const chars = getChartPartsChars()
-				const tl = new TimelineMax()
-				tl.add('First')
-				tl.add('PieceTogether')
-				tl.add('Scale')
-
-				// make logo and background visible
-				tl.to(title, 0.01, { opacity: 1 }, 'First')
-
-				for (let i = 0; i < chars.length; i++) {
-					tl.from(
-						chars[i],
-						1.0,
-						{
-							z: randomBetween(-1500, 4500),
-							x:
-								i % 2 === 0
-									? randomBetween(-80, -600)
-									: randomBetween(280, width / 2),
-							y: randomBetween(-400, 1000),
-							opacity: 0,
-							rotation: randomBetween(-360, 60),
-							rotationX: randomBetween(-200, 200),
-							rotationY: randomBetween(-60, 60),
-							ease: Elastic.easeOut.config(1, 0.4),
-							delay: 0.1,
-						},
-						'PieceTogether+=' + Math.random() * 0.3
-					)
-				}
-
-				// handle animation of background objects
-				for (let i = 0; i < bg.length; i++) {
-					const group = bg[i]
-					const children: HTMLCollection = group.children
-					for (let cIndex = 0; cIndex < children.length; cIndex++) {
-						const child = children[cIndex]
-						tl.from(
-							child,
-							0.8,
-							{
-								z: randomBetween(-1500, 2500),
-								x:
-									i % 2 === 0
-										? randomBetween(-80, -width)
-										: randomBetween(280, width / 2),
-								y: randomBetween(-height, height),
-								rotation: randomBetween(360, 720),
-								rotationX: randomBetween(-160, 160),
-								rotationY: randomBetween(-160, 160),
-								opacity: 0,
-								ease: Elastic.easeOut.config(1, 0.4),
-							},
-							'PieceTogether+=' + Math.random() * 0.3
-						)
-					}
-				}
-
-				tl.to(
-					'.background',
-					0.3,
-					{
-						opacity: 0,
-						easing: Elastic.easeIn,
-						delay: 0.2,
-					},
-					'Scale' + 0
-				)
-
-				setTimeout(() => {
-					const svgElem = document.getElementById('svg-logo2')!
-					const cdims2 = svgElem.getBoundingClientRect()
-					const offset = document
-						.getElementById('chart-parts-letter-group')!
-						.getBoundingClientRect()
-					const callbackFunc = () => {
-						setAnimationOut(true)
-					}
-					const timeLineOut = new TimelineMax({
-						onComplete: callbackFunc,
-						delay: 0.1,
-					})
-					timeLineOut.addLabel('Scale', 0.4)
-					timeLineOut.addLabel('Links', 0.4)
-					timeLineOut.to(
-						svgElem,
-						0.4,
-						{
-							x: -(
-								cdims2.left +
-								(offset.left - cdims2.left) +
-								(cdims2.left + (offset.left - cdims2.left)) * 1.8
-							),
-							y: -(
-								cdims2.top +
-								(offset.top - cdims2.top) +
-								offset.height / 2 +
-								10
-							),
-							scale: 0.2,
-						},
-						'Scale'
-					)
-					timeLineOut.to(
-						title,
-						0.4,
-						{
-							opacity: 0,
-							delay: 0.35,
-						},
-						'Scale'
-					)
-					timeLineOut.to(
-						'.header',
-						0.1,
-						{
-							opacity: 1,
-							delay: 0.35,
-						},
-						'Scale'
-					)
-					// stagger in fade links right to left
-					const links = ['links', 'source', 'docs', 'blog']
-					links.forEach((item: string, index: number) => {
-						timeLineOut.to(
-							`#${item}`,
-							0.2,
-							{
-								opacity: 1,
-								delay: 0.4 + index * 0.1,
-							},
-							'Links+=' + 0
-						)
-					})
-
-					timeLineOut.play()
-				}, 1000)
-			}
-		}
-		animate()
-	}
-
-	// get all chart part elements
-	const getChartPartsChars = () => {
-		const chars = ['c', 'h', 'a', 'r', 't', 'p', 'a', 'r', 't', 's']
-		return chars.reduce((acc: HTMLElement[], letter: string, index: number) => {
-			const elem = document.getElementById(`char-${letter}${index + 1}`)!
-			acc.push(elem)
-			return acc
-		}, [])
-	}
-
-	// highlight div on mouseover
-	const mouseEnter = useCallback(
-		(event: React.MouseEvent<any>, ref: any) => {
-			if (ref && ref.current && setAnimationOut) {
-				TweenLite.to(ref.current, 0.5, {
-					ease: Sine.easeOut,
-					opacity: 1.0,
-				})
-			}
-		},
-		[setAnimationOut]
+	const [animatingout] = useSplashPageMountAnimation(titleRef, height, width)
+	const [blogMouseEnter, blogMouseLeave, onBlogClick] = usePaneMousehandlers(
+		blogRef,
+		animatingout,
+		'/blog'
+	)
+	const [
+		sourceMouseEnter,
+		sourceMouseLeave,
+		onSourceClick,
+	] = usePaneMousehandlers(
+		sourceRef,
+		animatingout,
+		'https://github.com/Microsoft/chart-parts'
+	)
+	const [docMouseEnter, docMouseLeave, onDocClick] = usePaneMousehandlers(
+		docRef,
+		animatingout,
+		'/documentation'
 	)
 
-	// return div to prev opacity
-	const mouseLeave = useCallback(
-		(event: React.MouseEvent<any>, ref: any) => {
-			if (ref && ref.current && setAnimationOut) {
-				TweenLite.to(ref.current, 0.5, {
-					ease: Sine.easeOut,
-					opacity: 0.8,
-				})
-			}
-		},
-		[setAnimationOut]
+	const boxRowHeight = useMemo(
+		() => `${height - (headerHeight + FOOTER_HEIGHT + 10)}px`,
+		[height]
 	)
 
-	const boxRowHeight = useMemo(() => {
-		return `${height - (headerHeight + FOOTER_HEIGHT + 10)}px`
-	}, [height])
-
-	const variableOpacity = useMemo(() => {
-		return animatingOut ? 1 : 0
-	}, [animatingOut])
+	const variableOpacity = useMemo(() => (animatingout ? 1 : 0), [animatingout])
 
 	return (
 		<div>
@@ -247,43 +70,30 @@ const IndexPage = () => {
 				<BoxRow style={{ opacity: 0, height: boxRowHeight, width }} id="links">
 					<Box
 						id="blog"
-						style={{
-							background: '#89C4F8',
-						}}
+						style={{ background: theme.logoPalette.blue }}
 						ref={blogRef as any}
-						onMouseEnter={(ev: React.MouseEvent<any>) =>
-							mouseEnter(ev, blogRef)
-						}
-						onMouseLeave={(ev: React.MouseEvent<any>) =>
-							mouseLeave(ev, blogRef)
-						}
-						onClick={() => (location.href = '/blog')}
+						onMouseEnter={blogMouseEnter}
+						onMouseLeave={blogMouseLeave}
+						onClick={onBlogClick}
 					>
 						<BlogLink>What's new?</BlogLink>
 					</Box>
 					<Box
 						id="docs"
-						style={{ background: '#a6f889' }}
-						onMouseEnter={(ev: React.MouseEvent<any>) => mouseEnter(ev, docRef)}
-						onMouseLeave={(ev: React.MouseEvent<any>) => mouseLeave(ev, docRef)}
-						onClick={() => (location.href = '/documentation')}
-						ref={docRef as any}
+						style={{ background: theme.logoPalette.green }}
+						onMouseEnter={docMouseEnter}
+						onMouseLeave={docMouseLeave}
+						onClick={onDocClick}
 					>
 						<DocsLink>Read the docs</DocsLink>
 					</Box>
 					<Box
 						id="source"
-						style={{ background: '#f787a6' }}
+						style={{ background: theme.logoPalette.pink }}
 						ref={sourceRef as any}
-						onMouseEnter={(ev: React.MouseEvent<any>) =>
-							mouseEnter(ev, sourceRef)
-						}
-						onMouseLeave={(ev: React.MouseEvent<any>) =>
-							mouseLeave(ev, sourceRef)
-						}
-						onClick={() =>
-							(location.href = 'https://github.com/Microsoft/chart-parts')
-						}
+						onMouseEnter={sourceMouseEnter}
+						onMouseLeave={sourceMouseLeave}
+						onClick={onSourceClick}
 					>
 						<StyledAnchor>Browse the source</StyledAnchor>
 					</Box>
@@ -294,7 +104,7 @@ const IndexPage = () => {
 			</FooterRow>
 		</div>
 	)
-}
+})
 
 const TitleContainer = styled.div`
 	position: relative;

@@ -26,6 +26,12 @@ export default {
 		grey: '#444',
 		whitish: '#FEFEFE',
 	},
+	logoPalette: {
+		blue: '#89C4F8',
+		green: '#a6f889',
+		pink: '#f889a7',
+		orange: '#f9b289',
+	},
 	backgrounds: {
 		sidebar: '#F6F6F6',
 		header: '#05070d', // black
