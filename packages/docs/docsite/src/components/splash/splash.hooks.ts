@@ -19,8 +19,8 @@ function getChartPartsChars() {
 
 export function useSplashPageMountAnimation(
 	titleRef: RefObject<any>,
-	height: number,
-	width: number
+	height: number | undefined,
+	width: number | undefined
 ): [boolean] {
 	const [animatingOut, setAnimationOut] = useState<boolean>(false)
 	const [charElements, setChars] = useState<HTMLElement[] | undefined>(
@@ -200,34 +200,34 @@ export function useSplashPageMountAnimation(
 
 export function usePaneMousehandlers(
 	ref: RefObject<any>,
-	animatingout: boolean,
+	animationComplete: boolean,
 	resourceLocation: string
 ) {
 	const [htmlRef, setHTMLRef] = useState<RefObject<any> | undefined>(undefined)
 	// highlight div on mouseover
 	const mouseEnter = useCallback(
 		(event: React.MouseEvent<any> | MouseEvent) => {
-			if (htmlRef && htmlRef.current && animatingout) {
+			if (htmlRef && htmlRef.current && animationComplete) {
 				TweenLite.to(htmlRef.current, 0.5, {
 					ease: Sine.easeOut,
 					opacity: 1.0,
 				})
 			}
 		},
-		[animatingout]
+		[animationComplete]
 	)
 
 	// return div to prev opacity
 	const mouseLeave = useCallback(
 		(event: React.MouseEvent<any> | MouseEvent) => {
-			if (htmlRef && htmlRef.current && animatingout) {
+			if (htmlRef && htmlRef.current && animationComplete) {
 				TweenLite.to(htmlRef.current, 0.5, {
 					ease: Sine.easeOut,
 					opacity: 0.8,
 				})
 			}
 		},
-		[animatingout]
+		[animationComplete]
 	)
 
 	const onClick = useCallback(
