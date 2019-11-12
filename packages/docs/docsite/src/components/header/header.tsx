@@ -71,7 +71,6 @@ const Container = styled.div`
 	background: ${theme.backgrounds.header};
 	height: ${HEIGHT}px;
 	display: flex;
-	position: absolute;
 	top: 0px;
 	width: 100%;
 `

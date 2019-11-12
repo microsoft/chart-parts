@@ -5,7 +5,10 @@
 
 import { useState, useEffect } from 'react'
 
-function getWindowDimensions(): { width: number; height: number } {
+function getWindowDimensions(): {
+	width: number | undefined
+	height: number | undefined
+} {
 	if (typeof window !== 'undefined') {
 		const { innerWidth: width, innerHeight: height } = window
 		return {
@@ -13,7 +16,7 @@ function getWindowDimensions(): { width: number; height: number } {
 			height,
 		}
 	} else {
-		return { width: 1024, height: 768 }
+		return { width: undefined, height: undefined }
 	}
 }
 
