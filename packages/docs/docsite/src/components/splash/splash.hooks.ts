@@ -203,41 +203,29 @@ export function usePaneMousehandlers(
 	animationComplete: boolean,
 	resourceLocation: string
 ) {
-	const [htmlRef, setHTMLRef] = useState<RefObject<any> | undefined>(undefined)
 	// highlight div on mouseover
-	const mouseEnter = useCallback(
-		(event: React.MouseEvent<any> | MouseEvent) => {
-			if (htmlRef && htmlRef.current && animationComplete) {
-				TweenLite.to(htmlRef.current, 0.5, {
-					ease: Sine.easeOut,
-					opacity: 1.0,
-				})
-			}
-		},
-		[animationComplete]
-	)
+	const mouseEnter = useCallback(() => {
+		if (ref && ref.current && animationComplete) {
+			TweenLite.to(ref.current, 0.5, {
+				ease: Sine.easeOut,
+				opacity: 1.0,
+			})
+		}
+	}, [animationComplete])
 
 	// return div to prev opacity
-	const mouseLeave = useCallback(
-		(event: React.MouseEvent<any> | MouseEvent) => {
-			if (htmlRef && htmlRef.current && animationComplete) {
-				TweenLite.to(htmlRef.current, 0.5, {
-					ease: Sine.easeOut,
-					opacity: 0.8,
-				})
-			}
-		},
-		[animationComplete]
-	)
+	const mouseLeave = useCallback(() => {
+		if (ref && ref.current && animationComplete) {
+			TweenLite.to(ref.current, 0.5, {
+				ease: Sine.easeOut,
+				opacity: 0.8,
+			})
+		}
+	}, [animationComplete])
 
-	const onClick = useCallback(
-		(evt: React.MouseEvent<any> | MouseEvent) =>
-			(location.href = resourceLocation),
-		[resourceLocation]
-	)
+	const onClick = useCallback(() => (location.href = resourceLocation), [
+		resourceLocation,
+	])
 
-	useEffect(() => {
-		setHTMLRef(ref)
-	}, [ref])
 	return [mouseEnter, mouseLeave, onClick]
 }
