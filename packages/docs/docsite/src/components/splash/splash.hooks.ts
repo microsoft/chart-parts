@@ -18,6 +18,7 @@ function getChartPartsChars() {
 }
 
 export function useSplashPageMountAnimation(
+	container: HTMLDivElement | null,
 	titleRef: RefObject<any>,
 	height: number | undefined,
 	width: number | undefined
@@ -193,8 +194,10 @@ export function useSplashPageMountAnimation(
 	}
 
 	useEffect(() => {
-		startAnimation()
-	}, [height, width])
+		if (container) {
+			startAnimation()
+		}
+	}, [container, height, width])
 	return [animatingOut]
 }
 

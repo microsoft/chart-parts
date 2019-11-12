@@ -44,6 +44,7 @@
     "react-icons": "^3.7.0",
     "react-tabs": "^3.0.0",
     "react-typography": "^0.16.19",
+    "react-use-dimensions": "^1.2.1",
     "rehype-react": "^4.0.1",
     "styled-components": "^4.3.2",
     "typography": "^0.16.19",

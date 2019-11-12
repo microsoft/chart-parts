@@ -3,24 +3,35 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { useRef, RefObject, memo } from 'react'
+import React, { useRef, RefObject, memo, useState } from 'react'
 import styled from 'styled-components'
-import { useWindowDimensions } from '../../util/hooks/useWindowDimensions'
 import LogoBG from './logobg'
 import { useSplashPageMountAnimation } from './splash.hooks'
 import { SplashContent } from './SplashContent'
+// @ts-ignore
+import useDimensions from 'react-use-dimensions'
 
 const IndexPage: React.FC = memo(() => {
+	const [
+		containerElement,
+		setContainerElement,
+	] = useState<HTMLDivElement | null>(null)
 	const titleRef = useRef<RefObject<any> | null | undefined>(null)
-	const { height, width } = useWindowDimensions()
+	const [containerRef, { height, width }] = useDimensions()
 	const [animationComplete] = useSplashPageMountAnimation(
+		containerElement,
 		titleRef,
 		height,
 		width
 	)
 
 	return (
-		<>
+		<Container
+			ref={node => {
+				containerRef(node)
+				setContainerElement(node)
+			}}
+		>
 			{animationComplete ? null : (
 				<TitleContainer
 					style={{ height: height || 768 }}
@@ -31,10 +42,14 @@ const IndexPage: React.FC = memo(() => {
 				</TitleContainer>
 			)}
 			<SplashContent animationComplete={animationComplete} />
-		</>
+		</Container>
 	)
 })
 
+const Container = styled.div`
+	display: flex;
+	flex: 1;
+`
 const TitleContainer = styled.div`
 	position: absolute;
 	top: 0;
