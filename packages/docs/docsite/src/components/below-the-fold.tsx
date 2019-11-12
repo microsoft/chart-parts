@@ -32,10 +32,10 @@ const BelowTheFold: React.FC<BelowTheFoldProps> = ({ style }) => (
 			return (
 				<BoxRow style={style}>
 					<Box style={{ backgroundColor: theme.palette.alt }}>
-						<DocsLink to="documentation">Read the docs</DocsLink>
+						<DocsLink to="/documentation">Read the docs</DocsLink>
 					</Box>
 					<Box style={{ backgroundColor: theme.palette.alt2 }}>
-						<BlogLink to="blog">What's new?</BlogLink>
+						<BlogLink to="/blog">What's new?</BlogLink>
 					</Box>
 					<Box style={{ backgroundColor: theme.palette.alt3 }}>
 						<StyledAnchor target="_blank" href={githubUrl}>
