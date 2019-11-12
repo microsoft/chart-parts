@@ -6,10 +6,14 @@
 import { useState, useEffect } from 'react'
 
 function getWindowDimensions() {
-	const { innerWidth: width, innerHeight: height } = window
-	return {
-		width,
-		height,
+	if (typeof window !== undefined) {
+		const { innerWidth: width, innerHeight: height } = window
+		return {
+			width,
+			height,
+		}
+	} else {
+		return { width: 0, heigt: 0 }
 	}
 }
 
