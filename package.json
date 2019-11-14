@@ -14,6 +14,7 @@
     "lint": "run-s lint:*",
     "unit_test": "jest --coverage --ci",
     "test": "run-s lint build unit_test test:packages",
+    "ci": "run-s test",
     "publish_libs": "lerna publish",
     "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
     "release": "run-s clean test publish_libs changelog release:packages",
@@ -92,10 +93,13 @@
       "packages/docs/testdata"
     ],
     "nohoist": [
-      "**"
+      "@chart-parts/react-native-svg-renderer/**",
+      "**/@types/react-native",
+      "**/@types/reach__router"
     ]
   },
   "jest": {
+    "cacheDirectory": ".jest-cache",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },

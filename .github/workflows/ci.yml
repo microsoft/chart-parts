@@ -1,0 +1,86 @@
+name: Node CI
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [10.x, 12.x]
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Get yarn cache path
+        id: yarn-cache
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      - uses: actions/cache@v1
+        name: Cache yarn cache
+        id: cache-yarn-cache
+        with:
+          path: ${{ steps.yarn-cache.outputs.dir }}
+          key: ${{ runner.os }}-${{ matrix.node-version }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-yarn-
+
+      - uses: actions/cache@v1
+        name: Cache node_modules
+        id: cache-node-modules
+        with:
+          path: node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-
+
+      - uses: actions/cache@v1
+        name: Cache react-native-svg-renderer node_modules
+        id: cache-node-modules-svg-renderer
+        with:
+          path: packages/renderers/react-natives-svg/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-
+
+      - uses: actions/cache@v1
+        name: Cache docsite node_modules
+        id: cache-node-modules-docsite
+        with:
+          path: packages/docs/docsite/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-docsite-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-docsite-
+
+      - uses: actions/cache@v1
+        name: Cache docsite node_modules
+        id: cache-node-modules-examplesweb
+        with:
+          path: packages/docs/examplesweb/node_modules
+          key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-examplesweb-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-examplesweb-
+
+      - uses: actions/cache@v1
+        name: Cache Jest cache
+        id: cache-jest-cache
+        with:
+          path: .jest-cache
+          key: ${{ runner.os }}-${{ matrix.node-version }}-jest
+
+      - run: yarn install
+        name: Install Dependencies
+        if: steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules-docsite.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules-svg-renderer.outputs.cache-hit != 'true' ||
+          steps.cache-node-modules-examplesweb.outputs.cache-hit != 'true'
+
+      - run: yarn ci
+        name: Execute Tests
+        env:
+          CI: true
