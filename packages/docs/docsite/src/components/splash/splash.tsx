@@ -7,7 +7,7 @@ import React, { useRef, RefObject, memo, useState } from 'react'
 import styled from 'styled-components'
 import LogoBG from './logobg'
 import { useSplashPageMountAnimation } from './splash.hooks'
-import { SplashContent } from './SplashContent'
+import { SplashContent } from './splashcontent'
 /* eslint-disable-next-line @typescript-eslint/ban-ts-ignore */
 // @ts-ignore
 import useDimensions from 'react-use-dimensions'

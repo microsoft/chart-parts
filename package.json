@@ -97,6 +97,7 @@
     ]
   },
   "jest": {
+    "cacheDirectory": ".jest-cache",
     "transform": {
       "^.+\\.tsx?$": "ts-jest"
     },
