@@ -64,7 +64,12 @@ jobs:
 
       - run: yarn install
         name: Install Dependencies
-        if: steps.cache-yarn-cache.outputs.cache-hit != 'true' || steps.cache-node-modules.outputs.cache-hit != 'true'
+        if: 
+          steps.cache-yarn-cache.outputs.cache-hit != 'true' || 
+          steps.cache-node-modules.outputs.cache-hit != 'true' || 
+          steps.cache-node-modules-docsite.outputs.cache-hit != 'true' || 
+          steps.cache-node-modules.outputs.cache-hit != 'true' || 
+          steps.cache-node-modules-svg-renderer.outputs.cache-hit != 'true'
 
       - run: yarn ci
         name: Execute Tests
