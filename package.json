@@ -91,6 +91,11 @@
       "packages/docs/docsite",
       "packages/docs/examplesweb",
       "packages/docs/testdata"
+    ],
+    "nohoist": [
+      "@chart-parts/react-native-svg-renderer/**",
+      "**/@types/react-native",
+      "**/@types/reach__router"
     ]
   },
   "jest": {
