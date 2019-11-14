@@ -91,9 +91,6 @@
       "packages/docs/docsite",
       "packages/docs/examplesweb",
       "packages/docs/testdata"
-    ],
-    "nohoist": [
-      "**"
     ]
   },
   "jest": {
