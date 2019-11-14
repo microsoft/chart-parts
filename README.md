@@ -2,7 +2,7 @@
 
 # chart-parts
 
-A flexible, React-friendly, Grammar of Graphics for data visualization
+A flexible, React-friendly, Grammar of Graphics for data visualization.
 
 ## Video Introduction
 
