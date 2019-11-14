@@ -48,7 +48,7 @@ jobs:
 
       - uses: actions/cache@v1
         name: Cache docsite node_modules
-        id: cache-node-modules-svg-renderer
+        id: cache-node-modules-docsite
         with:
           path: packages/docs/docsite/node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-docsite-${{ hashFiles('**/yarn.lock') }}
