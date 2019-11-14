@@ -95,7 +95,8 @@
     "nohoist": [
       "@chart-parts/react-native-svg-renderer/**",
       "**/@types/react-native",
-      "**/@types/reach__router"
+      "**/@types/reach__router",
+      "@chart-parts/docsite/@types/react"
     ]
   },
   "jest": {
