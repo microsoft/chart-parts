@@ -96,7 +96,7 @@
       "@chart-parts/react-native-svg-renderer/**",
       "**/@types/react-native",
       "**/@types/reach__router",
-      "@chart-parts/docsite/@types/react"
+      "@chart-parts/docsite/**"
     ]
   },
   "jest": {
