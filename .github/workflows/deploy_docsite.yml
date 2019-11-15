@@ -21,17 +21,5 @@ jobs:
         env:
           CI: true
 
-      - run: yarn lerna run prepare_for_release --scope @chart-parts/docsite
-        name: Build Docsite
-      
-      - name: Deploy Docsite
-        if: success()
-        uses: crazy-max/ghaction-github-pages@v1
-        with:
-          target_branch: gh-pages
-          build_dir: public
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
-      
-      
+      - run: yarn lerna run release --scope @chart-parts/docsite
+        name: Build and Deploy Docsite
