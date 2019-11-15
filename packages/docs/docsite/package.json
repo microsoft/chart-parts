@@ -79,7 +79,7 @@
     "write_example_boilerplate": "node write_sample_boilerplate.js",
     "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_static_site": "gatsby build --prefix-paths",
-    "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t",
+    "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t -u \"Chris Trevino <chtrevin@microsoft.com>\"",
     "clean_release": "run-s clean build release",
     "prepare_for_release": "run-s clean process_examples build_docs build_static_site",
     "release": "run-s clean prepare_for_release publish_gh_pages"
