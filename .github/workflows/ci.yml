@@ -41,7 +41,7 @@ jobs:
         name: Cache react-native-svg-renderer node_modules
         id: cache-node-modules-svg-renderer
         with:
-          path: packages/renderers/react-natives-svg/node_modules
+          path: packages/renderers/react-native-svg/node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-
@@ -84,3 +84,12 @@ jobs:
         name: Execute Tests
         env:
           CI: true
+          
+      - name: Publish coverage to codecov.io
+        uses: codecov/codecov-action@v1.0.3
+        if: success() && matrix.node-version == '12.x'
+        with:
+          name: Unit Tests
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/coverage-final.json
+          flags: unittests
