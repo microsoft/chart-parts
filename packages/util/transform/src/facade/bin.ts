@@ -177,7 +177,7 @@ export class BinBuilderImpl implements BinBuilder {
 		if (this.anchorValue) {
 			spec.anchor = this.anchorValue
 		}
-		if (this.maxBins) {
+		if (this.maxBinsValue) {
 			spec.maxbins = this.maxBinsValue
 		}
 		if (this.baseValue) {
