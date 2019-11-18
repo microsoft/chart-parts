@@ -87,13 +87,9 @@ jobs:
           
       - name: Publish coverage to codecov.io
         uses: codecov/codecov-action@v1.0.3
-        if: success()
+        if: success() && matrix.node-version == '12.x'
         with:
-          # User defined upload name. Visible in Codecov UI
           name: Unit Tests
-          # Repository upload token - get it from codecov.io
           token: ${{ secrets.CODECOV_TOKEN }}
-          # Path to coverage file to upload
           file: ./coverage/coverage-final.json
-          # Flag upload to group coverage metrics (e.g. unittests | integration | ui,chrome)
-          flags: unittests-${{matrix.os}}-${{ matrix.node-version }}
+          flags: unittests
