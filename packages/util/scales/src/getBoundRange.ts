@@ -13,6 +13,6 @@ export function getBoundRange(
 		viewBounds: { x, y },
 	} = args
 
-	// If an origin is defined, this will use the origin in the scale calculatinos
+	// If an origin is defined, this will use the origin in the scale calculations
 	return rangeBind === Dimension.Height ? y : x
 }
