@@ -91,5 +91,5 @@ jobs:
         with:
           name: Unit Tests
           token: ${{ secrets.CODECOV_TOKEN }}
-          file: ./coverage/coverage-final.json
+          file: ./coverage/
           flags: unittests
