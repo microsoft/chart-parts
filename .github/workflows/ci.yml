@@ -84,3 +84,7 @@ jobs:
         name: Execute Tests
         env:
           CI: true
+          
+      - name: Publish coverage to codecov.io
+        uses: Atrox/codecov-action@v0.1.3
+        if: success()
