@@ -76,7 +76,6 @@ jobs:
         if: steps.cache-yarn-cache.outputs.cache-hit != 'true' ||
           steps.cache-node-modules.outputs.cache-hit != 'true' ||
           steps.cache-node-modules-docsite.outputs.cache-hit != 'true' ||
-          steps.cache-node-modules.outputs.cache-hit != 'true' ||
           steps.cache-node-modules-svg-renderer.outputs.cache-hit != 'true' ||
           steps.cache-node-modules-examplesweb.outputs.cache-hit != 'true'
 
@@ -84,7 +83,7 @@ jobs:
         name: Execute Tests
         env:
           CI: true
-          
+
       - name: Publish coverage to codecov.io
         uses: codecov/codecov-action@v1.0.3
         if: success() && matrix.node-version == '12.x'
