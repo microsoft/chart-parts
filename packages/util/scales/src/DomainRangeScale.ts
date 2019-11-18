@@ -22,7 +22,7 @@ export abstract class DomainRangeScale<
 		arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range,
 	) {
 		if (typeof arg === 'function') {
-			this.rangeValue = arg as ((args: ScaleCreationContext) => Range)
+			this.rangeValue = arg as (args: ScaleCreationContext) => Range
 		} else if (Array.isArray(arg)) {
 			this.rangeValue = () => arg as Range
 		} else if (typeof arg !== undefined) {
@@ -59,15 +59,20 @@ export abstract class DomainRangeScale<
 		return reverse(result) as Range
 	}
 
+	protected get defaultRange(): Range {
+		return ([0, 1] as any) as Range
+	}
+
 	private determineRange(args: ScaleCreationContext): Range {
 		if (this.rangeValue) {
 			return this.rangeValue(args)
 		} else {
 			const bindRange = this.bindRangeValue
 			if (!bindRange) {
-				throw new Error('Either bindRange or range must be set')
+				return this.defaultRange
+			} else {
+				return this.handleRangeBind(args, bindRange as RangeBind)
 			}
-			return this.handleRangeBind(args, bindRange as RangeBind)
 		}
 	}
 }
