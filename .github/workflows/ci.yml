@@ -41,7 +41,7 @@ jobs:
         name: Cache react-native-svg-renderer node_modules
         id: cache-node-modules-svg-renderer
         with:
-          path: packages/renderers/react-natives-svg/node_modules
+          path: packages/renderers/react-native-svg/node_modules
           key: ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-${{ matrix.node-version }}-nodemodules-rnsvg-
