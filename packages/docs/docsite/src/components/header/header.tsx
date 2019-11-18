@@ -19,7 +19,7 @@ export interface HeaderProps {
 export const HEIGHT = 60
 
 export const Header: React.FC<HeaderProps> = memo(
-	({ logoTo = '/', opacity = 1.0, showLinks = true }) => {
+	({ opacity = 1.0, showLinks = true }) => {
 		return (
 			<StaticQuery
 				query={graphql`
