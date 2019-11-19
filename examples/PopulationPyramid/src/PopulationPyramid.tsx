@@ -62,8 +62,16 @@ export const PopulationPyramid: React.FC = memo(() => {
           'population',
           filter((d: any) => d.year === year)
         )
-        .addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
-        .addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
+        .addDerivedTable(
+          'males',
+          'popYear',
+          filter((d: any) => d.sex === 1)
+        )
+        .addDerivedTable(
+          'females',
+          'popYear',
+          filter((d: any) => d.sex === 2)
+        )
         .addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
         .tables,
     [year]
