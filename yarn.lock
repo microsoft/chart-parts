@@ -9402,10 +9402,10 @@ growly@^1.3.0:
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
-gsap@^2.1.3:
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-2.1.3.tgz#c63ee3a50f0b7dc3b46ed0845bb0f09049feb944"
-  integrity sha512-8RFASCqi2FOCBuv7X4o7M6bLdy+1hbR0azg+MG7zz+EVsI+OmJblYsTk0GEepQd2Jg/ItMPiVTibF7r3EVxjZQ==
+gsap@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.0.1.tgz#946b49e860487bd23e6c884b95152d556a5f86f1"
+  integrity sha512-9nzEBF7Ss9Ogyw6oEOXZxxVYH8WNRA/nHmIp3DrPOTKmlLxX9MN2ovSoH9TApA+rucBgp9veCedujp5oSQRvZw==
 
 gud@^1.0.0:
   version "1.0.0"
