@@ -5,7 +5,7 @@
 
 import { useEffect, useState, RefObject, useCallback } from 'react'
 import { randomBetween } from '../../util/util'
-import { TimelineMax, Elastic, TweenLite, Sine } from 'gsap'
+import { TimelineMax, TweenLite } from 'gsap'
 
 // get all chart part elements
 function getChartPartsChars() {
@@ -75,7 +75,7 @@ export function useSplashPageMountAnimation(
 							rotation: randomBetween(-360, 60),
 							rotationX: randomBetween(-200, 200),
 							rotationY: randomBetween(-60, 60),
-							ease: Elastic.easeOut.config(1, 0.4),
+							ease: 'elastic.out(1, 0.4)',
 							delay: 0.1,
 						},
 						'PieceTogether+=' + Math.random() * 0.3
@@ -102,7 +102,7 @@ export function useSplashPageMountAnimation(
 								rotationX: randomBetween(-160, 160),
 								rotationY: randomBetween(-160, 160),
 								opacity: 0,
-								ease: Elastic.easeOut.config(1, 0.4),
+								ease: 'elastic.out(1, 0.4)',
 							},
 							'PieceTogether+=' + Math.random() * 0.3
 						)
@@ -114,7 +114,7 @@ export function useSplashPageMountAnimation(
 					0.3,
 					{
 						opacity: 0,
-						easing: Elastic.easeIn,
+						ease: 'elastic.in(1, 0.3)',
 						delay: 0.7,
 					},
 					'Scale+=' + 0.1
@@ -210,7 +210,7 @@ export function usePaneMousehandlers(
 	const mouseEnter = useCallback(() => {
 		if (ref && ref.current && animationComplete) {
 			TweenLite.to(ref.current, 0.5, {
-				ease: Sine.easeOut,
+				ease: 'sine.out',
 				opacity: 1.0,
 			})
 		}
@@ -220,7 +220,7 @@ export function usePaneMousehandlers(
 	const mouseLeave = useCallback(() => {
 		if (ref && ref.current && animationComplete) {
 			TweenLite.to(ref.current, 0.5, {
-				ease: Sine.easeOut,
+				ease: 'sine.out',
 				opacity: 0.8,
 			})
 		}
