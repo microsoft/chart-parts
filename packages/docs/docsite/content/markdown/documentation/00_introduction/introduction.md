@@ -46,6 +46,8 @@ coupled to any platform.
 
 ## Key Concepts
 
+<!--alex disable color -->
+
 In _The Grammar of Graphics_, the author envisions a sequenced pipeline of
 steps that are common to creating charts: including data transformations, scale
 applications, mark binding, and rendering of marks and guides. Each of these

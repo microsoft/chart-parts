@@ -11,7 +11,7 @@
     "lint:js": "eslint . --ext .js,.ts,.jsx,.tsx",
     "lint:md": "markdownlint 'packages/docs/docsite/content/markdown/**/*.md'",
     "lint:spelling": "mdspell 'packages/docs/docsite/content/markdown/**/*.md' --en-us --report",
-    "lint:tone": "find . -name '*.md' | grep -v node_modules | yarn alex",
+    "lint:tone": "alex .",
     "lint": "run-s lint:*",
     "unit_test": "jest --coverage --ci",
     "test": "run-s lint build unit_test test:packages",

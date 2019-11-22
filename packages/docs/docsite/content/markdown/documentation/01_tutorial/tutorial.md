@@ -6,6 +6,8 @@ order: 1
 
 ## Introduction
 
+<!--alex disable special color hook dive  -->
+
 So you're interested in using **chart-parts** for your application? Great
 choice! If you're unfamiliar with the concept of the _Grammar of Graphics_
 or _Mark-Based Visualization_, take a look at the
@@ -17,7 +19,7 @@ right in if you're up for it.
 To use **chart-parts**, you must be using webapp environment with a bundler
 present. If you're using [create-react-app](https://create-react-app.dev/),
 or [webpack](https://webpack.js.org) directly you should be fine. To install
-the requisite client libraries, execute the following command in your terminal.
+the requisite client libraries, invoke the following command in your terminal.
 I'm using [yarn](https://yarnpkg.com), but feel free to use _npm_ if you
 prefer.
 

@@ -4,6 +4,8 @@ path: /documentation/concepts
 order: 3
 ---
 
+<!--alex disable color  -->
+
 ## Key Concepts
 
 In this section we will describe, at overview-level, the key concepts that are
@@ -21,7 +23,7 @@ coordinates, colors, etc...
 In chart-parts, our scales are based on d3 scales, and assume basic familiarity
 with how they operate.
 
-Here are some resources regarding d3 scales that may he helpful:
+Here are some resources regarding d3 scales that may be helpful:
 
 - [d3-scale GitHub repository](https://github.com/d3/d3-scale)
 - [d3-scale-chromatic GitHub repository](https://github.com/d3/d3-scale-chromatic)
