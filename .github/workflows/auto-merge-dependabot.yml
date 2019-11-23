@@ -12,4 +12,4 @@ jobs:
       - name: auto-merge
         uses: darthtrevino/dependabot-auto-merge-action@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
