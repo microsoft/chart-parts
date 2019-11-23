@@ -1,9 +1,6 @@
-name: Auto merge Dependabot updates
+name: Automerge dependabot updates
 
-on:
-  check_suite:
-    types:
-      - completed
+on: pull_request_review_comment
 
 jobs:
   auto-merge:
@@ -12,4 +9,4 @@ jobs:
       - name: auto-merge
         uses: ridedott/dependabot-auto-merge-action@master
         with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
