@@ -1,6 +1,6 @@
-name: Auto merge Dependabot updates
+name: Automerge dependabot updates
 
-on: issue_comment
+on: pull_request_review_comment
 
 jobs:
   auto-merge:
