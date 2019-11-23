@@ -79,13 +79,10 @@
     "write_example_boilerplate": "node write_sample_boilerplate.js",
     "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_gatsby": "gatsby build --prefix-paths",
-    "publish_gh_pages": "NODE_DEBUG=gh-pages gh-pages -d public -t -u \"Chris Trevino <chtrevin@microsoft.com>\"",
     "clean_release": "run-s clean build release",
-    "build_static_site": "run-s clean process_examples build_docs build_gatsby",
-    "release": "run-s clean build_static_site publish_gh_pages"
+    "build_static_site": "run-s clean process_examples build_docs build_gatsby"
   },
   "devDependencies": {
-    "gh-pages": "^2.0.1",
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
