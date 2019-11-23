@@ -1,9 +1,6 @@
 name: Auto merge Dependabot updates
 
-on:
-  check_suite:
-    types:
-      - completed
+on: issue_comment
 
 jobs:
   auto-merge:
