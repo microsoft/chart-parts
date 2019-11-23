@@ -7,6 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: auto-merge
-        uses: darthtrevino/dependabot-auto-merge-action@master
+        uses: ridedott/dependabot-auto-merge-action@master
         with:
           GITHUB_TOKEN: ${{ secrets.ACTIONS_DEPLOY_KEY  }}
