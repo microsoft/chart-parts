@@ -8751,19 +8751,19 @@ gatsby-remark-copy-linked-files@^2.1.29:
     unist-util-visit "^1.4.1"
 
 gatsby-remark-images@^3.1.30:
-  version "3.1.31"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.1.31.tgz#8c2fe37f8d0fd1a5612de085c7d96dfae22c6cb8"
-  integrity sha512-HWCRgGejHUnQM+fClkDO28NLDplS6ag1vA5jz4HKIWJD4cs33h+Oa9W12k2kul5gJ0y5/j9xEAYDT2zdbTSS3A==
+  version "3.1.33"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.1.33.tgz#a44aa4b70fc28fbc2a38e80c7fb0b3378546fc5f"
+  integrity sha512-v8u/x8FdlGiuU7zzy1wvrb1SFL6eRIy4sruWBpJglyadpJjDbro/fUcFXMpAnBNpdXEmiFS1geV2uNx4W7Ea8Q==
   dependencies:
     "@babel/runtime" "^7.7.2"
     chalk "^2.4.2"
     cheerio "^1.0.0-rc.3"
+    gatsby-core-utils "^1.0.20"
     is-relative-url "^3.0.0"
     lodash "^4.17.15"
     mdast-util-definitions "^1.2.5"
     potrace "^2.1.2"
     query-string "^6.8.3"
-    slash "^3.0.0"
     unist-util-select "^1.5.0"
     unist-util-visit-parents "^2.1.2"
 
