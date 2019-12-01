@@ -18671,9 +18671,9 @@ url@^0.11.0:
     querystring "0.2.0"
 
 use-debounce@^3.0.1:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.1.0.tgz#05a5c8cd3c2f309699f08961d7c8bbe7f68720bb"
-  integrity sha512-DEf3L/ZKkOSTARk/DHlC6KAAJKwMqpck8Zx06SM2Wr+LfU1TzhO8hZRzB/qbpSQqREYWQes24n1q9doeTMqF4g==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.2.0.tgz#9c2b1adeb0f51d0c77bd256790c0ad66edc1c577"
+  integrity sha512-qhOyE6F7KYTq4esMUCbAqnlMvGbbqXcO4jG6Q+ymGQAIAMbyqASD3y4vbDbxl/t7sOUcqTdwQila8M0g85xdvw==
 
 use@^3.1.0:
   version "3.1.1"
