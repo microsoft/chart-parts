@@ -18784,9 +18784,9 @@ vary@^1, vary@~1.1.2:
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
 vega-dataflow@^5.4.0, vega-dataflow@^5.4.1:
-  version "5.4.1"
-  resolved "https://registry.yarnpkg.com/vega-dataflow/-/vega-dataflow-5.4.1.tgz#8ed5593bf674577833510e4e659d817132f05aaf"
-  integrity sha512-NZASrIGel2ZD+HiJsozMPO7qNB3INLFWQez6KI+gPpKQIhsz7jWzG/TBK57A8NOLJYPc6VBLiygCmdJbr5E+sA==
+  version "5.5.0"
+  resolved "https://registry.yarnpkg.com/vega-dataflow/-/vega-dataflow-5.5.0.tgz#9a1ecd2eb0ff02aef53cdb87a7828eae528f8d82"
+  integrity sha512-9eRe2qLpwvEegBoSaH3vdziSLMZSszY02wxVmvcFzHe57Rf/eYEr0YRuW4qc+gMmwURPYu9wtmeUTiK4XhDKXw==
   dependencies:
     vega-loader "^4.0.0"
     vega-util "^1.11.0"
