@@ -15433,9 +15433,9 @@ react-lifecycles-compat@^3.0.4:
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 react-native-svg@^9.9.4:
-  version "9.13.4"
-  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.13.4.tgz#e6052a980e9f09b5d6f4f1dd2c5da6e3a2a0eda1"
-  integrity sha512-shUtWfuokX6TjxTBH6wECEAnYQ8/rfZW7nKtpm3jgvwVaGpQpYjOnlcJ2UHRjDwXNheLuvqJL6BKCiIBysPUYA==
+  version "9.13.5"
+  resolved "https://registry.yarnpkg.com/react-native-svg/-/react-native-svg-9.13.5.tgz#bfa109d72fea909ce0d576e411be2567332c1350"
+  integrity sha512-njtAxJjTihm0qPnRGS3p/IZWkrUGn0aCO7BdcTRmtOw2gxMN3Q0Po5rRjcuihHeA9lJlPBj9MiRCm6jlBTFHcA==
   dependencies:
     css-select "^2.0.2"
     css-tree "^1.0.0-alpha.37"
