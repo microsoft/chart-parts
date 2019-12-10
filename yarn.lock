@@ -8757,11 +8757,11 @@ gatsby-react-router-scroll@^2.1.17:
     warning "^3.0.0"
 
 gatsby-remark-autolink-headers@^2.1.17:
-  version "2.1.19"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.1.19.tgz#5ba2a8b4a48973884cae0314b3a96d05ba5058c1"
-  integrity sha512-6FJSa0y1zsUKOy2TgwuWVLSySgOqxw8MHBXvs8jHfqqq1k5KM6ifXYvu6RKqOXTMogDMtYSvGT8ffPh1D3eNxw==
+  version "2.1.21"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.1.21.tgz#12f4957b420009eacde771e178b1df63445a168c"
+  integrity sha512-2GvQrlmkxduU9ZFMoU7o2Psb1kAFN8Wh4Fhqdj3WSNJwWmIYgGXs5xl+W6dLotjKwfL9Zxv8zHnx2HDxum6WCg==
   dependencies:
-    "@babel/runtime" "^7.7.4"
+    "@babel/runtime" "^7.7.6"
     github-slugger "^1.2.1"
     lodash "^4.17.15"
     mdast-util-to-string "^1.0.7"
