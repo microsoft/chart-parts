@@ -5,7 +5,9 @@
 
 import { useEffect, useState, RefObject, useCallback } from 'react'
 import { randomBetween } from '../../util/util'
-import { TimelineMax, TweenLite } from 'gsap'
+import { TimelineMax, TweenLite, CSSPlugin, gsap } from 'gsap'
+
+gsap.registerPlugin(CSSPlugin)
 
 // get all chart part elements
 function getChartPartsChars() {

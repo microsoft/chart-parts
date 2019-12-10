@@ -80,7 +80,7 @@
     "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_gatsby": "gatsby build --prefix-paths",
     "clean_release": "run-s clean build release",
-    "build_static_site": "run-s clean process_examples build_docs build_gatsby"
+    "build_site": "run-s clean process_examples build_docs build_gatsby"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
