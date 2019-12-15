@@ -6002,12 +6002,12 @@ conventional-changelog-atom@^2.0.3:
     q "^1.5.1"
 
 conventional-changelog-cli@^2.0.23:
-  version "2.0.30"
-  resolved "https://registry.yarnpkg.com/conventional-changelog-cli/-/conventional-changelog-cli-2.0.30.tgz#a528ea92a4c68380bbe1b4935361d3308585bf3a"
-  integrity sha512-k2qSrlOpMxtv1xOtUxICNQ2dsanvoNy4PElMdLDof2lvP9BFfGPtEXjoMBcRoTSN98KeUalYA8X2UdNBNFttoA==
+  version "2.0.31"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-cli/-/conventional-changelog-cli-2.0.31.tgz#3345581170fbb540416946e460fef519a64aef43"
+  integrity sha512-nMINylKAamBLM3OmD7/44d9TPZ3V58IDTXoGC/QtXxve+1Sj37BQTzIEW3TNaviZ2ZV/b5Dqg0eSk4DNP5fBdA==
   dependencies:
     add-stream "^1.0.0"
-    conventional-changelog "^3.1.17"
+    conventional-changelog "^3.1.18"
     lodash "^4.17.15"
     meow "^5.0.0"
     tempfile "^3.0.0"
@@ -6047,10 +6047,10 @@ conventional-changelog-core@^3.1.6:
     read-pkg-up "^3.0.0"
     through2 "^3.0.0"
 
-conventional-changelog-core@^4.1.3:
-  version "4.1.3"
-  resolved "https://registry.yarnpkg.com/conventional-changelog-core/-/conventional-changelog-core-4.1.3.tgz#5b560c1b54aa16bdae3569e2799c4c7fd166ba87"
-  integrity sha512-VNDecw0N/osMiFHbb20R1PzxwbSZMdyCyJmc95mmElPrruOsJuKEozMBi0JJuOY7kXJ7kO/TbFDRviJg4z0feA==
+conventional-changelog-core@^4.1.4:
+  version "4.1.4"
+  resolved "https://registry.yarnpkg.com/conventional-changelog-core/-/conventional-changelog-core-4.1.4.tgz#39be27fca6ef20a0f998d7a3a1e97cfa8a055cb6"
+  integrity sha512-LO58ZbEpp1Ul+y/vOI8rJRsWkovsYkCFbOCVgi6UnVfU8WC0F8K8VQQwaBZWWUpb6JvEiN4GBR5baRP2txZ+Vg==
   dependencies:
     add-stream "^1.0.0"
     conventional-changelog-writer "^4.0.11"
@@ -6124,16 +6124,16 @@ conventional-changelog-writer@^4.0.11, conventional-changelog-writer@^4.0.6:
     split "^1.0.0"
     through2 "^3.0.0"
 
-conventional-changelog@^3.1.17:
-  version "3.1.17"
-  resolved "https://registry.yarnpkg.com/conventional-changelog/-/conventional-changelog-3.1.17.tgz#5d59b1638956f8c8f8e0feb0b352ec8d3bc91b37"
-  integrity sha512-Z6VIYdgtgRPpQ9ZVMKp9e8j7g35uttelb2OGBXhldqWd2lY+h7EXgQH777r2AmMJzWkkLumXz02kIhr1Z1oM4A==
+conventional-changelog@^3.1.18:
+  version "3.1.18"
+  resolved "https://registry.yarnpkg.com/conventional-changelog/-/conventional-changelog-3.1.18.tgz#7da0a5ab34a604b920b8bf71c6cf5d952f0e805e"
+  integrity sha512-aN6a3rjgV8qwAJj3sC/Lme2kvswWO7fFSGQc32gREcwIOsaiqBaO6f2p0NomFaPDnTqZ+mMZFLL3hlzvEnZ0mQ==
   dependencies:
     conventional-changelog-angular "^5.0.6"
     conventional-changelog-atom "^2.0.3"
     conventional-changelog-codemirror "^2.0.3"
     conventional-changelog-conventionalcommits "^4.2.3"
-    conventional-changelog-core "^4.1.3"
+    conventional-changelog-core "^4.1.4"
     conventional-changelog-ember "^2.0.4"
     conventional-changelog-eslint "^3.0.4"
     conventional-changelog-express "^2.0.1"
