@@ -45,10 +45,16 @@ html{font-family:"Josefin Sans",-apple-system,system-ui,BlinkMacSystemFont,"Sego
 .hvMbt{font-family:sans-serif;font-size:12px;margin-bottom:10px;font-weight:400;}
 /* sc-component-id: doc__TocContent-sc-47iken-2 */
 .jwUnpl ul{list-style:none;} .jwUnpl ul li{font-size:12px;font-weight:100;font-family:sans-serif;line-height:1;}</style><style type="text/css">
-    .anchor {
-      float: left;
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
       padding-right: 4px;
-      margin-left: -20px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
     }
     h1 .anchor svg,
     h2 .anchor svg,
@@ -91,7 +97,7 @@ html{font-family:"Josefin Sans",-apple-system,system-ui,BlinkMacSystemFont,"Sego
 <li><a href="/chart-parts/documentation/introduction/#the-missing-abstraction">The Missing Abstraction</a></li>
 <li><a href="/chart-parts/documentation/introduction/#key-concepts">Key Concepts</a></li>
 <li><a href="/chart-parts/documentation/introduction/#existing-systems">Existing Systems</a></li>
-</ul></div></div><div><h2 id="introduction--background"><a href="#introduction--background" aria-label="introduction  background permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction &amp; Background</h2>
+</ul></div></div><div><h2 id="introduction--background" style="position:relative"><a href="#introduction--background" aria-label="introduction  background permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Introduction &amp; Background</h2>
 <blockquote>
 <p><strong>chart-parts</strong> is a flexible
 <a href="https://www.springer.com/us/book/9780387245447">Grammar-of-Graphics</a>
@@ -107,7 +113,7 @@ with frameworks application developers use such as React. To date,
 implementations of the <em>Grammar of Graphics</em> have tended to exist as closed
 systems. While a closed system can be useful for certain categories of users,
 we believe that these systems should provide escape hatches and flexibility.</p>
-<h2 id="the-missing-abstraction"><a href="#the-missing-abstraction" aria-label="the missing abstraction permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Missing Abstraction</h2>
+<h2 id="the-missing-abstraction" style="position:relative"><a href="#the-missing-abstraction" aria-label="the missing abstraction permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>The Missing Abstraction</h2>
 <p>Charting is a common and complex task. Charting libraries are often implemented
 as <em>taxonomies</em> of charts, providing components such as <em>BarChart</em>,
 <em>LineChart</em>, <em>AreaChart</em>, or <em>ScatterPlot</em> to cover the most broadly used types
@@ -124,7 +130,7 @@ way to describe expressive, functional charts that are not as constrained by
 the charting library that is selected. Moreover, this level of abstraction is
 easier to develop software at than low-level graphics libraries, and is not
 coupled to any platform.</p>
-<h2 id="key-concepts"><a href="#key-concepts" aria-label="key concepts permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key Concepts</h2>
+<h2 id="key-concepts" style="position:relative"><a href="#key-concepts" aria-label="key concepts permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key Concepts</h2>
 <!-- -->
 <p>In <em>The Grammar of Graphics</em>, the author envisions a sequenced pipeline of
 steps that are common to creating charts: including data transformations, scale
@@ -150,7 +156,7 @@ that are non-spatial, such as color values.</li>
 <li><strong>Data Transformations</strong> provide aggregation operations or visual processing
 to manipulate source data into a chartable form.</li>
 </ul>
-<h2 id="existing-systems"><a href="#existing-systems" aria-label="existing systems permalink" class="anchor"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Existing Systems</h2>
+<h2 id="existing-systems" style="position:relative"><a href="#existing-systems" aria-label="existing systems permalink" class="anchor before"><svg aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Existing Systems</h2>
 <p>Mark-based systems are common in data-visualization research, but are
 relatively rare in practice. The most notable implementations of these systems
 presently are <a href="http://vega.github.io/">Vega</a> and it&#x27;s descendants

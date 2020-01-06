@@ -21,10 +21,16 @@ html{font-family:"Josefin Sans",-apple-system,system-ui,BlinkMacSystemFont,"Sego
 .GrwDv{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;height:100%;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-align-items:stretch;-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;-webkit-flex:1;-ms-flex:1;flex:1;padding:0;margin-top:60px;}
 /* sc-component-id: layout__Content-sc-11rg37q-2 */
 .vQQTm{margin:auto;padding:0px 1.0875rem 1.45rem;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:100%;-webkit-flex:5;-ms-flex:5;flex:5;padding:1.45rem;overflow:scroll;}</style><style type="text/css">
-    .anchor {
-      float: left;
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
       padding-right: 4px;
-      margin-left: -20px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
     }
     h1 .anchor svg,
     h2 .anchor svg,

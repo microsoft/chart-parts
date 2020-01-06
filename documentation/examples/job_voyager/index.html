@@ -41,10 +41,16 @@ html{font-family:"Josefin Sans",-apple-system,system-ui,BlinkMacSystemFont,"Sego
 .hFdHOw{-webkit-flex:5;-ms-flex:5;flex:5;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;font-family:"Josefin Sans",-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",font-weight:lighter;line-height:1.8;}
 /* sc-component-id: example-tabs__Container-sc-7xhezc-0 */
 .avQAo{height:100%;width:100%;position:relative;}</style><style type="text/css">
-    .anchor {
-      float: left;
+    .anchor.before {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
       padding-right: 4px;
-      margin-left: -20px;
+    }
+    .anchor.after {
+      display: inline-block;
+      padding-left: 4px;
     }
     h1 .anchor svg,
     h2 .anchor svg,
