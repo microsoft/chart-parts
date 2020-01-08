@@ -150,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">Arrow<wbr>Strip<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/arrowstripprops.html" class="tsd-signature-type">ArrowStripProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ fadePercent, style: inputStyle, className }) &#x3D;&gt; {const opacity &#x3D; useRotatingOpacity()const style &#x3D; useMemo(() &#x3D;&gt; ({ ...inputStyle, opacity: 1.0 - fadePercent }),[fadePercent, inputStyle])return (&lt;ArrowStripContainer className&#x3D;{className} style&#x3D;{style}&gt;&lt;ArrowIcon color&#x3D;&quot;white&quot; opacity&#x3D;{(opacity + 0.9) % 1.0} /&gt;&lt;ArrowIcon color&#x3D;&quot;white&quot; opacity&#x3D;{(opacity + 0.7) % 1.0} /&gt;&lt;ArrowIcon color&#x3D;&quot;white&quot; opacity&#x3D;{(opacity + 0.5) % 1.0} /&gt;&lt;ArrowIcon color&#x3D;&quot;white&quot; opacity&#x3D;{(opacity + 0.3) % 1.0} /&gt;&lt;ArrowIcon color&#x3D;&quot;white&quot; opacity&#x3D;{(opacity + 0.1) % 1.0} /&gt;&lt;/ArrowStripContainer&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/arrow-strip.tsx#L16">components/arrow-strip.tsx:16</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/arrow-strip.tsx#L16">components/arrow-strip.tsx:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -160,7 +160,7 @@
 					<div class="tsd-signature tsd-kind-icon">Authorship<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/authorshipprops.html" class="tsd-signature-type">AuthorshipProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ name, twitter, github }) &#x3D;&gt; {const twitterUrl &#x3D; useMemo(() &#x3D;&gt; twitter &amp;&amp; &#x60;https://twitter.com/${twitter}&#x60;,[twitter])const githubUrl &#x3D; useMemo(() &#x3D;&gt; github &amp;&amp; &#x60;https://github.com/${github}&#x60;, [github,])return (&lt;span&gt;&lt;By&gt;by &lt;/By&gt;&lt;Name&gt;{name}&lt;/Name&gt;&amp;nbsp;{twitter ? (&lt;&gt;&lt;a href&#x3D;{twitterUrl}&gt;&lt;TwitterIcon size&#x3D;{12} /&gt;&lt;/a&gt;&amp;nbsp;&lt;/&gt;) : null}{github ? (&lt;a href&#x3D;{githubUrl}&gt;&lt;GitHubIcon size&#x3D;{12} /&gt;&lt;/a&gt;) : null}&lt;/span&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/authorship.tsx#L15">components/authorship.tsx:15</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/authorship.tsx#L15">components/authorship.tsx:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -170,7 +170,7 @@
 					<div class="tsd-signature tsd-kind-icon">Blog<wbr>Structure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/blogstructureprops.html" class="tsd-signature-type">BlogStructureProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ toc, pathname, post }) &#x3D;&gt; (&lt;Layouttitle&#x3D;{post.title}sidebar&#x3D;{&lt;Sidebaritems&#x3D;{convertGraphqlToc(toc)}activePath&#x3D;{pathname}flat&#x3D;{true}/&gt;}&gt;&lt;Post post&#x3D;{post} /&gt;&lt;/Layout&gt;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/templates/blogTemplate.tsx#L18">templates/blogTemplate.tsx:18</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/templates/blogTemplate.tsx#L18">templates/blogTemplate.tsx:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -180,7 +180,7 @@
 					<div class="tsd-signature tsd-kind-icon">CRIMSON<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"#981e32"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;#981e32&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/palette.ts#L7">components/mark-testers/util/palette.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/palette.ts#L7">components/mark-testers/util/palette.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -190,7 +190,7 @@
 					<div class="tsd-signature tsd-kind-icon">Doc<wbr>Structure<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/docstructureprops.html" class="tsd-signature-type">DocStructureProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ toc, pathname, page }) &#x3D;&gt; {return (&lt;Layouttitle&#x3D;{page.frontmatter.title}sidebar&#x3D;{&lt;Sidebaritems&#x3D;{convertGraphqlToc(toc)}activePath&#x3D;{pathname}flat&#x3D;{false}/&gt;}&gt;&lt;Doc docPage&#x3D;{page} /&gt;&lt;/Layout&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/templates/docTemplate.tsx#L20">templates/docTemplate.tsx:20</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/templates/docTemplate.tsx#L20">templates/docTemplate.tsx:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -200,7 +200,7 @@
 					<div class="tsd-signature tsd-kind-icon">Dropdown<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/dropdownprops.html" class="tsd-signature-type">DropdownProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ name, value, options, onChange &#x3D; DO_NOTHING }) &#x3D;&gt; {const optionDom &#x3D; useMemo(() &#x3D;&gt;options.map(o &#x3D;&gt; (&lt;option key&#x3D;{o} value&#x3D;{o}&gt;{o}&lt;/option&gt;)),[options])return (&lt;Container&gt;&lt;NameColumn&gt;{name}&lt;/NameColumn&gt;&lt;InputColumn&gt;&lt;selectname&#x3D;{name}onChange&#x3D;{useCallback(evt &#x3D;&gt; onChange(evt.target.value), [onChange,])}value&#x3D;{value}&gt;{optionDom}&lt;/select&gt;&lt;/InputColumn&gt;&lt;/Container&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/dropdown.tsx#L27">components/mark-testers/util/dropdown.tsx:27</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/dropdown.tsx#L27">components/mark-testers/util/dropdown.tsx:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +210,7 @@
 					<div class="tsd-signature tsd-kind-icon">Example<wbr>Tabs<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/exampletabsprops.html" class="tsd-signature-type">ExampleTabsProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ name, component }) &#x3D;&gt; {const ExampleComponent &#x3D; useMemo(() &#x3D;&gt; (chartIndex as any)[component], [component,])const url &#x3D; useMemo(() &#x3D;&gt; exampleUrl(name), [name])return (&lt;Tabs&gt;&lt;TabList&gt;&lt;Tab&gt;Example&lt;/Tab&gt;&lt;Tab&gt;View Code&lt;/Tab&gt;&lt;/TabList&gt;&lt;TabPanel&gt;&lt;Container&gt;&lt;ExampleComponent /&gt;&lt;/Container&gt;&lt;/TabPanel&gt;&lt;TabPanel&gt;&lt;iframesrc&#x3D;{url}style&#x3D;{frameStyle}sandbox&#x3D;&quot;allow-modals allow-forms allow-popups allow-scripts allow-same-origin&quot;/&gt;&lt;/TabPanel&gt;&lt;/Tabs&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/example-tabs.tsx#L27">components/example-tabs.tsx:27</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/example-tabs.tsx#L27">components/example-tabs.tsx:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -220,7 +220,7 @@
 					<div class="tsd-signature tsd-kind-icon">FOOTER_<wbr>HEIGHT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">50</span><span class="tsd-signature-symbol"> =&nbsp;50</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/footer.tsx#L15">components/footer.tsx:15</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/footer.tsx#L15">components/footer.tsx:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +230,7 @@
 					<div class="tsd-signature tsd-kind-icon">GREY<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"#8d959a"</span><span class="tsd-signature-symbol"> =&nbsp;&quot;#8d959a&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/palette.ts#L8">components/mark-testers/util/palette.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/palette.ts#L8">components/mark-testers/util/palette.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +240,7 @@
 					<div class="tsd-signature tsd-kind-icon">Gutter<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">StyledComponentBase</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"div"</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;styled.div&#x60;flex: 1;&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/common.ts#L11">components/common.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/common.ts#L11">components/common.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +250,7 @@
 					<div class="tsd-signature tsd-kind-icon">HEIGHT<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">60</span><span class="tsd-signature-symbol"> =&nbsp;60</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/header/header.tsx#L19">components/header/header.tsx:19</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/header/header.tsx#L19">components/header/header.tsx:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +260,7 @@
 					<div class="tsd-signature tsd-kind-icon">Header<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/headerprops.html" class="tsd-signature-type">HeaderProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ opacity &#x3D; 1.0, showLinks &#x3D; true }) &#x3D;&gt; {return (&lt;StaticQueryquery&#x3D;{graphql&#x60;query {site {siteMetadata {titlegithubUrl}}}&#x60;}render&#x3D;{({site: {siteMetadata: { githubUrl },},}: any) &#x3D;&gt; {const links &#x3D; showLinks ? (&lt;&gt;&lt;Links&gt;&lt;InnerLink to&#x3D;&quot;/&quot;&gt;Home&lt;/InnerLink&gt;&lt;InnerLink to&#x3D;&quot;/documentation&quot;&gt;Documentation&lt;/InnerLink&gt;&lt;InnerLink to&#x3D;&quot;/blog&quot;&gt;Blog&lt;/InnerLink&gt;&lt;OuterLink href&#x3D;{githubUrl}&gt;Github&lt;/OuterLink&gt;&lt;/Links&gt;&lt;/&gt;) : (&lt;&gt; &lt;/&gt;)return (&lt;Container style&#x3D;{{ opacity }} className&#x3D;&quot;header&quot;&gt;&lt;InnerContainer&gt;&lt;LogoContainer&gt;&lt;Logo height&#x3D;{HEIGHT} /&gt;&lt;VersionIdentifier&gt;v{libraryVersion}&lt;/VersionIdentifier&gt;&lt;/LogoContainer&gt;{links}&lt;/InnerContainer&gt;&lt;/Container&gt;)}}/&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/header/header.tsx#L21">components/header/header.tsx:21</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/header/header.tsx#L21">components/header/header.tsx:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +270,7 @@
 					<div class="tsd-signature tsd-kind-icon">Single<wbr>Mark<wbr>Tester<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/singlemarktesterprops.html" class="tsd-signature-type">SingleMarkTesterProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({sliders &#x3D; [],dropdowns &#x3D; [],toggles &#x3D; [],chartWidth,chartHeight,chartOrigin,initialScenegraph,getParam: propsGetParam,updateScenegraph: propsUpdateScenegraph,}) &#x3D;&gt; {const [scenegraph, setScenegraph] &#x3D; useState(initialScenegraph)const getParam &#x3D; useCallback((name: string) &#x3D;&gt; {return propsGetParam? propsGetParam(name, scenegraph): scenegraph.items[0][name]},[scenegraph, propsGetParam])const updateScenegraph &#x3D; useCallback((update: any) &#x3D;&gt; {if (propsUpdateScenegraph) {const result &#x3D; propsUpdateScenegraph(update, scenegraph)return result} else {return {...scenegraph,items: scenegraph.items.map((i: any) &#x3D;&gt; ({ ...i, ...update })),}}},[scenegraph])const setParam &#x3D; useCallback((update: any) &#x3D;&gt; {const newsg &#x3D; updateScenegraph(update)setScenegraph(newsg)},[updateScenegraph])const sliderElements &#x3D; sliders.map(({ name, min, max, step }) &#x3D;&gt; (&lt;Sliderkey&#x3D;{name}name&#x3D;{name}min&#x3D;{min}max&#x3D;{max}step&#x3D;{step}value&#x3D;{getParam(name)}onChange&#x3D;{v &#x3D;&gt; {setParam({ [name]: typeof v &#x3D;&#x3D;&#x3D; &#x27;string&#x27; ? parseFloat(v) : v })}}/&gt;))const dropdownElements &#x3D; dropdowns.map(({ name, options }) &#x3D;&gt; (&lt;Dropdownkey&#x3D;{name}name&#x3D;{name}options&#x3D;{options}value&#x3D;{getParam(name)}onChange&#x3D;{v &#x3D;&gt; setParam({ [name]: v }) as any}/&gt;))const toggleElements &#x3D; toggles.map(({ name }) &#x3D;&gt; (&lt;Togglekey&#x3D;{name}name&#x3D;{name}value&#x3D;{getParam(name)}onChange&#x3D;{v &#x3D;&gt; setParam({ [name]: v })}/&gt;))return (&lt;Container&gt;&lt;ChartContainer&gt;&lt;SGChartdata&#x3D;{scenegraph}width&#x3D;{chartWidth}height&#x3D;{chartHeight}origin&#x3D;{chartOrigin}/&gt;&lt;/ChartContainer&gt;&lt;ControlsContainer&gt;{toggleElements}{sliderElements}{dropdownElements}&lt;/ControlsContainer&gt;&lt;/Container&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/single-mark-tester.tsx#L59">components/mark-testers/util/single-mark-tester.tsx:59</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/single-mark-tester.tsx#L59">components/mark-testers/util/single-mark-tester.tsx:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +280,7 @@
 					<div class="tsd-signature tsd-kind-icon">Slider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/sliderprops.html" class="tsd-signature-type">SliderProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({name,min &#x3D; 0,max &#x3D; 200,value: defaultValue &#x3D; 0,step &#x3D; 1,onChange &#x3D; DO_NOTHING,}) &#x3D;&gt; {const [value, setValue] &#x3D; useState(defaultValue)const handleChange &#x3D; useCallback(evt &#x3D;&gt; {setValue(evt.target.value)onChange(evt.target.value)},[onChange])return (&lt;Container&gt;&lt;NameColumn&gt;{name}&lt;/NameColumn&gt;&lt;inputtype&#x3D;&quot;range&quot;name&#x3D;{name}value&#x3D;{value}min&#x3D;{min}max&#x3D;{max}step&#x3D;{step}onChange&#x3D;{handleChange}/&gt;&lt;div&gt;{value}&lt;/div&gt;&lt;/Container&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/slider.tsx#L26">components/mark-testers/util/slider.tsx:26</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/slider.tsx#L26">components/mark-testers/util/slider.tsx:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +290,7 @@
 					<div class="tsd-signature tsd-kind-icon">Splash<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/splashcontentprops.html" class="tsd-signature-type">SplashContentProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ animationComplete }) &#x3D;&gt; {const docRef &#x3D; useRef&lt;HTMLDivElement&gt;(null)const blogRef &#x3D; useRef&lt;HTMLDivElement&gt;(null)const sourceRef &#x3D; useRef&lt;HTMLDivElement&gt;(null)const opacity &#x3D; useMemo(() &#x3D;&gt; (animationComplete ? 1 : 0), [animationComplete,])const [blogMouseEnter, blogMouseLeave, onBlogClick] &#x3D; usePaneMousehandlers(blogRef,animationComplete,withPrefix(&#x27;/blog&#x27;))const [sourceMouseEnter,sourceMouseLeave,onSourceClick,] &#x3D; usePaneMousehandlers(sourceRef,animationComplete,&#x27;https://github.com/Microsoft/chart-parts&#x27;)const [docMouseEnter, docMouseLeave, onDocClick] &#x3D; usePaneMousehandlers(docRef,animationComplete,withPrefix(&#x27;/documentation&#x27;))return (&lt;Container&gt;&lt;HeaderComp.Header opacity&#x3D;{0} showLinks&#x3D;{false} /&gt;&lt;BoxRow style&#x3D;{{ opacity: 0 }} id&#x3D;&quot;links&quot;&gt;&lt;Boxid&#x3D;&quot;blog&quot;style&#x3D;{{ background: theme.logoPalette.blue }}ref&#x3D;{blogRef as any}onMouseEnter&#x3D;{blogMouseEnter}onMouseLeave&#x3D;{blogMouseLeave}onClick&#x3D;{onBlogClick}&gt;&lt;BlogLink&gt;What&#x27;s new?&lt;/BlogLink&gt;&lt;/Box&gt;&lt;Boxid&#x3D;&quot;docs&quot;style&#x3D;{{ background: theme.logoPalette.green }}onMouseEnter&#x3D;{docMouseEnter}onMouseLeave&#x3D;{docMouseLeave}onClick&#x3D;{onDocClick}&gt;&lt;DocsLink&gt;Read the docs&lt;/DocsLink&gt;&lt;/Box&gt;&lt;Boxid&#x3D;&quot;source&quot;style&#x3D;{{ background: theme.logoPalette.pink }}ref&#x3D;{sourceRef as any}onMouseEnter&#x3D;{sourceMouseEnter}onMouseLeave&#x3D;{sourceMouseLeave}onClick&#x3D;{onSourceClick}&gt;&lt;StyledAnchor&gt;Browse the source&lt;/StyledAnchor&gt;&lt;/Box&gt;&lt;/BoxRow&gt;&lt;FooterRow style&#x3D;{{ opacity }}&gt;&lt;Footer /&gt;&lt;/FooterRow&gt;&lt;/Container&gt;)})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/splash/splashcontent.tsx#L16">components/splash/splashcontent.tsx:16</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/splash/splashcontent.tsx#L16">components/splash/splashcontent.tsx:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +300,7 @@
 					<div class="tsd-signature tsd-kind-icon">Text<wbr>Container<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">StyledComponentBase</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"div"</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;styled.div&#x60;display: flex;&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/common.ts#L7">components/common.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/common.ts#L7">components/common.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +310,7 @@
 					<div class="tsd-signature tsd-kind-icon">Text<wbr>Content<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">StyledComponentBase</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">"div"</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">__type</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">never</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> &amp; </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;styled.div&#x60;flex: 5;display: flex;flex-direction: column;font-family: &quot;Josefin Sans&quot;, -apple-system, system-ui, BlinkMacSystemFont, &quot;Segoe UI&quot;,font-weight: lighter;line-height: 1.8;&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/common.ts#L15">components/common.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/common.ts#L15">components/common.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +320,7 @@
 					<div class="tsd-signature tsd-kind-icon">Toggle<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">React.FC</span><span class="tsd-signature-symbol">&lt;</span><a href="interfaces/toggleprops.html" class="tsd-signature-type">ToggleProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;memo(({ name, value, onChange &#x3D; DO_NOTHING }) &#x3D;&gt; (&lt;Container&gt;&lt;NameColumn&gt;{name}&lt;/NameColumn&gt;&lt;InputColumntype&#x3D;&quot;checkbox&quot;name&#x3D;{name}checked&#x3D;{value}onChange&#x3D;{useCallback(evt &#x3D;&gt; onChange(evt.target.checked), [onChange])}/&gt;&lt;div&gt;{value}&lt;/div&gt;&lt;/Container&gt;))</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/toggle.tsx#L26">components/mark-testers/util/toggle.tsx:26</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/toggle.tsx#L26">components/mark-testers/util/toggle.tsx:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +330,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<wbr>Column<wbr>Width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">120</span><span class="tsd-signature-symbol"> =&nbsp;120</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/constants.ts#L6">components/mark-testers/util/constants.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/constants.ts#L6">components/mark-testers/util/constants.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -340,8 +340,8 @@
 					<div class="tsd-signature tsd-kind-icon">page<wbr>Query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> =&nbsp;graphql&#x60;query($path: String!) {currentPage: markdownRemark(frontmatter: { path: { eq: $path } }) {htmlhtmlAsttableOfContents(maxDepth: 2, pathToSlugField: &quot;frontmatter.path&quot;)frontmatter {date(formatString: &quot;MMMM DD, YYYY&quot;)pathtitle}}toc: allMarkdownRemark(filter: { frontmatter: { path: { regex: &quot;/^/documentation/.*/&quot; } } }) {edges {node {frontmatter {titlepathorder}}}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/templates/blogTemplate.tsx#L43">templates/blogTemplate.tsx:43</a></li>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/templates/docTemplate.tsx#L47">templates/docTemplate.tsx:47</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/templates/blogTemplate.tsx#L43">templates/blogTemplate.tsx:43</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/templates/docTemplate.tsx#L47">templates/docTemplate.tsx:47</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -351,8 +351,8 @@
 					<div class="tsd-signature tsd-kind-icon">query<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">void</span><span class="tsd-signature-symbol"> =&nbsp;graphql&#x60;{currentPage: markdownRemark(frontmatter: { path: { eq: &quot;/documentation/introduction&quot; } }) {htmlhtmlAsttableOfContents(maxDepth: 2, pathToSlugField: &quot;frontmatter.path&quot;)frontmatter {date(formatString: &quot;MMMM DD, YYYY&quot;)pathtitle}}toc: allMarkdownRemark(filter: { frontmatter: { path: { regex: &quot;/^/documentation/.*/&quot; } } }) {edges {node {frontmatter {titlepathorder}}}}}&#x60;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/pages/blog.tsx#L24">pages/blog.tsx:24</a></li>
-							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/pages/documentation.tsx#L12">pages/documentation.tsx:12</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/pages/blog.tsx#L24">pages/blog.tsx:24</a></li>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/pages/documentation.tsx#L12">pages/documentation.tsx:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -369,7 +369,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/pages/blog.tsx#L10">pages/blog.tsx:10</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/pages/blog.tsx#L10">pages/blog.tsx:10</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -394,7 +394,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/mark-testers/util/chart.tsx#L18">components/mark-testers/util/chart.tsx:18</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/mark-testers/util/chart.tsx#L18">components/mark-testers/util/chart.tsx:18</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -419,7 +419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/templates/blogTemplate.tsx#L36">templates/blogTemplate.tsx:36</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/templates/blogTemplate.tsx#L36">templates/blogTemplate.tsx:36</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -444,7 +444,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/util/convertGraphqlToc.ts#L8">util/convertGraphqlToc.ts:8</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/util/convertGraphqlToc.ts#L8">util/convertGraphqlToc.ts:8</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -469,7 +469,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/sidebar/createTree.ts#L12">components/sidebar/createTree.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/sidebar/createTree.ts#L12">components/sidebar/createTree.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +500,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/util/processImagesInMarkdownAst.ts#L16">util/processImagesInMarkdownAst.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/util/processImagesInMarkdownAst.ts#L16">util/processImagesInMarkdownAst.ts:16</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -523,7 +523,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/util/util.ts#L6">util/util.ts:6</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/util/util.ts#L6">util/util.ts:6</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -549,7 +549,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/util/renderHtmlAst.ts#L17">util/renderHtmlAst.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/util/renderHtmlAst.ts#L17">util/renderHtmlAst.ts:17</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -572,7 +572,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/splash/splash.hooks.ts#L206">components/splash/splash.hooks.ts:206</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/splash/splash.hooks.ts#L206">components/splash/splash.hooks.ts:206</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -601,7 +601,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/57cbdb4/packages/docs/docsite/src/components/splash/splash.hooks.ts#L22">components/splash/splash.hooks.ts:22</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/7bbbd39/packages/docs/docsite/src/components/splash/splash.hooks.ts#L22">components/splash/splash.hooks.ts:22</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
