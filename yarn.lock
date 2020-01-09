@@ -8765,9 +8765,9 @@ gatsby-plugin-page-creator@^2.1.37:
     micromatch "^3.1.10"
 
 gatsby-plugin-react-helmet@^3.1.14:
-  version "3.1.18"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.18.tgz#093b5d92e50dafa837ae97ac2672d79a96feb201"
-  integrity sha512-wwKH6Z5NK0Gl2hDfMnWNGE41GjWpZGq0eKczPydTJc/1SbPykBFCBrjYgrAPB2ZrRnA8AV06cRwPddJC0mY7sw==
+  version "3.1.20"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-3.1.20.tgz#f6cbf1df71294d96d6241b905bb77abbd386660f"
+  integrity sha512-OouLIrxzo3/j4DvFeq3r2dzYdmNp/0+Gw6IDDm8+vYY9pDMDOrwfj8IJYAb5tfbCpcHw1R5eefM8QVmGK55i3A==
   dependencies:
     "@babel/runtime" "^7.7.6"
 
