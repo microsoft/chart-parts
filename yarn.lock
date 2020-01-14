@@ -19023,9 +19023,9 @@ vega-datasets@^1.25.0:
   integrity sha512-6H7EFQ+dKGEUpAj12vZ73jH34wOolpRmthM2cb5iFPuI1TY150B5MpbWJCC6We7MA49xwG8ZIzsRzLXjpC98kA==
 
 vega-encode@^4.3.3:
-  version "4.5.1"
-  resolved "https://registry.yarnpkg.com/vega-encode/-/vega-encode-4.5.1.tgz#85581f230e26958e0371c85aa4a3b6cddb43bce5"
-  integrity sha512-nnrXGcaJVFsjUFk+n/BPE7My1mMXNIw7eF/TSS1T+tspIj2xiGh8x5ji1Jdo+6rnHc3LMCpm4zAKL7qG/sJoGg==
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/vega-encode/-/vega-encode-4.5.2.tgz#236dca241be0340a31354755913dc3919867726d"
+  integrity sha512-iL1njX++VE0SAMJuDqc0k9kmsU8AeyRRHv15MXh2+PXe2JmyiSWn6HcF3RzFUy5xmKlZOU5BiL8KrTgTrxh+WA==
   dependencies:
     d3-array "^2.4.0"
     d3-format "^1.4.2"
@@ -19033,7 +19033,7 @@ vega-encode@^4.3.3:
     vega-dataflow "^5.5.0"
     vega-scale "^6.0.0"
     vega-time "^1.0.0"
-    vega-util "^1.12.1"
+    vega-util "^1.12.2"
 
 vega-loader@^4.0.0:
   version "4.1.3"
@@ -19084,7 +19084,7 @@ vega-transforms@^4.3.0:
     vega-time "^1.0.0"
     vega-util "^1.12.1"
 
-vega-util@^1.11.0, vega-util@^1.11.2, vega-util@^1.12.0, vega-util@^1.12.1:
+vega-util@^1.11.0, vega-util@^1.11.2, vega-util@^1.12.0, vega-util@^1.12.1, vega-util@^1.12.2:
   version "1.12.2"
   resolved "https://registry.yarnpkg.com/vega-util/-/vega-util-1.12.2.tgz#4997a50e56fa4be05046966568aed72246a40e27"
   integrity sha512-p02+oQ/XU/gzY9S/CTZinym2NKWEMIneLc+FYdUeJZZnDGa3DvcNgUDlVR90JlwLcYZNs5dBdfYLfdRHsKZKiw==
