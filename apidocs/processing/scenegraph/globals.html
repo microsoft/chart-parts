@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@chart-parts/scenegraph - v0.1.3</title>
+	<title>@chart-parts/scenegraph</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">@chart-parts/scenegraph - v0.1.3</a>
+					<a href="index.html" class="title">@chart-parts/scenegraph</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> @chart-parts/scenegraph - v0.1.3</h1>
+			<h1>@chart-parts/scenegraph</h1>
 		</div>
 	</div>
 </header>
@@ -90,18 +90,83 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable"><a href="globals.html#known_keys" class="tsd-kind-icon">KNOWN_<wbr>KEYS</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#barley" class="tsd-kind-icon">barley</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#itemtyperegistry" class="tsd-kind-icon">item<wbr>Type<wbr>Registry</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#require" class="tsd-kind-icon">require</a></li>
+								<li class="tsd-kind-variable"><a href="globals.html#restrictedpropnames" class="tsd-kind-icon">restricted<wbr>Prop<wbr>Names</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function"><a href="globals.html#buildmark" class="tsd-kind-icon">build<wbr>Mark</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createitem" class="tsd-kind-icon">create<wbr>Item</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createitemtype" class="tsd-kind-icon">create<wbr>Item<wbr>Type</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#createmark" class="tsd-kind-icon">create<wbr>Mark</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#initializeitem" class="tsd-kind-icon">initialize<wbr>Item</a></li>
+								<li class="tsd-kind-function"><a href="globals.html#initializemark" class="tsd-kind-icon">initialize<wbr>Mark</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#parsescene" class="tsd-kind-icon">parse<wbr>Scene</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#registeritemtype" class="tsd-kind-icon">register<wbr>Item<wbr>Type</a></li>
 								<li class="tsd-kind-function"><a href="globals.html#scenetojson" class="tsd-kind-icon">scene<wbr>ToJSON</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="known_keys" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> KNOWN_<wbr>KEYS</h3>
+					<div class="tsd-signature tsd-kind-icon">KNOWN_<wbr>KEYS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;marktype&#x27;,&#x27;name&#x27;,&#x27;role&#x27;,&#x27;interactive&#x27;,&#x27;clip&#x27;,&#x27;items&#x27;,&#x27;zindex&#x27;,// layout&#x27;x&#x27;,&#x27;y&#x27;,&#x27;width&#x27;,&#x27;height&#x27;,&#x27;align&#x27;,&#x27;baseline&#x27;,// fill&#x27;fill&#x27;,&#x27;fillOpacity&#x27;,&#x27;opacity&#x27;,// stroke&#x27;stroke&#x27;,&#x27;strokeOpacity&#x27;,&#x27;strokeWidth&#x27;,&#x27;strokeCap&#x27;,// stroke dash&#x27;strokeDash&#x27;,&#x27;strokeDashOffset&#x27;,// arc&#x27;startAngle&#x27;,&#x27;endAngle&#x27;,&#x27;innerRadius&#x27;,&#x27;outerRadius&#x27;,// arc, rect&#x27;cornerRadius&#x27;,&#x27;padAngle&#x27;,// area, line&#x27;interpolate&#x27;,&#x27;tension&#x27;,&#x27;orient&#x27;,&#x27;defined&#x27;,// image&#x27;url&#x27;,// path&#x27;path&#x27;,// rule&#x27;x2&#x27;,&#x27;y2&#x27;,// symbol&#x27;size&#x27;,&#x27;shape&#x27;,// text&#x27;text&#x27;,&#x27;angle&#x27;,&#x27;theta&#x27;,&#x27;radius&#x27;,&#x27;dx&#x27;,&#x27;dy&#x27;,// font&#x27;font&#x27;,&#x27;fontSize&#x27;,&#x27;fontWeight&#x27;,&#x27;fontStyle&#x27;,&#x27;fontVariant&#x27;,]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/parse.ts#L10">parse.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="barley" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> barley</h3>
+					<div class="tsd-signature tsd-kind-icon">barley<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> = require(&#x27;./barley.json&#x27;)</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/__tests__/parse.spec.ts#L10">__tests__/parse.spec.ts:10</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="itemtyperegistry" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> item<wbr>Type<wbr>Registry</h3>
+					<div class="tsd-signature tsd-kind-icon">item<wbr>Type<wbr>Registry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><a href="interfaces/itemconstructor.html" class="tsd-signature-type">ItemConstructor</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Map&lt;string, ItemConstructor&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/registry.ts#L13">registry.ts:13</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="require" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> require</h3>
+					<div class="tsd-signature tsd-kind-icon">require<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/__tests__/parse.spec.ts#L9">__tests__/parse.spec.ts:9</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable">
+					<a name="restrictedpropnames" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> restricted<wbr>Prop<wbr>Names</h3>
+					<div class="tsd-signature tsd-kind-icon">restricted<wbr>Prop<wbr>Names<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = new Set&lt;string&gt;()</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/registry.ts#L14">registry.ts:14</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -116,7 +181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/factory.ts#L37">factory.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/factory.ts#L37">factory.ts:37</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -133,13 +198,13 @@
 					<a name="createitem" class="tsd-anchor"></a>
 					<h3>create<wbr>Item</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Item<span class="tsd-signature-symbol">(</span>itemType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MarkType</span>, props<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SGItem</span></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Item<span class="tsd-signature-symbol">(</span>itemType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MarkType</span>, props<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SGItem</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/factory.ts#L30">factory.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/factory.ts#L30">factory.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -148,7 +213,7 @@
 									<h5>itemType: <span class="tsd-signature-type">MarkType</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> props: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> props: <span class="tsd-signature-symbol"> = {}</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-index-signature">
 											<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -164,13 +229,13 @@
 					<a name="createitemtype" class="tsd-anchor"></a>
 					<h3>create<wbr>Item<wbr>Type</h3>
 					<ul class="tsd-signatures tsd-kind-function">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Item<wbr>Type<span class="tsd-signature-symbol">(</span>itemType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, props<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">object</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/item.html" class="tsd-signature-type">Item</a></li>
+						<li class="tsd-signature tsd-kind-icon">create<wbr>Item<wbr>Type<span class="tsd-signature-symbol">(</span>itemType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, props<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/item.html" class="tsd-signature-type">Item</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/registry.ts#L31">registry.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/registry.ts#L31">registry.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -186,7 +251,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> props: <span class="tsd-signature-type">object</span><span class="tsd-signature-symbol"> =&nbsp;{}</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> props: <span class="tsd-signature-symbol"> = {}</span></h5>
 									<ul class="tsd-parameters">
 										<li class="tsd-parameter-index-signature">
 											<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">any</span></h5>
@@ -208,7 +273,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/factory.ts#L16">factory.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/factory.ts#L16">factory.ts:16</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -230,6 +295,74 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="initializeitem" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Item</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Item<span class="tsd-signature-symbol">(</span>marktype<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, rawItem<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="classes/item.html" class="tsd-signature-type">Item</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/parse.ts#L139">parse.ts:139</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unpack a raw scenegraph Item node into the scenegraph object model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>marktype: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mark type of the item</p>
+									</div>
+								</li>
+								<li>
+									<h5>rawItem: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The raw item object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="classes/item.html" class="tsd-signature-type">Item</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
+					<a name="initializemark" class="tsd-anchor"></a>
+					<h3>initialize<wbr>Mark</h3>
+					<ul class="tsd-signatures tsd-kind-function">
+						<li class="tsd-signature tsd-kind-icon">initialize<wbr>Mark<span class="tsd-signature-symbol">(</span>rawMark<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SGMark</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/parse.ts#L104">parse.ts:104</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Unpack a raw scenegraph Mark node into the scenegraph object model</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>rawMark: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The raw mark object</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">SGMark</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function">
 					<a name="parsescene" class="tsd-anchor"></a>
 					<h3>parse<wbr>Scene</h3>
 					<ul class="tsd-signatures tsd-kind-function">
@@ -239,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/parse.ts#L95">parse.ts:95</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/parse.ts#L95">parse.ts:95</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -262,7 +395,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/registry.ts#L23">registry.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/registry.ts#L23">registry.ts:23</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -293,7 +426,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/becb41e/packages/processing/scenegraph/src/parse.ts#L88">parse.ts:88</a></li>
+									<li>Defined in <a href="https://github.com/microsoft/chart-parts/blob/59fdf90/packages/processing/scenegraph/src/parse.ts#L88">parse.ts:88</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -363,6 +496,21 @@
 					<li class=" tsd-kind-interface">
 						<a href="interfaces/itemconstructor.html" class="tsd-kind-icon">Item<wbr>Constructor</a>
 					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#known_keys" class="tsd-kind-icon">KNOWN_<wbr>KEYS</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#barley" class="tsd-kind-icon">barley</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#itemtyperegistry" class="tsd-kind-icon">item<wbr>Type<wbr>Registry</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#require" class="tsd-kind-icon">require</a>
+					</li>
+					<li class=" tsd-kind-variable">
+						<a href="globals.html#restrictedpropnames" class="tsd-kind-icon">restricted<wbr>Prop<wbr>Names</a>
+					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#buildmark" class="tsd-kind-icon">build<wbr>Mark</a>
 					</li>
@@ -374,6 +522,12 @@
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#createmark" class="tsd-kind-icon">create<wbr>Mark</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializeitem" class="tsd-kind-icon">initialize<wbr>Item</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="globals.html#initializemark" class="tsd-kind-icon">initialize<wbr>Mark</a>
 					</li>
 					<li class=" tsd-kind-function">
 						<a href="globals.html#parsescene" class="tsd-kind-icon">parse<wbr>Scene</a>
