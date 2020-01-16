@@ -22,7 +22,7 @@
     "start": "run-s start:packages"
   },
   "engines": {
-    "node": ">=8.0.0"
+    "node": ">=10.0.0"
   },
   "husky": {
     "hooks": {
