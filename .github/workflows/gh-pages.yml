@@ -17,7 +17,7 @@ jobs:
 
       - run: yarn install
       - run: yarn build
-      - run: yarn lerna run build_site --stream --scope @chart-parts/docsite
+      - run: yarn lerna run build --stream --scope @chart-parts/docsite
 
       - name: deploy
         uses: peaceiris/actions-gh-pages@v2.5.0

@@ -65,7 +65,6 @@
     "gen:doc:builder": "LIB=client/builder yarn gen:doc",
     "gen:doc:interfaces": "LIB=client/interfaces yarn gen:doc",
     "gen:doc:react": "LIB=client/react yarn gen:doc",
-    "gen:doc:scene": "LIB=processing/scene yarn gen:doc",
     "gen:doc:orchestrator": "LIB=processing/orchestrator yarn gen:doc",
     "gen:doc:scenegraph": "LIB=processing/scenegraph yarn gen:doc",
     "gen:doc:vsvg": "LIB=processing/vsvg yarn gen:doc",
@@ -80,13 +79,13 @@
     "process_examples": "run-s copy_examples format_examples write_example_boilerplate",
     "build_gatsby": "gatsby build --prefix-paths",
     "clean_release": "run-s clean build release",
-    "build_site": "run-s clean process_examples build_docs build_gatsby"
+    "build": "run-s clean process_examples build_docs build_gatsby"
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
     "regenerator-runtime": "^0.13.3",
     "rimraf": "^3.0.0",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.16.0",
     "typescript": "^3.6.3"
   },
   "repository": {
