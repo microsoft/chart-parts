@@ -12,7 +12,7 @@
     "start": "../../../scripts/watch_package.sh"
   },
   "devDependencies": {
-    "@types/react-native": "^0.60.15",
+    "@types/react-native": "^0.61.0",
     "react": "^16.9.0"
   },
   "dependencies": {
