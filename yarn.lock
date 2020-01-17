@@ -2522,15 +2522,15 @@
     uuid "^3.3.2"
 
 "@storybook/addon-links@^5.2.6":
-  version "5.3.5"
-  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-5.3.5.tgz#6ccb63448eb591f87019bb0e52ff101254bb58bf"
-  integrity sha512-98vveEyY18QridUco/snZueQIkVvN8+g6+7v27de4RzELeZQrPLMic6cZsJJ5i+DhxpBB8RSjiTnTbm7zqMcFQ==
+  version "5.3.6"
+  resolved "https://registry.yarnpkg.com/@storybook/addon-links/-/addon-links-5.3.6.tgz#c74342e53df08ae250e25e8697b9e0e3e176c5bf"
+  integrity sha512-oCXo6Tgb2sCwyjpkTGYRlmjFbCiqFozqCtxd7hQ1ON2wDns4Xr25Ik+F4Wv1a4d1xihGCb/g5KuOTaqXTf1TqA==
   dependencies:
-    "@storybook/addons" "5.3.5"
-    "@storybook/client-logger" "5.3.5"
-    "@storybook/core-events" "5.3.5"
+    "@storybook/addons" "5.3.6"
+    "@storybook/client-logger" "5.3.6"
+    "@storybook/core-events" "5.3.6"
     "@storybook/csf" "0.0.1"
-    "@storybook/router" "5.3.5"
+    "@storybook/router" "5.3.6"
     core-js "^3.0.1"
     global "^4.3.2"
     prop-types "^15.7.2"
@@ -2550,7 +2550,7 @@
     global "^4.3.2"
     util-deprecate "^1.0.2"
 
-"@storybook/addons@^5.2.1":
+"@storybook/addons@5.3.6", "@storybook/addons@^5.2.1":
   version "5.3.6"
   resolved "https://registry.yarnpkg.com/@storybook/addons/-/addons-5.3.6.tgz#93c5492f09b54cee4885192a0fa79465aa91751f"
   integrity sha512-WXsIWOO9/0ydl0C2cGwGd6qrd4L49SoXLNiErDxmjIgLXOVicylCC3JRsExcBOlvmcfPpQniBDNFTXnl6NUldw==
