@@ -3282,11 +3282,10 @@
     "@types/react" "*"
 
 "@types/react-native@*", "@types/react-native@^0.61.0":
-  version "0.61.2"
-  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.61.2.tgz#1ee4f1e1ad246d671399d1112a8a703020b7a38b"
-  integrity sha512-z15qGoBmZD6KIx3ZRYsqjelwBYXRMylPqz34swCH2exEk1EwOcPG2cp/TIpiN72lpByHlPvoMKbu8v1lzQrayw==
+  version "0.61.3"
+  resolved "https://registry.yarnpkg.com/@types/react-native/-/react-native-0.61.3.tgz#fdf32936433b1e8355f2b0409194d7c41804e1c3"
+  integrity sha512-FtOxZQIQaxReUxYF+tNCsJUe/Y+HrHig3Uy/kF+ke1V7mF8T8A7GK66S+LE+N4H7sDFVoVH/mx2OFHNclTEHaQ==
   dependencies:
-    "@types/prop-types" "*"
     "@types/react" "*"
 
 "@types/react-syntax-highlighter@11.0.2":
