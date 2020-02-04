@@ -2824,26 +2824,26 @@
   dependencies:
     core-js "^3.0.1"
 
-"@storybook/core@5.3.11":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-5.3.11.tgz#9fe7bdde1c14d86e9e18313a416edc7030e74af6"
-  integrity sha512-bAKFyZd1Dzq1BV3fScFN71ItGbSOWgwB4NXuMnMBRJSSO6ij+8P+1l1pY7FiXPZksrXU39+XNUxk8MHU5jHjWQ==
+"@storybook/core@5.3.12":
+  version "5.3.12"
+  resolved "https://registry.yarnpkg.com/@storybook/core/-/core-5.3.12.tgz#972cec3c7ee3e78a628a017c0b72bb6a52d9146d"
+  integrity sha512-oqffKLyMEVREeOC8O1RVO+xn68zk4wZkjWN9KbhbMoP3zdxM1gdvpsemdVE1C008mZfe1A/KBwuuEmcn9EBTNw==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.7.0"
     "@babel/plugin-proposal-object-rest-spread" "^7.6.2"
     "@babel/plugin-syntax-dynamic-import" "^7.2.0"
     "@babel/plugin-transform-react-constant-elements" "^7.2.0"
     "@babel/preset-env" "^7.4.5"
-    "@storybook/addons" "5.3.11"
-    "@storybook/channel-postmessage" "5.3.11"
-    "@storybook/client-api" "5.3.11"
-    "@storybook/client-logger" "5.3.11"
-    "@storybook/core-events" "5.3.11"
+    "@storybook/addons" "5.3.12"
+    "@storybook/channel-postmessage" "5.3.12"
+    "@storybook/client-api" "5.3.12"
+    "@storybook/client-logger" "5.3.12"
+    "@storybook/core-events" "5.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/node-logger" "5.3.11"
-    "@storybook/router" "5.3.11"
-    "@storybook/theming" "5.3.11"
-    "@storybook/ui" "5.3.11"
+    "@storybook/node-logger" "5.3.12"
+    "@storybook/router" "5.3.12"
+    "@storybook/theming" "5.3.12"
+    "@storybook/ui" "5.3.12"
     airbnb-js-shims "^2.2.1"
     ansi-to-html "^0.6.11"
     autoprefixer "^9.7.2"
@@ -2910,10 +2910,10 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/node-logger@5.3.11":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-5.3.11.tgz#753d19d1cbe3e4766481437c83d78a9a3a5bd3d5"
-  integrity sha512-O2Vsjm8dmnacCEF5tY7/PXLJ6F5SIdDrCg5QET4PAXncmVUlF1+KGEUFgTDdDQj+HciqtMO2onzcUyecLMQhpg==
+"@storybook/node-logger@5.3.12":
+  version "5.3.12"
+  resolved "https://registry.yarnpkg.com/@storybook/node-logger/-/node-logger-5.3.12.tgz#df25b725583cb5aa799b6c5b8103a8ea0921d3ba"
+  integrity sha512-ytIqS1Lx+gWFBNxwWOK7F63702YYsoU90UFQNUMC44lC1L7tOI9BQXtGIWTvmXJYns+O5pHHOVKkHLT9EGX2OA==
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^3.0.0"
@@ -2923,16 +2923,16 @@
     regenerator-runtime "^0.13.3"
 
 "@storybook/react@*", "@storybook/react@^5.2.1":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-5.3.11.tgz#0645fe760f77e8a2fd0e342cb6502187f243bdfe"
-  integrity sha512-BmQcgQXOgitJabGsxGsYICIDA/UW1BDs/lEe8F4DfD8O8wm9+Wa1WJhI7QpK9W0G9wrbEOyI7uZdWsgwWldwHg==
+  version "5.3.12"
+  resolved "https://registry.yarnpkg.com/@storybook/react/-/react-5.3.12.tgz#efe4ec2f66c8299a2f54157d5cb77ca657404e12"
+  integrity sha512-eMbnzXizx0rp3UEnxZlySBI/z1Z/ursw0u2bFr2N9okzOio3yLSoDeMuB6BzZxDLkSgfQAw2qHtJa0eddjxoRQ==
   dependencies:
     "@babel/plugin-transform-react-constant-elements" "^7.6.3"
     "@babel/preset-flow" "^7.0.0"
     "@babel/preset-react" "^7.0.0"
-    "@storybook/addons" "5.3.11"
-    "@storybook/core" "5.3.11"
-    "@storybook/node-logger" "5.3.11"
+    "@storybook/addons" "5.3.12"
+    "@storybook/core" "5.3.12"
+    "@storybook/node-logger" "5.3.12"
     "@svgr/webpack" "^4.0.3"
     "@types/webpack-env" "^1.15.0"
     babel-plugin-add-react-displayname "^0.0.5"
@@ -3015,20 +3015,20 @@
     resolve-from "^5.0.0"
     ts-dedent "^1.1.0"
 
-"@storybook/ui@5.3.11":
-  version "5.3.11"
-  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-5.3.11.tgz#51ffeb8e3fe3cf5df13b7f86f7b67e9df5d940f4"
-  integrity sha512-oJS1Zfso/xy4hd2NhGv/a/nYpcQ/GcHxfT59fPwYBGvxb3hHD0IyJ/3maT8Moq3twBLQeZhXFiAX0h45CimX4A==
+"@storybook/ui@5.3.12":
+  version "5.3.12"
+  resolved "https://registry.yarnpkg.com/@storybook/ui/-/ui-5.3.12.tgz#c66f6a1302d2ff80a8b94402d95648d1b28066f8"
+  integrity sha512-dVYJJkwjfGkz3u0lnfawnT6hqBRnANVlKEYirKYZyQ/RouCN3naNh9Sagrpg7hJHYib4Ny6J/pyaNdfdieDS+w==
   dependencies:
     "@emotion/core" "^10.0.20"
-    "@storybook/addons" "5.3.11"
-    "@storybook/api" "5.3.11"
-    "@storybook/channels" "5.3.11"
-    "@storybook/client-logger" "5.3.11"
-    "@storybook/components" "5.3.11"
-    "@storybook/core-events" "5.3.11"
-    "@storybook/router" "5.3.11"
-    "@storybook/theming" "5.3.11"
+    "@storybook/addons" "5.3.12"
+    "@storybook/api" "5.3.12"
+    "@storybook/channels" "5.3.12"
+    "@storybook/client-logger" "5.3.12"
+    "@storybook/components" "5.3.12"
+    "@storybook/core-events" "5.3.12"
+    "@storybook/router" "5.3.12"
+    "@storybook/theming" "5.3.12"
     copy-to-clipboard "^3.0.8"
     core-js "^3.0.1"
     core-js-pure "^3.0.1"
