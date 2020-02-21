@@ -20,7 +20,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-helmet": "^5.0.10",
     "@types/react-tabs": "^2.3.1",
-    "@types/styled-components": "^4.1.19",
+    "@types/styled-components": "^5.0.0",
     "babel-plugin-styled-components": "^1.10.6",
     "d3-scale": "^3.2.0",
     "debug": "^4.1.0",
