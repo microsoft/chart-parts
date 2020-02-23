@@ -19147,9 +19147,9 @@ vega-dataflow@^5.4.0, vega-dataflow@^5.5.0:
     vega-util "^1.11.0"
 
 vega-datasets@^1.25.0:
-  version "1.29.0"
-  resolved "https://registry.yarnpkg.com/vega-datasets/-/vega-datasets-1.29.0.tgz#0daa4072940e219753bab30638be38e70c7d84f7"
-  integrity sha512-6H7EFQ+dKGEUpAj12vZ73jH34wOolpRmthM2cb5iFPuI1TY150B5MpbWJCC6We7MA49xwG8ZIzsRzLXjpC98kA==
+  version "1.30.1"
+  resolved "https://registry.yarnpkg.com/vega-datasets/-/vega-datasets-1.30.1.tgz#66496a85eb0737d25d34b7dcb5845875bc011d72"
+  integrity sha512-DuLn2mMwuZ7OBPZ4JFvxJGSnEnrdyUcVMN5+g4Jm89DRdEt3If8j7kwA6eRifmgJyQ3Z24ppYn8YSu8f8Dqsdg==
 
 vega-encode@^4.3.3:
   version "4.5.2"
