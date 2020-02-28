@@ -19232,9 +19232,9 @@ vega-transforms@^4.3.0:
     vega-util "^1.12.1"
 
 vega-util@^1.11.0, vega-util@^1.11.2, vega-util@^1.12.0, vega-util@^1.12.1, vega-util@^1.12.2:
-  version "1.12.2"
-  resolved "https://registry.yarnpkg.com/vega-util/-/vega-util-1.12.2.tgz#4997a50e56fa4be05046966568aed72246a40e27"
-  integrity sha512-p02+oQ/XU/gzY9S/CTZinym2NKWEMIneLc+FYdUeJZZnDGa3DvcNgUDlVR90JlwLcYZNs5dBdfYLfdRHsKZKiw==
+  version "1.13.0"
+  resolved "https://registry.yarnpkg.com/vega-util/-/vega-util-1.13.0.tgz#3f933bff56f93f2c9346be0fb1a68b5f25d62496"
+  integrity sha512-QYVAq7TLFGps18oA13Nwm82lMkQ7oak2dnQAYgEqCRaX5Nx4YFJ7R3R+iymDM0xFmwvervsTtD5arvMIY+HfFA==
 
 vendors@^1.0.0:
   version "1.0.3"
