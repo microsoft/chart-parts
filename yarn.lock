@@ -19221,9 +19221,9 @@ vega-time@^1.0.0:
     vega-util "^1.12.0"
 
 vega-transforms@^4.3.0:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.6.0.tgz#38e7b80d8ea19839773cbcae414ce97723a127cc"
-  integrity sha512-5nsMMnyOME/Xe1xLNGCcQ+BS94cix9gSItHiXqU7wR50ukp5U9JoUxnfeYJkuv37FAbnFpkuYlPcBCWp55zXhQ==
+  version "4.6.1"
+  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.6.1.tgz#c01c8f389b405096401915d21b381ccdbce17c89"
+  integrity sha512-wXS8LDnfYFnXHV3k+h7ciGhf2m43q8+jUPNF+4eymXg7M2Bw77IUh6MPnCzMeZsKuP5o9a94K7hHyK6nvdFr0Q==
   dependencies:
     d3-array "^2.4.0"
     vega-dataflow "^5.5.0"
