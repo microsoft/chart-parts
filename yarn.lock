@@ -9571,9 +9571,9 @@ growly@^1.3.0:
   integrity sha1-8QdIy+dq+WS3yWyTxrzCivEgwIE=
 
 gsap@^3.0.1:
-  version "3.2.2"
-  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.2.tgz#f8364c3c146602dd648ca62811afb69e6868b524"
-  integrity sha512-NGZkzIMHSpUvC+cVdlMk2Dwwou0tJTIitMoNe4LICgHDgOnwoOcklXlyF3E1sX21TVk0FeSNNMs8x7G+Ee8Hig==
+  version "3.2.3"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.2.3.tgz#79dd1948d8520b1bb971d0a8e76419747df3fb92"
+  integrity sha512-YpcblPJtE2JP7HhNTrEIGgmHxYRHWZfrkkxnxvN1BWKQ5UEmSH7w3Ak6m00nOj7JS22AajNCn7Vnzqvcs66nog==
 
 gud@^1.0.0:
   version "1.0.0"
