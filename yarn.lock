@@ -4478,10 +4478,10 @@ babel-plugin-react-docgen@^4.0.0:
     react-docgen "^5.0.0"
     recast "^0.14.7"
 
-babel-plugin-remove-graphql-queries@^2.7.23:
-  version "2.7.23"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.7.23.tgz#7cecb19b6057eb4de92d147dfd4d51c885cc356a"
-  integrity sha512-SvWLivXtbeExS0eUPrRpg8EYiDPcOlzaO/vePcdmW2X8GBC1miezXS+RYPYyt4r9Z0Cg0ZQe58ggssF/8ym3rg==
+babel-plugin-remove-graphql-queries@^2.7.23, babel-plugin-remove-graphql-queries@^2.7.24:
+  version "2.7.24"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.7.24.tgz#8a4303cbc116d2f27cb32e2bffda29f8beb63572"
+  integrity sha512-uyYSTt2ikv4QhPC1HSt5WnP9sJFCOytrN119NpXQtGL9AiXNGghrELnY4BxhDuJtw/Wjrw20eED1+BJLzfMs7Q==
 
 "babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.6:
   version "1.10.7"
@@ -8798,9 +8798,9 @@ gatsby-plugin-styled-components@^3.1.12:
     "@babel/runtime" "^7.7.6"
 
 gatsby-plugin-typescript@^2.1.16:
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.2.0.tgz#1495f834dd1d72633fff31e7d8505775e255c43e"
-  integrity sha512-eQ6/4PnnQnKui4SbeT20vA7gEzDHII2OKKr4Os6fZRLJ8T3Vpw9m8HWeynu0fkX8PaAtEQrCTPw4CbBzRJar0g==
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.2.1.tgz#0dd4bf6aebbf7139be8439d60de48e9cb42f9a72"
+  integrity sha512-OktyBqC59BX600YJcvMMlaaFMY+7Axp6Ng5FmjMnwsed1RN/kfuqRzRZfbAQeSP3s/pSQC1Lc4qFKnvZT3BsPA==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.7.4"
@@ -8808,7 +8808,7 @@ gatsby-plugin-typescript@^2.1.16:
     "@babel/plugin-proposal-optional-chaining" "^7.7.5"
     "@babel/preset-typescript" "^7.7.4"
     "@babel/runtime" "^7.7.6"
-    babel-plugin-remove-graphql-queries "^2.7.23"
+    babel-plugin-remove-graphql-queries "^2.7.24"
 
 gatsby-plugin-typography@^2.3.16:
   version "2.3.23"
