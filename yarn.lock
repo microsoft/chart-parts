@@ -8949,9 +8949,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.19.29"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.19.29.tgz#17e7ae7f049aa98edc36084796ca49d4cbd85b28"
-  integrity sha512-O87vYY7MJ6QviJsI8vmP6gODsnz2TKOtfWMYqvPBakIZbRgv11v0fV7ZXxxD4ikGopgzM26GsxyNi7jykGQ0CA==
+  version "2.19.30"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.19.30.tgz#1b06b733c148acfba6c8a38ad6cbdc1d7be2eb12"
+  integrity sha512-uOgYVVfAcBrov59eV9R4U7+BN6o1ruHflDp2lBeKQ/rSB/zGUyHPE5WlWC/SW5KQwSIUxUymeClwRL+P/Z/mMg==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.7.5"
