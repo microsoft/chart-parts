@@ -8814,9 +8814,9 @@ gatsby-plugin-styled-components@^3.1.12:
     "@babel/runtime" "^7.7.6"
 
 gatsby-plugin-typescript@^2.1.16:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.2.1.tgz#0dd4bf6aebbf7139be8439d60de48e9cb42f9a72"
-  integrity sha512-OktyBqC59BX600YJcvMMlaaFMY+7Axp6Ng5FmjMnwsed1RN/kfuqRzRZfbAQeSP3s/pSQC1Lc4qFKnvZT3BsPA==
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.2.2.tgz#37ab70aaf96b28e7c1cc5852fae26df55ea8a75a"
+  integrity sha512-U4fYeDIgMF6jHf0UajxeUubtQblQZIHZrX5ZdD39nJsDTuEZ4aHrrATZ7+cqsRRRfH3aNcqMOUPRuBZ9/YjSUQ==
   dependencies:
     "@babel/core" "^7.7.5"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.7.4"
