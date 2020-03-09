@@ -8747,10 +8747,10 @@ gatsby-cli@^2.10.2:
     ink "^2.6.0"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.0.30:
-  version "1.0.30"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.30.tgz#c2b61017405b01e2f34f2c57117b4716c75e010f"
-  integrity sha512-+WYFxf9dT4u67vecXdROe9iF2jzPKoTVbWI3FYLCcNANY2Y/vEec11vhG5FnBHdLpgmD3cnLPdhCAileKWBldA==
+gatsby-core-utils@^1.0.30, gatsby-core-utils@^1.0.31:
+  version "1.0.31"
+  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.31.tgz#f0a3c37c46a0429f5ce10fee0c01a60718a36216"
+  integrity sha512-QvyAaC2nK+34giEPn2eMMkruvzyz4cD3+68RFV9A71HDuLU7FTgnhahyV8QmqZdjK2zVnhEIs2rGuf4weEuu1g==
   dependencies:
     ci-info "2.0.0"
     configstore "^5.0.0"
@@ -8868,14 +8868,14 @@ gatsby-remark-copy-linked-files@^2.1.29:
     unist-util-visit "^1.4.1"
 
 gatsby-remark-images@^3.1.30:
-  version "3.1.46"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.1.46.tgz#4882b16ac5cc7fd1542632d1f8c96c6294a1486a"
-  integrity sha512-E99qAVLCUB2d0z8FCrgZd1EQvaRK3Z4UvxKsjR8T2YcwQhDVgHZ59IfbPAIRPbzrUrEzVTkQiZKmDzFOZj3ndA==
+  version "3.1.47"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.1.47.tgz#eabd15fb5d4f698f77d55d674fc046895bc5272e"
+  integrity sha512-sDOkaNECUdVS3+KAW9VPaA82dL+oKTUH9RyXu0e5KEK3eewSBXFEx6AAm1SmS1xDyqn/B1o0YLGRTOK/WpU5fQ==
   dependencies:
     "@babel/runtime" "^7.7.6"
     chalk "^2.4.2"
     cheerio "^1.0.0-rc.3"
-    gatsby-core-utils "^1.0.30"
+    gatsby-core-utils "^1.0.31"
     is-relative-url "^3.0.0"
     lodash "^4.17.15"
     mdast-util-definitions "^1.2.5"
