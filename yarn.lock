@@ -8691,10 +8691,10 @@ fuse.js@^3.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.6.tgz#545c3411fed88bf2e27c457cab6e73e7af697a45"
   integrity sha512-H6aJY4UpLFwxj1+5nAvufom5b2BT2v45P1MkPvdGIK8fWjQx/7o6tTT1+ALV0yawQvbmvCF0ufl2et8eJ7v7Cg==
 
-gatsby-cli@^2.10.5:
-  version "2.10.5"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.10.5.tgz#e6737d2ebcd2a64e3529067962e7e4b4f5c445f9"
-  integrity sha512-7iES8Mdox7yHO3LiyM+gmmE8pC8/7IpdZWe/bul1rLFmEQi+FuxciBJPu2rHZ7cWGNqqL46BfnTwVa26E2o9zg==
+gatsby-cli@^2.10.6:
+  version "2.10.6"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.10.6.tgz#52bd9c1b834cb84c74f4d6d558c214274b885361"
+  integrity sha512-b3XqZb8EQMSsmZIy/Oh9wLGR+0QRV3vvXbe07mrO44eOA6jPFpleqb8hmnCDI9ACw9+Y/NIPJheFsxjRmyJlSA==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/runtime" "^7.7.6"
@@ -8739,7 +8739,7 @@ gatsby-cli@^2.10.5:
     ink "^2.6.0"
     ink-spinner "^3.0.1"
 
-gatsby-core-utils@^1.0.31, gatsby-core-utils@^1.0.32:
+gatsby-core-utils@^1.0.32:
   version "1.0.32"
   resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-1.0.32.tgz#98859661c206ec1dac8511948857292569a90066"
   integrity sha512-OmvjNhXyVCpI8ya3/LbzvyiD5Ee3rkH0bWSyBCs2tB8trCZJJ4LerXRMCYY0BI69XHXKOBECA6/B8yPSVGHL6w==
@@ -8957,9 +8957,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.19.36"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.19.36.tgz#c1c2467d12f121385e50526e9055c60c3a9c0a99"
-  integrity sha512-wMrciY7O0uqZHf97UvMyV40vBCZRtSaR3yVFjTxUQh/S0AnpmHF1/truuKJEyY9vi8eBXhMyorzooLifE15xMw==
+  version "2.19.37"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.19.37.tgz#262a8a0a2dbbbeaa605db302f4e726757975b266"
+  integrity sha512-aUKnja36nSCaT+zd1fnVWP25ppg3dA7SbCzDANfBkyYXXY1cdLjBQA4nPRflJeoI9L3CbDKAqiwfJeB8SFKcoA==
   dependencies:
     "@babel/code-frame" "^7.5.5"
     "@babel/core" "^7.7.5"
@@ -9021,7 +9021,7 @@ gatsby@^2.17.11:
     flat "^4.1.0"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.10.5"
+    gatsby-cli "^2.10.6"
     gatsby-core-utils "^1.0.32"
     gatsby-graphiql-explorer "^0.2.35"
     gatsby-link "^2.2.30"
