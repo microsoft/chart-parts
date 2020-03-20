@@ -8858,9 +8858,9 @@ gatsby-plugin-react-helmet@^3.1.14:
     "@babel/runtime" "^7.8.7"
 
 gatsby-plugin-styled-components@^3.1.12:
-  version "3.1.21"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.1.21.tgz#d376464a762ae0acdd1e313e02c002eabc1aa4a6"
-  integrity sha512-uU4MtUAw3zazeVnKnOL0c0+mhtpNfEKee983jyUnAGZnXyXa9EYfZ7Lw+b++FqCce+e6EDlI7VemUR4voSD0DQ==
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-styled-components/-/gatsby-plugin-styled-components-3.2.0.tgz#3d7b491fa8ae71f70c068a2f6fd5623279a9dd09"
+  integrity sha512-zyoja2hrItE20jeAv0fQSGgPGY1i10/38YStXzzNjz7aC3by+pjlXV1FvQ8/vM2p6udY58OlypT3yt885HOj/g==
   dependencies:
     "@babel/runtime" "^7.8.7"
 
