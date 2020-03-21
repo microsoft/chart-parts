@@ -70,19 +70,16 @@ export const JobVoyager: React.FC = memo(() => {
               (gender === 'all' || d.sex === gender) &&
               (!queryRegExp || queryRegExp.test(d.job))
           ),
-          stack('perc')
-            .groupBy('year')
-            .offset(StackOffset.zero)
-            .sort(
-              {
-                field: 'job',
-                order: CompareOrder.descending,
-              },
-              {
-                field: 'sex',
-                order: CompareOrder.descending,
-              }
-            )
+          stack('perc').groupBy('year').offset(StackOffset.zero).sort(
+            {
+              field: 'job',
+              order: CompareOrder.descending,
+            },
+            {
+              field: 'sex',
+              order: CompareOrder.descending,
+            }
+          )
         )
         .addDerivedTable(
           'series',
@@ -107,7 +104,7 @@ export const JobVoyager: React.FC = memo(() => {
       />
       <div>
         <div>
-          {genderOptions.map(g => [
+          {genderOptions.map((g) => [
             <input
               id={`gender-option-${g}`}
               key={`input:${g}`}

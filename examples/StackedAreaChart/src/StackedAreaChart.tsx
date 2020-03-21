@@ -43,9 +43,7 @@ const data = [
 const ds = dataset().addTable(
   'data',
   data,
-  stack('y')
-    .groupBy('x')
-    .sort({ field: 'c' })
+  stack('y').groupBy('x').sort({ field: 'c' })
 )
 
 export const StackedAreaChart: React.FC = memo(() => (

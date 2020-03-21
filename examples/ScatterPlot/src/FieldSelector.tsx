@@ -19,9 +19,9 @@ export const FieldSelector: React.FC<FieldSelectorProps> = memo(
       <select
         name={name}
         value={value}
-        onChange={e => onChange(e.currentTarget.value)}
+        onChange={(e) => onChange(e.currentTarget.value)}
       >
-        {items.map(f => (
+        {items.map((f) => (
           <option key={f}>{f}</option>
         ))}
       </select>

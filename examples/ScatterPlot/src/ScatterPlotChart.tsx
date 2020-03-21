@@ -64,7 +64,7 @@ export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
           fillOpacity={0.2}
           zIndex={0}
           x={encodeX}
-          y={ctx => ctx.view.height - NULL_SIZE / 2}
+          y={(ctx) => ctx.view.height - NULL_SIZE / 2}
         />
         <Circle
           size={50}
@@ -77,7 +77,7 @@ export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
         />
         <Text
           x={NULL_SIZE - 4}
-          y={ctx => ctx.view.height - 13}
+          y={(ctx) => ctx.view.height - 13}
           text={({ nullXY }) => `${nullXY.length} null`}
           align={HorizontalAlignment.Left}
           baseline={VerticalTextAlignment.Top}
