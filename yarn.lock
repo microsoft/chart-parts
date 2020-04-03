@@ -8840,10 +8840,10 @@ fuse.js@^3.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.6.tgz#545c3411fed88bf2e27c457cab6e73e7af697a45"
   integrity sha512-H6aJY4UpLFwxj1+5nAvufom5b2BT2v45P1MkPvdGIK8fWjQx/7o6tTT1+ALV0yawQvbmvCF0ufl2et8eJ7v7Cg==
 
-gatsby-cli@^2.11.4:
-  version "2.11.4"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.11.4.tgz#2ce22a0eceff16d283eae5639522bf6596c97192"
-  integrity sha512-+Rrec8glPGqd1nTgkcCrelsh7hfWm/TSjniS8AAypGwmI704UfxfdrwM6LrckpBuwwFnGshS/Y0twjZd+oU/kg==
+gatsby-cli@^2.11.5:
+  version "2.11.5"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.11.5.tgz#4020880414ea33647a286066bf8f1707d629b3db"
+  integrity sha512-yAvyplWx19dU5gYdWJETEMywbNTtL9HntlR65cHhznKiwrr6Jyao+TsE50CmgZ/8Vv2JMF3UZFd3vFRXb+aK7w==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/runtime" "^7.8.7"
@@ -9106,9 +9106,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.20.11"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.11.tgz#63905ca62c058bbceb63a95c2f2ad8ecbe11252b"
-  integrity sha512-KtlMXwON6hF+EhaMkixdNdYk7dMevraYb3FnSvVKHzb97e6r0D723X93NDlIyEGqKVhTPQPVKhXokdjWwRhB0g==
+  version "2.20.12"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.12.tgz#0312f99aaa51d7a18c51abb2bee2d32b5f3fd918"
+  integrity sha512-HoyjJA432ZUKOgkzsOSEdSbo3Vhi3lhr5uw8JnebO4S9Cqc6J2kw9HNASwtYFGzZVClGrsYwXVaLcOnSKtZmxA==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/core" "^7.8.7"
@@ -9171,7 +9171,7 @@ gatsby@^2.17.11:
     flat "^4.1.0"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.11.4"
+    gatsby-cli "^2.11.5"
     gatsby-core-utils "^1.1.1"
     gatsby-graphiql-explorer "^0.3.1"
     gatsby-link "^2.3.2"
