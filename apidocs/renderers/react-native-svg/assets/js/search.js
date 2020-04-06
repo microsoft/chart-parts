@@ -1,3 +1,0 @@
-var typedoc = typedoc || {};
-            typedoc.search = typedoc.search || {};
-            typedoc.search.data = {"kinds":{"32":"Variable","64":"Function","128":"Class","2048":"Method"},"rows":[{"id":0,"kind":32,"name":"elementMap","url":"globals.html#elementmap","classes":"tsd-kind-variable"},{"id":1,"kind":128,"name":"Renderer","url":"classes/renderer.html","classes":"tsd-kind-class"},{"id":2,"kind":2048,"name":"render","url":"classes/renderer.html#render","classes":"tsd-kind-method tsd-parent-kind-class","parent":"Renderer"},{"id":3,"kind":64,"name":"createElementFor","url":"globals.html#createelementfor","classes":"tsd-kind-function"}]};
