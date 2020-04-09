@@ -10309,9 +10309,9 @@ html-void-elements@^1.0.0, html-void-elements@^1.0.1:
   integrity sha512-yMk3naGPLrfvUV9TdDbuYXngh/TpHbA6TrOw3HL9kS8yhwx7i309BReNg7CbAJXGE+UMJ6je5OqJ7lC63o6YuQ==
 
 html-webpack-plugin@^4.0.0, html-webpack-plugin@^4.0.0-beta.2:
-  version "4.1.0"
-  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-4.1.0.tgz#7201a89fb75a0535a1e8d2df226527844ce98c73"
-  integrity sha512-PydJoWZg1naRjgzovqH1uHZQgNr/02mLS8r6/AB8Dzga6naIt6l0lckJB52/+e5ZmhCrCUF9IkgdimFFaiFryg==
+  version "4.2.0"
+  resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-4.2.0.tgz#ea46f15b620d4c1c8c73ea399395c81208e9f823"
+  integrity sha512-zL7LYTuq/fcJX6vV6tmmvFR508Bd9e6kvVGbS76YAjZ2CPVRzsjkvDYs/SshPevpolSdTWgaDV39D6k6oQoVFw==
   dependencies:
     "@types/html-minifier-terser" "^5.0.0"
     "@types/tapable" "^1.0.5"
