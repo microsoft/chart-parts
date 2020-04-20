@@ -9387,9 +9387,9 @@ gatsby-recipes@^0.0.9:
     xstate "^4.8.0"
 
 gatsby-remark-autolink-headers@^2.1.17:
-  version "2.2.2"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.2.2.tgz#65ececcdfddf0f32b561f4540a835bca5e8e6cf2"
-  integrity sha512-zen1wHvs0OsmcoOA5CbZvXf1srmf2VjzblC5BRwsCbPI6SwFYKVWwcdeSFPoeP+yKPV90qXj1z2NGXNszM0bhQ==
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-autolink-headers/-/gatsby-remark-autolink-headers-2.2.3.tgz#2346b1c6e1779ee38f64bf3f29c2de0d83e485e5"
+  integrity sha512-xPU2FPniRaNu/9z4szPmkTrx7NlDoaOUTxlPyTSD4vynuphZGBonGMiqb2BOj03RHIeKEvRAp3dhvIMSJ+TPsQ==
   dependencies:
     "@babel/runtime" "^7.8.7"
     github-slugger "^1.3.0"
