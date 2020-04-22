@@ -4956,10 +4956,10 @@ babel-preset-current-node-syntax@^0.1.2:
     "@babel/plugin-syntax-optional-catch-binding" "^7.8.3"
     "@babel/plugin-syntax-optional-chaining" "^7.8.3"
 
-babel-preset-gatsby@^0.3.3:
-  version "0.3.3"
-  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.3.3.tgz#ddc97e3f3dee7a3d3b391af21b964d475b7153a2"
-  integrity sha512-C3SJlC6ygjijn33pmVyYzteiqwBjFg2VfKEXqEBuy+thOXLtmqAIES62am++ynOW9PGynwgQXb24XoOERqUvbw==
+babel-preset-gatsby@^0.3.4:
+  version "0.3.4"
+  resolved "https://registry.yarnpkg.com/babel-preset-gatsby/-/babel-preset-gatsby-0.3.4.tgz#85cec0075bf6bfd8271036d99f5db195ea1c050e"
+  integrity sha512-ifDMkFf7VZOc7vT8LF5GQXl9EadBZTMaBbCRXH6YvkczwGbm6Alfg+8FFPv0pP7EFPXxrLw99CmnmncALWJeSA==
   dependencies:
     "@babel/plugin-proposal-class-properties" "^7.8.3"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.8.3"
@@ -9158,10 +9158,10 @@ fuse.js@^3.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.6.tgz#545c3411fed88bf2e27c457cab6e73e7af697a45"
   integrity sha512-H6aJY4UpLFwxj1+5nAvufom5b2BT2v45P1MkPvdGIK8fWjQx/7o6tTT1+ALV0yawQvbmvCF0ufl2et8eJ7v7Cg==
 
-gatsby-cli@^2.11.14:
-  version "2.11.14"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.11.14.tgz#0a32d35f8dcb5d77efb1a6da4d4ae9532a19148d"
-  integrity sha512-+0amqTcgkYYHoRKlzRED2aGb+Lee4sERWumEYeIHBE60wbBwosgcQ66n7ImMij321Gh/wq6t+GR4R4uzBKR+Jg==
+gatsby-cli@^2.11.15:
+  version "2.11.15"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.11.15.tgz#d146e10d9e9cd023afb903f375b2fa471b8c8c7d"
+  integrity sha512-L1g6QcMrCcLx66o3yzhkSHJDrckQDhEn205zwG6IzmDSSyMfPQUkm8jvYdp7TiRh9COcZnms7zBg26A7v96ftg==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/runtime" "^7.8.7"
@@ -9179,7 +9179,7 @@ gatsby-cli@^2.11.14:
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.1.3"
-    gatsby-recipes "^0.0.11"
+    gatsby-recipes "^0.0.12"
     gatsby-telemetry "^1.2.5"
     hosted-git-info "^3.0.4"
     is-valid-path "^0.1.1"
@@ -9302,10 +9302,10 @@ gatsby-react-router-scroll@^2.2.2:
     scroll-behavior "^0.9.12"
     warning "^3.0.0"
 
-gatsby-recipes@^0.0.11:
-  version "0.0.11"
-  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.0.11.tgz#89fde84ee2b2e0a3b4b688cd29c0a6f0ad5d129c"
-  integrity sha512-ZVoKiKE7OztVGuYe9z0tOxyJaYdR1StGH77XSRqTu5fkJLjDoKKMEekIch33/EMKRI3pBQSZFa4A7ZeqWiYtCw==
+gatsby-recipes@^0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.0.12.tgz#e43ac0719790d216e5c04f7e5418e70a05a66e38"
+  integrity sha512-46SxuVAIZP3uC070m3TzAaC+HFFWe8Eoyplli5IuFG3Qh1t5cuv1D95F+f29qVdrgadStj9hkqI+rjJOSjNv8w==
   dependencies:
     "@babel/core" "^7.8.7"
     "@babel/standalone" "^7.9.5"
@@ -9321,7 +9321,7 @@ gatsby-recipes@^0.0.11:
     babel-plugin-add-module-exports "^0.3.3"
     babel-plugin-dynamic-import-node "^2.3.0"
     babel-plugin-remove-graphql-queries "^2.8.3"
-    babel-preset-gatsby "^0.3.3"
+    babel-preset-gatsby "^0.3.4"
     cors "^2.8.5"
     detect-port "^1.3.0"
     event-source-polyfill "^1.0.12"
@@ -9486,9 +9486,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.20.28"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.28.tgz#cbc1c1049a34f3de27750a28a0d874fd5bcb0909"
-  integrity sha512-6EuGr4LmOXPCiGUlOTwGpIrY0A3tBQRRYSQb7pM3sOfLGWDcDX3nTTkVwzVuWj1t8YF1OZh/GYL0bDb8CWu6dw==
+  version "2.20.29"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.20.29.tgz#6f19309e911684599577dc6924961e058d123909"
+  integrity sha512-Bk0HPaxQGSC8RHykg2i6ypKCsTQzKnzpQ+lkz56TMSggcifdQDwZbJtYwI/qr4Se4RJHQmEIjJq6kN79qQcOvQ==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/core" "^7.8.7"
@@ -9512,7 +9512,7 @@ gatsby@^2.17.11:
     babel-plugin-add-module-exports "^0.3.3"
     babel-plugin-dynamic-import-node "^2.3.0"
     babel-plugin-remove-graphql-queries "^2.8.3"
-    babel-preset-gatsby "^0.3.3"
+    babel-preset-gatsby "^0.3.4"
     better-opn "1.0.0"
     better-queue "^3.8.10"
     bluebird "^3.7.2"
@@ -9551,7 +9551,7 @@ gatsby@^2.17.11:
     flat "^4.1.0"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.11.14"
+    gatsby-cli "^2.11.15"
     gatsby-core-utils "^1.1.3"
     gatsby-graphiql-explorer "^0.3.3"
     gatsby-link "^2.3.4"
