@@ -19980,9 +19980,9 @@ use-callback-ref@^1.2.1:
   integrity sha512-C3nvxh0ZpaOxs9RCnWwAJ+7bJPwQI8LHF71LzbQ3BvzH5XkdtlkMadqElGevg5bYBDFip4sAnD4m06zAKebg1w==
 
 use-debounce@^3.0.1:
-  version "3.4.1"
-  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.4.1.tgz#361a20e583c1bd4a44f8b29a26793a52a0b84d2c"
-  integrity sha512-KHZPsL+cZvOt/ZAsHTcoAK65ImXU0iG9FDeofuj9uJTdUULF6Gjws8HpK+JlIjZpZ7LTqPHZtEknc+Im4cB3AA==
+  version "3.4.2"
+  resolved "https://registry.yarnpkg.com/use-debounce/-/use-debounce-3.4.2.tgz#f4333cca59504244b916159600427bf977ec4c46"
+  integrity sha512-rW44wZaFPh3XiwUzGBA0JRuklpbfKO/szU/5CYD2Q/erLmCem63lJ650p3a+NJE6S+g0rulKtBOfa/3rw/GN+Q==
 
 use-sidecar@^1.0.1:
   version "1.0.2"
