@@ -47,7 +47,7 @@
     "eslint-config-prettier": "^6.3.0",
     "eslint-plugin-header": "^3.0.0",
     "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^3.0.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
     "husky": "^4.1.0",
     "jest": "^25.1.0",
     "jest-html": "^1.5.0",
