@@ -3790,16 +3790,6 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/experimental-utils@2.31.0":
-  version "2.31.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.31.0.tgz#a9ec514bf7fd5e5e82bc10dcb6a86d58baae9508"
-  integrity sha512-MI6IWkutLYQYTQgZ48IVnRXmLR/0Q6oAyJgiOror74arUMh7EWjJkADfirZhRsUMHeLJ85U2iySDwHTSnNi9vA==
-  dependencies:
-    "@types/json-schema" "^7.0.3"
-    "@typescript-eslint/typescript-estree" "2.31.0"
-    eslint-scope "^5.0.0"
-    eslint-utils "^2.0.0"
-
 "@typescript-eslint/experimental-utils@2.32.0":
   version "2.32.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/experimental-utils/-/experimental-utils-2.32.0.tgz#bee7fbe1d21d13a273066d70abc82549d0b7943e"
@@ -3819,19 +3809,6 @@
     "@typescript-eslint/experimental-utils" "2.32.0"
     "@typescript-eslint/typescript-estree" "2.32.0"
     eslint-visitor-keys "^1.1.0"
-
-"@typescript-eslint/typescript-estree@2.31.0":
-  version "2.31.0"
-  resolved "https://registry.yarnpkg.com/@typescript-eslint/typescript-estree/-/typescript-estree-2.31.0.tgz#ac536c2d46672aa1f27ba0ec2140d53670635cfd"
-  integrity sha512-vxW149bXFXXuBrAak0eKHOzbcu9cvi6iNcJDzEtOkRwGHxJG15chiAQAwhLOsk+86p9GTr/TziYvw+H9kMaIgA==
-  dependencies:
-    debug "^4.1.1"
-    eslint-visitor-keys "^1.1.0"
-    glob "^7.1.6"
-    is-glob "^4.0.1"
-    lodash "^4.17.15"
-    semver "^6.3.0"
-    tsutils "^3.17.1"
 
 "@typescript-eslint/typescript-estree@2.32.0":
   version "2.32.0"
@@ -9275,10 +9252,10 @@ fuse.js@^3.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.4.6.tgz#545c3411fed88bf2e27c457cab6e73e7af697a45"
   integrity sha512-H6aJY4UpLFwxj1+5nAvufom5b2BT2v45P1MkPvdGIK8fWjQx/7o6tTT1+ALV0yawQvbmvCF0ufl2et8eJ7v7Cg==
 
-gatsby-cli@^2.12.16:
-  version "2.12.16"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.16.tgz#b91b89e5aebf68f73862ad7a2c13e56b16eee165"
-  integrity sha512-XSaIRKUaRbHN+ACaBVbYkM7JPcP0ZyoCMKHfzIan6Yyx3Ic8coG+7sc/NJx5mzmAKcnAlK4/492pAcsxnaxlWw==
+gatsby-cli@^2.12.17:
+  version "2.12.17"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.17.tgz#0b33fcf5ee7bbf17791e3bd7d56db6b6a1e8cb46"
+  integrity sha512-uZKs8rcjZPQ5dmK8pwrxxPaTi+SDbijGyg9t8qdF8gDQwW/xvgndK0VKUiBzjoVTO8jAvplUSw+RWUwdSwHTvA==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/runtime" "^7.9.6"
@@ -9610,9 +9587,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.21.22"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.21.22.tgz#0630c9014a066c01d6aadc208bbe479992bf4d89"
-  integrity sha512-o27LT+own9vYbex7oJEtgfVxbvCIjpeRCNocRTeLwYrJyyqQ0MmQ2kMBsfBjqVrLndvv8Xqa0yiFLq9FQhOLkQ==
+  version "2.21.23"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.21.23.tgz#7c34167a66f6b8034a3856f22f9ec3d0a97a6a24"
+  integrity sha512-dJ01bJtuK7I8YyvAqs0P4jRAJaWOE/g7BC4VhuwE6A23BGmezPkhNKNzOytrz74+11wkJRUw9iBO8ojMSbfmFQ==
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@babel/core" "^7.9.6"
@@ -9675,7 +9652,7 @@ gatsby@^2.17.11:
     flat "^4.1.0"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.12.16"
+    gatsby-cli "^2.12.17"
     gatsby-core-utils "^1.2.1"
     gatsby-graphiql-explorer "^0.4.1"
     gatsby-link "^2.4.2"
@@ -9700,6 +9677,7 @@ gatsby@^2.17.11:
     lodash "^4.17.15"
     md5 "^2.2.1"
     md5-file "^3.2.3"
+    meant "^1.0.1"
     micromatch "^3.1.10"
     mime "^2.4.5"
     mini-css-extract-plugin "^0.8.2"
