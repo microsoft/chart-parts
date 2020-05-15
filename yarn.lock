@@ -20321,7 +20321,7 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vega-dataflow@^5.4.0, vega-dataflow@^5.5.1:
+vega-dataflow@^5.4.0, vega-dataflow@^5.5.1, vega-dataflow@^5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/vega-dataflow/-/vega-dataflow-5.6.0.tgz#7fd3d9f691deaafafe3cb74b2e6bb0c9dfeb6e16"
   integrity sha512-Vl1gQptJQzjACprXwelSxG0E+uc7iU3eYzdxafZWs1Jl0cHeMlviawVHOsaCofOo6UXpFiuP9DkXh1kzE7mnrQ==
@@ -20380,10 +20380,10 @@ vega-scale@^6.1.0:
     vega-time "^1.1.0"
     vega-util "^1.13.2"
 
-vega-statistics@^1.7.4:
-  version "1.7.4"
-  resolved "https://registry.yarnpkg.com/vega-statistics/-/vega-statistics-1.7.4.tgz#71e4bf815f80005af4a9510741d094012bfe36f9"
-  integrity sha512-pSWSN5adb8w+mg5rXs+xbG191SNA2l5RZwQGdvxwiRynY4qsQSZb4Haq/Ny8jDWZT+bbdc3dF0KQ/8mPhFw69g==
+vega-statistics@^1.7.5:
+  version "1.7.5"
+  resolved "https://registry.yarnpkg.com/vega-statistics/-/vega-statistics-1.7.5.tgz#da57461f95be942c93f86644631da46bc0e9bea0"
+  integrity sha512-6yj2V8l7rU123RIvXKiXDMC6ZCJOuToeZcqzTv4VZCRBXilVQeYzam9/nhIVROzh+4KtRW1I5oayMQqrHzIIfw==
   dependencies:
     d3-array "^2.4.0"
 
@@ -20407,15 +20407,15 @@ vega-time@^2.0.0:
     vega-util "^1.14.0"
 
 vega-transforms@^4.3.0:
-  version "4.7.2"
-  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.7.2.tgz#29e3e0a7f662b756c563abc4eb06465aecdda940"
-  integrity sha512-nV1r53Zs1a+zaMcInVZTIXqPdKzlwscVxkYgR8TcXxQ1VpfJreetDTmvCl89STC6GPHlDZqkn7KRGvSoXgyNbA==
+  version "4.8.0"
+  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.8.0.tgz#7034951a540ff04caf0aea4b85e9c55d5e819a08"
+  integrity sha512-/hLbjr+uPvJYqbun1//MwY1SKXGd/E8vA5E9EsMzzrJ6SKOQN70LBkjsguWWnFIDCg2kjnUqxk+LWE7HAP3LBw==
   dependencies:
     d3-array "^2.4.0"
-    vega-dataflow "^5.5.1"
-    vega-statistics "^1.7.4"
-    vega-time "^1.1.0"
-    vega-util "^1.13.2"
+    vega-dataflow "^5.6.0"
+    vega-statistics "^1.7.5"
+    vega-time "^2.0.0"
+    vega-util "^1.14.0"
 
 vega-util@^1.11.2, vega-util@^1.13.2, vega-util@^1.14.0:
   version "1.14.0"
