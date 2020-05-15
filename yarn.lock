@@ -20321,7 +20321,7 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vega-dataflow@^5.4.0, vega-dataflow@^5.5.1:
+vega-dataflow@^5.4.0, vega-dataflow@^5.5.1, vega-dataflow@^5.6.0:
   version "5.6.0"
   resolved "https://registry.yarnpkg.com/vega-dataflow/-/vega-dataflow-5.6.0.tgz#7fd3d9f691deaafafe3cb74b2e6bb0c9dfeb6e16"
   integrity sha512-Vl1gQptJQzjACprXwelSxG0E+uc7iU3eYzdxafZWs1Jl0cHeMlviawVHOsaCofOo6UXpFiuP9DkXh1kzE7mnrQ==
@@ -20336,15 +20336,15 @@ vega-datasets@^1.25.0:
   integrity sha512-CRF9WCqEcw9h1+gm7+6p6db0544fAWYlxmfkB+V6SsiaBG/3kP+0Xo+z9xG9Ch15PBhqfkhj1SivwcPQnqm0Qw==
 
 vega-encode@^4.3.3:
-  version "4.6.0"
-  resolved "https://registry.yarnpkg.com/vega-encode/-/vega-encode-4.6.0.tgz#20456f579da15074f585eae7cdc730ce132095bd"
-  integrity sha512-nXUpjoh3WMg5dPJLAFQd+L4Nx91ZDSctyaOzM6ap5+zAeyGPHulL/gdglBXMfiJvAU5lT4JPhY0riRBvHx6j3A==
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/vega-encode/-/vega-encode-4.7.0.tgz#d38e99ce35dd72abfa16a70002f1a29f4af3113a"
+  integrity sha512-s36E5tEaN7YIVf8ial3U7oDscr+lLLirrtvsIBZaofPVuT/9m6NKxjKr9pk9TCqsGB5WmqwIkCw4+VwKW+dHlQ==
   dependencies:
     d3-array "^2.4.0"
     d3-interpolate "^1.4.0"
-    vega-dataflow "^5.5.1"
-    vega-scale "^6.1.0"
-    vega-util "^1.13.2"
+    vega-dataflow "^5.6.0"
+    vega-scale "^7.0.0"
+    vega-util "^1.14.0"
 
 vega-format@^1.0.0:
   version "1.0.0"
@@ -20368,17 +20368,16 @@ vega-loader@^4.3.0:
     vega-format "^1.0.0"
     vega-util "^1.14.0"
 
-vega-scale@^6.1.0:
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/vega-scale/-/vega-scale-6.1.0.tgz#eab5b5dba2c14548ea8ea29a4f13169c443f9d84"
-  integrity sha512-gpe+5JmVSloj70jJNw2aE1OES6+xERFjorRawk9xfD521AgThoFt1Dgs/afQwy/hz2mUG1t4MkpDKJ/Q3EAmIA==
+vega-scale@^7.0.0:
+  version "7.0.0"
+  resolved "https://registry.yarnpkg.com/vega-scale/-/vega-scale-7.0.0.tgz#0101802c6da29e2e903887160a269d57d6da479e"
+  integrity sha512-3oQAQYLRk+PIs6aF6kdb7tbhm5IpxNiwdFVM9fNS+SSsii6v8kFC681EuUMqLVZOHELiklWIE1rZIHaB5dNRXg==
   dependencies:
     d3-array "^2.4.0"
-    d3-format "^1.4.4"
     d3-interpolate "^1.4.0"
     d3-scale "^3.2.1"
-    vega-time "^1.1.0"
-    vega-util "^1.13.2"
+    vega-time "^2.0.0"
+    vega-util "^1.14.0"
 
 vega-statistics@^1.7.4:
   version "1.7.4"
