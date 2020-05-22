@@ -5,10 +5,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [10.x, 12.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
       - uses: actions/checkout@v1
+
+      - name: Debug Action
+        uses: hmarr/debug-action@v1.0.0
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
@@ -97,6 +100,7 @@ jobs:
       - build
     steps:
       - name: auto-merge
+        if: ${{github.actor}} == 'dependabot-preview[bot]'
         uses: ridedott/dependabot-auto-merge-action@master
         with:
           GITHUB_TOKEN: ${{ secrets.AUTOMERGE_PAT }}
