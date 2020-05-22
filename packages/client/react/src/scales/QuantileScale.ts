@@ -17,7 +17,12 @@ import { QuantitativeValue } from './quantitative/QuantitativeScale'
 export interface QuantileScaleProps<
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
-> extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], {}> {}
+>
+	extends DomainRangeScaleProps<
+		[DomainValue, DomainValue],
+		RangeValue[],
+		any
+	> {}
 
 /**
  * Quantile Scale Component TYpe
@@ -36,9 +41,6 @@ export type QuantileScaleComponentType<
 export const QuantileScale: QuantileScaleComponentType = createDomainRangeScale(
 	'QuantileScale',
 	({ name, domain, range, reverse }) =>
-		quantize(name)
-			.domain(domain)
-			.range(range)
-			.reverse(reverse),
+		quantize(name).domain(domain).range(range).reverse(reverse),
 	['name', 'domain', 'range', 'reverse'],
 )

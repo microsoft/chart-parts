@@ -98,7 +98,7 @@ function createItemFromMark(
 		...transferEncodings(encodings, context),
 		name,
 		role,
-		metadata: { index, id, ...metadata },
+		metadata: { ...metadata, index, id },
 		channels: frame.channels,
 	}
 	return createItem(type, props)
@@ -149,8 +149,8 @@ function getNextDrawRect(space: ItemSpace, viewSize: ViewSize) {
 function transferEncodings(encodings: MarkEncodings, context: EncodingContext) {
 	const props: { [key: string]: any } = {}
 	Object.keys(encodings)
-		.filter(t => t !== 'items')
-		.forEach(key => {
+		.filter((t) => t !== 'items')
+		.forEach((key) => {
 			const encoding = encodings[key]
 			if (encoding) {
 				const value =

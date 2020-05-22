@@ -23,7 +23,7 @@ export abstract class QuantitativeScale<
 > {
 	protected defaultZero = false
 	protected clampValue?: boolean
-	protected niceValue?: boolean | number | string | object
+	protected niceValue?: boolean | number | string | Record<string, any>
 	protected zeroValue?: boolean
 	protected paddingValue?: number
 	protected roundValue?: boolean
@@ -42,7 +42,7 @@ export abstract class QuantitativeScale<
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value?: boolean | number | string | object) {
+	public nice(value?: boolean | number | string | Record<string, any>) {
 		this.niceValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}

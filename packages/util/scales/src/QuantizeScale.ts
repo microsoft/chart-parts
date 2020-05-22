@@ -13,7 +13,7 @@ import { optionalArgument } from './util'
 export class QuantizeScale<
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
-> extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], {}> {
+> extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], any> {
 	protected niceValue?: number | boolean
 	protected zeroValue?: boolean
 

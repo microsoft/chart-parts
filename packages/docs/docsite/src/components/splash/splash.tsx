@@ -8,7 +8,7 @@ import styled from 'styled-components'
 import LogoBG from './logobg'
 import { useSplashPageMountAnimation } from './splash.hooks'
 import { SplashContent } from './splashcontent'
-/* eslint-disable-next-line @typescript-eslint/ban-ts-ignore */
+/* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 // @ts-ignore
 import useDimensions from 'react-use-dimensions'
 
@@ -28,7 +28,7 @@ const IndexPage: React.FC = memo(() => {
 
 	return (
 		<Container
-			ref={node => {
+			ref={(node) => {
 				containerRef(node)
 				setContainerElement(node)
 			}}

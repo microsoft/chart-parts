@@ -11,7 +11,7 @@ import { QuantitativeValue } from './quantitative/QuantitativeScale'
 export class QuantileScale<
 	DomainValue extends QuantitativeValue,
 	RangeValue extends QuantitativeValue
-> extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], {}> {
+> extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], any> {
 	public handleRangeBind(): any[] {
 		throw new Error('cannot use range binding on Quantize scale')
 	}

@@ -69,7 +69,7 @@ export class PointScale extends DomainRangeScale<
 
 		const result: Scales = { [this.nameValue!]: scale }
 		if (this.stepNameValue) {
-			result[this.stepNameValue as string] = scale.step as Scale<{}, number>
+			result[this.stepNameValue as string] = scale.step as Scale<any, number>
 		}
 		return result
 	}

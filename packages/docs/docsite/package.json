@@ -40,13 +40,13 @@
     "prop-types": "^15.6.2",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-helmet": "^5.2.1",
+    "react-helmet": "^6.0.0",
     "react-icons": "^3.7.0",
     "react-tabs": "^3.0.0",
     "react-typography": "^0.16.19",
     "react-use-dimensions": "^1.2.1",
     "rehype-react": "^5.0.0",
-    "styled-components": "^4.3.2",
+    "styled-components": "^5.1.0",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19",
     "use-debounce": "^3.0.1"
@@ -83,10 +83,9 @@
   },
   "devDependencies": {
     "npm-run-all": "^4.1.5",
-    "regenerator-runtime": "^0.13.3",
-    "rimraf": "^3.0.0",
-    "typedoc": "^0.17.0",
-    "typescript": "^3.6.3"
+    "regenerator-runtime": "^0.13.5",
+    "typedoc": "^0.17.7",
+    "typescript": "^3.9.3"
   },
   "repository": {
     "type": "git",
