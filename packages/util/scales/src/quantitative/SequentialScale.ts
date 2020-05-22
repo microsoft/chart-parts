@@ -40,7 +40,7 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 			result.clamp(this.clampValue)
 		}
 		return ({
-			[this.nameValue!]: result as Scale<QuantitativeValue, {}>,
+			[this.nameValue!]: result as Scale<QuantitativeValue, any>,
 		} as any) as Scales
 	}
 }

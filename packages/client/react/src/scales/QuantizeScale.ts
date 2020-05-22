@@ -13,7 +13,7 @@ import {
  * @category Scale
  */
 export interface QuantizeScaleProps<DomainValue, RangeValue>
-	extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], {}> {
+	extends DomainRangeScaleProps<[DomainValue, DomainValue], RangeValue[], any> {
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */

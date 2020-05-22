@@ -48,7 +48,7 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	nice?: boolean | number | string | object
+	nice?: boolean | number | string | Record<string, any>
 
 	/**
 	 * Boolean flag indicating if the scale domain should include zero.

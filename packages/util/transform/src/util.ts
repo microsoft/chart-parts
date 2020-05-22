@@ -30,14 +30,14 @@ export function createSorter(sorts: Compare[]) {
 	}
 }
 
-export function identity<T>(t: T) {
+export function identity<T>(t: T): T {
 	return t
 }
 
-export function defaultComparator<T>(a: T, b: T) {
+export function defaultComparator<T>(a: T, b: T): number {
 	return ((a as any) as number) - ((b as any) as number)
 }
 
-export function defaultEquality<T>(a: T, b: T) {
+export function defaultEquality<T>(a: T, b: T): boolean {
 	return a === b
 }

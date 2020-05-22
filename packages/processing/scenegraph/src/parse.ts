@@ -92,7 +92,7 @@ export function sceneToJSON(
 	return JSON.stringify(scene, KNOWN_KEYS, indent)
 }
 
-export function parseScene(json: string | object): SGMark<any> {
+export function parseScene(json: string | Record<string, any>): SGMark<any> {
 	const scene = typeof json === 'string' ? JSON.parse(json) : json
 	return initializeMark(scene) as Mark<any>
 }

@@ -101,7 +101,7 @@ export class BandScale extends DomainRangeScale<
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const bandscale = scaleBand()
-			.domain(domain.map(d => '' + d))
+			.domain(domain.map((d) => '' + d))
 			.range(range)
 
 		if (this.alignValue) {
@@ -123,7 +123,7 @@ export class BandScale extends DomainRangeScale<
 		const result: Scales = { [this.nameValue!]: bandscale }
 		if (this.bandwidthValue) {
 			result[this.bandwidthValue as string] = bandscale.bandwidth as Scale<
-				{},
+				any,
 				number
 			>
 		}
