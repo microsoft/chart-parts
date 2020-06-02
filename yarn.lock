@@ -21426,7 +21426,7 @@ vary@^1, vary@~1.1.2:
   resolved "https://registry.yarnpkg.com/vary/-/vary-1.1.2.tgz#2299f02c6ded30d4a5961b0b9f74524a18f634fc"
   integrity sha1-IpnwLG3tMNSllhsLn3RSShj2NPw=
 
-vega-dataflow@^5.4.0, vega-dataflow@^5.6.0, vega-dataflow@^5.7.0:
+vega-dataflow@^5.4.0, vega-dataflow@^5.7.0:
   version "5.7.0"
   resolved "https://registry.yarnpkg.com/vega-dataflow/-/vega-dataflow-5.7.0.tgz#811381d946e044cafe093c7c7f8111d366cfbc11"
   integrity sha512-W8Q6NBCmk3TCDjTiy/I2PA4JTQljqp3XF6227CiCvZfhmCZCeHchuZKrgwJUBVZ2CoqT+UL2JpCi1SFzrPObIQ==
@@ -21491,24 +21491,24 @@ vega-statistics@^1.7.5:
   dependencies:
     d3-array "^2.4.0"
 
-vega-time@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/vega-time/-/vega-time-2.0.0.tgz#27b0b1f8c8e604aae27fc18070572d0589cbea9f"
-  integrity sha512-our6vlm4W4OtvDpuaGDpbU2jmH1PRHwm+u2g4ijAE4Lo0sxhnM6XtqIeZ0sBUZjAb9/V3i1pZ49jkNqUpWi3zw==
+vega-time@^2.0.0, vega-time@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/vega-time/-/vega-time-2.0.1.tgz#2a91c3acafd091e6724063dea26e4b3fe6061d2f"
+  integrity sha512-Ij0gmABKDRKAMUTh/1AGSSkU6ocWiteLkIK/cmcnt98u8LiuVcFT5w7gusd0+ibO9EooeMKazn5xPmjvQs0qEg==
   dependencies:
     d3-array "^2.4.0"
     d3-time "^1.1.0"
     vega-util "^1.14.0"
 
 vega-transforms@^4.3.0:
-  version "4.8.2"
-  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.8.2.tgz#1f175a0c912311c2ec1b50ed35ca5f69c116d2bd"
-  integrity sha512-hN0FMkmkq+EkN7TJVF29O7UThiOEbfMpsYWaUeQ1Us+1inkX0/xrwmfKflMGHbbTMUahg/OFGHSYFKYZhTuMaA==
+  version "4.9.0"
+  resolved "https://registry.yarnpkg.com/vega-transforms/-/vega-transforms-4.9.0.tgz#272be37adb8565633ccde68f64079fb5029a8ac9"
+  integrity sha512-xsgvkHsyKgEWdCB86DVts2Zu6fJ+cGjpc56MpcCWPArNuhcUSugivIoTAFAh8w7QempQBsAtnPrnbaytMYOJ8w==
   dependencies:
     d3-array "^2.4.0"
-    vega-dataflow "^5.6.0"
+    vega-dataflow "^5.7.0"
     vega-statistics "^1.7.5"
-    vega-time "^2.0.0"
+    vega-time "^2.0.1"
     vega-util "^1.14.0"
 
 vega-util@^1.11.2, vega-util@^1.14.0:
