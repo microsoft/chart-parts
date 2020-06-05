@@ -13,7 +13,7 @@ const NEG_SENTINEL = -1e-6
 export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 	private baseValue?: number
 
-	public base(value?: number) {
+	public base(value?: number): this {
 		this.baseValue = value
 		return this
 	}
@@ -21,9 +21,7 @@ export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
-		const result = scaleLog()
-			.domain(domain)
-			.range(range)
+		const result = scaleLog().domain(domain).range(range)
 		this.addCommonProperties(result)
 
 		if (this.baseValue !== undefined) {

@@ -27,7 +27,7 @@ export class PointScale extends DomainRangeScale<
 	/**
 	 * Bin alignment 0-beginning, 1=end
 	 */
-	public align(value?: number) {
+	public align(value?: number): this {
 		this.alignValue = value
 		return this
 	}
@@ -35,17 +35,17 @@ export class PointScale extends DomainRangeScale<
 	/**
 	 * The outer and inner padding value
 	 */
-	public padding(value?: number) {
+	public padding(value?: number): this {
 		this.paddingValue = value
 		return this
 	}
 
-	public round(value?: boolean) {
+	public round(value?: boolean): this {
 		this.roundValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
 
-	public stepName(value?: string) {
+	public stepName(value?: string): this {
 		this.stepNameValue = value
 		return this
 	}

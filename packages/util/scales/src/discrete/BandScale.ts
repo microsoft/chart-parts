@@ -55,7 +55,7 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * The name of the band-width static scale
 	 */
-	public bandwidthName(value?: string) {
+	public bandwidthName(value?: string): this {
 		this.bandwidthValue = value
 		return this
 	}
@@ -63,7 +63,7 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * The outer and inner padding value
 	 */
-	public padding(value?: number) {
+	public padding(value?: number): this {
 		this.paddingValue = value
 		return this
 	}
@@ -71,7 +71,7 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * The inner padding value
 	 */
-	public paddingInner(value?: number) {
+	public paddingInner(value?: number): this {
 		this.paddingInnerValue = value
 		return this
 	}
@@ -79,7 +79,7 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * The outer padding value
 	 */
-	public paddingOuter(value?: number) {
+	public paddingOuter(value?: number): this {
 		this.paddingOuterValue = value
 		return this
 	}
@@ -87,12 +87,12 @@ export class BandScale extends DomainRangeScale<
 	/**
 	 * Bin alignment 0-beginning, 1=end
 	 */
-	public align(value?: number) {
+	public align(value?: number): this {
 		this.alignValue = value
 		return this
 	}
 
-	public round(value?: boolean) {
+	public round(value?: boolean): this {
 		this.roundValue = value
 		return this
 	}
@@ -101,7 +101,7 @@ export class BandScale extends DomainRangeScale<
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 		const bandscale = scaleBand()
-			.domain(domain.map((d) => '' + d))
+			.domain(domain.map(d => '' + d))
 			.range(range)
 
 		if (this.alignValue) {

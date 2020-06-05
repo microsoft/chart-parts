@@ -19,7 +19,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 * Sets the name of the scale
 	 * @param value The name of the scale
 	 */
-	public name(value?: string): DomainScale<Domain> {
+	public name(value?: string): this {
 		this.nameValue = value
 		return this
 	}
@@ -28,9 +28,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 * Sets the domain of the scale
 	 * @param arg The domain argument
 	 */
-	public domain(
-		arg?: string | DomainCreator<Domain> | Domain,
-	): DomainScale<Domain> {
+	public domain(arg?: string | DomainCreator<Domain> | Domain): this {
 		if (typeof arg === 'function') {
 			this.domainValue = arg as DomainCreator<Domain>
 		} else if (Array.isArray(arg)) {

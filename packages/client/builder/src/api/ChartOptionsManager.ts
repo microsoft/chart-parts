@@ -17,11 +17,11 @@ import {
 export class ChartOptionsManager {
 	public constructor(private options: ChartOptions = {}) {}
 
-	public get ariaTitle() {
+	public get ariaTitle(): string {
 		return this.options.ariaTitle || 'data visualization using chart-parts'
 	}
 
-	public get ariaDescription() {
+	public get ariaDescription(): string {
 		return this.options.ariaDescription || ''
 	}
 
@@ -44,19 +44,19 @@ export class ChartOptionsManager {
 		}
 	}
 
-	public get paddingTop() {
+	public get paddingTop(): number {
 		return this.getPadding('top')
 	}
 
-	public get paddingBottom() {
+	public get paddingBottom(): number {
 		return this.getPadding('bottom')
 	}
 
-	public get paddingLeft() {
+	public get paddingLeft(): number {
 		return this.getPadding('left')
 	}
 
-	public get paddingRight() {
+	public get paddingRight(): number {
 		return this.getPadding('right')
 	}
 

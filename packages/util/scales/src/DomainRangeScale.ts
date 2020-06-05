@@ -18,7 +18,7 @@ export abstract class DomainRangeScale<
 
 	public range(
 		arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range,
-	): DomainRangeScale<Domain, Range, RangeBind> {
+	): this {
 		if (typeof arg === 'function') {
 			this.rangeValue = arg as (args: ScaleCreationContext) => Range
 		} else if (Array.isArray(arg)) {
@@ -32,9 +32,7 @@ export abstract class DomainRangeScale<
 		return this
 	}
 
-	public reverse(
-		reversed?: boolean,
-	): DomainRangeScale<Domain, Range, RangeBind> {
+	public reverse(reversed?: boolean): this {
 		this.reverseValue = optionalArgument(
 			reversed,
 			arguments.length,
