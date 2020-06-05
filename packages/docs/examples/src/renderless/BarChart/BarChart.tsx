@@ -81,7 +81,7 @@ export const BarChart: React.FC = memo(() => {
 				onMouseLeave={onLeaveRect}
 				ariaTitle={encodeTitle}
 				ariaDescription={encodeDescription}
-				tabIndex={1}
+				tabIndex={0}
 				x={encodeX}
 				y={encodeY}
 				width={encodeWidth}

@@ -8,7 +8,9 @@ import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../../util/theme'
 import Logo from './logo'
-const { version: libraryVersion } = require('../../../../../../lerna.json')
+import lernaMetadata from '../../../../../../lerna.json'
+
+const { version: libraryVersion } = lernaMetadata
 
 export interface HeaderProps {
 	logoTo?: string

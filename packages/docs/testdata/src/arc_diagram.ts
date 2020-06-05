@@ -5,8 +5,7 @@
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 import { parseScene } from '@chart-parts/scenegraph'
-declare const require: any
-const data = require('../../resources/arc_diagram.json')
+import data from '../resources/arc_diagram.json'
 
 export const scenegraph = parseScene(data)
 export const title = 'Arc Diagram'

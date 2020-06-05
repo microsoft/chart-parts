@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { Predicate } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
-declare const require: any
 const { cross: vegaCross } = require('vega-transforms')
 
 /**
@@ -32,17 +32,17 @@ export class CrossBuilderImpl implements CrossBuilder {
 	private filterValue: any | undefined
 	private asValue: [string, string] | undefined
 
-	public filter(value: any) {
+	public filter(value: any): CrossBuilder {
 		this.filterValue = value
 		return this
 	}
 
-	public as(field1: string, field2: string) {
+	public as(field1: string, field2: string): CrossBuilder {
 		this.asValue = [field1, field2]
 		return this
 	}
 
-	public build(df: any, from: any) {
+	public build(df: any, from: any): CrossBuilder {
 		const spec: any = {
 			pulse: from,
 		}
@@ -59,6 +59,6 @@ export class CrossBuilderImpl implements CrossBuilder {
 	}
 }
 
-export function cross() {
+export function cross(): CrossBuilder {
 	return new CrossBuilderImpl()
 }

@@ -5,9 +5,7 @@
 
 import { GroupItem } from '../elements'
 import { parseScene } from '../parse'
-
-declare const require: any
-const barley = require('./barley.json')
+import barley from './barley.json'
 
 describe('The Scenegraph Parser', () => {
 	it('can parse a scene object', () => {

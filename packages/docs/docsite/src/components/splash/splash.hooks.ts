@@ -228,9 +228,11 @@ export function usePaneMousehandlers(
 		}
 	}, [animationComplete])
 
-	const onClick = useCallback(() => (location.href = resourceLocation), [
-		resourceLocation,
-	])
+	const onClick = useCallback(() => {
+		if (window) {
+			window.location.href = resourceLocation
+		}
+	}, [resourceLocation])
 
 	return [mouseEnter, mouseLeave, onClick]
 }

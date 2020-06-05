@@ -3,7 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { getItemSpace } from '../getItemSpace'
-declare const require: any
+
+/* eslint-disable @typescript-eslint/no-var-requires */
 const {
 	RectItem,
 } = require('@chart-parts/scenegraph/dist/cjs/elements/items/RectItem')

@@ -6,9 +6,11 @@
 import { createElement } from 'react'
 import components from '../components/md'
 import processImages from './processImagesInMarkdownAst'
-const log = require('debug')('site:renderHtmlAst')
-
+import dbg from 'debug'
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const rehypeReact = require('rehype-react')
+const log = dbg('site:renderHtmlAst')
+
 const renderAst = new rehypeReact({
 	createElement,
 	components,

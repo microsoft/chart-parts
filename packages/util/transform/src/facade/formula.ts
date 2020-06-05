@@ -5,7 +5,7 @@
 import { Predicate, Transformer } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 
-declare const require: any
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const { formula: vegaFormula } = require('vega-transforms')
 
 /**
@@ -39,22 +39,22 @@ export class FormulaBuilderImpl implements FormulaBuilder {
 	private asValue: string | undefined
 	private initOnlyValue: boolean | undefined
 
-	public formula(value: Predicate<any>) {
+	public formula(value: Predicate<any>): FormulaBuilder {
 		this.formulaValue = value
 		return this
 	}
 
-	public as(field: string) {
+	public as(field: string): FormulaBuilder {
 		this.asValue = field
 		return this
 	}
 
-	public initOnly(value: boolean) {
+	public initOnly(value: boolean): FormulaBuilder {
 		this.initOnlyValue = value
 		return this
 	}
 
-	public build(df: any, from: any) {
+	public build(df: any, from: any): FormulaBuilder {
 		if (!this.formulaValue) {
 			throw new Error('formula predicate must be defined')
 		}
@@ -74,6 +74,6 @@ export class FormulaBuilderImpl implements FormulaBuilder {
 	}
 }
 
-export function formula(predicate: Transformer<any, any>) {
+export function formula(predicate: Transformer<any, any>): FormulaBuilder {
 	return new FormulaBuilderImpl().formula(predicate)
 }

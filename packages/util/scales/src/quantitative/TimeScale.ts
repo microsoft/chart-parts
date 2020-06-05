@@ -16,9 +16,7 @@ export class TimeScale extends QuantitativeScale<TimeValue, number> {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
 
-		const result = scaleTime()
-			.domain(domain)
-			.range(range)
+		const result = scaleTime().domain(domain).range(range)
 		this.addCommonProperties(result)
 		setType(result)
 		return { [this.nameValue!]: result }

@@ -11,7 +11,6 @@ import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-// @ts-ignore
 import movies from 'vega-datasets/data/movies.json'
 
 export interface ScatterPlotChartProps {

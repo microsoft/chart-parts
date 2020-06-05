@@ -24,10 +24,8 @@ import {
 	AxisOrientation,
 	ScaleCreationContext,
 } from '@chart-parts/interfaces'
+import population from 'vega-datasets/data/population.json'
 
-declare const require: any
-
-const population = require('vega-datasets/data/population.json')
 const chartWidth = 600
 const chartHeight = 500
 const textLineWidth = 18
@@ -62,8 +60,16 @@ export const PopulationPyramid: React.FC = memo(() => {
 					'population',
 					filter((d: any) => d.year === year),
 				)
-				.addDerivedTable('males', 'popYear', filter((d: any) => d.sex === 1))
-				.addDerivedTable('females', 'popYear', filter((d: any) => d.sex === 2))
+				.addDerivedTable(
+					'males',
+					'popYear',
+					filter((d: any) => d.sex === 1),
+				)
+				.addDerivedTable(
+					'females',
+					'popYear',
+					filter((d: any) => d.sex === 2),
+				)
 				.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'))
 				.tables,
 		[year],

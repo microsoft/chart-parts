@@ -2,10 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { FieldAccessor } from '../interfaces'
 import { DatasetTransform } from './interfaces'
-
-declare const require: any
 const { bin: vegaBin } = require('vega-transforms')
 const { field: vegaField } = require('vega-util')
 

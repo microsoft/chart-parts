@@ -4,8 +4,7 @@
  */
 import { Predicate } from '../interfaces'
 import { DatasetTransform } from './interfaces'
-
-declare const require: any
+/* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const { filter: vegaFilter } = require('vega-transforms')
 
 /**
@@ -24,12 +23,12 @@ export interface FilterBuilder extends DatasetTransform {
 export class FilterBuilderImpl implements FilterBuilder {
 	private filterValue: Predicate<any> | undefined
 
-	public filter(value: Predicate<any>) {
+	public filter(value: Predicate<any>): FilterBuilder {
 		this.filterValue = value
 		return this
 	}
 
-	public build(df: any, from: any) {
+	public build(df: any, from: any): FilterBuilder {
 		if (!this.filterValue) {
 			throw new Error('filter predicate must be defined')
 		}
@@ -42,6 +41,6 @@ export class FilterBuilderImpl implements FilterBuilder {
 	}
 }
 
-export function filter(predicate: Predicate<any>) {
+export function filter(predicate: Predicate<any>): FilterBuilder {
 	return new FilterBuilderImpl().filter(predicate)
 }

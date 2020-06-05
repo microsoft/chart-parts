@@ -8,6 +8,7 @@
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "declaration": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "resolveJsonModule": true
   }
 }

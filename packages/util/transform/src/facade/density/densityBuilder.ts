@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import {
 	DensityBuilder,
 	DensityMethod,
@@ -9,7 +10,6 @@ import {
 } from './interfaces'
 import { DatasetManager } from '../dataset'
 
-declare const require: any
 const { density: vegaDensity } = require('vega-transforms')
 
 export class DensityBuilderImpl implements DensityBuilder {
@@ -19,27 +19,27 @@ export class DensityBuilderImpl implements DensityBuilder {
 	private stepsValue: number | undefined
 	private asValue: [string, string] | undefined
 
-	public distribution(value: DistributionBuilder) {
+	public distribution(value: DistributionBuilder): DensityBuilder {
 		this.distributionValue = value
 		return this
 	}
 
-	public extent(start: number, end: number) {
+	public extent(start: number, end: number): DensityBuilder {
 		this.extentValue = [start, end]
 		return this
 	}
 
-	public method(value: DensityMethod) {
+	public method(value: DensityMethod): DensityBuilder {
 		this.methodValue = value
 		return this
 	}
 
-	public steps(value: number) {
+	public steps(value: number): DensityBuilder {
 		this.stepsValue = value
 		return this
 	}
 
-	public as(valueString: string, probabilityField: string) {
+	public as(valueString: string, probabilityField: string): DensityBuilder {
 		this.asValue = [valueString, probabilityField]
 		return this
 	}

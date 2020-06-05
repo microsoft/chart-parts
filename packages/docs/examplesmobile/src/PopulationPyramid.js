@@ -21,10 +21,9 @@ import {
 	AxisOrientation,
 } from '@chart-parts/interfaces';
 import {Renderer} from '@chart-parts/react-native-svg-renderer';
+import population from 'vega-datasets/data/population.json';
 
-const population = require('vega-datasets/data/population.json');
 const renderer = new Renderer();
-
 const chartWidth = 380;
 const chartHeight = 650;
 const textLineWidth = 18;
@@ -39,9 +38,21 @@ export default class PopulationPyramid extends React.Component {
 		const {year} = this.state;
 		const ds = dataset()
 			.addTable('population', population)
-			.addDerivedTable('popYear', 'population', filter(d => d.year === year))
-			.addDerivedTable('males', 'popYear', filter(d => d.sex === 1))
-			.addDerivedTable('females', 'popYear', filter(d => d.sex === 2))
+			.addDerivedTable(
+				'popYear',
+				'population',
+				filter((d) => d.year === year),
+			)
+			.addDerivedTable(
+				'males',
+				'popYear',
+				filter((d) => d.sex === 1),
+			)
+			.addDerivedTable(
+				'females',
+				'popYear',
+				filter((d) => d.sex === 2),
+			)
 			.addDerivedTable('ageGroups', 'population', aggregate().groupBy('age'));
 
 		return (
@@ -59,7 +70,7 @@ export default class PopulationPyramid extends React.Component {
 		);
 	}
 
-	handleYearChange = arg => {
+	handleYearChange = (arg) => {
 		this.setState({year: arg});
 	};
 }
@@ -83,7 +94,7 @@ const ChartScales = () => [
 		name="y"
 		key="y"
 		bandWidth="yband"
-		range={arg => [arg.view.height - AXIS_THICKNESS, 0]}
+		range={(arg) => [arg.view.height - AXIS_THICKNESS, 0]}
 		domain="ageGroups.age"
 		padding={0.1}
 		round

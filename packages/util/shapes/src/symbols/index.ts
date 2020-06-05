@@ -4,7 +4,7 @@
  */
 
 import { Path, path } from 'd3-path'
-import pathParse from '../parse'
+import pathParse, { Command } from '../parse'
 import pathRender from '../render'
 
 import { drawCircle } from './drawCircle'
@@ -120,25 +120,25 @@ const custom: SymbolMap = {}
 export function customSymbol(symbolPath: string) {
 	if (!Object.prototype.hasOwnProperty.call(custom, symbolPath)) {
 		const parsed = pathParse(symbolPath)
-
-		function drawCustom(context: Path, size: number) {
-			if (!context) {
-				context = path()
-			}
-			pathRender(context, parsed, 0, 0, size)
-			return context
-		}
-
 		custom[symbolPath] = {
 			byArea: {
 				draw: (context: Path, size: number) =>
-					drawCustom(context, getRadius(size)),
+					drawCustom(context, getRadius(size), parsed),
 			},
 			byWidth: {
-				draw: drawCustom,
+				draw: (context: Path, size: number) =>
+					drawCustom(context, getRadius(size), parsed),
 			},
 		}
 	}
 
 	return custom[symbolPath]
+}
+
+function drawCustom(context: Path, size: number, pathValue: Command[]) {
+	if (!context) {
+		context = path()
+	}
+	pathRender(context, pathValue, 0, 0, size)
+	return context
 }

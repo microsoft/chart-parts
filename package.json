@@ -7,7 +7,7 @@
 		"start": "lerna run start --parallel --stream",
 		"test:packages": "lerna run test --stream",
 		"release:packages": "lerna run release --stream",
-		"lint": "essex lint --strict --docs",
+		"lint": "essex lint",
 		"unit_test": "essex test --coverage",
 		"ci": "run-s lint build unit_test test:packages",
 		"publish_libs": "lerna publish",

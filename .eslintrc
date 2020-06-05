@@ -1,6 +1,7 @@
 {
 	"extends": "@essex",
 	"rules": {
-		"@typescript-eslint/no-explicit-any": 1
+		"@typescript-eslint/no-explicit-any": 1,
+		"jsx-a11y/no-onchange": 1
 	}
 }

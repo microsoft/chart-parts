@@ -7,7 +7,6 @@ import { FieldAccessor, Compare, Offset } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 import { createSorter } from '../util'
 
-declare const require: any
 const { stack: vegaStack } = require('vega-encode')
 const { field: vegaField } = require('vega-util')
 

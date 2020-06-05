@@ -5,9 +5,7 @@
 import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { DomainScale } from './DomainScale'
 import { optionalArgument } from './util'
-
-declare const require: any
-const reverse = require('lodash/reverse')
+import reverse from 'lodash/reverse'
 
 export abstract class DomainRangeScale<
 	Domain,
@@ -20,7 +18,7 @@ export abstract class DomainRangeScale<
 
 	public range(
 		arg?: RangeBind | ((args: ScaleCreationContext) => Range) | Range,
-	) {
+	): DomainRangeScale<Domain, Range, RangeBind> {
 		if (typeof arg === 'function') {
 			this.rangeValue = arg as (args: ScaleCreationContext) => Range
 		} else if (Array.isArray(arg)) {
@@ -34,7 +32,9 @@ export abstract class DomainRangeScale<
 		return this
 	}
 
-	public reverse(reversed?: boolean) {
+	public reverse(
+		reversed?: boolean,
+	): DomainRangeScale<Domain, Range, RangeBind> {
 		this.reverseValue = optionalArgument(
 			reversed,
 			arguments.length,

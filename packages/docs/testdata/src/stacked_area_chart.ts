@@ -5,8 +5,7 @@
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
 import { parseScene } from '@chart-parts/scenegraph'
-declare const require: any
-const data = require('../../resources/stacked_area_chart.json')
+import data from '../resources/stacked_area_chart.json'
 
 export const scenegraph = parseScene(data)
 export const title = 'Stacked Area Chart'
