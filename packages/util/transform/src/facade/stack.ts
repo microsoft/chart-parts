@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { FieldAccessor, Compare, Offset } from '../interfaces'
 import { DatasetTransform } from './interfaces'
 import { createSorter } from '../util'
@@ -63,32 +64,32 @@ export class StackBuilderImpl implements StackBuilder {
 	private asValue: [string, string] | undefined
 	private stackField: string | undefined
 
-	public field(value: string) {
+	public field(value: string): StackBuilder {
 		this.stackField = value
 		return this
 	}
 
-	public groupBy(...fields: FieldAccessor[]) {
+	public groupBy(...fields: FieldAccessor[]): StackBuilder {
 		this.groupByFields = fields
 		return this
 	}
 
-	public sort(...compare: Compare[]) {
+	public sort(...compare: Compare[]): StackBuilder {
 		this.compareValue = compare
 		return this
 	}
 
-	public offset(offset: Offset) {
+	public offset(offset: Offset): StackBuilder {
 		this.offsetValue = offset
 		return this
 	}
 
-	public as(start: string, end: string) {
+	public as(start: string, end: string): StackBuilder {
 		this.asValue = [start, end]
 		return this
 	}
 
-	public build(df: any, from: any) {
+	public build(df: any, from: any): StackBuilder {
 		const spec: any = {
 			field: vegaField(this.stackField),
 			offset: this.offsetValue,

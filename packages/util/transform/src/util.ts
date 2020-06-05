@@ -3,21 +3,20 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import get from 'lodash/get'
 import { Compare, CompareOrder, FieldAccessor } from './interfaces'
-declare const require: any
-const get = require('lodash/get')
 
-export function getField(data: any, field: FieldAccessor): any {
+export function getField<T>(data: unknown, field: FieldAccessor): T {
 	return get(data, field)
 }
 
-export function createSorter(sorts: Compare[]) {
-	return (a: any, b: any) => {
+export function createSorter<T>(sorts: Compare[]): (a: T, b: T) => number {
+	return (a: T, b: T) => {
 		let result = 0
 		for (const sort of sorts) {
 			const { order = CompareOrder.descending, field } = sort
-			const valueA = getField(a, field)
-			const valueB = getField(b, field)
+			const valueA = getField(a, field) as number
+			const valueB = getField(b, field) as number
 
 			result =
 				order === CompareOrder.ascending ? valueA - valueB : valueB - valueA

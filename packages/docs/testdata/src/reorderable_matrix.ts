@@ -4,8 +4,8 @@
  */
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
-declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
+declare const require: any
 const data = require('../../resources/reorderable_matrix.json')
 
 export const scenegraph = parseScene(data)

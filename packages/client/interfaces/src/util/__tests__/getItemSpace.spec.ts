@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { getItemSpace } from '../getItemSpace'
 declare const require: any
 const {
 	RectItem,
 } = require('@chart-parts/scenegraph/dist/cjs/elements/items/RectItem')
-import { getItemSpace } from '../getItemSpace'
 
-xdescribe('Rendering Utilities', () => {
+describe.skip('Rendering Utilities', () => {
 	describe('getItemSpace', () => {
 		it('cannot compute width/height with insufficient information', () => {
 			const item = new RectItem()

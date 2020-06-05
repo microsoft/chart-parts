@@ -12,9 +12,10 @@
 		"start": "essex watch"
 	},
 	"devDependencies": {
-		"lodash": "^4.17.15"
+		"@types/lodash": "^4.14.155"
 	},
 	"dependencies": {
+		"lodash": "^4.17.15",
 		"vega-dataflow": "^5.4.0",
 		"vega-encode": "^4.3.3",
 		"vega-transforms": "^4.3.0",

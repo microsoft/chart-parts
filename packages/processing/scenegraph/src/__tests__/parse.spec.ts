@@ -23,7 +23,7 @@ describe('The Scenegraph Parser', () => {
 		expect(result).toBeDefined()
 		expect(result.marktype).toEqual('rect')
 		expect(result.nodetype).toEqual('mark')
-		expect(result.items.length).toEqual(3)
+		expect(result.items).toHaveLength(3)
 		result.items.forEach(t => {
 			expect(t.itemtype).toEqual('rect')
 			expect(t.parent).toBe(result)
@@ -58,7 +58,7 @@ describe('The Scenegraph Parser', () => {
 		expect(scene.items[0].itemtype).toEqual('group')
 
 		const group = scene.items[0] as GroupItem
-		expect(group.items.length).toEqual(1)
+		expect(group.items).toHaveLength(1)
 		expect(group.items[0].marktype).toEqual('rect')
 	})
 

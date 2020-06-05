@@ -41,17 +41,17 @@ export class KdeDistributionBuilderImpl implements KdeDistributionBuilder {
 	private fieldValue: FieldAccessor | undefined
 	private bandwidthValue: number | undefined
 
-	public from(value: string) {
+	public from(value: string): KdeDistributionBuilder {
 		this.fromValue = value
 		return this
 	}
 
-	public field(field: FieldAccessor) {
+	public field(field: FieldAccessor): KdeDistributionBuilder {
 		this.fieldValue = field
 		return this
 	}
 
-	public bandwidth(value: number) {
+	public bandwidth(value: number): KdeDistributionBuilder {
 		this.bandwidthValue = value
 		return this
 	}

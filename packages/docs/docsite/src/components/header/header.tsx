@@ -7,8 +7,8 @@ import React, { memo } from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
 import styled from 'styled-components'
 import theme from '../../util/theme'
-const { version: libraryVersion } = require('../../../../../../lerna.json')
 import Logo from './logo'
+const { version: libraryVersion } = require('../../../../../../lerna.json')
 
 export interface HeaderProps {
 	logoTo?: string

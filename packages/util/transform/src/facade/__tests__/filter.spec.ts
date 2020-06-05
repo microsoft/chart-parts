@@ -33,6 +33,6 @@ describe('The filter transformation', () => {
 		const ds = dataset().addTable('data', data, filter(d => d.x > 5))
 
 		// The result should not be the same instance (i.e. preserve the input for functional style)
-		expect(ds.getTable('data').length).toEqual(8)
+		expect(ds.getTable('data')).toHaveLength(8)
 	})
 })
