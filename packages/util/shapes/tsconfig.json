@@ -7,7 +7,6 @@
 		"rootDir": "./src",
 		"baseUrl": "./src"
 	},
-	"files": ["src/index.ts"],
 	"include": ["./src/**/*.ts*"],
 	"exclude": ["**/__tests__/**/*"]
 }
