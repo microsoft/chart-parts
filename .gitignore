@@ -9,3 +9,4 @@ coverage/
 .tsbuildinfo
 tsconfig.tsbuildinfo
 .jest-cache/
+test-report.xml
