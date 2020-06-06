@@ -24,7 +24,7 @@ export class QuantizeScale<
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value?: number | boolean) {
+	public nice(value?: number | boolean): this {
 		this.niceValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
@@ -34,7 +34,7 @@ export class QuantizeScale<
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
 
-	public zero(value?: boolean) {
+	public zero(value?: boolean): this {
 		this.zeroValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
@@ -48,9 +48,11 @@ export class QuantizeScale<
 			.range(range as any) as ScaleQuantize<RangeValue>
 
 		this.applyNice(scale)
-
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
 		return {
-			[this.nameValue!]: scale,
+			[this.nameValue]: scale,
 		}
 	}
 

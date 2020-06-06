@@ -74,7 +74,7 @@ describe('The Mark Builder', () => {
 
 			const built = builder.build()
 			const channelKeys = Object.keys(built.channels)
-			expect(channelKeys.length).toBe(2)
+			expect(channelKeys).toHaveLength(2)
 			expect(built.channels.click).toBeDefined()
 			expect(built.channels.mouseenter).toBeDefined()
 		})
@@ -87,7 +87,7 @@ describe('The Mark Builder', () => {
 
 			const built = builder.build()
 			const channelKeys = Object.keys(built.channels)
-			expect(channelKeys.length).toBe(2)
+			expect(channelKeys).toHaveLength(2)
 			expect(built.channels.click).toBeDefined()
 			expect(built.channels.mouseenter).toBeDefined()
 		})

@@ -38,7 +38,7 @@ describe('The formula transformation', () => {
 
 		// The result should not be the same instance (i.e. pr\eserve the input for functional style)
 		const transformed = ds.getTable('data')
-		expect(transformed.length).toEqual(data.length)
+		expect(transformed).toHaveLength(data.length)
 		transformed.forEach(t => {
 			expect(t.derp).toEqual(t.c * 2)
 		})

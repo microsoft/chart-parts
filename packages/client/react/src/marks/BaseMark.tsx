@@ -23,10 +23,10 @@ export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,
 ): React.FC<T> {
-	const result: React.FC<T> = props => {
+	const Result: React.FC<T> = props => {
 		const { children, table, name, role } = props
 		const scene = useContext(SceneBuilderContext)
-		const mark = useMemo(() => newMark(markType), [markType])
+		const mark = useMemo(() => newMark(markType), [])
 		useCommonMarkProperties(mark, table, role, name)
 		useMarkEncodings(mark, props)
 		useMarkChannels(mark, props)
@@ -38,8 +38,8 @@ export function createMarkComponent<T extends CommonMarkProps>(
 			</SceneBuilderContext.Provider>
 		)
 	}
-	result.displayName = markType
-	return result
+	Result.displayName = markType
+	return Result
 }
 
 function useMarkInScene(
@@ -63,7 +63,7 @@ function useMarkInScene(
 				scene.removeMark(mark)
 			}
 		}
-	}, [scene, mark])
+	}, [pushdown, scene, mark])
 	return currentScene
 }
 

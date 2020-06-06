@@ -46,6 +46,7 @@ export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
 					<iframe
 						src={url}
 						style={frameStyle}
+						title="View Code"
 						sandbox="allow-modals allow-forms allow-popups allow-scripts allow-same-origin"
 					/>
 				</TabPanel>

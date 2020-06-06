@@ -4,9 +4,8 @@
  */
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
-declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
-const data = require('../../resources/falkensee_population.json')
+import data from '../resources/falkensee_population.json'
 
 export const scenegraph = parseScene(data)
 export const title = 'Falkensee Population'

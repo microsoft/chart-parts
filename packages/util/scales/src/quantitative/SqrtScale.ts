@@ -13,11 +13,12 @@ export class SqrtScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
-		const result = scaleSqrt()
-			.domain(domain)
-			.range(range)
+		const result = scaleSqrt().domain(domain).range(range)
 
 		this.addCommonProperties(result)
-		return { [this.nameValue!]: result }
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
+		return { [this.nameValue]: result }
 	}
 }

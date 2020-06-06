@@ -1,6 +1,5 @@
 {
   "extends": "../../../tsconfig.json",
-  "include": ["./src/**/*"],
   "compilerOptions": {
     "lib": ["dom", "esnext"],
     "esModuleInterop": true,
@@ -8,6 +7,9 @@
     "emitDecoratorMetadata": true,
     "noEmit": true,
     "declaration": false,
-    "skipLibCheck": true
-  }
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  },
+  "include": ["./src/**/*.ts*"],
+  "exclude": ["**/__tests__/**/*"]
 }

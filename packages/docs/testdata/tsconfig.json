@@ -1,10 +1,13 @@
 {
-  "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    "lib": ["esnext"],
-    "outDir": "lib",
-    "rootDir": "./src",
-    "baseUrl": "./src"
-  },
-  "files": ["src/index.ts"]
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"lib": ["esnext"],
+		"outDir": "lib",
+		"rootDir": ".",
+		"baseUrl": "./src",
+		"resolveJsonModule": true
+	},
+	"files": ["src/index.ts"],
+	"include": ["./src/**/*.ts*"],
+	"exclude": ["**/__tests__/**/*"]
 }

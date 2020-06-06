@@ -7,9 +7,10 @@ import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import Splash from '../components/splash/splash'
 import GlobalStyles from './styles'
+import dbg from 'debug'
+import packageJson from '../../package.json'
 
-const log = require('debug')('site:index')
-const packageJson = require('../../package.json')
+const log = dbg('site:index')
 log('chart-parts documentation, version', packageJson.version)
 
 export interface IndexPageState {

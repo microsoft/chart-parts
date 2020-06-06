@@ -33,11 +33,11 @@ describe('the dataset manager', () => {
 
 		const source = ds.getTable('source')
 		const derived = ds.getTable('derived')
-		expect(source.length).toEqual(3)
+		expect(source).toHaveLength(3)
 		expect(source.map(d => d.x)).toEqual([1, 2, 3])
 		expect(source.map(d => d.y)).toEqual([2, 4, 6])
 
-		expect(derived.length).toEqual(3)
+		expect(derived).toHaveLength(3)
 		expect(derived.map(d => d.z)).toEqual([4, 8, 12])
 	})
 })

@@ -38,10 +38,7 @@ export const BarChartBuilder: React.FC = memo(() => {
 				n =>
 					n
 						.scale(
-							linear('y')
-								.domain('data.amount')
-								.range(Dimension.Height)
-								.nice(),
+							linear('y').domain('data.amount').range(Dimension.Height).nice(),
 							band('x', 'xband')
 								.domain('data.category')
 								.range(Dimension.Width)
@@ -79,7 +76,7 @@ export const BarChartBuilder: React.FC = memo(() => {
 						),
 				{ width: 400, height: 200 },
 			).build(),
-		[setHoverRowIndex, hoverRowIndex],
+		[setHoverRowIndex, hoverRowIndex, isHovered],
 	)
 
 	return pipeline.renderScene(

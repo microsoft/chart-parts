@@ -1,2 +1,4 @@
 src/
 tsconfig.json
+tsconfig.typedoc.json
+*.tsbuildinfo

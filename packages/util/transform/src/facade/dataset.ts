@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { DatasetTransform } from './interfaces'
-declare const require: any
+
 const { Dataflow, changeset } = require('vega-dataflow')
 const { collect } = require('vega-transforms')
 
@@ -55,7 +55,7 @@ export class DatasetManagerImpl implements DatasetManager {
 		name: string,
 		data: any[],
 		...transforms: DatasetTransform[]
-	) {
+	): DatasetManager {
 		const pipeline = createTransformPipeline(transforms, this)
 		pushData(data, pipeline)
 		this.pipelines.set(name, pipeline)
@@ -66,7 +66,7 @@ export class DatasetManagerImpl implements DatasetManager {
 		name: string,
 		from: string,
 		...transforms: DatasetTransform[]
-	) {
+	): DatasetManager {
 		const pipeline = createTransformPipeline(transforms, this)
 		const sourceTable = this.getTable(from)
 		pushData(sourceTable, pipeline)

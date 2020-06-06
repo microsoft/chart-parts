@@ -48,7 +48,8 @@ export function createDomainScale<
 		const api = useContext(SceneBuilderContext)
 		const scale = useMemo(() => api && createScale(props as Props), [
 			api,
-			createScale,
+			props,
+			// eslint-disable-next-line
 			...propsToCheck.map(p => (props as any)[p]),
 		])
 		useEffect(() => {

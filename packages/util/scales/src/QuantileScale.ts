@@ -23,9 +23,11 @@ export class QuantileScale<
 		const scale: ScaleQuantile<RangeValue> = scaleQuantile()
 			.domain(domain)
 			.range(range as any) as ScaleQuantile<RangeValue>
-
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
 		return {
-			[this.nameValue!]: scale,
+			[this.nameValue]: scale,
 		}
 	}
 }

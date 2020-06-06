@@ -12,7 +12,7 @@ export class PowScale extends QuantitativeScale<QuantitativeValue, number> {
 
 	private exponentValue?: number
 
-	public exponent(value?: number) {
+	public exponent(value?: number): this {
 		this.exponentValue = value
 		return this
 	}
@@ -20,15 +20,15 @@ export class PowScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
-		const result = scalePow()
-			.domain(domain)
-			.range(range)
+		const result = scalePow().domain(domain).range(range)
 		this.addCommonProperties(result)
 
 		if (this.exponentValue !== undefined) {
 			result.exponent(this.exponentValue)
 		}
-
-		return { [this.nameValue!]: result }
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
+		return { [this.nameValue]: result }
 	}
 }

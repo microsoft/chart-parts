@@ -129,7 +129,11 @@ function createFacetedData(
 	facetSourceTable: any[],
 	markSourceTable: any[],
 ): FacetedData {
-	const getKey = keyGetter(facet.groupBy!)
+	if (!facet.groupBy) {
+		throw new Error('facet.groupBy must be defined')
+	}
+	const getKey = keyGetter(facet.groupBy)
+
 	const facetMap = new Map<string, DataFacet>()
 	const markMap = new Map<string, any>()
 	const facets: DataFacet[] = []
@@ -157,8 +161,8 @@ function createFacetedData(
 			facets.push(newFacet)
 			facetMap.set(key, newFacet)
 		}
-		const f = facetMap.get(key)!
-		f.data.push(row)
+		const f = facetMap.get(key)
+		f?.data.push(row)
 	})
 
 	// Return the faceting results

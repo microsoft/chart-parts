@@ -1,135 +1,52 @@
 {
-  "name": "@chart-parts/parent",
-  "private": true,
-  "scripts": {
-    "clean": "lerna run clean --parallel",
-    "build": "lerna run build --stream",
-    "build:docs": "lerna run build:docs --scope @chart-parts/documentation --stream",
-    "start:packages": "lerna run start --parallel --stream",
-    "test:packages": "lerna run test --stream",
-    "release:packages": "lerna run release --stream",
-    "lint:js": "eslint . --ext .js,.ts,.jsx,.tsx",
-    "lint:md": "markdownlint 'packages/docs/docsite/content/markdown/**/*.md'",
-    "lint:spelling": "mdspell 'packages/docs/docsite/content/markdown/**/*.md' --en-us --report",
-    "lint:tone": "alex .",
-    "lint:formatting": "pretty-quick --check",
-    "lint": "run-s lint:*",
-    "unit_test": "jest --coverage --ci",
-    "test": "run-s lint build unit_test test:packages",
-    "publish_libs": "lerna publish",
-    "changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
-    "release": "run-s clean test publish_libs changelog release:packages",
-    "start": "run-s start:packages"
-  },
-  "engines": {
-    "node": ">=10.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pretty-quick --staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
-    "@babel/preset-env": "^7.6.0",
-    "@commitlint/cli": "^8.2.0",
-    "@commitlint/config-conventional": "^8.2.0",
-    "@types/jest": "^25.1.0",
-    "@typescript-eslint/eslint-plugin": "^3.0.0",
-    "@typescript-eslint/parser": "^3.0.0",
-    "alex": "^8.0.1",
-    "conventional-changelog-cli": "^2.0.23",
-    "eslint": "^7.0.0",
-    "eslint-config-prettier": "^6.3.0",
-    "eslint-plugin-header": "^3.0.0",
-    "eslint-plugin-react": "^7.14.3",
-    "eslint-plugin-react-hooks": "^4.0.0",
-    "husky": "^4.1.0",
-    "jest": "^26.0.1",
-    "jest-html": "^1.5.0",
-    "lerna": "^3.16.4",
-    "markdown-spellcheck": "^1.3.1",
-    "markdownlint-cli": "^0.23.0",
-    "npm-run-all": "^4.1.5",
-    "prettier": "^2.0.0",
-    "pretty-quick": "^2.0.1",
-    "rimraf": "^3.0.0",
-    "ts-jest": "^26.0.0",
-    "typescript": "^3.9.3"
-  },
-  "prettier": {
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "all",
-    "useTabs": true,
-    "overrides": [
-      {
-        "files": "*.md",
-        "options": {
-          "useTabs": false,
-          "tabWidth": 2
-        }
-      },
-      {
-        "files": "*.json",
-        "options": {
-          "useTabs": false,
-          "tabWidth": 2
-        }
-      }
-    ]
-  },
-  "workspaces": {
-    "packages": [
-      "packages/renderers/*",
-      "packages/processing/*",
-      "packages/client/*",
-      "packages/util/*",
-      "packages/docs/examples",
-      "packages/docs/docsite",
-      "packages/docs/examplesweb",
-      "packages/docs/testdata"
-    ],
-    "nohoist": [
-      "@chart-parts/react-native-svg-renderer/**",
-      "**/@types/react-native",
-      "**/@types/reach__router",
-      "@chart-parts/docsite/**"
-    ]
-  },
-  "jest": {
-    "cacheDirectory": ".jest-cache",
-    "transform": {
-      "^.+\\.tsx?$": "ts-jest"
-    },
-    "testMatch": [
-      "**/__tests__/**/*.spec.ts(x|)"
-    ],
-    "collectCoverageFrom": [
-      "**/src/*.{ts,tsx}",
-      "**/src/**/*.{ts,tsx}",
-      "!**/src/**/*.d.ts",
-      "!packages/docs/**",
-      "!**/__tests__/**"
-    ],
-    "testPathIgnorePatterns": [
-      "/node_modules/",
-      "/lib/"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "snapshotSerializers": [
-      "jest-html"
-    ]
-  }
+	"name": "@chart-parts/parent",
+	"private": true,
+	"scripts": {
+		"clean": "lerna run clean --parallel --stream",
+		"build": "lerna run build --stream",
+		"start": "lerna run start --parallel --stream",
+		"test:packages": "lerna run test --stream",
+		"release:packages": "lerna run release --stream",
+		"lint": "essex lint --strict",
+		"unit_test": "essex test --coverage",
+		"ci": "run-s lint build unit_test test:packages",
+		"publish_libs": "lerna publish",
+		"changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
+		"release": "run-s clean test publish_libs changelog release:packages"
+	},
+	"engines": {
+		"node": ">=10.0.0"
+	},
+	"devDependencies": {
+		"@essex/eslint-config": "^7.0.3",
+		"@essex/eslint-plugin": "^7.0.3",
+		"@essex/scripts": "^7.0.3",
+		"@typescript-eslint/eslint-plugin": "^3.1.0",
+		"@typescript-eslint/parser": "^3.1.0",
+		"conventional-changelog-cli": "^2.0.23",
+		"cross-env": "^7.0.2",
+		"jest-html": "^1.5.0",
+		"lerna": "^3.22.0",
+		"npm-run-all": "^4.1.5",
+		"shx": "^0.3.2",
+		"typescript": "^3.9.3"
+	},
+	"workspaces": {
+		"packages": [
+			"packages/renderers/*",
+			"packages/processing/*",
+			"packages/client/*",
+			"packages/util/*",
+			"packages/docs/examples",
+			"packages/docs/docsite",
+			"packages/docs/examplesweb",
+			"packages/docs/testdata"
+		],
+		"nohoist": [
+			"@chart-parts/react-native-svg-renderer/**",
+			"**/@types/react-native",
+			"**/@types/reach__router",
+			"@chart-parts/docsite/**"
+		]
+	}
 }

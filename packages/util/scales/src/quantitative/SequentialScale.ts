@@ -12,7 +12,7 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 	private clampValue?: boolean
 	private interpolatorValue?: (t: QuantitativeValue) => any
 
-	public interpolator(value?: (t: QuantitativeValue) => any) {
+	public interpolator(value?: (t: QuantitativeValue) => any): this {
 		this.interpolatorValue = value
 		return this
 	}
@@ -23,7 +23,7 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 	 *  may return a value outside the range through extrapolation. If clamping is enabled,
 	 * the output value of the scale is always within the scale’s range.
 	 */
-	public clamp(value?: boolean) {
+	public clamp(value?: boolean): this {
 		this.clampValue = value
 		return this
 	}
@@ -39,8 +39,11 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 		if (this.clampValue !== undefined) {
 			result.clamp(this.clampValue)
 		}
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
 		return ({
-			[this.nameValue!]: result as Scale<QuantitativeValue, any>,
+			[this.nameValue]: result as Scale<QuantitativeValue, any>,
 		} as any) as Scales
 	}
 }

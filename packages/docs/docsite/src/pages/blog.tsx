@@ -12,7 +12,7 @@ export default function Blog({
 		toc,
 		post: {
 			edges: {
-				[0]: { node: post },
+				0: { node: post },
 			},
 		},
 	},

@@ -7,8 +7,7 @@ import {
 	Scales,
 	ScaleBuilder,
 } from '@chart-parts/interfaces'
-declare const require: any
-const get = require('lodash/get')
+import get from 'lodash/get'
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
 export abstract class DomainScale<Domain> implements ScaleBuilder {
@@ -20,7 +19,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 * Sets the name of the scale
 	 * @param value The name of the scale
 	 */
-	public name(value?: string) {
+	public name(value?: string): this {
 		this.nameValue = value
 		return this
 	}
@@ -29,7 +28,7 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 * Sets the domain of the scale
 	 * @param arg The domain argument
 	 */
-	public domain(arg?: string | DomainCreator<Domain> | Domain) {
+	public domain(arg?: string | DomainCreator<Domain> | Domain): this {
 		if (typeof arg === 'function') {
 			this.domainValue = arg as DomainCreator<Domain>
 		} else if (Array.isArray(arg)) {

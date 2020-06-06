@@ -34,7 +34,7 @@ export abstract class QuantitativeScale<
 	 *  may return a value outside the range through extrapolation. If clamping is enabled,
 	 * the output value of the scale is always within the scale’s range.
 	 */
-	public clamp(value?: boolean) {
+	public clamp(value?: boolean): this {
 		this.clampValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
@@ -42,7 +42,7 @@ export abstract class QuantitativeScale<
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public nice(value?: boolean | number | string | Record<string, any>) {
+	public nice(value?: boolean | number | string | Record<string, any>): this {
 		this.niceValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
@@ -50,7 +50,7 @@ export abstract class QuantitativeScale<
 	/**
 	 * Extends the domain so that it starts and ends on nice round values.
 	 */
-	public round(value?: boolean) {
+	public round(value?: boolean): this {
 		this.roundValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}
@@ -59,7 +59,7 @@ export abstract class QuantitativeScale<
 	 * Adjusts the range of the scale to account for a pixel-padding on each end.
 	 * @param paddingValue The number of pixels to pad each end of the scale's range with.
 	 */
-	public padding(paddingValue?: number) {
+	public padding(paddingValue?: number): this {
 		this.paddingValue = paddingValue
 		return this
 	}
@@ -69,7 +69,7 @@ export abstract class QuantitativeScale<
 	 * The default value is true for linear, sqrt and pow, and false otherwise.
 	 */
 
-	public zero(value?: boolean) {
+	public zero(value?: boolean): this {
 		this.zeroValue = optionalArgument(value, arguments.length, true, false)
 		return this
 	}

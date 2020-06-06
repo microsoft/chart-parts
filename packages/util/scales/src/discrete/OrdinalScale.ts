@@ -15,7 +15,7 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	/**
 	 * The range of values to map to
 	 */
-	public range(value?: RangeType[]) {
+	public range(value?: RangeType[]): this {
 		this.rangeValue = value
 		return this
 	}
@@ -23,7 +23,7 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	/**
 	 * The color scheme to use as the target ordinal domain
 	 */
-	public colorScheme(value?: CategoricalColorScheme) {
+	public colorScheme(value?: CategoricalColorScheme): this {
 		this.colorSchemeValue = value
 		return this
 	}
@@ -37,7 +37,10 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 		)
 			.domain(domain)
 			.range(range)
-		return { [this.nameValue!]: scale }
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
+		return { [this.nameValue]: scale }
 	}
 
 	protected getRange() {

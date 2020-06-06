@@ -90,7 +90,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 					}
 				}
 			},
-			[scenegraph]
+			[scenegraph, propsUpdateScenegraph]
 		)
 
 		const setParam = useCallback(
@@ -109,7 +109,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 				max={max}
 				step={step}
 				value={getParam(name)}
-				onChange={v => {
+				onChange={(v) => {
 					setParam({ [name]: typeof v === 'string' ? parseFloat(v) : v })
 				}}
 			/>
@@ -121,7 +121,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 				name={name}
 				options={options}
 				value={getParam(name)}
-				onChange={v => setParam({ [name]: v }) as any}
+				onChange={(v) => setParam({ [name]: v }) as any}
 			/>
 		))
 
@@ -130,7 +130,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 				key={name}
 				name={name}
 				value={getParam(name)}
-				onChange={v => setParam({ [name]: v })}
+				onChange={(v) => setParam({ [name]: v })}
 			/>
 		))
 

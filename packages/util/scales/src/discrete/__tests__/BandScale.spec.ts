@@ -9,7 +9,7 @@ import { createScaleContext } from './util'
 describe('The Band Scale', () => {
 	it('can be created', () => {
 		const scale = new BandScale()
-			.name('test')
+			.name('testScale')
 			.bandwidthName('testWidth')
 			.domain('data.x')
 			.range([0, 100])
@@ -29,8 +29,8 @@ describe('The Band Scale', () => {
 		})
 		const built = scale.build(context)
 		expect(built).toBeDefined()
-		const { test, testWidth } = built
-		expect(test).toBeDefined()
+		const { testScale, testWidth } = built
+		expect(testScale).toBeDefined()
 		expect(testWidth).toBeDefined()
 
 		// Check the bandwidth
@@ -38,7 +38,7 @@ describe('The Band Scale', () => {
 
 		// Check the band intervals
 		for (let i = 0; i < 10; ++i) {
-			expect(test(i)).toEqual(10 * i)
+			expect(testScale(i)).toEqual(10 * i)
 		}
 	})
 

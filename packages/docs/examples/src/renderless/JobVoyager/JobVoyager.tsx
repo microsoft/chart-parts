@@ -31,7 +31,6 @@ import {
 	Offset as StackOffset,
 	filter,
 } from '@chart-parts/transform'
-// @ts-ignore
 import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
@@ -70,19 +69,16 @@ export const JobVoyager: React.FC = memo(() => {
 							(gender === 'all' || d.sex === gender) &&
 							(!queryRegExp || queryRegExp.test(d.job)),
 					),
-					stack('perc')
-						.groupBy('year')
-						.offset(StackOffset.zero)
-						.sort(
-							{
-								field: 'job',
-								order: CompareOrder.descending,
-							},
-							{
-								field: 'sex',
-								order: CompareOrder.descending,
-							},
-						),
+					stack('perc').groupBy('year').offset(StackOffset.zero).sort(
+						{
+							field: 'job',
+							order: CompareOrder.descending,
+						},
+						{
+							field: 'sex',
+							order: CompareOrder.descending,
+						},
+					),
 				)
 				.addDerivedTable(
 					'series',
@@ -161,6 +157,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
 					}
 					metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
 					onMouseOver={({ id }) => onEnterArea(id)}
+					onFocus={({ id }) => onEnterArea(id)}
 					onClick={({ job }) => onClickArea(job)}
 				/>
 			</Group>

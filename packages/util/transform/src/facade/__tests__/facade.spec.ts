@@ -50,7 +50,7 @@ describe('The data management facade', () => {
 
 			const ds = dataset().addTable('table', data, aggregate().groupBy('foo'))
 			const aggregated = ds.getTable('table')
-			expect(aggregated.length).toEqual(2)
+			expect(aggregated).toHaveLength(2)
 		})
 	})
 })

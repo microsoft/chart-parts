@@ -4,9 +4,8 @@
  */
 
 // Bar Chart Example, captured from https://vega.github.io/vega/examples/bar-chart/
-declare const require: any
 import { parseScene } from '@chart-parts/scenegraph'
-const data = require('../../resources/error_bars.json')
+import data from '../resources/error_bars.json'
 
 export const scenegraph = parseScene(data)
 export const title = 'Error Bars'

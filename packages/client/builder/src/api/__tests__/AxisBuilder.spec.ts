@@ -42,7 +42,10 @@ describe('The Axis builder', () => {
 			.tickSize(10)
 			.tickWidth(100)
 			.bandPosition(0)
-			.values([{ value: 10, label: 'ten' }, { value: 20, label: 'twenty' }])
+			.values([
+				{ value: 10, label: 'ten' },
+				{ value: 20, label: 'twenty' },
+			])
 			.labels(false)
 			.labelFont('sans derp')
 			.labelFontSize(200)
@@ -66,7 +69,7 @@ describe('The Axis builder', () => {
 		expect(built.tickSize).toEqual(10)
 		expect(built.tickWidth).toEqual(100)
 		expect(built.bandPosition).toEqual(0)
-		expect((built.values as any).length).toEqual(2)
+		expect(built.values as any).toHaveLength(2)
 		expect(built.labels).toBe(false)
 		expect(built.labelFont).toBe('sans derp')
 		expect(built.labelFontSize).toEqual(200)

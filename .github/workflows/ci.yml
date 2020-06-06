@@ -82,7 +82,7 @@ jobs:
           steps.cache-node-modules-svg-renderer.outputs.cache-hit != 'true' ||
           steps.cache-node-modules-examplesweb.outputs.cache-hit != 'true'
 
-      - run: yarn test
+      - run: yarn ci
         name: Execute Tests
         env:
           CI: true

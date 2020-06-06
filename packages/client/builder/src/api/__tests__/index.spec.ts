@@ -54,13 +54,13 @@ describe('The builder module', () => {
 		expect(builtScene).toBeDefined()
 
 		// Outer Group
-		expect(builtScene.marks.length).toEqual(1)
+		expect(builtScene.marks).toHaveLength(1)
 		const outerGroup = builtScene.marks[0]
 		expect(outerGroup.type).toEqual(MarkType.Group)
 
 		// Rect Group
 		expect(outerGroup.child).toBeDefined()
-		expect((outerGroup.child as any).marks.length).toEqual(1)
+		expect((outerGroup.child as any).marks).toHaveLength(1)
 		const rectGroup = (outerGroup.child as any).marks[0]
 		expect(rectGroup.type).toEqual(MarkType.Rect)
 	})

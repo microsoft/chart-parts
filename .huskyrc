@@ -1,0 +1,6 @@
+{
+	"hooks": {
+		"pre-commit": "essex pre-commit",
+		"commit-msg": "essex commit-msg"
+	}
+}

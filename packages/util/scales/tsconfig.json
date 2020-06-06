@@ -1,13 +1,13 @@
 {
-  "extends": "../../../tsconfig.json",
-  "compilerOptions": {
-    "lib": ["esnext", "dom"],
-    "outDir": "lib",
-    "experimentalDecorators": true,
-    "composite": true,
-    "rootDir": "./src",
-    "baseUrl": "./src"
-  },
-  "files": ["src/index.ts"],
-  "include": ["./src/**/*.ts*"]
+	"extends": "../../../tsconfig.json",
+	"compilerOptions": {
+		"lib": ["esnext", "dom"],
+		"outDir": "lib",
+		"experimentalDecorators": true,
+		"rootDir": "./src",
+		"baseUrl": "./src"
+	},
+	"files": ["src/index.ts"],
+	"include": ["./src/**/*.ts*"],
+	"exclude": ["**/__tests__/**/*"]
 }

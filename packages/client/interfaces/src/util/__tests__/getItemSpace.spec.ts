@@ -2,13 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-declare const require: any
+import { getItemSpace } from '../getItemSpace'
+
+/* eslint-disable @typescript-eslint/no-var-requires */
 const {
 	RectItem,
 } = require('@chart-parts/scenegraph/dist/cjs/elements/items/RectItem')
-import { getItemSpace } from '../getItemSpace'
 
-xdescribe('Rendering Utilities', () => {
+describe('Rendering Utilities', () => {
 	describe('getItemSpace', () => {
 		it('cannot compute width/height with insufficient information', () => {
 			const item = new RectItem()

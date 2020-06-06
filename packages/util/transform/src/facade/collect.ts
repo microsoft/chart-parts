@@ -2,11 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { DatasetTransform } from './interfaces'
 import { Compare } from '../interfaces'
 import { createSorter } from '../util'
-
-declare const require: any
 const { collect: vegaCollect } = require('vega-transforms')
 
 export interface CollectBuilder extends DatasetTransform {
@@ -20,12 +19,12 @@ export interface CollectBuilder extends DatasetTransform {
 export class CollectBuilderImpl implements CollectBuilder {
 	private compareValue: Compare[] | undefined
 
-	public sort(...compare: Compare[]) {
+	public sort(...compare: Compare[]): CollectBuilder {
 		this.compareValue = compare
 		return this
 	}
 
-	public build(df: any, from: any) {
+	public build(df: any, from: any): CollectBuilder {
 		const spec: any = {
 			pulse: from,
 		}
@@ -38,6 +37,6 @@ export class CollectBuilderImpl implements CollectBuilder {
 	}
 }
 
-export function collect() {
+export function collect(): CollectBuilder {
 	return new CollectBuilderImpl()
 }
