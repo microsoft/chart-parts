@@ -87,7 +87,7 @@ export const StackedBarChart: React.FC = memo(() => {
               setHoverRowIndex(undefined)
             }
           },
-          [setHoverRowIndex]
+          [hoverRowIndex, setHoverRowIndex]
         )}
         table="data"
         x={({ d, x }) => x(d.x)}

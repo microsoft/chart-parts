@@ -6,8 +6,6 @@
 /**
  * Adapted from https://vega.github.io/vega/examples/population-pyramid/
  */
-declare const require: any
-
 import React, { memo, useState, useCallback, useMemo } from 'react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
 import {
@@ -26,8 +24,8 @@ import {
   AxisOrientation,
   ScaleCreationContext,
 } from '@chart-parts/interfaces'
+import population from 'vega-datasets/data/population.json'
 
-const population = require('vega-datasets/data/population.json')
 const chartWidth = 600
 const chartHeight = 500
 const textLineWidth = 18

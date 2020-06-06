@@ -31,7 +31,6 @@ import {
   Offset as StackOffset,
   filter,
 } from '@chart-parts/transform'
-// @ts-ignore
 import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
@@ -158,6 +157,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
           }
           metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
           onMouseOver={({ id }) => onEnterArea(id)}
+          onFocus={({ id }) => onEnterArea(id)}
           onClick={({ job }) => onClickArea(job)}
         />
       </Group>
