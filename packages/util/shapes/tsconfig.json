@@ -3,7 +3,6 @@
 	"compilerOptions": {
 		"lib": ["esnext", "dom"],
 		"outDir": "lib",
-		"composite": true,
 		"rootDir": "./src",
 		"baseUrl": "./src"
 	},

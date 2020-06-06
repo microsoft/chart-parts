@@ -4,7 +4,6 @@
 		"lib": ["esnext", "dom"],
 		"outDir": "lib",
 		"experimentalDecorators": true,
-		"composite": true,
 		"rootDir": "./src",
 		"baseUrl": "./src"
 	},
