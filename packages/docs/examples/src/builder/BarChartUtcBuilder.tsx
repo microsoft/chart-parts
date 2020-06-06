@@ -36,14 +36,8 @@ export const BarChartUtcBuilder: React.FC = memo(() => {
 				n =>
 					n
 						.scale(
-							linear('y')
-								.domain('data.amount')
-								.range(Dimension.Height)
-								.nice(),
-							time('x')
-								.domain('data.date')
-								.range(Dimension.Width)
-								.nice(),
+							linear('y').domain('data.amount').range(Dimension.Height).nice(),
+							time('x').domain('data.date').range(Dimension.Width).nice(),
 							band('xband', 'xbandwidth')
 								.domain('data.date')
 								.range(Dimension.Width),
@@ -90,7 +84,7 @@ export const BarChartUtcBuilder: React.FC = memo(() => {
 						),
 				{ width: 400, height: 200 },
 			).build(),
-		[hoverRowIndex, setHoverRowIndex],
+		[hoverRowIndex, setHoverRowIndex, isHovered],
 	)
 	return pipeline.renderScene(
 		chart,

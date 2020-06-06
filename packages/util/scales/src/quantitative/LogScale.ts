@@ -27,7 +27,10 @@ export class LogScale extends QuantitativeScale<QuantitativeValue, number> {
 		if (this.baseValue !== undefined) {
 			result.base(this.baseValue)
 		}
-		return { [this.nameValue!]: result }
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
+		return { [this.nameValue]: result }
 	}
 
 	/**

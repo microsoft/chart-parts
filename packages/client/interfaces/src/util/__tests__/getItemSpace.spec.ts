@@ -9,7 +9,7 @@ const {
 	RectItem,
 } = require('@chart-parts/scenegraph/dist/cjs/elements/items/RectItem')
 
-describe.skip('Rendering Utilities', () => {
+describe('Rendering Utilities', () => {
 	describe('getItemSpace', () => {
 		it('cannot compute width/height with insufficient information', () => {
 			const item = new RectItem()

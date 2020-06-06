@@ -67,7 +67,10 @@ export class PointScale extends DomainRangeScale<
 			scale.round(this.roundValue)
 		}
 
-		const result: Scales = { [this.nameValue!]: scale }
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
+		const result: Scales = { [this.nameValue]: scale }
 		if (this.stepNameValue) {
 			result[this.stepNameValue as string] = scale.step as Scale<any, number>
 		}

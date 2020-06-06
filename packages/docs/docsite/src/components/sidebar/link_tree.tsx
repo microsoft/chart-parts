@@ -40,7 +40,7 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 			if (activePath.indexOf(node.item.path) >= 0) {
 				setExpanded(true)
 			}
-		}, [])
+		}, [activePath, node.item.path])
 
 		const linkStyle = useMemo(() => {
 			if (!node.item) {
@@ -59,7 +59,7 @@ const LinkTree: React.FC<LinkTreeProps> = memo(
 				linkStyle.fontWeight = '400' as any
 			}
 			return linkStyle
-		}, [depth, activePath, node.item])
+		}, [flat, depth, activePath, node.item])
 
 		const handleExpandCollapseClick = useCallback(() => {
 			setExpanded(!expanded)
@@ -125,12 +125,12 @@ export interface LinkTreeChildrenProps {
 const LinkTreeChildren: React.FC<LinkTreeChildrenProps> = memo(
 	({ childKeys, node, depth, activePath, expanded }) => {
 		// Get the nodes for the children and sort them
-		const childNodes = childKeys.map(ck => node.children[ck])
+		const childNodes = childKeys.map((ck) => node.children[ck])
 		childNodes.sort((a, b) => (a.item.order || 0) - (b.item.order || 0))
 
 		return !expanded ? null : (
 			<>
-				{childNodes.map(c => (
+				{childNodes.map((c) => (
 					<LinkTree
 						key={c.pathKey}
 						node={c}

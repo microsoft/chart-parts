@@ -37,7 +37,10 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 		)
 			.domain(domain)
 			.range(range)
-		return { [this.nameValue!]: scale }
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
+		return { [this.nameValue]: scale }
 	}
 
 	protected getRange() {

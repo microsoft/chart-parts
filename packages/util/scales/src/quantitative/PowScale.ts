@@ -26,7 +26,9 @@ export class PowScale extends QuantitativeScale<QuantitativeValue, number> {
 		if (this.exponentValue !== undefined) {
 			result.exponent(this.exponentValue)
 		}
-
-		return { [this.nameValue!]: result }
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
+		return { [this.nameValue]: result }
 	}
 }

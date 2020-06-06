@@ -15,11 +15,12 @@ export class UtcScale extends QuantitativeScale<TimeValue, number> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange(args)
-		const result = scaleUtc()
-			.domain(domain)
-			.range(range)
+		const result = scaleUtc().domain(domain).range(range)
 		this.addCommonProperties(result)
 		setType(result)
-		return { [this.nameValue!]: result }
+		if (!this.nameValue) {
+			throw new Error('scale name must be set')
+		}
+		return { [this.nameValue]: result }
 	}
 }

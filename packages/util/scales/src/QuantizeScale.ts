@@ -48,9 +48,11 @@ export class QuantizeScale<
 			.range(range as any) as ScaleQuantize<RangeValue>
 
 		this.applyNice(scale)
-
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
 		return {
-			[this.nameValue!]: scale,
+			[this.nameValue]: scale,
 		}
 	}
 

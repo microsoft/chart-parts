@@ -89,18 +89,19 @@ function useChartOptions(
 			opts.ariaDescription = description
 		}
 		return opts
-	}, [width, height, padding])
+	}, [width, height, padding, description, title])
 }
 
 function useScene(chartOptions: ChartOptions, data: Record<string, any>): any {
 	const pipeline = useOrchestrator()
 	const [frameNode, builder] = useChartScenes(chartOptions)
 	const [rendered, setRendered] = useState<any>(null)
+	const { spec } = frameNode
 	const executeRender = useCallback(() => {
 		const renderOutput =
-			pipeline && pipeline.renderScene(frameNode.spec, chartOptions, data)
+			pipeline && pipeline.renderScene(spec, chartOptions, data)
 		setRendered(renderOutput)
-	}, [chartOptions, data])
+	}, [chartOptions, data, pipeline, spec])
 	useEffect(() => {
 		if (frameNode && pipeline) {
 			const subscription = frameNode.onChange
@@ -124,7 +125,7 @@ function useChartScenes(
 	)
 	const frameNode = useMemo(
 		() =>
-			scene(node => {
+			scene((node: any) => {
 				setBuilder(node)
 				return node
 			}, chartOptions),

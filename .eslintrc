@@ -1,7 +1,8 @@
 {
 	"extends": "@essex",
 	"rules": {
-		"@typescript-eslint/no-explicit-any": 1,
-		"jsx-a11y/no-onchange": 1
+		"@typescript-eslint/no-explicit-any": 0,
+		"jsx-a11y/no-onchange": 0,
+		"@typescript-eslint/explicit-module-boundary-types": 0
 	}
 }

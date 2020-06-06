@@ -40,9 +40,7 @@ const data = [
 const ds = dataset().addTable(
 	'data',
 	data,
-	stack('y')
-		.groupBy('x')
-		.sort({ field: 'c' }),
+	stack('y').groupBy('x').sort({ field: 'c' }),
 )
 
 /**
@@ -89,7 +87,7 @@ export const StackedBarChart: React.FC = memo(() => {
 							setHoverRowIndex(undefined)
 						}
 					},
-					[setHoverRowIndex],
+					[hoverRowIndex, setHoverRowIndex],
 				)}
 				table="data"
 				x={({ d, x }) => x(d.x)}

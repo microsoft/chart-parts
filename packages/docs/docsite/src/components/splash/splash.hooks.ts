@@ -9,12 +9,21 @@ import { TimelineMax, TweenLite, CSSPlugin, gsap } from 'gsap'
 
 gsap.registerPlugin(CSSPlugin)
 
+const EMPTY_RECT = {
+	width: 0,
+	height: 0,
+	left: 0,
+	top: 0,
+}
+
 // get all chart part elements
 function getChartPartsChars() {
 	const chars = ['c', 'h', 'a', 'r', 't', 'p', 'a', 'r', 't', 's']
 	return chars.reduce((acc: HTMLElement[], letter: string, index: number) => {
-		const elem = document.getElementById(`char-${letter}${index + 1}`)!
-		acc.push(elem)
+		const elem = document.getElementById(`char-${letter}${index + 1}`)
+		if (elem) {
+			acc.push(elem)
+		}
 		return acc
 	}, [])
 }
@@ -39,7 +48,7 @@ export function useSplashPageMountAnimation(
 		return charElements
 	}, [charElements])
 
-	const startAnimation = () => {
+	const startAnimation = useCallback(() => {
 		if (
 			animatingOut ||
 			typeof window === undefined ||
@@ -52,7 +61,7 @@ export function useSplashPageMountAnimation(
 		const animate = () => {
 			if (titleRef && titleRef.current) {
 				const title = titleRef.current as any
-				const bg = document.getElementsByClassName('background')!
+				const bg = document.getElementsByClassName('background')
 				const chars = getChars()
 				const tl = new TimelineMax()
 				tl.add('First')
@@ -123,11 +132,16 @@ export function useSplashPageMountAnimation(
 				)
 
 				setTimeout(() => {
-					const svgElem = document.getElementById('svg-logo2')!
+					const svgElem = document.getElementById('svg-logo2')
+					if (!svgElem) {
+						return
+					}
 					const cdims2 = svgElem.getBoundingClientRect()
-					const offset = document
-						.getElementById('chart-parts-letter-group')!
-						.getBoundingClientRect()
+					const letterGroupElement = document.getElementById(
+						'chart-parts-letter-group'
+					)
+					const offset =
+						letterGroupElement?.getBoundingClientRect() || EMPTY_RECT
 					const callbackFunc = () => {
 						setAnimationOut(true)
 					}
@@ -193,13 +207,13 @@ export function useSplashPageMountAnimation(
 			}
 		}
 		animate()
-	}
+	}, [animatingOut, getChars, height, titleRef, width])
 
 	useEffect(() => {
 		if (container) {
 			startAnimation()
 		}
-	}, [container, height, width])
+	}, [startAnimation, container, height, width])
 	return [animatingOut]
 }
 
@@ -216,7 +230,7 @@ export function usePaneMousehandlers(
 				opacity: 1.0,
 			})
 		}
-	}, [animationComplete])
+	}, [ref, animationComplete])
 
 	// return div to prev opacity
 	const mouseLeave = useCallback(() => {
@@ -226,7 +240,7 @@ export function usePaneMousehandlers(
 				opacity: 0.8,
 			})
 		}
-	}, [animationComplete])
+	}, [ref, animationComplete])
 
 	const onClick = useCallback(() => {
 		if (window) {

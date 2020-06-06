@@ -32,7 +32,6 @@ export const SGChart: React.FC<SGChartProps> = ({
 	}, 25)
 	useEffect(() => {
 		renderSG(data, params)
-	}, [data, params])
-
+	}, [data, params, renderSG])
 	return rendered
 }

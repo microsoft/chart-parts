@@ -120,7 +120,10 @@ export class BandScale extends DomainRangeScale<
 			bandscale.round(this.roundValue)
 		}
 
-		const result: Scales = { [this.nameValue!]: bandscale }
+		if (!this.nameValue) {
+			throw new Error('scale name must be defined')
+		}
+		const result: Scales = { [this.nameValue]: bandscale }
 		if (this.bandwidthValue) {
 			result[this.bandwidthValue as string] = bandscale.bandwidth as Scale<
 				any,

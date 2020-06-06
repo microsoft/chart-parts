@@ -92,67 +92,67 @@ export const Axis: React.FC<AxisProps> = memo(
 function useAxisProps(axis: AxisBuilder, props: AxisProps) {
 	useEffect(() => {
 		axis.thickness(props.thickness)
-	}, [props.thickness])
+	}, [axis, props.thickness])
 	useEffect(() => {
 		axis.domain(props.domain)
-	}, [props.domain])
+	}, [axis, props.domain])
 	useEffect(() => {
 		axis.domainWidth(props.domainWidth)
-	}, [props.domainWidth])
+	}, [axis, props.domainWidth])
 	useEffect(() => {
 		axis.domainColor(props.domainColor)
-	}, [props.domainColor])
+	}, [axis, props.domainColor])
 	useEffect(() => {
 		axis.ticks(props.ticks)
-	}, [props.ticks])
+	}, [axis, props.ticks])
 	useEffect(() => {
 		axis.tickColor(props.tickColor)
-	}, [props.tickColor])
+	}, [axis, props.tickColor])
 	useEffect(() => {
 		axis.tickCount(props.tickCount)
-	}, [props.tickCount])
+	}, [axis, props.tickCount])
 	useEffect(() => {
 		axis.tickOffset(props.tickOffset)
-	}, [props.tickOffset])
+	}, [axis, props.tickOffset])
 	useEffect(() => {
 		axis.tickRound(props.tickRound)
-	}, [props.tickRound])
+	}, [axis, props.tickRound])
 	useEffect(() => {
 		axis.tickSize(props.tickSize)
-	}, [props.tickSize])
+	}, [axis, props.tickSize])
 	useEffect(() => {
 		axis.tickWidth(props.tickWidth)
-	}, [props.tickWidth])
+	}, [axis, props.tickWidth])
 	useEffect(() => {
 		axis.bandPosition(props.bandPosition)
-	}, [props.bandPosition])
+	}, [axis, props.bandPosition])
 	useEffect(() => {
 		axis.values(props.values)
-	}, [props.values])
+	}, [axis, props.values])
 	useEffect(() => {
 		axis.labels(props.labels)
-	}, [props.labels])
+	}, [axis, props.labels])
 	useEffect(() => {
 		axis.labelFont(props.labelFont)
-	}, [props.labelFont])
+	}, [axis, props.labelFont])
 	useEffect(() => {
 		axis.labelFontSize(props.labelFontSize)
-	}, [props.labelFontSize])
+	}, [axis, props.labelFontSize])
 	useEffect(() => {
 		axis.labelColor(props.labelColor)
-	}, [props.labelColor])
+	}, [axis, props.labelColor])
 	useEffect(() => {
 		axis.labelPadding(props.labelPadding)
-	}, [props.labelPadding])
+	}, [axis, props.labelPadding])
 	useEffect(() => {
 		axis.labelFontWeight(props.labelFontWeight)
-	}, [props.labelFontWeight])
+	}, [axis, props.labelFontWeight])
 	useEffect(() => {
 		axis.labelAngle(props.labelAngle)
-	}, [props.labelAngle])
+	}, [axis, props.labelAngle])
 	useEffect(() => {
 		axis.labelFormat(props.labelFormat)
-	}, [props.labelFormat])
+	}, [axis, props.labelFormat])
 }
 
 Axis.displayName = 'Axis'

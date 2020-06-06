@@ -63,7 +63,7 @@ function useMarkInScene(
 				scene.removeMark(mark)
 			}
 		}
-	}, [scene, mark])
+	}, [pushdown, scene, mark])
 	return currentScene
 }
 
