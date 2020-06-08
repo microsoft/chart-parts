@@ -45,7 +45,7 @@
     "react-tabs": "^3.0.0",
     "react-typography": "^0.16.19",
     "react-use-dimensions": "^1.2.1",
-    "rehype-react": "^5.0.0",
+    "rehype-react": "^6.0.0",
     "styled-components": "^5.1.0",
     "typography": "^0.16.19",
     "typography-theme-github": "^0.16.19",
