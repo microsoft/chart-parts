@@ -7,7 +7,7 @@
 		"start": "lerna run start --parallel --stream",
 		"test:packages": "lerna run test --stream",
 		"release:packages": "lerna run release --stream",
-		"lint": "essex lint --strict",
+		"lint": "essex lint --strict --docs",
 		"unit_test": "essex test --coverage",
 		"ci": "run-s lint build unit_test test:packages",
 		"publish_libs": "lerna publish",
@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"@essex/eslint-config": "^7.0.3",
 		"@essex/eslint-plugin": "^7.0.3",
-		"@essex/scripts": "^7.0.3",
+		"@essex/scripts": "^7.0.4",
 		"@typescript-eslint/eslint-plugin": "^3.1.0",
 		"@typescript-eslint/parser": "^3.1.0",
 		"conventional-changelog-cli": "^2.0.23",
