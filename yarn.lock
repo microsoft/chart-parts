@@ -1307,45 +1307,14 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@essex/eslint-config@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.0.3.tgz#1bc7863e3fa276398e2204da3b7d9731bf9e8d86"
-  integrity sha512-vi67RfIJxziPM8eXTPUS2vKlEBW6TvyqdTkatNAC20YhPDl6ItxLjVujYpfY8+9oK7K0i7IEAxsToWl+ChZIPw==
-  dependencies:
-    "@essex/eslint-plugin" "^7.0.3"
-
-"@essex/eslint-config@^7.0.4":
+"@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.0.4.tgz#653f51cacb93beac52cce743d8e22ae6b152bb9a"
   integrity sha512-FOUdbzJ3OUqzx4iHydWTCT26QFRpv8wtrYBuGmtVQzICWVCdFuKNDu1YTVUVhrko1H/ZKQ0FO8NaQri3BlWhYQ==
   dependencies:
     "@essex/eslint-plugin" "^7.0.4"
 
-"@essex/eslint-plugin@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.0.3.tgz#46f8374577114367f9ea30cbc4423d2d89a6978c"
-  integrity sha512-j409iUbWLZGac6Rv+pNcxW0gk9i/R8cFseDrr+I2YePe82PTE0XRrZM0QSfKfMZjXpOsGIRzXnR8O3eU9upsxA==
-  dependencies:
-    "@essex/eslint-plugin" "^7.0.3"
-    "@essex/prettier-config" "^7.0.3"
-    "@typescript-eslint/eslint-plugin" "^3.0.0"
-    "@typescript-eslint/parser" "^3.0.0"
-    babel-eslint "^10.1.0"
-    eslint "^7.0.0"
-    eslint-config-prettier "^6.11.0"
-    eslint-config-react-app "^5.2.1"
-    eslint-plugin-flowtype "^5.1.0"
-    eslint-plugin-header "^3.0.0"
-    eslint-plugin-import "^2.20.2"
-    eslint-plugin-jest "^23.11.0"
-    eslint-plugin-jsx-a11y "^6.2.3"
-    eslint-plugin-local-rules "^0.1.1"
-    eslint-plugin-prettier "^3.1.3"
-    eslint-plugin-react "^7.20.0"
-    eslint-plugin-react-hooks "^4.0.2"
-    prettier "^2.0.5"
-
-"@essex/eslint-plugin@^7.0.4":
+"@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.0.4":
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.0.4.tgz#0098ad969da92ce8a7528755f581c9622ac226bc"
   integrity sha512-AfUg+FD0Js1fcXcIk4eu4FBdVDKRcRG9xrloo2BDQjENjKTSM3GTLr/e2T1KVMqgB9kUujm3L1pjpI0MRl9PKg==
@@ -1365,11 +1334,6 @@
     eslint-plugin-react "^7.20.0"
     eslint-plugin-react-hooks "^4.0.2"
     prettier "^2.0.5"
-
-"@essex/prettier-config@^7.0.3":
-  version "7.0.3"
-  resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.0.3.tgz#0fb59c9ea64930d27df476e13f1fc72fcfc5869f"
-  integrity sha512-fYDM64xxBlzm7nNfcs12dYlw1wCAwKRHoXXBGUlMgO7qy+Wanpded/pCJPY9QNaGTuTkLqOakNDrA5FjG/jBBQ==
 
 "@essex/prettier-config@^7.0.4":
   version "7.0.4"
@@ -4724,7 +4688,7 @@
     regexpp "^3.0.0"
     tsutils "^3.17.1"
 
-"@typescript-eslint/eslint-plugin@^3.0.0", "@typescript-eslint/eslint-plugin@^3.1.0":
+"@typescript-eslint/eslint-plugin@^3.1.0":
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/eslint-plugin/-/eslint-plugin-3.1.0.tgz#4ac00ecca3bbea740c577f1843bc54fa69c3def2"
   integrity sha512-D52KwdgkjYc+fmTZKW7CZpH5ZBJREJKZXRrveMiRCmlzZ+Rw9wRVJ1JAmHQ9b/+Ehy1ZeaylofDB9wwXUt83wg==
@@ -4775,7 +4739,7 @@
     "@typescript-eslint/typescript-estree" "2.34.0"
     eslint-visitor-keys "^1.1.0"
 
-"@typescript-eslint/parser@^3.0.0", "@typescript-eslint/parser@^3.1.0":
+"@typescript-eslint/parser@^3.1.0":
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/@typescript-eslint/parser/-/parser-3.2.0.tgz#d9d7867456b1b8ecae9e724269b0bc932f06cbca"
   integrity sha512-Vhu+wwdevDLVDjK1lIcoD6ZbuOa93fzqszkaO3iCnmrScmKwyW/AGkzc2UvfE5TCoCXqq7Jyt6SOXjsIlpqF4A==
