@@ -1307,7 +1307,7 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.0.4":
+"@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.1.0.tgz#637db5ff6eeda46651cad6b29595f13b487691af"
   integrity sha512-81aTB0VH1e5s1iLAYN0MnjlBgjY+l7boKh3kUEcHOVrKVYjj1xNsy2xQo54PlCGZekpxPAE1h5Fb7u5Sxh9mqg==
@@ -1335,15 +1335,15 @@
     eslint-plugin-react-hooks "^4.0.2"
     prettier "^2.0.5"
 
-"@essex/prettier-config@^7.0.4", "@essex/prettier-config@^7.1.0":
+"@essex/prettier-config@^7.1.0":
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.1.0.tgz#d7428cc643b990e38fa4d2372e5189e1fa58e3f5"
   integrity sha512-lYTlJsZrPjajktuJtcCkUiLlZ7xyPjm92tC1uJtfq2NsZD6PXX6bycRB5hOtktym6qxs9v3p4OvfU5OqTn+haA==
 
 "@essex/scripts@^7.0.4":
-  version "7.0.4"
-  resolved "https://registry.yarnpkg.com/@essex/scripts/-/scripts-7.0.4.tgz#843740b0b951f2dff45cf3eacb06cd9fd88b8c45"
-  integrity sha512-H32VCJ4Nj9dbTkAys5YlhmogwxzjrjizzaZbuP0Pv26GPGyGRZOed9Ob7ao/BDayhqu5SdiWwnRngMCDjS2cRw==
+  version "7.1.0"
+  resolved "https://registry.yarnpkg.com/@essex/scripts/-/scripts-7.1.0.tgz#bdf8c77529154fb3b37abffc4fbbaff4c79c8f4e"
+  integrity sha512-43Oe7aPDl2leHW9AoBCmI41Jwr1cTOZ9SfglY6VUSdfwqcYHmTpWvueTbS4cbWDV0DmCx1QprTa4wl35Gw8KJg==
   dependencies:
     "@babel/cli" "^7.8.4"
     "@babel/core" "^7.9.0"
@@ -1354,8 +1354,8 @@
     "@babel/plugin-transform-react-jsx" "^7.9.4"
     "@babel/preset-env" "^7.9.5"
     "@commitlint/config-conventional" "^8.3.4"
-    "@essex/eslint-config" "^7.0.4"
-    "@essex/prettier-config" "^7.0.4"
+    "@essex/eslint-config" "^7.1.0"
+    "@essex/prettier-config" "^7.1.0"
     "@storybook/addon-a11y" "^5.3.18"
     "@storybook/addon-actions" "^5.3.18"
     "@storybook/addon-docs" "^5.3.18"
