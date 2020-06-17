@@ -22714,10 +22714,10 @@ vega-dataflow@^5.4.0, vega-dataflow@^5.7.0:
     vega-loader "^4.3.0"
     vega-util "^1.14.0"
 
-vega-datasets@^1.25.0:
-  version "1.31.1"
-  resolved "https://registry.yarnpkg.com/vega-datasets/-/vega-datasets-1.31.1.tgz#b41d214963f6a00260c2a8f8bc5c21fb7aea979b"
-  integrity sha512-KX3/6ffO3I1Kz8Gc+yQMlzi4rYnCx9n3A93MYyAIn9A/eohddKOuvAMEsx3Ah9NLnkrvkPI3Kup9+9NTXTD3NQ==
+vega-datasets@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/vega-datasets/-/vega-datasets-2.1.0.tgz#98298db5d14a381f72ca4b1fa9ab1bbe153aaf38"
+  integrity sha512-ajIfGt2quFEVNtByDIb5tyM+vP3lth1F8GuVAU88g6N2ucnAImyO/9xWyaZF04quZEAGpbJB/c2tbzfZlqM09g==
 
 vega-encode@^4.3.3:
   version "4.8.0"
