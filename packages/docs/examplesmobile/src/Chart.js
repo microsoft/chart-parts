@@ -9,14 +9,14 @@ import {Renderer} from '@chart-parts/react-native-svg-renderer';
 import {testCharts} from '@chart-parts/testdata';
 
 const pipeline = new Orchestrator(new Renderer());
-const renderChart = chart =>
+const renderChart = (chart) =>
 	pipeline.renderScenegraph(chart.scenegraph, chart.dimensions);
 
 const Chart = () => (
 	<FlatList
 		style={{flex: 1}}
 		data={testCharts}
-		keyExtractor={item => item.title}
+		keyExtractor={(item) => item.title}
 		renderItem={({item}) => (
 			<View style={{height: 500, width: 500}}>{renderChart(item)}</View>
 		)}

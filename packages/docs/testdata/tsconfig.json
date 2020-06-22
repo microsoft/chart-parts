@@ -3,11 +3,9 @@
 	"compilerOptions": {
 		"lib": ["esnext"],
 		"outDir": "lib",
-		"rootDir": ".",
-		"baseUrl": "./src",
 		"resolveJsonModule": true
 	},
 	"files": ["src/index.ts"],
-	"include": ["./src/**/*.ts*"],
+	"include": ["src/**/*.ts*"],
 	"exclude": ["**/__tests__/**/*"]
 }
