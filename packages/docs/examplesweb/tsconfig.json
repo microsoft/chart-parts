@@ -4,6 +4,6 @@
 		"jsx": "react",
 		"lib": ["esnext", "dom"]
 	},
-	"include": ["./src/**/*.ts*"],
+	"include": ["./stories/**/*.ts*"],
 	"exclude": ["**/__tests__/**/*"]
 }
