@@ -1386,12 +1386,12 @@
   dependencies:
     "@essex/eslint-plugin" "^7.2.0"
 
-"@essex/eslint-config@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.3.0.tgz#819e9a7164e9659e0b914818e5ecc790cd49bc1c"
-  integrity sha512-+PEieWjXkwbMAy1Cl4/s39+wzX0I3SEieIs1d31q+RqNk5nHpAAoG2svxDoEmJzMggmx4kku/FubArFQLnrjPA==
+"@essex/eslint-config@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.3.1.tgz#fd1ae389efe33d7adb2e444018ff7d20b05032f0"
+  integrity sha512-vGcADXtRWQr9ndrcWFP0qKmb/ZqM1Dqb5W8DE9UGGXLRvy/z97kRYOv1yLVQ5touO0Rieqj9Efijsjyp6Oo3xQ==
   dependencies:
-    "@essex/eslint-plugin" "^7.3.0"
+    "@essex/eslint-plugin" "^7.3.1"
 
 "@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.2.0":
   version "7.2.0"
@@ -1414,12 +1414,12 @@
     eslint-plugin-react-hooks "^4.0.2"
     prettier "^2.0.5"
 
-"@essex/eslint-plugin@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.3.0.tgz#0c978ec424a7cc33e7e762d0dc19a88bcab806da"
-  integrity sha512-RvpuS36nulUJIvQGYBhTrzghAqvZ0UP8AL3/tyY88lEfp5KwA+qVFgdS5SUn4tapD74w9xkWfopulieKU/WzPQ==
+"@essex/eslint-plugin@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.3.1.tgz#d9fbf3dbda2f57217c33287bb77384c737dd17a2"
+  integrity sha512-ss23TNLysts/vYdSYDq2asyNtu5YrWy3czm9PredlSrTEmFQ59Z4N9zDKZjL54lZDTZITQj9M3IUlgbKy0zRxA==
   dependencies:
-    "@essex/prettier-config" "^7.3.0"
+    "@essex/prettier-config" "^7.3.1"
     babel-eslint "^10.1.0"
     eslint "^7.0.0"
     eslint-config-prettier "^6.11.0"
@@ -1440,15 +1440,15 @@
   resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.2.0.tgz#27c40cbfeaf1bfca9b21d4f8acda0810dbfd91da"
   integrity sha512-c1hbtVbnVdL2JTqWed7jNB6vEJeWjtqYUMUHoVdcGXnq6TdGXd3vfp1wZ1fQSXTvnf2ph+TG/ZR6nuBGjZGIqg==
 
-"@essex/prettier-config@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.3.0.tgz#13bf7b2d0e7271366b8e667517d07286872650a8"
-  integrity sha512-H4uUk07IPaSqy1boeo2kx6r+DxQpbPtCcvvgeYyd9rPIjG/mxLZfOMoZic1mrsg8+ZofuemE8kXpRvuhVj4CAg==
+"@essex/prettier-config@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.3.1.tgz#4c211e9740184806d77190870fe07acbdd3c19d6"
+  integrity sha512-UR41BBOIbAGzu+TVBOdGzn77sVUG610k7i4fPQ/6va7jxAbblQ28fwE7TLGqucn8+yQL33zaIwWWPYY1HIaOJA==
 
-"@essex/scripts@^7.3.0":
-  version "7.3.0"
-  resolved "https://registry.yarnpkg.com/@essex/scripts/-/scripts-7.3.0.tgz#de34dd97a0be3ea544c86bfff791700299a1c42e"
-  integrity sha512-T+UO2g3oxERCdkI3MZuLynwvhrM8JInDjmm5xWCIYOX7cQOPUVz3XPVvG2Qm/aCGVQaOdcZmkTDtKQpGW+qrIQ==
+"@essex/scripts@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@essex/scripts/-/scripts-7.3.1.tgz#dc72c624cfefaae1e03c8854c477257dc90636cb"
+  integrity sha512-nsbw5/Z19wX0qU4Xv9Gq5p93GCeYj4I9/CJAwEyYno+8tPzXWBW1mv4ZfXcsB1iSGJaMWfHdt/vh1FfWow4B3w==
   dependencies:
     "@babel/cli" "^7.8.4"
     "@babel/core" "^7.9.0"
@@ -1459,8 +1459,8 @@
     "@babel/plugin-transform-react-jsx" "^7.9.4"
     "@babel/preset-env" "^7.9.5"
     "@commitlint/config-conventional" "^9.0.1"
-    "@essex/eslint-config" "^7.3.0"
-    "@essex/prettier-config" "^7.3.0"
+    "@essex/eslint-config" "^7.3.1"
+    "@essex/prettier-config" "^7.3.1"
     "@storybook/addon-a11y" "^5.3.18"
     "@storybook/addon-actions" "^5.3.18"
     "@storybook/addon-docs" "^5.3.18"
@@ -1469,6 +1469,7 @@
     "@storybook/react" "^5.3.18"
     "@types/jest" "^26.0.0"
     alex "^8.1.1"
+    at-least-node "^1.0.0"
     audit-ci "^3.0.0"
     babel-loader "^8.1.0"
     cache-loader "^4.1.0"
