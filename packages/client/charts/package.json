@@ -10,9 +10,8 @@
 	"scripts": {
 		"clean": "essex clean",
 		"build": "essex build",
-		"storybook": "essex storybook",
 		"watch": "essex watch",
-		"serve": "essex storybook",
+		"serve": "essex start-storybook",
 		"start": "run-p watch serve"
 	},
 	"dependencies": {
