@@ -21,7 +21,7 @@ import { AreaChartProps } from '../types'
 const Container = createChartContainer('Stacked Area Chart')
 
 export const StackedAreaChart: React.FC<AreaChartProps> = memo(
-	({
+	function StackedAreaChart({
 		data,
 		height,
 		width,
@@ -33,44 +33,45 @@ export const StackedAreaChart: React.FC<AreaChartProps> = memo(
 		xAxisProps,
 		yAxisProps,
 		...props
-	}) => (
-		<Container
-			width={width}
-			height={height}
-			data={useStackedAreaChartData(groupBy, data)}
-			title={title}
-			description={description}
-			padding={chartPadding}
-		>
-			<LinearScale name="x" domain="data.key" range={Dimension.Width} />
-			<LinearScale
-				name="y"
-				domain="data.y1"
-				range={Dimension.Height}
-				nice
-				zero
-			/>
-			<Axis
-				orient={AxisOrientation.Bottom}
-				scale="x"
-				labelPadding={10}
-				tickSize={10}
-				{...xAxisProps}
-			/>
-			<OrdinalScale
-				name="color"
-				domain="data._category"
-				colorScheme={CategoricalColorScheme.category10}
-			/>
-			<Axis orient={AxisOrientation.Left} scale="y" {...yAxisProps} />
-			<Group table="data" facet={useGroupByFaceting(groupBy)}>
-				<StackedAreaMarks {...props} />
-				{children}
-			</Group>
-		</Container>
-	),
+	}) {
+		return (
+			<Container
+				width={width}
+				height={height}
+				data={useStackedAreaChartData(groupBy, data)}
+				title={title}
+				description={description}
+				padding={chartPadding}
+			>
+				<LinearScale name="x" domain="data.key" range={Dimension.Width} />
+				<LinearScale
+					name="y"
+					domain="data.y1"
+					range={Dimension.Height}
+					nice
+					zero
+				/>
+				<Axis
+					orient={AxisOrientation.Bottom}
+					scale="x"
+					labelPadding={10}
+					tickSize={10}
+					{...xAxisProps}
+				/>
+				<OrdinalScale
+					name="color"
+					domain="data._category"
+					colorScheme={CategoricalColorScheme.category10}
+				/>
+				<Axis orient={AxisOrientation.Left} scale="y" {...yAxisProps} />
+				<Group table="data" facet={useGroupByFaceting(groupBy)}>
+					<StackedAreaMarks {...props} />
+					{children}
+				</Group>
+			</Container>
+		)
+	},
 )
-StackedAreaChart.displayName = 'StackedAreaChart'
 
 function useStackedAreaChartData(groupBy: string | undefined, data: any[]) {
 	const dataSorted = useDataGroupSorted(groupBy, data)

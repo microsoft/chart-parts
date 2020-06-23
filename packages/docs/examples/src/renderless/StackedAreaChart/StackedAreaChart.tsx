@@ -43,34 +43,39 @@ const data = [
 const ds = dataset().addTable(
 	'data',
 	data,
-	stack('y')
-		.groupBy('x')
-		.sort({ field: 'c' }),
+	stack('y').groupBy('x').sort({ field: 'c' }),
 )
 
-export const StackedAreaChart: React.FC = memo(() => (
-	<Chart width={500} height={200} padding={8} data={ds.tables}>
-		<PointScale name="x" domain="data.x" range={Dimension.Width} />
-		<LinearScale name="y" domain="data.y1" range={Dimension.Height} nice zero />
-		<OrdinalScale
-			name="color"
-			domain="data.c"
-			colorScheme={CategoricalColorScheme.category10}
-		/>
-
-		<Axis orient={AxisOrientation.Bottom} scale="x" />
-		<Axis orient={AxisOrientation.Left} scale="y" />
-
-		<Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
-			<Area
-				table="faceted"
-				x={({ d, x }) => x(d.x)}
-				y={({ d, y }) => y(d.y0)}
-				y2={({ d, y }) => y(d.y1)}
-				fill={({ d, color }) => color(d.c)}
-				interpolate={Interpolation.Monotone}
+export const StackedAreaChart: React.FC = memo(function StackedAreaChart() {
+	return (
+		<Chart width={500} height={200} padding={8} data={ds.tables}>
+			<PointScale name="x" domain="data.x" range={Dimension.Width} />
+			<LinearScale
+				name="y"
+				domain="data.y1"
+				range={Dimension.Height}
+				nice
+				zero
 			/>
-		</Group>
-	</Chart>
-))
-StackedAreaChart.displayName = 'StackedAreaChart'
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
+
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
+
+			<Group table="data" facet={{ groupBy: 'c', name: 'faceted' }}>
+				<Area
+					table="faceted"
+					x={({ d, x }) => x(d.x)}
+					y={({ d, y }) => y(d.y0)}
+					y2={({ d, y }) => y(d.y1)}
+					fill={({ d, color }) => color(d.c)}
+					interpolate={Interpolation.Monotone}
+				/>
+			</Group>
+		</Chart>
+	)
+})

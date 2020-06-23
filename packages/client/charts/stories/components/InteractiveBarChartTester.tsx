@@ -24,7 +24,7 @@ const exampleData = [
 	{ key: 'H', value: 87 },
 ]
 
-export const InteractiveBarChartTester: React.FC = () => {
+export const InteractiveBarChartTester: React.FC = function InteractiveBarChartTester() {
 	const [hoverRowIndex, onMouseEnter, onMouseLeave] = useHoverIndex()
 	const fill = useCallback(
 		ctx => (hoverRowIndex === ctx.index ? 'firebrick' : 'steelblue'),
@@ -73,4 +73,3 @@ export const InteractiveBarChartTester: React.FC = () => {
 		</div>
 	)
 }
-InteractiveBarChartTester.displayName = 'InteractiveBarChartTester'

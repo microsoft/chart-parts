@@ -25,7 +25,7 @@ const exData = [
 	{ category: 'C', key: '11', value: 0.7 },
 ]
 
-export const StackedBarChartTester: React.FC = () => {
+export const StackedBarChartTester: React.FC = function StackedBarChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')
@@ -65,5 +65,3 @@ export const StackedBarChartTester: React.FC = () => {
 		</div>
 	)
 }
-
-StackedBarChartTester.displayName = 'StackedBarChartTester'

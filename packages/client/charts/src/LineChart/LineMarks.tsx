@@ -21,14 +21,14 @@ const DEFAULT_STROKE_WIDTH = 2
 const encodeX: MarkEncoding<number> = ({ d, x }) => x(d.key)
 const encodeY: MarkEncoding<number> = ({ d, y }) => y(d.value)
 
-export const LineMarks: React.FC<LineMarksProps> = memo(
-	({
-		onClick,
-		onMouseEnter,
-		onMouseLeave,
-		stroke = DEFAULT_STROKE,
-		strokeWidth = DEFAULT_STROKE_WIDTH,
-	}) => (
+export const LineMarks: React.FC<LineMarksProps> = memo(function LineMarks({
+	onClick,
+	onMouseEnter,
+	onMouseLeave,
+	stroke = DEFAULT_STROKE,
+	strokeWidth = DEFAULT_STROKE_WIDTH,
+}) {
+	return (
 		<Line
 			table="faceted"
 			onClick={onClick}
@@ -39,7 +39,5 @@ export const LineMarks: React.FC<LineMarksProps> = memo(
 			x={encodeX}
 			y={encodeY}
 		/>
-	),
-)
-
-LineMarks.displayName = 'LineMarks'
+	)
+})

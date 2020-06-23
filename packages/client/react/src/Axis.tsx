@@ -65,24 +65,27 @@ export interface AxisProps {
  * available view space using the *orient* prop.
  * @category Utility
  */
-export const Axis: React.FC<AxisProps> = memo(
-	({ children, scale, orient, ...props }) => {
-		const api = useContext(SceneBuilderContext)
-		const axis = useMemo(() => newAxis(scale, orient), [scale, orient])
+export const Axis: React.FC<AxisProps> = memo(function Axis({
+	children,
+	scale,
+	orient,
+	...props
+}) {
+	const api = useContext(SceneBuilderContext)
+	const axis = useMemo(() => newAxis(scale, orient), [scale, orient])
 
-		useAxisProps(axis, props as AxisProps)
+	useAxisProps(axis, props as AxisProps)
 
-		useEffect(() => {
-			if (api) {
-				api.axes(axis)
-				return () => {
-					api.removeAxis(axis)
-				}
+	useEffect(() => {
+		if (api) {
+			api.axes(axis)
+			return () => {
+				api.removeAxis(axis)
 			}
-		}, [axis, api])
-		return <>{children}</>
-	},
-)
+		}
+	}, [axis, api])
+	return <>{children}</>
+})
 
 /**
  * Synchronize React props with the Axis Builder object.
@@ -154,5 +157,3 @@ function useAxisProps(axis: AxisBuilder, props: AxisProps) {
 		axis.labelFormat(props.labelFormat)
 	}, [axis, props.labelFormat])
 }
-
-Axis.displayName = 'Axis'

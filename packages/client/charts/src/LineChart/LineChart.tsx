@@ -25,20 +25,20 @@ export interface LineChartProps extends CommonChartProps, FillMarkProps {
 
 const Container = createChartContainer('Line Chart')
 
-export const LineChart: React.FC<LineChartProps> = memo(
-	({
-		data,
-		height,
-		width,
-		title,
-		chartPadding,
-		description,
-		children,
-		groupBy,
-		xAxisProps,
-		yAxisProps,
-		...props
-	}) => (
+export const LineChart: React.FC<LineChartProps> = memo(function LineChart({
+	data,
+	height,
+	width,
+	title,
+	chartPadding,
+	description,
+	children,
+	groupBy,
+	xAxisProps,
+	yAxisProps,
+	...props
+}) {
+	return (
 		<Container
 			width={width}
 			height={height}
@@ -77,9 +77,8 @@ export const LineChart: React.FC<LineChartProps> = memo(
 				{children}
 			</Group>
 		</Container>
-	),
-)
-LineChart.displayName = 'LineChart'
+	)
+})
 
 function useLineChartData(data: any[], groupBy: string) {
 	const sortedData = useDataGroupSorted(groupBy, data)

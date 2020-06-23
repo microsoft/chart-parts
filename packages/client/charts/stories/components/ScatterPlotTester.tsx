@@ -31,7 +31,7 @@ const exData = [
 	{ key: 9, value: 25, c: 1 },
 ]
 
-export const ScatterPlotTester: React.FC = () => {
+export const ScatterPlotTester: React.FC = function ScatterPlotTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const radius = number('circle radius', 50)
@@ -66,4 +66,3 @@ export const ScatterPlotTester: React.FC = () => {
 		</div>
 	)
 }
-ScatterPlotTester.displayName = 'ScatterPlotTester'

@@ -20,16 +20,16 @@ const encodeX: MarkEncoding<number> = ({ d, x }) => x(d.key)
 const encodeY: MarkEncoding<number> = ({ d, y }) => y(d.value)
 const encodeY2: MarkEncoding<number> = ({ y }) => y(0)
 
-export const AreaMarks: React.FC<FillMarkProps> = memo(
-	({
-		onClick,
-		onMouseEnter,
-		onMouseLeave,
-		fill = DEFAULT_FILL,
-		fillOpacity = DEFAULT_FILL_OPACITY,
-		stroke = DEFAULT_STROKE,
-		strokeWidth = DEFAULT_STROKE_WIDTH,
-	}) => (
+export const AreaMarks: React.FC<FillMarkProps> = memo(function AreaMarks({
+	onClick,
+	onMouseEnter,
+	onMouseLeave,
+	fill = DEFAULT_FILL,
+	fillOpacity = DEFAULT_FILL_OPACITY,
+	stroke = DEFAULT_STROKE,
+	strokeWidth = DEFAULT_STROKE_WIDTH,
+}) {
+	return (
 		<Area
 			table="data"
 			tabIndex={-1}
@@ -47,7 +47,5 @@ export const AreaMarks: React.FC<FillMarkProps> = memo(
 			y={encodeY}
 			y2={encodeY2}
 		/>
-	),
-)
-
-AreaMarks.displayName = 'AreaMarks'
+	)
+})

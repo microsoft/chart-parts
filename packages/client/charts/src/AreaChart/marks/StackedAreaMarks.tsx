@@ -21,7 +21,7 @@ const encodeY: MarkEncoding<number> = ({ d, y }) => y(d.y0)
 const encodeY2: MarkEncoding<number> = ({ d, y }) => y(d.y1)
 
 export const StackedAreaMarks: React.FC<FillMarkProps> = memo(
-	({
+	function StackedAreaMarks({
 		onClick,
 		onMouseEnter,
 		onMouseLeave,
@@ -29,25 +29,25 @@ export const StackedAreaMarks: React.FC<FillMarkProps> = memo(
 		fillOpacity = DEFAULT_FILL_OPACITY,
 		stroke = DEFAULT_STROKE,
 		strokeWidth = DEFAULT_STROKE_WIDTH,
-	}) => (
-		<Area
-			table="faceted"
-			tabIndex={-1}
-			onClick={onClick}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
-			fill={fill}
-			fillOpacity={fillOpacity}
-			interpolate={Interpolation.Monotone}
-			stroke={stroke}
-			strokeWidth={strokeWidth}
-			ariaTitle={encodeCategoryAriaTitle}
-			ariaDescription={encodeCategoryAriaDescription}
-			x={encodeX}
-			y={encodeY}
-			y2={encodeY2}
-		/>
-	),
+	}) {
+		return (
+			<Area
+				table="faceted"
+				tabIndex={-1}
+				onClick={onClick}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				fill={fill}
+				fillOpacity={fillOpacity}
+				interpolate={Interpolation.Monotone}
+				stroke={stroke}
+				strokeWidth={strokeWidth}
+				ariaTitle={encodeCategoryAriaTitle}
+				ariaDescription={encodeCategoryAriaDescription}
+				x={encodeX}
+				y={encodeY}
+				y2={encodeY2}
+			/>
+		)
+	},
 )
-
-StackedAreaMarks.displayName = ' StackAreaMarks'

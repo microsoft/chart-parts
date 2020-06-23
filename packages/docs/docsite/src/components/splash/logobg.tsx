@@ -10,7 +10,7 @@ interface LogoProps {
 	width?: number
 }
 // logo used for splash page component, contains background
-const Logo: React.FC<LogoProps> = memo(({ height, width }) => {
+const LogoBg: React.FC<LogoProps> = memo(function LogoBg({ height, width }) {
 	const widthDim = `${width}` || '100%'
 	return (
 		<svg
@@ -982,5 +982,4 @@ const Logo: React.FC<LogoProps> = memo(({ height, width }) => {
 	)
 })
 
-Logo.displayName = 'LogoBg'
-export default Logo
+export default LogoBg

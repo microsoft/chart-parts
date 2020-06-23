@@ -34,7 +34,7 @@ const dataset = { data }
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChart: React.FC = memo(() => {
+export const BarChart: React.FC = memo(function BarChart() {
 	const [hoverIndex, setHoverIndex] = useState<number | undefined>()
 	const onEnterRect = useCallback(
 		({ index }) => {
@@ -94,52 +94,54 @@ export const BarChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
-BarChart.displayName = 'BarChart'
 
-const Scales: React.FC = memo(() => (
-	<>
-		<LinearScale
-			name="y"
-			domain="data.amount"
-			range={Dimension.Height}
-			nice
-			zero
-		/>
-		<BandScale
-			name="x"
-			bandWidth="band"
-			domain="data.category"
-			padding={0.05}
-			range={Dimension.Width}
-		/>
-	</>
-))
-Scales.displayName = 'Scales'
+const Scales: React.FC = memo(function Scales() {
+	return (
+		<>
+			<LinearScale
+				name="y"
+				domain="data.amount"
+				range={Dimension.Height}
+				nice
+				zero
+			/>
+			<BandScale
+				name="x"
+				bandWidth="band"
+				domain="data.category"
+				padding={0.05}
+				range={Dimension.Width}
+			/>
+		</>
+	)
+})
 
-const Axes: React.FC = memo(() => (
-	<>
-		<Axis orient={AxisOrientation.Bottom} scale="x" />
-		<Axis orient={AxisOrientation.Left} scale="y" />
-	</>
-))
-Axes.displayName = 'Axes'
+const Axes: React.FC = memo(function Axes() {
+	return (
+		<>
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
+		</>
+	)
+})
 
 interface HoverTextHighlightProps {
 	index: number
 }
 const HoverTextHighlight: React.FC<HoverTextHighlightProps> = memo(
-	({ index }) => (
-		<Text
-			text={useCallback(({ data }) => data[index].amount, [index])}
-			fill="black"
-			x={useCallback(
-				({ data, x, band }) => x(data[index].category) + band() / 2,
-				[index],
-			)}
-			y={useCallback(({ data, y }) => y(data[index].amount) - 3, [index])}
-			baseline={VerticalTextAlignment.Bottom}
-			align={HorizontalAlignment.Center}
-		/>
-	),
+	function HoverTextHighlight({ index }) {
+		return (
+			<Text
+				text={useCallback(({ data }) => data[index].amount, [index])}
+				fill="black"
+				x={useCallback(
+					({ data, x, band }) => x(data[index].category) + band() / 2,
+					[index],
+				)}
+				y={useCallback(({ data, y }) => y(data[index].amount) - 3, [index])}
+				baseline={VerticalTextAlignment.Bottom}
+				align={HorizontalAlignment.Center}
+			/>
+		)
+	},
 )
-HoverTextHighlight.displayName = 'HoverTextHighlight'

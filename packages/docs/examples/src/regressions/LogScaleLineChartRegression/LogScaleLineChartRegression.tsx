@@ -770,19 +770,26 @@ const data = [
 ]
 // #endregion data
 
-export const LogScaleLineChartRegression: React.FC = memo(() => (
-	<Chart width={500} height={200} padding={{ left: 60 }} data={{ data }}>
-		<LinearScale name="x" domain={[0, data.length]} range={Dimension.Width} />
-		<LogScale name="y" domain="data.oe" range={Dimension.Height} zero />
-		<Axis orient={AxisOrientation.Bottom} scale="x" />
-		<Axis orient={AxisOrientation.Left} scale="y" />
-		<Line
-			table="data"
-			x={({ index, x }) => x(index)}
-			y={({ d, y }) => y(d.oe)}
-			stroke="blue"
-			strokeWidth={1}
-		/>
-	</Chart>
-))
-LogScaleLineChartRegression.displayName = 'LogScaleLineChartRegression'
+export const LogScaleLineChartRegression: React.FC = memo(
+	function LogScaleLineChartRegression() {
+		return (
+			<Chart width={500} height={200} padding={{ left: 60 }} data={{ data }}>
+				<LinearScale
+					name="x"
+					domain={[0, data.length]}
+					range={Dimension.Width}
+				/>
+				<LogScale name="y" domain="data.oe" range={Dimension.Height} zero />
+				<Axis orient={AxisOrientation.Bottom} scale="x" />
+				<Axis orient={AxisOrientation.Left} scale="y" />
+				<Line
+					table="data"
+					x={({ index, x }) => x(index)}
+					y={({ d, y }) => y(d.oe)}
+					stroke="blue"
+					strokeWidth={1}
+				/>
+			</Chart>
+		)
+	},
+)

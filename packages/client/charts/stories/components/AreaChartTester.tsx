@@ -31,7 +31,7 @@ const exData = [
 	{ key: 20, value: 15 },
 ]
 
-export const AreaChartTester: React.FC = () => {
+export const AreaChartTester: React.FC = function AreaChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')
@@ -60,4 +60,3 @@ export const AreaChartTester: React.FC = () => {
 		</div>
 	)
 }
-AreaChartTester.displayName = 'AreaChartTester'

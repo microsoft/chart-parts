@@ -19,30 +19,27 @@ const DEFAULT_PADDING = 10
 export function createChartContainer(
 	defaultTitle: string,
 ): React.FC<ChartContainerProps> {
-	const result: React.FC<ChartContainerProps> = memo(
-		({
-			height,
-			width,
-			title = defaultTitle,
-			description = defaultTitle,
-			padding = DEFAULT_PADDING,
-			data,
-			children,
-		}) => {
-			return (
-				<Chart
-					width={width}
-					height={height}
-					title={title}
-					description={description}
-					padding={padding}
-					data={data}
-				>
-					{children}
-				</Chart>
-			)
-		},
-	)
-	result.displayName = 'Container'
-	return result
+	const Container: React.FC<ChartContainerProps> = memo(function Container({
+		height,
+		width,
+		title = defaultTitle,
+		description = defaultTitle,
+		padding = DEFAULT_PADDING,
+		data,
+		children,
+	}) {
+		return (
+			<Chart
+				width={width}
+				height={height}
+				title={title}
+				description={description}
+				padding={padding}
+				data={data}
+			>
+				{children}
+			</Chart>
+		)
+	})
+	return Container
 }

@@ -26,7 +26,7 @@ import { GroupedBarMarks } from '../marks/GroupedBarMarks'
 const Container = createChartContainer('Grouped Bar Chart')
 
 export const GroupedBarChart: React.FC<BarChartProps> = memo(
-	({
+	function GroupedBarChart({
 		data,
 		height,
 		width,
@@ -40,9 +40,9 @@ export const GroupedBarChart: React.FC<BarChartProps> = memo(
 		xAxisProps,
 		yAxisProps,
 		...props
-	}) => {
+	}) {
 		const orientationKey = useChartOrientation(orientation)
-		const dataMapping = useGroupData(groupBy, data, orientationKey)
+		const dataMapping = useGroupData(groupBy, data)
 		const dataset = useMemo(() => ({ data: dataMapping }), [dataMapping])
 		return (
 			<Container
@@ -73,14 +73,12 @@ export const GroupedBarChart: React.FC<BarChartProps> = memo(
 	},
 )
 
-GroupedBarChart.displayName = 'GroupedBarChart'
-
 interface GroupedComponentProps {
 	groupBy?: string
 	orientation?: Orientation
 }
 const GroupedComponent: React.FC<GroupedComponentProps> = memo(
-	({ orientation, groupBy, children }) => {
+	function GroupedComponent({ orientation, groupBy, children }) {
 		const faceting = useGroupByFaceting(groupBy)
 		const encodeSpan: MarkEncoding<number> = useCallback(
 			({ categoryHeight }: any) => categoryHeight(),
@@ -133,7 +131,6 @@ const GroupedComponent: React.FC<GroupedComponentProps> = memo(
 		)
 	},
 )
-GroupedComponent.displayName = 'GroupedComponent'
 
 interface ScalesAndAxesProps {
 	orientation: Orientation
@@ -143,7 +140,12 @@ interface ScalesAndAxesProps {
 }
 
 const ScalesAndAxes: React.FC<ScalesAndAxesProps> = memo(
-	({ orientation, xAxisProps, yAxisProps, bandScaleProps }) => {
+	function ScalesAndAxes({
+		orientation,
+		xAxisProps,
+		yAxisProps,
+		bandScaleProps,
+	}) {
 		const isVertical = useMemo(() => orientation === Orientation.vertical, [
 			orientation,
 		])
@@ -205,4 +207,3 @@ const ScalesAndAxes: React.FC<ScalesAndAxesProps> = memo(
 		)
 	},
 )
-ScalesAndAxes.displayName = 'ScalesAndAxes'

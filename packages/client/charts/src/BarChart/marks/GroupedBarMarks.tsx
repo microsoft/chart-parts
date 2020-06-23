@@ -30,7 +30,7 @@ const encodeY2: MarkEncoding<number> = ({ y }) => y(0)
 const encodeX2: MarkEncoding<number> = ({ x }) => x(0)
 
 export const GroupedBarMarks: React.FC<FillMarkProps> = memo(
-	({
+	function GroupedBarMarks({
 		onClick,
 		onMouseEnter,
 		onMouseLeave,
@@ -38,28 +38,28 @@ export const GroupedBarMarks: React.FC<FillMarkProps> = memo(
 		fillOpacity = DEFAULT_FILL_OPACITY,
 		stroke = DEFAULT_STROKE,
 		strokeWidth = DEFAULT_STROKE_WIDTH,
-	}) => (
-		<Rect
-			name="bars"
-			table="facet"
-			tabIndex={-1}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
-			onClick={onClick}
-			fill={fill}
-			fillOpacity={fillOpacity}
-			stroke={stroke}
-			strokeWidth={strokeWidth}
-			ariaTitle={encodeCategoryAriaTitle}
-			ariaDescription={encodeCategoryAriaDescription}
-			x={encodeX}
-			y={encodeY}
-			y2={encodeY2}
-			x2={encodeX2}
-			height={encodeHeight}
-			width={encodeWidth}
-		/>
-	),
+	}) {
+		return (
+			<Rect
+				name="bars"
+				table="facet"
+				tabIndex={-1}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				onClick={onClick}
+				fill={fill}
+				fillOpacity={fillOpacity}
+				stroke={stroke}
+				strokeWidth={strokeWidth}
+				ariaTitle={encodeCategoryAriaTitle}
+				ariaDescription={encodeCategoryAriaDescription}
+				x={encodeX}
+				y={encodeY}
+				y2={encodeY2}
+				x2={encodeX2}
+				height={encodeHeight}
+				width={encodeWidth}
+			/>
+		)
+	},
 )
-
-GroupedBarMarks.displayName = 'GroupedBarMarks'

@@ -7,12 +7,12 @@ import { AreaChartProps } from './types'
 import { StackedAreaChart } from './variants/StackedAreaChart'
 import { PlainAreaChart } from './variants/PlainAreaChart'
 
-export const AreaChart: React.FC<AreaChartProps> = memo(props => {
+export const AreaChart: React.FC<AreaChartProps> = memo(function AreaChart(
+	props,
+) {
 	if (props.groupBy) {
 		return <StackedAreaChart {...props} />
 	} else {
 		return <PlainAreaChart {...props} />
 	}
 })
-
-AreaChart.displayName = 'AreaChart'

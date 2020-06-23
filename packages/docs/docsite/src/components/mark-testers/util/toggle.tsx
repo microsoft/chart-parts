@@ -23,18 +23,23 @@ export interface ToggleProps {
 	onChange?: (value: boolean) => void
 }
 const DO_NOTHING = () => null
-export const Toggle: React.FC<ToggleProps> = memo(
-	({ name, value, onChange = DO_NOTHING }) => (
+export const Toggle: React.FC<ToggleProps> = memo(function Toggle({
+	name,
+	value,
+	onChange = DO_NOTHING,
+}) {
+	return (
 		<Container>
 			<NameColumn>{name}</NameColumn>
 			<InputColumn
 				type="checkbox"
 				name={name}
 				checked={value}
-				onChange={useCallback(evt => onChange(evt.target.checked), [onChange])}
+				onChange={useCallback((evt) => onChange(evt.target.checked), [
+					onChange,
+				])}
 			/>
 			<div>{value}</div>
 		</Container>
 	)
-)
-Toggle.displayName = 'Toggle'
+})

@@ -25,7 +25,7 @@ const exampleUrl = (name: string) =>
 	`https://codesandbox.io/embed/github/microsoft/chart-parts/tree/gh-pages/examples/${name}?fontsize=14`
 
 export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
-	({ name, component }) => {
+	function ExampleTabs({ name, component }) {
 		const ExampleComponent = useMemo(() => (chartIndex as any)[component], [
 			component,
 		])
@@ -54,7 +54,6 @@ export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
 		)
 	}
 )
-ExampleTabs.displayName = 'ExampleTabs'
 
 const Container = styled.div`
 	height: 100%;

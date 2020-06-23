@@ -32,7 +32,7 @@ const exData = [
 	{ key: 9, value: 25, c: 1 },
 ]
 
-export const LineChartTester: React.FC = () => {
+export const LineChartTester: React.FC = function LineChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XAxisProps')
@@ -69,4 +69,3 @@ export const LineChartTester: React.FC = () => {
 		</div>
 	)
 }
-LineChartTester.displayName = 'LineChartTester'

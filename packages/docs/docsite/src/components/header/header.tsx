@@ -20,54 +20,54 @@ export interface HeaderProps {
 
 export const HEIGHT = 60
 
-export const Header: React.FC<HeaderProps> = memo(
-	({ opacity = 1.0, showLinks = true }) => {
-		return (
-			<StaticQuery
-				query={graphql`
-					query {
-						site {
-							siteMetadata {
-								title
-								githubUrl
-							}
+export const Header: React.FC<HeaderProps> = memo(function Header({
+	opacity = 1.0,
+	showLinks = true,
+}) {
+	return (
+		<StaticQuery
+			query={graphql`
+				query {
+					site {
+						siteMetadata {
+							title
+							githubUrl
 						}
 					}
-				`}
-				render={({
-					site: {
-						siteMetadata: { githubUrl },
-					},
-				}: any) => {
-					const links = showLinks ? (
-						<>
-							<Links>
-								<InnerLink to="/">Home</InnerLink>
-								<InnerLink to="/documentation">Documentation</InnerLink>
-								<InnerLink to="/blog">Blog</InnerLink>
-								<OuterLink href={githubUrl}>Github</OuterLink>
-							</Links>
-						</>
-					) : (
-						<> </>
-					)
-					return (
-						<Container style={{ opacity }} className="header">
-							<InnerContainer>
-								<LogoContainer>
-									<Logo height={HEIGHT} />
-									<VersionIdentifier>v{libraryVersion}</VersionIdentifier>
-								</LogoContainer>
-								{links}
-							</InnerContainer>
-						</Container>
-					)
-				}}
-			/>
-		)
-	}
-)
-Header.displayName = 'Header'
+				}
+			`}
+			render={({
+				site: {
+					siteMetadata: { githubUrl },
+				},
+			}: any) => {
+				const links = showLinks ? (
+					<>
+						<Links>
+							<InnerLink to="/">Home</InnerLink>
+							<InnerLink to="/documentation">Documentation</InnerLink>
+							<InnerLink to="/blog">Blog</InnerLink>
+							<OuterLink href={githubUrl}>Github</OuterLink>
+						</Links>
+					</>
+				) : (
+					<> </>
+				)
+				return (
+					<Container style={{ opacity }} className="header">
+						<InnerContainer>
+							<LogoContainer>
+								<Logo height={HEIGHT} />
+								<VersionIdentifier>v{libraryVersion}</VersionIdentifier>
+							</LogoContainer>
+							{links}
+						</InnerContainer>
+					</Container>
+				)
+			}}
+		/>
+	)
+})
 
 const Container = styled.div`
 	background: ${theme.backgrounds.header};

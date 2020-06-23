@@ -22,7 +22,7 @@ import { StackedBarMarks } from '../marks/StackedBarMarks'
 const Container = createChartContainer('Stacked Bar Chart')
 
 export const StackedBarChart: React.FC<BarChartProps> = memo(
-	({
+	function StackedBarChart({
 		data,
 		height,
 		width,
@@ -36,7 +36,7 @@ export const StackedBarChart: React.FC<BarChartProps> = memo(
 		xAxisProps,
 		yAxisProps,
 		...props
-	}) => {
+	}) {
 		const orientationKey = useChartOrientation(orientation)
 		return (
 			<Container
@@ -63,14 +63,13 @@ export const StackedBarChart: React.FC<BarChartProps> = memo(
 		)
 	},
 )
-StackedBarChart.displayName = 'StackedBarChart'
 
 function useChartData(
 	groupBy: string | undefined,
 	orientation: Orientation | undefined,
 	data: any[],
 ) {
-	const dataGrouped = useGroupData(groupBy, data, orientation)
+	const dataGrouped = useGroupData(groupBy, data)
 	const dataMapping = useMemo(() => {
 		const ds = dataset().addTable(
 			'data',
@@ -93,7 +92,12 @@ interface ScalesAndAxisProps {
 }
 
 const ScalesAndAxis: React.FC<ScalesAndAxisProps> = memo(
-	({ orientation, bandScaleProps, xAxisProps, yAxisProps }) => {
+	function ScalesAndAxis({
+		orientation,
+		bandScaleProps,
+		xAxisProps,
+		yAxisProps,
+	}) {
 		if (orientation === Orientation.vertical) {
 			return (
 				<>
@@ -152,5 +156,3 @@ const ScalesAndAxis: React.FC<ScalesAndAxisProps> = memo(
 		)
 	},
 )
-
-ScalesAndAxis.displayName = 'ScalesAndAxis'

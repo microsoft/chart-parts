@@ -23,7 +23,7 @@ export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,
 ): React.FC<T> {
-	const Result: React.FC<T> = props => {
+	const Result: React.FC<T> = function (props) {
 		const { children, table, name, role } = props
 		const scene = useContext(SceneBuilderContext)
 		const mark = useMemo(() => newMark(markType), [])

@@ -26,7 +26,7 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChartBuilder: React.FC = memo(() => {
+export const BarChartBuilder: React.FC = memo(function BarChartBuilder() {
 	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
 	const isHovered = useCallback((index: number) => hoverRowIndex === index, [
 		hoverRowIndex,
@@ -85,5 +85,3 @@ export const BarChartBuilder: React.FC = memo(() => {
 		{ data },
 	)
 })
-
-BarChartBuilder.displayName = 'BarChartBuilder'

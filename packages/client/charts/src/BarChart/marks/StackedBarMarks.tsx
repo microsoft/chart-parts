@@ -27,7 +27,7 @@ const encodeY: MarkEncoding<number> = ({ d, yVertical, yHorizontal }) =>
 	yHorizontal ? yHorizontal(d._category) : yVertical(d.y0)
 
 export const StackedBarMarks: React.FC<StackedBarMarksProps> = memo(
-	({
+	function StackedBarMarks({
 		onClick,
 		onMouseEnter,
 		onMouseLeave,
@@ -36,28 +36,28 @@ export const StackedBarMarks: React.FC<StackedBarMarksProps> = memo(
 		stroke = DEFAULT_STROKE,
 		strokeWidth = DEFAULT_STROKE_WIDTH,
 		barPadding = DEFAULT_BAR_PADDING,
-	}) => (
-		<Rect
-			table="data"
-			tabIndex={-1}
-			fill={fill}
-			fillOpacity={fillOpacity}
-			stroke={stroke}
-			strokeWidth={strokeWidth}
-			onClick={onClick}
-			onMouseEnter={onMouseEnter}
-			onMouseLeave={onMouseLeave}
-			ariaTitle={encodeCategoryAriaTitle}
-			ariaDescription={encodeCategoryAriaDescription}
-			x={encodeX}
-			y={encodeY}
-			y2={useY2Encoding(barPadding)}
-			x2={useX2Encoding(barPadding)}
-		/>
-	),
+	}) {
+		return (
+			<Rect
+				table="data"
+				tabIndex={-1}
+				fill={fill}
+				fillOpacity={fillOpacity}
+				stroke={stroke}
+				strokeWidth={strokeWidth}
+				onClick={onClick}
+				onMouseEnter={onMouseEnter}
+				onMouseLeave={onMouseLeave}
+				ariaTitle={encodeCategoryAriaTitle}
+				ariaDescription={encodeCategoryAriaDescription}
+				x={encodeX}
+				y={encodeY}
+				y2={useY2Encoding(barPadding)}
+				x2={useX2Encoding(barPadding)}
+			/>
+		)
+	},
 )
-
-StackedBarMarks.displayName = 'StackBarMarks'
 
 function useY2Encoding(barPadding: number): MarkEncoding<number> {
 	return useCallback(

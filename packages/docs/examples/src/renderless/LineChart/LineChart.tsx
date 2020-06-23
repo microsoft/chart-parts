@@ -42,32 +42,39 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const LineChart: React.FC = memo(() => (
-	<Chart width={500} height={200} padding={5} data={{ data }}>
-		<PointScale
-			name="x"
-			stepName="xStep"
-			domain="data.x"
-			range={Dimension.Width}
-		/>
-		<LinearScale name="y" domain="data.y" range={Dimension.Height} nice zero />
-		<OrdinalScale
-			name="color"
-			domain="data.c"
-			colorScheme={CategoricalColorScheme.category10}
-		/>
-		<Axis orient={AxisOrientation.Bottom} scale="x" />
-		<Axis orient={AxisOrientation.Left} scale="y" />
-
-		<Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
-			<Line
-				table="facetedData"
-				x={({ d, x }) => x(d.x)}
-				y={({ d, y }) => y(d.y)}
-				stroke={({ d, color }) => color(d.c)}
-				strokeWidth={2}
+export const LineChart: React.FC = memo(function LineChart() {
+	return (
+		<Chart width={500} height={200} padding={5} data={{ data }}>
+			<PointScale
+				name="x"
+				stepName="xStep"
+				domain="data.x"
+				range={Dimension.Width}
 			/>
-		</Group>
-	</Chart>
-))
-LineChart.displayName = 'LineChart'
+			<LinearScale
+				name="y"
+				domain="data.y"
+				range={Dimension.Height}
+				nice
+				zero
+			/>
+			<OrdinalScale
+				name="color"
+				domain="data.c"
+				colorScheme={CategoricalColorScheme.category10}
+			/>
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
+
+			<Group table="data" facet={{ groupBy: 'c', name: 'facetedData' }}>
+				<Line
+					table="facetedData"
+					x={({ d, x }) => x(d.x)}
+					y={({ d, y }) => y(d.y)}
+					stroke={({ d, color }) => color(d.c)}
+					strokeWidth={2}
+				/>
+			</Group>
+		</Chart>
+	)
+})

@@ -14,7 +14,7 @@ import { BarChartProps } from '../types'
 const Container = createChartContainer('Bar Chart')
 
 export const PlainBarChart: React.FC<BarChartProps> = memo(
-	({
+	function PlainBarChart({
 		data,
 		height,
 		width,
@@ -27,7 +27,7 @@ export const PlainBarChart: React.FC<BarChartProps> = memo(
 		xAxisProps,
 		yAxisProps,
 		...props
-	}) => {
+	}) {
 		const orientationKey = useChartOrientation(orientation)
 		const dataMapping = useBarData(data, orientationKey)
 		const dataset = useMemo(() => ({ data: dataMapping }), [dataMapping])
@@ -58,14 +58,12 @@ export const PlainBarChart: React.FC<BarChartProps> = memo(
 	},
 )
 
-PlainBarChart.displayName = 'PlainBarChart'
-
 interface BarChartScalesProps {
 	orientation?: Orientation
 	bandScaleProps?: BandScaleProps
 }
 const BarChartScales: React.FC<BarChartScalesProps> = memo(
-	({ orientation, bandScaleProps }) => {
+	function BarChartScales({ orientation, bandScaleProps }) {
 		const isVertical = useMemo(() => orientation === Orientation.vertical, [
 			orientation,
 		])
@@ -103,5 +101,3 @@ const BarChartScales: React.FC<BarChartScalesProps> = memo(
 		)
 	},
 )
-
-BarChartScales.displayName = 'BarChartScales'

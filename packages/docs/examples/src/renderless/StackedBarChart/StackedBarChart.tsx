@@ -46,7 +46,7 @@ const ds = dataset().addTable(
 /**
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
  */
-export const StackedBarChart: React.FC = memo(() => {
+export const StackedBarChart: React.FC = memo(function StackedBarChart() {
 	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
 	return (
 		<Chart
@@ -103,4 +103,3 @@ export const StackedBarChart: React.FC = memo(() => {
 		</Chart>
 	)
 })
-StackedBarChart.displayName = 'StackedBarChart'

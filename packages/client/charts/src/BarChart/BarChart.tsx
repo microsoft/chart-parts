@@ -8,7 +8,7 @@ import { StackedBarChart } from './variants/StackedBarChart'
 import { GroupedBarChart } from './variants/GroupedBarChart'
 import { PlainBarChart } from './variants/PlainBarChart'
 
-export const BarChart: React.FC<BarChartProps> = memo(props => {
+export const BarChart: React.FC<BarChartProps> = memo(function BarChart(props) {
 	if (props.groupBy && props.stacked) {
 		return <StackedBarChart {...props} />
 	} else if (props.groupBy) {
@@ -17,5 +17,3 @@ export const BarChart: React.FC<BarChartProps> = memo(props => {
 		return <PlainBarChart {...props} />
 	}
 })
-
-BarChart.displayName = 'BarChart'

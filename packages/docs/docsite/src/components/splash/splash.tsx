@@ -12,7 +12,7 @@ import { SplashContent } from './splashcontent'
 // @ts-ignore
 import useDimensions from 'react-use-dimensions'
 
-const IndexPage: React.FC = memo(() => {
+const IndexPage: React.FC = memo(function IndexPage() {
 	const [
 		containerElement,
 		setContainerElement,
@@ -58,5 +58,4 @@ const TitleContainer = styled.div`
 	opacity: 0;
 `
 
-IndexPage.displayName = 'Splash'
 export default IndexPage

@@ -13,25 +13,26 @@ export interface ArrowStripProps {
 	style?: React.CSSProperties
 	className?: string
 }
-export const ArrowStrip: React.FC<ArrowStripProps> = memo(
-	({ fadePercent, style: inputStyle, className }) => {
-		const opacity = useRotatingOpacity()
-		const style = useMemo(
-			() => ({ ...inputStyle, opacity: 1.0 - fadePercent }),
-			[fadePercent, inputStyle]
-		)
-		return (
-			<ArrowStripContainer className={className} style={style}>
-				<ArrowIcon color="white" opacity={(opacity + 0.9) % 1.0} />
-				<ArrowIcon color="white" opacity={(opacity + 0.7) % 1.0} />
-				<ArrowIcon color="white" opacity={(opacity + 0.5) % 1.0} />
-				<ArrowIcon color="white" opacity={(opacity + 0.3) % 1.0} />
-				<ArrowIcon color="white" opacity={(opacity + 0.1) % 1.0} />
-			</ArrowStripContainer>
-		)
-	}
-)
-ArrowStrip.displayName = 'ArrowStrip'
+export const ArrowStrip: React.FC<ArrowStripProps> = memo(function ArrowStrip({
+	fadePercent,
+	style: inputStyle,
+	className,
+}) {
+	const opacity = useRotatingOpacity()
+	const style = useMemo(() => ({ ...inputStyle, opacity: 1.0 - fadePercent }), [
+		fadePercent,
+		inputStyle,
+	])
+	return (
+		<ArrowStripContainer className={className} style={style}>
+			<ArrowIcon color="white" opacity={(opacity + 0.9) % 1.0} />
+			<ArrowIcon color="white" opacity={(opacity + 0.7) % 1.0} />
+			<ArrowIcon color="white" opacity={(opacity + 0.5) % 1.0} />
+			<ArrowIcon color="white" opacity={(opacity + 0.3) % 1.0} />
+			<ArrowIcon color="white" opacity={(opacity + 0.1) % 1.0} />
+		</ArrowStripContainer>
+	)
+})
 
 const ArrowStripContainer = styled.div`
 	display: flex;

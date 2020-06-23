@@ -24,7 +24,7 @@ for (let month = 1; month <= 12; ++month) {
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChartUtcBuilder: React.FC = memo(() => {
+export const BarChartUtcBuilder: React.FC = memo(function BarChartUtcBuilder() {
 	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
 	const isHovered = useCallback((index: number) => hoverRowIndex === index, [
 		hoverRowIndex,
@@ -92,4 +92,3 @@ export const BarChartUtcBuilder: React.FC = memo(() => {
 		{ data },
 	)
 })
-BarChartUtcBuilder.displayName = 'BarChartUtcBuilder'

@@ -23,16 +23,16 @@ const encodeX2: MarkEncoding<number> = ({ x }) => x(0)
 const encodeHeight: MarkEncoding<number> = ({ band }) => band()
 const encodeWidth: MarkEncoding<number> = ({ band }) => band()
 
-export const BarMarks: React.FC<FillMarkProps> = memo(
-	({
-		onMouseEnter,
-		onMouseLeave,
-		onClick,
-		fill = DEFAULT_FILL,
-		fillOpacity = DEFAULT_FILL_OPACITY,
-		stroke = DEFAULT_STROKE,
-		strokeWidth = DEFAULT_STROKE_WIDTH,
-	}) => (
+export const BarMarks: React.FC<FillMarkProps> = memo(function BarMarks({
+	onMouseEnter,
+	onMouseLeave,
+	onClick,
+	fill = DEFAULT_FILL,
+	fillOpacity = DEFAULT_FILL_OPACITY,
+	stroke = DEFAULT_STROKE,
+	strokeWidth = DEFAULT_STROKE_WIDTH,
+}) {
+	return (
 		<Rect
 			table="data"
 			tabIndex={-1}
@@ -52,6 +52,5 @@ export const BarMarks: React.FC<FillMarkProps> = memo(
 			ariaTitle={encodeCategoryAriaTitle}
 			ariaDescription={encodeCategoryAriaDescription}
 		/>
-	),
-)
-BarMarks.displayName = 'BarMarks'
+	)
+})

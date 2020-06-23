@@ -25,7 +25,7 @@ export interface CircleMarksProps extends FillMarkProps {
 }
 
 export const CircleMarks: React.FC<CircleMarksProps> = memo(
-	({
+	function CircleMarks({
 		onMouseEnter,
 		onMouseLeave,
 		onClick,
@@ -34,7 +34,7 @@ export const CircleMarks: React.FC<CircleMarksProps> = memo(
 		stroke = DEFAULT_STROKE,
 		strokeWidth = DEFAULT_STROKE_WIDTH,
 		radius = DEFAULT_RADIUS,
-	}) => {
+	}) {
 		return (
 			<Circle
 				table="data"
@@ -56,5 +56,3 @@ export const CircleMarks: React.FC<CircleMarksProps> = memo(
 		)
 	},
 )
-
-CircleMarks.displayName = 'CircleMarks'

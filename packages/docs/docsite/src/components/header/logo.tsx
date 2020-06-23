@@ -10,7 +10,7 @@ interface LogoProps {
 }
 
 // logo used for header component
-const Logo: React.FC<LogoProps> = memo(({ height }) => {
+const Logo: React.FC<LogoProps> = memo(function Logo({ height }) {
 	return (
 		<svg
 			version="1.1"
@@ -203,7 +203,5 @@ const Logo: React.FC<LogoProps> = memo(({ height }) => {
 		</svg>
 	)
 })
-
-Logo.displayName = 'Logo'
 
 export default Logo

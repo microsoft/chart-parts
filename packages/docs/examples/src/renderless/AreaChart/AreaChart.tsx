@@ -32,27 +32,34 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const AreaChart: React.FC = memo(() => (
-	<Chart width={500} height={200} padding={8} data={{ data }}>
-		<LinearScale
-			name="x"
-			domain="data.u"
-			range={Dimension.Width}
-			zero={false}
-		/>
-		<LinearScale name="y" domain="data.v" range={Dimension.Height} nice zero />
+export const AreaChart: React.FC = memo(function AreaChart() {
+	return (
+		<Chart width={500} height={200} padding={8} data={{ data }}>
+			<LinearScale
+				name="x"
+				domain="data.u"
+				range={Dimension.Width}
+				zero={false}
+			/>
+			<LinearScale
+				name="y"
+				domain="data.v"
+				range={Dimension.Height}
+				nice
+				zero
+			/>
 
-		<Axis orient={AxisOrientation.Bottom} scale="x" tickCount={20} />
-		<Axis orient={AxisOrientation.Left} scale="y" />
+			<Axis orient={AxisOrientation.Bottom} scale="x" tickCount={20} />
+			<Axis orient={AxisOrientation.Left} scale="y" />
 
-		<Area
-			table="data"
-			x={({ d, x }: any) => x(d.u)}
-			y={({ d, y }: any) => y(d.v)}
-			y2={({ y }: any) => y(0)}
-			fill="steelblue"
-			interpolate={Interpolation.Monotone}
-		/>
-	</Chart>
-))
-AreaChart.displayName = 'AreaChart'
+			<Area
+				table="data"
+				x={({ d, x }: any) => x(d.u)}
+				y={({ d, y }: any) => y(d.v)}
+				y2={({ y }: any) => y(0)}
+				fill="steelblue"
+				interpolate={Interpolation.Monotone}
+			/>
+		</Chart>
+	)
+})

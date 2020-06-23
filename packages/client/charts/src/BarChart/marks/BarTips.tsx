@@ -20,24 +20,24 @@ export interface BarTipsProps {
 	text?: MarkEncoding<string>
 }
 
-export const BarTips: React.FC<BarTipsProps> = memo(
-	({ index, fill = DEFAULT_FILL, text = DEFAULT_TEXT }) => {
-		const encodeX = useXEncoding(index)
-		const encodeY = useYEncoding(index)
-		return index == null ? null : (
-			<Text
-				text={text}
-				fill={fill}
-				x={encodeX}
-				y={encodeY}
-				baseline={VerticalTextAlignment.Alphabetic}
-				align={HorizontalAlignment.Center}
-			/>
-		)
-	},
-)
-
-BarTips.displayName = 'BarTips'
+export const BarTips: React.FC<BarTipsProps> = memo(function BarTips({
+	index,
+	fill = DEFAULT_FILL,
+	text = DEFAULT_TEXT,
+}) {
+	const encodeX = useXEncoding(index)
+	const encodeY = useYEncoding(index)
+	return index == null ? null : (
+		<Text
+			text={text}
+			fill={fill}
+			x={encodeX}
+			y={encodeY}
+			baseline={VerticalTextAlignment.Alphabetic}
+			align={HorizontalAlignment.Center}
+		/>
+	)
+})
 
 function useXEncoding(index = 0): MarkEncoding<number> {
 	return useCallback(

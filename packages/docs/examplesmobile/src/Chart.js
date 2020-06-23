@@ -12,15 +12,15 @@ const pipeline = new Orchestrator(new Renderer());
 const renderChart = (chart) =>
 	pipeline.renderScenegraph(chart.scenegraph, chart.dimensions);
 
-const Chart = () => (
-	<FlatList
-		style={{flex: 1}}
-		data={testCharts}
-		keyExtractor={(item) => item.title}
-		renderItem={({item}) => (
-			<View style={{height: 500, width: 500}}>{renderChart(item)}</View>
-		)}
-	/>
-);
-Chart.displayName = 'Chart';
-export default Chart;
+export default function Chart() {
+	return (
+		<FlatList
+			style={{flex: 1}}
+			data={testCharts}
+			keyExtractor={(item) => item.title}
+			renderItem={({item}) => (
+				<View style={{height: 500, width: 500}}>{renderChart(item)}</View>
+			)}
+		/>
+	);
+}

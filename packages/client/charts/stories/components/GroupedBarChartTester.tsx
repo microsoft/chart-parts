@@ -25,7 +25,7 @@ const exData = [
 	{ category: 'C', key: '11', value: 0.7 },
 ]
 
-export const GroupedBarChartTester: React.FC = () => {
+export const GroupedBarChartTester: React.FC = function GroupedBarChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')
@@ -62,4 +62,3 @@ export const GroupedBarChartTester: React.FC = () => {
 		</div>
 	)
 }
-GroupedBarChartTester.displayName = 'GroupedBarChartTester'
