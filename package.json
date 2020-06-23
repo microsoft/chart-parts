@@ -9,7 +9,8 @@
 		"release:packages": "lerna run release --stream",
 		"lint": "essex lint --strict --docs",
 		"unit_test": "essex test --coverage",
-		"ci": "run-s lint build unit_test test:packages",
+		"git_is_clean": "essex git-is-clean",
+		"ci": "run-s lint build unit_test test:packages git_is_clean",
 		"publish_libs": "lerna publish",
 		"changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
 		"release": "run-s clean test publish_libs changelog release:packages"
@@ -20,9 +21,9 @@
 	"devDependencies": {
 		"@essex/eslint-config": "^7.0.3",
 		"@essex/eslint-plugin": "^7.0.3",
-		"@essex/scripts": "^7.0.4",
-		"@typescript-eslint/eslint-plugin": "^3.1.0",
-		"@typescript-eslint/parser": "^3.1.0",
+		"@essex/scripts": "^7.3.0",
+		"@typescript-eslint/eslint-plugin": "^3.4.0",
+		"@typescript-eslint/parser": "^3.4.0",
 		"conventional-changelog-cli": "^2.0.23",
 		"cross-env": "^7.0.2",
 		"jest-html": "^1.5.0",
