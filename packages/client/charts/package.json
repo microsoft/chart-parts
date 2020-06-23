@@ -1,6 +1,6 @@
 {
 	"name": "@chart-parts/charts",
-	"version": "0.0.0",
+	"version": "0.1.3",
 	"description": "Constructed chart archetypes for chart-parts",
 	"author": "Amber Hoak (amhoak@microsoft.com)",
 	"main": "dist/cjs/index.js",
