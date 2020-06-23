@@ -41,7 +41,7 @@ const styles: Record<string, React.CSSProperties> = {
   yearPickerContainer: { margin: 10, display: 'flex', alignItems: 'center' },
 }
 
-export const PopulationPyramid: React.FC = memo(() => {
+export const PopulationPyramid: React.FC = memo(function PopulationPyramid() {
   const [year, setYear] = useState(2000)
   const handleYearChanged = useCallback(
     (arg: React.ChangeEvent<any>) => {
@@ -82,98 +82,108 @@ export const PopulationPyramid: React.FC = memo(() => {
     </div>
   )
 })
-PopulationPyramid.displayName = 'PopulationPyramid'
 
 interface YearPickerProps {
   year: number
   onChange: (arg: React.ChangeEvent<HTMLInputElement>) => void
 }
-const YearPicker: React.FC<YearPickerProps> = ({ year, onChange }) => (
-  <div style={styles.yearPickerContainer}>
-    <input
-      type="range"
-      min="1850"
-      max="2000"
-      step="10"
-      value={year}
-      onChange={onChange}
-    />
-    <p>{year}</p>
-  </div>
-)
-YearPicker.displayName = 'YearPicker'
+const YearPicker: React.FC<YearPickerProps> = function YearPicker({
+  year,
+  onChange,
+}) {
+  return (
+    <div style={styles.yearPickerContainer}>
+      <input
+        type="range"
+        min="1850"
+        max="2000"
+        step="10"
+        value={year}
+        onChange={onChange}
+      />
+      <p>{year}</p>
+    </div>
+  )
+}
 
 interface PyramidChartProps {
   data: { [key: string]: any[] }
 }
-const PyramidChart: React.FC<PyramidChartProps> = ({ data }) => (
-  <Chart
-    width={chartWidth}
-    height={chartHeight}
-    padding={chartPadding}
-    data={data}
-  >
-    <ChartScales />
-    <AgeLabels />
-    <MPerYear />
-    <FPerYear />
-  </Chart>
-)
-PyramidChart.displayName = 'PyramidChart'
+const PyramidChart: React.FC<PyramidChartProps> = function PyramidChart({
+  data,
+}) {
+  return (
+    <Chart
+      width={chartWidth}
+      height={chartHeight}
+      padding={chartPadding}
+      data={data}
+    >
+      <ChartScales />
+      <AgeLabels />
+      <MPerYear />
+      <FPerYear />
+    </Chart>
+  )
+}
 
-const ChartScales: React.FC = () => (
-  <>
-    <BandScale
-      name="y"
-      bandWidth="yband"
-      range={useCallback(
-        (arg: ScaleCreationContext) =>
-          [arg.view.height - AXIS_THICKNESS, 0] as [number, number],
-        []
-      )}
-      domain="ageGroups.age"
-      padding={0.1}
-      round
+const ChartScales: React.FC = function ChartScales() {
+  return (
+    <>
+      <BandScale
+        name="y"
+        bandWidth="yband"
+        range={useCallback(
+          (arg: ScaleCreationContext) =>
+            [arg.view.height - AXIS_THICKNESS, 0] as [number, number],
+          []
+        )}
+        domain="ageGroups.age"
+        padding={0.1}
+        round
+      />
+      <OrdinalScale
+        name="c"
+        domain={useMemo(() => ['1', '2'], [])}
+        range={useMemo(() => ['#1f77b4', '#e377c2'], [])}
+      />
+    </>
+  )
+}
+
+const AgeLabels: React.FC = memo(function AgeLabels() {
+  return (
+    <Text
+      table="ageGroups"
+      x={chartSegmentWidth + textLineWidth / 2}
+      y={useCallback(({ d, y, yband }) => y(d.age) + yband() / 2, [])}
+      text={useCallback(({ d }) => d.age, [])}
+      baseline={VerticalTextAlignment.Middle}
+      align={HorizontalAlignment.Center}
+      fill="#000"
     />
-    <OrdinalScale
-      name="c"
-      domain={useMemo(() => ['1', '2'], [])}
-      range={useMemo(() => ['#1f77b4', '#e377c2'], [])}
+  )
+})
+
+const FPerYear: React.FC = memo(function FPerYear() {
+  return (
+    <GenderPerYearSection
+      xStart={0}
+      table="females"
+      xRange={[chartSegmentWidth, 0]}
     />
-  </>
-)
-ChartScales.displayName = 'ChartScales'
+  )
+})
 
-const AgeLabels: React.FC = memo(() => (
-  <Text
-    table="ageGroups"
-    x={chartSegmentWidth + textLineWidth / 2}
-    y={useCallback(({ d, y, yband }) => y(d.age) + yband() / 2, [])}
-    text={useCallback(({ d }) => d.age, [])}
-    baseline={VerticalTextAlignment.Middle}
-    align={HorizontalAlignment.Center}
-    fill="#000"
-  />
-))
-AgeLabels.displayName = 'AgeLabels'
-
-const FPerYear: React.FC = memo(() => (
-  <GenderPerYearSection
-    xStart={0}
-    table="females"
-    xRange={[chartSegmentWidth, 0]}
-  />
-))
-FPerYear.displayName = 'FPerYear'
-
-const MPerYear: React.FC = memo(() => (
-  <GenderPerYearSection
-    table="males"
-    xStart={chartSegmentWidth + textLineWidth}
-    xRange={[0, chartSegmentWidth]}
-  />
-))
-MPerYear.displayName = 'MPerYear'
+const MPerYear: React.FC = memo(function MPerYear() {
+  return (
+    <GenderPerYearSection
+      table="males"
+      xStart={chartSegmentWidth + textLineWidth}
+      xRange={[0, chartSegmentWidth]}
+    />
+  )
+})
 
 interface GenderPerYearSectionProps {
   table: string
@@ -181,46 +191,48 @@ interface GenderPerYearSectionProps {
   xStart: number
 }
 const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = memo(
-  ({ table, xRange, xStart }) => (
-    <Group
-      x={xStart}
-      height={useCallback(({ view }) => view.height, [])}
-      width={chartSegmentWidth}
-    >
-      <LinearScale
-        domain="population.people"
-        range={xRange}
-        name="x"
-        nice
-        zero
-      />
-      <Axis
-        orient={AxisOrientation.Bottom}
-        scale="x"
-        labelFormat="~s"
-        thickness={AXIS_THICKNESS}
-      />
-      <GenderPerYearRect table={table} />
-    </Group>
-  )
+  function GenderPerYearSection({ table, xRange, xStart }) {
+    return (
+      <Group
+        x={xStart}
+        height={useCallback(({ view }) => view.height, [])}
+        width={chartSegmentWidth}
+      >
+        <LinearScale
+          domain="population.people"
+          range={xRange}
+          name="x"
+          nice
+          zero
+        />
+        <Axis
+          orient={AxisOrientation.Bottom}
+          scale="x"
+          labelFormat="~s"
+          thickness={AXIS_THICKNESS}
+        />
+        <GenderPerYearRect table={table} />
+      </Group>
+    )
+  }
 )
-GenderPerYearSection.displayName = 'GenderPerYearSection'
 
 interface GenderPerYearRectProps {
   table: string
 }
 
 const GenderPerYearRect: React.FC<GenderPerYearRectProps> = memo(
-  ({ table }) => (
-    <Rect
-      table={table}
-      x={useCallback(({ d, x }) => x(d.people), [])}
-      x2={useCallback(({ x }) => x(0), [])}
-      y={useCallback(({ d, y }) => y(d.age), [])}
-      height={useCallback(({ yband }) => yband(), [])}
-      fillOpacity={0.6}
-      fill={useCallback(({ d, c }) => c(d.sex), [])}
-    />
-  )
+  function GenderPerYearRect({ table }) {
+    return (
+      <Rect
+        table={table}
+        x={useCallback(({ d, x }) => x(d.people), [])}
+        x2={useCallback(({ x }) => x(0), [])}
+        y={useCallback(({ d, y }) => y(d.age), [])}
+        height={useCallback(({ yband }) => yband(), [])}
+        fillOpacity={0.6}
+        fill={useCallback(({ d, c }) => c(d.sex), [])}
+      />
+    )
+  }
 )
-GenderPerYearRect.displayName = 'GenderPerYearRect'

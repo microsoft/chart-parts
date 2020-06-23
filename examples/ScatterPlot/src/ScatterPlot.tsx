@@ -23,7 +23,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 }
 
-export const ScatterPlot: React.FC = memo(() => {
+export const ScatterPlot: React.FC = memo(function ScatterPlot() {
   const [yField, setYField] = useState(FIELDS[0])
   const [xField, setXField] = useState(FIELDS[1])
 
@@ -49,4 +49,3 @@ export const ScatterPlot: React.FC = memo(() => {
     </div>
   )
 })
-ScatterPlot.displayName = 'ScatterPlot'

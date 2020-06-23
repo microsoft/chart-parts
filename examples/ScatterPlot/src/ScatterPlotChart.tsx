@@ -25,7 +25,7 @@ const NULL_SIZE = 8
  * Based off of https://vega.github.io/vega/examples/scatter-plot-null-values/
  */
 export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
-  ({ xField, yField }) => {
+  function ScatterPlotChart({ xField, yField }) {
     const dataset = useDataset(xField, yField)
 
     const encodeX = useCallback(({ d, x }) => x(d[xField]), [xField])
@@ -87,7 +87,6 @@ export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
     )
   }
 )
-ScatterPlotChart.displayName = 'ScatterPlotChart'
 
 function useDataset(xField: string, yField: string) {
   return useMemo(() => {
