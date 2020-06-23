@@ -14,24 +14,25 @@ export interface DocProps {
 	}
 }
 
-const Doc: React.FC<DocProps> = memo(({ docPage }) => (
-	<TextContainer>
-		<Gutter />
-		<TextContent>
-			<PageToc toc={docPage.tableOfContents} />
-			{renderAst(docPage.htmlAst)}
-		</TextContent>
-		<Gutter />
-	</TextContainer>
-))
-Doc.displayName = 'Doc'
+const Doc: React.FC<DocProps> = memo(function Doc({ docPage }) {
+	return (
+		<TextContainer>
+			<Gutter />
+			<TextContent>
+				<PageToc toc={docPage.tableOfContents} />
+				{renderAst(docPage.htmlAst)}
+			</TextContent>
+			<Gutter />
+		</TextContainer>
+	)
+})
 
 export default Doc
 
 interface PageTocProps {
 	toc: string
 }
-const PageToc: React.FC<PageTocProps> = memo(({ toc }) => {
+const PageToc: React.FC<PageTocProps> = memo(function PageToc({ toc }) {
 	const tocMarkup = useMemo(() => ({ __html: toc }), [toc])
 	if (toc.indexOf('li') === -1) {
 		return null
@@ -43,7 +44,6 @@ const PageToc: React.FC<PageTocProps> = memo(({ toc }) => {
 		</TocContainer>
 	)
 })
-PageToc.displayName = 'PageToc'
 
 const TocContainer = styled.div`
 	width: 100%;

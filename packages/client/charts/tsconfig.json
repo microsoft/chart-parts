@@ -1,0 +1,17 @@
+{
+	"compilerOptions": {
+		"target": "esnext",
+		"module": "esnext",
+		"moduleResolution": "node",
+		"jsx": "react",
+		"lib": ["dom", "esnext"],
+		"declaration": true,
+		"outDir": "lib",
+		"allowSyntheticDefaultImports": true,
+		"incremental": true,
+		"tsBuildInfoFile": "dist/.tsbuildinfo",
+		"declarationDir": "dist/esm/",
+		"strict": true
+	},
+	"files": ["src/index.ts"]
+}

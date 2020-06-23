@@ -23,38 +23,35 @@ export interface SliderProps {
 	onChange?: (value: number | string) => void
 }
 const DO_NOTHING = () => null
-export const Slider: React.FC<SliderProps> = memo(
-	({
-		name,
-		min = 0,
-		max = 200,
-		value: defaultValue = 0,
-		step = 1,
-		onChange = DO_NOTHING,
-	}) => {
-		const [value, setValue] = useState(defaultValue)
-		const handleChange = useCallback(
-			evt => {
-				setValue(evt.target.value)
-				onChange(evt.target.value)
-			},
-			[onChange]
-		)
-		return (
-			<Container>
-				<NameColumn>{name}</NameColumn>
-				<input
-					type="range"
-					name={name}
-					value={value}
-					min={min}
-					max={max}
-					step={step}
-					onChange={handleChange}
-				/>
-				<div>{value}</div>
-			</Container>
-		)
-	}
-)
-Slider.displayName = 'Slider'
+export const Slider: React.FC<SliderProps> = memo(function Slider({
+	name,
+	min = 0,
+	max = 200,
+	value: defaultValue = 0,
+	step = 1,
+	onChange = DO_NOTHING,
+}) {
+	const [value, setValue] = useState(defaultValue)
+	const handleChange = useCallback(
+		(evt) => {
+			setValue(evt.target.value)
+			onChange(evt.target.value)
+		},
+		[onChange]
+	)
+	return (
+		<Container>
+			<NameColumn>{name}</NameColumn>
+			<input
+				type="range"
+				name={name}
+				value={value}
+				min={min}
+				max={max}
+				step={step}
+				onChange={handleChange}
+			/>
+			<div>{value}</div>
+		</Container>
+	)
+})

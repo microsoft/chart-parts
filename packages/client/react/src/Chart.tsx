@@ -47,28 +47,32 @@ export interface ChartProps {
  * The Chart Component, the root of all charts
  * @category Chart
  */
-export const Chart: React.FC<ChartProps> = memo(
-	({ data, children, width, height, padding, title, description }) => {
-		const chartOptions = useChartOptions(
-			width,
-			height,
-			padding,
-			title,
-			description,
-		)
-		const [rendered, builder] = useScene(chartOptions, data)
-		return (
-			<>
-				<SceneBuilderContext.Provider value={builder}>
-					{children}
-				</SceneBuilderContext.Provider>
-				{rendered}
-			</>
-		)
-	},
-)
-
-Chart.displayName = 'Chart'
+export const Chart: React.FC<ChartProps> = memo(function Chart({
+	data,
+	children,
+	width,
+	height,
+	padding,
+	title,
+	description,
+}) {
+	const chartOptions = useChartOptions(
+		width,
+		height,
+		padding,
+		title,
+		description,
+	)
+	const [rendered, builder] = useScene(chartOptions, data)
+	return (
+		<>
+			<SceneBuilderContext.Provider value={builder}>
+				{children}
+			</SceneBuilderContext.Provider>
+			{rendered}
+		</>
+	)
+})
 
 function useChartOptions(
 	width: number,

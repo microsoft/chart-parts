@@ -14,7 +14,7 @@ export interface SplashContentProps {
 	animationComplete: boolean
 }
 export const SplashContent: React.FC<SplashContentProps> = memo(
-	({ animationComplete }) => {
+	function SplashContent({ animationComplete }) {
 		const docRef = useRef<HTMLDivElement>(null)
 		const blogRef = useRef<HTMLDivElement>(null)
 		const sourceRef = useRef<HTMLDivElement>(null)
@@ -82,8 +82,6 @@ export const SplashContent: React.FC<SplashContentProps> = memo(
 		)
 	}
 )
-
-SplashContent.displayName = 'SplashContent'
 
 const Container = styled.div`
 	display: flex;

@@ -39,7 +39,7 @@ import source from 'vega-datasets/data/jobs.json'
 
 const genderOptions = ['all', 'women', 'men']
 
-export const JobVoyager: React.FC = memo(() => {
+export const JobVoyager: React.FC = memo(function JobVoyager() {
 	const [gender, setGender] = useState('all')
 	const [selectedAreaId, setSelectedAreaId] = useState<string | undefined>()
 	const [query, setQuery] = useState<string | undefined>()
@@ -123,7 +123,6 @@ export const JobVoyager: React.FC = memo(() => {
 		</div>
 	)
 })
-JobVoyager.displayName = 'JobVoyager'
 
 interface JobVoyagerChartProps {
 	data: any
@@ -132,121 +131,124 @@ interface JobVoyagerChartProps {
 	onClickArea: (job: string) => any
 }
 const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
-	({ data, selectedAreaId, onEnterArea, onClickArea }) => (
-		<Chart width={850} height={550} padding={10} data={data}>
-			<Scales />
-			<Axes />
+	function JobVoyagerChart({ data, selectedAreaId, onEnterArea, onClickArea }) {
+		return (
+			<Chart width={850} height={550} padding={10} data={data}>
+				<Scales />
+				<Axes />
 
-			<Group
-				table="series"
-				facet={{
-					groupBy: ['job', 'sex'],
-					keyRowName: 'agg',
-					table: 'jobs',
-					name: 'facet',
-				}}
-			>
-				<Area
-					table="facet"
-					x={({ d, x }) => x(d.year)}
-					y={({ d, y }) => y(d.y0)}
-					y2={({ d, y }) => y(d.y1)}
-					fill={({ d, color }) => color(d.sex)}
-					fillOpacity={({ agg, id, alpha }) =>
-						id === selectedAreaId ? 0.2 : alpha(agg.sum)
-					}
-					metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
-					onMouseOver={({ id }) => onEnterArea(id)}
-					onFocus={({ id }) => onEnterArea(id)}
-					onClick={({ job }) => onClickArea(job)}
+				<Group
+					table="series"
+					facet={{
+						groupBy: ['job', 'sex'],
+						keyRowName: 'agg',
+						table: 'jobs',
+						name: 'facet',
+					}}
+				>
+					<Area
+						table="facet"
+						x={({ d, x }) => x(d.year)}
+						y={({ d, y }) => y(d.y0)}
+						y2={({ d, y }) => y(d.y1)}
+						fill={({ d, color }) => color(d.sex)}
+						fillOpacity={({ agg, id, alpha }) =>
+							id === selectedAreaId ? 0.2 : alpha(agg.sum)
+						}
+						metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
+						onMouseOver={({ id }) => onEnterArea(id)}
+						onFocus={({ id }) => onEnterArea(id)}
+						onClick={({ job }) => onClickArea(job)}
+					/>
+				</Group>
+				<Text
+					table="series"
+					x={({ d, x }) => x(d.argmax.year)}
+					dx={({ d, offset }) => offset(d.argmax.year)}
+					y={({ d, y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
+					fill="#000"
+					fillOpacity={({ d, opacity }) => opacity(d.argmax.perc)}
+					fontSize={({ d, font }) => font(d.argmax.perc)}
+					text={({ d }) => d.job}
+					align={({ d, align }) => align(d.argmax.year)}
+					baseline={VerticalTextAlignment.Middle}
 				/>
-			</Group>
-			<Text
-				table="series"
-				x={({ d, x }) => x(d.argmax.year)}
-				dx={({ d, offset }) => offset(d.argmax.year)}
-				y={({ d, y }) => y(0.5 * (d.argmax.y0 + d.argmax.y1))}
-				fill="#000"
-				fillOpacity={({ d, opacity }) => opacity(d.argmax.perc)}
-				fontSize={({ d, font }) => font(d.argmax.perc)}
-				text={({ d }) => d.job}
-				align={({ d, align }) => align(d.argmax.year)}
-				baseline={VerticalTextAlignment.Middle}
-			/>
-		</Chart>
-	),
+			</Chart>
+		)
+	},
 )
-JobVoyagerChart.displayName = 'JobVoyagerChart'
 
-const Axes: React.FC = memo(() => (
-	<>
-		<Axis
-			orient={AxisOrientation.Bottom}
-			scale="x"
-			labelFormat="d"
-			tickCount={15}
-			domain={false}
-		/>
-		<Axis
-			orient={AxisOrientation.Right}
-			scale="y"
-			labelFormat="~%"
-			domain={false}
-			tickSize={12}
-		/>
-	</>
-))
-Axes.displayName = 'Axes'
+const Axes: React.FC = memo(function Axes() {
+	return (
+		<>
+			<Axis
+				orient={AxisOrientation.Bottom}
+				scale="x"
+				labelFormat="d"
+				tickCount={15}
+				domain={false}
+			/>
+			<Axis
+				orient={AxisOrientation.Right}
+				scale="y"
+				labelFormat="~%"
+				domain={false}
+				tickSize={12}
+			/>
+		</>
+	)
+})
 
-const Scales: React.FC = memo(() => (
-	<>
-		<LinearScale
-			name="x"
-			domain="jobs.year"
-			range={Dimension.Width}
-			zero={false}
-			round
-		/>
-		<LinearScale
-			name="y"
-			domain="jobs.y1"
-			range={Dimension.Height}
-			zero
-			round
-		/>
-		<OrdinalScale
-			name="color"
-			domain={['men', 'women']}
-			range={['#33f', '#f33']}
-		/>
-		<LinearScale name="alpha" zero domain="series.sum" range={[0.4, 0.8]} />
-		<SqrtScale
-			name="font"
-			domain="series.argmax.perc"
-			range={[0, 22]}
-			zero
-			round
-		/>
-		<QuantizeScale
-			name="align"
-			domain="series.argmax.year"
-			range={[
-				HorizontalAlignment.Left,
-				HorizontalAlignment.Center,
-				HorizontalAlignment.Right,
-			]}
-		/>
-		<QuantizeScale
-			name="offset"
-			domain={[1730, 2130]}
-			range={[6, 0, -6]}
-			zero={false}
-		/>
-		<QuantileScale
-			name="opacity"
-			domain="series.argmax.perc"
-			range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
-		/>
-	</>
-))
-Scales.displayName = 'Scales'
+const Scales: React.FC = memo(function Scales() {
+	return (
+		<>
+			<LinearScale
+				name="x"
+				domain="jobs.year"
+				range={Dimension.Width}
+				zero={false}
+				round
+			/>
+			<LinearScale
+				name="y"
+				domain="jobs.y1"
+				range={Dimension.Height}
+				zero
+				round
+			/>
+			<OrdinalScale
+				name="color"
+				domain={['men', 'women']}
+				range={['#33f', '#f33']}
+			/>
+			<LinearScale name="alpha" zero domain="series.sum" range={[0.4, 0.8]} />
+			<SqrtScale
+				name="font"
+				domain="series.argmax.perc"
+				range={[0, 22]}
+				zero
+				round
+			/>
+			<QuantizeScale
+				name="align"
+				domain="series.argmax.year"
+				range={[
+					HorizontalAlignment.Left,
+					HorizontalAlignment.Center,
+					HorizontalAlignment.Right,
+				]}
+			/>
+			<QuantizeScale
+				name="offset"
+				domain={[1730, 2130]}
+				range={[6, 0, -6]}
+				zero={false}
+			/>
+			<QuantileScale
+				name="opacity"
+				domain="series.argmax.perc"
+				range={[[0, 0, 0, 0, 0, 0.1, 0.2, 0.4, 0.7, 1.0]]}
+			/>
+		</>
+	)
+})

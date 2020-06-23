@@ -24,33 +24,36 @@ export interface DropdownProps {
 	onChange: (v: string) => void
 }
 const DO_NOTHING = () => null
-export const Dropdown: React.FC<DropdownProps> = memo(
-	({ name, value, options, onChange = DO_NOTHING }) => {
-		const optionDom = useMemo(
-			() =>
-				options.map(o => (
-					<option key={o} value={o}>
-						{o}
-					</option>
-				)),
-			[options]
-		)
-		return (
-			<Container>
-				<NameColumn>{name}</NameColumn>
-				<InputColumn>
-					<select
-						name={name}
-						onChange={useCallback(evt => onChange(evt.target.value), [
-							onChange,
-						])}
-						value={value}
-					>
-						{optionDom}
-					</select>
-				</InputColumn>
-			</Container>
-		)
-	}
-)
-Dropdown.displayName = 'Dropdown'
+
+export const Dropdown: React.FC<DropdownProps> = memo(function Dropdown({
+	name,
+	value,
+	options,
+	onChange = DO_NOTHING,
+}) {
+	const optionDom = useMemo(
+		() =>
+			options.map((o) => (
+				<option key={o} value={o}>
+					{o}
+				</option>
+			)),
+		[options]
+	)
+	return (
+		<Container>
+			<NameColumn>{name}</NameColumn>
+			<InputColumn>
+				<select
+					name={name}
+					onChange={useCallback((evt) => onChange(evt.target.value), [
+						onChange,
+					])}
+					value={value}
+				>
+					{optionDom}
+				</select>
+			</InputColumn>
+		</Container>
+	)
+})

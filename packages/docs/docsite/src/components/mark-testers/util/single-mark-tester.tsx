@@ -57,7 +57,7 @@ const ControlsContainer = styled.div`
 `
 
 export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
-	({
+	function SingleMarkTester({
 		sliders = [],
 		dropdowns = [],
 		toggles = [],
@@ -67,7 +67,7 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 		initialScenegraph,
 		getParam: propsGetParam,
 		updateScenegraph: propsUpdateScenegraph,
-	}) => {
+	}) {
 		const [scenegraph, setScenegraph] = useState(initialScenegraph)
 		const getParam = useCallback(
 			(name: string) => {
@@ -153,5 +153,3 @@ export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
 		)
 	}
 )
-
-SingleMarkTester.displayName = 'SingleMarkTester'

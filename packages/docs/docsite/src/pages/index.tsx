@@ -17,7 +17,7 @@ export interface IndexPageState {
 	scrollPercent: number
 }
 
-const IndexPage: React.FC = memo(() => {
+const IndexPage: React.FC = memo(function IndexPage() {
 	return (
 		<Container>
 			<GlobalStyles />
@@ -32,7 +32,6 @@ const IndexPage: React.FC = memo(() => {
 		</Container>
 	)
 })
-IndexPage.displayName = 'IndexPage'
 export default IndexPage
 
 const Container = styled.div`

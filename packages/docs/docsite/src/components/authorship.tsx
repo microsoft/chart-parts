@@ -12,37 +12,38 @@ export interface AuthorshipProps {
 	twitter?: string
 	github?: string
 }
-export const Authorship: React.FC<AuthorshipProps> = memo(
-	({ name, twitter, github }) => {
-		const twitterUrl = useMemo(
-			() => twitter && `https://twitter.com/${twitter}`,
-			[twitter]
-		)
-		const githubUrl = useMemo(() => github && `https://github.com/${github}`, [
-			github,
-		])
-		return (
-			<span>
-				<By>by </By>
-				<Name>{name}</Name>&nbsp;
-				{twitter ? (
-					<>
-						<a href={twitterUrl}>
-							<TwitterIcon size={12} />
-						</a>
-						&nbsp;
-					</>
-				) : null}
-				{github ? (
-					<a href={githubUrl}>
-						<GitHubIcon size={12} />
+export const Authorship: React.FC<AuthorshipProps> = memo(function Authorship({
+	name,
+	twitter,
+	github,
+}) {
+	const twitterUrl = useMemo(
+		() => twitter && `https://twitter.com/${twitter}`,
+		[twitter]
+	)
+	const githubUrl = useMemo(() => github && `https://github.com/${github}`, [
+		github,
+	])
+	return (
+		<span>
+			<By>by </By>
+			<Name>{name}</Name>&nbsp;
+			{twitter ? (
+				<>
+					<a href={twitterUrl}>
+						<TwitterIcon size={12} />
 					</a>
-				) : null}
-			</span>
-		)
-	}
-)
-Authorship.displayName = 'Authorship'
+					&nbsp;
+				</>
+			) : null}
+			{github ? (
+				<a href={githubUrl}>
+					<GitHubIcon size={12} />
+				</a>
+			) : null}
+		</span>
+	)
+})
 
 const By = styled.span`
 	font-size: 10px;

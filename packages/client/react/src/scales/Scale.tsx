@@ -31,7 +31,7 @@ export interface ScaleProps {
  * Generic scale component
  * @category Scale
  */
-export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
+export const Scale: React.FC<ScaleProps> = memo(function Scale({ create }) {
 	const api = useContext(SceneBuilderContext)
 	useEffect(() => {
 		if (api) {
@@ -44,5 +44,3 @@ export const Scale: React.FC<ScaleProps> = memo(({ create }) => {
 	}, [api, create])
 	return null
 })
-
-Scale.displayName = 'Scale'

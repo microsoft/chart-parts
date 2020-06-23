@@ -16,22 +16,23 @@ export interface BlogStructureProps {
 	post: any
 }
 export const BlogStructure: React.FC<BlogStructureProps> = memo(
-	({ toc, pathname, post }) => (
-		<Layout
-			title={post.title}
-			sidebar={
-				<Sidebar
-					items={convertGraphqlToc(toc)}
-					activePath={pathname}
-					flat={true}
-				/>
-			}
-		>
-			<Post post={post} />
-		</Layout>
-	)
+	function BlogStructure({ toc, pathname, post }) {
+		return (
+			<Layout
+				title={post.title}
+				sidebar={
+					<Sidebar
+						items={convertGraphqlToc(toc)}
+						activePath={pathname}
+						flat={true}
+					/>
+				}
+			>
+				<Post post={post} />
+			</Layout>
+		)
+	}
 )
-BlogStructure.displayName = 'BlogStructure'
 
 export default function Template({
 	data: { post, toc },

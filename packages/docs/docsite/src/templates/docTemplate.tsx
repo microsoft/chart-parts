@@ -18,7 +18,7 @@ export interface DocStructureProps {
 	page: any
 }
 export const DocStructure: React.FC<DocStructureProps> = memo(
-	({ toc, pathname, page }) => {
+	function DocStructure({ toc, pathname, page }) {
 		return (
 			<Layout
 				title={page.frontmatter.title}
@@ -35,7 +35,6 @@ export const DocStructure: React.FC<DocStructureProps> = memo(
 		)
 	}
 )
-DocStructure.displayName = 'DocStructure'
 
 export default function Template({
 	data: { toc, currentPage },

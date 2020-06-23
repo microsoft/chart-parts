@@ -27,59 +27,63 @@ const data = [
 ]
 const dataset = { data }
 
-export const BarChartWithMean: React.FC = memo(() => (
-	<BarChart>
-		<Rule
-			x={0}
-			x2={({ view }) => view.width}
-			y={({ y, data }) => y(mean(data, (d: any) => d.amount))}
-			stroke="firebrick"
-		/>
-	</BarChart>
-))
-BarChartWithMean.displayName = 'BarChartWithMean'
+export const BarChartWithMean: React.FC = memo(function BarChartWithMean() {
+	return (
+		<BarChart>
+			<Rule
+				x={0}
+				x2={({ view }) => view.width}
+				y={({ y, data }) => y(mean(data, (d: any) => d.amount))}
+				stroke="firebrick"
+			/>
+		</BarChart>
+	)
+})
 
-const BarChart: React.FC = memo(({ children }) => (
-	<Chart width={400} height={200} data={dataset}>
-		<Scales />
-		<Axes />
-		<Rect
-			table="data"
-			x={({ d, x }) => x(d.category)}
-			y={({ d, y }) => y(d.amount)}
-			width={({ band }) => band()}
-			y2={({ y }) => y(0)}
-			fill={'steelblue'}
-		/>
-		{children}
-	</Chart>
-))
-BarChart.displayName = 'BarChart'
+const BarChart: React.FC = memo(function BarChart({ children }) {
+	return (
+		<Chart width={400} height={200} data={dataset}>
+			<Scales />
+			<Axes />
+			<Rect
+				table="data"
+				x={({ d, x }) => x(d.category)}
+				y={({ d, y }) => y(d.amount)}
+				width={({ band }) => band()}
+				y2={({ y }) => y(0)}
+				fill={'steelblue'}
+			/>
+			{children}
+		</Chart>
+	)
+})
 
-const Scales: React.FC = memo(() => (
-	<>
-		<LinearScale
-			name="y"
-			domain="data.amount"
-			range={Dimension.Height}
-			nice
-			zero
-		/>
-		<BandScale
-			name="x"
-			bandWidth="band"
-			domain="data.category"
-			padding={0.05}
-			range={Dimension.Width}
-		/>
-	</>
-))
-Scales.displayName = 'Scales'
+const Scales: React.FC = memo(function Scales() {
+	return (
+		<>
+			<LinearScale
+				name="y"
+				domain="data.amount"
+				range={Dimension.Height}
+				nice
+				zero
+			/>
+			<BandScale
+				name="x"
+				bandWidth="band"
+				domain="data.category"
+				padding={0.05}
+				range={Dimension.Width}
+			/>
+		</>
+	)
+})
 
-const Axes: React.FC = memo(() => (
-	<>
-		<Axis orient={AxisOrientation.Bottom} scale="x" />
-		<Axis orient={AxisOrientation.Left} scale="y" />
-	</>
-))
-Axes.displayName = 'Axes'
+const Axes: React.FC = memo(function Axes() {
+	return (
+		<>
+			<Axis orient={AxisOrientation.Bottom} scale="x" />
+			<Axis orient={AxisOrientation.Left} scale="y" />
+		</>
+	)
+})

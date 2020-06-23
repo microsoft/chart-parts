@@ -13,23 +13,23 @@ export interface FieldSelectorProps {
 }
 
 export const FieldSelector: React.FC<FieldSelectorProps> = memo(
-	({ name, value, items, onChange, style }) => (
-		<div style={style}>
-			<span style={styles.label}>{name}</span>
-			<select
-				name={name}
-				value={value}
-				onChange={e => onChange(e.currentTarget.value)}
-			>
-				{items.map(f => (
-					<option key={f}>{f}</option>
-				))}
-			</select>
-		</div>
-	),
+	function FieldSelector({ name, value, items, onChange, style }) {
+		return (
+			<div style={style}>
+				<span style={styles.label}>{name}</span>
+				<select
+					name={name}
+					value={value}
+					onChange={e => onChange(e.currentTarget.value)}
+				>
+					{items.map(f => (
+						<option key={f}>{f}</option>
+					))}
+				</select>
+			</div>
+		)
+	},
 )
-
-FieldSelector.displayName = 'FieldSelector'
 
 const styles: Record<string, React.CSSProperties> = {
 	label: {
