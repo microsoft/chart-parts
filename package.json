@@ -19,6 +19,7 @@
 		"node": ">=10.0.0"
 	},
 	"devDependencies": {
+		"@babel/plugin-proposal-optional-chaining": "^7.10.3",
 		"@essex/eslint-config": "^7.0.3",
 		"@essex/eslint-plugin": "^7.0.3",
 		"@essex/scripts": "^7.3.1",
