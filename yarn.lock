@@ -1042,7 +1042,7 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.4"
 
-"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.1.2", "@babel/runtime@^7.10.2", "@babel/runtime@^7.10.3", "@babel/runtime@^7.3.1", "@babel/runtime@^7.4.4", "@babel/runtime@^7.4.5", "@babel/runtime@^7.5.0", "@babel/runtime@^7.5.5", "@babel/runtime@^7.6.3", "@babel/runtime@^7.7.2", "@babel/runtime@^7.7.6", "@babel/runtime@^7.8.4", "@babel/runtime@^7.8.7", "@babel/runtime@^7.9.2", "@babel/runtime@^7.9.6":
   version "7.10.3"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.10.3.tgz#670d002655a7c366540c67f6fd3342cd09500364"
   integrity sha512-RzGO0RLSdokm9Ipe/YD+7ww8X2Ro79qiXZF3HU9ljrM+qnJmH1Vqth+hbiQZy761LnMJTMitHDuKVYTk3k4dLw==
@@ -10437,11 +10437,11 @@ gatsby-plugin-typescript@^2.1.16, gatsby-plugin-typescript@^2.4.7:
     babel-plugin-remove-graphql-queries "^2.9.6"
 
 gatsby-plugin-typography@^2.3.16:
-  version "2.5.5"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.5.5.tgz#1e71782d4b217a2d611bcc50898fa91c96253ad5"
-  integrity sha512-Tg1/0kCUONvWqCUBdK0aPs4m1k31Nrn4OTvTRr6Ke9qmikqQ84KMzBnT/nsZNmA+X//l/2yhlFoadshYwJc2UA==
+  version "2.5.6"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typography/-/gatsby-plugin-typography-2.5.6.tgz#316f77a51ab946f8114c810afa8eac46aa1cdc4d"
+  integrity sha512-U5wPB5tcZJ/oyZMScea2WapVmPUAk7y+/4Z4L0ccNJbm/BIgGF3VEzmNwlHkyKQ0/GKhp6IaNOd+h3tpA+kBkQ==
   dependencies:
-    "@babel/runtime" "^7.10.2"
+    "@babel/runtime" "^7.10.3"
 
 gatsby-react-router-scroll@^3.0.6:
   version "3.0.6"
