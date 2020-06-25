@@ -1603,18 +1603,18 @@
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
 "@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.3.1.tgz#fd1ae389efe33d7adb2e444018ff7d20b05032f0"
-  integrity sha512-vGcADXtRWQr9ndrcWFP0qKmb/ZqM1Dqb5W8DE9UGGXLRvy/z97kRYOv1yLVQ5touO0Rieqj9Efijsjyp6Oo3xQ==
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.3.2.tgz#cf2e9524e17654c8a407791ae11b31725ff8bf62"
+  integrity sha512-rdF6MAhNuHYI0bKjExUdjUP++cMFT4Xq3chrDVqUBMZsdHebFJ8MgQKxuHlu8X3xvwSoSlMEVo2C+yyg5Klccw==
   dependencies:
-    "@essex/eslint-plugin" "^7.3.1"
+    "@essex/eslint-plugin" "^7.3.2"
 
-"@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.3.1":
-  version "7.3.1"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.3.1.tgz#d9fbf3dbda2f57217c33287bb77384c737dd17a2"
-  integrity sha512-ss23TNLysts/vYdSYDq2asyNtu5YrWy3czm9PredlSrTEmFQ59Z4N9zDKZjL54lZDTZITQj9M3IUlgbKy0zRxA==
+"@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.3.2.tgz#939fc32305d75232b3d63b72d72124bb5d4cbd22"
+  integrity sha512-rLqmHL3rGXvDm3W8/E9AH2NOmNQgNj+xY8hfBgpG2FZBc9PQu4eFwXSZcYLp4YOuYZPIzQ9IvfBj0XD8HzGqwQ==
   dependencies:
-    "@essex/prettier-config" "^7.3.1"
+    "@essex/prettier-config" "^7.3.2"
     babel-eslint "^10.1.0"
     eslint "^7.0.0"
     eslint-config-prettier "^6.11.0"
@@ -1634,6 +1634,11 @@
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.3.1.tgz#4c211e9740184806d77190870fe07acbdd3c19d6"
   integrity sha512-UR41BBOIbAGzu+TVBOdGzn77sVUG610k7i4fPQ/6va7jxAbblQ28fwE7TLGqucn8+yQL33zaIwWWPYY1HIaOJA==
+
+"@essex/prettier-config@^7.3.2":
+  version "7.3.2"
+  resolved "https://registry.yarnpkg.com/@essex/prettier-config/-/prettier-config-7.3.2.tgz#3fd06009ae154c9f0472233e9324dd70b03e8347"
+  integrity sha512-uZZG4h35eXxtdU2L7TP2SZGy4k2rYhAgMZBVKv8mqYjORz1qmp8dNMkU2BKIA0cknVWpEDTYjn6dN6h+bkR+1w==
 
 "@essex/scripts@^7.3.1":
   version "7.3.1"
