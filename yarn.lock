@@ -4327,9 +4327,9 @@
     "@types/react" "*"
 
 "@types/react-color@^3.0.1", "@types/react-color@^3.0.2":
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.3.tgz#cdd9d0ca1060f4cc7ca922978438573ed462c610"
-  integrity sha512-blgdfsoIw/usFiYwRVhJWENhpKP2/cgZoy20uXCu2P89mBsgviH9xfsINF3f4iuqRkz//KLV9HoCmv7/ucAfNA==
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/@types/react-color/-/react-color-3.0.4.tgz#c63daf012ad067ac0127bdd86725f079d02082bd"
+  integrity sha512-EswbYJDF1kkrx93/YU+BbBtb46CCtDMvTiGmcOa/c5PETnwTiSWoseJ1oSWeRl/4rUXkhME9bVURvvPg0W5YQw==
   dependencies:
     "@types/react" "*"
     "@types/reactcss" "*"
