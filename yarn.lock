@@ -1458,13 +1458,13 @@
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
 "@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.3.2":
-  version "7.3.2"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.3.2.tgz#cf2e9524e17654c8a407791ae11b31725ff8bf62"
-  integrity sha512-rdF6MAhNuHYI0bKjExUdjUP++cMFT4Xq3chrDVqUBMZsdHebFJ8MgQKxuHlu8X3xvwSoSlMEVo2C+yyg5Klccw==
+  version "7.4.0"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.4.0.tgz#a34c4a96d376eef0e27eb508a9a5b2ab245d385a"
+  integrity sha512-5Xo/VOoLoENcnMKhfcTr7oI844kaWTNqi1Ih8DaHymWCOI1aRh9v3+jHukrsSD9KE50I0W/vH30Xa7JRNVKK8Q==
   dependencies:
-    "@essex/eslint-plugin" "^7.3.2"
+    "@essex/eslint-plugin" "^7.4.0"
 
-"@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.3.2":
+"@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.4.0":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@essex/eslint-plugin/-/eslint-plugin-7.4.0.tgz#f89f377ec64eb17e3290b3c37d6b1241a394723e"
   integrity sha512-RojdpmIaeUjNqx7/HDEWtj4o4DedQi3xKEZLnLmv8vTN/FSFqliarokXRCLkuGhAnwiv4VS69pN5QyS5GRj7Og==
