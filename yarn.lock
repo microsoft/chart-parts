@@ -10782,9 +10782,9 @@ gatsby-telemetry@^1.3.14:
     uuid "3.4.0"
 
 gatsby-transformer-remark@^2.6.33:
-  version "2.8.19"
-  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-2.8.19.tgz#9f86778522ebb1579c3a40a1f2bd065be9985221"
-  integrity sha512-f8vbsUzm+CknIPZFkSfMqpsUw3S+9wYI23TIgpaodG0PgT7knMlIalX6p+F3EUFLa04DUFgDK9AEtjWpNCfYKw==
+  version "2.8.20"
+  resolved "https://registry.yarnpkg.com/gatsby-transformer-remark/-/gatsby-transformer-remark-2.8.20.tgz#c58088b9a27e09cf961d341a17c6bb2b6381595f"
+  integrity sha512-26ZLOKY/r4ynC5BRBZlfKdXbhaOxQDN+13NGcxVjL/tGevqR0v03whifLuqwVGzJ/KB1yGRirdjMz1PKfkfddQ==
   dependencies:
     "@babel/runtime" "^7.10.3"
     bluebird "^3.7.2"
