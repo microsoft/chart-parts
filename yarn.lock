@@ -5597,10 +5597,10 @@ babel-plugin-react-docgen@^4.0.0:
     react-docgen "^5.0.0"
     recast "^0.14.7"
 
-babel-plugin-remove-graphql-queries@^2.9.7:
-  version "2.9.7"
-  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.9.7.tgz#81e557c36811f5a6c0166c5da84d6178fbfba632"
-  integrity sha512-PnwHO+l5fJ+xq2oKF1+moMiWRJFcb29RSLcWiVzqVxDU4VzZapvmGY9qMFzFWS0txGMzlknBNxTL4Pigd/JyZg==
+babel-plugin-remove-graphql-queries@^2.9.7, babel-plugin-remove-graphql-queries@^2.9.9:
+  version "2.9.9"
+  resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-2.9.9.tgz#5b806f50c2b6accb9c8d39246fbcd8a9ba18031e"
+  integrity sha512-rz8xdEPGsuyujLg5PzecDv0v4qAssyCT/HMu2QIxaSWhqUYcsGhEubkydKv0dyrDhNNsIdkRnu0Inn2xBKRqhA==
 
 "babel-plugin-styled-components@>= 1", babel-plugin-styled-components@^1.10.6:
   version "1.10.7"
@@ -10282,9 +10282,9 @@ gatsby-plugin-styled-components@^3.1.12:
     "@babel/runtime" "^7.10.3"
 
 gatsby-plugin-typescript@^2.1.16, gatsby-plugin-typescript@^2.4.8:
-  version "2.4.8"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.4.8.tgz#d39fe16ee80ed38f736a93b040a80cec55014aa8"
-  integrity sha512-ow4qDiezQeFHMd023AQaUxUIYpZeQ9wcPX45wKr6nk6m9H3aQhLAuOb8NW9vfx/yE6xbMw28eAUIMGecqugeVw==
+  version "2.4.10"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.4.10.tgz#a7aecb0a7f3fc8043be8a2fd9726f627f79c5731"
+  integrity sha512-6GarHqQcuIXgbLDk71HgrAQ0pTi5IPngQY85T7edFXiZblOE4ZX5OJrjlllTN5RuqYd272QkJj8AvjA7BKPtjA==
   dependencies:
     "@babel/core" "^7.10.3"
     "@babel/plugin-proposal-nullish-coalescing-operator" "^7.10.1"
@@ -10292,7 +10292,7 @@ gatsby-plugin-typescript@^2.1.16, gatsby-plugin-typescript@^2.4.8:
     "@babel/plugin-proposal-optional-chaining" "^7.10.3"
     "@babel/preset-typescript" "^7.10.1"
     "@babel/runtime" "^7.10.3"
-    babel-plugin-remove-graphql-queries "^2.9.7"
+    babel-plugin-remove-graphql-queries "^2.9.9"
 
 gatsby-plugin-typography@^2.3.16:
   version "2.5.6"
