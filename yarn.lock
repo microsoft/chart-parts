@@ -10396,9 +10396,9 @@ gatsby-remark-autolink-headers@^2.1.17:
     unist-util-visit "^1.4.1"
 
 gatsby-remark-copy-linked-files@^2.1.29:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.3.9.tgz#6a48028fb7dd49ae6f2066280dd2c3d6b717a129"
-  integrity sha512-KE6UvsjT6mYZV++jyYszirL/JiD6QQh4ANzoD/zIRHcUkberPHb0i+G7/c5hthAw2oTCjtnvvYcU0cr6VUMokA==
+  version "2.3.10"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.3.10.tgz#5588080e25b690995c7c171e4686f4ca77dbf311"
+  integrity sha512-9X7OP6febS74MxeSa7I8LdRZQEyrKAjID0msDc16150SBd95Z+l35osF+c5EcD1AmQz7hbljOQZyASZGZIEegA==
   dependencies:
     "@babel/runtime" "^7.10.3"
     cheerio "^1.0.0-rc.3"
