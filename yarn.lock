@@ -10480,9 +10480,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.23.20"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.23.20.tgz#c79a566246ae6de8957536afe76a81fbd8e3ce76"
-  integrity sha512-ur5VkBVz3kXkS2lkfufTOuSvOaXdb6qs1WmyafMahwLVm3VlHvZQwhk5AV4yXZ8+zqGphHJcKtRBeCwIe6efsw==
+  version "2.23.21"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.23.21.tgz#44099dab466b12380c5ae4d6a92ce247119228ca"
+  integrity sha512-oR4E+v3ilih+hQ1KyDI9N9c5OUqpNyiw93vO2YCGnpIY+q2/ldUnjWQc9FLGgMxupNs9nnTtYT/UrpePHFQvzQ==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/core" "^7.10.3"
@@ -10622,6 +10622,7 @@ gatsby@^2.17.11:
     webpack-hot-middleware "^2.25.0"
     webpack-merge "^4.2.2"
     webpack-stats-plugin "^0.3.1"
+    webpack-virtual-modules "^0.2.2"
     xstate "^4.11.0"
     yaml-loader "^0.6.0"
 
@@ -22194,7 +22195,7 @@ webpack-stats-plugin@^0.3.1:
   resolved "https://registry.yarnpkg.com/webpack-stats-plugin/-/webpack-stats-plugin-0.3.1.tgz#1103c39a305a4e6ba15d5078db84bc0b35447417"
   integrity sha512-pxqzFE055NlNTlNyfDG3xlB2QwT1EWdm/CF5dCJI/e+rRHVxrWhWg1rf1lfsWhI1/EePv8gi/A36YxO/+u0FgQ==
 
-webpack-virtual-modules@^0.2.0:
+webpack-virtual-modules@^0.2.0, webpack-virtual-modules@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/webpack-virtual-modules/-/webpack-virtual-modules-0.2.2.tgz#20863dc3cb6bb2104729fff951fbe14b18bd0299"
   integrity sha512-kDUmfm3BZrei0y+1NTHJInejzxfhtU8eDj2M7OKb2IWrPFAeO1SOH2KuQ68MSZu9IGEHcxbkKKR1v18FrUSOmA==
