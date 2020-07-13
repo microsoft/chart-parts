@@ -12,7 +12,7 @@
 		"start": "essex watch"
 	},
 	"devDependencies": {
-		"@types/react-native": "^0.62.0",
+		"@types/react-native": "^0.63.0",
 		"react": "^16.9.0"
 	},
 	"dependencies": {
