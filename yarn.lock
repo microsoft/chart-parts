@@ -10412,9 +10412,9 @@ gatsby-remark-prismjs@^3.3.22:
     unist-util-visit "^1.4.1"
 
 gatsby-source-filesystem@^2.1.36:
-  version "2.3.21"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.3.21.tgz#7d38e81eee742427ff057cfbc8583440df98392c"
-  integrity sha512-HMCj4TF8hHoh5AwYliVIKNSva1wFjn3l/06TwV2/jvVa26JmLhdE+P24dB9blRpduGwv79tw6j1Ery0LMDeB8Q==
+  version "2.3.22"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.3.22.tgz#de83732a29e5478961bcee7e8f3bbffd1c6f381a"
+  integrity sha512-vrcBB8jdntwFMV3QQILc6bbyK3qIxjucxGvwbpClpC038KByoqHybgaAwFlMixeBKMnUBqWkI0PgtVdao68G4Q==
   dependencies:
     "@babel/runtime" "^7.10.3"
     better-queue "^3.8.10"
