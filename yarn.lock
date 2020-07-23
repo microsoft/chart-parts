@@ -1440,12 +1440,17 @@
   resolved "https://registry.yarnpkg.com/@emotion/weak-memoize/-/weak-memoize-0.2.5.tgz#8eed982e2ee6f7f4e44c253e12962980791efd46"
   integrity sha512-6U71C2Wp7r5XtFtQzYrW5iKFT67OixrSxjI4MptCHzdSVlgabczzqLe0ZSgnub/5Kp4hSbpDB1tMytZY9pwxxA==
 
-"@essex/eslint-config@^7.0.3", "@essex/eslint-config@^7.3.2":
+"@essex/eslint-config@^7.3.2":
   version "7.4.0"
   resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-7.4.0.tgz#a34c4a96d376eef0e27eb508a9a5b2ab245d385a"
   integrity sha512-5Xo/VOoLoENcnMKhfcTr7oI844kaWTNqi1Ih8DaHymWCOI1aRh9v3+jHukrsSD9KE50I0W/vH30Xa7JRNVKK8Q==
   dependencies:
     "@essex/eslint-plugin" "^7.4.0"
+
+"@essex/eslint-config@^8.0.2":
+  version "8.0.2"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-8.0.2.tgz#a377309819404678ea930b4ecccce024b923fb96"
+  integrity sha512-/OLSCb7QTxLGh68vFN9L3umYa0MGcXsyTaytz1acDzET3kko8U2/KsK5CLSvXvvxnGI4ixto7hRsJcxr1+7CLA==
 
 "@essex/eslint-plugin@^7.0.3", "@essex/eslint-plugin@^7.4.0":
   version "7.4.0"

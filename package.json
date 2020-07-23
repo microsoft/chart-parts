@@ -19,7 +19,7 @@
 		"node": ">=10.0.0"
 	},
 	"devDependencies": {
-		"@essex/eslint-config": "^7.0.3",
+		"@essex/eslint-config": "^8.0.2",
 		"@essex/eslint-plugin": "^7.0.3",
 		"@essex/scripts": "^7.3.1",
 		"@typescript-eslint/eslint-plugin": "^3.4.0",
