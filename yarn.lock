@@ -10527,9 +10527,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.24.12"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.24.12.tgz#453b02577e65506bfdfa45d41f0a890544cb2ace"
-  integrity sha512-XSbklVRiZYmc0rQa5S3pym/0pWw1SsnW/MmbimC3ROh6vPKCkvcujSTDzOytzO/e3oETTo8m3ewfcAgqF1NYHw==
+  version "2.24.14"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.24.14.tgz#86acd709316730a567ceb7dd71f79a27e120b640"
+  integrity sha512-Z7kUTgrm3Dazh+efpd/k2geNCApdvhF9hqmPtaPVvgVzlNz1XQ6IZ20AuQsz4wd3xv7XQeTbRfepHiQpZOfOIw==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/core" "^7.10.3"
@@ -10589,6 +10589,7 @@ gatsby@^2.17.11:
     express-graphql "^0.9.0"
     fast-levenshtein "^2.0.6"
     file-loader "^1.1.11"
+    find-cache-dir "^3.3.1"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
     gatsby-cli "^2.12.67"
