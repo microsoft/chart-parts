@@ -1434,9 +1434,9 @@
     "@essex/eslint-plugin" "^7.4.0"
 
 "@essex/eslint-config@^8.0.2":
-  version "8.0.14"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-8.0.14.tgz#9dccaf7e578f48c0a6994f18a4e5325631fe0ed2"
-  integrity sha512-Z8uJO2sSHNBAPq/9NWacMxKt3imxlK6X95FuXLC11rhZCyCSKkUWniykU62g7fXAjOGPwB5TnqYCU/iCdnaSiQ==
+  version "8.0.16"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-8.0.16.tgz#4ecf6c5be2151d9d49f0c7341943d59b75731de6"
+  integrity sha512-+Immrn6nOIOv5XWGsUqqKjFp579nGCxSAaAZgCiXsEcFAXyt5hDkz7AhqSGeTyYhlr2hlZ7RqoIBAKUHckKZ6Q==
 
 "@essex/eslint-plugin@^7.4.0":
   version "7.4.0"
