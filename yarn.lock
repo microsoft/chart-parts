@@ -10430,9 +10430,9 @@ gatsby-remark-copy-linked-files@^2.1.29:
     unist-util-visit "^1.4.1"
 
 gatsby-remark-images@^3.1.30:
-  version "3.3.23"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.3.23.tgz#ded0152f34e1a4fe9b29b5c7b9a2a723f1d28f7f"
-  integrity sha512-uU93W/uGRgi8/VjE+9Dqcneackc1jem2gwSgvabxl4opHnGBmtD73IZMqxKhN9ID1OppvoF50rujjO+v60MuWQ==
+  version "3.3.24"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-3.3.24.tgz#36938b639a3b5e7d5ea89fb1085dcb0f9ecace4c"
+  integrity sha512-FP9pNCkx810/Wy7ZRCBrUAdHGfb3t+kb4GZzxSIkTOrLLMInHcClnb0qa6QeiDwRLR4D1CvPCunPEE1mqG3Thg==
   dependencies:
     "@babel/runtime" "^7.10.3"
     chalk "^2.4.2"
