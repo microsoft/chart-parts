@@ -1500,10 +1500,10 @@
   dependencies:
     "@essex/eslint-plugin" "^7.4.0"
 
-"@essex/eslint-config@^8.0.2":
-  version "8.0.16"
-  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-8.0.16.tgz#4ecf6c5be2151d9d49f0c7341943d59b75731de6"
-  integrity sha512-+Immrn6nOIOv5XWGsUqqKjFp579nGCxSAaAZgCiXsEcFAXyt5hDkz7AhqSGeTyYhlr2hlZ7RqoIBAKUHckKZ6Q==
+"@essex/eslint-config@^9.0.1":
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/@essex/eslint-config/-/eslint-config-9.0.1.tgz#1a3a79ab21072986621e5262b465b637e6a409a6"
+  integrity sha512-u2hcaR7A2roonBVQEs97gdVI1/+fLn81aBmoncWWJ18R370vQZCdoXr+Z5//50OQ3cXti+fW1OmTp7pj1Qv7WQ==
 
 "@essex/eslint-plugin@^7.4.0":
   version "7.4.0"
