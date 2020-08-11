@@ -10627,10 +10627,10 @@ fuse.js@^3.4.6:
   resolved "https://registry.yarnpkg.com/fuse.js/-/fuse.js-3.6.1.tgz#7de85fdd6e1b3377c23ce010892656385fd9b10c"
   integrity sha512-hT9yh/tiinkmirKrlv4KWOjztdoZo1mx9Qh4KvWqC7isoXwdUY3PNWUxceF4/qO9R6riA2C29jdTOeQOIROjgw==
 
-gatsby-cli@^2.12.82:
-  version "2.12.82"
-  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.82.tgz#a2237f435e99c84ed96a0ca23e61e69a61bab144"
-  integrity sha512-KB+aHONL5FDlzCAxeP/ySklFlqsqpRDo/CotYymKSRP/mBRiPLTUqGsiMx6PRjS8df1kweX4mZ+BcPu3pKn3sA==
+gatsby-cli@^2.12.83:
+  version "2.12.83"
+  resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-2.12.83.tgz#4c4751cd7b030b32f42d82e45a7ffa9d9ef57ec4"
+  integrity sha512-yq9WA2Mwkfu0S++AETN/p6qJ6moX1ah5R+m4WkDIKzuApPrMgDFjZUGt2lAPWvSSlk6WL13LcWkaoF9dzNiQOA==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@hapi/joi" "^15.1.1"
@@ -10646,8 +10646,8 @@ gatsby-cli@^2.12.82:
     fs-exists-cached "^1.0.0"
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.3.15"
-    gatsby-recipes "^0.2.12"
-    gatsby-telemetry "^1.3.26"
+    gatsby-recipes "^0.2.13"
+    gatsby-telemetry "^1.3.27"
     hosted-git-info "^3.0.4"
     ink "^2.7.1"
     ink-spinner "^3.1.0"
@@ -10662,7 +10662,7 @@ gatsby-cli@^2.12.82:
     react "^16.8.0"
     redux "^4.0.5"
     resolve-cwd "^3.0.0"
-    semver "^6.3.0"
+    semver "^7.3.2"
     signal-exit "^3.0.3"
     source-map "0.7.3"
     stack-trace "^0.0.10"
@@ -10748,10 +10748,10 @@ gatsby-page-utils@^0.2.20:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-page-creator@^2.3.21:
-  version "2.3.21"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.3.21.tgz#f1fc434e726d7fe81616dab8c3ac278ed727edac"
-  integrity sha512-DlkKW6UOfM6sap2vyqwcEfkECugYblaa5t7oNBydU7U2rR7bAFyZCfuwPMfMhDrYwWnTtY0pH8q2Yz+tT9aAOg==
+gatsby-plugin-page-creator@^2.3.22:
+  version "2.3.22"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.3.22.tgz#8e4427b09beee321be0a1f9bf7d9f4e1b9008d06"
+  integrity sha512-XG3uZh/1uqsT/cpp/Oy7l15MR3yF6RqG/Mf4Vk0iYRZn6poveIh8Pw4nhPekwbrn8TGT7Fp/dv1Npkvs/E2kqw==
   dependencies:
     "@babel/traverse" "^7.10.2"
     fs-exists-cached "^1.0.0"
@@ -10802,10 +10802,10 @@ gatsby-react-router-scroll@^3.0.12:
   dependencies:
     "@babel/runtime" "^7.10.3"
 
-gatsby-recipes@^0.2.12:
-  version "0.2.12"
-  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.2.12.tgz#74c65c1169b27c2c46f561c933a6a81021866fc0"
-  integrity sha512-lvZzxqk2gqmFJipb5liCeVGbRRT1H4OOaLsJ9dT1TgbSrf1YnpvvfEEaJuOnm/prHs1oOlEdf14ZooA5OxhJeA==
+gatsby-recipes@^0.2.13:
+  version "0.2.13"
+  resolved "https://registry.yarnpkg.com/gatsby-recipes/-/gatsby-recipes-0.2.13.tgz#bfdf628a8376c2a4a79334024179c6689da73413"
+  integrity sha512-M2MmlgwXDZET1Ye5smLDEF/E1GQdYgXJZu2pTZLk8NRfvltoQVEKRbMvhR+zYtSwPiCGyhwIXD1g8BXtukWr/Q==
   dependencies:
     "@babel/core" "^7.9.6"
     "@babel/generator" "^7.9.6"
@@ -10844,7 +10844,7 @@ gatsby-recipes@^0.2.12:
     fs-extra "^8.1.0"
     gatsby-core-utils "^1.3.15"
     gatsby-interface "^0.0.166"
-    gatsby-telemetry "^1.3.26"
+    gatsby-telemetry "^1.3.27"
     glob "^7.1.6"
     graphql "^14.6.0"
     graphql-compose "^6.3.8"
@@ -10857,6 +10857,7 @@ gatsby-recipes@^0.2.12:
     is-url "^1.2.4"
     isomorphic-fetch "^2.1.0"
     jest-diff "^25.5.0"
+    lock "^1.0.0"
     lodash "^4.17.15"
     mitt "^1.2.0"
     mkdirp "^0.5.1"
@@ -10962,10 +10963,10 @@ gatsby-source-filesystem@^2.1.36:
     valid-url "^1.0.9"
     xstate "^4.11.0"
 
-gatsby-telemetry@^1.3.26:
-  version "1.3.26"
-  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.3.26.tgz#c9b3845787ed47258da0d902d565f7c930534871"
-  integrity sha512-10DqlSw0mvuRcQfoYmYdt+XAZqECqCUY8wYWo1Vpg3BwSpRtaW2rFjDqPa+MZSB5qfBfL92urDw8g1uZZolBNQ==
+gatsby-telemetry@^1.3.27:
+  version "1.3.27"
+  resolved "https://registry.yarnpkg.com/gatsby-telemetry/-/gatsby-telemetry-1.3.27.tgz#8e5bfa3509bcc99b11ecd5b0ed2a89f3bdc61dbb"
+  integrity sha512-cX3+6dB3Tc6KYebYjVL0DGBvlnlJ43whmkVDKlcsSHyOKMkQBaCD4cKav3Im6iFa3jhmj5Z2MH20oPC26tHSTQ==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/runtime" "^7.10.3"
@@ -11011,9 +11012,9 @@ gatsby-transformer-remark@^2.6.33:
     unist-util-visit "^1.4.1"
 
 gatsby@^2.17.11:
-  version "2.24.40"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.24.40.tgz#afc1fe5b169c33d3de625bca714f10ad7a941454"
-  integrity sha512-8keaqWP7giwqmYQH6zBZAkQZKh4Jenvjei2GQ9sCIMkusV9//4NI3xzkOGBdiGTadDoZjfTwNMkwMdw4eYkOtA==
+  version "2.24.43"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.24.43.tgz#002373991e71c7304d9d229a6925bdd1362526a4"
+  integrity sha512-S/+UDTOmQP3XqQkq3PjeEyneIu0jV4WC802QamlCAxnc1CRBpVyKMk6lq9Top6tMDZM3DtxszWHXqbC/O7uiQg==
   dependencies:
     "@babel/code-frame" "^7.10.3"
     "@babel/core" "^7.10.3"
@@ -11076,15 +11077,15 @@ gatsby@^2.17.11:
     find-cache-dir "^3.3.1"
     fs-exists-cached "1.0.0"
     fs-extra "^8.1.0"
-    gatsby-cli "^2.12.82"
+    gatsby-cli "^2.12.83"
     gatsby-core-utils "^1.3.15"
     gatsby-graphiql-explorer "^0.4.12"
     gatsby-legacy-polyfills "^0.0.2"
     gatsby-link "^2.4.13"
-    gatsby-plugin-page-creator "^2.3.21"
+    gatsby-plugin-page-creator "^2.3.22"
     gatsby-plugin-typescript "^2.4.18"
     gatsby-react-router-scroll "^3.0.12"
-    gatsby-telemetry "^1.3.26"
+    gatsby-telemetry "^1.3.27"
     glob "^7.1.6"
     got "8.3.2"
     graphql "^14.6.0"
@@ -11130,7 +11131,7 @@ gatsby@^2.17.11:
     react-refresh "^0.7.0"
     redux "^4.0.5"
     redux-thunk "^2.3.0"
-    semver "^5.7.1"
+    semver "^7.3.2"
     shallow-compare "^1.2.2"
     signal-exit "^3.0.3"
     slugify "^1.4.4"
@@ -14677,6 +14678,11 @@ locate-path@^5.0.0:
   integrity sha512-t7hw9pI+WvuwNJXwk5zVHpyhIqzg2qTlklJOf0mVxGSbe3Fp2VieZcduNYjaLDoy6p9uGpQEGWG87WpMKlNq8g==
   dependencies:
     p-locate "^4.1.0"
+
+lock@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/lock/-/lock-1.1.0.tgz#53157499d1653b136ca66451071fca615703fa55"
+  integrity sha1-UxV0mdFlOxNspmRRBx/KYVcD+lU=
 
 lockfile@^1.0.4:
   version "1.0.4"
