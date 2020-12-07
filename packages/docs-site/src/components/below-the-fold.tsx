@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Link, StaticQuery, graphql } from 'gatsby'
 import React from 'react'
 import styled from 'styled-components'
-import { Link, StaticQuery, graphql } from 'gatsby'
 import theme from '../util/theme'
 
 interface BelowTheFoldProps {
@@ -23,7 +23,7 @@ const BelowTheFold: React.FC<BelowTheFoldProps> = ({ style }) => (
 				}
 			}
 		`}
-		render={data => {
+		render={(data) => {
 			const {
 				site: {
 					siteMetadata: { githubUrl },
@@ -35,7 +35,7 @@ const BelowTheFold: React.FC<BelowTheFoldProps> = ({ style }) => (
 						<DocsLink to="/documentation">Read the docs</DocsLink>
 					</Box>
 					<Box style={{ backgroundColor: theme.palette.alt2 }}>
-						<BlogLink to="/blog">What's new?</BlogLink>
+						<BlogLink to="/blog">What&apos;s new?</BlogLink>
 					</Box>
 					<Box style={{ backgroundColor: theme.palette.alt3 }}>
 						<StyledAnchor target="_blank" href={githubUrl}>

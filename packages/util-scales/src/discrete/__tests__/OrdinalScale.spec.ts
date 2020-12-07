@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { OrdinalScale } from '../OrdinalScale'
 import { CategoricalColorScheme } from '../../colorSchemeMap'
+import { OrdinalScale } from '../OrdinalScale'
 import { createScaleContext } from './util'
 
 describe('The Ordinal Scale', () => {

@@ -3,6 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo, memo } from 'react'
+import { useDataGroupSorted, useGroupByFaceting } from '../hooks'
+import { CommonChartProps, AxisProps, FillMarkProps } from '../types'
+import { createChartContainer } from '../util'
+import { LineMarks } from './LineMarks'
+import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	Axis,
 	LinearScale,
@@ -11,11 +16,6 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { AxisOrientation } from '@chart-parts/interfaces'
-import { CommonChartProps, AxisProps, FillMarkProps } from '../types'
-import { useDataGroupSorted, useGroupByFaceting } from '../hooks'
-import { createChartContainer } from '../util'
-import { LineMarks } from './LineMarks'
 
 export interface LineChartProps extends CommonChartProps, FillMarkProps {
 	groupBy: string

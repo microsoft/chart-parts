@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { ScaleQuantile, scaleQuantile } from 'd3-scale'
 import { DomainRangeScale } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 export class QuantileScale<
 	DomainValue extends QuantitativeValue,

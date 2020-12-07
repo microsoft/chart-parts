@@ -7,7 +7,13 @@
  * Adapted from https://vega.github.io/vega/examples/population-pyramid/
  */
 import React, { memo, useState, useCallback, useMemo } from 'react'
-import { dataset, filter, aggregate } from '@chart-parts/transform'
+import population from 'vega-datasets/data/population.json'
+import {
+	VerticalTextAlignment,
+	HorizontalAlignment,
+	AxisOrientation,
+	ScaleCreationContext,
+} from '@chart-parts/interfaces'
 import {
 	Axis,
 	Group,
@@ -18,13 +24,7 @@ import {
 	OrdinalScale,
 	LinearScale,
 } from '@chart-parts/react'
-import {
-	VerticalTextAlignment,
-	HorizontalAlignment,
-	AxisOrientation,
-	ScaleCreationContext,
-} from '@chart-parts/interfaces'
-import population from 'vega-datasets/data/population.json'
+import { dataset, filter, aggregate } from '@chart-parts/transform'
 
 const chartWidth = 600
 const chartHeight = 500

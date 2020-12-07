@@ -17,8 +17,8 @@ import {
 	TextDirection,
 	FontWeight,
 } from '../common-types'
-import { Axis } from './axes'
 import { Metadata } from '../scenegraph'
+import { Axis } from './axes'
 
 export enum MarkEncodingKey {
 	// Common encoding keys

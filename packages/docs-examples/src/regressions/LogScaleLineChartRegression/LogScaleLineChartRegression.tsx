@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
+import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	Axis,
 	Chart,
@@ -11,7 +12,6 @@ import {
 	LogScale,
 	Dimension,
 } from '@chart-parts/react'
-import { AxisOrientation } from '@chart-parts/interfaces'
 
 // #region data
 const data = [

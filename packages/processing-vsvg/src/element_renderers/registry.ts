@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SGMark } from '@chart-parts/interfaces'
 import { VSvgMarkConverter, VSvgRenderContext } from './interfaces'
+import { SGMark } from '@chart-parts/interfaces'
 
 const itemRendererRegistry = new Map<string, VSvgMarkConverter>()
 

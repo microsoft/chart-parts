@@ -11,11 +11,11 @@ import LineTester from './line-tester'
 import PathTester from './path-tester'
 import RectTester from './rect-tester'
 import RuleTester from './rule-tester'
-import TextTester from './text-tester'
 import SymbolTesterArea from './symbol-tester-area'
 import SymbolTesterWidth from './symbol-tester-width'
+import TextTester from './text-tester'
 
-export default {
+const componentIndex = {
 	'arc-tester': ArcTester,
 	'area-tester-horizontal': AreaTesterHorizontal,
 	'area-tester-vertical': AreaTesterVertical,
@@ -28,3 +28,4 @@ export default {
 	'symbol-tester-area': SymbolTesterArea,
 	'symbol-tester-width': SymbolTesterWidth,
 }
+export default componentIndex

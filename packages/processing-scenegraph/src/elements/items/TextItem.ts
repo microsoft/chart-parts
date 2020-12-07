@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Item } from './Item'
 import {
 	MarkType,
 	HorizontalAlignment,
@@ -11,7 +12,6 @@ import {
 	SGTextItem,
 	FontWeight,
 } from '@chart-parts/interfaces'
-import { Item } from './Item'
 
 export class TextItem extends Item implements SGTextItem {
 	public static ITEM_TYPE = MarkType.Text

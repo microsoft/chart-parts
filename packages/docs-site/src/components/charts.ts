@@ -15,7 +15,7 @@ import {
 	ScatterPlot,
 } from '@chart-parts/examples'
 
-export default {
+const chartsIndex = {
 	// Bar Charts
 	BarChart,
 	GroupedBarChart,
@@ -34,3 +34,4 @@ export default {
 	PopulationPyramid,
 	JobVoyager,
 }
+export default chartsIndex

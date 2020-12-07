@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
 import { createDomainScale, DomainScaleProps } from '../DomainScale'
+import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
 
 /**
  * OrdinalScale Component Props
@@ -39,9 +39,6 @@ export type OrdinalScaleComponentType<RangeType = any> = React.FC<
 export const OrdinalScale: OrdinalScaleComponentType = createDomainScale(
 	'OrdinalScale',
 	({ name, domain, range, colorScheme }) =>
-		ordinal(name)
-			.domain(domain)
-			.range(range)
-			.colorScheme(colorScheme),
+		ordinal(name).domain(domain).range(range).colorScheme(colorScheme),
 	['name', 'domain', 'range', 'colorScheme'],
 )

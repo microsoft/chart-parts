@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
-import { DatasetTransform } from './interfaces'
 import { Compare } from '../interfaces'
 import { createSorter } from '../util'
+import { DatasetTransform } from './interfaces'
 const { collect: vegaCollect } = require('vega-transforms')
 
 export interface CollectBuilder extends DatasetTransform {

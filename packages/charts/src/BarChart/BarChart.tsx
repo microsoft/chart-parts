@@ -4,9 +4,9 @@
  */
 import React, { memo } from 'react'
 import { BarChartProps } from './types'
-import { StackedBarChart } from './variants/StackedBarChart'
 import { GroupedBarChart } from './variants/GroupedBarChart'
 import { PlainBarChart } from './variants/PlainBarChart'
+import { StackedBarChart } from './variants/StackedBarChart'
 
 export const BarChart: React.FC<BarChartProps> = memo(function BarChart(props) {
 	if (props.groupBy && props.stacked) {

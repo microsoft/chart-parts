@@ -2,16 +2,16 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { AxisBuilder } from './AxisBuilder'
+import { ChartOptionsManager } from './ChartOptionsManager'
+import { MarkBuilder } from './MarkBuilder'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 import {
 	MarkType,
 	AxisOrientation,
 	ChartOptions,
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
-import { MarkBuilder } from './MarkBuilder'
-import { SceneNodeBuilder } from './SceneNodeBuilder'
-import { AxisBuilder } from './AxisBuilder'
-import { ChartOptionsManager } from './ChartOptionsManager'
 
 /**
  * A factory function for creating a new scene

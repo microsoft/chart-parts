@@ -84,5 +84,5 @@ presently are [Vega](http://vega.github.io/) and it's descendants
 and [Altair](https://altair-viz.github.io/).
 
 These systems are excellent for certain use cases, but are often tightly
-coupled to a target rendering context (e.g. Browsers), and may not integrate
-easily with application code.
+coupled to a target rendering context (e.g. Browsers), and may be difficult to integrate
+with application code.

@@ -20,7 +20,7 @@ const regexp = [/([MLHVCSQTAZmlhvcsqtaz])/g, /###/, /(\d)([-+])/g, /\s|,|###/]
 //
 export type Command = Array<string | number>
 
-export default function(pathstr: string): Command[] {
+export function parsePath(pathstr: string): Command[] {
 	const result: any[] = []
 
 	// First, break path into command sequence

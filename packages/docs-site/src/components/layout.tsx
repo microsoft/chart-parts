@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { StaticQuery, graphql } from 'gatsby'
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { StaticQuery, graphql } from 'gatsby'
 import styled from 'styled-components'
 import { SiteMetadata } from '../types'
-import { Header, HEIGHT } from './header/header'
 import theme from '../util/theme'
+import { Header, HEIGHT } from './header/header'
 import GlobalStyle from './styles'
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'

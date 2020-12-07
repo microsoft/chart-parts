@@ -3,12 +3,17 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType, Orientation, Interpolation } from '@chart-parts/interfaces'
+import { useEffect } from 'react'
 import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
-import { useEffect } from 'react'
 import { MarkBuilder } from '@chart-parts/builder'
-import { MarkEncodingKey, MarkEncoding } from '@chart-parts/interfaces'
+import {
+	MarkType,
+	Orientation,
+	Interpolation,
+	MarkEncodingKey,
+	MarkEncoding,
+} from '@chart-parts/interfaces'
 
 /**
  * Area Mark Component Props

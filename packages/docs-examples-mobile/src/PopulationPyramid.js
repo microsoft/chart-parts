@@ -4,7 +4,12 @@
  */
 import React from 'react';
 import {View, Slider, Text as RNText} from 'react-native';
-import {dataset, filter, aggregate} from '@chart-parts/transform';
+import population from 'vega-datasets/data/population.json';
+import {
+	VerticalTextAlignment,
+	HorizontalAlignment,
+	AxisOrientation,
+} from '@chart-parts/interfaces';
 import {
 	Axis,
 	Group,
@@ -15,13 +20,8 @@ import {
 	OrdinalScale,
 	LinearScale,
 } from '@chart-parts/react';
-import {
-	VerticalTextAlignment,
-	HorizontalAlignment,
-	AxisOrientation,
-} from '@chart-parts/interfaces';
 import {Renderer} from '@chart-parts/react-native-svg-renderer';
-import population from 'vega-datasets/data/population.json';
+import {dataset, filter, aggregate} from '@chart-parts/transform';
 
 const renderer = new Renderer();
 const chartWidth = 380;

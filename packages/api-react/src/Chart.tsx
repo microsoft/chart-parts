@@ -11,12 +11,12 @@ import React, {
 	useMemo,
 	useCallback,
 } from 'react'
+import { animationFrameScheduler } from 'rxjs'
+import { observeOn } from 'rxjs/operators'
+import { SceneBuilderContext, ChartRendererContext } from './Context'
+import { SceneNodeBuilder, scene } from '@chart-parts/builder'
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
-import { SceneNodeBuilder, scene } from '@chart-parts/builder'
-import { observeOn } from 'rxjs/operators'
-import { animationFrameScheduler } from 'rxjs'
-import { SceneBuilderContext, ChartRendererContext } from './Context'
 
 /**
  * A specification for the padding to apply to the chart

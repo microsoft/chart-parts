@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { sequential } from '@chart-parts/scales'
 import { createDomainScale, DomainScaleProps } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
+import { sequential } from '@chart-parts/scales'
 
 /**
  * Sequential Scale Component Props
@@ -28,9 +28,6 @@ export const SequentialScale = createDomainScale<
 >(
 	'SequentialScale',
 	({ name, domain, clamp, interpolator }) =>
-		sequential(name)
-			.domain(domain)
-			.clamp(clamp)
-			.interpolator(interpolator),
+		sequential(name).domain(domain).clamp(clamp).interpolator(interpolator),
 	['name', 'domain', 'clamp', 'interpolator'],
 )

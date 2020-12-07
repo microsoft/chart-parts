@@ -2,6 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { SceneNodeSpec } from './SceneNodeSpec'
 import {
 	Mark,
 	Channels,
@@ -12,7 +13,6 @@ import {
 	MarkType,
 	ItemIdGenerator,
 } from '@chart-parts/interfaces'
-import { SceneNodeSpec } from './SceneNodeSpec'
 
 /**
  * Mark Specification Object

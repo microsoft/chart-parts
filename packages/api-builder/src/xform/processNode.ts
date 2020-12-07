@@ -3,6 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { buildAxes } from './axes'
+import { SceneFrame } from './context/SceneFrame'
+import { processMark } from './marks/processMark'
 import {
 	SGMark,
 	SGItem,
@@ -10,9 +13,6 @@ import {
 	MarkType,
 	ItemSpace,
 } from '@chart-parts/interfaces'
-import { SceneFrame } from './context/SceneFrame'
-import { processMark } from './marks/processMark'
-import { buildAxes } from './axes'
 import { buildMark } from '@chart-parts/scenegraph'
 
 export type SGMarkAny = SGMark<SGItem>

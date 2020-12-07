@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { LogScaleLineChartRegression } from '@chart-parts/examples'
+import React from 'react'
 import { withSvgRenderer, withStrictMode } from '../util/decorators'
+import { LogScaleLineChartRegression } from '@chart-parts/examples'
 
 storiesOf('Regression Cases', module)
 	.addDecorator(withStrictMode)

@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useMemo, useCallback } from 'react'
-import { dataset as newDataset, filter } from '@chart-parts/transform'
-import { Chart, LinearScale, Axis, Circle, Text } from '@chart-parts/react'
+import movies from 'vega-datasets/data/movies.json'
 import {
 	Dimension,
 	AxisOrientation,
 	VerticalTextAlignment,
 	HorizontalAlignment,
 } from '@chart-parts/interfaces'
-import movies from 'vega-datasets/data/movies.json'
+import { Chart, LinearScale, Axis, Circle, Text } from '@chart-parts/react'
+import { dataset as newDataset, filter } from '@chart-parts/transform'
 
 export interface ScatterPlotChartProps {
 	xField: string

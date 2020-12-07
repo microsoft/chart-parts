@@ -5,8 +5,8 @@
 
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
-import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
+import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {
 	private clampValue?: boolean

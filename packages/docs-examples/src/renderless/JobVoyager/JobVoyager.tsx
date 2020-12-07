@@ -3,6 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useState, useCallback, useMemo } from 'react'
+import source from 'vega-datasets/data/jobs.json'
+import {
+	Dimension,
+	AxisOrientation,
+	VerticalTextAlignment,
+	HorizontalAlignment,
+	Metadata,
+} from '@chart-parts/interfaces'
 import {
 	Area,
 	Group,
@@ -16,13 +24,6 @@ import {
 	QuantileScale,
 } from '@chart-parts/react'
 import {
-	Dimension,
-	AxisOrientation,
-	VerticalTextAlignment,
-	HorizontalAlignment,
-	Metadata,
-} from '@chart-parts/interfaces'
-import {
 	dataset,
 	stack,
 	CompareOrder,
@@ -31,7 +32,6 @@ import {
 	Offset as StackOffset,
 	filter,
 } from '@chart-parts/transform'
-import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
 // - Axis grid

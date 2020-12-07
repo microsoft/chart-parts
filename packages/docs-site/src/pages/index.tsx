@@ -2,13 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import dbg from 'debug'
 import React, { memo } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
+import packageJson from '../../package.json'
 import Splash from '../components/splash/splash'
 import GlobalStyles from './styles'
-import dbg from 'debug'
-import packageJson from '../../package.json'
 
 const log = dbg('site:index')
 log('chart-parts documentation, version', packageJson.version)

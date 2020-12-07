@@ -4,13 +4,13 @@
  */
 
 import React, { useRef, RefObject, memo, useState } from 'react'
+import useDimensions from 'react-use-dimensions'
 import styled from 'styled-components'
 import LogoBG from './logobg'
 import { useSplashPageMountAnimation } from './splash.hooks'
 import { SplashContent } from './splashcontent'
 /* eslint-disable-next-line @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-import useDimensions from 'react-use-dimensions'
 
 const IndexPage: React.FC = memo(function IndexPage() {
 	const [

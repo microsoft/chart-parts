@@ -21,7 +21,7 @@ function scale(current: any, s: any) {
 	return temp
 }
 
-export default function(context: any, path: any, l: any, t: any, s: any) {
+export function renderPath(context: any, path: any, l: any, t: any, s: any) {
 	let current // current instruction
 	let previous = null
 	let x = 0 // current x

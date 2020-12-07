@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { scene, area } from '@chart-parts/builder'
 import { createScenegraph } from '../index'
+import { scene, area } from '@chart-parts/builder'
 import { ChartOptions } from '@chart-parts/interfaces'
 
 describe('The createScenegraph() utility', () => {

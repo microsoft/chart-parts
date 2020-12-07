@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
 import { graphql } from 'gatsby'
+import React, { memo } from 'react'
 import Layout from '../components/layout'
-import Sidebar from '../components/sidebar'
 import Post from '../components/post'
+import Sidebar from '../components/sidebar'
 import convertGraphqlToc from '../util/convertGraphqlToc'
 
 export interface BlogStructureProps {

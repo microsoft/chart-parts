@@ -4,6 +4,10 @@
  */
 import React, { memo } from 'react'
 import {
+	VerticalTextAlignment,
+	HorizontalAlignment,
+} from '@chart-parts/interfaces'
+import {
 	Chart,
 	LinearScale,
 	BandScale,
@@ -14,10 +18,6 @@ import {
 	Rect,
 	Text,
 } from '@chart-parts/react'
-import {
-	VerticalTextAlignment,
-	HorizontalAlignment,
-} from '@chart-parts/interfaces'
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },

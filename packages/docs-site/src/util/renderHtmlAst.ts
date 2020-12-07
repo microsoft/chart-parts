@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import dbg from 'debug'
 import { createElement } from 'react'
 import components from '../components/md'
 import processImages from './processImagesInMarkdownAst'
-import dbg from 'debug'
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const rehypeReact = require('rehype-react')
 const log = dbg('site:renderHtmlAst')

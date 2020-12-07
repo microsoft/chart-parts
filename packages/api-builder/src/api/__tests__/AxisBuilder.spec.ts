@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { AxisOrientation } from '@chart-parts/interfaces'
 import { AxisBuilder } from '../AxisBuilder'
+import { AxisOrientation } from '@chart-parts/interfaces'
 
 describe('The Axis builder', () => {
 	it('throws if built with an invalid scale name or orientation', () => {

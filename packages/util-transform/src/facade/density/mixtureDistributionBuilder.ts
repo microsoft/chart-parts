@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { DistributionBuilder } from './interfaces'
 import { DatasetManager } from '../dataset'
+import { DistributionBuilder } from './interfaces'
 
 export interface MixtureDistributionBuilder extends DistributionBuilder {
 	/**

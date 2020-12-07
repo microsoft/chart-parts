@@ -3,12 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import markTesters from './mark-testers'
-import { ExampleTabs } from './example-tabs'
 import { Authorship } from './authorship'
+import { ExampleTabs } from './example-tabs'
+import markTesters from './mark-testers'
 
-export default {
+const mdIndex = {
 	'view-source': ExampleTabs,
 	'author-details': Authorship,
 	...markTesters,
 }
+export default mdIndex

@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { registerItemType } from '../../registry'
 import { ArcItem } from './ArcItem'
 import { AreaItem } from './AreaItem'
 import { GroupItem } from './GroupItem'
@@ -14,7 +15,6 @@ import { SymbolItem } from './SymbolItem'
 import { TextItem } from './TextItem'
 
 // Register the core item types
-import { registerItemType } from '../../registry'
 registerItemType(ArcItem)
 registerItemType(AreaItem)
 registerItemType(GroupItem)

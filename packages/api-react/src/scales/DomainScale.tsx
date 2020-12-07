@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useContext, useEffect, useMemo } from 'react'
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { SceneBuilderContext } from '../Context'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 /**
  * Props for a scale with a domain

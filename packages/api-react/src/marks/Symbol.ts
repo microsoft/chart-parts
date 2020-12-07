@@ -3,16 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { useEffect } from 'react'
+import { CommonMarkProps } from '../types'
+import { createMarkComponent } from './BaseMark'
+import { MarkBuilder } from '@chart-parts/builder'
 import {
 	MarkType,
 	SymbolType,
 	MarkEncodingKey,
 	MarkEncoding,
 } from '@chart-parts/interfaces'
-import { CommonMarkProps } from '../types'
-import { createMarkComponent } from './BaseMark'
-import { useEffect } from 'react'
-import { MarkBuilder } from '@chart-parts/builder'
 
 /**
  * Symbol Mark Component Props

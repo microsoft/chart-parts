@@ -4,8 +4,8 @@
  */
 import React, { memo } from 'react'
 import { AreaChartProps } from './types'
-import { StackedAreaChart } from './variants/StackedAreaChart'
 import { PlainAreaChart } from './variants/PlainAreaChart'
+import { StackedAreaChart } from './variants/StackedAreaChart'
 
 export const AreaChart: React.FC<AreaChartProps> = memo(function AreaChart(
 	props,

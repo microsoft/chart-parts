@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { FieldAccessor } from '../../interfaces'
-import { DistributionBuilder } from './interfaces'
 import { DatasetManager } from '../dataset'
+import { DistributionBuilder } from './interfaces'
 /* eslint-disable-next-line @typescript-eslint/no-var-requires */
 const { field: vegaField } = require('vega-util')
 

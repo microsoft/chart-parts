@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
-import { Rect } from '@chart-parts/react'
-import { FillMarkProps } from '../../types'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
 } from '../../hooks'
+import { FillMarkProps } from '../../types'
 import { MarkEncoding } from '@chart-parts/interfaces'
+import { Rect } from '@chart-parts/react'
 
 const DEFAULT_FILL = 'steelblue'
 const DEFAULT_FILL_OPACITY = 1

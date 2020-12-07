@@ -4,6 +4,9 @@
  */
 
 /* eslint-disable no-dupe-class-members */
+import { Subject, Subscription } from 'rxjs'
+import { MarkSpec } from '../spec/MarkSpec'
+import { SceneNodeBuilder } from './SceneNodeBuilder'
 import {
 	Mark,
 	Channels,
@@ -27,9 +30,6 @@ import {
 	ItemIdGenerator,
 	Metadata,
 } from '@chart-parts/interfaces'
-import { SceneNodeBuilder } from './SceneNodeBuilder'
-import { Subject, Subscription } from 'rxjs'
-import { MarkSpec } from '../spec/MarkSpec'
 
 /**
  * A builder component for mark specifications

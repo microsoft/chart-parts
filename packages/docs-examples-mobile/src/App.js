@@ -5,8 +5,8 @@
 import React from 'react';
 // import Chart from './BarChart';
 // import Charts from './Chart';
-import PopulationPyramid from './PopulationPyramid';
 import {StyleSheet, View} from 'react-native';
+import PopulationPyramid from './PopulationPyramid';
 
 const App = () => (
 	<View style={styles.container}>

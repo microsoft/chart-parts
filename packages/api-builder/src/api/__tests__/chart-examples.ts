@@ -2,19 +2,19 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import {
-	linear,
-	band,
-	ordinal,
-	CategoricalColorScheme,
-} from '@chart-parts/scales'
+import { scene, rect, axis, group, text } from '../index'
 import {
 	Dimension,
 	AxisOrientation,
 	HorizontalAlignment,
 	VerticalTextAlignment,
 } from '@chart-parts/interfaces'
-import { scene, rect, axis, group, text } from '../index'
+import {
+	linear,
+	band,
+	ordinal,
+	CategoricalColorScheme,
+} from '@chart-parts/scales'
 
 describe('Building Charts', () => {
 	it('can build a basic bar chart', () => {
@@ -22,10 +22,7 @@ describe('Building Charts', () => {
 			n =>
 				n
 					.scale(
-						linear('y')
-							.domain('data.amount')
-							.range(Dimension.Height)
-							.nice(),
+						linear('y').domain('data.amount').range(Dimension.Height).nice(),
 						band('x', 'xband')
 							.domain('data.category')
 							.range(Dimension.Width)

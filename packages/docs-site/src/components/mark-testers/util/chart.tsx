@@ -4,9 +4,9 @@
  */
 
 import React, { useState, useMemo, useEffect } from 'react'
+import { useDebouncedCallback } from 'use-debounce'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
-import { useDebouncedCallback } from 'use-debounce'
 
 const pipeline = new Orchestrator(new Renderer())
 export interface SGChartProps {

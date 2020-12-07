@@ -3,20 +3,20 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useMemo } from 'react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
+import { scene, rect, group, text } from '@chart-parts/builder'
 import {
 	Dimension,
 	HorizontalAlignment,
 	VerticalTextAlignment,
 } from '@chart-parts/interfaces'
-import { scene, rect, group, text } from '@chart-parts/builder'
+import { Orchestrator } from '@chart-parts/orchestrator'
+import { Renderer } from '@chart-parts/react-svg-renderer'
 import {
 	band,
 	linear,
 	ordinal,
 	CategoricalColorScheme,
 } from '@chart-parts/scales'
-import { Orchestrator } from '@chart-parts/orchestrator'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

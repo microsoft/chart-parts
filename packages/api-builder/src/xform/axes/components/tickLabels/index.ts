@@ -4,6 +4,11 @@
  */
 
 import {
+	AxisContext,
+	PositionedTickValue,
+	AxisComponent,
+} from '../../interfaces'
+import {
 	Axis,
 	MarkType,
 	VerticalTextAlignment,
@@ -11,11 +16,6 @@ import {
 	AxisOrientation,
 } from '@chart-parts/interfaces'
 import { buildMark } from '@chart-parts/scenegraph'
-import {
-	AxisContext,
-	PositionedTickValue,
-	AxisComponent,
-} from '../../interfaces'
 
 /**
  * @ignore

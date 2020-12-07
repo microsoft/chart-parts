@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
-import { Line } from '@chart-parts/react'
 import { ChannelHandler, MarkEncoding, Gradient } from '@chart-parts/interfaces'
+import { Line } from '@chart-parts/react'
 
 export interface LineMarksProps {
 	onClick?: ChannelHandler<React.MouseEvent<any>>

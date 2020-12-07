@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Axis, Scale } from '@chart-parts/interfaces'
 import { AxisContext, PositionedTickValue } from '../../interfaces'
+import { Axis, Scale } from '@chart-parts/interfaces'
 
 /**
  * Gets logical tick values and their associated labels

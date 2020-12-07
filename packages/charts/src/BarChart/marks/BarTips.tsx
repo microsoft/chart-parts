@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useCallback, memo } from 'react'
-import { Text } from '@chart-parts/react'
+import { Orientation } from '../../types'
 import {
 	VerticalTextAlignment,
 	HorizontalAlignment,
 	MarkEncoding,
 } from '@chart-parts/interfaces'
-import { Orientation } from '../../types'
+import { Text } from '@chart-parts/react'
 
 const DEFAULT_TEXT: MarkEncoding<string> = ({ d, index }) => d.data[index].value
 const DEFAULT_FILL = 'black'

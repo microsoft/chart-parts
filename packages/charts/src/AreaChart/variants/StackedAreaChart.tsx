@@ -3,6 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useMemo } from 'react'
+import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
+import { createChartContainer } from '../../util'
+import { StackedAreaMarks } from '../marks/StackedAreaMarks'
+import { AreaChartProps } from '../types'
+import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	Axis,
 	Group,
@@ -11,12 +16,7 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { AxisOrientation } from '@chart-parts/interfaces'
 import { stack, dataset } from '@chart-parts/transform'
-import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
-import { createChartContainer } from '../../util'
-import { StackedAreaMarks } from '../marks/StackedAreaMarks'
-import { AreaChartProps } from '../types'
 
 const Container = createChartContainer('Stacked Area Chart')
 

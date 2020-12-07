@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
-import { TreeNode } from './interfaces'
 import { Link as RawLink } from 'gatsby'
-import styled from 'styled-components'
-import theme from '../../util/theme'
+import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
 import {
 	FaAngleDown as ExpandedIconRaw,
 	FaAngleRight as CollapsedIconRaw,
 } from 'react-icons/fa'
+import styled from 'styled-components'
+import theme from '../../util/theme'
+import { TreeNode } from './interfaces'
 
 export interface LinkTreeProps {
 	node: TreeNode

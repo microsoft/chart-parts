@@ -2980,6 +2980,10 @@ __metadata:
     "@chart-parts/react-svg-renderer": "workspace:packages/renderer-react-svg"
     "@chart-parts/transform": "workspace:packages/util-transform"
     "@essex/scripts": ^12.0.2
+    "@storybook/addon-actions": ^6.1.10
+    "@storybook/addon-knobs": ^6.1.10
+    "@storybook/addons": ^6.1.10
+    "@storybook/react": ^6.1.10
     "@types/node": ^14.14.10
     "@types/react": ^16.14.2
     "@types/react-color": ^3.0.4
@@ -3100,12 +3104,17 @@ __metadata:
   dependencies:
     "@chart-parts/builder": "workspace:packages/api-builder"
     "@chart-parts/interfaces": "workspace:packages/api-interfaces"
+    "@chart-parts/orchestrator": "workspace:packages/processing-orchestrator"
     "@chart-parts/react": "workspace:packages/api-react"
+    "@chart-parts/react-svg-renderer": "workspace:packages/renderer-react-svg"
+    "@chart-parts/scales": "workspace:packages/util-scales"
     "@chart-parts/transform": "workspace:packages/util-transform"
     "@essex/scripts": ^12.0.2
+    "@types/d3-array": ^2
     "@types/node": ^14.14.10
     "@types/react": ^16.14.2
     "@types/react-dom": ^16.9.10
+    d3-array: ^2.9.0
     react: ^16.14.0
     vega-datasets: ^2.2.0
   peerDependencies:
@@ -3151,14 +3160,21 @@ __metadata:
     "@essex/jest-config": ^11.0.2
     "@essex/prettier-config": ^10.0.0
     "@essex/scripts": ^12.0.2
+    "@storybook/addon-actions": ^6.1.10
+    "@storybook/addon-knobs": ^6.1.10
+    "@types/eslint": ^7
+    "@types/jest": ^26.0.16
+    "@types/prettier": ^2
     "@typescript-eslint/eslint-plugin": ^4.9.1
     "@typescript-eslint/parser": ^4.9.1
     conventional-changelog-cli: ^2.1.1
+    eslint: ^7.15.0
     eslint-import-resolver-node: ^0.3.4
     husky: ^4.3.5
     jest-html: ^1.5.0
     lint-staged: ^10.5.3
     npm-run-all: ^4.1.5
+    prettier: ^2.2.1
     shx: ^0.3.3
     typescript: ^4.1.2
   languageName: unknown
@@ -5746,7 +5762,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-knobs@npm:^6.1.9":
+"@storybook/addon-knobs@npm:^6.1.10, @storybook/addon-knobs@npm:^6.1.9":
   version: 6.1.10
   resolution: "@storybook/addon-knobs@npm:6.1.10"
   dependencies:
@@ -6916,6 +6932,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/d3-array@npm:^2":
+  version: 2.8.0
+  resolution: "@types/d3-array@npm:2.8.0"
+  checksum: aea74ec7fb42e8d73fd20c0a9cefda561cf19d3c8331c69ef1df98ba3a6e13dce48cdda7b8b89696b47d4a34534ee3d7bc632f7cf8d4e33a0ae8980872cd757c
+  languageName: node
+  linkType: hard
+
 "@types/d3-array@npm:^2.0.0":
   version: 2.0.0
   resolution: "@types/d3-array@npm:2.0.0"
@@ -7003,6 +7026,23 @@ __metadata:
   version: 1.0.0
   resolution: "@types/eslint-visitor-keys@npm:1.0.0"
   checksum: 48d1f3263148ac822afbc1e54358b423851a2a28c41aef4d7803b052b4f6c3ebfb219daed419b8a4f2b6ac34b545dab4def916d15e69d2bf3f128f7abc0e6132
+  languageName: node
+  linkType: hard
+
+"@types/eslint@npm:^7":
+  version: 7.2.6
+  resolution: "@types/eslint@npm:7.2.6"
+  dependencies:
+    "@types/estree": "*"
+    "@types/json-schema": "*"
+  checksum: 3a89e63d02c447b7182a30b80925ccfbd46661aa3e7262a61aa8de9b90d1de4b0b722f681f7473b35258e110ef726d73df406374abdac8435358dd13ca74251d
+  languageName: node
+  linkType: hard
+
+"@types/estree@npm:*":
+  version: 0.0.45
+  resolution: "@types/estree@npm:0.0.45"
+  checksum: 9d339cbcf29a96a32e9d40efc21009c2342e93c4f653294dd1ef081ae474bca9e54707e5d4a1cff90b9e3566e8bdd71ac31e0c3d24bc2ff1d3d5aa75058b3937
   languageName: node
   linkType: hard
 
@@ -7220,17 +7260,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/json-schema@npm:*, @types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
+  version: 7.0.6
+  resolution: "@types/json-schema@npm:7.0.6"
+  checksum: 820cabe35ac915b93e38b0c01957e5c49d7d9f69251dddfbf39af0ff4fe24f6e08b39e55603e0d212dea7bcaa383b1218b58a738d1c02013dc22df06547ff238
+  languageName: node
+  linkType: hard
+
 "@types/json-schema@npm:^7.0.3, @types/json-schema@npm:^7.0.4":
   version: 7.0.4
   resolution: "@types/json-schema@npm:7.0.4"
   checksum: 5094037431e4b29d5cc9d6938ea596d1145cc46d305d8d302a477a54d0a7a83ba4629abbf52fcabc3ffdb31cf94647bc366a7bcc544770cbb80212d903018e2b
-  languageName: node
-  linkType: hard
-
-"@types/json-schema@npm:^7.0.5, @types/json-schema@npm:^7.0.6":
-  version: 7.0.6
-  resolution: "@types/json-schema@npm:7.0.6"
-  checksum: 820cabe35ac915b93e38b0c01957e5c49d7d9f69251dddfbf39af0ff4fe24f6e08b39e55603e0d212dea7bcaa383b1218b58a738d1c02013dc22df06547ff238
   languageName: node
   linkType: hard
 
@@ -7387,6 +7427,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/prettier@npm:^2":
+  version: 2.1.5
+  resolution: "@types/prettier@npm:2.1.5"
+  checksum: bc6271235d881fa49b2f03e8e9242a7be8ecbcdcffeb7e31347afd0343f5f5e372ce65fe257e44254156737935c9249c9722cbe991dfad9aab72056c6acdbdaa
+  languageName: node
+  linkType: hard
+
 "@types/prettier@npm:^2.0.0":
   version: 2.0.1
   resolution: "@types/prettier@npm:2.0.1"
@@ -7522,17 +7569,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:*":
-  version: 16.9.51
-  resolution: "@types/react@npm:16.9.51"
-  dependencies:
-    "@types/prop-types": "*"
-    csstype: ^3.0.2
-  checksum: 2244f20526c284e3d81ff50422222fce609034f4a1e29ea71733ab9e2c2c9894f062e4a270e327d5a81d11b02a6de24e418babcfb039a7139549b21179fc1942
-  languageName: node
-  linkType: hard
-
-"@types/react@npm:^16, @types/react@npm:^16.14.2":
+"@types/react@npm:16.14.2":
   version: 16.14.2
   resolution: "@types/react@npm:16.14.2"
   dependencies:
@@ -12922,6 +12959,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"d3-array@npm:^2.9.0":
+  version: 2.9.0
+  resolution: "d3-array@npm:2.9.0"
+  checksum: 9fbd08759b39164f2b65f57b484e37ac83b437309afe02985031c5a8a4ba6a301be41f7defa85dc805450825aea6be93e033de95a95851147a464fc0f18900cc
+  languageName: node
+  linkType: hard
+
 "d3-color@npm:1 - 2":
   version: 2.0.0
   resolution: "d3-color@npm:2.0.0"
@@ -14917,7 +14961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint@npm:^7.0.0, eslint@npm:^7.14.0":
+"eslint@npm:^7.0.0, eslint@npm:^7.14.0, eslint@npm:^7.15.0":
   version: 7.15.0
   resolution: "eslint@npm:7.15.0"
   dependencies:
@@ -15128,6 +15172,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.9.6
     "@babel/runtime": ^7.9.6
+    "@chart-parts/interfaces": "workspace:packages/api-interfaces"
     "@chart-parts/orchestrator": "workspace:packages/processing-orchestrator"
     "@chart-parts/react": "workspace:packages/api-react"
     "@chart-parts/react-native-svg-renderer": "workspace:packages/renderer-react-native-svg"
@@ -15135,6 +15180,7 @@ __metadata:
     "@chart-parts/testdata": "workspace:packages/docs-testdata"
     "@chart-parts/transform": "workspace:packages/util-transform"
     "@react-native-community/eslint-config": ^1.1.0
+    "@types/react-native": ^0.63.37
     babel-jest: ^26.0.1
     d3-array: ^2.3.1
     d3-format: ^1.3.0

@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useMemo, memo } from 'react'
-import { LinearScale, BandScale, Dimension, Axis } from '@chart-parts/react'
-import { Orientation, BandScaleProps } from '../../types'
-import { AxisOrientation } from '@chart-parts/interfaces'
 import { useChartOrientation, useBarData } from '../../hooks'
+import { Orientation, BandScaleProps } from '../../types'
 import { createChartContainer } from '../../util'
 import { BarMarks } from '../marks/BarMarks'
 import { BarChartProps } from '../types'
+import { AxisOrientation } from '@chart-parts/interfaces'
+import { LinearScale, BandScale, Dimension, Axis } from '@chart-parts/react'
 
 const Container = createChartContainer('Bar Chart')
 

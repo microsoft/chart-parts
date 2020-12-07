@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { action } from '@storybook/addon-actions'
+import { number, object, text } from '@storybook/addon-knobs'
 import React from 'react'
 import { AreaChart } from '../../dist/esm/index'
-import { number, object, text } from '@storybook/addon-knobs'
-import { action } from '@storybook/addon-actions'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 
 const exData = [

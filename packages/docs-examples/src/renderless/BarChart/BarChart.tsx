@@ -4,6 +4,11 @@
  */
 import React, { memo, useState, useCallback } from 'react'
 import {
+	AxisOrientation,
+	VerticalTextAlignment,
+	HorizontalAlignment,
+} from '@chart-parts/interfaces'
+import {
 	Axis,
 	Chart,
 	Rect,
@@ -12,11 +17,6 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import {
-	AxisOrientation,
-	VerticalTextAlignment,
-	HorizontalAlignment,
-} from '@chart-parts/interfaces'
 
 const data = [
 	{ category: 'A', amount: 28 },

@@ -4,6 +4,16 @@
  */
 import React, { useMemo, memo, useCallback } from 'react'
 import {
+	useGroupData,
+	useChartOrientation,
+	useGroupByFaceting,
+} from '../../hooks'
+import { Orientation, AxisProps, BandScaleProps } from '../../types'
+import { createChartContainer } from '../../util'
+import { GroupedBarMarks } from '../marks/GroupedBarMarks'
+import { BarChartProps } from '../types'
+import { AxisOrientation, MarkEncoding } from '@chart-parts/interfaces'
+import {
 	LinearScale,
 	BandScale,
 	Dimension,
@@ -12,16 +22,6 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { Orientation, AxisProps, BandScaleProps } from '../../types'
-import { BarChartProps } from '../types'
-import {
-	useGroupData,
-	useChartOrientation,
-	useGroupByFaceting,
-} from '../../hooks'
-import { AxisOrientation, MarkEncoding } from '@chart-parts/interfaces'
-import { createChartContainer } from '../../util'
-import { GroupedBarMarks } from '../marks/GroupedBarMarks'
 
 const Container = createChartContainer('Grouped Bar Chart')
 

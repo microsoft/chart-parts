@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { createDomainScale, DomainScaleProps } from './DomainScale'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 /**
  * Common props for scales with both a domain and range

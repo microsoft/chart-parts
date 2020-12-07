@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useMemo } from 'react'
-import { GoMarkGithub as GitHubIcon } from 'react-icons/go'
 import { FaTwitter as TwitterIcon } from 'react-icons/fa'
+import { GoMarkGithub as GitHubIcon } from 'react-icons/go'
 import styled from 'styled-components'
 
 export interface AuthorshipProps {

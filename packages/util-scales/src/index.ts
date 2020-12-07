@@ -3,6 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { QuantileScale } from './QuantileScale'
+import { QuantizeScale } from './QuantizeScale'
+import { BandScale, OrdinalScale, PointScale } from './discrete'
 import {
 	LinearScale,
 	LogScale,
@@ -12,9 +15,6 @@ import {
 	TimeScale,
 	UtcScale,
 } from './quantitative'
-import { BandScale, OrdinalScale, PointScale } from './discrete'
-import { QuantizeScale } from './QuantizeScale'
-import { QuantileScale } from './QuantileScale'
 
 export * from './quantitative'
 export * from './discrete'

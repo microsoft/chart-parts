@@ -2,12 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import get from 'lodash/get'
 import {
 	ScaleCreationContext,
 	Scales,
 	ScaleBuilder,
 } from '@chart-parts/interfaces'
-import get from 'lodash/get'
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
 export abstract class DomainScale<Domain> implements ScaleBuilder {

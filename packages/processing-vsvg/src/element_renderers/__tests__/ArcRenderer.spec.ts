@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Mark, ArcItem } from '@chart-parts/scenegraph'
 import { renderMark } from '../'
+import { Mark, ArcItem } from '@chart-parts/scenegraph'
 
 describe('The Arc Renderer', () => {
 	it('can render an arc', () => {

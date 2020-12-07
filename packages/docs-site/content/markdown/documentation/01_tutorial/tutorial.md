@@ -223,7 +223,7 @@ acquire the width value the scale has determined for us.
 
 The other special encoding is _y2_ which is bound to a specific value of zero.
 In this example that makes the rectangles bleed out of view since zero is not
-included in the scale. 🤷‍♂️. Let's fix that:
+included in the scale. Let's fix that:
 
 ```jsx
 // BarChart.js

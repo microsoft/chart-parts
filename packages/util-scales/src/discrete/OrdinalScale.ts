@@ -4,9 +4,9 @@
  */
 
 import { scaleOrdinal } from 'd3-scale'
-import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { DomainScale } from '../DomainScale'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	private rangeValue?: RangeType[]

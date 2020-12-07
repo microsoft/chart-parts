@@ -2,9 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ChannelHandler } from '@chart-parts/interfaces'
+import {
+	ChannelHandler,
+	FontWeight,
+	MarkEncoding,
+} from '@chart-parts/interfaces'
 import { ChartPadding } from '@chart-parts/react'
-import { FontWeight, MarkEncoding } from '@chart-parts/interfaces'
 
 export interface Data {
 	key: string | number

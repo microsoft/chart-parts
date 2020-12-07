@@ -3,8 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
 import { storiesOf } from '@storybook/react'
+import React from 'react'
+import { withSvgRenderer, withStrictMode } from '../util/decorators'
 import {
 	AreaChart,
 	BarChart,
@@ -18,7 +19,6 @@ import {
 	StackedAreaChart,
 	StackedBarChart,
 } from '@chart-parts/examples'
-import { withSvgRenderer, withStrictMode } from '../util/decorators'
 
 storiesOf('Renderless React Examples', module)
 	.addDecorator(withStrictMode)

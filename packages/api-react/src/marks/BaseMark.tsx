@@ -4,14 +4,13 @@
  */
 import React, { useContext, useState, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
-import { MarkType } from '@chart-parts/interfaces'
+import { CommonMarkProps } from '../types'
 import {
 	mark as newMark,
 	MarkBuilder,
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
-import { CommonMarkProps } from '../types'
-import { MarkEncodingKey } from '@chart-parts/interfaces'
+import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
 
 /**
  * A factory function for creating mark components

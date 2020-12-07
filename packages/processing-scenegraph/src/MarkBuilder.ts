@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType, SGItem, SGMark } from '@chart-parts/interfaces'
 import { createItem, createMark } from './factory'
+import { MarkType, SGItem, SGMark } from '@chart-parts/interfaces'
 
 export class MarkBuilder {
 	private itemsValue: SGItem[] = []

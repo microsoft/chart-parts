@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
-import { FillMarkProps } from '../../types'
-import { Area } from '@chart-parts/react'
-import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
 } from '../../hooks'
+import { FillMarkProps } from '../../types'
+import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
+import { Area } from '@chart-parts/react'
 
 const DEFAULT_FILL: MarkEncoding<string> = ctx => ctx.color(ctx.d._category)
 const DEFAULT_FILL_OPACITY = 1

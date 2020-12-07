@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
 import { Link, graphql, StaticQuery } from 'gatsby'
+import React, { memo } from 'react'
 import styled from 'styled-components'
+import pkgJson from '../../../../../package.json'
 import theme from '../../util/theme'
 import Logo from './logo'
-import lernaMetadata from '../../../../../../lerna.json'
 
-const { version: libraryVersion } = lernaMetadata
+const { version: libraryVersion } = pkgJson
 
 export interface HeaderProps {
 	logoTo?: string

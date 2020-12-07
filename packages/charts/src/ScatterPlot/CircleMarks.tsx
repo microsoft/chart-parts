@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
-import { Circle } from '@chart-parts/react'
-import { FillMarkProps } from '../types'
-import { MarkEncoding } from '@chart-parts/interfaces'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
 } from '../hooks'
+import { FillMarkProps } from '../types'
+import { MarkEncoding } from '@chart-parts/interfaces'
+import { Circle } from '@chart-parts/react'
 
 const DEFAULT_STROKE = 'black'
 const DEFAULT_FILL: MarkEncoding<string> = ctx => ctx.color(ctx.d._category)

@@ -3,17 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { density, normal, uniform, kde, mixture } from '../density'
 import { dataset } from '../dataset'
+import { density, normal, uniform, kde, mixture } from '../density'
 
 describe('The density() transform', () => {
 	it('can generate a new normal distribution', () => {
 		const ds = dataset().addTable(
 			'data',
 			[],
-			density()
-				.extent(0, 10)
-				.distribution(normal()),
+			density().extent(0, 10).distribution(normal()),
 		)
 		const generated = ds.getTable('data') as any
 		expect(generated.length).toBeGreaterThan(0)
@@ -23,13 +21,7 @@ describe('The density() transform', () => {
 		const ds = dataset().addTable(
 			'data',
 			[],
-			density()
-				.distribution(
-					uniform()
-						.min(10)
-						.max(1234),
-				)
-				.extent(0, 10),
+			density().distribution(uniform().min(10).max(1234)).extent(0, 10),
 		)
 
 		const generated = ds.getTable('data') as any
@@ -41,22 +33,13 @@ describe('The density() transform', () => {
 			.addTable(
 				'generated',
 				[],
-				density()
-					.distribution(
-						uniform()
-							.min(10)
-							.max(1234),
-					)
-					.extent(0, 10),
+				density().distribution(uniform().min(10).max(1234)).extent(0, 10),
 			)
 			.addTable(
 				'kde',
 				[],
 				density().distribution(
-					kde()
-						.from('generated')
-						.field('value')
-						.bandwidth(3),
+					kde().from('generated').field('value').bandwidth(3),
 				),
 			)
 
@@ -72,12 +55,7 @@ describe('The density() transform', () => {
 				.extent(0, 10)
 				.distribution(
 					mixture()
-						.distributions(
-							normal(),
-							uniform()
-								.min(10)
-								.max(1234),
-						)
+						.distributions(normal(), uniform().min(10).max(1234))
 						.weights(50, 50),
 				),
 		)

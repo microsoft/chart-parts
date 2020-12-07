@@ -5,8 +5,8 @@
 import React, { memo, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { SGChart } from './chart'
-import { Slider } from './slider'
 import { Dropdown } from './dropdown'
+import { Slider } from './slider'
 import { Toggle } from './toggle'
 
 export interface SingleMarkTesterState {

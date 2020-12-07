@@ -4,8 +4,8 @@
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
 import { FieldAccessor, Compare, Offset } from '../interfaces'
-import { DatasetTransform } from './interfaces'
 import { createSorter } from '../util'
+import { DatasetTransform } from './interfaces'
 
 const { stack: vegaStack } = require('vega-encode')
 const { field: vegaField } = require('vega-util')

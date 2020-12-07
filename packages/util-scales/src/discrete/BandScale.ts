@@ -5,13 +5,13 @@
 
 import { scaleBand } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
+import { getBoundRange } from '../getBoundRange'
 import {
 	ScaleCreationContext,
 	Dimension,
 	Scales,
 	Scale,
 } from '@chart-parts/interfaces'
-import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {
 	/**

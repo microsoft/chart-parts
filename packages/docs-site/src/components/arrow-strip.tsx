@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { useState, useEffect, memo, useMemo } from 'react'
-import styled from 'styled-components'
 import { FaChevronDown as ArrowIcon } from 'react-icons/fa'
+import styled from 'styled-components'
 
 const UPDATE_FREQUENCY = 100
 

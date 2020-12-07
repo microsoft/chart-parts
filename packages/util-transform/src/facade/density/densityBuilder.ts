@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-var-requires */
+import { DatasetManager } from '../dataset'
 import {
 	DensityBuilder,
 	DensityMethod,
 	DistributionBuilder,
 } from './interfaces'
-import { DatasetManager } from '../dataset'
 
 const { density: vegaDensity } = require('vega-transforms')
 

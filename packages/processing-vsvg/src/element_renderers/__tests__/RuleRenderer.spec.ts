@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { Mark, RuleItem } from '@chart-parts/scenegraph'
 import { renderMark } from '../'
+import { Mark, RuleItem } from '@chart-parts/scenegraph'
 
 const ctx = { nextId: () => 'id' }
 

@@ -5,14 +5,14 @@
 
 import { scalePoint } from 'd3-scale'
 import { DomainRangeScale } from '../DomainRangeScale'
+import { getBoundRange } from '../getBoundRange'
+import { optionalArgument } from '../util'
 import {
 	Dimension,
 	ScaleCreationContext,
 	Scales,
 	Scale,
 } from '@chart-parts/interfaces'
-import { getBoundRange } from '../getBoundRange'
-import { optionalArgument } from '../util'
 
 export class PointScale extends DomainRangeScale<
 	string[],

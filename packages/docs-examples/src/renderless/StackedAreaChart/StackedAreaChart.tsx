@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo } from 'react'
+import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import {
 	Area,
 	Axis,
@@ -14,7 +15,6 @@ import {
 	Dimension,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import { stack, dataset } from '@chart-parts/transform'
 
 const data = [

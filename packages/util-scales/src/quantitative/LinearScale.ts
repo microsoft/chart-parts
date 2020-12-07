@@ -4,8 +4,8 @@
  */
 
 import { scaleLinear } from 'd3-scale'
-import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true

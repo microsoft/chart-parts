@@ -4,6 +4,7 @@
  */
 
 /* eslint-disable no-console */
+import { createScenegraph } from '@chart-parts/builder'
 import {
 	ChartOptions,
 	SceneNode,
@@ -13,7 +14,6 @@ import {
 } from '@chart-parts/interfaces'
 import { parseScene } from '@chart-parts/scenegraph'
 import { VirtualSvgConverter } from '@chart-parts/vsvg'
-import { createScenegraph } from '@chart-parts/builder'
 
 export class Orchestrator<T> {
 	public constructor(

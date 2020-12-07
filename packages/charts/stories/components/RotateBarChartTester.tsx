@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { number, object, text, radios } from '@storybook/addon-knobs'
 import React from 'react'
 import { BarChart, Orientation } from '../../dist/esm/index'
-import { number, object, text, radios } from '@storybook/addon-knobs'
 import {
 	makeAxisProps,
 	makeChartPadding,

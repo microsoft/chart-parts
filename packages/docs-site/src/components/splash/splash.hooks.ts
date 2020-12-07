@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { TimelineMax, TweenLite, CSSPlugin, gsap } from 'gsap'
 import { useEffect, useState, RefObject, useCallback } from 'react'
 import { randomBetween } from '../../util/util'
-import { TimelineMax, TweenLite, CSSPlugin, gsap } from 'gsap'
 
 gsap.registerPlugin(CSSPlugin)
 

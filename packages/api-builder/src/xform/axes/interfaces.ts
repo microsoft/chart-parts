@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SGMark, Axis, Scale, TickValue } from '@chart-parts/interfaces'
 import { SceneFrame } from '../context/SceneFrame'
+import { SGMark, Axis, Scale, TickValue } from '@chart-parts/interfaces'
 
 export interface AxisSpace {
 	top: number

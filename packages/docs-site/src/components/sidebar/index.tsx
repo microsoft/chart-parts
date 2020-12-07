@@ -5,8 +5,8 @@
 
 import React from 'react'
 import styled from 'styled-components'
-import { SidebarItem, TreeNode } from './interfaces'
 import { createTree } from './createTree'
+import { SidebarItem, TreeNode } from './interfaces'
 import LinkTree from './link_tree'
 
 export { SidebarItem } from './interfaces'
@@ -22,7 +22,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items, activePath, flat }) => {
 	return (
 		<Container>
 			{tree
-				.map(subtree => {
+				.map((subtree) => {
 					return !subtree.item ? null : (
 						<LinkTree
 							key={subtree.pathKey}
@@ -33,7 +33,7 @@ const Sidebar: React.FC<SidebarProps> = ({ items, activePath, flat }) => {
 						/>
 					)
 				})
-				.filter(t => !!t)}
+				.filter((t) => !!t)}
 		</Container>
 	)
 }

@@ -6,7 +6,7 @@
 import typography from '../configs/typography'
 
 const { options: topts } = typography
-export default {
+const theme = {
 	text: {
 		fontFamily: '"Josefin Sans", sans-serif',
 		lineHeight: topts.baseLineHeight as number,
@@ -38,3 +38,4 @@ export default {
 		background: '#05070d', // black
 	},
 }
+export default theme

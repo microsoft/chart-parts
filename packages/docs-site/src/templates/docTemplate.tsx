@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
 import { graphql } from 'gatsby'
+import React, { memo } from 'react'
+import Doc from '../components/doc'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
 import convertGraphqlToc from '../util/convertGraphqlToc'
-import Doc from '../components/doc'
 
 require('prismjs/themes/prism-tomorrow.css')
 

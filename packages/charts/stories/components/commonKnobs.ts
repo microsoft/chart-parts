@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { AxisProps, BandScaleProps } from '../../dist/esm/index'
 import { object } from '@storybook/addon-knobs'
+import { useState, useCallback } from 'react'
+import { AxisProps, BandScaleProps } from '../../dist/esm/index'
 import { FontWeight, ChannelHandler } from '@chart-parts/interfaces'
 import { ChartPadding } from '@chart-parts/react'
-import { useState, useCallback } from 'react'
 
 export function makeAxisProps(name: string) {
 	return object<AxisProps>(name, {

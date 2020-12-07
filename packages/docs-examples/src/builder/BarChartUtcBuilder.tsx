@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import React, { memo, useMemo, useState, useCallback } from 'react'
-import { Renderer } from '@chart-parts/react-svg-renderer'
 import { scene, rect, area, axis } from '@chart-parts/builder'
 import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
-import { linear, time, band } from '@chart-parts/scales'
 import { Orchestrator } from '@chart-parts/orchestrator'
+import { Renderer } from '@chart-parts/react-svg-renderer'
+import { linear, time, band } from '@chart-parts/scales'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

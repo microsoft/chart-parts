@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { ScaleCreationContext } from '@chart-parts/interfaces'
+import reverse from 'lodash/reverse'
 import { DomainScale } from './DomainScale'
 import { optionalArgument } from './util'
-import reverse from 'lodash/reverse'
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 export abstract class DomainRangeScale<
 	Domain,

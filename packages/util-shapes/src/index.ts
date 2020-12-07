@@ -9,6 +9,8 @@ import {
 	area as d3Area,
 	line as d3Lines,
 } from 'd3-shape'
+import { Rectangle } from './Rectangle'
+import { symbols } from './symbols'
 import {
 	SGItem,
 	SGAreaItem,
@@ -18,8 +20,6 @@ import {
 	SGRectItem,
 	SGGroupItem,
 } from '@chart-parts/interfaces'
-import { Rectangle } from './Rectangle'
-import { symbols } from './symbols'
 
 const x = (item: SGItem) => item.x || 0
 const x2 = (item: SGItem) => item.x2 || 0
@@ -66,22 +66,11 @@ export const arcShape = d3Arc<SGArcItem>()
 	.outerRadius(or)
 	.cornerRadius(cr)
 
-export const areahShape = d3Area<SGAreaItem>()
-	.x1(x)
-	.x0(x2)
-	.y(y)
-	.defined(def)
+export const areahShape = d3Area<SGAreaItem>().x1(x).x0(x2).y(y).defined(def)
 
-export const areavShape = d3Area<SGAreaItem>()
-	.y1(y)
-	.y0(y2)
-	.x(x)
-	.defined(def)
+export const areavShape = d3Area<SGAreaItem>().y1(y).y0(y2).x(x).defined(def)
 
-export const lineShape = d3Lines<SGLineItem>()
-	.x(x)
-	.y(y)
-	.defined(def)
+export const lineShape = d3Lines<SGLineItem>().x(x).y(y).defined(def)
 
 export const symbolWithArea = d3Symbol<SGSymbolItem>()
 	.type(rendererByArea)

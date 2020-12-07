@@ -4,8 +4,8 @@
  */
 
 import React from 'react'
-import { SingleMarkTester } from './util/single-mark-tester'
 import * as palette from './util/palette'
+import { SingleMarkTester } from './util/single-mark-tester'
 
 const BASE_ITEM = {
 	stroke: palette.CRIMSON,

@@ -14,7 +14,7 @@ const PrivacyStatement: React.FC = () => (
 			target="_blank"
 			href="https://privacy.microsoft.com/en-us/privacystatement/"
 		>
-			Read Microsoft's statement on Privacy and Cookies.
+			Read Microsoft&apos;s statement on Privacy and Cookies.
 		</PrivacyLink>
 	</PrivacyText>
 )

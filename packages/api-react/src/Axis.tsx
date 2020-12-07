@@ -4,9 +4,9 @@
  */
 
 import React, { useContext, memo, useEffect, useMemo } from 'react'
-import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
-import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
 import { SceneBuilderContext } from './Context'
+import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
+import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
 
 /**
  * Axis Component Props

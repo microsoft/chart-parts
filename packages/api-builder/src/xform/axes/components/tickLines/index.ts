@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkType } from '@chart-parts/interfaces'
-import { buildMark } from '@chart-parts/scenegraph'
 import {
 	AxisComponent,
 	AxisContext,
 	PositionedTickValue,
 } from '../../interfaces'
-import { getTickValues } from './getTickValues'
 import { getLabelFormatter } from './getLabelFormatter'
+import { getTickValues } from './getTickValues'
+import { MarkType } from '@chart-parts/interfaces'
+import { buildMark } from '@chart-parts/scenegraph'
 
 /**
  * @ignore
