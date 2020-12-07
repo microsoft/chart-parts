@@ -28911,6 +28911,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@pieh/friendly-errors-webpack-plugin", "virtual:1c979758a9bb167b78b02067929d4d5356fd57f038006d5ba065b9203b861cad75a31374ea98c90f84c02b490a40cc885f6ffdc9599396575eb5c5af6e3937be#npm:1.7.0-chalk-2"],
             ["@pmmmwh/react-refresh-webpack-plugin", "virtual:1c979758a9bb167b78b02067929d4d5356fd57f038006d5ba065b9203b861cad75a31374ea98c90f84c02b490a40cc885f6ffdc9599396575eb5c5af6e3937be#npm:0.4.3"],
             ["@reach/router", "virtual:71ceefbae7df5f0f6e40fcb23b146b0aa49b0d9fb8063dc4bb149640a8027142808256d4df80d856a5a60a26cafc5a84f941b41a4857b7408277e88074a35873#npm:1.3.4"],
+            ["@types/babel-plugin-styled-components", null],
             ["@types/http-proxy", "npm:1.17.4"],
             ["@types/react", "npm:16.14.2"],
             ["@types/react-dom", "npm:16.9.10"],
@@ -28928,6 +28929,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-plugin-dynamic-import-node", "npm:2.3.3"],
             ["babel-plugin-lodash", "npm:3.3.4"],
             ["babel-plugin-remove-graphql-queries", "virtual:1c979758a9bb167b78b02067929d4d5356fd57f038006d5ba065b9203b861cad75a31374ea98c90f84c02b490a40cc885f6ffdc9599396575eb5c5af6e3937be#npm:2.12.0"],
+            ["babel-plugin-styled-components", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:1.12.0"],
             ["babel-preset-gatsby", "virtual:1c979758a9bb167b78b02067929d4d5356fd57f038006d5ba065b9203b861cad75a31374ea98c90f84c02b490a40cc885f6ffdc9599396575eb5c5af6e3937be#npm:0.8.0"],
             ["better-opn", "npm:2.1.1"],
             ["better-queue", "npm:3.8.10"],
@@ -29057,8 +29059,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["yaml-loader", "npm:0.6.0"]
           ],
           "packagePeers": [
+            "@types/babel-plugin-styled-components",
             "@types/react-dom",
             "@types/react",
+            "babel-plugin-styled-components",
             "react-dom",
             "react"
           ],
@@ -45609,7 +45613,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["hoist-non-react-statics", "npm:3.3.2"],
             ["react", "npm:16.14.0"],
             ["react-dom", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#npm:16.14.0"],
-            ["react-is", null],
+            ["react-is", "npm:16.13.1"],
             ["shallowequal", "npm:1.1.0"],
             ["supports-color", "npm:5.5.0"]
           ],
@@ -45618,7 +45622,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "@types/react-is",
             "@types/react",
             "react-dom",
-            "react-is",
             "react"
           ],
           "linkType": "HARD",
