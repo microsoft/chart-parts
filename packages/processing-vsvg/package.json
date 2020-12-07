@@ -12,7 +12,8 @@
 		"start": "essex watch"
 	},
 	"devDependencies": {
-		"@chart-parts/scenegraph": "^0.1.3"
+		"@chart-parts/scenegraph": "^0.1.3",
+		"@essex/scripts": "^12.0.2"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "^0.1.3",

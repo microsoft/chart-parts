@@ -17,6 +17,9 @@
 		"@chart-parts/scenegraph": "^0.1.3",
 		"@chart-parts/vsvg": "^0.1.3"
 	},
+	"devDependencies": {
+		"@essex/scripts": "^12.0.2"
+	},
 	"publishConfig": {
 		"access": "public"
 	}

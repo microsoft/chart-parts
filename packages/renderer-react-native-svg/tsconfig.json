@@ -1,11 +1,12 @@
 {
-	"extends": "../../../tsconfig.json",
+	"extends": "../../tsconfig",
 	"compilerOptions": {
 		"lib": ["esnext"],
 		"strict": false,
 		"outDir": "lib",
 		"rootDir": "./src",
-		"baseUrl": "./src"
+		"baseUrl": "./src",
+		"skipLibCheck": true
 	},
 	"include": ["./src/**/*.ts*"],
 	"exclude": ["**/__tests__/**/*"]
