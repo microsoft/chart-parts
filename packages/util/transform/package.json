@@ -12,15 +12,15 @@
 		"start": "essex watch"
 	},
 	"devDependencies": {
-		"@types/node": "^14.0.11"
+		"@types/node": "^14.14.10"
 	},
 	"dependencies": {
-		"@types/lodash": "^4.14.155",
-		"lodash": "^4.17.15",
-		"vega-dataflow": "^5.4.0",
-		"vega-encode": "^4.3.3",
-		"vega-transforms": "^4.3.0",
-		"vega-util": "^1.11.2"
+		"@types/lodash": "^4.14.165",
+		"lodash": "^4.17.20",
+		"vega-dataflow": "^5.7.3",
+		"vega-encode": "^4.8.3",
+		"vega-transforms": "^4.9.3",
+		"vega-util": "^1.16.0"
 	},
 	"publishConfig": {
 		"access": "public"

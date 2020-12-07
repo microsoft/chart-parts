@@ -1,6 +1,6 @@
 node_modules/
-dist/
-lib/
+packages/*/dist/
+packages/*/lib/
 docs_generated/
 coverage/
 *.log

@@ -21,8 +21,8 @@
 		"@types/d3-time-format": "^2.1.0",
 		"d3-format": "^2.0.0",
 		"d3-time-format": "^3.0.0",
-		"lodash": "^4.17.15",
-		"rxjs": "^6.5.3"
+		"lodash": "^4.17.20",
+		"rxjs": "^6.6.3"
 	},
 	"publishConfig": {
 		"access": "public"
