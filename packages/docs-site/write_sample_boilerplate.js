@@ -5,7 +5,7 @@
 /* eslint-disable */
 const fs = require('fs')
 const path = require('path')
-const chartPartsSvgRendererVersion = require('../../renderers/react-svg/package.json')
+const chartPartsSvgRendererVersion = require('../renderer-react-svg/package.json')
 	.version
 const {
 	dependencies: { 'react-dom': reactDomVersion },
@@ -13,11 +13,11 @@ const {
 } = require('./package.json')
 const {
 	devDependencies: { '@types/jest': typesJestVersion },
-} = require('../../../package.json')
+} = require('../../package.json')
 const {
 	dependencies: examplesDeps,
 	devDependencies: examplesDevDeps,
-} = require('../examples/package.json')
+} = require('../docs-examples/package.json')
 
 const APP_FILE_CONTENT = `
 	import React, { memo } from 'react'
@@ -78,7 +78,7 @@ const HTML_FILE_CONTENT = `
 </html>
 `
 
-const makePackageJson = index => {
+const makePackageJson = (index) => {
 	const result = {
 		name: `chart-parts-example-${index}`,
 		main: `src/index.tsx`,
@@ -117,7 +117,7 @@ function walk_examples(dir, look_for, done) {
 			return done(null, results)
 		}
 
-		list.forEach(file => {
+		list.forEach((file) => {
 			file = path.resolve(dir, file)
 
 			fs.stat(file, (err, stat) => {
@@ -150,7 +150,7 @@ function handleTsExample(err, results) {
 		fs.mkdirSync(publicDir, { recursive: true })
 
 		const exampleFiles = fs.readdirSync(exampleDir)
-		exampleFiles.forEach(file => {
+		exampleFiles.forEach((file) => {
 			if (file.endsWith('.ts') || file.endsWith('.tsx')) {
 				const sourcePath = path.join(exampleDir, file)
 				const targetPath = path.join(srcDir, file)

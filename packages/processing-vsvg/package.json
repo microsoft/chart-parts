@@ -29,6 +29,8 @@
 	},
 	"peerDependencies": {
 		"@types/d3-path": ">= 1.0.8",
-		"@types/d3-shape": ">= 1.2.7"
+		"@types/d3-shape": ">= 1.2.7",
+		"core-js": "*",
+		"regenerator-runtime": "*"
 	}
 }

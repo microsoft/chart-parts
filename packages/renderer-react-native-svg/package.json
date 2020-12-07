@@ -25,7 +25,9 @@
 	},
 	"peerDependencies": {
 		"@types/react-native": ">= 0.63.37",
+		"core-js": "*",
 		"react": ">= 16.9",
-		"react-native": "*"
+		"react-native": "*",
+		"regenerator-runtime": "*"
 	}
 }

@@ -21,7 +21,9 @@
 	},
 	"peerDependencies": {
 		"@types/d3-format": ">= 1.3.1",
-		"@types/d3-time-format": ">= 2.1.0"
+		"@types/d3-time-format": ">= 2.1.0",
+		"core-js": "*",
+		"regenerator-runtime": "*"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
