@@ -30,7 +30,7 @@ exports.createPages = function createPages({ actions, graphql }) {
 	const blogTemplate = path.resolve(`src/templates/blogTemplate.tsx`)
 	const docTemplate = path.resolve(`src/templates/docTemplate.tsx`)
 	console.log('retreiving markdown pages...')
-	return retrieveMarkdownPages().then(result => {
+	return retrieveMarkdownPages().then((result) => {
 		console.log('finished retreiving markdown pages')
 
 		if (result.errors) {
@@ -42,27 +42,12 @@ exports.createPages = function createPages({ actions, graphql }) {
 			const {
 				frontmatter: { path: pagePath },
 			} = node
-			const category = pagePath.split('/').filter(t => !!t)[0]
+			const category = pagePath.split('/').filter((t) => !!t)[0]
 			actions.createPage({
 				path: pagePath,
 				component: category === 'blog' ? blogTemplate : docTemplate,
 				context: {}, // additional data can be passed via context
 			})
 		})
-	})
-}
-
-exports.onCreateWebpackConfig = function onCreateWebpackConfig({ actions }) {
-	actions.setWebpackConfig({
-		resolve: {
-			alias: {
-				react: path.resolve(__dirname, 'node_modules/react'),
-				'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
-				'regenerator-runtime': path.resolve(
-					__dirname,
-					'node_modules/regenerator-runtime'
-				),
-			},
-		},
 	})
 }
