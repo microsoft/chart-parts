@@ -1,0 +1,8 @@
+static/apidocs
+
+# Project dependencies
+.cache
+
+# Build directory
+public/
+static/examples/

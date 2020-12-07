@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Rule Renderer can render a rule with an x, y, and a smaller x2 value 1`] = `
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-rule role-mark",
+      },
+      "children": Array [
+        Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
+          "attrs": Object {
+            "fill": "none",
+            "stroke": "none",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+            "strokeWidth": 1,
+            "x2": -75,
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "transforms": Array [
+            Object {
+              "type": "translate",
+              "value": Array [
+                100,
+                100,
+              ],
+            },
+          ],
+          "type": "line",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
+`;
+
+exports[`The Rule Renderer can render a rule with an x, y, and a smaller y value 1`] = `
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-rule role-mark",
+      },
+      "children": Array [
+        Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
+          "attrs": Object {
+            "fill": "none",
+            "stroke": "none",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+            "strokeWidth": 1,
+            "y2": -75,
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "transforms": Array [
+            Object {
+              "type": "translate",
+              "value": Array [
+                100,
+                100,
+              ],
+            },
+          ],
+          "type": "line",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
+`;
+
+exports[`The Rule Renderer can render a rule with an x, y, and x2 value 1`] = `
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-rule role-mark",
+      },
+      "children": Array [
+        Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
+          "attrs": Object {
+            "fill": "none",
+            "stroke": "none",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+            "strokeWidth": 1,
+            "x2": 100,
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "transforms": Array [
+            Object {
+              "type": "translate",
+              "value": Array [
+                0,
+                0,
+              ],
+            },
+          ],
+          "type": "line",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
+`;
+
+exports[`The Rule Renderer can render a rule with an x, y, and y value 1`] = `
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-rule role-mark",
+      },
+      "children": Array [
+        Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
+          "attrs": Object {
+            "fill": "none",
+            "stroke": "none",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+            "strokeWidth": 1,
+            "y2": 100,
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "transforms": Array [
+            Object {
+              "type": "translate",
+              "value": Array [
+                0,
+                0,
+              ],
+            },
+          ],
+          "type": "line",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
+`;

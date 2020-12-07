@@ -1,9 +1,0 @@
-{
-	"extends": "../../../tsconfig.json",
-	"compilerOptions": {
-		"jsx": "react",
-		"lib": ["esnext", "dom"]
-	},
-	"include": ["./stories/**/*.ts*"],
-	"exclude": ["**/__tests__/**/*"]
-}

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The Rect Renderer can render a rectangle 1`] = `
+Object {
+  "nodes": Array [
+    Object {
+      "attrs": Object {
+        "className": "mark-rect role-mark",
+      },
+      "children": Array [
+        Object {
+          "ariaDescription": undefined,
+          "ariaTitle": undefined,
+          "attrs": Object {
+            "d": "M0,0h100v100h-100Z",
+            "fill": "red",
+            "stroke": "blue",
+            "strokeLinecap": "butt",
+            "strokeLinejoin": "miter",
+            "strokeWidth": 1,
+          },
+          "channels": Object {},
+          "metadata": Object {},
+          "type": "path",
+        },
+      ],
+      "type": "g",
+    },
+  ],
+}
+`;
