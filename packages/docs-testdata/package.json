@@ -13,8 +13,7 @@
 		"clean": "essex clean",
 		"build:package": "essex build",
 		"build:resources": "shx cp -r resources dist/resources",
-		"build": "run-s build:package build:resources",
-		"start": "essex watch"
+		"build": "run-s build:package build:resources"
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",

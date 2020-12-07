@@ -9,8 +9,7 @@
 	"license": "MIT",
 	"scripts": {
 		"clean": "essex clean",
-		"build": "essex build",
-		"start": "essex watch"
+		"build": "essex build"
 	},
 	"dependencies": {
 		"@chart-parts/builder": "workspace:packages/api-builder",
