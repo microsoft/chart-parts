@@ -6,9 +6,11 @@
 !.yarn/sdks
 !.yarn/versions
 
-node_modules/
+# Package Outputs
 packages/*/dist/
 packages/*/lib/
+
+node_modules/
 docs_generated/
 coverage/
 *.log

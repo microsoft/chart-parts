@@ -29579,11 +29579,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         ["npm:0.8.2", {
           "packageLocation": "./.yarn/cache/mdast-util-from-markdown-npm-0.8.2-c9840302dc-8b008c5b47.zip/node_modules/mdast-util-from-markdown/",
           "packageDependencies": [
-            ["mdast-util-from-markdown", "npm:0.8.2"],
+            ["mdast-util-from-markdown", "npm:0.8.2"]
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:da1fe74019472e2799522d90bc9f6e5c6ff6163d0b82c74b51c870a4b297d4576793b2b4fab3fa5bf53ca693b8c2be13ac0a0c656bd1fa38c11b4b2047dcc08a#npm:0.8.2", {
+          "packageLocation": "./.yarn/$$virtual/mdast-util-from-markdown-virtual-82c015f992/0/cache/mdast-util-from-markdown-npm-0.8.2-c9840302dc-8b008c5b47.zip/node_modules/mdast-util-from-markdown/",
+          "packageDependencies": [
+            ["mdast-util-from-markdown", "virtual:da1fe74019472e2799522d90bc9f6e5c6ff6163d0b82c74b51c870a4b297d4576793b2b4fab3fa5bf53ca693b8c2be13ac0a0c656bd1fa38c11b4b2047dcc08a#npm:0.8.2"],
             ["@types/mdast", "npm:3.0.3"],
+            ["@types/uninst-util-stringify-position", null],
             ["mdast-util-to-string", "npm:2.0.0"],
             ["micromark", "npm:2.10.1"],
-            ["parse-entities", "npm:2.0.0"]
+            ["parse-entities", "npm:2.0.0"],
+            ["uninst-util-stringify-position", null]
+          ],
+          "packagePeers": [
+            "@types/uninst-util-stringify-position",
+            "uninst-util-stringify-position"
           ],
           "linkType": "HARD",
         }]
@@ -35918,7 +35931,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/remark-parse-npm-9.0.0-da1fe74019-ca34e41b0c.zip/node_modules/remark-parse/",
           "packageDependencies": [
             ["remark-parse", "npm:9.0.0"],
-            ["mdast-util-from-markdown", "npm:0.8.2"]
+            ["mdast-util-from-markdown", "virtual:da1fe74019472e2799522d90bc9f6e5c6ff6163d0b82c74b51c870a4b297d4576793b2b4fab3fa5bf53ca693b8c2be13ac0a0c656bd1fa38c11b4b2047dcc08a#npm:0.8.2"]
           ],
           "linkType": "HARD",
         }]
