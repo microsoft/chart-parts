@@ -12,10 +12,10 @@
 		"start": "essex watch"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.1.3",
-		"@chart-parts/interfaces": "^0.1.3",
-		"@chart-parts/scenegraph": "^0.1.3",
-		"@chart-parts/vsvg": "^0.1.3"
+		"@chart-parts/builder": "workspace:packages/api-builder",
+		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
+		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
+		"@chart-parts/vsvg": "workspace:packages/processing-vsvg"
 	},
 	"devDependencies": {
 		"@essex/scripts": "^12.0.2"

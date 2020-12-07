@@ -8,12 +8,12 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@chart-parts/orchestrator": "^0.1.3",
-    "@chart-parts/react": "^0.1.3",
-    "@chart-parts/react-native-svg-renderer": "^0.1.3",
-    "@chart-parts/scales": "^0.1.3",
-    "@chart-parts/testdata": "^0.1.3",
-    "@chart-parts/transform": "^0.1.3",
+    "@chart-parts/orchestrator": "workspace:packages/processing-orchestrator",
+    "@chart-parts/react": "workspace:packages/api-react",
+    "@chart-parts/react-native-svg-renderer": "workspace:packages/renderer-react-native-svg",
+    "@chart-parts/scales": "workspace:packages/util-scales",
+    "@chart-parts/testdata": "workspace:packages/docs-testdata",
+    "@chart-parts/transform": "workspace:packages/util-transform",
     "d3-array": "^2.3.1",
     "d3-format": "^1.3.0",
     "d3-path": "^1.0.8",

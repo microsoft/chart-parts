@@ -17,10 +17,10 @@
 		"react": "^16.14.0"
 	},
 	"dependencies": {
-		"@chart-parts/builder": "^0.1.3",
-		"@chart-parts/interfaces": "^0.1.3",
-		"@chart-parts/orchestrator": "^0.1.3",
-		"@chart-parts/scales": "^0.1.3",
+		"@chart-parts/builder": "workspace:packages/api-builder",
+		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
+		"@chart-parts/orchestrator": "workspace:packages/processing-orchestrator",
+		"@chart-parts/scales": "workspace:packages/util-scales",
 		"lodash": "^4.17.20",
 		"rxjs": "^6.6.3",
 		"shallowequal": "^1.1.0"
