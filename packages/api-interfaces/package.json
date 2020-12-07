@@ -11,11 +11,7 @@
 		"build": "essex build",
 		"start": "essex watch"
 	},
-	"publishConfig": {
-		"access": "public"
-	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/node": "^14.14.10"
+		"@essex/scripts": "^12.0.2"
 	}
 }

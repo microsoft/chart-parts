@@ -11,11 +11,6 @@
 		"build": "essex build",
 		"start": "tsc -w --preserveWatchOutput"
 	},
-	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/react": "^16.14.2",
-		"react": "^16.14.0"
-	},
 	"dependencies": {
 		"@chart-parts/builder": "workspace:packages/api-builder",
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
@@ -25,10 +20,13 @@
 		"rxjs": "^6.6.3",
 		"shallowequal": "^1.1.0"
 	},
-	"peerDependencies": {
-		"react": ">= 16.9"
+	"devDependencies": {
+		"@essex/scripts": "^12.0.2",
+		"@types/react": "^16.14.2",
+		"react": "^16.14.0"
 	},
-	"publishConfig": {
-		"access": "public"
+	"peerDependencies": {
+		"@types/react": ">= 16.14.2",
+		"react": ">= 16.9"
 	}
 }

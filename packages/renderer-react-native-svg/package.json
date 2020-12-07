@@ -11,21 +11,19 @@
 		"build": "essex build",
 		"start": "essex watch"
 	},
-	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/react-native": "^0.63.37",
-		"react": "^16.14.0"
-	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
 		"lodash": "^4.17.20",
 		"react-native-svg": "^12.1.0"
 	},
+	"devDependencies": {
+		"@essex/scripts": "^12.0.2",
+		"@types/react-native": "^0.63.37",
+		"react": "^16.14.0"
+	},
 	"peerDependencies": {
+		"@types/react-native": ">= 0.63.37",
 		"react": ">= 16.9",
 		"react-native": "*"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

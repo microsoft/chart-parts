@@ -17,20 +17,23 @@
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
 		"@chart-parts/react": "workspace:packages/api-react",
-		"@chart-parts/transform": "workspace:packages/util-transform",
-		"@types/node": "^14.14.10",
-		"@types/react": "^16.14.2",
-		"@types/react-dom": "^16.9.10"
+		"@chart-parts/transform": "workspace:packages/util-transform"
 	},
 	"devDependencies": {
 		"@chart-parts/react-svg-renderer": "workspace:packages/renderer-react-svg",
 		"@essex/scripts": "^12.0.2",
+		"@types/node": "^14.14.10",
+		"@types/react": "^16.14.2",
 		"@types/react-color": "^3.0.4",
-		"@types/webpack-env": "^1.16.0",
+		"@types/react-dom": "^16.9.10",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0"
 	},
 	"peerDependencies": {
+		"@types/node": ">= 14.14.10",
+		"@types/react": ">= 16.14.2",
+		"@types/react-color": ">= 3.0.4",
+		"@types/react-dom": ">= 16.9.10",
 		"react": ">= 16.9.0",
 		"react-dom": ">= 16.9.0"
 	}

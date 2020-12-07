@@ -19,8 +19,5 @@
 	},
 	"devDependencies": {
 		"@essex/scripts": "^12.0.2"
-	},
-	"publishConfig": {
-		"access": "public"
 	}
 }

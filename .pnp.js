@@ -94,7 +94,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@chart-parts/builder", ["workspace:packages/api-builder"]],
+      ["@chart-parts/builder", ["virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder", "workspace:packages/api-builder"]],
       ["@chart-parts/charts", ["workspace:packages/charts"]],
       ["@chart-parts/docsite", ["workspace:packages/docs-site"]],
       ["@chart-parts/examples", ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-examples", "workspace:packages/docs-examples"]],
@@ -105,12 +105,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
       ["@chart-parts/react", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react", "workspace:packages/api-react"]],
       ["@chart-parts/react-native-svg-renderer", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/renderer-react-native-svg", "workspace:packages/renderer-react-native-svg"]],
       ["@chart-parts/react-svg-renderer", ["virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/renderer-react-svg", "workspace:packages/renderer-react-svg"]],
-      ["@chart-parts/scales", ["workspace:packages/util-scales"]],
+      ["@chart-parts/scales", ["virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales", "workspace:packages/util-scales"]],
       ["@chart-parts/scenegraph", ["workspace:packages/processing-scenegraph"]],
-      ["@chart-parts/shapes", ["workspace:packages/util-shapes"]],
-      ["@chart-parts/testdata", ["workspace:packages/docs-testdata"]],
+      ["@chart-parts/shapes", ["virtual:1ca700f998d355d6faefa331cff20002830b97418fbaf3cf474176c05cccb9eb55a13ca5921ac7cce7bb530058b65c185b3cbc6a3da49d9decf18994aa8bcc1e#workspace:packages/util-shapes", "workspace:packages/util-shapes"]],
+      ["@chart-parts/testdata", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata", "workspace:packages/docs-testdata"]],
       ["@chart-parts/transform", ["workspace:packages/util-transform"]],
-      ["@chart-parts/vsvg", ["workspace:packages/processing-vsvg"]],
+      ["@chart-parts/vsvg", ["virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/processing-vsvg", "workspace:packages/processing-vsvg"]],
       ["examplesmobile", ["workspace:packages/docs-examples-mobile"]]
     ],
     "fallbackPool": [
@@ -5279,12 +5279,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/builder", [
+        ["virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-builder-virtual-63a2ec5a23/1/packages/api-builder/",
+          "packageDependencies": [
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
+            ["@types/d3-format", "npm:1.3.1"],
+            ["@types/d3-time-format", "npm:2.1.1"],
+            ["@types/types__d3-format", null],
+            ["@types/types__d3-time-format", null],
+            ["d3-format", "npm:2.0.0"],
+            ["d3-time-format", "npm:3.0.0"],
+            ["lodash", "npm:4.17.20"],
+            ["rxjs", "npm:6.6.3"]
+          ],
+          "packagePeers": [
+            "@types/types__d3-format",
+            "@types/types__d3-time-format"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/api-builder", {
           "packageLocation": "./packages/api-builder/",
           "packageDependencies": [
             ["@chart-parts/builder", "workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
             ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
             ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
             ["@types/d3-format", "npm:1.3.1"],
@@ -5311,7 +5334,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react", "npm:16.14.2"],
             ["@types/react-color", "npm:3.0.4"],
             ["@types/react-dom", "npm:16.9.10"],
-            ["@types/webpack-env", "npm:1.16.0"],
             ["react", "npm:16.14.0"],
             ["react-dom", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#npm:16.14.0"]
           ],
@@ -5329,8 +5351,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
             ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
             ["@chart-parts/react-svg-renderer", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/renderer-react-svg"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
-            ["@chart-parts/testdata", "workspace:packages/docs-testdata"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
             ["@chart-parts/transform", "workspace:packages/util-transform"],
             ["@essex/scripts", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#npm:12.0.2"],
             ["@types/d3-scale", "npm:2.2.0"],
@@ -5383,7 +5405,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-examples-virtual-dda4e2f6a9/1/packages/docs-examples/",
           "packageDependencies": [
             ["@chart-parts/examples", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-examples"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
             ["@chart-parts/transform", "workspace:packages/util-transform"],
@@ -5391,11 +5413,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.10"],
             ["@types/react", "npm:16.14.2"],
             ["@types/react-dom", "npm:16.9.10"],
+            ["@types/types__node", null],
+            ["@types/types__react", null],
+            ["@types/types__react-dom", null],
             ["react", "npm:16.14.0"],
             ["vega-datasets", "npm:2.2.0"]
           ],
           "packagePeers": [
+            "@types/react-dom",
             "@types/react",
+            "@types/types__node",
+            "@types/types__react-dom",
+            "@types/types__react",
             "react"
           ],
           "linkType": "SOFT",
@@ -5404,7 +5433,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/docs-examples/",
           "packageDependencies": [
             ["@chart-parts/examples", "workspace:packages/docs-examples"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
             ["@chart-parts/transform", "workspace:packages/util-transform"],
@@ -5428,8 +5457,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
             ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
             ["@chart-parts/react-svg-renderer", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/renderer-react-svg"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
-            ["@chart-parts/testdata", "workspace:packages/docs-testdata"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
             ["@chart-parts/transform", "workspace:packages/util-transform"],
             ["@essex/scripts", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:12.0.2"],
             ["@storybook/addon-actions", "virtual:9b5357ebe734c79ad57f8b29398567d39015cf48f1b1222efb5dffc6599f16aea1f2cbff9bf38c2ffa43a4c1790182d38547f119d5d9a954a9765a091846f2db#npm:6.1.10"],
@@ -5465,8 +5494,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/api-interfaces/",
           "packageDependencies": [
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
-            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
-            ["@types/node", "npm:14.14.10"]
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"]
           ],
           "linkType": "SOFT",
         }]
@@ -5476,10 +5504,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/processing-orchestrator/",
           "packageDependencies": [
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
-            ["@chart-parts/vsvg", "workspace:packages/processing-vsvg"],
+            ["@chart-parts/vsvg", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/processing-vsvg"],
             ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"]
           ],
           "linkType": "SOFT",
@@ -5520,18 +5548,20 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-react-virtual-e88044962a/1/packages/api-react/",
           "packageDependencies": [
             ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
             ["@essex/scripts", "virtual:e88044962a6ed96aeb34fc06cfaf3173f9e215e2bfd01d88c7e43a5de78d776b19675358af6b20be27f74aeecd989ec8f730572efb063a2ef5b7f0e8504ff187#npm:12.0.2"],
             ["@types/react", "npm:16.14.2"],
+            ["@types/types__react", null],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.13.1"],
             ["rxjs", "npm:6.6.3"],
             ["shallowequal", "npm:1.1.0"]
           ],
           "packagePeers": [
+            "@types/types__react",
             "react"
           ],
           "linkType": "SOFT",
@@ -5540,12 +5570,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-react-virtual-1df9d390a8/1/packages/api-react/",
           "packageDependencies": [
             ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
             ["@essex/scripts", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#npm:12.0.2"],
             ["@types/react", "npm:16.14.2"],
+            ["@types/types__react", null],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.14.0"],
             ["rxjs", "npm:6.6.3"],
@@ -5553,6 +5584,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/react",
+            "@types/types__react",
             "react"
           ],
           "linkType": "SOFT",
@@ -5561,10 +5593,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/api-react/",
           "packageDependencies": [
             ["@chart-parts/react", "workspace:packages/api-react"],
-            ["@chart-parts/builder", "workspace:packages/api-builder"],
+            ["@chart-parts/builder", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/api-builder"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
             ["@essex/scripts", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#npm:12.0.2"],
             ["@types/react", "npm:16.14.2"],
             ["lodash", "npm:4.17.20"],
@@ -5584,6 +5616,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@essex/scripts", "virtual:6ace6676c1d3bcfb6208294da680020974d57834fd2e4b59b076f3592f198e3f28a0282a78ebde0a5aaf622a7e5993f6cbad6ea8aff5718fec0ce12b23056386#npm:12.0.2"],
             ["@types/react", null],
             ["@types/react-native", "npm:0.63.37"],
+            ["@types/types__react-native", null],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.13.1"],
             ["react-native", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:0.62.2"],
@@ -5591,6 +5624,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/react",
+            "@types/types__react-native",
             "react-native",
             "react"
           ],
@@ -5619,11 +5653,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@essex/scripts", "virtual:950d15445db01f510fa8ee60cb459bab9cc1580356044d15dd95e73ec8ee2e038584dcf7289d33ef2f05b128563058421b8fdb5443ef8c9949f46385a7726eb8#npm:12.0.2"],
             ["@types/react", "npm:16.14.2"],
             ["@types/react-dom", "npm:16.9.10"],
+            ["@types/types__react", null],
+            ["@types/types__react-dom", null],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.14.0"]
           ],
           "packagePeers": [
+            "@types/react-dom",
             "@types/react",
+            "@types/types__react-dom",
+            "@types/types__react",
             "react"
           ],
           "linkType": "SOFT",
@@ -5643,6 +5682,33 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/scales", [
+        ["virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scales-virtual-7fff464225/1/packages/util-scales/",
+          "packageDependencies": [
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
+            ["@types/d3-array", "npm:2.0.0"],
+            ["@types/d3-interpolate", "npm:1.3.1"],
+            ["@types/d3-scale", "npm:2.2.0"],
+            ["@types/lodash", "npm:4.14.165"],
+            ["@types/types__d3-array", null],
+            ["@types/types__d3-interpolate", null],
+            ["@types/types__d3-scale", null],
+            ["@types/types__lodash", null],
+            ["d3-array", "npm:2.8.0"],
+            ["d3-interpolate", "npm:2.0.1"],
+            ["d3-scale", "npm:3.2.3"],
+            ["lodash", "npm:4.17.20"]
+          ],
+          "packagePeers": [
+            "@types/types__d3-array",
+            "@types/types__d3-interpolate",
+            "@types/types__d3-scale",
+            "@types/types__lodash"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/util-scales", {
           "packageLocation": "./packages/util-scales/",
           "packageDependencies": [
@@ -5673,6 +5739,27 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/shapes", [
+        ["virtual:1ca700f998d355d6faefa331cff20002830b97418fbaf3cf474176c05cccb9eb55a13ca5921ac7cce7bb530058b65c185b3cbc6a3da49d9decf18994aa8bcc1e#workspace:packages/util-shapes", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-shapes-virtual-ab6de140a7/1/packages/util-shapes/",
+          "packageDependencies": [
+            ["@chart-parts/shapes", "virtual:1ca700f998d355d6faefa331cff20002830b97418fbaf3cf474176c05cccb9eb55a13ca5921ac7cce7bb530058b65c185b3cbc6a3da49d9decf18994aa8bcc1e#workspace:packages/util-shapes"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
+            ["@types/d3-path", "npm:1.0.8"],
+            ["@types/d3-shape", "npm:1.3.2"],
+            ["@types/types__d3-path", null],
+            ["@types/types__d3-shape", null],
+            ["d3-path", "npm:2.0.0"],
+            ["d3-shape", "npm:2.0.0"]
+          ],
+          "packagePeers": [
+            "@types/d3-path",
+            "@types/d3-shape",
+            "@types/types__d3-path",
+            "@types/types__d3-shape"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/util-shapes", {
           "packageLocation": "./packages/util-shapes/",
           "packageDependencies": [
@@ -5688,6 +5775,21 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/testdata", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-testdata-virtual-05a2228b97/1/packages/docs-testdata/",
+          "packageDependencies": [
+            ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
+            ["@types/node", "npm:14.14.10"],
+            ["@types/types__node", null]
+          ],
+          "packagePeers": [
+            "@types/types__node"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/docs-testdata", {
           "packageLocation": "./packages/docs-testdata/",
           "packageDependencies": [
@@ -5718,13 +5820,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/vsvg", [
+        ["virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/processing-vsvg", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-vsvg-virtual-1ca700f998/1/packages/processing-vsvg/",
+          "packageDependencies": [
+            ["@chart-parts/vsvg", "virtual:cc84171fe126b1be7765e40614edb9e2094b98965e5508b239164576073abd8442f80a02909d2413766af977e8424d0340cbfb3be3aed50519650b1e6dd045d1#workspace:packages/processing-vsvg"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
+            ["@chart-parts/shapes", "virtual:1ca700f998d355d6faefa331cff20002830b97418fbaf3cf474176c05cccb9eb55a13ca5921ac7cce7bb530058b65c185b3cbc6a3da49d9decf18994aa8bcc1e#workspace:packages/util-shapes"],
+            ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
+            ["@types/d3-path", "npm:1.0.8"],
+            ["@types/d3-shape", "npm:1.3.2"],
+            ["@types/types__d3-path", null],
+            ["@types/types__d3-shape", null],
+            ["d3-path", "npm:2.0.0"],
+            ["d3-shape", "npm:2.0.0"],
+            ["lodash", "npm:4.17.20"],
+            ["shallowequal", "npm:1.1.0"]
+          ],
+          "packagePeers": [
+            "@types/types__d3-path",
+            "@types/types__d3-shape"
+          ],
+          "linkType": "SOFT",
+        }],
         ["workspace:packages/processing-vsvg", {
           "packageLocation": "./packages/processing-vsvg/",
           "packageDependencies": [
             ["@chart-parts/vsvg", "workspace:packages/processing-vsvg"],
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
             ["@chart-parts/scenegraph", "workspace:packages/processing-scenegraph"],
-            ["@chart-parts/shapes", "workspace:packages/util-shapes"],
+            ["@chart-parts/shapes", "virtual:1ca700f998d355d6faefa331cff20002830b97418fbaf3cf474176c05cccb9eb55a13ca5921ac7cce7bb530058b65c185b3cbc6a3da49d9decf18994aa8bcc1e#workspace:packages/util-shapes"],
             ["@essex/scripts", "virtual:dad91943ad60421e2424c674623dcfd6140bb7649cb752efc02462469f06391c10e39e2a9d3af4ef89123f976f1b3983eb7f1f17eb216206fb3daa1ae1923934#npm:12.0.2"],
             ["@types/d3-path", "npm:1.0.8"],
             ["@types/d3-shape", "npm:1.3.2"],
@@ -25995,8 +26120,8 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chart-parts/orchestrator", "workspace:packages/processing-orchestrator"],
             ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
             ["@chart-parts/react-native-svg-renderer", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/renderer-react-native-svg"],
-            ["@chart-parts/scales", "workspace:packages/util-scales"],
-            ["@chart-parts/testdata", "workspace:packages/docs-testdata"],
+            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
             ["@chart-parts/transform", "workspace:packages/util-transform"],
             ["@react-native-community/eslint-config", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:1.1.0"],
             ["babel-jest", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:26.6.3"],

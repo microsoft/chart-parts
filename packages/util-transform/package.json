@@ -11,19 +11,16 @@
 		"build": "essex build",
 		"start": "essex watch"
 	},
-	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/node": "^14.14.10"
-	},
 	"dependencies": {
-		"@types/lodash": "^4.14.165",
 		"lodash": "^4.17.20",
 		"vega-dataflow": "^5.7.3",
 		"vega-encode": "^4.8.3",
 		"vega-transforms": "^4.9.3",
 		"vega-util": "^1.16.0"
 	},
-	"publishConfig": {
-		"access": "public"
+	"devDependencies": {
+		"@essex/scripts": "^12.0.2",
+		"@types/lodash": "^4.14.165",
+		"@types/node": "^14.14.10"
 	}
 }

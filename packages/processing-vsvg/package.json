@@ -11,21 +11,22 @@
 		"build": "essex build",
 		"start": "essex watch"
 	},
-	"devDependencies": {
-		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
-		"@essex/scripts": "^12.0.2"
-	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
 		"@chart-parts/shapes": "workspace:packages/util-shapes",
-		"@types/d3-path": "^1.0.8",
-		"@types/d3-shape": "^1.2.7",
 		"d3-path": "^2.0.0",
 		"d3-shape": "^2.0.0",
 		"lodash": "^4.17.20",
 		"shallowequal": "^1.1.0"
 	},
-	"publishConfig": {
-		"access": "public"
+	"devDependencies": {
+		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
+		"@essex/scripts": "^12.0.2",
+		"@types/d3-path": "^1.0.8",
+		"@types/d3-shape": "^1.2.7"
+	},
+	"peerDependencies": {
+		"@types/d3-path": ">= 1.0.8",
+		"@types/d3-shape": ">= 1.2.7"
 	}
 }
