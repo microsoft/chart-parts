@@ -4,7 +4,7 @@
  */
 import { number, object, text, radios } from '@storybook/addon-knobs'
 import React from 'react'
-import { BarChart, Orientation } from '../../dist/esm/index'
+import { BarChart, Orientation } from '../../src'
 import {
 	makeAxisProps,
 	makeChartPadding,

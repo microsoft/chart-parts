@@ -4,7 +4,7 @@
  */
 import { number, object, text } from '@storybook/addon-knobs'
 import React from 'react'
-import { ScatterPlot } from '../../dist/esm/index'
+import { ScatterPlot } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 import { MarkEncoding } from '@chart-parts/interfaces'
 

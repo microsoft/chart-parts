@@ -5,7 +5,7 @@
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean, radios } from '@storybook/addon-knobs'
 import React, { useCallback } from 'react'
-import { BarChart, BarTips, Orientation } from '../../dist/esm/index'
+import { BarChart, BarTips, Orientation } from '../../src'
 import {
 	makeAxisProps,
 	makeChartPadding,
