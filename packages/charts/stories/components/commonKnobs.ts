@@ -4,7 +4,7 @@
  */
 import { object } from '@storybook/addon-knobs'
 import { useState, useCallback } from 'react'
-import { AxisProps, BandScaleProps } from '../../dist/esm/index'
+import { AxisProps, BandScaleProps } from '../../src'
 import { FontWeight, ChannelHandler } from '@chart-parts/interfaces'
 import { ChartPadding } from '@chart-parts/react'
 
