@@ -5674,7 +5674,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__react", null],
             ["@types/types__react-dom", null],
             ["core-js", null],
-            ["d3-array", "npm:2.9.0"],
+            ["d3-array", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#npm:2.9.0"],
             ["react", "npm:16.14.0"],
             ["regenerator-runtime", "npm:0.13.7"],
             ["vega-datasets", "npm:2.2.0"]
@@ -5715,7 +5715,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__react", null],
             ["@types/types__react-dom", null],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "npm:2.9.0"],
+            ["d3-array", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#npm:2.9.0"],
             ["react", "npm:16.14.0"],
             ["regenerator-runtime", "npm:0.13.7"],
             ["vega-datasets", "npm:2.2.0"]
@@ -5750,7 +5750,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/node", "npm:14.14.10"],
             ["@types/react", "npm:16.14.2"],
             ["@types/react-dom", "npm:16.9.10"],
-            ["d3-array", "npm:2.9.0"],
+            ["d3-array", "virtual:833fdaac018ad81026040219dc556002393d2679c77cd7974396451a41450304d71c4fe78b4d3a6854726cb5ce085ec9faeffdc6d543441859026e309973a9d8#npm:2.9.0"],
             ["react", "npm:16.14.0"],
             ["vega-datasets", "npm:2.2.0"]
           ],
@@ -5783,7 +5783,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/styled-components", "npm:5.1.4"],
             ["babel-loader", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:8.2.2"],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
             ["d3-scale", "npm:3.2.3"],
             ["html-webpack-plugin", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:4.5.0"],
             ["npm-run-all", "npm:4.1.5"],
@@ -6292,7 +6292,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", null],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6328,7 +6328,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", null],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6364,7 +6364,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6401,7 +6401,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", null],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6437,7 +6437,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", null],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6472,7 +6472,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6501,7 +6501,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/d3-interpolate", "npm:1.3.1"],
             ["@types/d3-scale", "npm:2.2.0"],
             ["@types/lodash", "npm:4.14.165"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"]
@@ -6778,7 +6778,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", "npm:0.13.7"],
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
             ["vega-encode", "npm:4.8.3"],
             ["vega-transforms", "npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
@@ -6803,7 +6803,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", "npm:3.8.1"],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", "npm:0.13.7"],
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
             ["vega-encode", "npm:4.8.3"],
             ["vega-transforms", "npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
@@ -6828,7 +6828,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", null],
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
             ["vega-encode", "npm:4.8.3"],
             ["vega-transforms", "npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
@@ -6849,7 +6849,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.165"],
             ["@types/node", "npm:14.14.10"],
             ["lodash", "npm:4.17.20"],
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
             ["vega-encode", "npm:4.8.3"],
             ["vega-transforms", "npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
@@ -24666,17 +24666,55 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["d3-array", [
-        ["npm:2.8.0", {
-          "packageLocation": "./.yarn/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
+        ["virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-1d6b1e47c7/0/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
           "packageDependencies": [
-            ["d3-array", "npm:2.8.0"]
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }],
-        ["npm:2.9.0", {
-          "packageLocation": "./.yarn/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
+        ["virtual:833fdaac018ad81026040219dc556002393d2679c77cd7974396451a41450304d71c4fe78b4d3a6854726cb5ce085ec9faeffdc6d543441859026e309973a9d8#npm:2.9.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-53cdadf80c/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
           "packageDependencies": [
-            ["d3-array", "npm:2.9.0"]
+            ["d3-array", "virtual:833fdaac018ad81026040219dc556002393d2679c77cd7974396451a41450304d71c4fe78b4d3a6854726cb5ce085ec9faeffdc6d543441859026e309973a9d8#npm:2.9.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-85f8c7af9a/0/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
+          "packageDependencies": [
+            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.8.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#npm:2.9.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-13a7ea581a/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
+          "packageDependencies": [
+            ["d3-array", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#npm:2.9.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
@@ -24749,7 +24787,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/d3-scale-npm-3.2.3-06ca6918ae-675a059241.zip/node_modules/d3-scale/",
           "packageDependencies": [
             ["d3-scale", "npm:3.2.3"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-format", "npm:2.0.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-time", "npm:2.0.0"],
@@ -27436,7 +27474,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@react-native-community/eslint-config", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:1.1.0"],
             ["@types/react-native", "npm:0.63.37"],
             ["babel-jest", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:26.6.3"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-format", "npm:1.4.5"],
             ["d3-path", "npm:1.0.9"],
             ["d3-scale", "npm:3.2.3"],
@@ -48170,13 +48208,35 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-dataflow", [
-        ["npm:5.7.3", {
-          "packageLocation": "./.yarn/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
+        ["virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-23acba56f7/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
           "packageDependencies": [
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", "npm:0.13.7"],
             ["vega-format", "npm:1.0.4"],
-            ["vega-loader", "npm:4.3.3"],
+            ["vega-loader", "virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3"],
             ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-5c283879be/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
+          "packageDependencies": [
+            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", null],
+            ["vega-format", "npm:1.0.4"],
+            ["vega-loader", "virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
@@ -48202,9 +48262,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vega-encode-npm-4.8.3-36075b7eda-8286edae83.zip/node_modules/vega-encode/",
           "packageDependencies": [
             ["vega-encode", "npm:4.8.3"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["vega-dataflow", "npm:5.7.3"],
+            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
             ["vega-scale", "npm:7.1.1"],
             ["vega-util", "npm:1.15.2"]
           ],
@@ -48216,7 +48276,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vega-format-npm-1.0.4-4e748ca97a-e98218d653.zip/node_modules/vega-format/",
           "packageDependencies": [
             ["vega-format", "npm:1.0.4"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-format", "npm:2.0.0"],
             ["d3-time-format", "npm:3.0.0"],
             ["vega-time", "npm:2.0.4"],
@@ -48226,15 +48286,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-loader", [
-        ["npm:4.3.3", {
-          "packageLocation": "./.yarn/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
+        ["virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-fc7e969d05/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
           "packageDependencies": [
-            ["vega-loader", "npm:4.3.3"],
+            ["vega-loader", "virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3"],
+            ["@types/regenerator-runtime", null],
             ["d3-dsv", "npm:2.0.0"],
             ["node-fetch", "npm:2.6.1"],
+            ["regenerator-runtime", "npm:0.13.7"],
             ["topojson-client", "npm:3.1.0"],
             ["vega-format", "npm:1.0.4"],
             ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-7c1a3bdceb/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
+          "packageDependencies": [
+            ["vega-loader", "virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-dsv", "npm:2.0.0"],
+            ["node-fetch", "npm:2.6.1"],
+            ["regenerator-runtime", null],
+            ["topojson-client", "npm:3.1.0"],
+            ["vega-format", "npm:1.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
@@ -48244,7 +48328,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vega-scale-npm-7.1.1-d91a441d24-9e5b272bd3.zip/node_modules/vega-scale/",
           "packageDependencies": [
             ["vega-scale", "npm:7.1.1"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["vega-time", "npm:2.0.4"],
@@ -48254,11 +48338,17 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-statistics", [
-        ["npm:1.7.9", {
-          "packageLocation": "./.yarn/cache/vega-statistics-npm-1.7.9-4d5b6c3f73-f6f30e1825.zip/node_modules/vega-statistics/",
+        ["virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9", {
+          "packageLocation": "./.yarn/$$virtual/vega-statistics-virtual-ca6a59f00f/0/cache/vega-statistics-npm-1.7.9-4d5b6c3f73-f6f30e1825.zip/node_modules/vega-statistics/",
           "packageDependencies": [
-            ["vega-statistics", "npm:1.7.9"],
-            ["d3-array", "npm:2.8.0"]
+            ["vega-statistics", "virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
@@ -48268,7 +48358,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vega-time-npm-2.0.4-a9170a99eb-b5634ee0b6.zip/node_modules/vega-time/",
           "packageDependencies": [
             ["vega-time", "npm:2.0.4"],
-            ["d3-array", "npm:2.8.0"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-time", "npm:2.0.0"],
             ["vega-util", "npm:1.15.2"]
           ],
@@ -48280,9 +48370,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vega-transforms-npm-4.9.3-d4a41028da-a4c8988a18.zip/node_modules/vega-transforms/",
           "packageDependencies": [
             ["vega-transforms", "npm:4.9.3"],
-            ["d3-array", "npm:2.8.0"],
-            ["vega-dataflow", "npm:5.7.3"],
-            ["vega-statistics", "npm:1.7.9"],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
+            ["vega-statistics", "virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9"],
             ["vega-time", "npm:2.0.4"],
             ["vega-util", "npm:1.15.2"]
           ],
