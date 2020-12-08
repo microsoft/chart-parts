@@ -5631,7 +5631,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["rehype-react", "npm:6.1.0"],
             ["shx", "npm:0.3.3"],
             ["styled-components", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:5.2.1"],
-            ["typedoc", "virtual:6e3aadcec428ec1a80a4a5d9ba93a017b622535b4b260801dbd67dbac638beeb5c03e363bd85d72415ac009f0c9d181f593308a3d250ace001d18cbdff8fb411#npm:0.19.2"],
+            ["typedoc", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:0.20.0-beta.26"],
             ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=5bf698"],
             ["typography", "npm:0.16.19"],
             ["typography-theme-github", "npm:0.16.19"],
@@ -28952,13 +28952,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["highlight.js", [
-        ["npm:10.2.1", {
-          "packageLocation": "./.yarn/cache/highlight.js-npm-10.2.1-078ab533c8-a799dabfbf.zip/node_modules/highlight.js/",
-          "packageDependencies": [
-            ["highlight.js", "npm:10.2.1"]
-          ],
-          "linkType": "HARD",
-        }],
         ["npm:10.4.1", {
           "packageLocation": "./.yarn/cache/highlight.js-npm-10.4.1-7888d5927d-067a8cc822.zip/node_modules/highlight.js/",
           "packageDependencies": [
@@ -33125,10 +33118,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["marked", [
-        ["npm:1.1.1", {
-          "packageLocation": "./.yarn/cache/marked-npm-1.1.1-94b9332cf8-4fb077a99c.zip/node_modules/marked/",
+        ["npm:1.2.5", {
+          "packageLocation": "./.yarn/cache/marked-npm-1.2.5-7de5c0d58a-f4d370e267.zip/node_modules/marked/",
           "packageDependencies": [
-            ["marked", "npm:1.1.1"]
+            ["marked", "npm:1.2.5"]
           ],
           "linkType": "HARD",
         }]
@@ -35474,6 +35467,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["onetime", "npm:5.1.0"],
             ["mimic-fn", "npm:2.1.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["onigasm", [
+        ["npm:2.2.5", {
+          "packageLocation": "./.yarn/unplugged/onigasm-npm-2.2.5-55c6d729c4/node_modules/onigasm/",
+          "packageDependencies": [
+            ["onigasm", "npm:2.2.5"],
+            ["lru-cache", "npm:5.1.1"]
           ],
           "linkType": "HARD",
         }]
@@ -41717,6 +41720,40 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["shiki", [
+        ["npm:0.2.7", {
+          "packageLocation": "./.yarn/cache/shiki-npm-0.2.7-354fb78be2-4075bd1b7c.zip/node_modules/shiki/",
+          "packageDependencies": [
+            ["shiki", "npm:0.2.7"],
+            ["onigasm", "npm:2.2.5"],
+            ["shiki-languages", "npm:0.2.7"],
+            ["shiki-themes", "npm:0.2.7"],
+            ["vscode-textmate", "npm:5.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["shiki-languages", [
+        ["npm:0.2.7", {
+          "packageLocation": "./.yarn/cache/shiki-languages-npm-0.2.7-f640b523b5-46e91b7cd8.zip/node_modules/shiki-languages/",
+          "packageDependencies": [
+            ["shiki-languages", "npm:0.2.7"],
+            ["vscode-textmate", "npm:5.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["shiki-themes", [
+        ["npm:0.2.7", {
+          "packageLocation": "./.yarn/cache/shiki-themes-npm-0.2.7-6d3717f3e7-5e79726b92.zip/node_modules/shiki-themes/",
+          "packageDependencies": [
+            ["shiki-themes", "npm:0.2.7"],
+            ["json5", "npm:2.1.3"],
+            ["vscode-textmate", "npm:5.2.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["shx", [
         ["npm:0.3.3", {
           "packageLocation": "./.yarn/cache/shx-npm-0.3.3-6071b4b10c-0658009ba6.zip/node_modules/shx/",
@@ -44370,6 +44407,30 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["typedoc", [
+        ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:0.20.0-beta.26", {
+          "packageLocation": "./.yarn/$$virtual/typedoc-virtual-ca4c82cc88/0/cache/typedoc-npm-0.20.0-beta.26-45bb7aa60a-bfae6f0341.zip/node_modules/typedoc/",
+          "packageDependencies": [
+            ["typedoc", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:0.20.0-beta.26"],
+            ["@types/typescript", null],
+            ["colors", "npm:1.4.0"],
+            ["fs-extra", "npm:9.0.1"],
+            ["handlebars", "npm:4.7.6"],
+            ["lodash", "npm:4.17.20"],
+            ["lunr", "npm:2.3.9"],
+            ["marked", "npm:1.2.5"],
+            ["minimatch", "npm:3.0.4"],
+            ["progress", "npm:2.0.3"],
+            ["shelljs", "npm:0.8.4"],
+            ["shiki", "npm:0.2.7"],
+            ["typedoc-default-themes", "npm:0.12.0-beta.10"],
+            ["typescript", "patch:typescript@npm%3A4.1.2#builtin<compat/typescript>::version=4.1.2&hash=5bf698"]
+          ],
+          "packagePeers": [
+            "@types/typescript",
+            "typescript"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:6e3aadcec428ec1a80a4a5d9ba93a017b622535b4b260801dbd67dbac638beeb5c03e363bd85d72415ac009f0c9d181f593308a3d250ace001d18cbdff8fb411#npm:0.19.2", {
           "packageLocation": "./.yarn/$$virtual/typedoc-virtual-75402a0221/0/cache/typedoc-npm-0.19.2-67686083da-fc33909c4d.zip/node_modules/typedoc/",
           "packageDependencies": [
@@ -44377,10 +44438,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/typescript", null],
             ["fs-extra", "npm:9.0.1"],
             ["handlebars", "npm:4.7.6"],
-            ["highlight.js", "npm:10.2.1"],
+            ["highlight.js", "npm:10.4.1"],
             ["lodash", "npm:4.17.20"],
             ["lunr", "npm:2.3.9"],
-            ["marked", "npm:1.1.1"],
+            ["marked", "npm:1.2.5"],
             ["minimatch", "npm:3.0.4"],
             ["progress", "npm:2.0.3"],
             ["semver", "npm:7.3.2"],
@@ -44400,6 +44461,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/typedoc-default-themes-npm-0.11.4-4359825f62-1993030e24.zip/node_modules/typedoc-default-themes/",
           "packageDependencies": [
             ["typedoc-default-themes", "npm:0.11.4"]
+          ],
+          "linkType": "HARD",
+        }],
+        ["npm:0.12.0-beta.10", {
+          "packageLocation": "./.yarn/cache/typedoc-default-themes-npm-0.12.0-beta.10-6409b9affc-f10cfa0e6a.zip/node_modules/typedoc-default-themes/",
+          "packageDependencies": [
+            ["typedoc-default-themes", "npm:0.12.0-beta.10"]
           ],
           "linkType": "HARD",
         }]
@@ -45931,6 +45999,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/vm-browserify-npm-1.1.2-f96404b36f-fc571a62d2.zip/node_modules/vm-browserify/",
           "packageDependencies": [
             ["vm-browserify", "npm:1.1.2"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["vscode-textmate", [
+        ["npm:5.2.0", {
+          "packageLocation": "./.yarn/cache/vscode-textmate-npm-5.2.0-82267678b1-67ec1fed58.zip/node_modules/vscode-textmate/",
+          "packageDependencies": [
+            ["vscode-textmate", "npm:5.2.0"]
           ],
           "linkType": "HARD",
         }]

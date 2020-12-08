@@ -13,7 +13,7 @@
     "start": "gatsby develop -H 0.0.0.0",
     "type-check": "tsc --noEmit",
     "gen:docs": "run-p 'gen:doc:*'",
-    "gen:doc": "typedoc --theme default --out static/apidocs/$LIB --tsconfig ../$LIB/tsconfig.typedoc.json  --ignoreCompilerErrors --excludePrivate --excludeNotExported --hideGenerator --mode file",
+    "gen:doc": "typedoc --theme default --readme ../$LIB/readme.md --out static/apidocs/$LIB --tsconfig ../$LIB/tsconfig.typedoc.json --excludePrivate --hideGenerator ../$LIB/src/index.ts",
     "gen:doc:builder": "LIB=api-builder yarn gen:doc",
     "gen:doc:interfaces": "LIB=api-interfaces yarn gen:doc",
     "gen:doc:react": "LIB=api-react yarn gen:doc",
@@ -88,7 +88,7 @@
     "prettier": "^2.2.1",
     "regenerator-runtime": "^0.13.7",
     "shx": "^0.3.3",
-    "typedoc": "^0.19.2",
+    "typedoc": "^0.20.0-beta.26",
     "typescript": "^4.1.2"
   },
   "repository": {

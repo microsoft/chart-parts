@@ -3047,7 +3047,7 @@ __metadata:
     rehype-react: ^6.1.0
     shx: ^0.3.3
     styled-components: ^5.2.1
-    typedoc: ^0.19.2
+    typedoc: ^0.20.0-beta.26
     typescript: ^4.1.2
     typography: ^0.16.19
     typography-theme-github: ^0.16.19
@@ -18411,17 +18411,10 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"highlight.js@npm:^10.1.1, highlight.js@npm:~10.4.0":
+"highlight.js@npm:^10.1.1, highlight.js@npm:^10.2.0, highlight.js@npm:~10.4.0":
   version: 10.4.1
   resolution: "highlight.js@npm:10.4.1"
   checksum: 067a8cc822a4bfe3ae9cab8b827a64e059052b27606fcc91f06304b2518e0b8c6ff8875b19f2989ff329f1f07f5989dd52aee67eae005d63c77591ca08e419ec
-  languageName: node
-  linkType: hard
-
-"highlight.js@npm:^10.2.0":
-  version: 10.2.1
-  resolution: "highlight.js@npm:10.2.1"
-  checksum: a799dabfbf78ae5f369d113bfedcf0ba6ea4f9aefcc44d4b27a6d77ec0d6b90fc31b01137497c9710c7d87ec8b2613e613c9499d69bfa65282bcbaf8ca7daeaa
   languageName: node
   linkType: hard
 
@@ -21051,7 +21044,7 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"json5@npm:^2.1.1, json5@npm:^2.1.2":
+"json5@npm:^2.1.0, json5@npm:^2.1.1, json5@npm:^2.1.2":
   version: 2.1.3
   resolution: "json5@npm:2.1.3"
   dependencies:
@@ -22147,12 +22140,12 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"marked@npm:^1.1.1":
-  version: 1.1.1
-  resolution: "marked@npm:1.1.1"
+"marked@npm:^1.1.1, marked@npm:^1.2.5":
+  version: 1.2.5
+  resolution: "marked@npm:1.2.5"
   bin:
     marked: bin/marked
-  checksum: 4fb077a99ca6a6a4f389bbe2f27620509a332da6fac019560fc25e0e9636226cc86420ddbcfc6e8956920cbca68d64cd11d03954d22123a95ffc63c2e6c4e0ae
+  checksum: f4d370e267ead928530d78ef5e52d79d7f938e419fc71103a8c22626daddadbe8f9cd56e8f745e94b5d1c47b95bf5ccb4d4917497d9bc1cd0c3f2cb3ee2f1398
   languageName: node
   linkType: hard
 
@@ -24301,6 +24294,15 @@ fsevents@^1.2.7:
   dependencies:
     mimic-fn: ^2.1.0
   checksum: 1781c3cf88afbdea849f00fc42dbb560fecf27169135326d615aa2781ae9bdd5a59af82b21d9c3ed348424ec097d2b764b15b43b807d099230d7b8803335a482
+  languageName: node
+  linkType: hard
+
+"onigasm@npm:^2.2.5":
+  version: 2.2.5
+  resolution: "onigasm@npm:2.2.5"
+  dependencies:
+    lru-cache: ^5.1.1
+  checksum: 9db74810f55bc0b9718991d36ea445e2095f09743f22d5e76bc37a31e34b9b5204b1224ea2fb30253e810fe57222bf86274d5b38073b1c14534fee4c6da300b4
   languageName: node
   linkType: hard
 
@@ -29138,6 +29140,37 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"shiki-languages@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "shiki-languages@npm:0.2.7"
+  dependencies:
+    vscode-textmate: ^5.2.0
+  checksum: 46e91b7cd8c2e2ebffc72243fc813acff1dd7124ff3b78b356bb1bea7b764fbe34fb1865651529f0b27948829c2901cea3672cd38052560f6e0b779a284cae31
+  languageName: node
+  linkType: hard
+
+"shiki-themes@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "shiki-themes@npm:0.2.7"
+  dependencies:
+    json5: ^2.1.0
+    vscode-textmate: ^5.2.0
+  checksum: 5e79726b928f99d8723600662d02b7f3549a06603ee6b7e90a6084c4a0d1c3244b6b96d9d036933f362c8c20737e1a27875433a0b2b4a32f020cc87e78ed7fc8
+  languageName: node
+  linkType: hard
+
+"shiki@npm:^0.2.7":
+  version: 0.2.7
+  resolution: "shiki@npm:0.2.7"
+  dependencies:
+    onigasm: ^2.2.5
+    shiki-languages: ^0.2.7
+    shiki-themes: ^0.2.7
+    vscode-textmate: ^5.2.0
+  checksum: 4075bd1b7ca12c2ee44ab14691388651d7af69172259bd6af083d0841a6460572c0ef1b635fc15633972f4737dd476f4e71e7bbe32dec91100b2260346c8f3eb
+  languageName: node
+  linkType: hard
+
 "shx@npm:^0.3.3":
   version: 0.3.3
   resolution: "shx@npm:0.3.3"
@@ -31435,6 +31468,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"typedoc-default-themes@npm:0.12.0-beta.10":
+  version: 0.12.0-beta.10
+  resolution: "typedoc-default-themes@npm:0.12.0-beta.10"
+  checksum: f10cfa0e6a5e9539bf67d0488ab9abb2c4d10e05e33ca76c54b58f3e3895acf2920699ce9896d5aba1d4046bd12a4cd599cfe42366806f87c115b8a80115e9a2
+  languageName: node
+  linkType: hard
+
 "typedoc-default-themes@npm:^0.11.4":
   version: 0.11.4
   resolution: "typedoc-default-themes@npm:0.11.4"
@@ -31462,6 +31502,29 @@ fsevents@^1.2.7:
   bin:
     typedoc: bin/typedoc
   checksum: fc33909c4d66a390fd6dfe7ef88a979d799413403af3f3dea4e320ea5cee07f06d5fda57b9b0872fad0b17a540ebe5e1a8829618c731d9dd7837ddfef8e9f2bf
+  languageName: node
+  linkType: hard
+
+"typedoc@npm:^0.20.0-beta.26":
+  version: 0.20.0-beta.26
+  resolution: "typedoc@npm:0.20.0-beta.26"
+  dependencies:
+    colors: ^1.4.0
+    fs-extra: ^9.0.1
+    handlebars: ^4.7.6
+    lodash: ^4.17.20
+    lunr: ^2.3.9
+    marked: ^1.2.5
+    minimatch: ^3.0.0
+    progress: ^2.0.3
+    shelljs: ^0.8.4
+    shiki: ^0.2.7
+    typedoc-default-themes: 0.12.0-beta.10
+  peerDependencies:
+    typescript: 3.9.x || 4.0.x || 4.1.x
+  bin:
+    typedoc: bin/typedoc
+  checksum: bfae6f0341aad2535db0c354bccbbcb675095cc655aa84cfe1177520e27da4119eef3a187cd93b05e5863f38b7894343c13e46f8eaa2d11c60d24c8a5ec0290f
   languageName: node
   linkType: hard
 
@@ -32721,6 +32784,13 @@ typescript@^4.1.2:
   version: 1.1.2
   resolution: "vm-browserify@npm:1.1.2"
   checksum: fc571a62d2cf797ae8773ebb3cb0d2bea50ed02059e128dd9087975929fce4c80a6485ce1aaf7d44ef69db99dfdcde50b6be5d5eb73b296660d761c32fb544fe
+  languageName: node
+  linkType: hard
+
+"vscode-textmate@npm:^5.2.0":
+  version: 5.2.0
+  resolution: "vscode-textmate@npm:5.2.0"
+  checksum: 67ec1fed58690b6d21fb75462694ebfeefe93d9a4091dfbea9db4e1b718d172ac2e60e3944a0dd88c53ff50e7604dfcccde19d8a4d25616c0b2df330052df2b9
   languageName: node
   linkType: hard
 
