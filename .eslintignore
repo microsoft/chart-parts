@@ -4,3 +4,7 @@ dist/
 out/
 public/
 static/
+.yarn/
+.pnp.js
+# TODO FIX
+packages/docs-examples-mobile/

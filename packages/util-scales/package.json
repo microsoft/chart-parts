@@ -1,0 +1,38 @@
+{
+	"name": "@chart-parts/scales",
+	"description": "Scaling utilities for chart-parts",
+	"version": "0.1.3",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"typings": "dist/types/index.d.ts"
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean": "essex clean",
+		"build": "essex build"
+	},
+	"dependencies": {
+		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
+		"d3-array": "^2.9.0",
+		"d3-interpolate": "^2.0.1",
+		"d3-scale": "^3.2.3",
+		"lodash": "^4.17.20"
+	},
+	"devDependencies": {
+		"@essex/scripts": "^12.0.2",
+		"@types/d3-array": "^2.8.0",
+		"@types/d3-interpolate": "^1.2.0",
+		"@types/d3-scale": "^2.1.1",
+		"@types/lodash": "^4.14.165"
+	},
+	"peerDependencies": {
+		"@types/d3-array": ">= 2.0.0",
+		"@types/d3-interpolate": ">= 1.2.0",
+		"@types/d3-scale": ">= 2.1.1",
+		"@types/lodash": ">= 4.14.165",
+		"core-js": "*",
+		"regenerator-runtime": "*"
+	}
+}

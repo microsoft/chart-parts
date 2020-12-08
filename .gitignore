@@ -1,6 +1,16 @@
+# Yarn 2 Gitignores
+.yarn/*
+!.yarn/cache
+!.yarn/releases
+!.yarn/plugins
+!.yarn/sdks
+!.yarn/versions
+
+# Package Outputs
+packages/*/dist/
+packages/*/lib/
+
 node_modules/
-dist/
-lib/
 docs_generated/
 coverage/
 *.log

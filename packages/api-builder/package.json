@@ -1,0 +1,36 @@
+{
+	"name": "@chart-parts/builder",
+	"description": "Visualization components for specifying scenes",
+	"version": "0.1.3",
+	"main": "src/index.ts",
+	"publishConfig": {
+		"main": "dist/cjs/index.js",
+		"module": "dist/esm/index.js",
+		"typings": "dist/types/index.d.ts"
+	},
+	"license": "MIT",
+	"scripts": {
+		"clean": "essex clean",
+		"build": "essex build"
+	},
+	"devDependencies": {
+		"@chart-parts/scales": "workspace:packages/util-scales",
+		"@essex/scripts": "^12.0.2",
+		"@types/d3-format": "^1.3.1",
+		"@types/d3-time-format": "^2.1.0"
+	},
+	"peerDependencies": {
+		"@types/d3-format": ">= 1.3.1",
+		"@types/d3-time-format": ">= 2.1.0",
+		"core-js": "*",
+		"regenerator-runtime": "*"
+	},
+	"dependencies": {
+		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
+		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
+		"d3-format": "^2.0.0",
+		"d3-time-format": "^3.0.0",
+		"lodash": "^4.17.20",
+		"rxjs": "^6.6.3"
+	}
+}
