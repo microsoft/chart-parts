@@ -15202,6 +15202,7 @@ __metadata:
     "@react-native-community/eslint-config": ^2.0.0
     "@types/react-native": ^0.63.37
     babel-jest: ^26.6.3
+    core-js: ^3.8.1
     d3-array: ^2.9.0
     d3-format: ^1.4.5
     d3-path: ^1.0.9
@@ -15216,7 +15217,11 @@ __metadata:
     react-native: 0.63.4
     react-native-svg: ^12.1.0
     react-test-renderer: ^16.14.0
+    regenerator-runtime: ^0.13.7
     vega-datasets: ^1.31.1
+  peerDependencies:
+    core-js: "*"
+    regenerator-runtime: "*"
   languageName: unknown
   linkType: soft
 

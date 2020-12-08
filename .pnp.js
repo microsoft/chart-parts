@@ -94,23 +94,23 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
     "enableTopLevelFallback": true,
     "ignorePatternData": "(^(?:\\.yarn\\/sdks(?:\\/(?!\\.)(?:(?:(?!(?:^|\\/)\\.).)*?)|$))$)",
     "fallbackExclusionList": [
-      ["@chart-parts/builder", ["virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#workspace:packages/api-builder", "virtual:ab6508e97260a4a7ff48382a91e2780a2f03addd351c2170ee6f6b52baba8877f7a2ba0d0778de5b3c7b5a3dac7819709e1730ff3a17a49d8827875605c6bc8b#workspace:packages/api-builder", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder", "workspace:packages/api-builder"]],
+      ["@chart-parts/builder", ["virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#workspace:packages/api-builder", "virtual:ab6508e97260a4a7ff48382a91e2780a2f03addd351c2170ee6f6b52baba8877f7a2ba0d0778de5b3c7b5a3dac7819709e1730ff3a17a49d8827875605c6bc8b#workspace:packages/api-builder", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder", "workspace:packages/api-builder"]],
       ["@chart-parts/charts", ["workspace:packages/charts"]],
       ["@chart-parts/docsite", ["workspace:packages/docs-site"]],
       ["@chart-parts/examples", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/docs-examples", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-examples", "workspace:packages/docs-examples"]],
       ["@chart-parts/examples-web", ["workspace:packages/docs-examples-web"]],
-      ["@chart-parts/interfaces", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces", "workspace:packages/api-interfaces"]],
-      ["@chart-parts/orchestrator", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/processing-orchestrator", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#workspace:packages/processing-orchestrator", "workspace:packages/processing-orchestrator"]],
+      ["@chart-parts/interfaces", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces", "workspace:packages/api-interfaces"]],
+      ["@chart-parts/orchestrator", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/processing-orchestrator", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#workspace:packages/processing-orchestrator", "workspace:packages/processing-orchestrator"]],
       ["@chart-parts/parent", ["workspace:."]],
-      ["@chart-parts/react", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-react", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/api-react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react", "workspace:packages/api-react"]],
+      ["@chart-parts/react", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react", "workspace:packages/api-react"]],
       ["@chart-parts/react-native-svg-renderer", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/renderer-react-native-svg", "workspace:packages/renderer-react-native-svg"]],
       ["@chart-parts/react-svg-renderer", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/renderer-react-svg", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/renderer-react-svg", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/renderer-react-svg", "workspace:packages/renderer-react-svg"]],
-      ["@chart-parts/scales", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales", "workspace:packages/util-scales"]],
-      ["@chart-parts/scenegraph", ["virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph", "virtual:33541b89114b57063c4d5d4640e8ef67e7b7a977a15962744aa4fb017fcf0da44bf5d716d57ccebf5be2920714e0f2b55694dc643c4ace8760395733435aa9b5#workspace:packages/processing-scenegraph", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/processing-scenegraph", "workspace:packages/processing-scenegraph"]],
-      ["@chart-parts/shapes", ["virtual:34f3a166563477bba6c3ba8fd9c68750b7c6e51960f54a8602c840dbcd88eec104394a7a94df2e67e6d3b4c27bb720343c5c2c3f89447125bcddebe99f4f7a0d#workspace:packages/util-shapes", "virtual:3b40f2271c48cab2560cf1fd0a99eae9714823775da7e9cfb2978fb125f8f59b16c878726cc1f9a24f7af83e7916ffcb1bbdb2ef9d756ce4a5a2d44f3e98005f#workspace:packages/util-shapes", "virtual:ddec3e0d52cf16f781a70899e8e5a3bce6874cb8aae0c4115e6a3fa745d56b2630cae44b573d446e9b03ec16fc30d2292dfa3a961a2570a5b62713ce206aabc3#workspace:packages/util-shapes", "workspace:packages/util-shapes"]],
-      ["@chart-parts/testdata", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/docs-testdata", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-testdata", "workspace:packages/docs-testdata"]],
-      ["@chart-parts/transform", ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-transform", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-transform", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/util-transform", "workspace:packages/util-transform"]],
-      ["@chart-parts/vsvg", ["virtual:2148ffc18b7b3a9ddd42204f4994d3434dcbacbd457fdb5edc7eac3a58201ed9b7a7a3bbe3f9399e79f699b00e1354bf69d1560b1ccf597cd65a00b6486ca84f#workspace:packages/processing-vsvg", "virtual:24def3d2fda6d5d67471289900fe459672feed4d6500cccc0ccbf4068087fffe15ebdafe2a1d26b76d4feee52ab30b5c1fda760463b22fd61bd669c53acef555#workspace:packages/processing-vsvg", "virtual:caf6f48841302c266bdd9932cb09a3b2304cfca4336d22d018dc515149f13a0e2b750030b91f530e314ce5cb86a385f34abff56abccfd360e763783f9871d5f1#workspace:packages/processing-vsvg", "workspace:packages/processing-vsvg"]],
+      ["@chart-parts/scales", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales", "workspace:packages/util-scales"]],
+      ["@chart-parts/scenegraph", ["virtual:33541b89114b57063c4d5d4640e8ef67e7b7a977a15962744aa4fb017fcf0da44bf5d716d57ccebf5be2920714e0f2b55694dc643c4ace8760395733435aa9b5#workspace:packages/processing-scenegraph", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/processing-scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph", "workspace:packages/processing-scenegraph"]],
+      ["@chart-parts/shapes", ["virtual:34f3a166563477bba6c3ba8fd9c68750b7c6e51960f54a8602c840dbcd88eec104394a7a94df2e67e6d3b4c27bb720343c5c2c3f89447125bcddebe99f4f7a0d#workspace:packages/util-shapes", "virtual:3b40f2271c48cab2560cf1fd0a99eae9714823775da7e9cfb2978fb125f8f59b16c878726cc1f9a24f7af83e7916ffcb1bbdb2ef9d756ce4a5a2d44f3e98005f#workspace:packages/util-shapes", "virtual:bc8e3f61d35f989144a8332df56212465ce99aab64c7acf4aec9711cfd3cd5d7e4085cdd8d99132ec746748b0edaaa43404e418b842b4f1f2eaa8440d556e82c#workspace:packages/util-shapes", "workspace:packages/util-shapes"]],
+      ["@chart-parts/testdata", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/docs-testdata", "workspace:packages/docs-testdata"]],
+      ["@chart-parts/transform", ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-transform", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/util-transform", "workspace:packages/util-transform"]],
+      ["@chart-parts/vsvg", ["virtual:2148ffc18b7b3a9ddd42204f4994d3434dcbacbd457fdb5edc7eac3a58201ed9b7a7a3bbe3f9399e79f699b00e1354bf69d1560b1ccf597cd65a00b6486ca84f#workspace:packages/processing-vsvg", "virtual:24def3d2fda6d5d67471289900fe459672feed4d6500cccc0ccbf4068087fffe15ebdafe2a1d26b76d4feee52ab30b5c1fda760463b22fd61bd669c53acef555#workspace:packages/processing-vsvg", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-vsvg", "workspace:packages/processing-vsvg"]],
       ["examplesmobile", ["workspace:packages/docs-examples-mobile"]]
     ],
     "fallbackPool": [
@@ -5504,13 +5504,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-builder-virtual-0ed79a39a3/1/packages/api-builder/",
+        ["virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-builder-virtual-48e735ac51/1/packages/api-builder/",
           "packageDependencies": [
-            ["@chart-parts/builder", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales"],
-            ["@chart-parts/scenegraph", "virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/builder", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
+            ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/d3-format", "npm:1.3.1"],
@@ -5663,7 +5663,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__react", null],
             ["@types/types__react-dom", null],
             ["core-js", null],
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["react", "npm:16.14.0"],
             ["regenerator-runtime", "npm:0.13.7"],
             ["vega-datasets", "npm:2.2.0"]
@@ -5686,13 +5686,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-examples-virtual-dda4e2f6a9/1/packages/docs-examples/",
           "packageDependencies": [
             ["@chart-parts/examples", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-examples"],
-            ["@chart-parts/builder", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/orchestrator", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator"],
-            ["@chart-parts/react", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/api-react"],
+            ["@chart-parts/builder", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/orchestrator", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator"],
+            ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
             ["@chart-parts/react-svg-renderer", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/renderer-react-svg"],
-            ["@chart-parts/scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales"],
-            ["@chart-parts/transform", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-transform"],
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
+            ["@chart-parts/transform", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform"],
             ["@essex/scripts", "virtual:950d15445db01f510fa8ee60cb459bab9cc1580356044d15dd95e73ec8ee2e038584dcf7289d33ef2f05b128563058421b8fdb5443ef8c9949f46385a7726eb8#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/d3-array", "npm:2.8.0"],
@@ -5704,7 +5704,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__react", null],
             ["@types/types__react-dom", null],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["react", "npm:16.14.0"],
             ["regenerator-runtime", "npm:0.13.7"],
             ["vega-datasets", "npm:2.2.0"]
@@ -5753,12 +5753,12 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@chart-parts/examples-web", "workspace:packages/docs-examples-web"],
             ["@babel/core", "npm:7.12.9"],
             ["@chart-parts/examples", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-examples"],
-            ["@chart-parts/orchestrator", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator"],
-            ["@chart-parts/react", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/api-react"],
+            ["@chart-parts/orchestrator", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator"],
+            ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
             ["@chart-parts/react-svg-renderer", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/renderer-react-svg"],
-            ["@chart-parts/scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales"],
-            ["@chart-parts/testdata", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-testdata"],
-            ["@chart-parts/transform", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-transform"],
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
+            ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
+            ["@chart-parts/transform", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform"],
             ["@essex/scripts", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:12.0.2"],
             ["@storybook/addon-actions", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#npm:6.1.10"],
             ["@storybook/addon-links", "virtual:9b5357ebe734c79ad57f8b29398567d39015cf48f1b1222efb5dffc6599f16aea1f2cbff9bf38c2ffa43a4c1790182d38547f119d5d9a954a9765a091846f2db#npm:6.1.10"],
@@ -5772,7 +5772,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/styled-components", "npm:5.1.4"],
             ["babel-loader", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:8.2.2"],
             ["core-js", "npm:3.8.1"],
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-scale", "npm:3.2.3"],
             ["html-webpack-plugin", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:4.5.0"],
             ["npm-run-all", "npm:4.1.5"],
@@ -5791,6 +5791,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/interfaces", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-d2a3ef0fed/1/packages/api-interfaces/",
+          "packageDependencies": [
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/regenerator-runtime", null],
+            ["core-js", "npm:3.8.1"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-interfaces", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-c2835a52ed/1/packages/api-interfaces/",
           "packageDependencies": [
@@ -5827,10 +5845,24 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-0c74502867/1/packages/api-interfaces/",
+        ["workspace:packages/api-interfaces", {
+          "packageLocation": "./packages/api-interfaces/",
           "packageDependencies": [
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
+            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"]
+          ],
+          "linkType": "SOFT",
+        }]
+      ]],
+      ["@chart-parts/orchestrator", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-orchestrator-virtual-cd7fb71ff8/1/packages/processing-orchestrator/",
+          "packageDependencies": [
+            ["@chart-parts/orchestrator", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator"],
+            ["@chart-parts/builder", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/vsvg", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-vsvg"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/regenerator-runtime", null],
@@ -5845,16 +5877,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["workspace:packages/api-interfaces", {
-          "packageLocation": "./packages/api-interfaces/",
-          "packageDependencies": [
-            ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"]
-          ],
-          "linkType": "SOFT",
-        }]
-      ]],
-      ["@chart-parts/orchestrator", [
         ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/processing-orchestrator", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-orchestrator-virtual-24def3d2fd/1/packages/processing-orchestrator/",
           "packageDependencies": [
@@ -5867,28 +5889,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/core-js", null],
             ["@types/regenerator-runtime", null],
             ["core-js", null],
-            ["regenerator-runtime", "npm:0.13.7"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/regenerator-runtime",
-            "core-js",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-orchestrator-virtual-caf6f48841/1/packages/processing-orchestrator/",
-          "packageDependencies": [
-            ["@chart-parts/orchestrator", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator"],
-            ["@chart-parts/builder", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/scenegraph", "virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph"],
-            ["@chart-parts/vsvg", "virtual:caf6f48841302c266bdd9932cb09a3b2304cfca4336d22d018dc515149f13a0e2b750030b91f530e314ce5cb86a385f34abff56abccfd360e763783f9871d5f1#workspace:packages/processing-vsvg"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/regenerator-runtime", null],
-            ["core-js", "npm:3.8.1"],
             ["regenerator-runtime", "npm:0.13.7"]
           ],
           "packagePeers": [
@@ -5969,6 +5969,36 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/react", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-react-virtual-e88044962a/1/packages/api-react/",
+          "packageDependencies": [
+            ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
+            ["@chart-parts/builder", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/api-builder"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/orchestrator", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator"],
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
+            ["@essex/scripts", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/react", "npm:16.14.2"],
+            ["@types/regenerator-runtime", null],
+            ["@types/types__react", null],
+            ["core-js", "npm:3.8.1"],
+            ["lodash", "npm:4.17.20"],
+            ["react", "npm:16.14.0"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["rxjs", "npm:6.6.3"],
+            ["shallowequal", "npm:1.1.0"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "@types/types__react",
+            "core-js",
+            "react",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-react", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-react-virtual-ec52929220/1/packages/api-react/",
           "packageDependencies": [
@@ -5983,37 +6013,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/regenerator-runtime", null],
             ["@types/types__react", null],
             ["core-js", null],
-            ["lodash", "npm:4.17.20"],
-            ["react", "npm:16.14.0"],
-            ["regenerator-runtime", "npm:0.13.7"],
-            ["rxjs", "npm:6.6.3"],
-            ["shallowequal", "npm:1.1.0"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/react",
-            "@types/regenerator-runtime",
-            "@types/types__react",
-            "core-js",
-            "react",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/api-react", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-react-virtual-e70f27bcdf/1/packages/api-react/",
-          "packageDependencies": [
-            ["@chart-parts/react", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/api-react"],
-            ["@chart-parts/builder", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-builder"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/orchestrator", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/processing-orchestrator"],
-            ["@chart-parts/scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales"],
-            ["@essex/scripts", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/react", "npm:16.14.2"],
-            ["@types/regenerator-runtime", null],
-            ["@types/types__react", null],
-            ["core-js", "npm:3.8.1"],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.14.0"],
             ["regenerator-runtime", "npm:0.13.7"],
@@ -6085,19 +6084,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-react-native-svg-renderer-virtual-6ace6676c1/1/packages/renderer-react-native-svg/",
           "packageDependencies": [
             ["@chart-parts/react-native-svg-renderer", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/renderer-react-native-svg"],
-            ["@chart-parts/interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
             ["@essex/scripts", "virtual:6ace6676c1d3bcfb6208294da680020974d57834fd2e4b59b076f3592f198e3f28a0282a78ebde0a5aaf622a7e5993f6cbad6ea8aff5718fec0ce12b23056386#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/react", null],
             ["@types/react-native", "npm:0.63.37"],
             ["@types/regenerator-runtime", null],
             ["@types/types__react-native", null],
-            ["core-js", null],
+            ["core-js", "npm:3.8.1"],
             ["lodash", "npm:4.17.20"],
             ["react", "npm:16.14.0"],
             ["react-native", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:0.63.4"],
             ["react-native-svg", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:12.1.0"],
-            ["regenerator-runtime", null]
+            ["regenerator-runtime", "npm:0.13.7"]
           ],
           "packagePeers": [
             "@types/core-js",
@@ -6161,7 +6160,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-react-svg-renderer-virtual-8638dccf4c/1/packages/renderer-react-svg/",
           "packageDependencies": [
             ["@chart-parts/react-svg-renderer", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/renderer-react-svg"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
             ["@essex/scripts", "virtual:950d15445db01f510fa8ee60cb459bab9cc1580356044d15dd95e73ec8ee2e038584dcf7289d33ef2f05b128563058421b8fdb5443ef8c9949f46385a7726eb8#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/react", "npm:16.14.2"],
@@ -6232,6 +6231,41 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/scales", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scales-virtual-4dac998f67/1/packages/util-scales/",
+          "packageDependencies": [
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/d3-array", "npm:2.8.0"],
+            ["@types/d3-interpolate", "npm:1.3.1"],
+            ["@types/d3-scale", "npm:2.2.0"],
+            ["@types/lodash", "npm:4.14.165"],
+            ["@types/regenerator-runtime", null],
+            ["@types/types__d3-array", null],
+            ["@types/types__d3-interpolate", null],
+            ["@types/types__d3-scale", null],
+            ["@types/types__lodash", null],
+            ["core-js", "npm:3.8.1"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
+            ["d3-interpolate", "npm:2.0.1"],
+            ["d3-scale", "npm:3.2.3"],
+            ["lodash", "npm:4.17.20"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "@types/types__d3-array",
+            "@types/types__d3-interpolate",
+            "@types/types__d3-scale",
+            "@types/types__lodash",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-scales", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-scales-virtual-b4827dd604/1/packages/util-scales/",
           "packageDependencies": [
@@ -6249,7 +6283,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/types__d3-scale", null],
             ["@types/types__lodash", null],
             ["core-js", null],
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
@@ -6257,43 +6291,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "packagePeers": [
             "@types/core-js",
-            "@types/d3-scale",
-            "@types/regenerator-runtime",
-            "@types/types__d3-array",
-            "@types/types__d3-interpolate",
-            "@types/types__d3-scale",
-            "@types/types__lodash",
-            "core-js",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-scales-virtual-896ef5260f/1/packages/util-scales/",
-          "packageDependencies": [
-            ["@chart-parts/scales", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-scales"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/d3-array", "npm:2.8.0"],
-            ["@types/d3-interpolate", "npm:1.3.1"],
-            ["@types/d3-scale", "npm:2.2.0"],
-            ["@types/lodash", "npm:4.14.165"],
-            ["@types/regenerator-runtime", null],
-            ["@types/types__d3-array", null],
-            ["@types/types__d3-interpolate", null],
-            ["@types/types__d3-scale", null],
-            ["@types/types__lodash", null],
-            ["core-js", "npm:3.8.1"],
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
-            ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
-            ["lodash", "npm:4.17.20"],
-            ["regenerator-runtime", "npm:0.13.7"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/d3-array",
             "@types/d3-scale",
             "@types/regenerator-runtime",
             "@types/types__d3-array",
@@ -6359,25 +6356,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/scenegraph", [
-        ["virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-9d8d033781/1/packages/processing-scenegraph/",
-          "packageDependencies": [
-            ["@chart-parts/scenegraph", "virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/regenerator-runtime", null],
-            ["core-js", "npm:3.8.1"],
-            ["regenerator-runtime", "npm:0.13.7"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/regenerator-runtime",
-            "core-js",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
         ["virtual:33541b89114b57063c4d5d4640e8ef67e7b7a977a15962744aa4fb017fcf0da44bf5d716d57ccebf5be2920714e0f2b55694dc643c4ace8760395733435aa9b5#workspace:packages/processing-scenegraph", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-1e2abd6fbf/1/packages/processing-scenegraph/",
           "packageDependencies": [
@@ -6407,6 +6385,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/regenerator-runtime", null],
             ["core-js", null],
             ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-b1a94b0ce3/1/packages/processing-scenegraph/",
+          "packageDependencies": [
+            ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/regenerator-runtime", null],
+            ["core-js", "npm:3.8.1"],
+            ["regenerator-runtime", "npm:0.13.7"]
           ],
           "packagePeers": [
             "@types/core-js",
@@ -6485,11 +6482,11 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:ddec3e0d52cf16f781a70899e8e5a3bce6874cb8aae0c4115e6a3fa745d56b2630cae44b573d446e9b03ec16fc30d2292dfa3a961a2570a5b62713ce206aabc3#workspace:packages/util-shapes", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-shapes-virtual-8b8a01fae7/1/packages/util-shapes/",
+        ["virtual:bc8e3f61d35f989144a8332df56212465ce99aab64c7acf4aec9711cfd3cd5d7e4085cdd8d99132ec746748b0edaaa43404e418b842b4f1f2eaa8440d556e82c#workspace:packages/util-shapes", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-shapes-virtual-bd555b4414/1/packages/util-shapes/",
           "packageDependencies": [
-            ["@chart-parts/shapes", "virtual:ddec3e0d52cf16f781a70899e8e5a3bce6874cb8aae0c4115e6a3fa745d56b2630cae44b573d446e9b03ec16fc30d2292dfa3a961a2570a5b62713ce206aabc3#workspace:packages/util-shapes"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
+            ["@chart-parts/shapes", "virtual:bc8e3f61d35f989144a8332df56212465ce99aab64c7acf4aec9711cfd3cd5d7e4085cdd8d99132ec746748b0edaaa43404e418b842b4f1f2eaa8440d556e82c#workspace:packages/util-shapes"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/d3-path", "npm:1.0.8"],
@@ -6533,15 +6530,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-testdata-virtual-05a2228b97/1/packages/docs-testdata/",
           "packageDependencies": [
             ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
-            ["@chart-parts/interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces"],
-            ["@chart-parts/scenegraph", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/node", "npm:14.14.10"],
             ["@types/regenerator-runtime", null],
             ["@types/types__node", null],
-            ["core-js", null],
-            ["regenerator-runtime", null],
+            ["core-js", "npm:3.8.1"],
+            ["regenerator-runtime", "npm:0.13.7"],
             ["shx", "npm:0.3.3"]
           ],
           "packagePeers": [
@@ -6577,30 +6574,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-testdata", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-testdata-virtual-cdf46dd8eb/1/packages/docs-testdata/",
-          "packageDependencies": [
-            ["@chart-parts/testdata", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/docs-testdata"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/scenegraph", "virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/node", "npm:14.14.10"],
-            ["@types/regenerator-runtime", null],
-            ["@types/types__node", null],
-            ["core-js", "npm:3.8.1"],
-            ["regenerator-runtime", "npm:0.13.7"],
-            ["shx", "npm:0.3.3"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/regenerator-runtime",
-            "@types/types__node",
-            "core-js",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
         ["workspace:packages/docs-testdata", {
           "packageLocation": "./packages/docs-testdata/",
           "packageDependencies": [
@@ -6615,6 +6588,31 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["@chart-parts/transform", [
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-transform-virtual-f85d3a17a8/1/packages/util-transform/",
+          "packageDependencies": [
+            ["@chart-parts/transform", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/lodash", "npm:4.14.165"],
+            ["@types/node", "npm:14.14.10"],
+            ["@types/regenerator-runtime", null],
+            ["core-js", "npm:3.8.1"],
+            ["lodash", "npm:4.17.20"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-dataflow", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3"],
+            ["vega-encode", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.8.3"],
+            ["vega-transforms", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.9.3"],
+            ["vega-util", "npm:1.16.0"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/util-transform", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-transform-virtual-ca7a926488/1/packages/util-transform/",
           "packageDependencies": [
@@ -6627,34 +6625,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", "npm:0.13.7"],
-            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
-            ["vega-encode", "npm:4.8.3"],
-            ["vega-transforms", "npm:4.9.3"],
-            ["vega-util", "npm:1.16.0"]
-          ],
-          "packagePeers": [
-            "@types/core-js",
-            "@types/regenerator-runtime",
-            "core-js",
-            "regenerator-runtime"
-          ],
-          "linkType": "SOFT",
-        }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-transform", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-transform-virtual-04ecf839fb/1/packages/util-transform/",
-          "packageDependencies": [
-            ["@chart-parts/transform", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#workspace:packages/util-transform"],
-            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
-            ["@types/core-js", null],
-            ["@types/lodash", "npm:4.14.165"],
-            ["@types/node", "npm:14.14.10"],
-            ["@types/regenerator-runtime", null],
-            ["core-js", "npm:3.8.1"],
-            ["lodash", "npm:4.17.20"],
-            ["regenerator-runtime", "npm:0.13.7"],
-            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
-            ["vega-encode", "npm:4.8.3"],
-            ["vega-transforms", "npm:4.9.3"],
+            ["vega-dataflow", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3"],
+            ["vega-encode", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.8.3"],
+            ["vega-transforms", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
           ],
           "packagePeers": [
@@ -6677,9 +6650,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", null],
-            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
-            ["vega-encode", "npm:4.8.3"],
-            ["vega-transforms", "npm:4.9.3"],
+            ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
+            ["vega-encode", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.8.3"],
+            ["vega-transforms", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
           ],
           "packagePeers": [
@@ -6698,9 +6671,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.165"],
             ["@types/node", "npm:14.14.10"],
             ["lodash", "npm:4.17.20"],
-            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
-            ["vega-encode", "npm:4.8.3"],
-            ["vega-transforms", "npm:4.9.3"],
+            ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
+            ["vega-encode", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.8.3"],
+            ["vega-transforms", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.9.3"],
             ["vega-util", "npm:1.16.0"]
           ],
           "linkType": "SOFT",
@@ -6769,13 +6742,13 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
-        ["virtual:caf6f48841302c266bdd9932cb09a3b2304cfca4336d22d018dc515149f13a0e2b750030b91f530e314ce5cb86a385f34abff56abccfd360e763783f9871d5f1#workspace:packages/processing-vsvg", {
-          "packageLocation": "./.yarn/$$virtual/@chart-parts-vsvg-virtual-ddec3e0d52/1/packages/processing-vsvg/",
+        ["virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-vsvg", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-vsvg-virtual-bc8e3f61d3/1/packages/processing-vsvg/",
           "packageDependencies": [
-            ["@chart-parts/vsvg", "virtual:caf6f48841302c266bdd9932cb09a3b2304cfca4336d22d018dc515149f13a0e2b750030b91f530e314ce5cb86a385f34abff56abccfd360e763783f9871d5f1#workspace:packages/processing-vsvg"],
-            ["@chart-parts/interfaces", "virtual:dda4e2f6a9d3ea7a35d14083f653a7db814ac0af32012c8eff394a33dfd170298081657b43c9594d02359b8fdd2ebec51f6585a2feec2ef7b57002c1295bd299#workspace:packages/api-interfaces"],
-            ["@chart-parts/scenegraph", "virtual:0ed79a39a35345eef00691d7b6d0b22afa18d7a2619d299f2e059275ded488f30073ae7cfa44edbf4a22c63028a3326561bcfbb49812e1a4a5213e51c5d98287#workspace:packages/processing-scenegraph"],
-            ["@chart-parts/shapes", "virtual:ddec3e0d52cf16f781a70899e8e5a3bce6874cb8aae0c4115e6a3fa745d56b2630cae44b573d446e9b03ec16fc30d2292dfa3a961a2570a5b62713ce206aabc3#workspace:packages/util-shapes"],
+            ["@chart-parts/vsvg", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-vsvg"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/shapes", "virtual:bc8e3f61d35f989144a8332df56212465ce99aab64c7acf4aec9711cfd3cd5d7e4085cdd8d99132ec746748b0edaaa43404e418b842b4f1f2eaa8440d556e82c#workspace:packages/util-shapes"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/d3-path", "npm:1.0.8"],
@@ -22674,6 +22647,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-f492f3c8e8/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
+          "packageDependencies": [
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
         ["virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:2.9.0", {
           "packageLocation": "./.yarn/$$virtual/d3-array-virtual-b790d50b42/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
           "packageDependencies": [
@@ -22687,10 +22673,10 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0", {
-          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-58ae5f83df/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
+        ["virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-2ca3dcefa4/0/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
           "packageDependencies": [
-            ["d3-array", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:2.9.0"],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
             ["@types/regenerator-runtime", null],
             ["regenerator-runtime", "npm:0.13.7"]
           ],
@@ -25306,17 +25292,18 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["examplesmobile", "workspace:packages/docs-examples-mobile"],
             ["@babel/core", "npm:7.12.9"],
             ["@babel/runtime", "npm:7.12.5"],
-            ["@chart-parts/interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces"],
-            ["@chart-parts/orchestrator", "virtual:996becee61e2f919e2225c3b9699debd6196379af1cf6866239c3654cf389ee7094396054d353c264dff3a076cb166285b312d7654b6b19b741cae934b0f05cf#workspace:packages/processing-orchestrator"],
-            ["@chart-parts/react", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/api-react"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/orchestrator", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/processing-orchestrator"],
+            ["@chart-parts/react", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-react"],
             ["@chart-parts/react-native-svg-renderer", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/renderer-react-native-svg"],
-            ["@chart-parts/scales", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/util-scales"],
+            ["@chart-parts/scales", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-scales"],
             ["@chart-parts/testdata", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/docs-testdata"],
-            ["@chart-parts/transform", "virtual:ba0ffa3250e157623916454a6d28a2434657d7fd9cf2301560f1e53e642a86bf92b29daa81b85af3114496fb18727f3cbc170267a93c027858d4a3bb8f579959#workspace:packages/util-transform"],
+            ["@chart-parts/transform", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/util-transform"],
             ["@react-native-community/eslint-config", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.0.0"],
             ["@types/react-native", "npm:0.63.37"],
             ["babel-jest", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:26.6.3"],
-            ["d3-array", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:2.9.0"],
+            ["core-js", "npm:3.8.1"],
+            ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-format", "npm:1.4.5"],
             ["d3-path", "npm:1.0.9"],
             ["d3-scale", "npm:3.2.3"],
@@ -25330,6 +25317,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["react-native", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:0.63.4"],
             ["react-native-svg", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:12.1.0"],
             ["react-test-renderer", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:16.14.0"],
+            ["regenerator-runtime", "npm:0.13.7"],
             ["vega-datasets", "npm:1.31.1"]
           ],
           "linkType": "SOFT",
@@ -45586,14 +45574,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-dataflow", [
-        ["virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3", {
-          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-23acba56f7/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
+        ["virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-9d5d74ad0e/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
           "packageDependencies": [
-            ["vega-dataflow", "virtual:04ecf839fb3f0206f228b5f0452c70ff1d7da3761e2937eef80411c98efbe5a3e8622aadc2424a31b6ccdd4f5f34358f61dd063e4d6b6679b82f49b85fffeb35#npm:5.7.3"],
+            ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
             ["@types/regenerator-runtime", null],
-            ["regenerator-runtime", "npm:0.13.7"],
-            ["vega-format", "npm:1.0.4"],
-            ["vega-loader", "virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3"],
+            ["regenerator-runtime", null],
+            ["vega-format", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:1.0.4"],
+            ["vega-loader", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:4.3.3"],
             ["vega-util", "npm:1.15.2"]
           ],
           "packagePeers": [
@@ -45602,14 +45590,14 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3", {
-          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-5c283879be/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
+        ["virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-dataflow-virtual-b2bc6d79ac/0/cache/vega-dataflow-npm-5.7.3-a993dabce4-9fb393cffa.zip/node_modules/vega-dataflow/",
           "packageDependencies": [
-            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
+            ["vega-dataflow", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3"],
             ["@types/regenerator-runtime", null],
-            ["regenerator-runtime", null],
-            ["vega-format", "npm:1.0.4"],
-            ["vega-loader", "virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-format", "virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:1.0.4"],
+            ["vega-loader", "virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:4.3.3"],
             ["vega-util", "npm:1.15.2"]
           ],
           "packagePeers": [
@@ -45636,44 +45624,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-encode", [
-        ["npm:4.8.3", {
-          "packageLocation": "./.yarn/cache/vega-encode-npm-4.8.3-36075b7eda-8286edae83.zip/node_modules/vega-encode/",
+        ["virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.8.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-encode-virtual-049bec5065/0/cache/vega-encode-npm-4.8.3-36075b7eda-8286edae83.zip/node_modules/vega-encode/",
           "packageDependencies": [
-            ["vega-encode", "npm:4.8.3"],
+            ["vega-encode", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.8.3"],
+            ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
-            ["vega-scale", "npm:7.1.1"],
-            ["vega-util", "npm:1.15.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["vega-format", [
-        ["npm:1.0.4", {
-          "packageLocation": "./.yarn/cache/vega-format-npm-1.0.4-4e748ca97a-e98218d653.zip/node_modules/vega-format/",
-          "packageDependencies": [
-            ["vega-format", "npm:1.0.4"],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
-            ["d3-format", "npm:2.0.0"],
-            ["d3-time-format", "npm:3.0.0"],
-            ["vega-time", "npm:2.0.4"],
-            ["vega-util", "npm:1.15.2"]
-          ],
-          "linkType": "HARD",
-        }]
-      ]],
-      ["vega-loader", [
-        ["virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3", {
-          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-fc7e969d05/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
-          "packageDependencies": [
-            ["vega-loader", "virtual:23acba56f7e6095d67fa587e1703a195fd292d7ab0bb290984b0c0d2bfada3e9e5b2aaaea2e1015f5c9cf301c5b0273b90b9621462848b0bb09c234c6f0c8d6b#npm:4.3.3"],
-            ["@types/regenerator-runtime", null],
-            ["d3-dsv", "npm:2.0.0"],
-            ["node-fetch", "npm:2.6.1"],
-            ["regenerator-runtime", "npm:0.13.7"],
-            ["topojson-client", "npm:3.1.0"],
-            ["vega-format", "npm:1.0.4"],
+            ["regenerator-runtime", null],
+            ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
+            ["vega-scale", "virtual:049bec5065e6fc2fcc29c321ef4aed5b7ea22b13670cbe0a290d611cb7f4690741c2cb5d9bc4617df9d5b62a2d5d8d141bae8521371b8345d74ab63b3bf65ea3#npm:7.1.1"],
             ["vega-util", "npm:1.15.2"]
           ],
           "packagePeers": [
@@ -45682,16 +45642,92 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "HARD",
         }],
-        ["virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3", {
-          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-7c1a3bdceb/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
+        ["virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.8.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-encode-virtual-550280baee/0/cache/vega-encode-npm-4.8.3-36075b7eda-8286edae83.zip/node_modules/vega-encode/",
           "packageDependencies": [
-            ["vega-loader", "virtual:5c283879be3e717e1ded93cdef91d86b05065e751b91ef2dc2740961576451a4c636f7f5a9712091ef7f8355d2aa8b3b2b4459ab7cbded06d6b1c154e2381ff0#npm:4.3.3"],
+            ["vega-encode", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.8.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["d3-interpolate", "npm:2.0.1"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-dataflow", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3"],
+            ["vega-scale", "virtual:550280baee39579564c276ac32f94cc8de58f7bf400a718c06f110a5023cce6edcb54ee7b618828b0dad40a4f66da5120e5add221dd78fdd395a6e185002074f#npm:7.1.1"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["vega-format", [
+        ["virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:1.0.4", {
+          "packageLocation": "./.yarn/$$virtual/vega-format-virtual-a7c8bc6953/0/cache/vega-format-npm-1.0.4-4e748ca97a-e98218d653.zip/node_modules/vega-format/",
+          "packageDependencies": [
+            ["vega-format", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:1.0.4"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-format", "npm:2.0.0"],
+            ["d3-time-format", "npm:3.0.0"],
+            ["regenerator-runtime", null],
+            ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:1.0.4", {
+          "packageLocation": "./.yarn/$$virtual/vega-format-virtual-ec7ddb3138/0/cache/vega-format-npm-1.0.4-4e748ca97a-e98218d653.zip/node_modules/vega-format/",
+          "packageDependencies": [
+            ["vega-format", "virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:1.0.4"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["d3-format", "npm:2.0.0"],
+            ["d3-time-format", "npm:3.0.0"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-time", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["vega-loader", [
+        ["virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:4.3.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-dd8c634c7d/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
+          "packageDependencies": [
+            ["vega-loader", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:4.3.3"],
             ["@types/regenerator-runtime", null],
             ["d3-dsv", "npm:2.0.0"],
             ["node-fetch", "npm:2.6.1"],
             ["regenerator-runtime", null],
             ["topojson-client", "npm:3.1.0"],
-            ["vega-format", "npm:1.0.4"],
+            ["vega-format", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:1.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:4.3.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-loader-virtual-c1d05d5575/0/cache/vega-loader-npm-4.3.3-3887869d78-2516ece3f8.zip/node_modules/vega-loader/",
+          "packageDependencies": [
+            ["vega-loader", "virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:4.3.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-dsv", "npm:2.0.0"],
+            ["node-fetch", "npm:2.6.1"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["topojson-client", "npm:3.1.0"],
+            ["vega-format", "virtual:b2bc6d79ac2fb6e26e9778718dffa2d80766b77de3478aa887c507558e29f7396cf32d49b76033801573dc4e77d5a241b6a7983a540308009da3bf4cd51303c9#npm:1.0.4"],
             ["vega-util", "npm:1.15.2"]
           ],
           "packagePeers": [
@@ -45702,24 +45738,48 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["vega-scale", [
-        ["npm:7.1.1", {
-          "packageLocation": "./.yarn/cache/vega-scale-npm-7.1.1-d91a441d24-9e5b272bd3.zip/node_modules/vega-scale/",
+        ["virtual:049bec5065e6fc2fcc29c321ef4aed5b7ea22b13670cbe0a290d611cb7f4690741c2cb5d9bc4617df9d5b62a2d5d8d141bae8521371b8345d74ab63b3bf65ea3#npm:7.1.1", {
+          "packageLocation": "./.yarn/$$virtual/vega-scale-virtual-27078deb78/0/cache/vega-scale-npm-7.1.1-d91a441d24-9e5b272bd3.zip/node_modules/vega-scale/",
           "packageDependencies": [
-            ["vega-scale", "npm:7.1.1"],
+            ["vega-scale", "virtual:049bec5065e6fc2fcc29c321ef4aed5b7ea22b13670cbe0a290d611cb7f4690741c2cb5d9bc4617df9d5b62a2d5d8d141bae8521371b8345d74ab63b3bf65ea3#npm:7.1.1"],
+            ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-scale", "npm:3.2.3"],
-            ["vega-time", "npm:2.0.4"],
+            ["regenerator-runtime", null],
+            ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
             ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:550280baee39579564c276ac32f94cc8de58f7bf400a718c06f110a5023cce6edcb54ee7b618828b0dad40a4f66da5120e5add221dd78fdd395a6e185002074f#npm:7.1.1", {
+          "packageLocation": "./.yarn/$$virtual/vega-scale-virtual-f9f08a59af/0/cache/vega-scale-npm-7.1.1-d91a441d24-9e5b272bd3.zip/node_modules/vega-scale/",
+          "packageDependencies": [
+            ["vega-scale", "virtual:550280baee39579564c276ac32f94cc8de58f7bf400a718c06f110a5023cce6edcb54ee7b618828b0dad40a4f66da5120e5add221dd78fdd395a6e185002074f#npm:7.1.1"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["d3-interpolate", "npm:2.0.1"],
+            ["d3-scale", "npm:3.2.3"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-time", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
       ]],
       ["vega-statistics", [
-        ["virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9", {
-          "packageLocation": "./.yarn/$$virtual/vega-statistics-virtual-ca6a59f00f/0/cache/vega-statistics-npm-1.7.9-4d5b6c3f73-f6f30e1825.zip/node_modules/vega-statistics/",
+        ["virtual:7112fdedd124e278c0cb6e94807cfc4f6c6179d40c7bd5717695b4f4156d759500856d61fc467ca9e904ec50d6f4fe58fdae19c52e2f5c5f2e00df485e5b43e9#npm:1.7.9", {
+          "packageLocation": "./.yarn/$$virtual/vega-statistics-virtual-e55db05169/0/cache/vega-statistics-npm-1.7.9-4d5b6c3f73-f6f30e1825.zip/node_modules/vega-statistics/",
           "packageDependencies": [
-            ["vega-statistics", "virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9"],
+            ["vega-statistics", "virtual:7112fdedd124e278c0cb6e94807cfc4f6c6179d40c7bd5717695b4f4156d759500856d61fc467ca9e904ec50d6f4fe58fdae19c52e2f5c5f2e00df485e5b43e9#npm:1.7.9"],
             ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["regenerator-runtime", null]
@@ -45729,30 +45789,90 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             "regenerator-runtime"
           ],
           "linkType": "HARD",
+        }],
+        ["virtual:8604f0107fd713b75491d4651c724d729bf9eafa75053a3f898e419afa5ad6fe8cb4643ff8ae3333cb932ef7736f8ce681c8fa112915078093492a3a8a1d9c2e#npm:1.7.9", {
+          "packageLocation": "./.yarn/$$virtual/vega-statistics-virtual-e98c9f9476/0/cache/vega-statistics-npm-1.7.9-4d5b6c3f73-f6f30e1825.zip/node_modules/vega-statistics/",
+          "packageDependencies": [
+            ["vega-statistics", "virtual:8604f0107fd713b75491d4651c724d729bf9eafa75053a3f898e419afa5ad6fe8cb4643ff8ae3333cb932ef7736f8ce681c8fa112915078093492a3a8a1d9c2e#npm:1.7.9"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
         }]
       ]],
       ["vega-time", [
-        ["npm:2.0.4", {
-          "packageLocation": "./.yarn/cache/vega-time-npm-2.0.4-a9170a99eb-b5634ee0b6.zip/node_modules/vega-time/",
+        ["virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4", {
+          "packageLocation": "./.yarn/$$virtual/vega-time-virtual-49ef62c12b/0/cache/vega-time-npm-2.0.4-a9170a99eb-b5634ee0b6.zip/node_modules/vega-time/",
           "packageDependencies": [
-            ["vega-time", "npm:2.0.4"],
+            ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
+            ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
             ["d3-time", "npm:2.0.0"],
+            ["regenerator-runtime", null],
             ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4", {
+          "packageLocation": "./.yarn/$$virtual/vega-time-virtual-4a2534da47/0/cache/vega-time-npm-2.0.4-a9170a99eb-b5634ee0b6.zip/node_modules/vega-time/",
+          "packageDependencies": [
+            ["vega-time", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["d3-time", "npm:2.0.0"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
       ]],
       ["vega-transforms", [
-        ["npm:4.9.3", {
-          "packageLocation": "./.yarn/cache/vega-transforms-npm-4.9.3-d4a41028da-a4c8988a18.zip/node_modules/vega-transforms/",
+        ["virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.9.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-transforms-virtual-7112fdedd1/0/cache/vega-transforms-npm-4.9.3-d4a41028da-a4c8988a18.zip/node_modules/vega-transforms/",
           "packageDependencies": [
-            ["vega-transforms", "npm:4.9.3"],
+            ["vega-transforms", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.9.3"],
+            ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
-            ["vega-dataflow", "virtual:36075b7eda0777c19e8f206865e82f96181bcd81d89a15f005d42f15f5988dbee84ba324a5e42e092131423e649fb5da3a1744f819e48fbc279492d196a469c8#npm:5.7.3"],
-            ["vega-statistics", "virtual:d4a41028da7e751bcc614d12c33953c0e61d771f1dc80f5a030a0ac53326b42b933eeedb96d48744db11811600d490ed35a2bbab874efc9b05b3f4654b991be6#npm:1.7.9"],
-            ["vega-time", "npm:2.0.4"],
+            ["regenerator-runtime", null],
+            ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
+            ["vega-statistics", "virtual:7112fdedd124e278c0cb6e94807cfc4f6c6179d40c7bd5717695b4f4156d759500856d61fc467ca9e904ec50d6f4fe58fdae19c52e2f5c5f2e00df485e5b43e9#npm:1.7.9"],
+            ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
             ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.9.3", {
+          "packageLocation": "./.yarn/$$virtual/vega-transforms-virtual-8604f0107f/0/cache/vega-transforms-npm-4.9.3-d4a41028da-a4c8988a18.zip/node_modules/vega-transforms/",
+          "packageDependencies": [
+            ["vega-transforms", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:4.9.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
+            ["regenerator-runtime", "npm:0.13.7"],
+            ["vega-dataflow", "virtual:f85d3a17a82b5b3e5c70b354e7a3eebe20f6eb64aa62f43683ef12bd4e691f66c0b687f4634bc3c08bd9f6b1ea538499d1376d3f535db080940c1bbf5ccd2991#npm:5.7.3"],
+            ["vega-statistics", "virtual:8604f0107fd713b75491d4651c724d729bf9eafa75053a3f898e419afa5ad6fe8cb4643ff8ae3333cb932ef7736f8ce681c8fa112915078093492a3a8a1d9c2e#npm:1.7.9"],
+            ["vega-time", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4"],
+            ["vega-util", "npm:1.15.2"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]

@@ -33,10 +33,16 @@
     "@react-native-community/eslint-config": "^2.0.0",
     "@types/react-native": "^0.63.37",
     "babel-jest": "^26.6.3",
+    "core-js": "^3.8.1",
     "eslint": "^7.15.0",
     "jest": "^26.6.3",
     "metro-react-native-babel-preset": "^0.64.0",
-    "react-test-renderer": "^16.14.0"
+    "react-test-renderer": "^16.14.0",
+    "regenerator-runtime": "^0.13.7"
+  },
+  "peerDependencies": {
+    "core-js": "*",
+    "regenerator-runtime": "*"
   },
   "jest": {
     "preset": "react-native"
