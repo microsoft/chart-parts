@@ -14,6 +14,7 @@
 		"build": "essex build"
 	},
 	"devDependencies": {
+		"@chart-parts/scenegraph": "portal:../processing-scenegraph",
 		"@essex/scripts": "^12.0.2"
 	},
 	"peerDependencies": {

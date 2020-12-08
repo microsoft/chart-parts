@@ -5795,6 +5795,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-d2a3ef0fed/1/packages/api-interfaces/",
           "packageDependencies": [
             ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:d2a3ef0fed4cce108e8196eca43b3254d022d38a5cb56ee88ea834362b7311be256c9eb08a9984e33fba5b675fe85e2d59c7ad163fb14632101b029807c980fa#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/regenerator-runtime", null],
@@ -5813,6 +5814,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-c2835a52ed/1/packages/api-interfaces/",
           "packageDependencies": [
             ["@chart-parts/interfaces", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:c2835a52edc80b4686a7640d6b1562d5d544d88dd4512743dce39163cf01978ad518cb762749350a2e506127cb5b732f06c3b7f1ecd429e3a90c7f89ba0ccde6#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/regenerator-runtime", null],
@@ -5831,6 +5833,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-interfaces-virtual-9c18e0d2ae/1/packages/api-interfaces/",
           "packageDependencies": [
             ["@chart-parts/interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:9c18e0d2ae9e595225a2419031dd5296d37ef11da0b3a01d1579163d7e9cf2840f3e8dd8f301cc57e074d269e90335c3859b357777ed9fcaa4944112a37f8f80#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],
             ["@types/regenerator-runtime", null],
@@ -5849,6 +5852,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./packages/api-interfaces/",
           "packageDependencies": [
             ["@chart-parts/interfaces", "workspace:packages/api-interfaces"],
+            ["@chart-parts/scenegraph", "virtual:9c18e0d2ae9e595225a2419031dd5296d37ef11da0b3a01d1579163d7e9cf2840f3e8dd8f301cc57e074d269e90335c3859b357777ed9fcaa4944112a37f8f80#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"]
           ],
           "linkType": "SOFT",
@@ -6375,6 +6379,44 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           ],
           "linkType": "SOFT",
         }],
+        ["virtual:9c18e0d2ae9e595225a2419031dd5296d37ef11da0b3a01d1579163d7e9cf2840f3e8dd8f301cc57e074d269e90335c3859b357777ed9fcaa4944112a37f8f80#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-80f6c12a99/1/packages/processing-scenegraph/",
+          "packageDependencies": [
+            ["@chart-parts/scenegraph", "virtual:9c18e0d2ae9e595225a2419031dd5296d37ef11da0b3a01d1579163d7e9cf2840f3e8dd8f301cc57e074d269e90335c3859b357777ed9fcaa4944112a37f8f80#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
+            ["@chart-parts/interfaces", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/regenerator-runtime", null],
+            ["core-js", null],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:c2835a52edc80b4686a7640d6b1562d5d544d88dd4512743dce39163cf01978ad518cb762749350a2e506127cb5b732f06c3b7f1ecd429e3a90c7f89ba0ccde6#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-825877644a/1/packages/processing-scenegraph/",
+          "packageDependencies": [
+            ["@chart-parts/scenegraph", "virtual:c2835a52edc80b4686a7640d6b1562d5d544d88dd4512743dce39163cf01978ad518cb762749350a2e506127cb5b732f06c3b7f1ecd429e3a90c7f89ba0ccde6#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
+            ["@chart-parts/interfaces", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/regenerator-runtime", null],
+            ["core-js", null],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
         ["virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#workspace:packages/processing-scenegraph", {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-4f0ce2c5c5/1/packages/processing-scenegraph/",
           "packageDependencies": [
@@ -6398,6 +6440,25 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-b1a94b0ce3/1/packages/processing-scenegraph/",
           "packageDependencies": [
             ["@chart-parts/scenegraph", "virtual:cd7fb71ff89e8e40db36a3d8ff7f429171ed1a292dde1d7db5881cd7263e4db6578f94000cedb2648f44e3836724732e409a77b6770342a96b969534a1f87f59#workspace:packages/processing-scenegraph"],
+            ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
+            ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
+            ["@types/core-js", null],
+            ["@types/regenerator-runtime", null],
+            ["core-js", "npm:3.8.1"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/core-js",
+            "@types/regenerator-runtime",
+            "core-js",
+            "regenerator-runtime"
+          ],
+          "linkType": "SOFT",
+        }],
+        ["virtual:d2a3ef0fed4cce108e8196eca43b3254d022d38a5cb56ee88ea834362b7311be256c9eb08a9984e33fba5b675fe85e2d59c7ad163fb14632101b029807c980fa#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces", {
+          "packageLocation": "./.yarn/$$virtual/@chart-parts-scenegraph-virtual-f89d351f63/1/packages/processing-scenegraph/",
+          "packageDependencies": [
+            ["@chart-parts/scenegraph", "virtual:d2a3ef0fed4cce108e8196eca43b3254d022d38a5cb56ee88ea834362b7311be256c9eb08a9984e33fba5b675fe85e2d59c7ad163fb14632101b029807c980fa#portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"],
             ["@chart-parts/interfaces", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#workspace:packages/api-interfaces"],
             ["@essex/scripts", "virtual:c4d9d2de71f03942978993d05dddf2b816725f5d7284e4c7b3a818787a919b60c347ef1080a53d0abb3446e2c1976f1699dde9f627aaaf5b23a594e24a2e9cde#npm:12.0.2"],
             ["@types/core-js", null],

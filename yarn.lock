@@ -3130,6 +3130,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@chart-parts/interfaces@workspace:packages/api-interfaces"
   dependencies:
+    "@chart-parts/scenegraph": "portal:../processing-scenegraph"
     "@essex/scripts": ^12.0.2
   peerDependencies:
     core-js: "*"
@@ -3266,6 +3267,18 @@ __metadata:
     core-js: "*"
     regenerator-runtime: "*"
   languageName: unknown
+  linkType: soft
+
+"@chart-parts/scenegraph@portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces":
+  version: 0.0.0-use.local
+  resolution: "@chart-parts/scenegraph@portal:../processing-scenegraph::locator=%40chart-parts%2Finterfaces%40workspace%3Apackages%2Fapi-interfaces"
+  dependencies:
+    "@chart-parts/interfaces": "workspace:packages/api-interfaces"
+    "@essex/scripts": ^12.0.2
+  peerDependencies:
+    core-js: "*"
+    regenerator-runtime: "*"
+  languageName: node
   linkType: soft
 
 "@chart-parts/scenegraph@workspace:packages/processing-scenegraph":
