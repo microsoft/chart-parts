@@ -5602,7 +5602,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/react-tabs", "npm:2.3.2"],
             ["@types/styled-components", "npm:5.1.4"],
             ["babel-plugin-styled-components", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:1.12.0"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["debug", "virtual:0247b339a3a29f60de5f09f07071921210eb7d11a8b8076dafc3976627606ab190736822096ad33bc379176d474e0feda507f01731df4da93e21066772b65211#npm:4.3.1"],
             ["gatsby", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:2.28.1"],
             ["gatsby-plugin-react-helmet", "virtual:6de55985b766a3d225a5ff963798a03f4b79062eff98dd4cdd570bf66095736ef8fb747be74ca29a7d87aab7f65aafae3c84a1ec167709de95c369a8570f42ea#npm:3.6.0"],
@@ -5773,7 +5773,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["babel-loader", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:8.2.2"],
             ["core-js", "npm:3.8.1"],
             ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["html-webpack-plugin", "virtual:95d84fd86d832089ffc74c25f6581b932fb291697e21f5543883738624054e14158561cdc4a5b65741885730e08067ceaa2d6e0a042a42fa29e012a04185f83b#npm:4.5.0"],
             ["npm-run-all", "npm:4.1.5"],
             ["react", "npm:16.14.0"],
@@ -6250,7 +6250,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", "npm:3.8.1"],
             ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", "npm:0.13.7"]
           ],
@@ -6285,7 +6285,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", "npm:0.13.7"]
           ],
@@ -6321,7 +6321,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["core-js", null],
             ["d3-array", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:2.9.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:3.2.3"],
             ["lodash", "npm:4.17.20"],
             ["regenerator-runtime", null]
           ],
@@ -6349,7 +6349,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/lodash", "npm:4.14.165"],
             ["d3-array", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:2.9.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:3.2.3"],
             ["lodash", "npm:4.17.20"]
           ],
           "linkType": "SOFT",
@@ -22634,19 +22634,6 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["d3-array", [
-        ["virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0", {
-          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-1d6b1e47c7/0/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
-          "packageDependencies": [
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
-            ["@types/regenerator-runtime", null],
-            ["regenerator-runtime", null]
-          ],
-          "packagePeers": [
-            "@types/regenerator-runtime",
-            "regenerator-runtime"
-          ],
-          "linkType": "HARD",
-        }],
         ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0", {
           "packageLocation": "./.yarn/$$virtual/d3-array-virtual-f492f3c8e8/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
           "packageDependencies": [
@@ -22664,6 +22651,19 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/$$virtual/d3-array-virtual-b790d50b42/0/cache/d3-array-npm-2.9.0-1a1d267ef5-9fbd08759b.zip/node_modules/d3-array/",
           "packageDependencies": [
             ["d3-array", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:2.9.0"],
+            ["@types/regenerator-runtime", null],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0", {
+          "packageLocation": "./.yarn/$$virtual/d3-array-virtual-aaf8903c92/0/cache/d3-array-npm-2.8.0-51de3549ce-2b57f05d0c.zip/node_modules/d3-array/",
+          "packageDependencies": [
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["@types/regenerator-runtime", null],
             ["regenerator-runtime", null]
           ],
@@ -22751,15 +22751,39 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
         }]
       ]],
       ["d3-scale", [
-        ["npm:3.2.3", {
-          "packageLocation": "./.yarn/cache/d3-scale-npm-3.2.3-06ca6918ae-675a059241.zip/node_modules/d3-scale/",
+        ["virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3", {
+          "packageLocation": "./.yarn/$$virtual/d3-scale-virtual-f2ca9a6db9/0/cache/d3-scale-npm-3.2.3-06ca6918ae-675a059241.zip/node_modules/d3-scale/",
           "packageDependencies": [
-            ["d3-scale", "npm:3.2.3"],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
             ["d3-format", "npm:2.0.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["d3-time", "npm:2.0.0"],
-            ["d3-time-format", "npm:3.0.0"]
+            ["d3-time-format", "npm:3.0.0"],
+            ["regenerator-runtime", "npm:0.13.7"]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
+          ],
+          "linkType": "HARD",
+        }],
+        ["virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:3.2.3", {
+          "packageLocation": "./.yarn/$$virtual/d3-scale-virtual-c6a85008f8/0/cache/d3-scale-npm-3.2.3-06ca6918ae-675a059241.zip/node_modules/d3-scale/",
+          "packageDependencies": [
+            ["d3-scale", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:3.2.3"],
+            ["@types/regenerator-runtime", null],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
+            ["d3-format", "npm:2.0.0"],
+            ["d3-interpolate", "npm:2.0.1"],
+            ["d3-time", "npm:2.0.0"],
+            ["d3-time-format", "npm:3.0.0"],
+            ["regenerator-runtime", null]
+          ],
+          "packagePeers": [
+            "@types/regenerator-runtime",
+            "regenerator-runtime"
           ],
           "linkType": "HARD",
         }]
@@ -25306,7 +25330,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["d3-array", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:2.9.0"],
             ["d3-format", "npm:1.4.5"],
             ["d3-path", "npm:1.0.9"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["d3-shape", "npm:1.3.7"],
             ["d3-time-format", "npm:2.3.0"],
             ["eslint", "npm:7.15.0"],
@@ -45629,7 +45653,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-encode", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.8.3"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
             ["regenerator-runtime", null],
             ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
@@ -45667,7 +45691,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-format", "virtual:9d5d74ad0e881a273f9885607f252c5caf1e514eae75e7e00dea8ef20ccc73a7dccc26d8818153d017b3059b51511cb25fa692be52c3b905f2f10056415db2f8#npm:1.0.4"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["d3-format", "npm:2.0.0"],
             ["d3-time-format", "npm:3.0.0"],
             ["regenerator-runtime", null],
@@ -45743,9 +45767,9 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-scale", "virtual:049bec5065e6fc2fcc29c321ef4aed5b7ea22b13670cbe0a290d611cb7f4690741c2cb5d9bc4617df9d5b62a2d5d8d141bae8521371b8345d74ab63b3bf65ea3#npm:7.1.1"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:7fff46422523a4f222ca390cdff35bf3000661605696beecd7912ab9cb8dc7228188dc65e4ff34ea9e0c3c8c43118becfc6620050dff5d877466950ade52cfa0#npm:3.2.3"],
             ["regenerator-runtime", null],
             ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
             ["vega-util", "npm:1.15.2"]
@@ -45763,7 +45787,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/regenerator-runtime", null],
             ["d3-array", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.8.0"],
             ["d3-interpolate", "npm:2.0.1"],
-            ["d3-scale", "npm:3.2.3"],
+            ["d3-scale", "virtual:536e9ddc2e6350dc1066b716a16c9ec618af77c54b05c9c8e0b3539880b0553bb4094fda48a43d2768c5c74a95c55013b0d66af4b64b8642ce422fc1ef90864a#npm:3.2.3"],
             ["regenerator-runtime", "npm:0.13.7"],
             ["vega-time", "virtual:ec7ddb3138d5bbd56b5d6ea6516e6411e2330a3c0ee41130b6c30db86c76e53bd25b0a0026e7a5df52acce43781794554f7613fcc8e350b9749170cf6d3874e1#npm:2.0.4"],
             ["vega-util", "npm:1.15.2"]
@@ -45781,7 +45805,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-statistics", "virtual:7112fdedd124e278c0cb6e94807cfc4f6c6179d40c7bd5717695b4f4156d759500856d61fc467ca9e904ec50d6f4fe58fdae19c52e2f5c5f2e00df485e5b43e9#npm:1.7.9"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["regenerator-runtime", null]
           ],
           "packagePeers": [
@@ -45811,7 +45835,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-time", "virtual:a7c8bc6953ec56be3e30d832ff8b0a55702632dba8326a747a862d2d88d5d6be1fb9c1ffe43be946e1592a4f2d88dfcc153ed4060045315a723962f25afbb519#npm:2.0.4"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["d3-time", "npm:2.0.0"],
             ["regenerator-runtime", null],
             ["vega-util", "npm:1.15.2"]
@@ -45845,7 +45869,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["vega-transforms", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:4.9.3"],
             ["@types/regenerator-runtime", null],
-            ["d3-array", "virtual:06ca6918ae4f5a13dd4f91d24829cf857492d5aa17022bdeb8f296edce828cd4a19eb3a46b25d7d17843c4d8d78f33838509aed37a568d8960a227fef09327b6#npm:2.8.0"],
+            ["d3-array", "virtual:c6a85008f84febc0a012c5230c7f89678ffc78fa015902bb3437edd9047e24e6e67f8ba13a3eb551e6062f69340c7eec6faa1817b18898c6b2e6e57fe6d8de09#npm:2.8.0"],
             ["regenerator-runtime", null],
             ["vega-dataflow", "virtual:ad607a1885effbf22e28bc31f0933a255ec7d07004282f4d524598e95d4b3c0fac472031679b2cd654e0922e08abbf6cde265030d35fd342762de30aa18a6f8d#npm:5.7.3"],
             ["vega-statistics", "virtual:7112fdedd124e278c0cb6e94807cfc4f6c6179d40c7bd5717695b4f4156d759500856d61fc467ca9e904ec50d6f4fe58fdae19c52e2f5c5f2e00df485e5b43e9#npm:1.7.9"],
