@@ -24,7 +24,7 @@
 		"@essex/scripts": "^12.0.2",
 		"@types/d3-array": "^2.8.0",
 		"@types/d3-interpolate": "^1.2.0",
-		"@types/d3-scale": "^2.1.1",
+		"@types/d3-scale": "^3.2.2",
 		"@types/lodash": "^4.14.165"
 	},
 	"peerDependencies": {
