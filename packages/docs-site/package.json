@@ -74,7 +74,7 @@
   },
   "devDependencies": {
     "@essex/scripts": "^12.0.2",
-    "@types/d3-scale": "^2.1.1",
+    "@types/d3-scale": "^3.2.2",
     "@types/debug": "^4.1.5",
     "@types/gsap": "^1.20.2",
     "@types/prettier": "^2.1.5",
