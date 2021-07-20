@@ -23,7 +23,7 @@
     "d3-time-format": "^2.3.0",
     "lodash": "^4.17.20",
     "react": "16.14.0",
-    "react-native": "0.63.4",
+    "react-native": "0.64.1",
     "react-native-svg": "^12.1.0",
     "vega-datasets": "^1.31.1"
   },
