@@ -66,11 +66,10 @@
     "react-tabs": "^3.2.2",
     "react-typography": "^0.16.20",
     "react-use-dimensions": "^1.2.1",
-    "rehype-react": "^6.2.1",
+    "rehype-react": "^6",
     "styled-components": "^5.3.1",
     "typography": "^0.16.21",
-    "typography-theme-github": "^0.16.19",
-    "use-debounce": "^7.0.0"
+    "typography-theme-github": "^0.16.19"
   },
   "devDependencies": {
     "@essex/scripts": "^18.2.0",
@@ -79,7 +78,7 @@
     "@types/gsap": "^1.20.2",
     "@types/prettier": "^2.3.2",
     "@types/react": "^17.0.21",
-    "@types/react-dom": "^16.9.14",
+    "@types/react-dom": "^17.0.9",
     "@types/react-helmet": "^6.1.2",
     "@types/react-tabs": "^2.3.3",
     "@types/styled-components": "^5.1.14",
@@ -93,5 +92,9 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/gatsbyjs/gatsby-starter-default"
-  }
+  },
+  "browserslist": [
+    ">0.25%",
+    "not dead"
+  ]
 }

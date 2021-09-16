@@ -13,15 +13,15 @@ export function createTree(items: SidebarItem[]) {
 	const tree: { [key: string]: TreeNode } = {}
 
 	// Insert each item into the tree
-	items.forEach(i => insertItemIntoTree(i, tree))
-	Object.keys(tree).forEach(key => {
+	items.forEach((i) => insertItemIntoTree(i, tree))
+	Object.keys(tree).forEach((key) => {
 		const subtree = tree[key]
 		pruneTree(subtree)
 	})
 
 	return Object.keys(tree)
-		.map(k => tree[k])
-		.filter(t => !!t)
+		.map((k) => tree[k])
+		.filter((t) => !!t)
 		.sort((a, b) => (a as any).item.order - (b as any).item.order)
 }
 
@@ -29,10 +29,10 @@ function pruneTree(tree: TreeNode): TreeNode {
 	if (isLeaf(tree)) {
 		return tree
 	}
-	const children = childrenOf(tree).map(c => pruneTree(c))
+	const children = childrenOf(tree).map((c) => pruneTree(c))
 
 	const newChildren: TreeNode[] = []
-	children.forEach(child => {
+	children.forEach((child) => {
 		if (child.item === undefined) {
 			newChildren.push(...childrenOf(child))
 		} else {
@@ -46,12 +46,12 @@ function pruneTree(tree: TreeNode): TreeNode {
 
 function childHash(children: TreeNode[]) {
 	const result: { [key: string]: TreeNode } = {}
-	children.forEach(child => (result[child.pathKey] = child))
+	children.forEach((child) => (result[child.pathKey] = child))
 	return result
 }
 
 function childrenOf(tree: TreeNode) {
-	return Object.keys(tree.children).map(k => tree.children[k])
+	return Object.keys(tree.children).map((k) => tree.children[k])
 }
 
 function isLeaf(tree: TreeNode) {
@@ -65,7 +65,7 @@ function insertItemIntoTree(
 	// Split the path up into "items" which will be used to create the three
 	const pathItems = item.path
 		.split('/')
-		.filter(t => !!t)
+		.filter((t) => !!t)
 		.slice(1)
 
 	const rootItem = pathItems[0]
@@ -92,7 +92,7 @@ function insertPathItemIntoTree(
 ) {
 	// skip the first item since it's been added to the root hash already
 	let current = tree
-	pathItems.splice(1).forEach(pi => {
+	pathItems.splice(1).forEach((pi) => {
 		if (!current.children[pi]) {
 			current.children[pi] = {
 				item: undefined as any,

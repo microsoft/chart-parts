@@ -5,8 +5,7 @@
 
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
-import React, { useState, useMemo, useEffect } from 'react'
-import { useDebouncedCallback } from 'use-debounce'
+import { useState, useMemo, useEffect } from 'react'
 
 const pipeline = new Orchestrator(new Renderer())
 export interface SGChartProps {
@@ -26,11 +25,8 @@ export const SGChart: React.FC<SGChartProps> = ({
 		() => ({ width, height, origin }),
 		[width, height, origin]
 	)
-	const [renderSG] = useDebouncedCallback((data, params) => {
-		setRendered(pipeline.renderScenegraph(data, params))
-	}, 25)
 	useEffect(() => {
-		renderSG(data, params)
-	}, [data, params, renderSG])
+		setRendered(pipeline.renderScenegraph(data, params))
+	}, [data, params])
 	return rendered
 }
