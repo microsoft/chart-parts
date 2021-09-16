@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SGItem, MarkType } from '@chart-parts/interfaces'
 import { MarkBuilder } from './MarkBuilder'
 import * as Elements from './elements'
 import { createItemType } from './registry'
-import { SGItem, MarkType } from '@chart-parts/interfaces'
 
 /**
  *

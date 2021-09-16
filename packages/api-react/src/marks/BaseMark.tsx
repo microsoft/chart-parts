@@ -2,15 +2,15 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useContext, useState, useEffect, useMemo } from 'react'
-import { SceneBuilderContext } from '../Context'
-import { CommonMarkProps } from '../types'
 import {
 	mark as newMark,
 	MarkBuilder,
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
+import React, { useContext, useState, useEffect, useMemo } from 'react'
+import { SceneBuilderContext } from '../Context'
+import { CommonMarkProps } from '../types'
 
 /**
  * A factory function for creating mark components

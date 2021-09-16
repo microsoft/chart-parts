@@ -17,15 +17,15 @@
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
 		"@chart-parts/shapes": "workspace:packages/util-shapes",
 		"d3-path": "^2.0.0",
-		"d3-shape": "^2.0.0",
-		"lodash": "^4.17.20",
+		"d3-shape": "^2.1.0",
+		"lodash": "^4.17.21",
 		"shallowequal": "^1.1.0"
 	},
 	"devDependencies": {
 		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
-		"@essex/scripts": "^12.0.2",
-		"@types/d3-path": "^1.0.8",
-		"@types/d3-shape": "^1.2.7"
+		"@essex/scripts": "^18.2.0",
+		"@types/d3-path": "^1.0.9",
+		"@types/d3-shape": "^1.3.8"
 	},
 	"peerDependencies": {
 		"@types/d3-path": ">= 1.0.8",

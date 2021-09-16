@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { FontWeight, ChannelHandler } from '@chart-parts/interfaces'
+import { ChartPadding } from '@chart-parts/react'
 import { object } from '@storybook/addon-knobs'
 import { useState, useCallback } from 'react'
 import { AxisProps, BandScaleProps } from '../../src'
-import { FontWeight, ChannelHandler } from '@chart-parts/interfaces'
-import { ChartPadding } from '@chart-parts/react'
 
 export function makeAxisProps(name: string) {
 	return object<AxisProps>(name, {
@@ -68,9 +68,10 @@ export function useHoverIndex(): [
 		},
 		[hoverRowIndex],
 	)
-	const onMouseLeave = useCallback(() => setHoverRowIndex(undefined), [
-		setHoverRowIndex,
-	])
+	const onMouseLeave = useCallback(
+		() => setHoverRowIndex(undefined),
+		[setHoverRowIndex],
+	)
 
 	return [hoverRowIndex, onMouseEnter, onMouseLeave]
 }

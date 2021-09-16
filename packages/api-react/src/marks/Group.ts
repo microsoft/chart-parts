@@ -3,9 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { useEffect } from 'react'
-import { CommonMarkProps } from '../types'
-import { createMarkComponent } from './BaseMark'
 import { MarkBuilder } from '@chart-parts/builder'
 import {
 	MarkType,
@@ -13,6 +10,9 @@ import {
 	MarkEncoding,
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
+import { useEffect } from 'react'
+import { CommonMarkProps } from '../types'
+import { createMarkComponent } from './BaseMark'
 
 /**
  * Group Mark Component Props

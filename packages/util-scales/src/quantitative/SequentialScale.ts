@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
 import { scaleSequential } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
 import { QuantitativeValue, QuantitativeSpan } from './QuantitativeScale'
-import { ScaleCreationContext, Scales, Scale } from '@chart-parts/interfaces'
 
 export class SequantialScale extends DomainScale<QuantitativeSpan> {
 	private clampValue?: boolean
@@ -42,8 +42,8 @@ export class SequantialScale extends DomainScale<QuantitativeSpan> {
 		if (!this.nameValue) {
 			throw new Error('scale name must be set')
 		}
-		return ({
+		return {
 			[this.nameValue]: result as Scale<QuantitativeValue, any>,
-		} as any) as Scales
+		} as any as Scales
 	}
 }

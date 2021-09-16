@@ -2,14 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { AxisOrientation } from '@chart-parts/interfaces'
+import { LinearScale, BandScale, Dimension, Axis } from '@chart-parts/react'
 import React, { useMemo, memo } from 'react'
 import { useChartOrientation, useBarData } from '../../hooks'
 import { Orientation, BandScaleProps } from '../../types'
 import { createChartContainer } from '../../util'
 import { BarMarks } from '../marks/BarMarks'
 import { BarChartProps } from '../types'
-import { AxisOrientation } from '@chart-parts/interfaces'
-import { LinearScale, BandScale, Dimension, Axis } from '@chart-parts/react'
 
 const Container = createChartContainer('Bar Chart')
 
@@ -64,17 +64,19 @@ interface BarChartScalesProps {
 }
 const BarChartScales: React.FC<BarChartScalesProps> = memo(
 	function BarChartScales({ orientation, bandScaleProps }) {
-		const isVertical = useMemo(() => orientation === Orientation.vertical, [
-			orientation,
-		])
+		const isVertical = useMemo(
+			() => orientation === Orientation.vertical,
+			[orientation],
+		)
 		const bandScaleName = useMemo(() => (isVertical ? 'x' : 'y'), [isVertical])
 		const bandScaleRange = useMemo(
 			() => (isVertical ? Dimension.Width : Dimension.Height),
 			[isVertical],
 		)
-		const linearScaleName = useMemo(() => (isVertical ? 'y' : 'x'), [
-			isVertical,
-		])
+		const linearScaleName = useMemo(
+			() => (isVertical ? 'y' : 'x'),
+			[isVertical],
+		)
 		const linearScaleRange = useMemo(
 			() => (isVertical ? Dimension.Height : Dimension.Width),
 			[isVertical],

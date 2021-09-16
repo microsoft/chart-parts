@@ -3,8 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { VSvgMarkConverter, rotate, translate } from './interfaces'
-import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import {
 	SGMark,
 	SGTextItem,
@@ -12,6 +10,8 @@ import {
 	VerticalTextAlignment,
 	VSvgNode,
 } from '@chart-parts/interfaces'
+import { VSvgMarkConverter, rotate, translate } from './interfaces'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 
 const alignments = { left: 'start', center: 'middle', right: 'end' }
 const DEFAULT_FONT_SIZE = 11

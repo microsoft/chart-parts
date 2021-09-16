@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Subject } from 'rxjs'
-import { AxisSpec } from '../spec/AxisSpec'
 import {
 	Axis,
 	AxisOrientation,
 	TickValue,
 	FontWeight,
 } from '@chart-parts/interfaces'
+import { Subject } from 'rxjs'
+import { AxisSpec } from '../spec/AxisSpec'
 
 /**
  * A builder class for defining Axes

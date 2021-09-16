@@ -3,6 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import {
+	Axis,
+	TickValue,
+	FontWeight,
+	AxisOrientation,
+} from '@chart-parts/interfaces'
+import {
 	DEFAULT_AXIS_THICKNESS,
 	DEFAULT_AXIS_DOMAIN_VALUE,
 	DEFAULT_AXIS_COLOR,
@@ -18,12 +24,6 @@ import {
 	DEFAULT_AXIS_LABEL_PADDING,
 	DEFAULT_AXIS_BAND_POSITION,
 } from './defaults'
-import {
-	Axis,
-	TickValue,
-	FontWeight,
-	AxisOrientation,
-} from '@chart-parts/interfaces'
 
 /**
  * Axis Specification Object

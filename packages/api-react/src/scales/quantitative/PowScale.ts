@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { pow } from '@chart-parts/scales'
 import {
 	createQuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { pow } from '@chart-parts/scales'
 
 /**
  * PowScale Component Props

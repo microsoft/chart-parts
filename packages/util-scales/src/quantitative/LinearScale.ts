@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { scaleLinear } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 export class LinearScale extends QuantitativeScale<QuantitativeValue, number> {
 	protected defaultZero = true

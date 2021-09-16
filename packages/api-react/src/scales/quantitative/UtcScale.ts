@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { utc } from '@chart-parts/scales'
 import {
 	createQuantitativeScale,
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
-import { utc } from '@chart-parts/scales'
 
 /**
  * Utc Scale Component

@@ -19,14 +19,14 @@
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
 		"@chart-parts/orchestrator": "workspace:packages/processing-orchestrator",
 		"@chart-parts/scales": "workspace:packages/util-scales",
-		"lodash": "^4.17.20",
-		"rxjs": "^6.6.3",
+		"lodash": "^4.17.21",
+		"rxjs": "^7.3.0",
 		"shallowequal": "^1.1.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/react": "^16.14.2",
-		"react": "^16.14.0"
+		"@essex/scripts": "^18.2.0",
+		"@types/react": "^17.0.21",
+		"react": "^17.0.2"
 	},
 	"peerDependencies": {
 		"@types/react": ">= 16.14.2",

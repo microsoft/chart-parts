@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Item } from './Item'
 import { MarkType, SGRuleItem } from '@chart-parts/interfaces'
+import { Item } from './Item'
 
 export class RuleItem extends Item implements SGRuleItem {
 	public static ITEM_TYPE = MarkType.Rule

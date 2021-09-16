@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Item } from './Item'
 import { MarkType, Interpolation, SGLineItem } from '@chart-parts/interfaces'
+import { Item } from './Item'
 
 export class LineItem extends Item implements SGLineItem {
 	public static ITEM_TYPE = MarkType.Line

@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SGMark, SGNodeType } from '@chart-parts/interfaces'
 import { Mark, Item, GroupItem } from './elements'
 import { createItemType } from './registry'
-import { SGMark, SGNodeType } from '@chart-parts/interfaces'
 
 const KNOWN_KEYS = [
 	'marktype',

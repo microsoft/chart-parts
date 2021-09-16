@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType } from '@chart-parts/interfaces'
 import { CommonMarkProps } from '../types'
 import { createMarkComponent } from './BaseMark'
-import { MarkType } from '@chart-parts/interfaces'
 
 /**
  * Rule Mark Component Props

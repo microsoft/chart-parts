@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SGRectItem } from '@chart-parts/interfaces'
 import { path, Path } from 'd3-path'
 import { Xform } from './util'
-import { SGRectItem } from '@chart-parts/interfaces'
 
 export class Rectangle {
 	public constructor(

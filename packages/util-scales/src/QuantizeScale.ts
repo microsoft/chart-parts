@@ -3,16 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import { extent } from 'd3-array'
 import { scaleQuantize, ScaleQuantize } from 'd3-scale'
 import { DomainRangeScale } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
 import { optionalArgument } from './util'
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 export class QuantizeScale<
 	DomainValue extends QuantitativeValue,
-	RangeValue extends QuantitativeValue
+	RangeValue extends QuantitativeValue,
 > extends DomainRangeScale<[DomainValue, DomainValue], RangeValue[], any> {
 	protected niceValue?: number | boolean
 	protected zeroValue?: boolean

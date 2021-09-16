@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-empty-interface */
+import { time } from '@chart-parts/scales'
 import {
 	createQuantitativeScale,
 	QuantitativeScaleProps,
 	TimeValue,
 } from './QuantitativeScale'
-import { time } from '@chart-parts/scales'
 
 /**
  * TimeScale Component Props

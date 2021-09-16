@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType, AxisOrientation } from '@chart-parts/interfaces'
 import {
 	scene,
 	arc,
@@ -21,7 +22,6 @@ import {
 	trail,
 } from '../../index'
 import { SceneNodeBuilder } from '../SceneNodeBuilder'
-import { MarkType, AxisOrientation } from '@chart-parts/interfaces'
 const view = { width: 100, height: 200 }
 
 describe('The builder module', () => {

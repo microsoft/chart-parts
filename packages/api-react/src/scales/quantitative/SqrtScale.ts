@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { sqrt } from '@chart-parts/scales'
 import {
 	createQuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { sqrt } from '@chart-parts/scales'
 
 /**
  * Sqrt Scale Component

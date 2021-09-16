@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { scene, rect, axis, group, text } from '../index'
 import {
 	Dimension,
 	AxisOrientation,
@@ -15,6 +14,7 @@ import {
 	ordinal,
 	CategoricalColorScheme,
 } from '@chart-parts/scales'
+import { scene, rect, axis, group, text } from '../index'
 
 describe('Building Charts', () => {
 	it('can build a basic bar chart', () => {

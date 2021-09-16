@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType, SGMark, SGRuleItem, VSvgNode } from '@chart-parts/interfaces'
 import { VSvgMarkConverter, translate } from './interfaces'
 import { assertTypeIs, emitMarkGroup, commonProps } from './util'
-import { MarkType, SGMark, SGRuleItem, VSvgNode } from '@chart-parts/interfaces'
 
 export class RuleRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Rule

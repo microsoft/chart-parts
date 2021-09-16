@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Item } from './Item'
 import {
 	MarkType,
 	Orientation,
 	Interpolation,
 	SGAreaItem,
 } from '@chart-parts/interfaces'
+import { Item } from './Item'
 
 export class AreaItem extends Item implements SGAreaItem {
 	public static ITEM_TYPE = MarkType.Area

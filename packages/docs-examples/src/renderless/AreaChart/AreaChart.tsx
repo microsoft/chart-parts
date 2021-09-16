@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo } from 'react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
+import React, { memo } from 'react'
 
 const data = [
 	{ u: 1, v: 28 },

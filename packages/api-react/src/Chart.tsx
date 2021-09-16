@@ -3,6 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SceneNodeBuilder, scene } from '@chart-parts/builder'
+import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
+import { Orchestrator } from '@chart-parts/orchestrator'
 import React, {
 	memo,
 	useContext,
@@ -14,9 +17,6 @@ import React, {
 import { animationFrameScheduler } from 'rxjs'
 import { observeOn } from 'rxjs/operators'
 import { SceneBuilderContext, ChartRendererContext } from './Context'
-import { SceneNodeBuilder, scene } from '@chart-parts/builder'
-import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
-import { Orchestrator } from '@chart-parts/orchestrator'
 
 /**
  * A specification for the padding to apply to the chart

@@ -1,5 +1,4 @@
 {
-	"*": ["essex prettify --staged"],
-	"*.md": ["essex lint --docs-only"],
+	"*.{yaml,yml,json,md}": ["essex prettify --staged"],
 	"*.{js,jsx,ts,tsx}": ["essex lint --fix --staged"]
 }

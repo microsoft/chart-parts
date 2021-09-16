@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
-import elementMap from './elementMap'
 import {
 	VSvgNode,
 	VSvgTransformType,
 	Channels,
 	Metadata,
 } from '@chart-parts/interfaces'
+import React from 'react'
+import elementMap from './elementMap'
 
 function createElementFor(
 	vdom: VSvgNode,

@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { MarkEncoding } from '@chart-parts/interfaces'
 import { number, object, text } from '@storybook/addon-knobs'
 import React from 'react'
 import { ScatterPlot } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
-import { MarkEncoding } from '@chart-parts/interfaces'
 
 const exData = [
 	{ key: 0, value: 28, c: 0 },

@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Orientation } from '@chart-parts/interfaces'
 import {
 	CurveFactory,
 	CurveBundleFactory,
@@ -25,7 +26,6 @@ import {
 	curveStepAfter,
 	curveStepBefore,
 } from 'd3-shape'
-import { Orientation } from '@chart-parts/interfaces'
 
 const lookup: {
 	[key: string]: {

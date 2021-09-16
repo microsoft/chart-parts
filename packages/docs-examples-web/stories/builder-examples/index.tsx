@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { storiesOf } from '@storybook/react'
-import React from 'react'
-import { withStrictMode, withSvgRenderer } from '../util/decorators'
 import {
 	BarChartBuilder,
 	GroupedBarChartBuilder,
 	BarChartUtcBuilder,
 } from '@chart-parts/examples'
+import { storiesOf } from '@storybook/react'
+import React from 'react'
+import { withStrictMode, withSvgRenderer } from '../util/decorators'
 
 storiesOf('Builder-Model Examples', module)
 	.addDecorator(withStrictMode)

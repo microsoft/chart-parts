@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { SceneNode, ScaleCreator, ScaleBuilder } from '@chart-parts/interfaces'
 import { Subject, Subscription } from 'rxjs'
 import { SceneNodeSpec } from '../spec/SceneNodeSpec'
 import { AxisBuilder } from './AxisBuilder'
 import { MarkBuilder } from './MarkBuilder'
-import { SceneNode, ScaleCreator, ScaleBuilder } from '@chart-parts/interfaces'
 
 interface SubscribableHandle<T> {
 	item: T

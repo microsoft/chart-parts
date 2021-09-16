@@ -3,17 +3,17 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { DEFAULT_AXIS_THICKNESS } from '../../spec/defaults'
-import { SceneFrame } from '../context/SceneFrame'
-import { SGMarkAny } from '../processNode'
-import { buildAxis } from './buildAxis'
-import { AxisSpace } from './interfaces'
 import {
 	SceneNode,
 	ItemSpace,
 	AxisOrientation,
 	Axis,
 } from '@chart-parts/interfaces'
+import { DEFAULT_AXIS_THICKNESS } from '../../spec/defaults'
+import { SceneFrame } from '../context/SceneFrame'
+import { SGMarkAny } from '../processNode'
+import { buildAxis } from './buildAxis'
+import { AxisSpace } from './interfaces'
 
 /**
  * Builds axes into a screen frame

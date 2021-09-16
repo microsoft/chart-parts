@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { DomainScale } from '../DomainScale'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
+import { DomainScale } from '../DomainScale'
 
 class TestableDomainScale extends DomainScale<any> {
 	public generatedDomain: any

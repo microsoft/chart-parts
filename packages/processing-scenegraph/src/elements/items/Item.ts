@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SceneNode } from '../SceneNode'
 import {
 	StrokeCap,
 	StrokeJoin,
 	SGItem,
 	SGNodeType,
 } from '@chart-parts/interfaces'
+import { SceneNode } from '../SceneNode'
 
 export abstract class Item extends SceneNode implements SGItem {
 	public abstract readonly itemtype: string

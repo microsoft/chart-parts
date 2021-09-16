@@ -2,12 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import get from 'lodash/get'
 import {
 	ScaleCreationContext,
 	Scales,
 	ScaleBuilder,
 } from '@chart-parts/interfaces'
+import get from 'lodash/get'
 export type DomainCreator<Domain> = (args: ScaleCreationContext) => Domain
 
 export abstract class DomainScale<Domain> implements ScaleBuilder {
@@ -56,11 +56,11 @@ export abstract class DomainScale<Domain> implements ScaleBuilder {
 	 */
 	protected get defaultDomain(): Domain {
 		// the default will be the unit domain
-		return ([0, 1] as any) as Domain
+		return [0, 1] as any as Domain
 	}
 
 	protected processDomainValues(values: any[]): Domain {
-		return (values as any) as Domain
+		return values as any as Domain
 	}
 
 	protected getDomain(args: ScaleCreationContext): Domain {

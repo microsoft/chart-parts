@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Item } from './Item'
 import { SGRectItem, MarkType } from '@chart-parts/interfaces'
+import { Item } from './Item'
 
 export class RectItem extends Item implements SGRectItem {
 	public static ITEM_TYPE = MarkType.Rect

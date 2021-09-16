@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Orientation } from '@chart-parts/interfaces'
 import React from 'react'
 import * as palette from './util/palette'
 import { SingleMarkTester } from './util/single-mark-tester'
-import { Orientation } from '@chart-parts/interfaces'
 
 const BASE_ITEM = {
 	stroke: palette.CRIMSON,

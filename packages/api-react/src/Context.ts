@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
 import { SceneNodeBuilder } from '@chart-parts/builder'
 import { Renderer, VSvgNode } from '@chart-parts/interfaces'
+import React from 'react'
 
 /**
  * A context value for the current scene-node. This is mainly used

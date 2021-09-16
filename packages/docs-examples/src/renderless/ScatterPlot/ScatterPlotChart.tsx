@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo, useCallback } from 'react'
-import movies from 'vega-datasets/data/movies.json'
 import {
 	Dimension,
 	AxisOrientation,
@@ -12,6 +10,8 @@ import {
 } from '@chart-parts/interfaces'
 import { Chart, LinearScale, Axis, Circle, Text } from '@chart-parts/react'
 import { dataset as newDataset, filter } from '@chart-parts/transform'
+import React, { memo, useMemo, useCallback } from 'react'
+import movies from 'vega-datasets/data/movies.json'
 
 export interface ScatterPlotChartProps {
 	xField: string
