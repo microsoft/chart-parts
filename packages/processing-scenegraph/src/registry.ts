@@ -41,12 +41,12 @@ export function createItemType(
 	}
 
 	// Create the new instance
-	const instance = new ctor()
+	const instance: any = new ctor()
 
 	// Transfer properties over
 	Object.keys(props).forEach(propName => {
 		if (!restrictedPropNames.has(propName)) {
-			;(instance as any)[propName] = props[propName]
+			instance[propName] = props[propName]
 		}
 	})
 	return instance
