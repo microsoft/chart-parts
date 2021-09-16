@@ -59,7 +59,7 @@
     "gsap": "^3.5.1",
     "prismjs": "^1.22.0",
     "prop-types": "^15.7.2",
-    "react": "^16.14.0",
+    "react": "^17.0.2",
     "react-dom": "^16.14.0",
     "react-helmet": "^6.1.0",
     "react-icons": "^3.11.0",
