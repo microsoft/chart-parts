@@ -5,9 +5,9 @@
 
 import dbg from 'debug'
 import { createElement } from 'react'
+import rehypeReact from 'rehype-react'
 import components from '../components/md'
 import processImages from './processImagesInMarkdownAst'
-import rehypeReact from 'rehype-react'
 const log = dbg('site:renderHtmlAst')
 
 const renderAst = new rehypeReact({
