@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { SceneNodeBuilder } from '../SceneNodeBuilder'
-import { rect, axis } from '../factories'
 import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { linear } from '@chart-parts/scales'
+import { SceneNodeBuilder } from '../SceneNodeBuilder'
+import { rect, axis } from '../factories'
 
 describe('The scene node builder', () => {
 	it('can be constructed', () => {

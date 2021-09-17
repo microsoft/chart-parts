@@ -9,8 +9,7 @@ import Doc from '../components/doc'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
 import convertGraphqlToc from '../util/convertGraphqlToc'
-
-require('prismjs/themes/prism-tomorrow.css')
+import 'prismjs/themes/prism-tomorrow.css'
 
 export interface DocStructureProps {
 	toc: any
@@ -44,7 +43,7 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-	query($path: String!) {
+	query ($path: String!) {
 		currentPage: markdownRemark(frontmatter: { path: { eq: $path } }) {
 			html
 			htmlAst

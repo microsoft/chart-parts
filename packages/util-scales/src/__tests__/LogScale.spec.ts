@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { LogScale } from '../quantitative/LogScale'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
+import { LogScale } from '../quantitative/LogScale'
 
 describe('The Log Scale', () => {
 	it('can emit for a positive domain', () => {

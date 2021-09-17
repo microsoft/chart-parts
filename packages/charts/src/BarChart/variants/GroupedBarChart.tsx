@@ -2,16 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useMemo, memo, useCallback } from 'react'
-import {
-	useGroupData,
-	useChartOrientation,
-	useGroupByFaceting,
-} from '../../hooks'
-import { Orientation, AxisProps, BandScaleProps } from '../../types'
-import { createChartContainer } from '../../util'
-import { GroupedBarMarks } from '../marks/GroupedBarMarks'
-import { BarChartProps } from '../types'
 import { AxisOrientation, MarkEncoding } from '@chart-parts/interfaces'
 import {
 	LinearScale,
@@ -22,6 +12,16 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
+import React, { useMemo, memo, useCallback } from 'react'
+import {
+	useGroupData,
+	useChartOrientation,
+	useGroupByFaceting,
+} from '../../hooks'
+import { Orientation, AxisProps, BandScaleProps } from '../../types'
+import { createChartContainer } from '../../util'
+import { GroupedBarMarks } from '../marks/GroupedBarMarks'
+import { BarChartProps } from '../types'
 
 const Container = createChartContainer('Grouped Bar Chart')
 
@@ -146,27 +146,31 @@ const ScalesAndAxes: React.FC<ScalesAndAxesProps> = memo(
 		yAxisProps,
 		bandScaleProps,
 	}) {
-		const isVertical = useMemo(() => orientation === Orientation.vertical, [
-			orientation,
-		])
+		const isVertical = useMemo(
+			() => orientation === Orientation.vertical,
+			[orientation],
+		)
 		const bandScaleName = useMemo(() => (isVertical ? 'x' : 'y'), [isVertical])
 		const bandScaleDimension = useMemo(
 			() => (isVertical ? Dimension.Width : Dimension.Height),
 			[isVertical],
 		)
-		const linearScaleName = useMemo(() => (isVertical ? 'y' : 'x'), [
-			isVertical,
-		])
+		const linearScaleName = useMemo(
+			() => (isVertical ? 'y' : 'x'),
+			[isVertical],
+		)
 		const linearScaleDimension = useMemo(
 			() => (isVertical ? Dimension.Height : Dimension.Width),
 			[isVertical],
 		)
-		const bottomAxisScale = useMemo(() => (isVertical ? 'category' : 'x'), [
-			isVertical,
-		])
-		const leftAxisScale = useMemo(() => (isVertical ? 'y' : 'category'), [
-			isVertical,
-		])
+		const bottomAxisScale = useMemo(
+			() => (isVertical ? 'category' : 'x'),
+			[isVertical],
+		)
+		const leftAxisScale = useMemo(
+			() => (isVertical ? 'y' : 'category'),
+			[isVertical],
+		)
 
 		return (
 			<>

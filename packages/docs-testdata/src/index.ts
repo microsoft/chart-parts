@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SGMark } from '@chart-parts/interfaces'
 import * as AnnualTemperature from './annual_temperature'
 import * as ArcDiagram from './arc_diagram'
 import * as AreaChart from './area_chart'
@@ -52,7 +53,6 @@ import * as WeeklyTemperature from './weekly_temperature'
 import * as WheatAndWages from './wheat_and_wages'
 import * as WheatPlot from './wheat_plot'
 import * as WordCloud from './word_cloud'
-import { SGMark } from '@chart-parts/interfaces'
 /*
 	Need shape mark support to draw cartographic projections
  

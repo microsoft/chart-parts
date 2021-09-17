@@ -3,8 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SceneFrame } from '../context/SceneFrame'
-import { processNode } from '../processNode'
 import {
 	MarkType,
 	getItemSpace,
@@ -19,6 +17,8 @@ import {
 	MarkEncodingKey,
 } from '@chart-parts/interfaces'
 import { createItem } from '@chart-parts/scenegraph'
+import { SceneFrame } from '../context/SceneFrame'
+import { processNode } from '../processNode'
 
 /**
  * Creates a scenegraph item bound to a data row

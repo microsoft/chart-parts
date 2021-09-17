@@ -3,19 +3,19 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext, Dimension } from '@chart-parts/interfaces'
 import { extent } from 'd3-array'
 import { interpolateRound } from 'd3-interpolate'
 import { DomainRangeScale } from '../DomainRangeScale'
 import { getBoundRange } from '../getBoundRange'
 import { optionalArgument } from '../util'
-import { ScaleCreationContext, Dimension } from '@chart-parts/interfaces'
 export type TimeValue = QuantitativeValue | Date
 export type QuantitativeValue = number | { valueOf(): number }
 export type QuantitativeSpan = [QuantitativeValue, QuantitativeValue]
 
 export abstract class QuantitativeScale<
 	DomainValue extends QuantitativeValue,
-	RangeValue extends QuantitativeValue
+	RangeValue extends QuantitativeValue,
 > extends DomainRangeScale<
 	[DomainValue, DomainValue],
 	[RangeValue, RangeValue],

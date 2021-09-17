@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { createDomainScale, DomainScaleProps } from '../DomainScale'
 import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
+import { createDomainScale, DomainScaleProps } from '../DomainScale'
 
 /**
  * OrdinalScale Component Props

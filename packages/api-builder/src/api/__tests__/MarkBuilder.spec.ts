@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { MarkBuilder } from '../MarkBuilder'
 import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
+import { MarkBuilder } from '../MarkBuilder'
 
 describe('The Mark Builder', () => {
 	it('can be constructed', () => {

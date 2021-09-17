@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState, useCallback } from 'react'
 import {
 	AxisOrientation,
 	VerticalTextAlignment,
@@ -17,6 +16,7 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
+import React, { memo, useState, useCallback } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },

@@ -2,12 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { AxisOrientation } from '@chart-parts/interfaces'
+import { Axis, LinearScale, Dimension } from '@chart-parts/react'
 import React, { useMemo, memo } from 'react'
 import { createChartContainer } from '../../util'
 import { AreaMarks } from '../marks/AreaMarks'
 import { AreaChartProps } from '../types'
-import { AxisOrientation } from '@chart-parts/interfaces'
-import { Axis, LinearScale, Dimension } from '@chart-parts/react'
 
 const Container = createChartContainer('Area Chart')
 

@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType, SGMark, SGLineItem } from '@chart-parts/interfaces'
 import { line } from '../path'
 import { VSvgMarkConverter } from './interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
-import { MarkType, SGMark, SGLineItem } from '@chart-parts/interfaces'
 
 export class LineRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Line

@@ -3,8 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { renderMark } from './element_renderers'
-import { translate } from './element_renderers/interfaces'
 import {
 	SGMark,
 	ScenegraphConverter,
@@ -13,6 +11,8 @@ import {
 	DEFAULT_HEIGHT,
 	DEFAULT_WIDTH,
 } from '@chart-parts/interfaces'
+import { renderMark } from './element_renderers'
+import { translate } from './element_renderers/interfaces'
 
 const DEFAULT_BG_COLOR = 'transparent'
 const DEFAULT_ORIGIN: [number, number] = [0, 0]

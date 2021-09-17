@@ -2,8 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { mean } from 'd3-array'
-import React, { memo } from 'react'
 import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	Axis,
@@ -14,6 +12,8 @@ import {
 	Dimension,
 	Rule,
 } from '@chart-parts/react'
+import { mean } from 'd3-array'
+import React, { memo } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },

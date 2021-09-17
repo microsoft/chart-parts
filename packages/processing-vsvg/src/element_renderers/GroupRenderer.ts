@@ -2,6 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import {
+	MarkType,
+	SGMark,
+	SGGroupItem,
+	VSvgNode,
+	getItemSpace,
+	ItemSpace,
+} from '@chart-parts/interfaces'
 import { rectangle } from '../path'
 import {
 	VSvgMarkConverter,
@@ -11,14 +19,6 @@ import {
 } from './interfaces'
 import { commonProps, assertTypeIs } from './util'
 import { renderMark } from './index'
-import {
-	MarkType,
-	SGMark,
-	SGGroupItem,
-	VSvgNode,
-	getItemSpace,
-	ItemSpace,
-} from '@chart-parts/interfaces'
 
 function flatMap<T, K>(items: T[], lambda: (input: T) => K[]): K[] {
 	const mappedItems = items.map(lambda)

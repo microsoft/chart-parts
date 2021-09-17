@@ -3,16 +3,16 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { scalePoint } from 'd3-scale'
-import { DomainRangeScale } from '../DomainRangeScale'
-import { getBoundRange } from '../getBoundRange'
-import { optionalArgument } from '../util'
 import {
 	Dimension,
 	ScaleCreationContext,
 	Scales,
 	Scale,
 } from '@chart-parts/interfaces'
+import { scalePoint } from 'd3-scale'
+import { DomainRangeScale } from '../DomainRangeScale'
+import { getBoundRange } from '../getBoundRange'
+import { optionalArgument } from '../util'
 
 export class PointScale extends DomainRangeScale<
 	string[],

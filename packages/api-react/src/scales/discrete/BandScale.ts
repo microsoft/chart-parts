@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Dimension } from '@chart-parts/interfaces'
+import { band } from '@chart-parts/scales'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from '../DomainRangeScale'
-import { Dimension } from '@chart-parts/interfaces'
-import { band } from '@chart-parts/scales'
 
 /**
  * BandScale Component Props

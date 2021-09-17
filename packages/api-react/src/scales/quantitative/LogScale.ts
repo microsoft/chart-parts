@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { log } from '@chart-parts/scales'
 import {
 	createQuantitativeScale,
 	QuantitativeScaleProps,
 	QuantitativeValue,
 } from './QuantitativeScale'
-import { log } from '@chart-parts/scales'
 
 /**
  * Log Scale properties

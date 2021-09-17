@@ -2,14 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
+import { Area } from '@chart-parts/react'
 import React, { memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
 } from '../../hooks'
 import { FillMarkProps } from '../../types'
-import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
-import { Area } from '@chart-parts/react'
 
 const DEFAULT_STROKE = 'black'
 const DEFAULT_FILL = 'steelblue'

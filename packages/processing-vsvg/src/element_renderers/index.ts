@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType } from '@chart-parts/interfaces'
 import { ArcRenderer } from './ArcRenderer'
 import { AreaRenderer } from './AreaRenderer'
 import { GroupRenderer } from './GroupRenderer'
@@ -13,7 +14,6 @@ import { RuleRenderer } from './RuleRenderer'
 import { SymbolRenderer } from './SymbolRenderer'
 import { TextRenderer } from './TextRenderer'
 import { registerRenderer } from './registry'
-import { MarkType } from '@chart-parts/interfaces'
 
 registerRenderer(MarkType.Arc, new ArcRenderer())
 registerRenderer(MarkType.Area, new AreaRenderer())

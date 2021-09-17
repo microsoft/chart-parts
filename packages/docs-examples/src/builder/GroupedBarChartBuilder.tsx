@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
 import { scene, rect, group, text } from '@chart-parts/builder'
 import {
 	Dimension,
@@ -17,6 +16,7 @@ import {
 	ordinal,
 	CategoricalColorScheme,
 } from '@chart-parts/scales'
+import React, { memo, useMemo } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { area } from '../path'
-import { VSvgMarkConverter } from './interfaces'
-import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import {
 	MarkType,
 	SGMark,
 	SGAreaItem,
 	getItemSpace,
 } from '@chart-parts/interfaces'
+import { area } from '../path'
+import { VSvgMarkConverter } from './interfaces'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 
 export class AreaRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Area

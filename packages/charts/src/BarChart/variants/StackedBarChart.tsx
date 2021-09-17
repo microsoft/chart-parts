@@ -2,12 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useMemo, memo } from 'react'
-import { useGroupData, useChartOrientation } from '../../hooks'
-import { Orientation, BandScaleProps, AxisProps } from '../../types'
-import { createChartContainer } from '../../util'
-import { StackedBarMarks } from '../marks/StackedBarMarks'
-import { BarChartProps } from '../types'
 import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	LinearScale,
@@ -18,6 +12,12 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
+import React, { useMemo, memo } from 'react'
+import { useGroupData, useChartOrientation } from '../../hooks'
+import { Orientation, BandScaleProps, AxisProps } from '../../types'
+import { createChartContainer } from '../../util'
+import { StackedBarMarks } from '../marks/StackedBarMarks'
+import { BarChartProps } from '../types'
 
 const Container = createChartContainer('Stacked Bar Chart')
 

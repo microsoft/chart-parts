@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { SGMark, SGNodeType, MarkType } from '@chart-parts/interfaces'
 import { SceneNode } from './SceneNode'
 import { Item } from './items/Item'
-import { SGMark, SGNodeType, MarkType } from '@chart-parts/interfaces'
 
 export class Mark<T extends Item> extends SceneNode implements SGMark<T> {
 	public readonly nodetype: SGNodeType = SGNodeType.Mark

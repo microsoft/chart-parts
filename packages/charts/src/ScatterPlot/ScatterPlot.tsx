@@ -2,11 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
-import { LineChartProps } from '../LineChart/LineChart'
-import { useDataGroupSorted } from '../hooks'
-import { createChartContainer } from '../util'
-import { CircleMarks, CircleMarksProps } from './CircleMarks'
 import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import {
 	LinearScale,
@@ -14,6 +9,11 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
+import React, { memo, useMemo } from 'react'
+import { LineChartProps } from '../LineChart/LineChart'
+import { useDataGroupSorted } from '../hooks'
+import { createChartContainer } from '../util'
+import { CircleMarks, CircleMarksProps } from './CircleMarks'
 
 const Container = createChartContainer('Scatterplot')
 

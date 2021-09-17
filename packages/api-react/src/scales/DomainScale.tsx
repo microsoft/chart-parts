@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { ScaleCreationContext } from '@chart-parts/interfaces'
 import React, { memo, useContext, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
-import { ScaleCreationContext } from '@chart-parts/interfaces'
 
 /**
  * Props for a scale with a domain
@@ -38,7 +38,7 @@ export interface DomainScaleProps<Domain> {
  */
 export function createDomainScale<
 	Props extends DomainScaleProps<Domain>,
-	Domain
+	Domain,
 >(
 	displayName: string,
 	createScale: (props: Props) => any,
@@ -46,12 +46,15 @@ export function createDomainScale<
 ): React.FC<Props> {
 	const result: React.FC<Props> = memo(props => {
 		const api = useContext(SceneBuilderContext)
-		const scale = useMemo(() => api && createScale(props as Props), [
-			api,
-			props,
-			// eslint-disable-next-line
-			...propsToCheck.map(p => (props as any)[p]),
-		])
+		const scale = useMemo(
+			() => api && createScale(props as Props),
+			[
+				api,
+				props,
+				// eslint-disable-next-line
+				...propsToCheck.map(p => (props as any)[p]),
+			],
+		)
 		useEffect(() => {
 			if (api && scale) {
 				api.scale(scale)

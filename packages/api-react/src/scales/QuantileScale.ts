@@ -3,12 +3,12 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 /* eslint-disable @typescript-eslint/no-empty-interface */
+import { quantize } from '@chart-parts/scales'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
-import { quantize } from '@chart-parts/scales'
 
 /**
  * Quantile Scale Component Props
@@ -16,7 +16,7 @@ import { quantize } from '@chart-parts/scales'
  */
 export interface QuantileScaleProps<
 	DomainValue extends QuantitativeValue,
-	RangeValue extends QuantitativeValue
+	RangeValue extends QuantitativeValue,
 > extends DomainRangeScaleProps<
 		[DomainValue, DomainValue],
 		RangeValue[],
@@ -29,7 +29,7 @@ export interface QuantileScaleProps<
  */
 export type QuantileScaleComponentType<
 	D extends QuantitativeValue = any,
-	R extends QuantitativeValue = any
+	R extends QuantitativeValue = any,
 > = React.FC<QuantileScaleProps<D, R>>
 
 /**

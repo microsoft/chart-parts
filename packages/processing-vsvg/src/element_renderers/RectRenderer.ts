@@ -3,9 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { rectangle } from '../path'
-import { VSvgMarkConverter } from './interfaces'
-import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 import {
 	MarkType,
 	SGMark,
@@ -13,6 +10,9 @@ import {
 	getItemSpace,
 	VSvgNode,
 } from '@chart-parts/interfaces'
+import { rectangle } from '../path'
+import { VSvgMarkConverter } from './interfaces'
+import { commonProps, assertTypeIs, emitMarkGroup } from './util'
 
 export class RectRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Rect

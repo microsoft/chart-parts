@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Scale } from '@chart-parts/interfaces'
 import { format } from 'd3-format'
 import { timeFormat } from 'd3-time-format'
 import { AxisContext } from '../../interfaces'
-import { Scale } from '@chart-parts/interfaces'
 
 function isTimeScale(scale: Scale<any, any>) {
 	return scale.__scaletype__ === 'utc' || scale.__scaletype__ === 'time'

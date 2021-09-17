@@ -15,17 +15,17 @@
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
-		"d3-array": "^2.9.0",
+		"d3-array": "^2.12.1",
 		"d3-interpolate": "^2.0.1",
-		"d3-scale": "^3.2.3",
-		"lodash": "^4.17.20"
+		"d3-scale": "^3.3.0",
+		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/d3-array": "^2.8.0",
-		"@types/d3-interpolate": "^1.2.0",
-		"@types/d3-scale": "^2.1.1",
-		"@types/lodash": "^4.14.165"
+		"@essex/scripts": "^18.2.0",
+		"@types/d3-array": "^2.12.3",
+		"@types/d3-interpolate": "^1.4.2",
+		"@types/d3-scale": "^2.2.6",
+		"@types/lodash": "^4.14.173"
 	},
 	"peerDependencies": {
 		"@types/d3-array": ">= 2.0.0",

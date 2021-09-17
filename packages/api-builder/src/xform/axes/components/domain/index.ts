@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { AxisContext, AxisComponent } from '../../interfaces'
-import { crossValue } from './crossValue'
 import { Axis, MarkType } from '@chart-parts/interfaces'
 import { buildMark } from '@chart-parts/scenegraph'
+import { AxisContext, AxisComponent } from '../../interfaces'
+import { crossValue } from './crossValue'
 
 /**
  * @ignore

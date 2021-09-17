@@ -2,8 +2,8 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import { createDomainScale, DomainScaleProps } from './DomainScale'
 import { ScaleCreationContext } from '@chart-parts/interfaces'
+import { createDomainScale, DomainScaleProps } from './DomainScale'
 
 /**
  * Common props for scales with both a domain and range
@@ -38,7 +38,7 @@ export function createDomainRangeScale<
 	Props extends DomainRangeScaleProps<Domain, Range, RangeBind>,
 	Domain,
 	Range,
-	RangeBind
+	RangeBind,
 >(
 	displayName: string,
 	createScale: (props: Props) => any,

@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { scaleOrdinal } from 'd3-scale'
 import { DomainScale } from '../DomainScale'
 import { colorSchemeMap, CategoricalColorScheme } from '../colorSchemeMap'
-import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	private rangeValue?: RangeType[]
@@ -31,9 +31,8 @@ export class OrdinalScale<RangeType> extends DomainScale<string[]> {
 	protected createScale(args: ScaleCreationContext): Scales {
 		const domain = this.getDomain(args)
 		const range = this.getRange()
-		const scale = (this.rangeValue
-			? scaleOrdinal(this.rangeValue)
-			: scaleOrdinal()
+		const scale = (
+			this.rangeValue ? scaleOrdinal(this.rangeValue) : scaleOrdinal()
 		)
 			.domain(domain)
 			.range(range)

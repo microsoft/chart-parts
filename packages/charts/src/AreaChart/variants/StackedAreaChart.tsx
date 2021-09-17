@@ -2,11 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
-import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
-import { createChartContainer } from '../../util'
-import { StackedAreaMarks } from '../marks/StackedAreaMarks'
-import { AreaChartProps } from '../types'
 import { AxisOrientation } from '@chart-parts/interfaces'
 import {
 	Axis,
@@ -17,6 +12,11 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
+import React, { memo, useMemo } from 'react'
+import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
+import { createChartContainer } from '../../util'
+import { StackedAreaMarks } from '../marks/StackedAreaMarks'
+import { AreaChartProps } from '../types'
 
 const Container = createChartContainer('Stacked Area Chart')
 

@@ -1,0 +1,8 @@
+name: 'CodeQL Config'
+
+paths:
+  - packages/
+
+paths-ignore:
+  - .yarn/
+  - '**/.pnp.cjs'

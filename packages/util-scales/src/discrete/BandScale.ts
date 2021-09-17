@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { scaleBand } from 'd3-scale'
-import { DomainRangeScale } from '../DomainRangeScale'
-import { getBoundRange } from '../getBoundRange'
 import {
 	ScaleCreationContext,
 	Dimension,
 	Scales,
 	Scale,
 } from '@chart-parts/interfaces'
+import { scaleBand } from 'd3-scale'
+import { DomainRangeScale } from '../DomainRangeScale'
+import { getBoundRange } from '../getBoundRange'
 
 export interface BandScaleProps {
 	/**

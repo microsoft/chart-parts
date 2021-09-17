@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Dimension } from '@chart-parts/interfaces'
 import {
 	DomainRangeScaleProps,
 	createDomainRangeScale,
 } from '../DomainRangeScale'
-import { Dimension } from '@chart-parts/interfaces'
 
 /**
  * A time-based scale value
@@ -77,7 +77,7 @@ export interface QuantitativeScaleProps<DomainValue, RangeValue>
 export function createQuantitativeScale<
 	Props extends QuantitativeScaleProps<DomainValue, RangeValue>,
 	DomainValue extends QuantitativeValue,
-	RangeValue extends QuantitativeValue
+	RangeValue extends QuantitativeValue,
 >(
 	displayName: string,
 	createScale: (props: Props) => any,

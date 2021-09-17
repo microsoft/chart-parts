@@ -3,15 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { symbol } from '../path'
-import { VSvgMarkConverter, translate } from './interfaces'
-import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 import {
 	MarkType,
 	SGMark,
 	SGSymbolItem,
 	VSvgNode,
 } from '@chart-parts/interfaces'
+import { symbol } from '../path'
+import { VSvgMarkConverter, translate } from './interfaces'
+import { emitMarkGroup, commonProps, assertTypeIs } from './util'
 
 export class SymbolRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Symbol

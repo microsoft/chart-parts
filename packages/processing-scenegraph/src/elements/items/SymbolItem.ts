@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Item } from './Item'
 import { MarkType, SymbolType, SGSymbolItem } from '@chart-parts/interfaces'
+import { Item } from './Item'
 
 export class SymbolItem extends Item implements SGSymbolItem {
 	public static ITEM_TYPE = MarkType.Symbol

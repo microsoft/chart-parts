@@ -2,11 +2,11 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { quantize } from '@chart-parts/scales'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
-import { quantize } from '@chart-parts/scales'
 
 /**
  * Quantize Scale Component Props

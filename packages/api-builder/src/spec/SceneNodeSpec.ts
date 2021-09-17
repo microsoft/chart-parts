@@ -2,9 +2,9 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { SceneNode, ScaleCreator } from '@chart-parts/interfaces'
 import { AxisSpec } from './AxisSpec'
 import { MarkSpec } from './MarkSpec'
-import { SceneNode, ScaleCreator } from '@chart-parts/interfaces'
 
 /**
  * Scene Specification Object

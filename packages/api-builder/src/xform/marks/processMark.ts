@@ -3,10 +3,10 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SceneFrame } from '../context/SceneFrame'
-import { createBoundItem } from './createBoundItem'
 import { Mark, Facet, SGItem, SGMark, DataFrame } from '@chart-parts/interfaces'
 import { createMark } from '@chart-parts/scenegraph'
+import { SceneFrame } from '../context/SceneFrame'
+import { createBoundItem } from './createBoundItem'
 
 /**
  * @ignore

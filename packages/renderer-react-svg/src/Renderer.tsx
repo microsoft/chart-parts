@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
 import {
 	VSvgNode,
 	VSvgTransformType,
@@ -11,6 +10,7 @@ import {
 	Channels,
 	Metadata,
 } from '@chart-parts/interfaces'
+import React from 'react'
 
 function createElementFor(
 	vdom: VSvgNode,

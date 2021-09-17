@@ -1,6 +1,0 @@
-{
-	"hooks": {
-		"pre-commit": "essex pre-commit",
-		"commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-	}
-}

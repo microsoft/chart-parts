@@ -22,16 +22,16 @@
 		"@chart-parts/react-svg-renderer": "workspace:packages/renderer-react-svg",
 		"@chart-parts/scales": "workspace:packages/util-scales",
 		"@chart-parts/transform": "workspace:packages/util-transform",
-		"d3-array": "^2.9.0",
+		"d3-array": "^2.12.1",
 		"vega-datasets": "^2.2.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/d3-array": "^2.8.0",
-		"@types/node": "^14.14.10",
-		"@types/react": "^16.14.2",
-		"@types/react-dom": "^16.9.10",
-		"react": "^16.14.0"
+		"@essex/scripts": "^18.2.0",
+		"@types/d3-array": "^2.12.3",
+		"@types/node": "^14.17.16",
+		"@types/react": "^17.0.21",
+		"@types/react-dom": "^17.0.9",
+		"react": "^17.0.2"
 	},
 	"peerDependencies": {
 		"@types/node": ">= 14.14.10",

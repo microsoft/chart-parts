@@ -16,10 +16,10 @@ export default function convertGraphqlToc(input: {
 		}
 	}>
 }): SidebarItem[] {
-	return input.edges.map(e => {
+	return input.edges.map((e) => {
 		const pathItems = e.node.frontmatter.path
 			.split('/')
-			.filter(t => !!t)
+			.filter((t) => !!t)
 			.slice(1)
 
 		return {

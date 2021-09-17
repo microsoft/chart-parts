@@ -4,14 +4,6 @@
  */
 
 import {
-	arc as d3Arc,
-	symbol as d3Symbol,
-	area as d3Area,
-	line as d3Lines,
-} from 'd3-shape'
-import { Rectangle } from './Rectangle'
-import { symbols } from './symbols'
-import {
 	SGItem,
 	SGAreaItem,
 	SGLineItem,
@@ -20,6 +12,14 @@ import {
 	SGRectItem,
 	SGGroupItem,
 } from '@chart-parts/interfaces'
+import {
+	arc as d3Arc,
+	symbol as d3Symbol,
+	area as d3Area,
+	line as d3Lines,
+} from 'd3-shape'
+import { Rectangle } from './Rectangle'
+import { symbols } from './symbols'
 
 const x = (item: SGItem) => item.x || 0
 const x2 = (item: SGItem) => item.x2 || 0

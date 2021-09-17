@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo } from 'react'
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import {
 	Area,
@@ -16,6 +15,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
+import React, { memo } from 'react'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },

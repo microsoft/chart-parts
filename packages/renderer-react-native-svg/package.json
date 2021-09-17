@@ -15,13 +15,13 @@
 	},
 	"dependencies": {
 		"@chart-parts/interfaces": "workspace:packages/api-interfaces",
-		"lodash": "^4.17.20",
-		"react-native-svg": "^12.1.0"
+		"lodash": "^4.17.21",
+		"react-native-svg": "^12.1.1"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/react-native": "^0.63.37",
-		"react": "^16.14.0"
+		"@essex/scripts": "^18.2.0",
+		"@types/react-native": "^0.65.0",
+		"react": "^17.0.2"
 	},
 	"peerDependencies": {
 		"@types/react-native": ">= 0.63.37",

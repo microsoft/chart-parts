@@ -3,12 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { SceneFrame } from '../context/SceneFrame'
-import { SGMarkAny } from '../processNode'
-import { components } from './components'
-import { getContext } from './getContext'
-import { AxisSpace, AxisContext } from './interfaces'
-
 import {
 	Axis,
 	MarkType,
@@ -16,6 +10,11 @@ import {
 	ViewSize,
 } from '@chart-parts/interfaces'
 import { buildMark } from '@chart-parts/scenegraph'
+import { SceneFrame } from '../context/SceneFrame'
+import { SGMarkAny } from '../processNode'
+import { components } from './components'
+import { getContext } from './getContext'
+import { AxisSpace, AxisContext } from './interfaces'
 
 /**
  * @ignore

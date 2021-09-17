@@ -2,14 +2,14 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
+import { MarkEncoding } from '@chart-parts/interfaces'
+import { Rect } from '@chart-parts/react'
 import React, { memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
 } from '../../hooks'
 import { FillMarkProps } from '../../types'
-import { MarkEncoding } from '@chart-parts/interfaces'
-import { Rect } from '@chart-parts/react'
 
 // Prop defaults
 const DEFAULT_FILL: MarkEncoding<string> = ctx => ctx.color(ctx.d._position)

@@ -2,12 +2,12 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useMemo, useState, useCallback, memo } from 'react'
 import { scene, rect, axis } from '@chart-parts/builder'
 import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { linear, band } from '@chart-parts/scales'
+import React, { useMemo, useState, useCallback, memo } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)
@@ -28,9 +28,10 @@ const data = [
  */
 export const BarChartBuilder: React.FC = memo(function BarChartBuilder() {
 	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
-	const isHovered = useCallback((index: number) => hoverRowIndex === index, [
-		hoverRowIndex,
-	])
+	const isHovered = useCallback(
+		(index: number) => hoverRowIndex === index,
+		[hoverRowIndex],
+	)
 
 	const chart = useMemo(
 		() =>

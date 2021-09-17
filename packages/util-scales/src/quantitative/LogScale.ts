@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 import { scaleLog } from 'd3-scale'
 import { QuantitativeScale, QuantitativeValue } from './QuantitativeScale'
-import { ScaleCreationContext, Scales } from '@chart-parts/interfaces'
 
 const POS_SENTINEL = 1e-6
 const NEG_SENTINEL = -1e-6

@@ -3,8 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { Path } from 'd3-path'
-import curves from './curves'
 import {
 	SGArcItem,
 	SGAreaItem,
@@ -23,6 +21,8 @@ import {
 	symbolWithArea,
 	symbolWithWidth,
 } from '@chart-parts/shapes'
+import { Path } from 'd3-path'
+import curves from './curves'
 
 export function arc(item: SGArcItem, context?: Path) {
 	return arcShape.context(context as any)(item)

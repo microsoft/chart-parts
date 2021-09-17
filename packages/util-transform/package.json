@@ -14,16 +14,16 @@
 		"build": "essex build"
 	},
 	"dependencies": {
-		"lodash": "^4.17.20",
-		"vega-dataflow": "^5.7.3",
+		"lodash": "^4.17.21",
+		"vega-dataflow": "^5.7.4",
 		"vega-encode": "^4.8.3",
-		"vega-transforms": "^4.9.3",
-		"vega-util": "^1.16.0"
+		"vega-transforms": "^4.9.4",
+		"vega-util": "^1.16.1"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^12.0.2",
-		"@types/lodash": "^4.14.165",
-		"@types/node": "^14.14.10"
+		"@essex/scripts": "^18.2.0",
+		"@types/lodash": "^4.14.173",
+		"@types/node": "^14.17.16"
 	},
 	"peerDependencies": {
 		"core-js": "*",

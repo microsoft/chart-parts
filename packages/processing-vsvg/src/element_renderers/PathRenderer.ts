@@ -3,9 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { MarkType, SGMark, SGPathItem, VSvgNode } from '@chart-parts/interfaces'
 import { VSvgMarkConverter, translate } from './interfaces'
 import { emitMarkGroup, commonProps, assertTypeIs } from './util'
-import { MarkType, SGMark, SGPathItem, VSvgNode } from '@chart-parts/interfaces'
 
 export class PathRenderer implements VSvgMarkConverter {
 	public static TARGET_MARK_TYPE = MarkType.Path

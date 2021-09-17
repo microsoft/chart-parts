@@ -3,10 +3,9 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
+import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
 import { SceneFrame } from '../context/SceneFrame'
 import { AxisSpace, AxisContext } from './interfaces'
-
-import { Axis, AxisOrientation, ViewSize } from '@chart-parts/interfaces'
 
 /**
  * @ignore
