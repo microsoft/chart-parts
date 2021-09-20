@@ -2,7 +2,13 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState, useCallback, useMemo } from 'react'
+import {
+  Dimension,
+  AxisOrientation,
+  VerticalTextAlignment,
+  HorizontalAlignment,
+  Metadata,
+} from '@chart-parts/interfaces'
 import {
   Area,
   Group,
@@ -16,13 +22,6 @@ import {
   QuantileScale,
 } from '@chart-parts/react'
 import {
-  Dimension,
-  AxisOrientation,
-  VerticalTextAlignment,
-  HorizontalAlignment,
-  Metadata,
-} from '@chart-parts/interfaces'
-import {
   dataset,
   stack,
   CompareOrder,
@@ -31,6 +30,7 @@ import {
   Offset as StackOffset,
   filter,
 } from '@chart-parts/transform'
+import React, { memo, useState, useCallback, useMemo } from 'react'
 import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
@@ -53,9 +53,10 @@ export const JobVoyager: React.FC = memo(function JobVoyager() {
     (e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value),
     [setGender]
   )
-  const onEnterArea = useCallback((id: string) => setSelectedAreaId(id), [
-    setSelectedAreaId,
-  ])
+  const onEnterArea = useCallback(
+    (id: string) => setSelectedAreaId(id),
+    [setSelectedAreaId]
+  )
   const onClickArea = useCallback((job: string) => setQuery(job), [setQuery])
 
   const ds = useMemo(
@@ -155,7 +156,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
             fillOpacity={({ agg, id, alpha }) =>
               id === selectedAreaId ? 0.2 : alpha(agg.sum)
             }
-            metadata={({ d: { job } }) => (({ job } as any) as Metadata)}
+            metadata={({ d: { job } }) => ({ job } as any as Metadata)}
             onMouseOver={({ id }) => onEnterArea(id)}
             onFocus={({ id }) => onEnterArea(id)}
             onClick={({ job }) => onClickArea(job)}

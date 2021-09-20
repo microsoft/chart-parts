@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState, useCallback } from 'react'
 import {
   Chart,
   Rect,
@@ -13,6 +12,7 @@ import {
   CategoricalColorScheme,
 } from '@chart-parts/react'
 import { dataset, stack } from '@chart-parts/transform'
+import React, { memo, useState, useCallback } from 'react'
 
 const data = [
   { x: 0, y: 28, c: 0 },

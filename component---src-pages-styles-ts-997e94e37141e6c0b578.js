@@ -1,0 +1,3 @@
+/*! For license information please see component---src-pages-styles-ts-997e94e37141e6c0b578.js.LICENSE.txt */
+"use strict";(self.webpackChunk_chart_parts_docsite=self.webpackChunk_chart_parts_docsite||[]).push([[369],{2149:function(a,t,e){e.r(t);var s=e(8649),d=e(1101);t.default=(0,s.vJ)(["body{display:flex;height:100%;width:100%;background:","}html{height:100%;}#___gatsby{flex:1;display:flex;}#___gatsby > div{flex:1;display:flex;}"],d.Z.backgrounds.background)}}]);
+//# sourceMappingURL=component---src-pages-styles-ts-997e94e37141e6c0b578.js.map

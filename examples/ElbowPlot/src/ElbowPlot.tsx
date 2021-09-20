@@ -2,7 +2,6 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo } from 'react'
 import { VerticalTextAlignment } from '@chart-parts/interfaces'
 import {
   Chart,
@@ -14,6 +13,7 @@ import {
   Dimension,
   Text,
 } from '@chart-parts/react'
+import React, { memo } from 'react'
 
 const series = [
   {
