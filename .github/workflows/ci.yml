@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - run: yarn version check
+        name: Check for SemVer Compliance
+
       - run: yarn install
         name: Install Dependencies
 
