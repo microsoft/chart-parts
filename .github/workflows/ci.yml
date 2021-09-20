@@ -34,3 +34,11 @@ jobs:
         if: success() && matrix.node-version == '12.x'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+changesetBaseRefs:
+  - main
+  - origin/main
+  - upstream/main
+
+changesetIgnorePatterns:
+  - '**/*.spec.{js,ts,tsx}'
