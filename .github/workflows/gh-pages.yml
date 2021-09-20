@@ -9,23 +9,21 @@ jobs:
   build-deploy:
     runs-on: ubuntu-18.04
     steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
-    - uses: actions/checkout@v2
-      with:
-        persist-credentials: false
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
-    - name: Use Node.js 12.x
-      uses: actions/setup-node@v1
-      with:
-        node-version: 12.x
+      - run: yarn install
+      - run: 'yarn build:'
 
-    - run: yarn install
-    - run: yarn build
-    - run: yarn lerna run build --stream --scope @chart-parts/docsite
-
-    - name: deploy
-      uses: JamesIves/github-pages-deploy-action@3.5.9
-      with:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: packages/docs/docsite/public
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@3.5.9
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: packages/docs/docsite/public
