@@ -18,6 +18,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - run: yarn version check
+        name: Check for SemVer Compliance
+
       - run: yarn install
         name: Install Dependencies
 
@@ -31,3 +34,11 @@ jobs:
         if: success() && matrix.node-version == '12.x'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
+
+changesetBaseRefs:
+  - main
+  - origin/main
+  - upstream/main
+
+changesetIgnorePatterns:
+  - '**/*.spec.{js,ts,tsx}'
