@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
       - name: Debug Action
         uses: hmarr/debug-action@v1.0.0
