@@ -8,6 +8,7 @@ import {
 	MarkEncoding,
 } from '@chart-parts/interfaces'
 import { ChartPadding } from '@chart-parts/react'
+import { MouseEvent } from 'react'
 
 export interface Data {
 	key: string | number
@@ -35,9 +36,9 @@ export interface ProcessedBarData extends DataProp {
 }
 
 export interface FillMarkProps {
-	onMouseEnter?: ChannelHandler<React.MouseEvent<any>>
-	onMouseLeave?: ChannelHandler<React.MouseEvent<any>>
-	onClick?: ChannelHandler<React.MouseEvent<any>>
+	onMouseEnter?: ChannelHandler<MouseEvent<any>>
+	onMouseLeave?: ChannelHandler<MouseEvent<any>>
+	onClick?: ChannelHandler<MouseEvent<any>>
 	fill?: MarkEncoding<string>
 	fillOpacity?: MarkEncoding<number>
 	stroke?: MarkEncoding<string>

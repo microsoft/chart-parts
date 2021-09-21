@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { Rect } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { FC, memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
@@ -23,7 +23,7 @@ const encodeX2: MarkEncoding<number> = ({ x }) => x(0)
 const encodeHeight: MarkEncoding<number> = ({ band }) => band()
 const encodeWidth: MarkEncoding<number> = ({ band }) => band()
 
-export const BarMarks: React.FC<FillMarkProps> = memo(function BarMarks({
+export const BarMarks: FC<FillMarkProps> = memo(function BarMarks({
 	onMouseEnter,
 	onMouseLeave,
 	onClick,

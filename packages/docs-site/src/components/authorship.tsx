@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo, FC } from 'react'
 import { FaTwitter as TwitterIcon } from 'react-icons/fa'
 import { GoMarkGithub as GitHubIcon } from 'react-icons/go'
 import styled from 'styled-components'
@@ -12,7 +12,7 @@ export interface AuthorshipProps {
 	twitter?: string
 	github?: string
 }
-export const Authorship: React.FC<AuthorshipProps> = memo(function Authorship({
+export const Authorship: FC<AuthorshipProps> = memo(function Authorship({
 	name,
 	twitter,
 	github,
@@ -21,9 +21,10 @@ export const Authorship: React.FC<AuthorshipProps> = memo(function Authorship({
 		() => twitter && `https://twitter.com/${twitter}`,
 		[twitter]
 	)
-	const githubUrl = useMemo(() => github && `https://github.com/${github}`, [
-		github,
-	])
+	const githubUrl = useMemo(
+		() => github && `https://github.com/${github}`,
+		[github]
+	)
 	return (
 		<span>
 			<By>by </By>

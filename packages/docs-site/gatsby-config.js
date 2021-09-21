@@ -22,15 +22,20 @@ module.exports = {
 	siteMetadata,
 	pathPrefix: '/chart-parts',
 	plugins: [
-		'gatsby-plugin-typescript',
 		'gatsby-plugin-react-helmet',
 		'gatsby-plugin-styled-components',
+		'gatsby-plugin-sharp',
+		'gatsby-transformer-sharp',
 
 		// Handle Markdown Content
 		{
 			resolve: 'gatsby-transformer-remark',
 			options: {
-				plugins: ['gatsby-remark-prismjs', `gatsby-remark-autolink-headers`],
+				plugins: [
+					'gatsby-remark-prismjs',
+					'gatsby-remark-autolink-headers',
+					'gatsby-remark-images',
+				],
 			},
 		},
 

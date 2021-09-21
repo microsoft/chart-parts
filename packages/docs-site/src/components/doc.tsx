@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo, FC } from 'react'
 import styled from 'styled-components'
 import renderAst from '../util/renderHtmlAst'
 import { TextContainer, Gutter, TextContent } from './common'
@@ -14,7 +14,7 @@ export interface DocProps {
 	}
 }
 
-const Doc: React.FC<DocProps> = memo(function Doc({ docPage }) {
+const Doc: FC<DocProps> = memo(function Doc({ docPage }) {
 	return (
 		<TextContainer>
 			<Gutter />
@@ -32,7 +32,7 @@ export default Doc
 interface PageTocProps {
 	toc: string
 }
-const PageToc: React.FC<PageTocProps> = memo(function PageToc({ toc }) {
+const PageToc: FC<PageTocProps> = memo(function PageToc({ toc }) {
 	const tocMarkup = useMemo(() => ({ __html: toc }), [toc])
 	if (toc.indexOf('li') === -1) {
 		return null

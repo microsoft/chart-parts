@@ -4,7 +4,7 @@
  */
 
 import { Link, graphql, StaticQuery } from 'gatsby'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 import styled from 'styled-components'
 import pkgJson from '../../../../../package.json'
 import theme from '../../util/theme'
@@ -20,7 +20,7 @@ export interface HeaderProps {
 
 export const HEIGHT = 60
 
-export const Header: React.FC<HeaderProps> = memo(function Header({
+export const Header: FC<HeaderProps> = memo(function Header({
 	opacity = 1.0,
 	showLinks = true,
 }) {

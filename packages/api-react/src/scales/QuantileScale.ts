@@ -9,6 +9,7 @@ import {
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
+import { FC } from 'react'
 
 /**
  * Quantile Scale Component Props
@@ -30,7 +31,7 @@ export interface QuantileScaleProps<
 export type QuantileScaleComponentType<
 	D extends QuantitativeValue = any,
 	R extends QuantitativeValue = any,
-> = React.FC<QuantileScaleProps<D, R>>
+> = FC<QuantileScaleProps<D, R>>
 
 /**
  * Quantile Scale Component

@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 import theme from '../util/theme'
 
-const PrivacyStatement: React.FC = () => (
+const PrivacyStatement: FC = () => (
 	<PrivacyText>
 		This site does not collect any personal information or use cookies.&nbsp;
 		<PrivacyLink

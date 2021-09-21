@@ -12,7 +12,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
-import React, { useMemo, memo } from 'react'
+import { FC, useMemo, memo } from 'react'
 import { useGroupData, useChartOrientation } from '../../hooks'
 import { Orientation, BandScaleProps, AxisProps } from '../../types'
 import { createChartContainer } from '../../util'
@@ -21,7 +21,7 @@ import { BarChartProps } from '../types'
 
 const Container = createChartContainer('Stacked Bar Chart')
 
-export const StackedBarChart: React.FC<BarChartProps> = memo(
+export const StackedBarChart: FC<BarChartProps> = memo(
 	function StackedBarChart({
 		data,
 		height,
@@ -91,68 +91,62 @@ interface ScalesAndAxisProps {
 	yAxisProps?: AxisProps
 }
 
-const ScalesAndAxis: React.FC<ScalesAndAxisProps> = memo(
-	function ScalesAndAxis({
-		orientation,
-		bandScaleProps,
-		xAxisProps,
-		yAxisProps,
-	}) {
-		if (orientation === Orientation.vertical) {
-			return (
-				<>
-					<BandScale
-						name="xVertical"
-						bandWidth="band"
-						range={Dimension.Width}
-						domain="data._category"
-						{...bandScaleProps}
-					/>
-					<LinearScale
-						name="yVertical"
-						range={Dimension.Height}
-						domain="data.y1"
-						nice
-						zero
-					/>
-					<Axis
-						orient={AxisOrientation.Bottom}
-						scale="xVertical"
-						labelPadding={8}
-						{...xAxisProps}
-					/>
-					<Axis orient={AxisOrientation.Left} scale="yVertical" />
-				</>
-			)
-		}
+const ScalesAndAxis: FC<ScalesAndAxisProps> = memo(function ScalesAndAxis({
+	orientation,
+	bandScaleProps,
+	xAxisProps,
+	yAxisProps,
+}) {
+	if (orientation === Orientation.vertical) {
 		return (
 			<>
 				<BandScale
-					name="yHorizontal"
+					name="xVertical"
 					bandWidth="band"
-					range={Dimension.Height}
+					range={Dimension.Width}
 					domain="data._category"
 					{...bandScaleProps}
 				/>
 				<LinearScale
-					name="xHorizontal"
-					range={Dimension.Width}
+					name="yVertical"
+					range={Dimension.Height}
 					domain="data.y1"
 					nice
 					zero
 				/>
 				<Axis
 					orient={AxisOrientation.Bottom}
-					scale="xHorizontal"
+					scale="xVertical"
 					labelPadding={8}
 					{...xAxisProps}
 				/>
-				<Axis
-					orient={AxisOrientation.Left}
-					scale="yHorizontal"
-					{...yAxisProps}
-				/>
+				<Axis orient={AxisOrientation.Left} scale="yVertical" />
 			</>
 		)
-	},
-)
+	}
+	return (
+		<>
+			<BandScale
+				name="yHorizontal"
+				bandWidth="band"
+				range={Dimension.Height}
+				domain="data._category"
+				{...bandScaleProps}
+			/>
+			<LinearScale
+				name="xHorizontal"
+				range={Dimension.Width}
+				domain="data.y1"
+				nice
+				zero
+			/>
+			<Axis
+				orient={AxisOrientation.Bottom}
+				scale="xHorizontal"
+				labelPadding={8}
+				{...xAxisProps}
+			/>
+			<Axis orient={AxisOrientation.Left} scale="yHorizontal" {...yAxisProps} />
+		</>
+	)
+})

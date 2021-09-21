@@ -2,10 +2,10 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC } from 'react'
 import { SingleMarkTester } from './util/single-mark-tester'
 
-const TextTester: React.FC = () => (
+const TextTester: FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'group',

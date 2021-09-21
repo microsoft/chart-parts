@@ -3,13 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { number, object, text, radios } from '@storybook/addon-knobs'
-import React from 'react'
 import { BarChart, Orientation } from '../../src'
 import {
 	makeAxisProps,
 	makeChartPadding,
 	makeBandScaleProps,
 } from './commonKnobs'
+import { FC } from 'react'
+
 const exampleData = [
 	{ key: 'A', value: 28 },
 	{ key: 'B', value: 55 },
@@ -21,7 +22,7 @@ const exampleData = [
 	{ key: 'H', value: 87 },
 ]
 
-export const RotateBarChartTester: React.FC = () => {
+export const RotateBarChartTester: FC = () => {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')

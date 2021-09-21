@@ -7,6 +7,7 @@ import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
+import { FC } from 'react'
 
 /**
  * Quantize Scale Component Props
@@ -30,7 +31,7 @@ export interface QuantizeScaleProps<DomainValue, RangeValue>
  * Quantize Scale Component Type
  * @category Scale
  */
-export type QuantizeScaleComponentType<D = any, R = any> = React.FC<
+export type QuantizeScaleComponentType<D = any, R = any> = FC<
 	QuantizeScaleProps<D, R>
 >
 

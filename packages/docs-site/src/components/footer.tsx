@@ -3,17 +3,17 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC, CSSProperties } from 'react'
 import styled from 'styled-components'
 import theme from '../util/theme'
 import PrivacyStatement from './privacy-statement'
 
 export interface FooterProps {
-	style?: React.CSSProperties
+	style?: CSSProperties
 }
 
 export const FOOTER_HEIGHT = 50
-const Footer: React.FC<FooterProps> = style => (
+const Footer: FC<FooterProps> = (style) => (
 	<Container style={style as any}>
 		<FooterColumn>
 			<WithLove>with ♥ from Microsoft</WithLove>

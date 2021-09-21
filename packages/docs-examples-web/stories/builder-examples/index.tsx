@@ -9,7 +9,6 @@ import {
 	BarChartUtcBuilder,
 } from '@chart-parts/examples'
 import { storiesOf } from '@storybook/react'
-import React from 'react'
 import { withStrictMode, withSvgRenderer } from '../util/decorators'
 
 storiesOf('Builder-Model Examples', module)

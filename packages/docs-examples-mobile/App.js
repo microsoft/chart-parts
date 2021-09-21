@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, {Fragment} from 'react';
+import {Fragment} from 'react';
 import {
 	SafeAreaView,
 	StyleSheet,
@@ -28,7 +28,8 @@ const App = () => {
 			<SafeAreaView>
 				<ScrollView
 					contentInsetAdjustmentBehavior="automatic"
-					style={styles.scrollView}>
+					style={styles.scrollView}
+				>
 					<Header />
 					{global.HermesInternal == null ? null : (
 						<View style={styles.engine}>

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -23,7 +23,8 @@ export interface ToggleProps {
 	onChange?: (value: boolean) => void
 }
 const DO_NOTHING = () => null
-export const Toggle: React.FC<ToggleProps> = memo(function Toggle({
+
+export const Toggle: FC<ToggleProps> = memo(function Toggle({
 	name,
 	value,
 	onChange = DO_NOTHING,
@@ -35,9 +36,10 @@ export const Toggle: React.FC<ToggleProps> = memo(function Toggle({
 				type="checkbox"
 				name={name}
 				checked={value}
-				onChange={useCallback((evt) => onChange(evt.target.checked), [
-					onChange,
-				])}
+				onChange={useCallback(
+					(evt) => onChange(evt.target.checked),
+					[onChange]
+				)}
 			/>
 			<div>{value}</div>
 		</Container>

@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { number, object, text, radios } from '@storybook/addon-knobs'
-import React from 'react'
 import { BarChart, Orientation } from '../../src'
 import {
 	makeAxisProps,
 	makeChartPadding,
 	makeBandScaleProps,
 } from './commonKnobs'
+import { FC } from 'react'
 
 const exData = [
 	{ category: 'A', key: '1', value: 0.6 },
@@ -25,7 +25,7 @@ const exData = [
 	{ category: 'C', key: '11', value: 0.7 },
 ]
 
-export const StackedBarChartTester: React.FC = function StackedBarChartTester() {
+export const StackedBarChartTester: FC = function StackedBarChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')

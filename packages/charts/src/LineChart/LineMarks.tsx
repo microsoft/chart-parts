@@ -4,12 +4,12 @@
  */
 import { ChannelHandler, MarkEncoding, Gradient } from '@chart-parts/interfaces'
 import { Line } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo, MouseEvent, FC } from 'react'
 
 export interface LineMarksProps {
-	onClick?: ChannelHandler<React.MouseEvent<any>>
-	onMouseEnter?: ChannelHandler<React.MouseEvent<any>>
-	onMouseLeave?: ChannelHandler<React.MouseEvent<any>>
+	onClick?: ChannelHandler<MouseEvent<any>>
+	onMouseEnter?: ChannelHandler<MouseEvent<any>>
+	onMouseLeave?: ChannelHandler<MouseEvent<any>>
 	stroke?: MarkEncoding<string | Gradient>
 	strokeWidth?: MarkEncoding<number>
 }
@@ -21,7 +21,7 @@ const DEFAULT_STROKE_WIDTH = 2
 const encodeX: MarkEncoding<number> = ({ d, x }) => x(d.key)
 const encodeY: MarkEncoding<number> = ({ d, y }) => y(d.value)
 
-export const LineMarks: React.FC<LineMarksProps> = memo(function LineMarks({
+export const LineMarks: FC<LineMarksProps> = memo(function LineMarks({
 	onClick,
 	onMouseEnter,
 	onMouseLeave,

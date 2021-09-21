@@ -26,8 +26,8 @@
 		"@storybook/addon-knobs": "^6.3.1",
 		"@storybook/addons": "^6.3.8",
 		"@storybook/react": "^6.3.8",
-		"@types/node": "^14.17.16",
-		"@types/react": "^17.0.21",
+		"@types/node": "^14.17.18",
+		"@types/react": "^17.0.24",
 		"@types/react-color": "^3.0.5",
 		"@types/react-dom": "^17.0.9",
 		"react": "^17.0.2",
@@ -39,8 +39,8 @@
 		"@types/react-color": ">= 3.0.4",
 		"@types/react-dom": ">= 16.9.10",
 		"core-js": "*",
-		"react": ">= 16.9.0",
-		"react-dom": ">= 16.9.0",
+		"react": ">= 17",
+		"react-dom": ">= 17",
 		"regenerator-runtime": "*"
 	}
 }

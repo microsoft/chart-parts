@@ -4,7 +4,15 @@
  */
 
 import { Link as RawLink } from 'gatsby'
-import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
+import {
+	FC,
+	CSSProperties,
+	memo,
+	useState,
+	useMemo,
+	useCallback,
+	useEffect,
+} from 'react'
 import {
 	FaAngleDown as ExpandedIconRaw,
 	FaAngleRight as CollapsedIconRaw,
@@ -23,16 +31,17 @@ export interface LinkTreeProps {
 
 const ToggleSize = 15
 
-const LinkTree: React.FC<LinkTreeProps> = memo(function LinkTree({
+const LinkTree: FC<LinkTreeProps> = memo(function LinkTree({
 	expanded: expandedProp,
 	node,
 	activePath: activePathRaw,
 	depth,
 	flat,
 }) {
-	const activePath = useMemo(() => activePathRaw.replace('/chart-parts', ''), [
-		activePathRaw,
-	])
+	const activePath = useMemo(
+		() => activePathRaw.replace('/chart-parts', ''),
+		[activePathRaw]
+	)
 	const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
 	useEffect(() => {
 		if (activePath.indexOf(node.item.path) >= 0) {
@@ -46,7 +55,7 @@ const LinkTree: React.FC<LinkTreeProps> = memo(function LinkTree({
 		}
 		const marginLeft = flat ? 0 : 15 + depth * 15
 		const fontSize = 14 - depth * 2
-		const linkStyle: React.CSSProperties = {
+		const linkStyle: CSSProperties = {
 			marginLeft,
 			fontSize,
 			color: '#3173BD',
@@ -98,7 +107,7 @@ interface LinkTreeIconProps {
 	expanded: boolean
 	onExpandCollapseClick: () => void
 }
-const LinkTreeIcon: React.FC<LinkTreeIconProps> = memo(function LinkTreeIcon({
+const LinkTreeIcon: FC<LinkTreeIconProps> = memo(function LinkTreeIcon({
 	childKeys,
 	expanded,
 	onExpandCollapseClick,
@@ -119,7 +128,7 @@ export interface LinkTreeChildrenProps {
 	activePath: string
 	expanded: boolean
 }
-const LinkTreeChildren: React.FC<LinkTreeChildrenProps> = memo(
+const LinkTreeChildren: FC<LinkTreeChildrenProps> = memo(
 	function LinkTreeChildren({ childKeys, node, depth, activePath, expanded }) {
 		// Get the nodes for the children and sort them
 		const childNodes = childKeys.map((ck) => node.children[ck])

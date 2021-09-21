@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState, useCallback } from 'react'
+import { FC, memo, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { SGChart } from './chart'
 import { Dropdown } from './dropdown'
@@ -56,7 +56,7 @@ const ControlsContainer = styled.div`
 	flex-direction: column;
 `
 
-export const SingleMarkTester: React.FC<SingleMarkTesterProps> = memo(
+export const SingleMarkTester: FC<SingleMarkTesterProps> = memo(
 	function SingleMarkTester({
 		sliders = [],
 		dropdowns = [],

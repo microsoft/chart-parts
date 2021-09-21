@@ -4,9 +4,9 @@
  */
 import { action } from '@storybook/addon-actions'
 import { number, object, text } from '@storybook/addon-knobs'
-import React from 'react'
 import { AreaChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
+import { FC } from 'react'
 
 const exData = [
 	{ key: 1, value: 28 },
@@ -31,7 +31,7 @@ const exData = [
 	{ key: 20, value: 15 },
 ]
 
-export const AreaChartTester: React.FC = function AreaChartTester() {
+export const AreaChartTester: FC = function AreaChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')

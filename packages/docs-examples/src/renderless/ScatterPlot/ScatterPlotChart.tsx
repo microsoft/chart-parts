@@ -10,7 +10,7 @@ import {
 } from '@chart-parts/interfaces'
 import { Chart, LinearScale, Axis, Circle, Text } from '@chart-parts/react'
 import { dataset as newDataset, filter } from '@chart-parts/transform'
-import React, { memo, useMemo, useCallback } from 'react'
+import { memo, useMemo, useCallback, FC } from 'react'
 import movies from 'vega-datasets/data/movies.json'
 
 export interface ScatterPlotChartProps {
@@ -24,7 +24,7 @@ const NULL_SIZE = 8
 /**
  * Based off of https://vega.github.io/vega/examples/scatter-plot-null-values/
  */
-export const ScatterPlotChart: React.FC<ScatterPlotChartProps> = memo(
+export const ScatterPlotChart: FC<ScatterPlotChartProps> = memo(
 	function ScatterPlotChart({ xField, yField }) {
 		const dataset = useDataset(xField, yField)
 

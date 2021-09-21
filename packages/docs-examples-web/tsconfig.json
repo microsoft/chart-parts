@@ -1,7 +1,6 @@
 {
 	"extends": "../../tsconfig",
 	"compilerOptions": {
-		"jsx": "react",
 		"resolveJsonModule": true,
 		"lib": ["esnext", "dom"]
 	},

@@ -8,7 +8,7 @@ import {
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
-import React, { useContext, useState, useEffect, useMemo } from 'react'
+import { FC, useContext, useState, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
 import { CommonMarkProps } from '../types'
 
@@ -21,8 +21,8 @@ import { CommonMarkProps } from '../types'
 export function createMarkComponent<T extends CommonMarkProps>(
 	markType: MarkType,
 	customHook: (mark: MarkBuilder, props: T) => void = () => null,
-): React.FC<T> {
-	const Result: React.FC<T> = function (props) {
+): FC<T> {
+	const Result: FC<T> = function (props) {
 		const { children, table, name, role } = props
 		const scene = useContext(SceneBuilderContext)
 		const mark = useMemo(() => newMark(markType), [])

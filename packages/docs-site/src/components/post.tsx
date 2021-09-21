@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC } from 'react'
 import renderAst from '../util/renderHtmlAst'
 import { TextContainer, Gutter, TextContent } from './common'
 
@@ -17,7 +17,7 @@ export interface PostProps {
 	}
 }
 
-const Post: React.FC<PostProps> = ({ post }) => {
+const Post: FC<PostProps> = ({ post }) => {
 	return (
 		<TextContainer>
 			<Gutter />

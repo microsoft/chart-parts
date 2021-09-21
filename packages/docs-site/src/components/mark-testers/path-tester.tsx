@@ -3,8 +3,8 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC } from 'react'
 
-const PathTester: React.FC = () => <div>TODO</div>
+const PathTester: FC = () => <div>TODO</div>
 
 export default PathTester

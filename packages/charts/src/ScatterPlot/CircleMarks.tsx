@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { Circle } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { FC, memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
@@ -24,35 +24,33 @@ export interface CircleMarksProps extends FillMarkProps {
 	radius?: MarkEncoding<number>
 }
 
-export const CircleMarks: React.FC<CircleMarksProps> = memo(
-	function CircleMarks({
-		onMouseEnter,
-		onMouseLeave,
-		onClick,
-		fill = DEFAULT_FILL,
-		fillOpacity = DEFAULT_FILL_OPACITY,
-		stroke = DEFAULT_STROKE,
-		strokeWidth = DEFAULT_STROKE_WIDTH,
-		radius = DEFAULT_RADIUS,
-	}) {
-		return (
-			<Circle
-				table="data"
-				tabIndex={-1}
-				zIndex={0}
-				size={radius}
-				fill={fill}
-				stroke={stroke}
-				fillOpacity={fillOpacity}
-				strokeWidth={strokeWidth}
-				onClick={onClick}
-				onMouseEnter={onMouseEnter}
-				onMouseLeave={onMouseLeave}
-				ariaTitle={encodeCategoryAriaTitle}
-				ariaDescription={encodeCategoryAriaDescription}
-				x={encodeX}
-				y={encodeY}
-			/>
-		)
-	},
-)
+export const CircleMarks: FC<CircleMarksProps> = memo(function CircleMarks({
+	onMouseEnter,
+	onMouseLeave,
+	onClick,
+	fill = DEFAULT_FILL,
+	fillOpacity = DEFAULT_FILL_OPACITY,
+	stroke = DEFAULT_STROKE,
+	strokeWidth = DEFAULT_STROKE_WIDTH,
+	radius = DEFAULT_RADIUS,
+}) {
+	return (
+		<Circle
+			table="data"
+			tabIndex={-1}
+			zIndex={0}
+			size={radius}
+			fill={fill}
+			stroke={stroke}
+			fillOpacity={fillOpacity}
+			strokeWidth={strokeWidth}
+			onClick={onClick}
+			onMouseEnter={onMouseEnter}
+			onMouseLeave={onMouseLeave}
+			ariaTitle={encodeCategoryAriaTitle}
+			ariaDescription={encodeCategoryAriaDescription}
+			x={encodeX}
+			y={encodeY}
+		/>
+	)
+})

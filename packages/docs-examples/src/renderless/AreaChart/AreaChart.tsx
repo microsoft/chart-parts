@@ -4,7 +4,7 @@
  */
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 
 const data = [
 	{ u: 1, v: 28 },
@@ -32,7 +32,7 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const AreaChart: React.FC = memo(function AreaChart() {
+export const AreaChart: FC = memo(function AreaChart() {
 	return (
 		<Chart width={500} height={200} padding={8} data={{ data }}>
 			<LinearScale
