@@ -5,9 +5,9 @@
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean } from '@storybook/addon-knobs'
+import { FC } from 'react'
 import { LineChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
-import { FC } from 'react'
 
 const exData = [
 	{ key: 0, value: 28, c: 0 },

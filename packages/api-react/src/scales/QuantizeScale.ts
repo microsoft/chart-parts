@@ -3,11 +3,11 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { quantize } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
-import { FC } from 'react'
 
 /**
  * Quantize Scale Component Props

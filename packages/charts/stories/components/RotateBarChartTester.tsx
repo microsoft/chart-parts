@@ -3,13 +3,13 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { number, object, text, radios } from '@storybook/addon-knobs'
+import { FC } from 'react'
 import { BarChart, Orientation } from '../../src'
 import {
 	makeAxisProps,
 	makeChartPadding,
 	makeBandScaleProps,
 } from './commonKnobs'
-import { FC } from 'react'
 
 const exampleData = [
 	{ key: 'A', value: 28 },

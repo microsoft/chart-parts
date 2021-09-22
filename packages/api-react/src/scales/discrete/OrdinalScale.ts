@@ -4,8 +4,8 @@
  */
 
 import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
-import { createDomainScale, DomainScaleProps } from '../DomainScale'
 import { FC } from 'react'
+import { createDomainScale, DomainScaleProps } from '../DomainScale'
 
 /**
  * OrdinalScale Component Props
