@@ -32,7 +32,7 @@
 		"@essex/scripts": "^18.2.0",
 		"@types/d3-array": "^2.12.3",
 		"@types/d3-scale": "^2.2.6",
-		"@types/react": "^17.0.21",
+		"@types/react": "^17.0.24",
 		"@types/react-dom": "^17.0.9",
 		"@types/storybook__react": "^5.2.1",
 		"@types/styled-components": "^5.1.14",

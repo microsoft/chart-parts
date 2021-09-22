@@ -35,7 +35,7 @@
 		"@essex/scripts": "^18.2.0",
 		"@storybook/addon-actions": "^6.3.8",
 		"@storybook/addon-knobs": "^6.3.1",
-		"@types/jest": "^27.0.1",
+		"@types/jest": "^27.0.2",
 		"@typescript-eslint/eslint-plugin": "^4.31.2",
 		"@typescript-eslint/parser": "^4.31.2",
 		"conventional-changelog-cli": "^2.1.1",

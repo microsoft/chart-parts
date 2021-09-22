@@ -6,6 +6,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmit": true,
+    "jsx": "react-jsx",
     "declaration": false,
     "skipLibCheck": true,
     "resolveJsonModule": true

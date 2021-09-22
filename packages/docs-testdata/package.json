@@ -21,7 +21,7 @@
 	},
 	"devDependencies": {
 		"@essex/scripts": "^18.2.0",
-		"@types/node": "^14.17.16",
+		"@types/node": "^14.17.18",
 		"shx": "^0.3.3"
 	},
 	"peerDependencies": {
