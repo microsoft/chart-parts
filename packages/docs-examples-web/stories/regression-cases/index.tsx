@@ -5,7 +5,6 @@
 
 import { LogScaleLineChartRegression } from '@chart-parts/examples'
 import { storiesOf } from '@storybook/react'
-import React from 'react'
 import { withSvgRenderer, withStrictMode } from '../util/decorators'
 
 storiesOf('Regression Cases', module)

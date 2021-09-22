@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react';
+import {Component} from 'react';
 import {View, Slider, Text as RNText} from 'react-native';
 import population from 'vega-datasets/data/population.json';
 import {
@@ -31,7 +31,7 @@ const AXIS_THICKNESS = 25;
 const chartPadding = 10;
 const chartSegmentWidth = (chartWidth - chartPadding * 2 - textLineWidth) / 2;
 
-export default class PopulationPyramid extends React.Component {
+export default class Po1pulationPyramid extends Component {
 	state = {year: 2000};
 
 	render() {
@@ -81,7 +81,8 @@ const PyramidChart = ({data}) => (
 		height={chartHeight}
 		padding={chartPadding}
 		renderer={renderer}
-		data={data}>
+		data={data}
+	>
 		<ChartScales />
 		<AgeLabels />
 		<MPerYear />

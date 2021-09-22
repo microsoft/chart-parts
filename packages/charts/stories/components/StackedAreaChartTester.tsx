@@ -5,7 +5,6 @@
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean } from '@storybook/addon-knobs'
-import React from 'react'
 import { AreaChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 

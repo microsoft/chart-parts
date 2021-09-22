@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { useRef, RefObject, memo, useState } from 'react'
+import { useRef, RefObject, memo, useState } from 'react'
 import useDimensions from 'react-use-dimensions'
 import styled from 'styled-components'
 import LogoBG from './logobg'
@@ -13,10 +13,8 @@ import { SplashContent } from './splashcontent'
 // @ts-ignore
 
 const IndexPage: React.FC = memo(function IndexPage() {
-	const [
-		containerElement,
-		setContainerElement,
-	] = useState<HTMLDivElement | null>(null)
+	const [containerElement, setContainerElement] =
+		useState<HTMLDivElement | null>(null)
 	const titleRef = useRef<RefObject<any> | null | undefined>(null)
 	const [containerRef, { height, width }] = useDimensions()
 	const [animationComplete] = useSplashPageMountAnimation(

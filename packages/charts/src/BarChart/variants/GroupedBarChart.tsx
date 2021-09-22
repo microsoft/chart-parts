@@ -12,7 +12,7 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import React, { useMemo, memo, useCallback } from 'react'
+import { useMemo, memo, useCallback } from 'react'
 import {
 	useGroupData,
 	useChartOrientation,

@@ -17,7 +17,7 @@ import {
 	Rect,
 	Text,
 } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },

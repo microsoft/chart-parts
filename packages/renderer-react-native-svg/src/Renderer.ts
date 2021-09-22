@@ -9,7 +9,7 @@ import {
 	Channels,
 	Metadata,
 } from '@chart-parts/interfaces'
-import React from 'react'
+import { createElement, ReactElement } from 'react'
 import elementMap from './elementMap'
 
 function createElementFor(
@@ -62,7 +62,7 @@ function createElementFor(
 			handler({ ...(metadata as Metadata), event })
 	})
 
-	const result = React.createElement(
+	const result = createElement(
 		reactSvgType,
 		reactAttrs,
 		(children || [])
@@ -80,10 +80,7 @@ function createElementFor(
  * Renders a Virtual DOM out to React-DOM's Virtual DOM
  */
 export class Renderer {
-	public render(
-		vdom: VSvgNode,
-		handlers: Channels,
-	): React.ReactElement<any> | null {
+	public render(vdom: VSvgNode, handlers: Channels): ReactElement<any> | null {
 		return createElementFor(vdom, 'root', handlers)
 	}
 }

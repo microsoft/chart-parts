@@ -4,7 +4,7 @@
  */
 
 import { graphql } from 'gatsby'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import Doc from '../components/doc'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'

@@ -17,7 +17,6 @@ import {
 	StackedBarChart,
 } from '@chart-parts/examples'
 import { storiesOf } from '@storybook/react'
-import React from 'react'
 import { withSvgRenderer, withStrictMode } from '../util/decorators'
 
 storiesOf('Renderless React Examples', module)

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC } from 'react'
 import * as palette from './util/palette'
 import { SingleMarkTester } from './util/single-mark-tester'
 
@@ -12,7 +12,7 @@ const BASE_ITEM = {
 	fill: palette.GREY,
 }
 
-const SymbolTester: React.FC = () => (
+const SymbolTester: FC = () => (
 	<SingleMarkTester
 		initialScenegraph={{
 			marktype: 'symbol',

@@ -11,7 +11,7 @@ import {
 	LogScale,
 	Dimension,
 } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 // #region data
 const data = [

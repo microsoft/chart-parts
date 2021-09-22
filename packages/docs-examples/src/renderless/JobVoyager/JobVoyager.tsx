@@ -30,7 +30,7 @@ import {
 	Offset as StackOffset,
 	filter,
 } from '@chart-parts/transform'
-import React, { memo, useState, useCallback, useMemo } from 'react'
+import { memo, useState, useCallback, useMemo } from 'react'
 import source from 'vega-datasets/data/jobs.json'
 
 // TODO:

@@ -4,7 +4,7 @@
  */
 import { AxisOrientation, Interpolation } from '@chart-parts/interfaces'
 import { Area, Axis, Chart, LinearScale, Dimension } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const data = [
 	{ u: 1, v: 28 },

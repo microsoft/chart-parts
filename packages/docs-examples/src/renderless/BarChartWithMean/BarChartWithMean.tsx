@@ -13,7 +13,7 @@ import {
 	Rule,
 } from '@chart-parts/react'
 import { mean } from 'd3-array'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },

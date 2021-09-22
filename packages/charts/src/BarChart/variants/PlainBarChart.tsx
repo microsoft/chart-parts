@@ -4,7 +4,7 @@
  */
 import { AxisOrientation } from '@chart-parts/interfaces'
 import { LinearScale, BandScale, Dimension, Axis } from '@chart-parts/react'
-import React, { useMemo, memo } from 'react'
+import { useMemo, memo } from 'react'
 import { useChartOrientation, useBarData } from '../../hooks'
 import { Orientation, BandScaleProps } from '../../types'
 import { createChartContainer } from '../../util'

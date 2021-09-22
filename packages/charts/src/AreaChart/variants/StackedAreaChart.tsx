@@ -12,7 +12,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
 import { createChartContainer } from '../../util'
 import { StackedAreaMarks } from '../marks/StackedAreaMarks'

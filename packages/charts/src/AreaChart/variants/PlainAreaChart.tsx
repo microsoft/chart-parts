@@ -4,7 +4,7 @@
  */
 import { AxisOrientation } from '@chart-parts/interfaces'
 import { Axis, LinearScale, Dimension } from '@chart-parts/react'
-import React, { useMemo, memo } from 'react'
+import { useMemo, memo } from 'react'
 import { createChartContainer } from '../../util'
 import { AreaMarks } from '../marks/AreaMarks'
 import { AreaChartProps } from '../types'

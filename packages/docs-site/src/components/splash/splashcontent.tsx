@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { withPrefix } from 'gatsby'
-import React, { memo, useRef, useMemo } from 'react'
+import { memo, useRef, useMemo } from 'react'
 import styled from 'styled-components'
 import theme from '../../util/theme'
 import Footer from '../footer'
@@ -18,24 +18,22 @@ export const SplashContent: React.FC<SplashContentProps> = memo(
 		const docRef = useRef<HTMLDivElement>(null)
 		const blogRef = useRef<HTMLDivElement>(null)
 		const sourceRef = useRef<HTMLDivElement>(null)
-		const opacity = useMemo(() => (animationComplete ? 1 : 0), [
-			animationComplete,
-		])
+		const opacity = useMemo(
+			() => (animationComplete ? 1 : 0),
+			[animationComplete]
+		)
 
 		const [blogMouseEnter, blogMouseLeave, onBlogClick] = usePaneMousehandlers(
 			blogRef,
 			animationComplete,
 			withPrefix('/blog')
 		)
-		const [
-			sourceMouseEnter,
-			sourceMouseLeave,
-			onSourceClick,
-		] = usePaneMousehandlers(
-			sourceRef,
-			animationComplete,
-			'https://github.com/Microsoft/chart-parts'
-		)
+		const [sourceMouseEnter, sourceMouseLeave, onSourceClick] =
+			usePaneMousehandlers(
+				sourceRef,
+				animationComplete,
+				'https://github.com/Microsoft/chart-parts'
+			)
 		const [docMouseEnter, docMouseLeave, onDocClick] = usePaneMousehandlers(
 			docRef,
 			animationComplete,

@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import { FC } from 'react'
 import styled from 'styled-components'
 import { createTree } from './createTree'
 import { SidebarItem, TreeNode } from './interfaces'
@@ -17,7 +17,7 @@ export interface SidebarProps {
 	flat?: boolean
 }
 
-const Sidebar: React.FC<SidebarProps> = ({ items, activePath, flat }) => {
+const Sidebar: FC<SidebarProps> = ({ items, activePath, flat }) => {
 	const tree: TreeNode[] = createTree(items)
 	return (
 		<Container>

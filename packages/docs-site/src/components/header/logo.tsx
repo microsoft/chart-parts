@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
+import { memo } from 'react'
 import theme from '../../util/theme'
 interface LogoProps {
 	height: number

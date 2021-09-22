@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Orientation } from '@chart-parts/interfaces'
-import React from 'react'
+import { FC } from 'react'
 import * as palette from './util/palette'
 import { SingleMarkTester } from './util/single-mark-tester'
 
@@ -82,7 +82,7 @@ const DROPDOWNS = [
 
 const TOGGLES = [{ name: 'defined' }]
 
-const AreaTesterHorizontal: React.FC = () => (
+const AreaTesterHorizontal: FC = () => (
 	<SingleMarkTester
 		chartWidth={420}
 		chartHeight={chartHeight}

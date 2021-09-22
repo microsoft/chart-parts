@@ -39,8 +39,7 @@ know how to translate chart scenegraphs into our UI layer (in this case, using
 the browser's SVG capabilities).
 
 ```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import './styles.css'
@@ -58,7 +57,7 @@ function App() {
 }
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+render(<App />, rootElement)
 ```
 
 ## Add Scales and Axes
@@ -67,7 +66,7 @@ Not let's define the skeleton of our chart and define some scales and axes.
 
 ```jsx
 // BarChart.js
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { Chart, LinearScale, BandScale, Axis } from '@chart-parts/react'
 
 export const BarChart = memo(({ data, height, width }) => {
@@ -84,8 +83,7 @@ export const BarChart = memo(({ data, height, width }) => {
 
 ```jsx
 // App.js
-import React from 'react'
-import ReactDOM from 'react-dom'
+import { render } from 'react-dom'
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import './styles.css'
@@ -116,7 +114,7 @@ function App() {
 }
 
 const rootElement = document.getElementById('root')
-ReactDOM.render(<App />, rootElement)
+render(<App />, rootElement)
 ```
 
 And we should see the following:
@@ -161,7 +159,7 @@ Now let's add some meaningful marks to our data. In our case, we want a
 rectangular bar per category.
 
 ```jsx
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { Chart, LinearScale, BandScale, Axis, Rect } from '@chart-parts/react'
 
 export const BarChart = memo(({ data, height, width }) => {
@@ -227,7 +225,7 @@ included in the scale. Let's fix that:
 
 ```jsx
 // BarChart.js
-import React, { memo } from 'react'
+import { memo } from 'react'
 import { Chart, LinearScale, BandScale, Axis, Rect } from '@chart-parts/react'
 
 export const BarChart = memo(({ data, height, width }) => {
@@ -264,7 +262,7 @@ bindings:
 
 ```jsx
 // BarChart.js
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import { Chart, LinearScale, BandScale, Axis, Rect } from '@chart-parts/react'
 
 export const BarChart = memo(({ data, height, width }) => {
@@ -342,7 +340,7 @@ the value that is currently being hovered over.
 
 ```jsx
 // BarChart.js
-import React, { memo, useState } from 'react'
+import { memo, useState } from 'react'
 import {
   Chart,
   LinearScale,

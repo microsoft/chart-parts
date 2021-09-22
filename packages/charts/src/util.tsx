@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { ChartPadding, Chart } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 export interface ChartContainerProps {
 	height: number

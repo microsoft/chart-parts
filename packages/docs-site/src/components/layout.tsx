@@ -6,7 +6,7 @@
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { StaticQuery, graphql } from 'gatsby'
-import React from 'react'
+import { FC, StrictMode } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import { SiteMetadata } from '../types'
@@ -27,7 +27,7 @@ export interface LayoutProps {
 	title?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
+const Layout: FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 	<StaticQuery
 		query={graphql`
 			query SiteTitleQuery {
@@ -42,7 +42,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 		`}
 		render={({ site: { siteMetadata } }: LayoutQueryResult) => {
 			return (
-				<React.StrictMode>
+				<StrictMode>
 					<Helmet
 						title={title || siteMetadata.title}
 						meta={getMeta(siteMetadata)}
@@ -67,7 +67,7 @@ const Layout: React.FC<LayoutProps> = ({ sidebar = null, children, title }) => (
 							</ChartingProvider>
 						</ContentContainer>
 					</BodyContent>
-				</React.StrictMode>
+				</StrictMode>
 			)
 		}}
 	/>

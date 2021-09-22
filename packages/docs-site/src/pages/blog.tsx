@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { graphql } from 'gatsby'
-import React from 'react'
 import { BlogStructure } from '../templates/blogTemplate'
 
 // Gatsby page handler for http://<domain>/blog

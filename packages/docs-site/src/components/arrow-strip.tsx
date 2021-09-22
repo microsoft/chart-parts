@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { useState, useEffect, memo, useMemo } from 'react'
+import { useState, useEffect, memo, useMemo } from 'react'
 import { FaChevronDown as ArrowIcon } from 'react-icons/fa'
 import styled from 'styled-components'
 
@@ -19,10 +19,10 @@ export const ArrowStrip: React.FC<ArrowStripProps> = memo(function ArrowStrip({
 	className,
 }) {
 	const opacity = useRotatingOpacity()
-	const style = useMemo(() => ({ ...inputStyle, opacity: 1.0 - fadePercent }), [
-		fadePercent,
-		inputStyle,
-	])
+	const style = useMemo(
+		() => ({ ...inputStyle, opacity: 1.0 - fadePercent }),
+		[fadePercent, inputStyle]
+	)
 	return (
 		<ArrowStripContainer className={className} style={style}>
 			<ArrowIcon color="white" opacity={(opacity + 0.9) % 1.0} />

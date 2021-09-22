@@ -6,7 +6,7 @@
 import { SceneNodeBuilder, scene } from '@chart-parts/builder'
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
-import React, {
+import {
 	memo,
 	useContext,
 	useState,

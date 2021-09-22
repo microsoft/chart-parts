@@ -4,7 +4,7 @@
  */
 
 import { graphql } from 'gatsby'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import Layout from '../components/layout'
 import Post from '../components/post'
 import Sidebar from '../components/sidebar'
@@ -42,7 +42,7 @@ export default function Template({
 }
 
 export const pageQuery = graphql`
-	query($path: String!) {
+	query ($path: String!) {
 		post: markdownRemark(frontmatter: { path: { eq: $path } }) {
 			html
 			htmlAst

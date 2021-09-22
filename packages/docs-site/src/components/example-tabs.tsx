@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import styled from 'styled-components'
 import 'react-tabs/style/react-tabs.css'
@@ -26,9 +26,10 @@ const exampleUrl = (name: string) =>
 
 export const ExampleTabs: React.FC<ExampleTabsProps> = memo(
 	function ExampleTabs({ name, component }) {
-		const ExampleComponent = useMemo(() => (chartIndex as any)[component], [
-			component,
-		])
+		const ExampleComponent = useMemo(
+			() => (chartIndex as any)[component],
+			[component]
+		)
 		const url = useMemo(() => exampleUrl(name), [name])
 
 		return (

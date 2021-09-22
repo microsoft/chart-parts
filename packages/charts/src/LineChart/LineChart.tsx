@@ -11,7 +11,7 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import React, { useMemo, memo } from 'react'
+import { useMemo, memo } from 'react'
 import { useDataGroupSorted, useGroupByFaceting } from '../hooks'
 import { CommonChartProps, AxisProps, FillMarkProps } from '../types'
 import { createChartContainer } from '../util'

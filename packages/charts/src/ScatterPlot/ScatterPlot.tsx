@@ -9,7 +9,7 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { LineChartProps } from '../LineChart/LineChart'
 import { useDataGroupSorted } from '../hooks'
 import { createChartContainer } from '../util'

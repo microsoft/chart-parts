@@ -8,7 +8,7 @@ import {
 	MarkEncoding,
 } from '@chart-parts/interfaces'
 import { Text } from '@chart-parts/react'
-import React, { useCallback, memo } from 'react'
+import { useCallback, memo } from 'react'
 import { Orientation } from '../../types'
 
 const DEFAULT_TEXT: MarkEncoding<string> = ({ d, index }) => d.data[index].value

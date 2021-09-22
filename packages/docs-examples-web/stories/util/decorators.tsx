@@ -4,7 +4,6 @@
  */
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
-import React from 'react'
 
 const svgRenderer = new Renderer()
 

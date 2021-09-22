@@ -4,7 +4,6 @@
  */
 import { action } from '@storybook/addon-actions'
 import { number, object, text } from '@storybook/addon-knobs'
-import React from 'react'
 import { AreaChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 

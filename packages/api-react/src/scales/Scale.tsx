@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useContext, useEffect } from 'react'
+import { memo, useContext, useEffect } from 'react'
 import { SceneBuilderContext } from '../Context'
 
 /**

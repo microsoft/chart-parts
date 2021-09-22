@@ -3,7 +3,6 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { number, object, text, radios } from '@storybook/addon-knobs'
-import React from 'react'
 import { BarChart, Orientation } from '../../src'
 import {
 	makeAxisProps,
@@ -25,43 +24,44 @@ const exData = [
 	{ category: 'C', key: '11', value: 0.7 },
 ]
 
-export const StackedBarChartTester: React.FC = function StackedBarChartTester() {
-	const width = number('width', 400)
-	const height = number('height', 300)
-	const xAxisProps = makeAxisProps('XaxisProps')
-	const yAxisProps = makeAxisProps('YaxisProps')
-	const data = object('data', exData)
-	const title = text('title', '')
-	const description = text('description', '')
-	const chartPadding = makeChartPadding()
-	const bandScaleProps = makeBandScaleProps()
-	const label = 'Chart Orientation'
-	const options = {
-		vertical: Orientation.vertical,
-		horizontal: Orientation.horizontal,
-	}
-	const defaultValue = Orientation.vertical
-	const groupId = 'Selection-orientation'
-	const chartOrient = radios(label, options, defaultValue, groupId)
-	const barPadding = number('barPadding', 10)
+export const StackedBarChartTester: React.FC =
+	function StackedBarChartTester() {
+		const width = number('width', 400)
+		const height = number('height', 300)
+		const xAxisProps = makeAxisProps('XaxisProps')
+		const yAxisProps = makeAxisProps('YaxisProps')
+		const data = object('data', exData)
+		const title = text('title', '')
+		const description = text('description', '')
+		const chartPadding = makeChartPadding()
+		const bandScaleProps = makeBandScaleProps()
+		const label = 'Chart Orientation'
+		const options = {
+			vertical: Orientation.vertical,
+			horizontal: Orientation.horizontal,
+		}
+		const defaultValue = Orientation.vertical
+		const groupId = 'Selection-orientation'
+		const chartOrient = radios(label, options, defaultValue, groupId)
+		const barPadding = number('barPadding', 10)
 
-	return (
-		<div>
-			<BarChart
-				height={height}
-				width={width}
-				data={data}
-				title={title}
-				description={description}
-				chartPadding={chartPadding}
-				orientation={chartOrient}
-				bandScaleProps={bandScaleProps}
-				yAxisProps={yAxisProps}
-				xAxisProps={xAxisProps}
-				groupBy={'category'}
-				barPadding={barPadding}
-				stacked
-			/>
-		</div>
-	)
-}
+		return (
+			<div>
+				<BarChart
+					height={height}
+					width={width}
+					data={data}
+					title={title}
+					description={description}
+					chartPadding={chartPadding}
+					orientation={chartOrient}
+					bandScaleProps={bandScaleProps}
+					yAxisProps={yAxisProps}
+					xAxisProps={xAxisProps}
+					groupBy={'category'}
+					barPadding={barPadding}
+					stacked
+				/>
+			</div>
+		)
+	}

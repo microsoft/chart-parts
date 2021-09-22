@@ -16,7 +16,7 @@ import {
 	ordinal,
 	CategoricalColorScheme,
 } from '@chart-parts/scales'
-import React, { memo, useMemo } from 'react'
+import { memo, useMemo } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

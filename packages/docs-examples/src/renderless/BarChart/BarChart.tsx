@@ -16,7 +16,7 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import React, { memo, useState, useCallback } from 'react'
+import { memo, useState, useCallback } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },

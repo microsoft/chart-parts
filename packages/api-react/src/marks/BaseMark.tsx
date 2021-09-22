@@ -8,7 +8,7 @@ import {
 	SceneNodeBuilder,
 } from '@chart-parts/builder'
 import { MarkType, MarkEncodingKey } from '@chart-parts/interfaces'
-import React, { useContext, useState, useEffect, useMemo } from 'react'
+import { useContext, useState, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
 import { CommonMarkProps } from '../types'
 

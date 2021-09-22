@@ -23,7 +23,7 @@ import {
 	LinearScale,
 } from '@chart-parts/react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
-import React, { memo, useState, useCallback, useMemo } from 'react'
+import { memo, useState, useCallback, useMemo } from 'react'
 import population from 'vega-datasets/data/population.json'
 
 const chartWidth = 600

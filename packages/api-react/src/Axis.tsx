@@ -5,7 +5,7 @@
 
 import { axis as newAxis, AxisBuilder } from '@chart-parts/builder'
 import { AxisOrientation, TickValue, FontWeight } from '@chart-parts/interfaces'
-import React, { useContext, memo, useEffect, useMemo } from 'react'
+import { useContext, memo, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from './Context'
 
 /**

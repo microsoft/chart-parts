@@ -14,7 +14,7 @@ import {
 	Dimension,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },

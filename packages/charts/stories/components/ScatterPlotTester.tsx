@@ -4,7 +4,6 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { number, object, text } from '@storybook/addon-knobs'
-import React from 'react'
 import { ScatterPlot } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 

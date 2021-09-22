@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { Orientation } from '@chart-parts/interfaces'
-import React from 'react'
+import { FC } from 'react'
 import * as palette from './util/palette'
 import { SingleMarkTester } from './util/single-mark-tester'
 
@@ -81,7 +81,7 @@ const SLIDERS = [
 
 const TOGGLES = [{ name: 'defined' }]
 
-const AreaTesterVertical: React.FC = () => (
+const AreaTesterVertical: FC = () => (
 	<SingleMarkTester
 		chartWidth={chartWidth}
 		chartHeight={chartHeight}

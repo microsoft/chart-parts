@@ -7,7 +7,7 @@ import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { linear, time, band } from '@chart-parts/scales'
-import React, { memo, useMemo, useState, useCallback } from 'react'
+import { memo, useMemo, useState, useCallback } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)

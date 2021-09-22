@@ -4,7 +4,7 @@
  */
 import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
 import { Area } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,

@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState, useCallback } from 'react'
+import { memo, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { SGChart } from './chart'
 import { Dropdown } from './dropdown'

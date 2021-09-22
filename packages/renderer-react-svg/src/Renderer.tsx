@@ -10,13 +10,13 @@ import {
 	Channels,
 	Metadata,
 } from '@chart-parts/interfaces'
-import React from 'react'
+import { ReactElement, createElement } from 'react'
 
 function createElementFor(
 	vdom: VSvgNode,
 	key: string,
 	handlers: Channels,
-): React.ReactElement<any> {
+): ReactElement<any> {
 	const {
 		type,
 		children,
@@ -75,7 +75,7 @@ function createElementFor(
 		reactAttrs['aria-labelledby'] = labelledBy.join(' ')
 	}
 
-	const visualElement = React.createElement(type, reactAttrs, childrenElements)
+	const visualElement = createElement(type, reactAttrs, childrenElements)
 	return visualElement
 }
 
@@ -94,7 +94,7 @@ function getTransformAttribute(vdomTransforms: Array<VSvgTransform<any>>) {
  * Renders a Virtual DOM out to React-DOM's Virtual DOM
  */
 export class Renderer {
-	public render(vdom: VSvgNode, handlers: Channels): React.ReactElement<any> {
+	public render(vdom: VSvgNode, handlers: Channels): ReactElement<any> {
 		return createElementFor(vdom, 'root', handlers)
 	}
 }

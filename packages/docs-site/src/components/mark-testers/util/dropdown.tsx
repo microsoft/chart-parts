@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback, useMemo } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -46,9 +46,10 @@ export const Dropdown: React.FC<DropdownProps> = memo(function Dropdown({
 			<InputColumn>
 				<select
 					name={name}
-					onChange={useCallback((evt) => onChange(evt.target.value), [
-						onChange,
-					])}
+					onChange={useCallback(
+						(evt) => onChange(evt.target.value),
+						[onChange]
+					)}
 					value={value}
 				>
 					{optionDom}

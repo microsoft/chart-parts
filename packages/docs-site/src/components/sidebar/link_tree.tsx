@@ -4,7 +4,7 @@
  */
 
 import { Link as RawLink } from 'gatsby'
-import React, { memo, useState, useMemo, useCallback, useEffect } from 'react'
+import { memo, useState, useMemo, useCallback, useEffect } from 'react'
 import {
 	FaAngleDown as ExpandedIconRaw,
 	FaAngleRight as CollapsedIconRaw,
@@ -30,9 +30,10 @@ const LinkTree: React.FC<LinkTreeProps> = memo(function LinkTree({
 	depth,
 	flat,
 }) {
-	const activePath = useMemo(() => activePathRaw.replace('/chart-parts', ''), [
-		activePathRaw,
-	])
+	const activePath = useMemo(
+		() => activePathRaw.replace('/chart-parts', ''),
+		[activePathRaw]
+	)
 	const [expanded, setExpanded] = useState<boolean>(!!expandedProp)
 	useEffect(() => {
 		if (activePath.indexOf(node.item.path) >= 0) {

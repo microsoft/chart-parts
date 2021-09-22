@@ -15,7 +15,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },

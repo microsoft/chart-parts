@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo, useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -35,9 +35,10 @@ export const Toggle: React.FC<ToggleProps> = memo(function Toggle({
 				type="checkbox"
 				name={name}
 				checked={value}
-				onChange={useCallback((evt) => onChange(evt.target.checked), [
-					onChange,
-				])}
+				onChange={useCallback(
+					(evt) => onChange(evt.target.checked),
+					[onChange]
+				)}
 			/>
 			<div>{value}</div>
 		</Container>

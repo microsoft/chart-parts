@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { Rect } from '@chart-parts/react'
-import React, { memo, useCallback } from 'react'
+import { memo, useCallback } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,

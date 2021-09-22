@@ -4,7 +4,7 @@
  */
 
 import { Link, graphql, StaticQuery } from 'gatsby'
-import React, { memo } from 'react'
+import { memo } from 'react'
 import styled from 'styled-components'
 import pkgJson from '../../../../../package.json'
 import theme from '../../util/theme'

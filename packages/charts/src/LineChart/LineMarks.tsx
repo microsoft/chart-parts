@@ -4,7 +4,7 @@
  */
 import { ChannelHandler, MarkEncoding, Gradient } from '@chart-parts/interfaces'
 import { Line } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo } from 'react'
 
 export interface LineMarksProps {
 	onClick?: ChannelHandler<React.MouseEvent<any>>
