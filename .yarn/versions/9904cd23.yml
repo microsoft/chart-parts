@@ -1,0 +1,12 @@
+releases:
+  "@chart-parts/charts": minor
+  "@chart-parts/docsite": minor
+  "@chart-parts/examples": minor
+  "@chart-parts/examples-web": minor
+  "@chart-parts/parent": minor
+  "@chart-parts/react": minor
+  "@chart-parts/react-native-svg-renderer": minor
+  "@chart-parts/react-svg-renderer": minor
+  "@chart-parts/testdata": minor
+  "@chart-parts/transform": minor
+  examplesmobile: minor
