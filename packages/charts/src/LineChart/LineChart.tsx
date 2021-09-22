@@ -11,7 +11,7 @@ import {
 	OrdinalScale,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { useMemo, memo } from 'react'
+import { FC, useMemo, memo } from 'react'
 import { useDataGroupSorted, useGroupByFaceting } from '../hooks'
 import { CommonChartProps, AxisProps, FillMarkProps } from '../types'
 import { createChartContainer } from '../util'
@@ -25,7 +25,7 @@ export interface LineChartProps extends CommonChartProps, FillMarkProps {
 
 const Container = createChartContainer('Line Chart')
 
-export const LineChart: React.FC<LineChartProps> = memo(function LineChart({
+export const LineChart: FC<LineChartProps> = memo(function LineChart({
 	data,
 	height,
 	width,

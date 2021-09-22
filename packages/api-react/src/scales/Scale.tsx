@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { memo, useContext, useEffect } from 'react'
+import { FC, memo, useContext, useEffect } from 'react'
 import { SceneBuilderContext } from '../Context'
 
 /**
@@ -31,7 +31,7 @@ export interface ScaleProps {
  * Generic scale component
  * @category Scale
  */
-export const Scale: React.FC<ScaleProps> = memo(function Scale({ create }) {
+export const Scale: FC<ScaleProps> = memo(function Scale({ create }) {
 	const api = useContext(SceneBuilderContext)
 	useEffect(() => {
 		if (api) {

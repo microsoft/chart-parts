@@ -9,6 +9,7 @@ import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from '../DomainRangeScale'
+import { FC } from 'react'
 
 /**
  * PointScale Component props
@@ -37,7 +38,7 @@ export interface PointScaleProps
  * @category Scale
  * @remarks Based on [d3.scalePoint](https://github.com/d3/d3-scale#scalePoint)
  */
-export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
+export const PointScale: FC<PointScaleProps> = createDomainRangeScale(
 	'PointScale',
 	({
 		stepName: stepNameProp,

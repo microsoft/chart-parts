@@ -4,7 +4,7 @@
  */
 
 import { graphql } from 'gatsby'
-import { memo } from 'react'
+import { FC, memo } from 'react'
 import Doc from '../components/doc'
 import Layout from '../components/layout'
 import Sidebar from '../components/sidebar'
@@ -16,24 +16,26 @@ export interface DocStructureProps {
 	pathname: string
 	page: any
 }
-export const DocStructure: React.FC<DocStructureProps> = memo(
-	function DocStructure({ toc, pathname, page }) {
-		return (
-			<Layout
-				title={page.frontmatter.title}
-				sidebar={
-					<Sidebar
-						items={convertGraphqlToc(toc)}
-						activePath={pathname}
-						flat={false}
-					/>
-				}
-			>
-				<Doc docPage={page} />
-			</Layout>
-		)
-	}
-)
+export const DocStructure: FC<DocStructureProps> = memo(function DocStructure({
+	toc,
+	pathname,
+	page,
+}) {
+	return (
+		<Layout
+			title={page.frontmatter.title}
+			sidebar={
+				<Sidebar
+					items={convertGraphqlToc(toc)}
+					activePath={pathname}
+					flat={false}
+				/>
+			}
+		>
+			<Doc docPage={page} />
+		</Layout>
+	)
+})
 
 export default function Template({
 	data: { toc, currentPage },

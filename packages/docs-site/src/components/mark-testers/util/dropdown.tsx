@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { memo, useCallback, useMemo } from 'react'
+import { memo, useCallback, useMemo, FC } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -25,7 +25,7 @@ export interface DropdownProps {
 }
 const DO_NOTHING = () => null
 
-export const Dropdown: React.FC<DropdownProps> = memo(function Dropdown({
+export const Dropdown: FC<DropdownProps> = memo(function Dropdown({
 	name,
 	value,
 	options,

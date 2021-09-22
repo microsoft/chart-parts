@@ -8,7 +8,7 @@ import {
 	MarkEncoding,
 } from '@chart-parts/interfaces'
 import { Text } from '@chart-parts/react'
-import { useCallback, memo } from 'react'
+import { FC, useCallback, memo } from 'react'
 import { Orientation } from '../../types'
 
 const DEFAULT_TEXT: MarkEncoding<string> = ({ d, index }) => d.data[index].value
@@ -20,7 +20,7 @@ export interface BarTipsProps {
 	text?: MarkEncoding<string>
 }
 
-export const BarTips: React.FC<BarTipsProps> = memo(function BarTips({
+export const BarTips: FC<BarTipsProps> = memo(function BarTips({
 	index,
 	fill = DEFAULT_FILL,
 	text = DEFAULT_TEXT,

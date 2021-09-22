@@ -4,7 +4,7 @@
  */
 
 import { graphql } from 'gatsby'
-import { memo } from 'react'
+import { memo, FC } from 'react'
 import Layout from '../components/layout'
 import Post from '../components/post'
 import Sidebar from '../components/sidebar'
@@ -15,7 +15,7 @@ export interface BlogStructureProps {
 	pathname: string
 	post: any
 }
-export const BlogStructure: React.FC<BlogStructureProps> = memo(
+export const BlogStructure: FC<BlogStructureProps> = memo(
 	function BlogStructure({ toc, pathname, post }) {
 		return (
 			<Layout

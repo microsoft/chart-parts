@@ -4,7 +4,7 @@
  */
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean, radios } from '@storybook/addon-knobs'
-import { useCallback } from 'react'
+import { FC, useCallback } from 'react'
 import { BarChart, BarTips, Orientation } from '../../src'
 import {
 	makeAxisProps,
@@ -24,7 +24,7 @@ const exampleData = [
 	{ key: 'H', value: 87 },
 ]
 
-export const InteractiveBarChartTester: React.FC =
+export const InteractiveBarChartTester: FC =
 	function InteractiveBarChartTester() {
 		const [hoverRowIndex, onMouseEnter, onMouseLeave] = useHoverIndex()
 		const fill = useCallback(

@@ -13,7 +13,7 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import { memo } from 'react'
+import { memo, FC } from 'react'
 
 const series = [
 	{
@@ -107,7 +107,7 @@ const TEXT_GROUP_HEIGHT = 110
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const ElbowPlot: React.FC = memo(function ElbowPlot() {
+export const ElbowPlot: FC = memo(function ElbowPlot() {
 	return (
 		<Chart height={200} width={200} data={{ kpis, series }}>
 			<LinearScale

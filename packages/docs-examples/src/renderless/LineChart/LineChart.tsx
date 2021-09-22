@@ -14,7 +14,7 @@ import {
 	Dimension,
 	CategoricalColorScheme,
 } from '@chart-parts/react'
-import { memo } from 'react'
+import { memo, FC } from 'react'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -42,7 +42,7 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const LineChart: React.FC = memo(function LineChart() {
+export const LineChart: FC = memo(function LineChart() {
 	return (
 		<Chart width={500} height={200} padding={5} data={{ data }}>
 			<PointScale

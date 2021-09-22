@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import { memo, useCallback, useState } from 'react'
+import { FC, memo, useCallback, useState } from 'react'
 import styled from 'styled-components'
 import { nameColumnWidth } from './constants'
 
@@ -23,7 +23,7 @@ export interface SliderProps {
 	onChange?: (value: number | string) => void
 }
 const DO_NOTHING = () => null
-export const Slider: React.FC<SliderProps> = memo(function Slider({
+export const Slider: FC<SliderProps> = memo(function Slider({
 	name,
 	min = 0,
 	max = 200,

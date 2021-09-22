@@ -5,6 +5,7 @@
 
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
+import { FC } from 'react'
 
 const pipeline = new Orchestrator(new Renderer())
 export interface SGChartProps {
@@ -13,7 +14,7 @@ export interface SGChartProps {
 	height?: number
 	origin?: [number, number]
 }
-export const SGChart: React.FC<SGChartProps> = ({
+export const SGChart: FC<SGChartProps> = ({
 	data,
 	width = 200,
 	height = 200,

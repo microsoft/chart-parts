@@ -15,7 +15,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
-import { memo } from 'react'
+import { memo, FC } from 'react'
 
 const data = [
 	{ x: 0, y: 28, c: 0 },
@@ -46,7 +46,7 @@ const ds = dataset().addTable(
 	stack('y').groupBy('x').sort({ field: 'c' }),
 )
 
-export const StackedAreaChart: React.FC = memo(function StackedAreaChart() {
+export const StackedAreaChart: FC = memo(function StackedAreaChart() {
 	return (
 		<Chart width={500} height={200} padding={8} data={ds.tables}>
 			<PointScale name="x" domain="data.x" range={Dimension.Width} />

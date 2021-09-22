@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { Rect } from '@chart-parts/react'
-import { memo, useCallback } from 'react'
+import { FC, memo, useCallback } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
@@ -26,7 +26,7 @@ const encodeX: MarkEncoding<number> = ({ d, xVertical, xHorizontal }) =>
 const encodeY: MarkEncoding<number> = ({ d, yVertical, yHorizontal }) =>
 	yHorizontal ? yHorizontal(d._category) : yVertical(d.y0)
 
-export const StackedBarMarks: React.FC<StackedBarMarksProps> = memo(
+export const StackedBarMarks: FC<StackedBarMarksProps> = memo(
 	function StackedBarMarks({
 		onClick,
 		onMouseEnter,

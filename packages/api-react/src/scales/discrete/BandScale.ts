@@ -5,6 +5,7 @@
 
 import { Dimension } from '@chart-parts/interfaces'
 import { band } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
@@ -52,7 +53,7 @@ export interface BandScaleProps
  * @category Scale
  * @remarks Based on the [d3 bandScale](https://github.com/d3/d3-scale#band-scales)
  */
-export const BandScale: React.FC<BandScaleProps> = createDomainRangeScale<
+export const BandScale: FC<BandScaleProps> = createDomainRangeScale<
 	BandScaleProps,
 	string[],
 	[number, number],

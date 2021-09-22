@@ -16,7 +16,7 @@ function createElementFor(
 	vdom: VSvgNode,
 	key: string,
 	handlers: Channels,
-): React.ReactElement<any> | null {
+): ReactElement<any> | null {
 	const {
 		type,
 		children,

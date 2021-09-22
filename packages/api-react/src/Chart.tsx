@@ -7,6 +7,7 @@ import { SceneNodeBuilder, scene } from '@chart-parts/builder'
 import { SceneNode, ChartOptions } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import {
+	FC,
 	memo,
 	useContext,
 	useState,
@@ -47,7 +48,7 @@ export interface ChartProps {
  * The Chart Component, the root of all charts
  * @category Chart
  */
-export const Chart: React.FC<ChartProps> = memo(function Chart({
+export const Chart: FC<ChartProps> = memo(function Chart({
 	data,
 	children,
 	width,

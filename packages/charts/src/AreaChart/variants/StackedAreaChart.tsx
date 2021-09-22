@@ -12,7 +12,7 @@ import {
 	CategoricalColorScheme,
 } from '@chart-parts/react'
 import { stack, dataset } from '@chart-parts/transform'
-import { memo, useMemo } from 'react'
+import { FC, memo, useMemo } from 'react'
 import { useDataGroupSorted, useGroupByFaceting } from '../../hooks'
 import { createChartContainer } from '../../util'
 import { StackedAreaMarks } from '../marks/StackedAreaMarks'
@@ -20,7 +20,7 @@ import { AreaChartProps } from '../types'
 
 const Container = createChartContainer('Stacked Area Chart')
 
-export const StackedAreaChart: React.FC<AreaChartProps> = memo(
+export const StackedAreaChart: FC<AreaChartProps> = memo(
 	function StackedAreaChart({
 		data,
 		height,

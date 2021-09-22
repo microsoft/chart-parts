@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { ChartPadding, Chart } from '@chart-parts/react'
-import { memo } from 'react'
+import { FC, memo } from 'react'
 
 export interface ChartContainerProps {
 	height: number
@@ -18,8 +18,8 @@ const DEFAULT_PADDING = 10
 
 export function createChartContainer(
 	defaultTitle: string,
-): React.FC<ChartContainerProps> {
-	const Container: React.FC<ChartContainerProps> = memo(function Container({
+): FC<ChartContainerProps> {
+	const Container: FC<ChartContainerProps> = memo(function Container({
 		height,
 		width,
 		title = defaultTitle,

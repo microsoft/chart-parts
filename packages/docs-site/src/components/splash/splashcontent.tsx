@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { withPrefix } from 'gatsby'
-import { memo, useRef, useMemo } from 'react'
+import { memo, useRef, useMemo, FC } from 'react'
 import styled from 'styled-components'
 import theme from '../../util/theme'
 import Footer from '../footer'
@@ -13,7 +13,7 @@ import { usePaneMousehandlers } from './splash.hooks'
 export interface SplashContentProps {
 	animationComplete: boolean
 }
-export const SplashContent: React.FC<SplashContentProps> = memo(
+export const SplashContent: FC<SplashContentProps> = memo(
 	function SplashContent({ animationComplete }) {
 		const docRef = useRef<HTMLDivElement>(null)
 		const blogRef = useRef<HTMLDivElement>(null)
