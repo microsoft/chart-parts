@@ -30,7 +30,7 @@ import {
   Offset as StackOffset,
   filter,
 } from '@chart-parts/transform'
-import React, { memo, useState, useCallback, useMemo } from 'react'
+import { memo, useState, useCallback, useMemo, FC, ChangeEvent } from 'react'
 import source from 'vega-datasets/data/jobs.json'
 
 // TODO:
@@ -39,18 +39,18 @@ import source from 'vega-datasets/data/jobs.json'
 
 const genderOptions = ['all', 'women', 'men']
 
-export const JobVoyager: React.FC = memo(function JobVoyager() {
+export const JobVoyager: FC = memo(function JobVoyager() {
   const [gender, setGender] = useState('all')
   const [selectedAreaId, setSelectedAreaId] = useState<string | undefined>()
   const [query, setQuery] = useState<string | undefined>()
   const queryRegExp = useMemo(() => query && new RegExp(query), [query])
 
   const onQueryChange = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
+    (e: ChangeEvent<HTMLInputElement>) => setQuery(e.target.value),
     [setQuery]
   )
   const changeGenderSelection = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => setGender(e.target.value),
+    (e: ChangeEvent<HTMLInputElement>) => setGender(e.target.value),
     [setGender]
   )
   const onEnterArea = useCallback(
@@ -131,7 +131,7 @@ interface JobVoyagerChartProps {
   onEnterArea: (id: string) => any
   onClickArea: (job: string) => any
 }
-const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
+const JobVoyagerChart: FC<JobVoyagerChartProps> = memo(
   function JobVoyagerChart({ data, selectedAreaId, onEnterArea, onClickArea }) {
     return (
       <Chart width={850} height={550} padding={10} data={data}>
@@ -179,7 +179,7 @@ const JobVoyagerChart: React.FC<JobVoyagerChartProps> = memo(
   }
 )
 
-const Axes: React.FC = memo(function Axes() {
+const Axes: FC = memo(function Axes() {
   return (
     <>
       <Axis
@@ -200,7 +200,7 @@ const Axes: React.FC = memo(function Axes() {
   )
 })
 
-const Scales: React.FC = memo(function Scales() {
+const Scales: FC = memo(function Scales() {
   return (
     <>
       <LinearScale

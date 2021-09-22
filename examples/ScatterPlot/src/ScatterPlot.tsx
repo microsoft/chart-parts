@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo, useState } from 'react'
+import { memo, useState, CSSProperties, FC } from 'react'
 import { FieldSelector } from './FieldSelector'
 import { ScatterPlotChart } from './ScatterPlotChart'
 
@@ -13,7 +13,7 @@ const FIELDS = [
   'Worldwide_Gross',
 ]
 
-const styles: { [key: string]: React.CSSProperties } = {
+const styles: { [key: string]: CSSProperties } = {
   container: {
     display: 'flex',
     flexDirection: 'row',
@@ -23,7 +23,7 @@ const styles: { [key: string]: React.CSSProperties } = {
   },
 }
 
-export const ScatterPlot: React.FC = memo(function ScatterPlot() {
+export const ScatterPlot: FC = memo(function ScatterPlot() {
   const [yField, setYField] = useState(FIELDS[0])
   const [xField, setXField] = useState(FIELDS[1])
 

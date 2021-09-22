@@ -23,7 +23,15 @@ import {
   LinearScale,
 } from '@chart-parts/react'
 import { dataset, filter, aggregate } from '@chart-parts/transform'
-import React, { memo, useState, useCallback, useMemo } from 'react'
+import {
+  memo,
+  useState,
+  useCallback,
+  useMemo,
+  CSSProperties,
+  FC,
+  ChangeEvent,
+} from 'react'
 import population from 'vega-datasets/data/population.json'
 
 const chartWidth = 600
@@ -37,14 +45,14 @@ export interface PopulationPyramidState {
   year: number
 }
 
-const styles: Record<string, React.CSSProperties> = {
+const styles: Record<string, CSSProperties> = {
   yearPickerContainer: { margin: 10, display: 'flex', alignItems: 'center' },
 }
 
-export const PopulationPyramid: React.FC = memo(function PopulationPyramid() {
+export const PopulationPyramid: FC = memo(function PopulationPyramid() {
   const [year, setYear] = useState(2000)
   const handleYearChanged = useCallback(
-    (arg: React.ChangeEvent<any>) => {
+    (arg: ChangeEvent<any>) => {
       const year = parseInt(arg.target.value, 10)
       setYear(year)
     },
@@ -85,9 +93,9 @@ export const PopulationPyramid: React.FC = memo(function PopulationPyramid() {
 
 interface YearPickerProps {
   year: number
-  onChange: (arg: React.ChangeEvent<HTMLInputElement>) => void
+  onChange: (arg: ChangeEvent<HTMLInputElement>) => void
 }
-const YearPicker: React.FC<YearPickerProps> = function YearPicker({
+const YearPicker: FC<YearPickerProps> = function YearPicker({
   year,
   onChange,
 }) {
@@ -109,9 +117,7 @@ const YearPicker: React.FC<YearPickerProps> = function YearPicker({
 interface PyramidChartProps {
   data: { [key: string]: any[] }
 }
-const PyramidChart: React.FC<PyramidChartProps> = function PyramidChart({
-  data,
-}) {
+const PyramidChart: FC<PyramidChartProps> = function PyramidChart({ data }) {
   return (
     <Chart
       width={chartWidth}
@@ -127,7 +133,7 @@ const PyramidChart: React.FC<PyramidChartProps> = function PyramidChart({
   )
 }
 
-const ChartScales: React.FC = function ChartScales() {
+const ChartScales: FC = function ChartScales() {
   return (
     <>
       <BandScale
@@ -151,7 +157,7 @@ const ChartScales: React.FC = function ChartScales() {
   )
 }
 
-const AgeLabels: React.FC = memo(function AgeLabels() {
+const AgeLabels: FC = memo(function AgeLabels() {
   return (
     <Text
       table="ageGroups"
@@ -165,7 +171,7 @@ const AgeLabels: React.FC = memo(function AgeLabels() {
   )
 })
 
-const FPerYear: React.FC = memo(function FPerYear() {
+const FPerYear: FC = memo(function FPerYear() {
   return (
     <GenderPerYearSection
       xStart={0}
@@ -175,7 +181,7 @@ const FPerYear: React.FC = memo(function FPerYear() {
   )
 })
 
-const MPerYear: React.FC = memo(function MPerYear() {
+const MPerYear: FC = memo(function MPerYear() {
   return (
     <GenderPerYearSection
       table="males"
@@ -190,7 +196,7 @@ interface GenderPerYearSectionProps {
   xRange: [number, number]
   xStart: number
 }
-const GenderPerYearSection: React.FC<GenderPerYearSectionProps> = memo(
+const GenderPerYearSection: FC<GenderPerYearSectionProps> = memo(
   function GenderPerYearSection({ table, xRange, xStart }) {
     return (
       <Group
@@ -221,7 +227,7 @@ interface GenderPerYearRectProps {
   table: string
 }
 
-const GenderPerYearRect: React.FC<GenderPerYearRectProps> = memo(
+const GenderPerYearRect: FC<GenderPerYearRectProps> = memo(
   function GenderPerYearRect({ table }) {
     return (
       <Rect

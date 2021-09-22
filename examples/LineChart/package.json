@@ -1,5 +1,5 @@
 {
-  "name": "chart-parts-example-7",
+  "name": "chart-parts-example-6",
   "main": "src/index.tsx",
   "description": "auto-generated package for codesandbox import",
   "private": true,
@@ -13,8 +13,8 @@
   "dependencies": {
     "@essex/scripts": "^18.2.0",
     "@types/d3-array": "^2.12.3",
-    "@types/node": "^14.17.16",
-    "@types/react": "^17.0.21",
+    "@types/node": "^14.17.18",
+    "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
     "react": "^17.0.2",
     "@chart-parts/builder": "workspace:packages/api-builder",
@@ -29,7 +29,7 @@
     "react-dom": "^17.0.2",
     "react-scripts": "3.1.1",
     "typescript": "^4.4.3",
-    "@types/jest": "^27.0.1"
+    "@types/jest": "^27.0.2"
   },
   "browserslist": [
     ">0.2%",

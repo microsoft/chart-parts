@@ -2,17 +2,17 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React, { memo } from 'react'
+import { memo, FC, CSSProperties } from 'react'
 
 export interface FieldSelectorProps {
   name: string
   value: string
   items: string[]
-  style?: React.CSSProperties
+  style?: CSSProperties
   onChange: (value: string) => void
 }
 
-export const FieldSelector: React.FC<FieldSelectorProps> = memo(
+export const FieldSelector: FC<FieldSelectorProps> = memo(
   function FieldSelector({ name, value, items, onChange, style }) {
     return (
       <div style={style}>
@@ -31,7 +31,7 @@ export const FieldSelector: React.FC<FieldSelectorProps> = memo(
   }
 )
 
-const styles: Record<string, React.CSSProperties> = {
+const styles: Record<string, CSSProperties> = {
   label: {
     margin: 5,
   },

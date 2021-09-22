@@ -12,7 +12,7 @@ import {
   CategoricalColorScheme,
 } from '@chart-parts/react'
 import { dataset, stack } from '@chart-parts/transform'
-import React, { memo, useState, useCallback } from 'react'
+import { FC, memo, useState, useCallback } from 'react'
 
 const data = [
   { x: 0, y: 28, c: 0 },
@@ -46,7 +46,7 @@ const ds = dataset().addTable(
 /**
  * Adapted from https://vega.github.io/vega/examples/stacked-bar-chart/
  */
-export const StackedBarChart: React.FC = memo(function StackedBarChart() {
+export const StackedBarChart: FC = memo(function StackedBarChart() {
   const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
   return (
     <Chart
