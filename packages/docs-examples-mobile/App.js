@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import {Fragment} from 'react';
+import React from 'react';
 import {
 	SafeAreaView,
 	StyleSheet,
@@ -23,7 +23,7 @@ import {
 
 const App = () => {
 	return (
-		<Fragment>
+		<>
 			<StatusBar barStyle="dark-content" />
 			<SafeAreaView>
 				<ScrollView
@@ -66,7 +66,7 @@ const App = () => {
 					</View>
 				</ScrollView>
 			</SafeAreaView>
-		</Fragment>
+		</>
 	);
 };
 
