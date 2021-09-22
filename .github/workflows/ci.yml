@@ -9,6 +9,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
 
       - name: Debug Action
         uses: hmarr/debug-action@v1.0.0
@@ -31,14 +33,6 @@ jobs:
 
       - name: Publish coverage to codecov.io
         uses: codecov/codecov-action@v1.0.3
-        if: success() && matrix.node-version == '12.x'
+        if: success() && matrix.node-version == '14.x'
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-
-changesetBaseRefs:
-  - main
-  - origin/main
-  - upstream/main
-
-changesetIgnorePatterns:
-  - '**/*.spec.{js,ts,tsx}'

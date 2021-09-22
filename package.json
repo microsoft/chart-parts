@@ -2,6 +2,14 @@
 	"name": "@chart-parts/parent",
 	"private": true,
 	"version": "0.1.3",
+	"author": "Chris Trevino <chris.trevino@microsoft.com>",
+	"contributors": [
+		"Amber Hoak <amhoak@microsoft.com>"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/chart-parts.git"
+	},
 	"scripts": {
 		"preinstall": "npx only-allow yarn",
 		"postinstall": "husky install",

@@ -4,9 +4,9 @@
  */
 import { action } from '@storybook/addon-actions'
 import { number, object, text } from '@storybook/addon-knobs'
+import { FC } from 'react'
 import { AreaChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
-import { FC } from 'react'
 
 const exData = [
 	{ key: 1, value: 28 },

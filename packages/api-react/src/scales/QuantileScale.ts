@@ -4,12 +4,12 @@
  */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { quantize } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from './DomainRangeScale'
 import { QuantitativeValue } from './quantitative/QuantitativeScale'
-import { FC } from 'react'
 
 /**
  * Quantile Scale Component Props

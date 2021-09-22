@@ -5,11 +5,11 @@
 
 import { Dimension } from '@chart-parts/interfaces'
 import { point } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
 } from '../DomainRangeScale'
-import { FC } from 'react'
 
 /**
  * PointScale Component props
