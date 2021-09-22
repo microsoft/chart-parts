@@ -1826,8 +1826,8 @@ __metadata:
     "@types/react-color": ">= 3.0.4"
     "@types/react-dom": ">= 16.9.10"
     core-js: "*"
-    react: ">= 16.9.0"
-    react-dom: ">= 16.9.0"
+    react: ">= 17"
+    react-dom: ">= 17"
     regenerator-runtime: "*"
   languageName: unknown
   linkType: soft
@@ -1957,10 +1957,10 @@ __metadata:
     vega-datasets: ^2.2.0
   peerDependencies:
     "@types/node": ">= 14.14.10"
-    "@types/react": ">= 16.14.2"
-    "@types/react-dom": ">= 16.9.10"
+    "@types/react": ">= 17"
+    "@types/react-dom": ">= 17"
     core-js: "*"
-    react: ">= 16.9"
+    react: ">= 17"
     regenerator-runtime: "*"
   languageName: unknown
   linkType: soft
@@ -2038,7 +2038,7 @@ __metadata:
   peerDependencies:
     "@types/react-native": ">= 0.63.37"
     core-js: "*"
-    react: ">= 16.9"
+    react: ">= 17"
     react-native: "*"
     regenerator-runtime: "*"
   languageName: unknown
@@ -2055,10 +2055,10 @@ __metadata:
     lodash: ^4.17.21
     react: ^17.0.2
   peerDependencies:
-    "@types/react": ">= 16.14.2"
-    "@types/react-dom": ">= 16.9.10"
+    "@types/react": ">= 17"
+    "@types/react-dom": ">= 17"
     core-js: "*"
-    react: ">= 16.9"
+    react: ">= 17"
     regenerator-runtime: "*"
   languageName: unknown
   linkType: soft
@@ -2078,9 +2078,9 @@ __metadata:
     rxjs: ^7.3.0
     shallowequal: ^1.1.0
   peerDependencies:
-    "@types/react": ">= 16.14.2"
+    "@types/react": ">= 17"
     core-js: "*"
-    react: ">= 16.9"
+    react: ">= 17"
     regenerator-runtime: "*"
   languageName: unknown
   linkType: soft
