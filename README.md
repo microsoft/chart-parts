@@ -8,5 +8,3 @@ A flexible, React-friendly, Grammar of Graphics for data visualization.
 ## Video Introduction
 
 [The Missing Abstraction of Charting](https://www.youtube.com/watch?v=qqffsEHKMcM)
-
-.
