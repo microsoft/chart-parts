@@ -44,8 +44,8 @@
 		"@storybook/addon-actions": "^6.3.8",
 		"@storybook/addon-knobs": "^6.3.1",
 		"@types/jest": "^27.0.2",
-		"@typescript-eslint/eslint-plugin": "^4.31.2",
-		"@typescript-eslint/parser": "^4.31.2",
+		"@typescript-eslint/eslint-plugin": "^5.6.0",
+		"@typescript-eslint/parser": "^5.6.0",
 		"conventional-changelog-cli": "^2.1.1",
 		"eslint": "^7.32.0",
 		"eslint-import-resolver-node": "^0.3.6",
@@ -55,7 +55,7 @@
 		"lint-staged": "^11.1.2",
 		"npm-run-all": "^4.1.5",
 		"prettier": "^2.4.1",
-		"typescript": "^4.4.3"
+		"typescript": "^4.5.2"
 	},
 	"workspaces": [
 		"packages/*"
