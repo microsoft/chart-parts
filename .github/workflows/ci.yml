@@ -7,6 +7,9 @@ jobs:
       matrix:
         node-version: [14.x, 16.x]
 
+    env:
+      CI: true
+
     steps:
       - uses: actions/checkout@v2
         with:
@@ -21,15 +24,25 @@ jobs:
           node-version: ${{ matrix.node-version }}
 
       - run: yarn version check
-        name: Check for SemVer Compliance
+        name: Version Check
 
       - run: yarn install
         name: Install Dependencies
 
-      - run: yarn ci
-        name: Execute Tests
-        env:
-          CI: true
+      - run: 'yarn lint:'
+        name: Lint
+
+      - run: 'yarn build:'
+        name: Build
+
+      - run: 'yarn unit:test'
+        name: Unit Test
+
+      - run: 'yarn test:'
+        name: Test Packages
+
+      - run: 'yarn git_is_clean'
+        name: Verify Git is Clean
 
       - name: Publish coverage to codecov.io
         uses: codecov/codecov-action@v1.0.3

@@ -5,8 +5,7 @@ out/
 public/
 static/
 .yarn/
-.pnp.js
-.pnp.cjs
+.pnp.*
 .yarnrc.yml
 # TODO FIX
 packages/docs-examples-mobile/
