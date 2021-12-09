@@ -21,7 +21,6 @@
 		"lint:": "essex lint --strict",
 		"unit:test": "jest --coverage",
 		"git_is_clean": "essex git-is-clean",
-		"ci": "run-s lint: build: unit:test test: git_is_clean",
 		"changelog": "conventional-changelog -p eslint -i CHANGELOG.md -s -r 0",
 		"release": "run-s clean: build: test: publish_libs changelog release_all",
 		"prepare": "husky install"
