@@ -1,0 +1,10 @@
+releases:
+  "@chart-parts/builder": patch
+  "@chart-parts/charts": patch
+  "@chart-parts/docsite": patch
+  "@chart-parts/examples": patch
+  "@chart-parts/examples-web": patch
+  "@chart-parts/orchestrator": patch
+  "@chart-parts/parent": patch
+  "@chart-parts/react": patch
+  examplesmobile: patch
