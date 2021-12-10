@@ -22,7 +22,7 @@ import {
  */
 export class SceneFrame {
 	public constructor(
-		public node: SceneNode | undefined,
+		public node: SceneNode,
 		public mark: Mark | undefined,
 		public data: DataFrame,
 		public view: ViewSize,
