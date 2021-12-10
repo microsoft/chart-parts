@@ -23,10 +23,9 @@ export function createScenegraph(
 	options: ChartOptions,
 ): GeneratedScenegraph {
 	const optionsManager = new ChartOptionsManager(options)
-	const width = optionsManager.chartSpace.shape.width as number
-	const height = optionsManager.chartSpace.shape.height as number
-	const emptyNode = undefined as any as SceneNode
-	const rootFrame = new SceneFrame(emptyNode, undefined, data, {
+	const width = optionsManager.chartSpace.shape.width!
+	const height = optionsManager.chartSpace.shape.height!
+	const rootFrame = new SceneFrame(undefined, undefined, data, {
 		width,
 		height,
 	})

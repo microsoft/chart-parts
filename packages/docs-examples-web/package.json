@@ -10,6 +10,7 @@
 		"//serve": "webpack-dev-server --mode development --open --host 0.0.0.0",
 		"storybook": "start-storybook -p 6006",
 		"start": "npm run storybook",
+		"start:examples_web": "yarn start",
 		"build-storybook": "build-storybook"
 	},
 	"dependencies": {
@@ -33,7 +34,11 @@
 		"styled-components": "^5.3.1"
 	},
 	"devDependencies": {
+		"@babel/preset-env": "^7.16.4",
+		"@babel/preset-react": "^7.16.0",
+		"@babel/preset-typescript": "^7.16.0",
 		"@essex/scripts": "^18.2.0",
+		"@types/babel__preset-env": "^7",
 		"@types/d3-array": "^2.12.3",
 		"@types/d3-scale": "^2.2.6",
 		"@types/react": "^17.0.24",
