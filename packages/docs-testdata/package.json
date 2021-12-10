@@ -24,8 +24,8 @@
 		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
-		"@types/node": "^14.17.18",
+		"@essex/scripts": "^18.2.1",
+		"@types/node": "^14.18.0",
 		"shx": "^0.3.3"
 	},
 	"peerDependencies": {

@@ -28,8 +28,8 @@
 		"shallowequal": "^1.1.0"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
-		"@types/react": "^17.0.24",
+		"@essex/scripts": "^18.2.1",
+		"@types/react": "^17.0.37",
 		"react": "^17.0.2"
 	},
 	"peerDependencies": {

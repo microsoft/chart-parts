@@ -19,7 +19,7 @@
 	},
 	"devDependencies": {
 		"@chart-parts/scales": "workspace:packages/util-scales",
-		"@essex/scripts": "^18.2.0",
+		"@essex/scripts": "^18.2.1",
 		"@types/d3-format": "^1.4.2",
 		"@types/d3-time-format": "^2.3.1"
 	},

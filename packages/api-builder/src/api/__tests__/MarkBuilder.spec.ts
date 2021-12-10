@@ -17,7 +17,7 @@ describe('The Mark Builder', () => {
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
-		expect(built.name).toEqual('my_name')
+		expect(built.name).toBe('my_name')
 	})
 
 	it('can be bound to a data table', () => {
@@ -26,7 +26,7 @@ describe('The Mark Builder', () => {
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
-		expect(built.table).toEqual('my_table')
+		expect(built.table).toBe('my_table')
 	})
 
 	it('can have a z-index set', () => {
@@ -35,7 +35,7 @@ describe('The Mark Builder', () => {
 		expect(updatedBuilder).toBe(builder)
 
 		const built = updatedBuilder.build()
-		expect(built.encodings.zIndex).toEqual(3)
+		expect(built.encodings.zIndex).toBe(3)
 	})
 
 	it('can unset the z-index', () => {
@@ -54,7 +54,7 @@ describe('The Mark Builder', () => {
 			.facet({ name: 'data_part', table: 'data', groupBy: 'x' })
 
 		const built = builder.build()
-		expect((built.facet as any).name).toEqual('data_part')
+		expect((built.facet as any).name).toBe('data_part')
 		expect((built.facet as any).groupBy).toBeDefined()
 	})
 
@@ -101,7 +101,7 @@ describe('The Mark Builder', () => {
 
 			mark.handle('click', undefined)
 			built = mark.build()
-			expect(built.channels['click']).not.toBeDefined()
+			expect(built.channels['click']).toBeUndefined()
 		})
 	})
 
@@ -112,8 +112,8 @@ describe('The Mark Builder', () => {
 				.encode(MarkEncodingKey.y, () => 4)
 			const built = builder.build()
 
-			expect((built.encodings as any).x(undefined, undefined)).toEqual(3)
-			expect((built.encodings as any).y(undefined, undefined)).toEqual(4)
+			expect((built.encodings as any).x(undefined, undefined)).toBe(3)
+			expect((built.encodings as any).y(undefined, undefined)).toBe(4)
 		})
 
 		it('can unset encodings by name', () => {
@@ -131,8 +131,8 @@ describe('The Mark Builder', () => {
 			})
 			const built = builder.build()
 
-			expect((built.encodings as any).x(undefined, undefined)).toEqual(3)
-			expect((built.encodings as any).y(undefined, undefined)).toEqual(4)
+			expect((built.encodings as any).x(undefined, undefined)).toBe(3)
+			expect((built.encodings as any).y(undefined, undefined)).toBe(4)
 		})
 	})
 

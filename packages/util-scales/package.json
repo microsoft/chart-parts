@@ -25,11 +25,11 @@
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
+		"@essex/scripts": "^18.2.1",
 		"@types/d3-array": "^2.12.3",
 		"@types/d3-interpolate": "^1.4.2",
 		"@types/d3-scale": "^2.2.6",
-		"@types/lodash": "^4.14.173"
+		"@types/lodash": "^4.14.178"
 	},
 	"peerDependencies": {
 		"@types/d3-array": ">= 2.0.0",

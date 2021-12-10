@@ -26,7 +26,7 @@ describe('The Log Scale', () => {
 			scales: {},
 			viewBounds: { x: [0, 100], y: [0, 100] },
 		} as ScaleCreationContext)
-		expect(typeof logscale).toEqual('function')
+		expect(typeof logscale).toBe('function')
 		expect(logscale(100)).not.toBeNaN()
 	})
 
@@ -49,7 +49,7 @@ describe('The Log Scale', () => {
 			scales: {},
 			viewBounds: { x: [0, 100], y: [0, 100] },
 		} as ScaleCreationContext)
-		expect(typeof logscale).toEqual('function')
+		expect(typeof logscale).toBe('function')
 		expect(logscale(-100)).not.toBeNaN()
 	})
 
@@ -82,15 +82,15 @@ describe('The Log Scale', () => {
 		const scale = new LogScale().name('logscale')
 		const { logscale } = scale.build({} as any)
 		expect(logscale).toBeDefined()
-		expect(logscale(1)).toEqual(0)
-		expect(logscale(10)).toEqual(1)
+		expect(logscale(1)).toBe(0)
+		expect(logscale(10)).toBe(1)
 	})
 
 	it('can use an alternative base', () => {
 		const scale = new LogScale().name('logscale').base(15)
 		const { logscale } = scale.build({} as any)
 		expect(logscale).toBeDefined()
-		expect(logscale(1)).toEqual(0)
-		expect(logscale(10)).toEqual(1)
+		expect(logscale(1)).toBe(0)
+		expect(logscale(10)).toBe(1)
 	})
 })

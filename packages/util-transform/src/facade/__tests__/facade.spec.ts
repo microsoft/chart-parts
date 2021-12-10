@@ -36,9 +36,9 @@ describe('The data management facade', () => {
 			)
 
 			const aggregated = ds.getTable('table')
-			expect(aggregated[0].v).toEqual(2)
-			expect(aggregated[0].s).toEqual(6)
-			expect(aggregated[0].m).toEqual(2)
+			expect(aggregated[0].v).toBe(2)
+			expect(aggregated[0].s).toBe(6)
+			expect(aggregated[0].m).toBe(2)
 		})
 
 		it('can perform a basic groupby aggregation', () => {
