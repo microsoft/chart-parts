@@ -23,8 +23,8 @@
 		"react-native-svg": "^12.1.1"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
-		"@types/react-native": "^0.65.1",
+		"@essex/scripts": "^18.2.1",
+		"@types/react-native": "^0.66.8",
 		"react": "^17.0.2"
 	},
 	"peerDependencies": {

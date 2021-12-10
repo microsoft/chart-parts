@@ -19,13 +19,13 @@ describe('The Scenegraph Parser', () => {
 		})
 
 		expect(result).toBeDefined()
-		expect(result.marktype).toEqual('rect')
-		expect(result.nodetype).toEqual('mark')
+		expect(result.marktype).toBe('rect')
+		expect(result.nodetype).toBe('mark')
 		expect(result.items).toHaveLength(3)
 		result.items.forEach(t => {
-			expect(t.itemtype).toEqual('rect')
+			expect(t.itemtype).toBe('rect')
 			expect(t.parent).toBe(result)
-			expect(t.parentType).toEqual('mark')
+			expect(t.parentType).toBe('mark')
 		})
 	})
 
@@ -52,12 +52,12 @@ describe('The Scenegraph Parser', () => {
 			],
 		}
 		const scene = parseScene(input)
-		expect(scene.marktype).toEqual('group')
-		expect(scene.items[0].itemtype).toEqual('group')
+		expect(scene.marktype).toBe('group')
+		expect(scene.items[0].itemtype).toBe('group')
 
 		const group = scene.items[0] as GroupItem
 		expect(group.items).toHaveLength(1)
-		expect(group.items[0].marktype).toEqual('rect')
+		expect(group.items[0].marktype).toBe('rect')
 	})
 
 	it('can parse a complex scene', () => {

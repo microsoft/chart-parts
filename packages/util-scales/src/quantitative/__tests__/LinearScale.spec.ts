@@ -19,8 +19,8 @@ describe('The Linear Scale', () => {
 			}),
 		).test
 		expect(built).toBeDefined()
-		expect(built(0)).toEqual(0)
-		expect(built(5)).toEqual(50)
-		expect(built(10)).toEqual(100)
+		expect(built(0)).toBe(0)
+		expect(built(5)).toBe(50)
+		expect(built(10)).toBe(100)
 	})
 })

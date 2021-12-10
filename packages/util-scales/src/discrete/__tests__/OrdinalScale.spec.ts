@@ -23,9 +23,9 @@ describe('The Ordinal Scale', () => {
 			data: [{ c: 1 }, { c: 2 }, { c: 3 }, { c: 4 }],
 		})
 		const built = scale.build(ctx)['color']
-		expect(typeof built(1)).toEqual('string')
-		expect(typeof built(2)).toEqual('string')
-		expect(typeof built(3)).toEqual('string')
+		expect(typeof built(1)).toBe('string')
+		expect(typeof built(2)).toBe('string')
+		expect(typeof built(3)).toBe('string')
 		expect(built).toBeDefined()
 	})
 
@@ -40,10 +40,10 @@ describe('The Ordinal Scale', () => {
 		})
 		const built = scale.build(ctx)['scale']
 		expect(built).toBeDefined()
-		expect(built(1)).toEqual(2)
-		expect(built(2)).toEqual(4)
-		expect(built(3)).toEqual(6)
-		expect(built(4)).toEqual(8)
+		expect(built(1)).toBe(2)
+		expect(built(2)).toBe(4)
+		expect(built(3)).toBe(6)
+		expect(built(4)).toBe(8)
 	})
 
 	it('throws if the range output is not defined', () => {

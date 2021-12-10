@@ -22,9 +22,9 @@
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
-		"@types/react": "^17.0.24",
-		"@types/react-dom": "^17.0.9",
+		"@essex/scripts": "^18.2.1",
+		"@types/react": "^17.0.37",
+		"@types/react-dom": "^17.0.11",
 		"react": "^17.0.2"
 	},
 	"peerDependencies": {

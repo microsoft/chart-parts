@@ -34,11 +34,11 @@ describe('The Band Scale', () => {
 		expect(testWidth).toBeDefined()
 
 		// Check the bandwidth
-		expect(testWidth()).toEqual(10)
+		expect(testWidth()).toBe(10)
 
 		// Check the band intervals
 		for (let i = 0; i < 10; ++i) {
-			expect(testScale(i)).toEqual(10 * i)
+			expect(testScale(i)).toBe(10 * i)
 		}
 	})
 
