@@ -4,7 +4,16 @@ releases:
   "@chart-parts/docsite": patch
   "@chart-parts/examples": patch
   "@chart-parts/examples-web": patch
+  "@chart-parts/interfaces": patch
   "@chart-parts/orchestrator": patch
   "@chart-parts/parent": patch
   "@chart-parts/react": patch
+  "@chart-parts/react-native-svg-renderer": patch
+  "@chart-parts/react-svg-renderer": patch
+  "@chart-parts/scales": patch
+  "@chart-parts/scenegraph": patch
+  "@chart-parts/shapes": patch
+  "@chart-parts/testdata": patch
+  "@chart-parts/transform": patch
+  "@chart-parts/vsvg": patch
   examplesmobile: patch
