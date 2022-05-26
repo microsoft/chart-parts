@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React from 'react'
+import type { Component } from 'react'
 import {
 	Circle,
 	ClipPath,
@@ -28,7 +28,7 @@ import {
 	Symbol,
 } from 'react-native-svg'
 
-const elementMap: Map<string, any> = new Map<string, React.Component>()
+const elementMap: Map<string, any> = new Map<string, Component>()
 elementMap.set('circle', Circle)
 elementMap.set('clipPath', ClipPath)
 elementMap.set('defs', Defs)

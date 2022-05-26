@@ -3,14 +3,14 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 import theme from '../../util/theme'
 interface LogoProps {
 	height: number
 	width?: number
 }
 // logo used for splash page component, contains background
-const LogoBg: React.FC<LogoProps> = memo(function LogoBg({ height, width }) {
+const LogoBg: FC<LogoProps> = memo(function LogoBg({ height, width }) {
 	const widthDim = `${width}` || '100%'
 	return (
 		<svg

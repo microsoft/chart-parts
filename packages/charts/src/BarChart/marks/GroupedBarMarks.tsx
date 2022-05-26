@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { Rect } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { FC, memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
@@ -29,7 +29,7 @@ const encodeWidth: MarkEncoding<number> = ({ rowHeight, rowWidth }) =>
 const encodeY2: MarkEncoding<number> = ({ y }) => y(0)
 const encodeX2: MarkEncoding<number> = ({ x }) => x(0)
 
-export const GroupedBarMarks: React.FC<FillMarkProps> = memo(
+export const GroupedBarMarks: FC<FillMarkProps> = memo(
 	function GroupedBarMarks({
 		onClick,
 		onMouseEnter,

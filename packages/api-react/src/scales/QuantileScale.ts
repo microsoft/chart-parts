@@ -4,6 +4,7 @@
  */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import { quantize } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
@@ -30,7 +31,7 @@ export interface QuantileScaleProps<
 export type QuantileScaleComponentType<
 	D extends QuantitativeValue = any,
 	R extends QuantitativeValue = any,
-> = React.FC<QuantileScaleProps<D, R>>
+> = FC<QuantileScaleProps<D, R>>
 
 /**
  * Quantile Scale Component

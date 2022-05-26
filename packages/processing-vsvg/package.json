@@ -2,6 +2,10 @@
 	"name": "@chart-parts/vsvg",
 	"description": "Implementation of the visual prerendering phase, which translates scenegraphs to an intermediate, svg-based, form",
 	"version": "0.1.3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/chart-parts.git"
+	},
 	"main": "src/index.ts",
 	"publishConfig": {
 		"main": "dist/cjs/index.js",
@@ -23,7 +27,7 @@
 	},
 	"devDependencies": {
 		"@chart-parts/scenegraph": "workspace:packages/processing-scenegraph",
-		"@essex/scripts": "^18.2.0",
+		"@essex/scripts": "^18.2.1",
 		"@types/d3-path": "^1.0.9",
 		"@types/d3-shape": "^1.3.8"
 	},

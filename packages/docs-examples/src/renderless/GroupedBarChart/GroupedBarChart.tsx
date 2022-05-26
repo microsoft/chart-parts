@@ -17,7 +17,7 @@ import {
 	Rect,
 	Text,
 } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 
 const data = [
 	{ category: 'A', position: 0, value: 0.1 },
@@ -38,7 +38,7 @@ const dataset = { data }
 /**
  * Adapted from https://vega.github.io/vega/examples/grouped-bar-chart/q
  */
-export const GroupedBarChart: React.FC = memo(function GroupedBarChart() {
+export const GroupedBarChart: FC = memo(function GroupedBarChart() {
 	return (
 		<Chart width={300} height={240} padding={5} data={dataset}>
 			<BandScale

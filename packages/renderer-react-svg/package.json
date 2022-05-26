@@ -2,6 +2,10 @@
 	"name": "@chart-parts/react-svg-renderer",
 	"description": "A virtual dom renderer that emits React-DOM Svg",
 	"version": "0.1.3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/microsoft/chart-parts.git"
+	},
 	"main": "src/index.ts",
 	"publishConfig": {
 		"main": "dist/cjs/index.js",
@@ -18,16 +22,16 @@
 		"lodash": "^4.17.21"
 	},
 	"devDependencies": {
-		"@essex/scripts": "^18.2.0",
-		"@types/react": "^17.0.21",
-		"@types/react-dom": "^17.0.9",
+		"@essex/scripts": "^18.2.1",
+		"@types/react": "^17.0.37",
+		"@types/react-dom": "^17.0.11",
 		"react": "^17.0.2"
 	},
 	"peerDependencies": {
-		"@types/react": ">= 16.14.2",
-		"@types/react-dom": ">= 16.9.10",
+		"@types/react": ">= 17",
+		"@types/react-dom": ">= 17",
 		"core-js": "*",
-		"react": ">= 16.9",
+		"react": ">= 17",
 		"regenerator-runtime": "*"
 	}
 }

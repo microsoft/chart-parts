@@ -3,6 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { quantize } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
@@ -30,7 +31,7 @@ export interface QuantizeScaleProps<DomainValue, RangeValue>
  * Quantize Scale Component Type
  * @category Scale
  */
-export type QuantizeScaleComponentType<D = any, R = any> = React.FC<
+export type QuantizeScaleComponentType<D = any, R = any> = FC<
 	QuantizeScaleProps<D, R>
 >
 

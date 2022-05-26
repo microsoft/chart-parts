@@ -2,7 +2,7 @@
  * Copyright (c) Microsoft. All rights reserved.
  * Licensed under the MIT license. See LICENSE file in the project.
  */
-import React from 'react'
+import { FC } from 'react'
 import * as palette from './util/palette'
 import { SingleMarkTester } from './util/single-mark-tester'
 
@@ -73,7 +73,7 @@ const DROPDOWNS = [
 
 const ORIGIN: [number, number] = [10, 0]
 
-const LineTester: React.FC = () => (
+const LineTester: FC = () => (
 	<SingleMarkTester
 		chartWidth={420}
 		chartOrigin={ORIGIN}

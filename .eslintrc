@@ -1,5 +1,6 @@
 {
 	"extends": "@essex",
+	"parser": "@typescript-eslint/parser",
 	"rules": {
 		"@typescript-eslint/no-explicit-any": 0,
 		"jsx-a11y/no-onchange": 0,

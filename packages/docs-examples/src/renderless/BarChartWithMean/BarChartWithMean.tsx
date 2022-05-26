@@ -13,7 +13,7 @@ import {
 	Rule,
 } from '@chart-parts/react'
 import { mean } from 'd3-array'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -27,7 +27,7 @@ const data = [
 ]
 const dataset = { data }
 
-export const BarChartWithMean: React.FC = memo(function BarChartWithMean() {
+export const BarChartWithMean: FC = memo(function BarChartWithMean() {
 	return (
 		<BarChart>
 			<Rule
@@ -40,7 +40,7 @@ export const BarChartWithMean: React.FC = memo(function BarChartWithMean() {
 	)
 })
 
-const BarChart: React.FC = memo(function BarChart({ children }) {
+const BarChart: FC = memo(function BarChart({ children }) {
 	return (
 		<Chart width={400} height={200} data={dataset}>
 			<Scales />
@@ -58,7 +58,7 @@ const BarChart: React.FC = memo(function BarChart({ children }) {
 	)
 })
 
-const Scales: React.FC = memo(function Scales() {
+const Scales: FC = memo(function Scales() {
 	return (
 		<>
 			<LinearScale
@@ -79,7 +79,7 @@ const Scales: React.FC = memo(function Scales() {
 	)
 })
 
-const Axes: React.FC = memo(function Axes() {
+const Axes: FC = memo(function Axes() {
 	return (
 		<>
 			<Axis orient={AxisOrientation.Bottom} scale="x" />

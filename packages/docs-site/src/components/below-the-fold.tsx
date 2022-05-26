@@ -4,15 +4,15 @@
  */
 
 import { Link, StaticQuery, graphql } from 'gatsby'
-import React from 'react'
+import { FC, CSSProperties } from 'react'
 import styled from 'styled-components'
 import theme from '../util/theme'
 
 interface BelowTheFoldProps {
-	style?: React.CSSProperties
+	style?: CSSProperties
 }
 
-const BelowTheFold: React.FC<BelowTheFoldProps> = ({ style }) => (
+const BelowTheFold: FC<BelowTheFoldProps> = ({ style }) => (
 	<StaticQuery
 		query={graphql`
 			query {

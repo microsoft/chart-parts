@@ -1,0 +1,19 @@
+releases:
+  "@chart-parts/builder": minor
+  "@chart-parts/charts": minor
+  "@chart-parts/docsite": minor
+  "@chart-parts/examples": minor
+  "@chart-parts/examples-web": minor
+  "@chart-parts/interfaces": minor
+  "@chart-parts/orchestrator": minor
+  "@chart-parts/parent": minor
+  "@chart-parts/react": minor
+  "@chart-parts/react-native-svg-renderer": minor
+  "@chart-parts/react-svg-renderer": minor
+  "@chart-parts/scales": minor
+  "@chart-parts/scenegraph": minor
+  "@chart-parts/shapes": minor
+  "@chart-parts/testdata": minor
+  "@chart-parts/transform": minor
+  "@chart-parts/vsvg": minor
+  examplesmobile: minor

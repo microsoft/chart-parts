@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { withPrefix } from 'gatsby'
-import React, { memo, useRef, useMemo } from 'react'
+import { memo, useRef, useMemo, FC } from 'react'
 import styled from 'styled-components'
 import theme from '../../util/theme'
 import Footer from '../footer'
@@ -13,29 +13,27 @@ import { usePaneMousehandlers } from './splash.hooks'
 export interface SplashContentProps {
 	animationComplete: boolean
 }
-export const SplashContent: React.FC<SplashContentProps> = memo(
+export const SplashContent: FC<SplashContentProps> = memo(
 	function SplashContent({ animationComplete }) {
 		const docRef = useRef<HTMLDivElement>(null)
 		const blogRef = useRef<HTMLDivElement>(null)
 		const sourceRef = useRef<HTMLDivElement>(null)
-		const opacity = useMemo(() => (animationComplete ? 1 : 0), [
-			animationComplete,
-		])
+		const opacity = useMemo(
+			() => (animationComplete ? 1 : 0),
+			[animationComplete]
+		)
 
 		const [blogMouseEnter, blogMouseLeave, onBlogClick] = usePaneMousehandlers(
 			blogRef,
 			animationComplete,
 			withPrefix('/blog')
 		)
-		const [
-			sourceMouseEnter,
-			sourceMouseLeave,
-			onSourceClick,
-		] = usePaneMousehandlers(
-			sourceRef,
-			animationComplete,
-			'https://github.com/Microsoft/chart-parts'
-		)
+		const [sourceMouseEnter, sourceMouseLeave, onSourceClick] =
+			usePaneMousehandlers(
+				sourceRef,
+				animationComplete,
+				'https://github.com/Microsoft/chart-parts'
+			)
 		const [docMouseEnter, docMouseLeave, onDocClick] = usePaneMousehandlers(
 			docRef,
 			animationComplete,

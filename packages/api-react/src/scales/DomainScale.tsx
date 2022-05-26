@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import { ScaleCreationContext } from '@chart-parts/interfaces'
-import React, { memo, useContext, useEffect, useMemo } from 'react'
+import { FC, memo, useContext, useEffect, useMemo } from 'react'
 import { SceneBuilderContext } from '../Context'
 
 /**
@@ -43,8 +43,8 @@ export function createDomainScale<
 	displayName: string,
 	createScale: (props: Props) => any,
 	propsToCheck: string[] = [],
-): React.FC<Props> {
-	const result: React.FC<Props> = memo(props => {
+): FC<Props> {
+	const result: FC<Props> = memo(props => {
 		const api = useContext(SceneBuilderContext)
 		const scale = useMemo(
 			() => api && createScale(props as Props),

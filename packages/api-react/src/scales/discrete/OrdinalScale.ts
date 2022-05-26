@@ -4,6 +4,7 @@
  */
 
 import { ordinal, CategoricalColorScheme } from '@chart-parts/scales'
+import { FC } from 'react'
 import { createDomainScale, DomainScaleProps } from '../DomainScale'
 
 /**
@@ -27,7 +28,7 @@ export interface OrdinalScaleProps<RangeType>
  * Generic Ordinal Scale Typing
  * @category Scale
  */
-export type OrdinalScaleComponentType<RangeType = any> = React.FC<
+export type OrdinalScaleComponentType<RangeType = any> = FC<
 	OrdinalScaleProps<RangeType>
 >
 

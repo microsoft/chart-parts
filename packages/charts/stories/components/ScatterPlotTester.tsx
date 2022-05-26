@@ -4,7 +4,7 @@
  */
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { number, object, text } from '@storybook/addon-knobs'
-import React from 'react'
+import { FC } from 'react'
 import { ScatterPlot } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 
@@ -31,7 +31,7 @@ const exData = [
 	{ key: 9, value: 25, c: 1 },
 ]
 
-export const ScatterPlotTester: React.FC = function ScatterPlotTester() {
+export const ScatterPlotTester: FC = function ScatterPlotTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const radius = number('circle radius', 50)

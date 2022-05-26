@@ -5,6 +5,7 @@
 
 import { Dimension } from '@chart-parts/interfaces'
 import { point } from '@chart-parts/scales'
+import { FC } from 'react'
 import {
 	createDomainRangeScale,
 	DomainRangeScaleProps,
@@ -37,7 +38,7 @@ export interface PointScaleProps
  * @category Scale
  * @remarks Based on [d3.scalePoint](https://github.com/d3/d3-scale#scalePoint)
  */
-export const PointScale: React.FC<PointScaleProps> = createDomainRangeScale(
+export const PointScale: FC<PointScaleProps> = createDomainRangeScale(
 	'PointScale',
 	({
 		stepName: stepNameProp,

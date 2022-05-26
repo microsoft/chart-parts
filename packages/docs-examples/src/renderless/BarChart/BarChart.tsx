@@ -16,7 +16,7 @@ import {
 	Dimension,
 	Text,
 } from '@chart-parts/react'
-import React, { memo, useState, useCallback } from 'react'
+import { memo, useState, useCallback, FC } from 'react'
 
 const data = [
 	{ category: 'A', amount: 28 },
@@ -34,7 +34,7 @@ const dataset = { data }
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChart: React.FC = memo(function BarChart() {
+export const BarChart: FC = memo(function BarChart() {
 	const [hoverIndex, setHoverIndex] = useState<number | undefined>()
 	const onEnterRect = useCallback(
 		({ index }) => {
@@ -95,7 +95,7 @@ export const BarChart: React.FC = memo(function BarChart() {
 	)
 })
 
-const Scales: React.FC = memo(function Scales() {
+const Scales: FC = memo(function Scales() {
 	return (
 		<>
 			<LinearScale
@@ -116,7 +116,7 @@ const Scales: React.FC = memo(function Scales() {
 	)
 })
 
-const Axes: React.FC = memo(function Axes() {
+const Axes: FC = memo(function Axes() {
 	return (
 		<>
 			<Axis orient={AxisOrientation.Bottom} scale="x" />
@@ -128,7 +128,7 @@ const Axes: React.FC = memo(function Axes() {
 interface HoverTextHighlightProps {
 	index: number
 }
-const HoverTextHighlight: React.FC<HoverTextHighlightProps> = memo(
+const HoverTextHighlight: FC<HoverTextHighlightProps> = memo(
 	function HoverTextHighlight({ index }) {
 		return (
 			<Text

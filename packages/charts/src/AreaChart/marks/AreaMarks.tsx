@@ -4,7 +4,7 @@
  */
 import { Interpolation, MarkEncoding } from '@chart-parts/interfaces'
 import { Area } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { FC, memo } from 'react'
 import {
 	encodeCategoryAriaTitle,
 	encodeCategoryAriaDescription,
@@ -20,7 +20,7 @@ const encodeX: MarkEncoding<number> = ({ d, x }) => x(d.key)
 const encodeY: MarkEncoding<number> = ({ d, y }) => y(d.value)
 const encodeY2: MarkEncoding<number> = ({ y }) => y(0)
 
-export const AreaMarks: React.FC<FillMarkProps> = memo(function AreaMarks({
+export const AreaMarks: FC<FillMarkProps> = memo(function AreaMarks({
 	onClick,
 	onMouseEnter,
 	onMouseLeave,

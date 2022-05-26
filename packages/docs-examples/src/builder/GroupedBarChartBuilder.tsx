@@ -16,7 +16,7 @@ import {
 	ordinal,
 	CategoricalColorScheme,
 } from '@chart-parts/scales'
-import React, { memo, useMemo } from 'react'
+import { FC, memo, useMemo } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)
@@ -39,7 +39,7 @@ const data = [
 /**
  * Adapted from https://vega.github.io/vega/examples/grouped-bar-chart/q
  */
-export const GroupedBarChartBuilder: React.FC = memo(
+export const GroupedBarChartBuilder: FC = memo(
 	function GroupedBarChartBuilder() {
 		const chart = useMemo(
 			() =>

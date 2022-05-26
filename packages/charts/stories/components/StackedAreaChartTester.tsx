@@ -5,7 +5,7 @@
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean } from '@storybook/addon-knobs'
-import React from 'react'
+import { FC } from 'react'
 import { AreaChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 
@@ -32,7 +32,7 @@ const exData = [
 	{ key: 9, value: 15, c: 1 },
 ]
 
-export const StackedAreaChartTester: React.FC = () => {
+export const StackedAreaChartTester: FC = () => {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XaxisProps')

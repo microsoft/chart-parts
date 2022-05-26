@@ -7,7 +7,7 @@ import { Dimension, AxisOrientation } from '@chart-parts/interfaces'
 import { Orchestrator } from '@chart-parts/orchestrator'
 import { Renderer } from '@chart-parts/react-svg-renderer'
 import { linear, time, band } from '@chart-parts/scales'
-import React, { memo, useMemo, useState, useCallback } from 'react'
+import { memo, useMemo, useState, useCallback, FC } from 'react'
 
 const renderer = new Renderer()
 const pipeline = new Orchestrator(renderer)
@@ -24,7 +24,7 @@ for (let month = 1; month <= 12; ++month) {
 /**
  * Adapted from https://vega.github.io/vega/examples/bar-chart/
  */
-export const BarChartUtcBuilder: React.FC = memo(function BarChartUtcBuilder() {
+export const BarChartUtcBuilder: FC = memo(function BarChartUtcBuilder() {
 	const [hoverRowIndex, setHoverRowIndex] = useState<number | undefined>()
 	const isHovered = useCallback(
 		(index: number) => hoverRowIndex === index,

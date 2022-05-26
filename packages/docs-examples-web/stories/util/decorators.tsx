@@ -4,7 +4,7 @@
  */
 import { ChartingProvider } from '@chart-parts/react'
 import { Renderer } from '@chart-parts/react-svg-renderer'
-import React from 'react'
+import { StrictMode } from 'react'
 
 const svgRenderer = new Renderer()
 
@@ -12,6 +12,4 @@ export const withSvgRenderer = (story: any) => (
 	<ChartingProvider value={svgRenderer}>{story()}</ChartingProvider>
 )
 
-export const withStrictMode = (story: any) => (
-	<React.StrictMode>{story()}</React.StrictMode>
-)
+export const withStrictMode = (story: any) => <StrictMode>{story()}</StrictMode>

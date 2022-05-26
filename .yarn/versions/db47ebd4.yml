@@ -1,0 +1,4 @@
+releases:
+  "@chart-parts/docsite": patch
+  "@chart-parts/examples-web": patch
+  "@chart-parts/parent": patch

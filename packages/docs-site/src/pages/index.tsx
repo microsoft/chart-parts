@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 import dbg from 'debug'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 import { Helmet } from 'react-helmet'
 import styled from 'styled-components'
 import packageJson from '../../package.json'
@@ -17,7 +17,7 @@ export interface IndexPageState {
 	scrollPercent: number
 }
 
-const IndexPage: React.FC = memo(function IndexPage() {
+const IndexPage: FC = memo(function IndexPage() {
 	return (
 		<Container>
 			<GlobalStyles />

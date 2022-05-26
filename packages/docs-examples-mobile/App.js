@@ -3,7 +3,7 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, {Fragment} from 'react';
+import React from 'react';
 import {
 	SafeAreaView,
 	StyleSheet,
@@ -23,12 +23,13 @@ import {
 
 const App = () => {
 	return (
-		<Fragment>
+		<>
 			<StatusBar barStyle="dark-content" />
 			<SafeAreaView>
 				<ScrollView
 					contentInsetAdjustmentBehavior="automatic"
-					style={styles.scrollView}>
+					style={styles.scrollView}
+				>
 					<Header />
 					{global.HermesInternal == null ? null : (
 						<View style={styles.engine}>
@@ -65,7 +66,7 @@ const App = () => {
 					</View>
 				</ScrollView>
 			</SafeAreaView>
-		</Fragment>
+		</>
 	);
 };
 

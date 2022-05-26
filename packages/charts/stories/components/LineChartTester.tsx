@@ -5,7 +5,7 @@
 import { MarkEncoding } from '@chart-parts/interfaces'
 import { action } from '@storybook/addon-actions'
 import { number, object, text, boolean } from '@storybook/addon-knobs'
-import React from 'react'
+import { FC } from 'react'
 import { LineChart } from '../../src'
 import { makeAxisProps, makeChartPadding } from './commonKnobs'
 
@@ -32,7 +32,7 @@ const exData = [
 	{ key: 9, value: 25, c: 1 },
 ]
 
-export const LineChartTester: React.FC = function LineChartTester() {
+export const LineChartTester: FC = function LineChartTester() {
 	const width = number('width', 400)
 	const height = number('height', 300)
 	const xAxisProps = makeAxisProps('XAxisProps')

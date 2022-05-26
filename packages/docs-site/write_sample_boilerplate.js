@@ -5,8 +5,8 @@
 /* eslint-disable */
 const fs = require('fs')
 const path = require('path')
-const chartPartsSvgRendererVersion = require('../renderer-react-svg/package.json')
-	.version
+const chartPartsSvgRendererVersion =
+	require('../renderer-react-svg/package.json').version
 const {
 	dependencies: { 'react-dom': reactDomVersion },
 	devDependencies: { typescript: typescriptVersion },
@@ -20,15 +20,15 @@ const {
 } = require('../docs-examples/package.json')
 
 const APP_FILE_CONTENT = `
-	import React, { memo } from 'react'
-	import ReactDOM from 'react-dom'
+	import { FC, memo } from 'react'
+	import { render } from 'react-dom'
 	import Example from './example'
 	import { ChartingProvider } from '@chart-parts/react'
 	import { Renderer } from '@chart-parts/react-svg-renderer'
   
   const svgRenderer = new Renderer()
 
-  const App: React.FC = memo(() => (
+  const App: FC = memo(() => (
     <div className="App">
 				<ChartingProvider value={svgRenderer}>
 					<Example />
@@ -37,7 +37,7 @@ const APP_FILE_CONTENT = `
   ))
 	
 	const rootElement = document.getElementById('root')
-	ReactDOM.render(<App />, rootElement)	
+	render(<App />, rootElement)	
 `
 
 const MANIFEST_FILE_CONTENT = `

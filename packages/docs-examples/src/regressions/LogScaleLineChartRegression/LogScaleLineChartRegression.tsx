@@ -11,7 +11,7 @@ import {
 	LogScale,
 	Dimension,
 } from '@chart-parts/react'
-import React, { memo } from 'react'
+import { memo, FC } from 'react'
 
 // #region data
 const data = [
@@ -770,7 +770,7 @@ const data = [
 ]
 // #endregion data
 
-export const LogScaleLineChartRegression: React.FC = memo(
+export const LogScaleLineChartRegression: FC = memo(
 	function LogScaleLineChartRegression() {
 		return (
 			<Chart width={500} height={200} padding={{ left: 60 }} data={{ data }}>

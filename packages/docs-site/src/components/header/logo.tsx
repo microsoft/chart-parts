@@ -3,14 +3,15 @@
  * Licensed under the MIT license. See LICENSE file in the project.
  */
 
-import React, { memo } from 'react'
+import { FC, memo } from 'react'
 import theme from '../../util/theme'
+
 interface LogoProps {
 	height: number
 }
 
 // logo used for header component
-const Logo: React.FC<LogoProps> = memo(function Logo({ height }) {
+const Logo: FC<LogoProps> = memo(function Logo({ height }) {
 	return (
 		<svg
 			version="1.1"

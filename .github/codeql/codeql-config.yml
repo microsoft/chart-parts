@@ -5,4 +5,4 @@ paths:
 
 paths-ignore:
   - .yarn/
-  - '**/.pnp.cjs'
+  - '**/.pnp.*'
