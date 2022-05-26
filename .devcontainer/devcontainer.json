@@ -1,0 +1,29 @@
+{
+	"name": "Chart-Parts",
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"editorconfig.editorconfig",
+		"arcanis.vscode-zipfs",
+		"silvenon.mdx"
+	],
+	"workspaceFolder": "/ws",
+	"service": "workspace",
+
+	// Set *default* container specific settings.json values on container create.
+	//"settings": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [3000, 6060],
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "yarn install",
+
+	// Comment out connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	//"remoteUser": "node",
+	"features": {
+		"git": "latest"
+	},
+	"dockerComposeFile": ["./docker-compose.yml"]
+}
