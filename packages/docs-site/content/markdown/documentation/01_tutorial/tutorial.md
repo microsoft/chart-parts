@@ -62,7 +62,7 @@ render(<App />, rootElement)
 
 ## Add Scales and Axes
 
-Not let's define the skeleton of our chart and define some scales and axes.
+Now let's define the skeleton of our chart and define some scales and axes.
 
 ```jsx
 // BarChart.js
